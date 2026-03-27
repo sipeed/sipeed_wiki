@@ -171,6 +171,18 @@ NCM 功能可通过 USB 模拟网卡，方便用户直接通过 USB 登录 NanoK
 - **ATX/Desk**：从网页端进入 `设置` → `设备` → 开启 `虚拟网卡`
 - **Desk**：从屏幕中点击 `Settings` → `USB` 进入 USB 配置页面，开启 `NCM`
 
+### USB Host / Device 切换
+
+如需手动切换 USB 角色，可在网页终端或 SSH 中执行以下命令：
+
+```shell
+# 切换为 Device 模式
+echo device > /sys/class/usb_role/8000000.dwc3-role-switch/role
+
+# 切换为 Host 模式
+echo host > /sys/class/usb_role/8000000.dwc3-role-switch/role
+```
+
 ## 更新
 
 NanoKVM Pro 会不定时推送新版本的应用，包含新功能和bug修复，您可以在`设置`->`检查更新`中更新应用版本。
@@ -395,6 +407,27 @@ cat /kvmcomm/edid/e18.bin > /proc/lt6911_info/edid
   3. **注册表路径错误**：确认 `DISPLAY` 下子项及实例 ID 与 `$regPath` 一致。
   4. **EDID 属性不存在**：某些显示器或远程会话下可能无 EDID，建议直接在本机物理显示器上操作。
   5. **文件写入失败**：确保 `C:\Users\Public\` 可写，或修改为其他可写路径。
+
+## 如何强制指定分辨率
+
+如需强制指定输入分辨率，需要同时设置 `FPS`、`宽度`、`高度` 三项参数，缺一不可。
+
+临时生效（重启后失效）：
+
+```shell
+echo 60 > /sys/module/lt6911_manage/parameters/force_fps
+echo 1920 > /sys/module/lt6911_manage/parameters/force_width
+echo 1080 > /sys/module/lt6911_manage/parameters/force_height
+```
+
+永久生效（重启后保留）：
+
+```shell
+echo 60 > /boot/force_fps
+echo 1920 > /boot/force_width
+echo 1080 > /boot/force_height
+reboot
+```
 
 ## 如何修改USB信息
 
