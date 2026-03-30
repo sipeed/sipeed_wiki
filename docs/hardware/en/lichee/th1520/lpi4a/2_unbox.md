@@ -36,7 +36,7 @@ The main body of LicheePi 4A is wrapped in black foam, and the other labeled par
 
 If you miss any part during unpacking, please contact customer service for help.
 
-### Offical Version
+### Official Version
 
 Here is what you will receive if you purchase the official LicheePi 4A:
 
@@ -117,7 +117,7 @@ By default, the LM4A SOM has been installed on the motherboard. If you need to u
 
 LicheePi 4A is a high performance SBC，you need to install an active cooler to dissipate the heat. Otherwise it might automatically throttle the frequency due to overheating and is unable to deliver the full performance.
 1. Installing the thermal pad,
-    take the thermal pad and remove the protective film from both sides, then place the thermal pad in the location shown below, the thermal pad can be re-arragnet if needed. Please ensure that you cover the main CPU as well as both memory chips fully.
+    take the thermal pad and remove the protective film from both sides, then place the thermal pad in the location shown below, the thermal pad can be rearranged if needed. Please ensure that you cover the main CPU as well as both memory chips fully.
     ![silicone_pad](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/silicone_pad.png)
 
 2. Installing the fan / heatsink
@@ -136,9 +136,9 @@ LicheePi 4A is a high performance SBC，you need to install an active cooler to 
 The WiFi antenna is already connected when you receive the board. If it got unplugged, here is how to install it:
 ![insert_ant](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_ant.png)
 
-### POE module installation
+### PoE module installation
 
-The POE module can be purchased seperatly. It´s a 5V POE power module with a length of 35.6mm, which can be soldered to the POE POWER holes on the development board.
+The PoE module can be purchased separately. It´s a 5V PoE power module with a length of 35.6mm, which can be soldered to the POE POWER holes on the development board.
 
 The PoE module should be installed like this：
 
@@ -238,13 +238,13 @@ From left to right:
 ### Final Result
 ![last](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/last.png)
 
-## POE Module Installation
+## PoE Module Installation
 
-The POE module requires manual soldering as shown:
+The PoE module requires manual soldering as shown:
 
 ![poe](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/poe.jpg)
 
-> Note that the POE module **cannot** be inserted into the metal case after soldering.
+> Note that the PoE module **cannot** be inserted into the metal case after soldering.
 
 ## Board hardware overview
 
