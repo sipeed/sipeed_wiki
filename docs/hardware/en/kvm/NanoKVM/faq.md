@@ -53,6 +53,10 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
    > If an IP can be obtained, reconnect HDMI/computer USB to check if the IP exists.
    > If the IP exists only when powered by the power bank, but disappears after connecting HDMI/computer USB, this indicates the issue. Please contact customer service to purchase an isolator to resolve it.
 
+### Unable to get an IP via DHCP and the IP address shows as 192.168.70.70
+
+Please refer to [NanoKVM Static IP Fix](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/static_ip_fix.html).
+
 ### No Display After Logging into the Browser Interface
 
 #### Default Resolution Error
@@ -61,12 +65,12 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
  Access the web terminal and execute the command: `/kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin`. Confirm on-site operation for Cube/Lite.
 ``` shell
 ## PCIe Version Normal Flashing Output:
-# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin 
+# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
 Chip Version: LT6911UXC
 Product Version : PCIE_A
 
 =========================================================
-Incorrect EDID may cause issues such as 
+Incorrect EDID may cause issues such as
 inability to display images, please modify with caution
 =========================================================
 
@@ -81,12 +85,12 @@ EDID data verified successfully
 =========================================================
 
 ## Cube/Lite Normal Flashing Output:
-# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin 
+# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
 Chip Version: LT6911UXC
 Product Version: CUBE_B
 
 =========================================================
-Incorrect EDID may cause issues such as 
+Incorrect EDID may cause issues such as
 inability to display images, please modify with caution
 =========================================================
 
@@ -99,7 +103,7 @@ Please ensure you can physically disconnect its power,
 NOT just remotely reboot it!!
 ==========================================================
 
-Do you want to continue? (Y/N): 
+Do you want to continue? (Y/N):
 Y
 EDID data loaded successfully from /kvmapp/system/tool/E21_NanoKVM.bin
 Writing EDID....
@@ -165,14 +169,14 @@ The NanoKVM Full and PCIe versions come with an OLED to display information such
   1. It is recommended to set the USB to remain powered after the host is shut down.
   2. For Full version users: Use a soldering iron to disconnect the 5V resistor or header short-circuit at the indicated position in the image below, supplying power only through the auxiliary power port.
       ![](./../../../assets/NanoKVM/guide/fix2.png)
-      
+
 ### Try Power Cycling to Solve Unknown Issues
 
-### If there are network disconnections or other abnormal situations during the update, it may lead to a failed update. Please refer to the following solutions:  
+### If there are network disconnections or other abnormal situations during the update, it may lead to a failed update. Please refer to the following solutions:
 
-1. Refer to [here](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP) to connect the development board.  
-2. Execute `rm -r /kvmapp && cp -r /root/old/ / && mv /old/kvmapp && reboot` to restore the previous version.  
-3. Manually force the update using the method outlined above.  
+1. Refer to [here](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP) to connect the development board.
+2. Execute `rm -r /kvmapp && cp -r /root/old/ / && mv /old/kvmapp && reboot` to restore the previous version.
+3. Manually force the update using the method outlined above.
 4. Reflash the system.
 
 ### If the Above Methods Do Not Resolve the Issue, Please Describe Your Model and Problems Encountered in the Forum, GitHub, or QQ Group. We Will Respond Patiently.
