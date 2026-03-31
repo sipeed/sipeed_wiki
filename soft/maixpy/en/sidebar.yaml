@@ -1,0 +1,423 @@
+items:
+-   label: What is MaixPy-v1?
+    file: README.md
+-   label: What can MaixPy-v1 do?
+    file: what_maix_do.md
+-   label: MaixPy Development History
+    file: maixpy_history.md
+-   label: Getting started(Important)
+    items:
+    -   label: How to read documents (Important!!!)
+        file: how_to_read.md
+    -   label: How to ask correctly (Important!!!)
+        file: how_to_ask.md
+    -   label: Development Boards
+        items:
+        -   label: Boards Comparison
+            file: develop_kit_board/get_hardware.md
+        -   label: Boards introduction
+        -   collapsed: false
+            items:
+            -   label: Maix Dock
+                file: develop_kit_board/maix_dock.md
+            -   label: Maix Bit
+                file: develop_kit_board/maix_bit.md
+            -   label: Maix Amigo
+                file: develop_kit_board/maix_amigo.md
+            -   label: Maix Duino
+                file: develop_kit_board/maix_duino.md
+            -   label: Maix Cube
+                file: develop_kit_board/maix_cube.md
+            -   label: Maix Go
+                file: develop_kit_board/maix_go.md
+            -   label: Maix Nano
+                file: develop_kit_board/maix_nano.md
+            -   label: Grove AI HAT
+                file: develop_kit_board/grove_ai_hat.md
+        -   label: Related peripheral Modules (Accessories)
+        -   collapsed: false
+            items:
+            -   label: SP-MOD
+                file: modules/sp_mod/README.md
+            -   label: Grove
+                file: modules/grove/README.md
+            -   label: Other
+                file: modules/others/README.md
+    -   label: Setup Environment 
+        items:
+        -   label: Install driver for development board
+            file: get_started/env_install_driver.md
+            items:
+            -   label: Maix Dock
+                file: get_started/install_driver/dock.md
+            -   label: Maix Bit
+                file: get_started/install_driver/bit.md
+            -   label: Maix Amigo
+                file: get_started/install_driver/amigo.md
+            -   label: Maix Cube
+                file: get_started/install_driver/cube.md
+            -   label: Maix Go
+                file: get_started/install_driver/go.md
+            -   label: Maix Nano
+                file: get_started/install_driver/nano.md
+            -   label: Grove AI HAT
+                file: get_started/install_driver/ai_hat.md
+            -   label: Maix Duino
+                file: get_started/install_driver/duino.md
+        -   label: How to update MaixPy firmware
+            file: get_started/upgrade_maixpy_firmware.md
+        -   label: Install and use MaixPy IDE
+            file: get_started/env_maixpyide.md
+        -   label: How to use serial terminal tool
+            file: get_started/env_serial_tools.md
+            items:
+            -   label: mpfshell-lite工具介绍
+                file: get_started/mpfshell-lite/mpfshell-lite.md
+            -   label: Mpfshell-lite 使用手册
+                file: get_started/mpfshell-lite/mpfshell-lite-help.md
+        -   label: MaixPy IDE Instructions
+            file: get_started/env_maixpyide.md
+        -   label: Update WIFI module firmware
+            items:
+            -   label: Update onboard ESP32 firmware
+                file: get_started/upgrade_esp32_firmware.md
+            -   label: Update onboard ESP8285 firmware
+                file: get_started/upgrade_esp8285_firmware.md
+    -   label: Start to run program
+        items:
+        -   label: Power up your board
+            file: get_started/get_started_power_on.md
+        -   label: 'First program: screen and camera'
+            file: get_started/get_started_cam_lcd.md
+        -   label: 'Second program: LED'
+            file: get_started/get_started_led_blink.md
+        -   label: Basic programming knowledge
+            items:
+            -   label: MaixPy Programming
+                file: get_started/knowledge_micropython.md
+            -   label: What is git and github?
+                file: get_started/knowledge_git_github.md
+            -   label: MaixPy Image Basics
+                file: get_started/knowledge_image.md
+            -   label: MaixPy audio basics
+                file: get_started/knowledge_audio.md
+        -   label: Introduction of Storage System
+            file: get_started/get_started_fs.md
+        -   label: Edit and run scripts code
+            file: get_started/get_started_edit_file.md
+        -   label: Upload scripts code to board
+            file: get_started/get_started_upload_script.md
+        -   label: Run scripts code when booting
+            file: get_started/get_started_boot.md
+        -   label: Board configuration file
+            file: get_started/board_info.md
+        -   label: Video tutorial
+            file: get_started/maixpy_get_started_video.md
+    -   label: Custome your own firmware
+        items:
+        -   label: Why customizing firmware
+            file: firmware/why_customize_firware.md
+        -   label: Online Compile
+            file: firmware/online_compile.md
+        -   label: Compile from source code
+            file: firmware/compile.md
+-   label: More usages
+    file: course/readme.md
+    items:
+    -   label: Basic Usage
+        items:
+        -   label: CPU & RAM
+            items:
+            -   label: Frequency and reset
+                file: course/others/system.md
+            -   label: Memory configuration
+                file: course/others/mem.md
+        -   label: GUI support
+            items:
+            -   label: Chinese and other multi-language support
+                file: course/image/image_draw_font/image_draw_font.md
+            -   label: Maix UI
+                file: course/others/maixui.md
+            -   label: Lvgl UI
+                file: course/others/lvgl.md
+            -   label: 'pye Editor '
+                file: course/others/pye.md
+        -   label: Network
+            items:
+            -   label: Configure network
+                file: course/network/network_config.md
+            -   label: Socket communication
+                file: course/network/socket_usage.md
+        -   label: Multimedia
+            items:
+            -   label: audio
+                file: course/media/audio.md
+            -   label: video
+                file: course/media/video.md
+        -   label: Game simulator
+            items:
+            -   label: NES game console
+                file: api_reference/media/nes.md
+    -   label: Peripheral module expansion
+        items:
+        -   label: On-chip peripherals
+            items:
+            -   label: GPIO
+                file: modules/on_chip/gpio.md
+            -   label: I2C
+                file: modules/on_chip/i2c.md
+            -   label: PWM
+                file: modules/on_chip/pwm.md
+            -   label: SPI
+                file: modules/on_chip/spi.md
+            -   label: Timer
+                file: modules/on_chip/timer.md
+            -   label: UART
+                file: modules/on_chip/uart.md
+            -   label: I2S
+                file: modules/on_chip/i2s.md
+            -   label: WDT
+                file: modules/on_chip/wdt.md
+        -   label: SP-MOD
+            items:
+            -   label: BT Bluetooth transparent transmission
+                file: modules/sp_mod/sp_bt.md
+            -   label: LoRa Wireless Communication
+                file: modules/sp_mod/sp_lora.md
+            -   label: RFID Radio Frequency Identification
+                file: modules/sp_mod/sp_rfid.md
+            -   label: TOF Ranging
+                file: modules/sp_mod/sp_tof.md
+            -   label: Eink Electronic Ink Screen
+                file: modules/sp_mod/sp_eink.md
+            -   label: Lcd1.14 IPS screen
+                file: modules/sp_mod/sp_lcd1.14.md
+            -   label: Weather Module
+                file: modules/sp_mod/sp_weather.md
+            -   label: Ethernet wired network port
+                file: modules/sp_mod/sp_ethernet.md
+        -   label: Grove
+            items:
+            -   label: Ultrasonic Ranger ranging
+                file: modules/grove/grove_ultrasonic_ranger.md
+            -   label: Chainable RGB LED light
+                file: modules/grove/grove_chainable_rgb_led.md
+            -   label: RGB LED Ring Strip
+                file: modules/grove/grove_rgb_led_ring.md
+        -   label: Other peripherals
+            items:
+            -   label: Sipeed Microphone Array
+                file: develop_kit_board/module_microphone.md
+            -   label: Dual camera module
+                file: modules/others/binocular_camera.md
+            -   label: MLX90640 serial infrared lens
+                file: modules/others/mlx90640.md
+            -   label: Pwm servo
+                file: modules/others/servo.md
+            -   label: ESP32 ADC
+                file: modules/others/esp32_read_adc.md
+            -   label: onewire single bus
+                file: modules/others/onewire.md
+    -   label: Basic Image Processing
+        items:
+        -   label: Get image
+            file: course/image/basic/get_images.md
+        -   label: Display image 
+            file: course/image/basic/display_images.md
+        -   label: MaixPy common images operations
+            file: course/image/basic/vary.md
+        -   label: Basic drawing and writing
+            file: course/image/basic/draw.md
+        -   label: Hardware accelerated image processing
+            file: course/image/basic/acc_image_deal.md            
+    -   label: Traditional Algorithm
+        items:
+        -   label: Image Processing
+            items:
+            -   label: Look for color blocks
+                file: course/image/find_color_blob.md
+            -   label: QR code recognition
+                file: course/image/find_qrcodes.md
+        -   label: Audio Processing
+            items:
+            -   label: FFT waterfall chart
+                file: course/speech/fft_waterfall.md
+            -   label: Keyword Identification
+                file: course/speech/recognizer_mfcc.md
+    -   label: Neural Network Applications
+        items:
+        -   label: Basic knowledge of deep neural networks
+            file: course/ai/basic/dnn_basic.md
+        -   label: MaixPy AI hardware acceleration basic knowledge
+            file: course/ai/basic/maixpy_hardware_ai_basic.md
+        -   label: Image Processing
+            items:
+            -   label: Face Detection
+                file: course/ai/image/face_detect.md
+            -   label: 1000 object classification
+                file: course/ai/image/1000_type_classifier.md
+            -   label: Face Recognition
+                file: course/ai/image/face_recognization.md
+            -   label: Self-learning classification
+                file: course/ai/image/self_learn_classifier.md
+        -   label: Audio Processing
+            items:
+            -   label: Voice Recognition
+                file: course/speech/recognizer_cnn.md
+    -   label: How to tarin models
+        items:
+        -   label: Train your own classification and detection model
+            items:
+            -   label: MaixHub Cloud Training
+                file: course/ai/train/maixhub.md
+            -   label: Local Training
+                file: course/ai/train/local.md
+            -   label: Setup Windows local training envrioument
+                file: course/ai/train/local_windows_1.md
+            -   label: Tutorial of Windows local training
+                file: course/ai/train/local_windows_2.md
+-   label: API reference
+    items:
+    -   label: Standard Library
+        file: api_reference/standard/README.md
+        items:
+        -   label: cmath
+            file: api_reference/standard/cmath.md
+        -   label: gc
+            file: api_reference/standard/gc.md
+        -   label: math
+            file: api_reference/standard/math.md
+        -   label: sys
+            file: api_reference/standard/sys.md
+        -   label: ubinascii
+            file: api_reference/standard/ubinascii.md
+        -   label: ucollections
+            file: api_reference/standard/ucollections.md
+        -   label: uctypes
+            file: api_reference/standard/uctypes.md
+        -   label: uerrno
+            file: api_reference/standard/uerrno.md
+        -   label: uhashlib
+            file: api_reference/standard/uhashlib.md
+        -   label: uheapq
+            file: api_reference/standard/uheapq.md
+        -   label: ujson
+            file: api_reference/standard/ujson.md
+        -   label: uos
+            file: api_reference/standard/uos.md
+        -   label: ure
+            file: api_reference/standard/ure.md
+        -   label: usocket
+            file: api_reference/standard/usocket.md
+        -   label: ustruct
+            file: api_reference/standard/ustruct.md
+        -   label: utime
+            file: api_reference/standard/utime.md
+        -   label: uzlib
+            file: api_reference/standard/uzlib.md
+    -   label: machinie
+        file: api_reference/machine/README.md
+        items:
+        -   label: I2C
+            file: api_reference/machine/i2c.md
+        -   label: PWM
+            file: api_reference/machine/pwm.md
+        -   label: SPI
+            file: api_reference/machine/spi.md
+        -   label: Timer
+            file: api_reference/machine/timer.md
+        -   label: UART
+            file: api_reference/machine/uart.md
+        -   label: network
+            file: api_reference/machine/network.md
+        -   label: WDT
+            file: api_reference/machine/wdt.md
+    -   label: Maix
+        items:
+        -   label: FPIOA
+            file: api_reference/Maix/fpioa.md
+        -   label: GPIO
+            file: api_reference/Maix/gpio.md
+        -   label: KPU
+            file: api_reference/Maix/kpu.md
+        -   label: FFT
+            file: api_reference/Maix/fft.md
+        -   label: I2S
+            file: api_reference/Maix/i2s.md
+        -   label: freq
+            file: api_reference/Maix/freq.md
+        -   label: utils
+            file: api_reference/Maix/utils.md
+    -   label: helper
+        file: api_reference/builtin_py/README.md
+        items:
+        -   label: fpioa_manager
+            file: api_reference/builtin_py/fm.md
+        -   label: board_info
+            file: api_reference/builtin_py/board_info.md
+        -   label: Micropython Editor
+            file: api_reference/builtin_py/pye.md
+    -   label: media
+        file: api_reference/machine_vision/README.md
+        items:
+        -   label: lcd
+            file: api_reference/machine_vision/lcd.md
+        -   label: sensor
+            file: api_reference/machine_vision/sensor.md
+        -   label: image
+            file: api_reference/machine_vision/image/image.md
+        -   label: video
+            file: api_reference/media/video.md
+        -   label: audio
+            file: api_reference/media/audio.md
+        -   label: nes
+            file: api_reference/media/nes.md
+        -   label: isolated_word
+            file: api_reference/machine_vision/isolated_word.md
+        -   label: maix_asr
+            file: api_reference/machine_vision/maix_asr.md
+    -   label: extend
+        file: api_reference/extend/README.md
+        items:
+        -   label: touchscreen
+            file: api_reference/extend/touchscreen.md
+        -   label: modules.ultrasonic
+            file: api_reference/extend/ultrasonic.md
+        -   label: modules.ws2812
+            file: api_reference/extend/ws2812.md
+        -   label: modules.htpa
+            file: api_reference/extend/htpa.md
+        -   label: modules.onewire
+            file: api_reference/extend/onewire.md
+-   label: FAQ
+    file: others/maixpy_faq.md
+-   label: Advanced
+    items:
+    -   label: Advanced Development
+        items:
+        -   label: Source code Structure
+            file: course/advance/project_framework.md
+        -   label: How to compile MaixPy project
+            file: course/advance/compile.md
+        -   label: How to add a MaixPy module in C
+            file: course/advance/add_c_module.md
+        -   label: Package File System
+            file: course/advance/pack_fs.md
+    -   label: Participate in Contribution
+        items:
+        -   label: Participate in document writing (standard)
+            file: contribute/doc_convention.md
+        -   label: Code Writing Specification
+            file: contribute/code_convention.md
+-   label: Sharing from Community & Users
+    items:
+    -   label: Featured Articles
+        file: share/recommend_articles.md
+    -   label: Open Source Project
+        file: share/open_projects.md
+    -   label: Everyone's experience sharing
+        items:
+        -   label: Participate in experience sharing/sharing template
+            file: share/my_share/README.md
+-   label: Open source thanks
+    file: thanks.md
