@@ -54,6 +54,45 @@ NanoKVM supports custom logo display, which can be shown simultaneously on the O
 
 ![](../../../assets/NanoKVM/guide/logo2.jpg)
 
+## Modifying USB VID/PID
+
+NanoKVM supports customizing the Vendor ID (VID) and Product ID (PID) of USB devices. You can modify these parameters by creating specific configuration files.
+
+### Procedure
+
+1. Create configuration files:
+   - Modify VID: Create the `usb.vid` file in the `/boot` directory and write a 4-digit hexadecimal VID
+   - Modify PID: Create the `usb.pid` file in the `/boot` directory and write a 4-digit hexadecimal PID
+
+   **There are two methods to create the files:**
+
+   **Method 1: Create via Web Terminal or SSH Login**
+   
+   Directly execute the following commands in the NanoKVM web terminal or after logging in via SSH:
+   ```bash
+   echo "0x3346" > /boot/usb.vid
+   echo "0x1009" > /boot/usb.pid
+   ```
+   
+   **Method 2: Create via TF Card**
+   
+   If the TF card is easily removable, insert it into your computer and create the `usb.vid` and `usb.pid` files directly in the `boot` partition, writing the corresponding values.
+
+2. Reboot the NanoKVM device for the changes to take effect
+
+3. **Restore Default VID/PID**: Delete the `/boot/usb.vid` and `/boot/usb.pid` files, then reboot the device to restore the default VID/PID.
+
+### Verify Changes
+
+After modification, you can verify the VID/PID changes using the `lsusb` command:
+
+```bash
+$ lsusb
+Bus 003 Device 089: ID 3346:1009 sipeed NanoKVM
+```
+
+> Note: After modifying the VID/PID, the host may require reinstallation of the driver. Ensure that you use legitimate VID/PID combinations to avoid conflicts with existing devices.
+
 ## Obtaining Streaming Related Data
 
 Streaming and image parameters are located in the `/kvmapp/kvm` folder.
