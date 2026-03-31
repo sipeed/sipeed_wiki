@@ -53,7 +53,7 @@ The STA LED indicates the operating status of the NanoKVM. When functioning prop
    > If an IP can be obtained, reconnect HDMI/computer USB to check if the IP exists.
    > If the IP exists only when powered by the power bank, but disappears after connecting HDMI/computer USB, this indicates the issue. Please contact customer service to purchase an isolator to resolve it.
 
-### Unable to get an IP via DHCP and IP shows 192.168.70.70
+### Unable to get an IP via DHCP and the IP address shows as 192.168.70.70
 
 Please refer to [NanoKVM Static IP Fix](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/static_ip_fix.html).
 
