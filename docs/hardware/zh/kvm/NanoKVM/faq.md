@@ -51,6 +51,10 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   > 若可以获取IP，插入HDMI/电脑USB查看IP是否存在
   > 若仅充电宝供电时IP存在，插入HDMI/电脑USB后IP消失则确认出现了该问题，请联系客服购买隔离器以解决
 
+### 无法通过 DHCP 获取 IP 且显示为 192.168.70.70
+
+可参考[静态IP地址修复](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/static_ip_fix.html)。
+
 ### 登录浏览器界面后，无画面
 
 #### 默认分辨率错误
@@ -59,12 +63,12 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
   进入网页终端，执行命令：`/kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin`, Cube/Lite需要确认现场操作
 ``` shell
 ## PCIe版本 正常烧录输出：
-# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin 
+# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
 Chip Version: LT6911UXC
 Product Version : PCIE_A
 
 =========================================================
-Incorrect EDID may cause issues such as 
+Incorrect EDID may cause issues such as
 inability to display images, please modify with caution
 =========================================================
 
@@ -79,12 +83,12 @@ EDID data verified successfully
 =========================================================
 
 ## Cube/Lite 正常烧录输出：
-# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin 
+# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
 Chip Version: LT6911UXC
 Product Version: CUBE_B
 
 =========================================================
-Incorrect EDID may cause issues such as 
+Incorrect EDID may cause issues such as
 inability to display images, please modify with caution
 =========================================================
 
@@ -97,7 +101,7 @@ Please ensure you can physically disconnect its power,
 NOT just remotely reboot it!!
 ==========================================================
 
-Do you want to continue? (Y/N): 
+Do you want to continue? (Y/N):
 Y
 EDID data loaded successfully from /kvmapp/system/tool/E21_NanoKVM.bin
 Writing EDID....
