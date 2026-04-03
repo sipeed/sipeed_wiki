@@ -59,7 +59,7 @@ Thanks to the modular SOM design, Lichee Book 4A can also be upgraded to LM3A or
 <td class="org-left"> 14 inch 1920 x 1200 LCD, miniHDMI </td>
 </tr>
 <tr>
-<td class="org-left">Inoput</td>
+<td class="org-left">Input</td>
 <td class="org-left"> 88-Keyboard, touchpad </td>
 </tr>
 <tr>

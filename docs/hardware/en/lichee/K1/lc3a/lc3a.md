@@ -77,7 +77,7 @@ Additionally, the Lichee Cluster 3A is equipped with a BMC (Baseboard Management
 <td class="org-left">CR2032 Button cell</td>
 </tr>
 <tr>
-<td class="org-left">heat radiation</td>
+<td class="org-left">heat dissipation</td>
 <td class="org-left">5V PWM FAN * 7<br>12V 4PIN PWM FAN * 1</td>
 </tr>
 <tr>

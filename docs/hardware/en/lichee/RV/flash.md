@@ -6,7 +6,7 @@ There are two system images for Lichee RV and they are tina and debian.
 ## Prepare
 
 1. Lichee RV Core board
-2. TF card (It's suggested to use tf card provided by sipeed because other card might fail to burn or fail to boot system)
+2. TF card (It's suggested to use TF card provided by Sipeed because other card might fail to burn or fail to boot system)
 3. Burn tool [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)
 4. System image
    - [Tina](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/SDK/image) 
@@ -28,7 +28,7 @@ There are two system images for Lichee RV and they are tina and debian.
 
 ## Burn image
 
-Connect you sd card reader inserted with sd card with your computer
+Connect your SD card reader inserted with sd card with your computer
 
 Use SD Card Formatter to format your TF card first: Click Refresh then choose your target disk carefully, click Format
 
@@ -47,7 +47,7 @@ Follow the steps below to complete burning
 
 > Not each card can successfully be burned, if you can't do this we suggest you buy an image card we provide
 
-Waiting for finishing burning, It will be faster if flashing Tina OS and it will take about 10 minutes if flashing Debian 
+Waiting for finishing burning. It will be faster if flashing Tina OS and it will take about 10 minutes if flashing Debian 
 
 ## Run OS
 The username and password are as follows:
