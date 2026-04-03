@@ -190,6 +190,18 @@ The NCM function allows the NanoKVM to simulate a USB network card, enabling use
 - **ATX/Desk**: From the web interface, go to `Settings` → `Device` → enable `Virtual Network`
 - **Desk**: From the screen, tap `Settings` → `USB` → enable `NCM`
 
+### USB Host / Device Switching
+
+To manually switch the USB role, run the following commands in the web terminal or via SSH:
+
+```shell
+# Switch to Device mode
+echo device > /sys/class/usb_role/8000000.dwc3-role-switch/role
+
+# Switch to Host mode
+echo host > /sys/class/usb_role/8000000.dwc3-role-switch/role
+```
+
 ### USB Secondary Display
 
 > **Supported only on NanoKVM-Desk**
@@ -497,6 +509,27 @@ Version 1.2.0 comes with six built-in EDIDs. Below is the list of supported reso
 
     5. **File write failure**
     Ensure `C:\Users\Public\` is writable, or modify the script to use another writable directory.
+
+## How to Force a Specific Resolution
+
+To force a specific input resolution, you must set all three parameters: `FPS`, `width`, and `height`. The setting will not take effect if any one is missing.
+
+Temporary (lost after reboot):
+
+```shell
+echo 60 > /sys/module/lt6911_manage/parameters/force_fps
+echo 1920 > /sys/module/lt6911_manage/parameters/force_width
+echo 1080 > /sys/module/lt6911_manage/parameters/force_height
+```
+
+Persistent (kept after reboot):
+
+```shell
+echo 60 > /boot/force_fps
+echo 1920 > /boot/force_width
+echo 1080 > /boot/force_height
+reboot
+```
 
 ## How to Modify USB Information
 
