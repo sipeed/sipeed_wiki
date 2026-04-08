@@ -20,7 +20,7 @@ T256s **不内置电池**。您可以采用以下任一方式供电：
 2. **系统加载** (约 3-5 秒)：系统自动进行初始化，加载基础 UI 框架。
 3. **传感器预热与校准** (约 5-10 秒)：**红外模组**完成初始化校准，屏幕开始实时显示温度分布图像。
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08368](../../../zh/ThermalCam/T256s/assets/DSC08368.jpg)
 
 ## UVC 联机模式
 
@@ -31,14 +31,17 @@ T256s 符合标准 UVC (USB Video Class) 协议。在主流操作系统（Window
 - **设备识别**：打开“设备管理器”，在“照相机”或“图像设备”分类下，您会看到名为 "USB Camera" 或 "T256s Thermal Camera" 的设备。
 - **画面预览**：可以使用 Windows 自带的“相机”应用，或者 OBS Studio、VLC、PotPlayer 等第三方软件。
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08458](../../../zh/ThermalCam/T256s/assets/DSC08458.jpg)
 
 ### Linux / Raspberry Pi 识别
 在 Linux 环境下，T256s 通常映射为 `/dev/videoX` 设备。
 - **推荐工具**：使用 `guvcview`、`cheese` 或 `ffmpeg` 进行测试。
 - **日志验证**：插入设备后，在终端执行 `dmesg` 命令查看识别日志。
 
-**识别日志示例（来自实际设备）**：
+![DSC08448](../../../zh/ThermalCam/T256s/assets/DSC08448.jpg)
+
+<details><summary>识别日志示例（来自实际设备）</summary>
+
 ```text
 [102310.868452] usb 1-7.4.2: new high-speed USB device number 35 using xhci_hcd
 [102310.966974] usb 1-7.4.2: New USB device found, idVendor=359f, idProduct=ffff, bcdDevice= 4.19
@@ -81,15 +84,19 @@ T256s 符合标准 UVC (USB Video Class) 协议。在主流操作系统（Window
 [102317.350175] sd 8:0:0:0: [sdb] Attached SCSI removable disk
 ```
 
+</details>
+
 ### Android 移动端使用
 - **连接方式**：支持 OTG 功能的手机可直接插在底部接口。
 - **配套软件**：推荐使用“USB摄像头 (USB Camera)”等支持 UVC 协议的应用程序。
 - **操作步骤**：插入设备后，手机通常会弹出权限申请，点击“确定”即可预览热像画面。
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
 
 ## 微距镜头安装
 
 若需观察 PCB 元器件，请将随货附带的微距镜头片轻轻贴合在热像模组前端。
 - **工作距离**：约 5cm。
 - **效果**：可看清 0402 贴片电阻的发热情况。
+
+![DSC08429](../../../zh/ThermalCam/T256s/assets/DSC08429.jpg)
