@@ -3,7 +3,6 @@
 This guide introduces the hardware interfaces, local touch interactions, UVC data formats (MJPEG / Y16), and storage rules for the T256s. It is designed to help you quickly get started with the device for secondary development or thermal data analysis.
 
 ## Hardware Interface Description
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
 
 - **Type-C Male (Device) Port:** Located at the bottom of the unit. Plug this directly into a smartphone for power and data transmission. If the phone does not recognize the device, ensure **OTG Power Supply** is enabled in the system settings.
 - **Type-C Female (Host/Power) Port:** Located at the top of the unit. Used for connecting to a PC, power bank, or external power cable. This is ideal for long-term monitoring or communicating with PC-side host software.
@@ -13,20 +12,21 @@ This guide introduces the hardware interfaces, local touch interactions, UVC dat
 Note: Avoid exposing the device to high humidity or strong electromagnetic interference. Prolonged operation in high-temperature environments may degrade temperature measurement accuracy.
 
 ## Local Touch Interaction (Standalone Mode)
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![UI](../../../en/ThermalCam/T256s/assets/20260408-UI.jpg)
 
 When not connected to a host computer, the T256s functions as a standalone thermal imager. The screen supports the following operations:
 
 - **Image Zoom:** Tap the center of the screen to toggle quickly between **1x and 2x zoom**.
 - **Temperature Annotation:** The system automatically tracks and displays values for the **center point, maximum temperature (Hot Spot), and minimum temperature (Cold Spot)**. The interface defaults to Celsius (°C). A 2-minute warm-up is recommended for optimal accuracy.
-- **Pseudo-color (Palette) Switching:** Tap the color block icon in the upper-right corner to cycle through **8 built-in palettes** (e.g., White Hot, Ironbow, Rainbow, etc.). Different palettes suit different scenarios; for instance, "White Hot" is often better for identifying subtle temperature gradients.
+- **Pseudo-color (Palette) Switching:** Tap the color block icon in the upper-right corner to cycle through **6 built-in palettes** (e.g., White Hot, Ironbow, Rainbow, etc.). Different palettes suit different scenarios; for instance, "White Hot" is often better for identifying subtle temperature gradients.
 - **Quick Capture:** Tap the camera icon on the right-middle of the screen. The current frame will be saved to internal storage. A confirmation prompt will appear upon a successful save.
 - **Gallery Preview:** Tap the gallery icon in the lower-right corner. Swipe left or right to browse photos, or use the delete button to manage storage space.
 
-TODO: Step-by-Step Visual Guide / Illustrations
-
 ## UVC Data Formats & Parsing Theory
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+
+![DSC08458](../../../zh/ThermalCam/T256s/assets/DSC08458.jpg)
+![DSC08448](../../../zh/ThermalCam/T256s/assets/DSC08448.jpg)
+![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
 
 The T256s is UVC-compliant and supports two primary video stream outputs. Choose the appropriate format based on your development needs.
 
@@ -47,7 +47,10 @@ The T256s is UVC-compliant and supports two primary video stream outputs. Choose
 
 
 ## Storage & File Access
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+
+![DSC08458](../../../zh/ThermalCam/T256s/assets/20260408-UDisk-Windows.jpg)
+![DSC08448](../../../zh/ThermalCam/T256s/assets/20260408-UDisk-Linux.jpg)
+![DSC08444](../../../zh/ThermalCam/T256s/assets/20260408-UDisk-Android.jpg)
 
 The T256s features 32 MB of internal storage. When connected to a computer via a USB cable, the device mounts as a standard Mass Storage Class (MSC) device, allowing you to access it just like a typical flash drive. Image files are generally located in the `/DCIM/` or  `/Gallery/` directories. If the drive is not recognized, please try using a different data cable or USB port.
 
@@ -57,7 +60,7 @@ Photo Naming Conventions:
 
 
 ## Macro Lens Usage Tips
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08429](../../../zh/ThermalCam/T256s/assets/DSC08429.jpg)
 
 1. Gently attach the macro lens to the front of the infrared module. The module is high-precision and fragile; **do not apply excessive pressure** or scratch the lens.
 2. Maintain a subject distance of approximately **5cm**. Fine-tune the focus by slightly moving the device forward or backward. Note that macro lenses have a very shallow depth of field.
