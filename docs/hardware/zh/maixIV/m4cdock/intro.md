@@ -1,6 +1,6 @@
 ## 产品概述
 
-**置顶淘宝链接：[立即购买](https://item.taobao.com/item.htm?spm=1619a.1.0.0.3f0865abb4Wq5c&id=744014549573&ns=1&abbucket=18#detail)**
+**置顶淘宝链接：[立即购买](https://item.taobao.com/item.htm?id=939632895211) | [M4N（已售罄）](https://item.taobao.com/item.htm?spm=1619a.1.0.0.3f0865abb4Wq5c&id=744014549573&ns=1&abbucket=18#detail)** 
 
 M4C-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子，搭载爱芯元智第三代高能效比智能视觉芯片 AX650N，内置 AI 算力 72TOPS@INT4 或 18TOPS@INT8，可运行当前热门大模型。
 
