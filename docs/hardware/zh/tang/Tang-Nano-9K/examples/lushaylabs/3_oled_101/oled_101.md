@@ -31,7 +31,7 @@ This driver IC is the interface between you and the actual OLED's underlying dis
 
 ![block_diagram](./assets/block_diagram.jpg)
 
-Looking at the left side, we have a microcontroller which is what we will be communicating with. The pins we care about are the the first three and D0 and D1, the first three are reset, chip select and data/command flag and D0 is our SPI clock and D1 is our SPI data.
+Looking at the left side, we have a microcontroller which is what we will be communicating with. The pins we care about are the first three and D0 and D1, the first three are reset, chip select and data/command flag and D0 is our SPI clock and D1 is our SPI data.
 
 All the other pins are used for alternate communication methods, like if interfacing with the screen over parallel connection. But since we are using the driver in it's 4-wire SPI mode we only need the 5 pins listed above.
 

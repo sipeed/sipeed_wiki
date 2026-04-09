@@ -112,7 +112,7 @@ make ARCH=arm menuconfig
 接着配置同级的 **LCD panel timing details** 为：
 **x:800,y:480,depth:18,pclk\khz:33000,le:87,ri:40,up:31,lo:13,hs:1,vs:1,sync:3,vmode:0**
 
-注：此块屏为为 800\*480 规格，如为 480\*272 请尝试如下配置:
+注：此块屏为 800\*480 规格，如为 480\*272 请尝试如下配置:
 **x:480,y:272,depth:18,pclk\khz:10000,le:42,ri:8,up:11,lo:4,hs:1,vs:1,sync:3,vmode:0**
 
 并将 **LCD panel backlight pwm pin** 设为：

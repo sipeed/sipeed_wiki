@@ -68,7 +68,7 @@
 | 7 | MIC_WS | I/O | I²S 接口的串行数据字选择 |
 | 8 | MIC_CK | I/O | I²S 接口的串行数据时钟 |
 | 9 | LED_CK | I/O | LED 的串行数据时钟 |
-| 10 | LED_DA | I/O | LED 的的串行数据输出 |
+| 10 | LED_DA | I/O | LED 的串行数据输出 |
 
 <img src="./../../assets/spmod/spmod_micarray/MicArray.png" width=55%>
 

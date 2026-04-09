@@ -127,7 +127,7 @@ This step must take into account all the routing requirements when selecting whe
 
 ### Bitstream Generation
 
-The third and final step is generating the bits required so that the FPGA itself understands the layout the the place and route stage generated. Each FPGA manufacturer has their own internal format which open-source toolchains need to reverse engineer in-order to understand the exact format required to program the FPGA.
+The third and final step is generating the bits required so that the FPGA itself understands the layout the place and route stage generated. Each FPGA manufacturer has their own internal format which open-source toolchains need to reverse engineer in-order to understand the exact format required to program the FPGA.
 
 After running these three stages you will have a file which can be programmed onto the FPGA which will reconfigure the internal hardware to match your design
 

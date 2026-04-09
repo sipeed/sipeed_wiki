@@ -193,9 +193,9 @@ TBD
 | USB3                 | 1        | CH569 16bit HSPI, SuperSpeed @ 5Gbps              |
 | Ethernet             | 1        | 1000Mbps Ethernet                                 |
 | DVI(HDMI)            | 1        | DVI supports both RX and TX                       |
-| PMOD                 | 2        | Multiplexed with the the DVP CONN. & 2x20P header at the top of the Dock board |
+| PMOD                 | 2        | Multiplexed with the DVP CONN. & 2x20P header at the top of the Dock board |
 | ADC                  | 2        | 2x differential input channels                    |
-| DVP Interface        | 1        | Multiplexed with the the PMOD & 2x20P header at the top of the Dock board |
+| DVP Interface        | 1        | Multiplexed with the PMOD & 2x20P header at the top of the Dock board |
 | RGB Interface        | 1        | Supports RGB888 screen                           |
 | MIC ARRAY Interface  | 1        | Supports Sipeed 6+1 microphone array             |
 | SD Slot              | 1        | 1-bit SDIO/MMC or SPI mode                       |
@@ -205,7 +205,7 @@ TBD
 | 3.5mm Headphone CONN.| 1        | Supports stereo output, without Mic               |
 | MS5351               | 1        | Provides RefClk for Serdes; control output via onboard UART |
 | USB JTAG & UART      | 1        | Supports FPGA programming and provides UART function  |
-| 2x20P headers        | 2        | 2x20P header at the top of the Dock board multiplexed with the the PMOD & DVP CONN. |
+| 2x20P headers        | 2        | 2x20P header at the top of the Dock board multiplexed with the PMOD & DVP CONN. |
 | Power button         | 1        | **Press and hold for 2 seconds to toggle power state** |
 | 12V DC               | 1        | DC5521                                       |
 

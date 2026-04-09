@@ -18,7 +18,7 @@ So if you are a quick verification, novice, only python, less hair, etc., you ca
 * Check whether the firmware supports IDE, early firmware and firmware with `minimum` in the name are not supported
 * Check whether the serial port is occupied (other software also opened the serial port)
 * After clicking the connection, do not use it with the terminal tool at the same time, otherwise the serial port will be occupied and cannot be opened
-* If you have been unable to successfully connect successfully, check:
+* If you have been unable to connect successfully, check:
   * Please check whether the development board model selection is wrong;
 
   * Observe whether there is any change on the development board screen, if there is no response, it may be the serial port selection error;

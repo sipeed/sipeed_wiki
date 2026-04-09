@@ -77,7 +77,7 @@ win+r，输入cmd，打开命令行
 
 ![3.png](https://bbs.sipeed.com/storage/attachments/2021/07/21/bGnesxEq2b4YxRIsyFZobK36kpk9Ip3GVoQohgd5_thumb.png "1459")
 
-将压缩包解压，任何位置都都可以，只要你记得解压到哪里了。然后下载 [ncc-win7-x86_64](https://github.com/kendryte/nncase/releases/tag/v0.1.0-rc5) 并解压，就会得到一个叫ncc-win7-x86_64的文件夹，将这个文件夹名字修改为ncc_v0.1。
+将压缩包解压，任何位置都可以，只要你记得解压到哪里了。然后下载 [ncc-win7-x86_64](https://github.com/kendryte/nncase/releases/tag/v0.1.0-rc5) 并解压，就会得到一个叫ncc-win7-x86_64的文件夹，将这个文件夹名字修改为ncc_v0.1。
 
 再将这个文件夹的复制到maix_train/tools/ncc文件夹下面。（如果没有ncc这个文件夹就创建一个，路径一定要对的上）
 

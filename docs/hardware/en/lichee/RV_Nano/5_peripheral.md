@@ -13,11 +13,11 @@ keywords: riscv, licheerv,nano
 
 ### UART0
 
-Connect the UART serial port to the GND, `A16 (TX)`, and `A17 (RX)` of the board
+Connect the UART serial port to the GND, `A16 (TX)`, and `A17 (RX)` of the board.
 
 Then use terminal software to connect to the serial port, with a baud rate of 115200.
 
-UART0 is also brought out on SBU1/2 on the USB interface. You can use the USB TypeC adapter to bring out RX0 and TX0.
+UART0 is also brought out on SBU1/2 on the USB interface. You can use the USB Type-C adapter to bring out RX0 and TX0.
 
 #### Disable UART0 output log
 
@@ -72,7 +72,7 @@ consoledev=/dev/ttyX
 
 ### UART1 UART2 UART3
 
-By default, the pins of UART1 and 2 are used to connect to the UART Bluetooth chip:
+By default, the pins of UART1 and UART2 are used to connect to the UART Bluetooth chip:
 
 ```
 mmio_write_32(0x03001070, 0x1); // GPIOA 28 UART1 TX
@@ -120,7 +120,7 @@ devmem 0x030010D8 32 0x5 # GPIOP 20 UART3 RX
 devmem 0x030010DC 32 0x5 # GPIOP 21 UART3 RTS
 ```
 
-Serial port usage in Linux system:
+Serial port usage in a Linux system:
 
 C:
 
@@ -266,8 +266,8 @@ I2C1 and I2C3 are brought out on the pin header, and devices can be connected to
 
 Before using, you need to correctly set the PINMUX:
 
-```
-shell# I2C1
+```shell
+# I2C1
 devmem 0x030010D0 32 0x2
 devmem 0x030010DC 32 0x2
 # I2C3
@@ -279,7 +279,7 @@ Then you can use i2c-tools to operate the i2c peripherals. The image is already 
 
 ## ADC
 
-An ADC route is brought out on the pin header, using ADC1.
+An ADC channel is brought out on the pin header, using ADC1.
 
 First, select the ADC channel, here taking ADC1 as an example:
 

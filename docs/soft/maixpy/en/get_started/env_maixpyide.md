@@ -99,7 +99,7 @@ You can choose to send files in the **Tool/Tools** menu
 ## Note
 
 * After clicking the connection, do not use it with the terminal tool at the same time, otherwise the serial port will be occupied and cannot be opened
-* If you have been unable to successfully connect successfully, check:
+* If you have been unable to connect successfully, check:
   * Please check whether the development board model selection is wrong;
   * Observe whether there is any change on the development board screen, if there is no response, it may be the serial port selection error;
   * Try to upgrade to the latest [master branch firmware](http://cn.dl.sipeed.com/MAIX/MaixPy/release/master), and the latest MaixPy IDE software

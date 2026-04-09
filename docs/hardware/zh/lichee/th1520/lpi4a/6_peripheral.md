@@ -1134,7 +1134,7 @@ docker exec -it your.hhb2.4 /bin/bash
 hhb --version
 ```
 
-进入 Docker 镜像中后，还需要配置交叉编译环境。注意必须要使用这这里的工具链，否则编译出的二进制文件无法在 LicheePi4A 上运行。
+进入 Docker 镜像中后，还需要配置交叉编译环境。注意必须要使用这里的工具链，否则编译出的二进制文件无法在 LicheePi4A 上运行。
 ```shell
 export PATH=/tools/Xuantie-900-gcc-linux-5.10.4-glibc-x86_64-V2.6.1-light.1/bin/:$PATH
 ```

@@ -1168,7 +1168,7 @@ At this point, the HHB environment is preliminarily built. You can try the follo
 [Mobilenetv2 for image classification](https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#MobilenertV2)
 [YOLOv5 for object detection](https://wiki.sipeed.com/hardware/eh/lichee/th1520/lpi4a/8_application.html#Yolov5n)
 
-For further infomation please check [hhb-tools doc](https://www.yuque.com/za4k4z).
+For further information please check [hhb-tools doc](https://www.yuque.com/za4k4z).
 
 ## Other
 Contributions are welcome~ You can get ￥5~150 ($1~20) coupon if your contribution is accepted!

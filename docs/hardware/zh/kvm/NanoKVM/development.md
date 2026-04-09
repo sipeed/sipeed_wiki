@@ -16,6 +16,83 @@ update:
 
 NanoKVM除实现KVM功能外还开放了一些数据,用于用户的二次开发,此文档用于描述这些数据的作用,以及开发的注意事项
 
+## 更换 Logo
+
+> 注：此功能仅在 NanoKVM `v2.3.6` 及以上版本的应用程序中支持。
+
+NanoKVM 支持自定义 Logo 显示，可在 OLED 屏幕和 Web 管理界面中同时展示。其中，OLED 屏幕显示低分辨率的黑白二值图像，Web 界面显示高分辨率的彩色图像。
+
+### 步骤一：生成 Logo 文件
+
+![](../../../assets/NanoKVM/guide/logo1.png)
+
+1. 下载 [Logo 生成 Python 脚本](https://github.com/sipeed/NanoKVM/tree/main/tools/logo_generator)
+2. 安装依赖库：
+   ```bash
+   pip install Pillow numpy textual
+   ```
+3. 准备一张接近正方形的 Logo 图片，并获取其文件路径
+4. 执行脚本生成 Logo 文件：
+   ```bash
+   python logo_generator.py /path/to/your_logo.png
+   ```
+5. 选择显示语言（当前仅支持中文和英文）
+6. 终端界面将显示 OLED 模拟效果，可通过调整对比度使显示效果符合预期
+7. 进行微调：点击"反转"可生成白底 Logo，点击"像素"可单独控制每个像素点的亮灭状态
+8. 点击"导出"按钮，将在当前目录下生成 `logo.bin` 和 `logo.ico` 两个文件；完成后点击"退出"
+
+### 步骤二：上传 Logo 文件
+
+1. 将 `logo.bin` 和 `logo.ico` 文件上传至 NanoKVM 的 `/boot` 目录：
+   - 通过 SCP 命令上传：
+     ```bash
+     scp logo.bin logo.ico root@xxx.xxx.xxx.xxx:/boot
+     ```
+     默认登录密码为 `root`。如已修改 Web 管理界面密码，请使用修改后的密码进行认证。
+   - 或通过 TF 卡方式：将文件复制到 TF 卡的 `boot` 分区，NanoKVM 开机时将自动读取
+2. 重启 NanoKVM 设备，使配置生效
+
+![](../../../assets/NanoKVM/guide/logo2.jpg)
+
+## 修改 USB VID/PID
+
+NanoKVM 支持自定义 USB 设备的 Vendor ID (VID) 和 Product ID (PID)。您可以通过创建特定的配置文件来修改这些参数。
+
+### 操作步骤
+
+1. 创建配置文件：
+   - 修改 VID：在 `/boot` 目录下创建 `usb.vid` 文件，写入四位十六进制的VID
+   - 修改 PID：在 `/boot` 目录下创建 `usb.pid` 文件，写入四位十六进制的PID
+
+   **创建文件的方法有以下两种：**
+
+   **方法一：通过网页终端或 SSH 登录后创建**
+   
+   直接在 NanoKVM 的网页终端或通过 SSH 登录后，执行以下命令：
+   ```bash
+   echo "0x3346" > /boot/usb.vid
+   echo "0x1009" > /boot/usb.pid
+   ```
+   
+   **方法二：通过 TF 卡创建**
+   
+   如果方便取下 TF 卡，可以将 TF 卡插入电脑，在 `boot` 分区中直接创建 `usb.vid` 和 `usb.pid` 文件，并写入对应的值。
+
+2. 重启 NanoKVM 设备，修改将立即生效
+
+3. **恢复默认 VID/PID**：删除 `/boot/usb.vid` 和 `/boot/usb.pid` 两个文件，然后重启设备即可恢复默认的 VID/PID。
+
+### 验证效果
+
+修改完成后，可以通过 `lsusb` 命令验证 VID/PID 是否生效：
+
+```bash
+$ lsusb
+Bus 003 Device 089: ID 3346:1009 sipeed NanoKVM
+```
+
+> 注意：VID/PID 修改后，主机可能需要重新安装驱动程序。请确保使用合法的 VID/PID 组合，避免与现有设备冲突。
+
 ## 获取推流相关数据
 
 推流和图像参数位于/kvmapp/kvm文件夹下

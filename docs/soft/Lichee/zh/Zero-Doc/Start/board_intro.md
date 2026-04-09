@@ -6,7 +6,7 @@ title: LicheePI Zero
 
 **荔枝派Zero**（下面简称 **Zero**）是一款精致迷你的 **Cortex-A7** 核心板/开发板，可用于初学者学习linux或者商用于产品开发。 Zero 在稍长于SD卡的尺寸上（**45x26mm**）提供了丰富的外设（LCD,ETH,UART,SPI,I2C,PWM,SDIO---）和强劲的性能（**24MHZ~1.2GHZ, 64MB DDR** ）。
 
-得益于精巧的的PCB设计，Zero 相关的开发和使用非常方便：
+得益于精巧的PCB设计，Zero 相关的开发和使用非常方便：
 
 - 直插面包板
 - 直插40P RGB LCD

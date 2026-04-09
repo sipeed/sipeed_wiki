@@ -21,10 +21,14 @@ Without connecting to a phone or computer, the T256s can function as an independ
 3. **Sensor Warm-up & Calibration (Approx. 5-10s):** The **infrared module** completes its initial calibration, and the screen begins displaying real-time thermal distribution images.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
 =======
 ![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
 >>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
+=======
+![DSC08368](../../../zh/ThermalCam/T256s/assets/DSC08368.jpg)
+>>>>>>> 04d5051d4523d363b8c6f1f5b45657c36eb2f553
 
 ## UVC Online Mode
 
@@ -36,17 +40,24 @@ Connect the T256s to your PC via a USB data cable.
 - **Image Preview:** You can use the built-in Windows "Camera" app or third-party software such as OBS Studio, VLC, or PotPlayer.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
 =======
 ![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
 >>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
+=======
+![DSC08458](../../../zh/ThermalCam/T256s/assets/DSC08458.jpg)
+>>>>>>> 04d5051d4523d363b8c6f1f5b45657c36eb2f553
 
 ### Linux / Raspberry Pi Recognition
 In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 - **Recommended Tools:** Use `guvcview`, `cheese`, or `ffmpeg` for testing.
 - **Log Verification:** After plugging in the device, execute the `dmesg` command in the terminal to view recognition logs.
 
-**Example Recognition Log (from actual device):**
+![DSC08448](../../../zh/ThermalCam/T256s/assets/DSC08448.jpg)
+
+<details><summary>Example Recognition Log (from actual device)</summary>
+
 ```text
 [102310.868452] usb 1-7.4.2: new high-speed USB device number 35 using xhci_hcd
 [102310.966974] usb 1-7.4.2: New USB device found, idVendor=359f, idProduct=ffff, bcdDevice= 4.19
@@ -89,19 +100,27 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 [102317.350175] sd 8:0:0:0: [sdb] Attached SCSI removable disk
 ```
 
+</details>
+
 ### Android Mobile Usage
 - **Connection:** OTG-compatible phones can be directly connected via the bottom interface.
 - **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**
 - **Operation:** Upon insertion, the phone will typically prompt for permission. Tap "OK" to start the thermal image preview.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![占位图](../../../en/ThermalCam/T256s/assets/no-image-signal.jpg)
 =======
 ![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
 >>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
+=======
+![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
+>>>>>>> 04d5051d4523d363b8c6f1f5b45657c36eb2f553
 
 ## Macro Lens Installation
 
 To observe PCB components, gently attach the included macro lens to the front of the thermal imaging module.
 - **Working Distance:** Approximately 5cm.
 - **Effect:** Enables clear visualization of heat distribution on tiny components, such as **0402 surface-mount resistors**.
+
+![DSC08429](../../../zh/ThermalCam/T256s/assets/DSC08429.jpg)

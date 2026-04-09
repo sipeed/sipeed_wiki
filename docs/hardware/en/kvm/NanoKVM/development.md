@@ -16,6 +16,83 @@ update:
 
 In addition to implementing KVM functionality, NanoKVM has opened up some data for secondary development by users. This document describes the purpose of this data and the considerations for development.
 
+## Customizing Logo
+
+> Note: This feature is supported in NanoKVM application versions `v2.3.6` and above.
+
+NanoKVM supports custom logo display, which can be shown simultaneously on the OLED screen and the Web management interface. The OLED screen displays low-resolution monochrome binary images, while the Web interface displays high-resolution color images.
+
+### Step 1: Generate Logo File
+
+![](../../../assets/NanoKVM/guide/logo1.png)
+
+1. Download the [Logo Generation Python Script](https://github.com/sipeed/NanoKVM/tree/main/tools/logo_generator)
+2. Install dependencies:
+   ```bash
+   pip install Pillow numpy textual
+   ```
+3. Prepare a logo image that is close to square and obtain its file path
+4. Execute the script to generate the logo file:
+   ```bash
+   python logo_generator.py /path/to/your_logo.png
+   ```
+5. Select the display language (currently only Chinese and English are supported)
+6. The terminal interface will display the OLED simulation effect. Adjust the contrast to achieve the desired display effect
+7. Fine-tune: Click "Invert" to generate a white-background logo, or click "Pixel" to control individual pixel states
+8. Click the "Export" button to generate `logo.bin` and `logo.ico` files in the current directory; click "Exit" after completion
+
+### Step 2: Upload Logo File
+
+1. Upload the `logo.bin` and `logo.ico` files to the `/boot` directory of NanoKVM:
+   - Using SCP command:
+     ```bash
+     scp logo.bin logo.ico root@xxx.xxx.xxx.xxx:/boot
+     ```
+     The default login password is `root`. If you have modified the Web management interface password, please use the modified password for authentication.
+   - Alternatively, via TF card: Copy the files to the `boot` partition of the TF card, and NanoKVM will automatically read them during boot
+2. Reboot the NanoKVM device for the changes to take effect
+
+![](../../../assets/NanoKVM/guide/logo2.jpg)
+
+## Modifying USB VID/PID
+
+NanoKVM supports customizing the Vendor ID (VID) and Product ID (PID) of USB devices. You can modify these parameters by creating specific configuration files.
+
+### Procedure
+
+1. Create configuration files:
+   - Modify VID: Create the `usb.vid` file in the `/boot` directory and write a 4-digit hexadecimal VID
+   - Modify PID: Create the `usb.pid` file in the `/boot` directory and write a 4-digit hexadecimal PID
+
+   **There are two methods to create the files:**
+
+   **Method 1: Create via Web Terminal or SSH Login**
+   
+   Directly execute the following commands in the NanoKVM web terminal or after logging in via SSH:
+   ```bash
+   echo "0x3346" > /boot/usb.vid
+   echo "0x1009" > /boot/usb.pid
+   ```
+   
+   **Method 2: Create via TF Card**
+   
+   If the TF card is easily removable, insert it into your computer and create the `usb.vid` and `usb.pid` files directly in the `boot` partition, writing the corresponding values.
+
+2. Reboot the NanoKVM device for the changes to take effect
+
+3. **Restore Default VID/PID**: Delete the `/boot/usb.vid` and `/boot/usb.pid` files, then reboot the device to restore the default VID/PID.
+
+### Verify Changes
+
+After modification, you can verify the VID/PID changes using the `lsusb` command:
+
+```bash
+$ lsusb
+Bus 003 Device 089: ID 3346:1009 sipeed NanoKVM
+```
+
+> Note: After modifying the VID/PID, the host may require reinstallation of the driver. Ensure that you use legitimate VID/PID combinations to avoid conflicts with existing devices.
+
 ## Obtaining Streaming Related Data
 
 Streaming and image parameters are located in the `/kvmapp/kvm` folder.

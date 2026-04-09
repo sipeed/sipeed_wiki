@@ -10,20 +10,20 @@ keywords: R329, maixsnse, MaixSense, Maixsense, armbian, build, kernel
 * 一张已经烧录`r329-armbian-maixpy3-0.4.0.img`的TF卡
 * [Armbian_21.08.0-trunk_Maixsense_bullseye_edge_5.14.1.img.xz](https://pan.baidu.com/s/1D8pr2y0-3jNwI5wzdgqb9Q)镜像
 
-##修改 boot.cmd 的方法
+## 修改 boot.cmd 的方法
 想要改变 uboot 的一些启动配置，就可以通过这个方式进行修改，修改 boot.cmd 后直接在系统里运行完成更新。
 > mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
 
 主线 linux 都会有类似的配置供你使用，可能是文件可能是分区。
 
-##Linux 内核、驱动、设备树的相关用法方法
+## Linux 内核、驱动、设备树的相关用法方法
 可以参考[Lichee Pi](https://wiki.sipeed.com/soft/Lichee/zh/index.html)(特别详细)，armbian编译没有那么繁琐因此不再赘述。
 准备环境`sudo apt install -y git wget make gcc flex bison libssl-dev bc kmod`
 其他相关教程 
 * [licheepi zero主线Kernel基础编译](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/System_Development/kernel_build.html)
 * [licheepi nano主线Linux编译](https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/build_sys/kernel.html)
 
-##修改设备树配置的方法
+## 修改设备树配置的方法
 使用`git clone -b r329-wip https://github.com/sipeed/linux.git` #完成后切到 `r329-wip` 分支
 编译链工具可以用系统自带的`通用编译链`或`gcc-linaro`，本文使用的是`gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz` [点我下载](https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/8.3-2019.03/binrel/gcc-arm-8.3-2019.03-x86_64-aarch64-linux-gnu.tar.xz)。
 [设备树简介：](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/Drive/Device_Tree_Intro.html)用户在设备树里定义并启用的树结点，就可以使用相应驱动。
@@ -71,7 +71,7 @@ config RTL8723DS
 通过`make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8 menuconfig` 按 `/` 搜索 `8723ds` 把它配上编译即可。
 配好直接 `make` 编译就行，在 `sipeed` 的 `armbian` 这里不需要，仅告知如何加入非主线模块，如特殊的 `TP` 触摸屏、`ADC` 按键驱动、`I2C` 传感器驱动等。
 
-##编译 `armbian` 系统
+## 编译 `armbian` 系统
 * 自行准备良好的网络环境，相关问题不做解答，默认懂得都懂，编不出来也很正常，不用太在意。
 
 上述开发的内核模块在 `sipeed` 提供的 `armbian` 镜像中都是无用的，仅用于测试和确认开发环境，所以要进一步把 `armbian` 编译出来才是最终用户所用的环境。

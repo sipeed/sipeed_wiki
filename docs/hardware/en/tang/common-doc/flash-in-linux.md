@@ -64,7 +64,7 @@ index 0:
 
 ```
 
-Flash the bitstream to the device as shown below. The board name must be specified after the `-b` option, `-f` options means the file is programmed to the non-volatile flash, without it it will be stored in SRAM but lost if the device loses power.
+Flash the bitstream to the device as shown below. The board name must be specified after the `-b` option, `-f` options means the file is programmed to the non-volatile flash, without it the bitstream will be stored in SRAM but lost if the device loses power.
 
 ```bash
 $ sudo ./openFPGALoader -b tangnano9k -f ../../nano9k_lcd/impl/pnr/Tang_nano_9K_LCD.fs

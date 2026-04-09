@@ -290,7 +290,7 @@ print(out.argmax(), out.max())
 
 ## 编写代码运行模型
 
-要正式地将模型跑起来，你可能需要需要修改代码，更改输入预处理或者增加后处理，目前提供 `C/C++` SDK，代码参考 [ax-samples](https://github.com/AXERA-TECH/ax-samples)，可以交叉编译，也可以直接在 `AXera-Pi` 上编译。
+要正式地将模型跑起来，你可能需要修改代码，更改输入预处理或者增加后处理，目前提供 `C/C++` SDK，代码参考 [ax-samples](https://github.com/AXERA-TECH/ax-samples)，可以交叉编译，也可以直接在 `AXera-Pi` 上编译。
 
 运行分类模型的代码在[ax_classification_steps.cc](https://github.com/AXERA-TECH/ax-samples/blob/main/examples/ax_classification_steps.cc)，按照仓库的编译说明编译后得到`build/bin/install/ax_classification`可执行文件，拷贝到开发板执行
 ```

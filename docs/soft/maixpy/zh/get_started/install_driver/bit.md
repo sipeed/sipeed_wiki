@@ -33,7 +33,7 @@ Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/fileList/MAIX/tool
 1. 当我们的系统是 Windows 10 系统,系统则会帮我们自动安装驱动，而如果是旧版 Win7，win8 系统，我们就需要自己手动安装 USB 驱动:
     ![](../../../assets/get_started/win_device_2.png)
 
-2. 打开上一节的的链接下载驱动
+2. 打开上一节的链接下载驱动
     ![](../../../assets/get_started/win_device_3.png)
 
 3. 点击安装

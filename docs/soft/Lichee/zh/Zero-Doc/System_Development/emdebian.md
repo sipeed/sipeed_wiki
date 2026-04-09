@@ -122,7 +122,7 @@ echo allow-hotplug eth0 >> $filename
 echo iface eth0 inet dhcp >> $filename
 #eth0 MAC address
 echo hwaddress ether 00:04:25:12:34:56 >> $filename
-#Set the the debug port
+#Set the debug port
 filename=$TARGET_ROOTFS_DIR/etc/inittab
 echo T0:2345:respawn:/sbin/getty -L ttyS0 115200 vt100 >> $filename
 #Set rules to change wlan dongles

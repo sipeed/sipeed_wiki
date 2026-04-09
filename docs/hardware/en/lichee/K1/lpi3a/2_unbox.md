@@ -39,9 +39,9 @@ Purchase instructions:
 
 
 
-##Assemble the board
+## Assemble the board
 
-###SOM installation
+### SOM installation
  
 By default, LM3A SOM is already installed on the motherboard. If you need to upgrade/replace SOM, you can follow the instructions below to remove and install SOM
 

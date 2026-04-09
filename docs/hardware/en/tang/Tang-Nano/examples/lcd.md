@@ -30,7 +30,7 @@ The following picture shows the screenshot about this LCD timing.
 
 ![](./../../../../zh/tang/assets/examples/lcd_pjt_3.png)
 
-The first picture form shows parameters of the screen and the the following picture is its timing. 
+The first picture form shows parameters of the screen and the following picture is its timing. 
 
 From its timing picture, we can know we don't need to set front porch time and back porch time, we just need to set blanking time. 
 

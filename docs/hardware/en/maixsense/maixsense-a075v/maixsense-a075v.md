@@ -53,7 +53,7 @@ Here tells the functions of each widgets.
 - **TemporalFilteralpha** slide bar, set the time for Temporal filtering. Adjust it moderate, can be tested by yourself.
 - **SpatialFilterType** drop-down bar, set the Spatial filtering algorithm, provides Gaussian filtering and Bilateral filtering. Bilateral filtering requires high performance, not recommended.
 - **SpatialFilterSize** slide bar, set the range for Spatial Filter. Adjust it moderate, can be tested by yourself.
-- **FlyingPointFilter** checkbox, control the flying point filter. Set the the following FlyingPointThreshold value as the filtering threshold, those that exceed the threshold will be filtered out. Set it moderate, otherwise the validation points will be filtered out.
+- **FlyingPointFilter** checkbox, control the flying point filter. Set the following FlyingPointThreshold value as the filtering threshold, those that exceed the threshold will be filtered out. Set it moderate, otherwise the validation points will be filtered out.
 
 ### Save data
 
@@ -134,7 +134,7 @@ To begin this, install ROS on your computer first.
 
 **1. Preparation**
 
-Prepare a Linux enviroment for ROS.
+Prepare a Linux environment for ROS.
 
 **2. Install and RUN**
 
@@ -166,7 +166,7 @@ in this way it displays point cloud normally. According to the added content, th
 
 **1. Preparation**
 
-Prepare a Linux enviroment for ROS.
+Prepare a Linux environment for ROS.
 
 **2. Install and RUN**
 

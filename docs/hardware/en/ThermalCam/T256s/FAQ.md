@@ -26,6 +26,7 @@ This document summarizes common issues and troubleshooting methods encountered d
 
 A: This is the **Non-Uniformity Correction (NUC)** process, also known as "shutter calibration." The thermal module periodically closes an internal shutter to calibrate the sensor and compensate for drift caused by temperature changes. The momentary image freeze is a normal part of the operating mechanism.
 
+<<<<<<< HEAD
 ### Q: The app displays "No Signal" or a black screen with no thermal image.
 
 A: Check the physical connection. If the connection is secure but there is still no image, the module may have failed to initialize or the driver is occupied. Try re-plugging the device. If the following prompt persists, please contact technical support:
@@ -36,6 +37,8 @@ A: Check the physical connection. If the connection is secure but there is still
 ![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
 >>>>>>> 4997d99764ef297257d85eb5bfb97dfecbb719a6
 
+=======
+>>>>>>> 04d5051d4523d363b8c6f1f5b45657c36eb2f553
 ### Q: The image has noticeable noise, or the SR detail is not sharp enough.
 
 A: AI Super-Resolution (ISR) performance is affected by the environment and target characteristics:
@@ -85,4 +88,4 @@ A: Yes. The T256s integrates a high-performance AI processing chip which generat
 
 ### Q: Can I use it with Linux or Raspberry Pi?
 
-A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. Please run this as the root user. The VID/PID is typically `359f:ffff`.
+A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. Please run this as the root user. The VID/PID is typically `359f:4201`.
