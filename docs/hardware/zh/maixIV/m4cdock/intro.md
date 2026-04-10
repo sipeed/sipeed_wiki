@@ -1,5 +1,5 @@
 ---
-title: M4-Dock(M4C/M4N)
+title: M4-Dock (M4C/M4N)
 keywords: MAIX-IV, AXera-Pi, Maix3, Sipeed, ax650, axera, sipeed, AI, model, maixhub
 ---
 
@@ -7,7 +7,7 @@ keywords: MAIX-IV, AXera-Pi, Maix3, Sipeed, ax650, axera, sipeed, AI, model, mai
 
 **置顶淘宝链接：[立即购买](https://item.taobao.com/item.htm?id=939632895211) | [M4N（已售罄）](https://item.taobao.com/item.htm?spm=1619a.1.0.0.3f0865abb4Wq5c&id=744014549573&ns=1&abbucket=18#detail)** 
 
-M4-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子，搭载爱芯元智第三代高能效比智能视觉芯片650/8850系列， M4C搭载AX650C与之相比M4N搭载AX650N,内置 AI 算力 72TOPS@INT4 或 18TOPS@INT8，可运行当前热门大模型。
+M4-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子，搭载爱芯元智第三代高能效比智能视觉芯片650/8850系列， M4C搭载AX650C，与之相比M4N搭载AX650N，内置 AI 算力 72TOPS@INT4 或 18TOPS@INT8，可运行当前热门大模型。
 
 AX650N内置ISP支持 8K@30fps，另有爱芯独家 AI ISP，可实现微光夜视。同时含有 H.264 和 H.265 编解码器，支持单路最大 8K@60fps 解码，8K@30ps 编码，实测可稳定 32 路 1080P@30fps 解码，16 路 1080P@30fps 编码。AX650C则不包含ISP。
 
