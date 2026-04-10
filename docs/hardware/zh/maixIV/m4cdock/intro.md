@@ -2,11 +2,11 @@
 
 **置顶淘宝链接：[立即购买](https://item.taobao.com/item.htm?id=939632895211) | [M4N（已售罄）](https://item.taobao.com/item.htm?spm=1619a.1.0.0.3f0865abb4Wq5c&id=744014549573&ns=1&abbucket=18#detail)** 
 
-M4C-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子，搭载爱芯元智第三代高能效比智能视觉芯片 AX650N，内置 AI 算力 72TOPS@INT4 或 18TOPS@INT8，可运行当前热门大模型。
+M4C-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子，搭载爱芯元智第三代高能效比智能视觉芯片 AX650C，内置 AI 算力 72TOPS@INT4 或 18TOPS@INT8，可运行当前热门大模型。
 
 内置ISP支持 8K@30fps，另有爱芯独家 AI ISP，可实现微光夜视。同时含有 H.264 和 H.265 编解码器，支持单路最大 8K@60fps 解码，8K@30ps 编码，实测可稳定 32 路 1080P@30fps 解码，16 路 1080P@30fps 编码。
 
-接口方面，AX650N 支持 64bit LPDDR4x，多路MIPI 输入，千兆 Ethernet、USB3.0 以及 HDMI 2.0b 输出。解码内置高算力和超强编解码能力，满足行业对高性能边缘智能计算的需求。
+接口方面，AX650C 支持 64bit LPDDR4x，多路MIPI 输入，千兆 Ethernet、USB3.0 以及 HDMI 2.0b 输出。解码内置高算力和超强编解码能力，满足行业对高性能边缘智能计算的需求。
 
 本款NPU性能强大，在仅使用单核心时，常用开源 AI 模型表现如下：yolov5s 在 640x640 分辨率图片输入下可达130帧（7.66ms）。mobilenetv2 在 224x224 分辨率图片输入下超达1798帧（0.556ms）。
 
@@ -35,7 +35,7 @@ M4C-Dock 是 Sipeed 公司推出的端侧混合精度高算力边缘计算盒子
 
 ### 硬件相关资料汇总
 
-AX650N 芯片规格书：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
+AX650C 芯片规格书：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 
 ### 软件开发资料汇总
 软件开发文档：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
