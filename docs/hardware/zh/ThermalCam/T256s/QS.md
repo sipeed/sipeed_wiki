@@ -26,10 +26,26 @@ T256s **不内置电池**。您可以采用以下任一方式供电：
 
 T256s 符合标准 UVC (USB Video Class) 协议。在主流操作系统（Windows、Linux、Android）下，设备会被识别为免驱摄像头，无需额外安装额外的驱动程序。
 
+
+
+### macOs 连接
+
+<div style="text-align: center;">
+    <img src="../../../zh/ThermalCam/T256s/assets/20260413-macOs-Camera.png" alt="Photo Booth">
+</div>
+
+![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.png)
+将 T256s 通过 USB 数据线连接至 macOs。
+- **软件预览**：下载Photo Booth ，摄像头选择UVC Camera。
+- **网页预览**：进入[usbkvm.sipeed.com](https://usbkvm.sipeed.com/)，选择UVC Camera。
+
+
+
 ### Windows 连接
 将 T256s 通过 USB 数据线连接至 PC。
 - **设备识别**：打开“设备管理器”，在“照相机”或“图像设备”分类下，您会看到名为 "USB Camera" 或 "T256s Thermal Camera" 的设备。
 - **画面预览**：可以使用 Windows 自带的“相机”应用，或者 OBS Studio、VLC、PotPlayer 等第三方软件。
+
 
 ![DSC08458](../../../zh/ThermalCam/T256s/assets/DSC08458.jpg)
 
