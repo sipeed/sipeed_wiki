@@ -10,7 +10,6 @@
 | +BAUD<br>uart baudrate         | =0: 9600<br>=1: 57600<br>=2: 115200<br>=3: 230400<br>=4: 460800<br>=5: 921600<br>=6: 1000000<br>=7: 2000000<br>=8: 3000000                                                                                     |
 | +UNIT<br>quantization unit     | =0: auto<br>=1-10: quantizated by unit(mm)                                                                                                                                                                     |
 | +FPS<br>frame per second       | =1-19: set frame per second                                                                                                                                                                                    |
-| +Save<br>save config           | : save current configuration                                 |
 
 syntax:
 
@@ -122,15 +121,6 @@ parameter:
 | < FPS > | Meaning |
 |---------|------|
 | 1...19 "frame per second" | tof output frame rate, the bigger the better the smoother |
-
-### SAVE instruction
-syntax:
-
-| Enter | Execute | Comment |
-|------|------|-----|
-| AT+SAVE | \r | The current configuration of the TOF camera is cured, and it needs to be reset afterwards |
-
-Multi-machine and AE instructions are recommended to be added
 
 ### ANTIMMI instruction
 
