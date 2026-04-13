@@ -88,7 +88,7 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 
 ### Android Mobile Usage
 - **Connection:** OTG-compatible phones can be directly connected via the bottom interface.
-- **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**
+- **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**. As the Type-C interface of the thermal imager is designed for downward connection , when using the device with a smartphone, please apply both "Horizontal Mirroring" and "Vertical Mirroring" to ensure the on-screen display aligns with your control movements.
 - **Operation:** Upon insertion, the phone will typically prompt for permission. Tap "OK" to start the thermal image preview.
 
 ![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
