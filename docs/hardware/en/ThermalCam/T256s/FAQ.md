@@ -20,7 +20,18 @@ This document summarizes common issues and troubleshooting methods encountered d
 2. **Permission Authorization:** Upon insertion, the phone should prompt for "Allow the app to access the USB device." Please check "Always allow."
 3. **UVC Support:** Ensure your phone runs Android 9.0 or higher and use UVC-compatible software (such as the official Sipeed app).
 4. **Cross-Verification:** Test the device on a PC or another smartphone to rule out compatibility issues specific to a single mobile terminal.
+
+### Q: The device does not respond at all after connecting to a iOS?
+
+**A:** iOS is not supported at the moment. Please use an iPad or an Android device.
+
+
 ## Display & Imaging
+
+### Q: The image is upside down and the controls are reversed after connecting the device to my phone. What should I do?
+
+A: Due to the orientation of the device interface, you need to enable both "Vertical Flip" (Upside Down) and "Horizontal Flip" (Mirroring) after connecting to ensure the display matches the device's physical orientation.
+
 
 ### Q: The image freezes briefly accompanied by a faint mechanical "clicking" sound.
 

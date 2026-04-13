@@ -26,6 +26,17 @@ Without connecting to a phone or computer, the T256s can function as an independ
 
 The T256s complies with the standard **UVC (USB Video Class)** protocol. On major operating systems (Windows, Linux, Android), the device is recognized as a driverless camera, eliminating the need for additional driver installations.
 
+### macOs Connection
+<div style="text-align: center;">
+    <img src="../../../en/ThermalCam/T256s/assets/20260413-macOs-Camera.png" alt="Photo Booth">
+</div>
+
+![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.png)
+Connect T256s to your macOS device via a USB cable.
+- **Software Preview**: Launch **Photo Booth** and select **UVC Camera** from the camera list.
+- **Web Preview**: Visit [usbkvm.sipeed.com](https://usbkvm.sipeed.com/) and select **UVC Camera**.
+
+
 ### Windows Connection
 Connect the T256s to your PC via a USB data cable.
 - **Device Recognition:** Open "Device Manager." Under the "Cameras" or "Imaging Devices" category, you should see a device named **"USB Camera"** or **"T256s Thermal Camera."**
@@ -88,7 +99,7 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 
 ### Android Mobile Usage
 - **Connection:** OTG-compatible phones can be directly connected via the bottom interface.
-- **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**
+- **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**. As the Type-C interface of the thermal imager is designed for downward connection , when using the device with a smartphone, please apply both "Horizontal Mirroring" and "Vertical Mirroring" to ensure the on-screen display aligns with your control movements.
 - **Operation:** Upon insertion, the phone will typically prompt for permission. Tap "OK" to start the thermal image preview.
 
 ![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)

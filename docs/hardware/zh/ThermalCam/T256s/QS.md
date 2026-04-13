@@ -26,10 +26,26 @@ T256s **不内置电池**。您可以采用以下任一方式供电：
 
 T256s 符合标准 UVC (USB Video Class) 协议。在主流操作系统（Windows、Linux、Android）下，设备会被识别为免驱摄像头，无需额外安装额外的驱动程序。
 
+
+
+### macOs 连接
+
+<div style="text-align: center;">
+    <img src="../../../zh/ThermalCam/T256s/assets/20260413-macOs-Camera.png" alt="Photo Booth">
+</div>
+
+![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.png)
+将 T256s 通过 USB 数据线连接至 macOs。
+- **软件预览**：下载Photo Booth ，摄像头选择UVC Camera。
+- **网页预览**：进入[usbkvm.sipeed.com](https://usbkvm.sipeed.com/)，选择UVC Camera。
+
+
+
 ### Windows 连接
 将 T256s 通过 USB 数据线连接至 PC。
 - **设备识别**：打开“设备管理器”，在“照相机”或“图像设备”分类下，您会看到名为 "USB Camera" 或 "T256s Thermal Camera" 的设备。
 - **画面预览**：可以使用 Windows 自带的“相机”应用，或者 OBS Studio、VLC、PotPlayer 等第三方软件。
+
 
 ![DSC08458](../../../zh/ThermalCam/T256s/assets/DSC08458.jpg)
 
@@ -88,7 +104,7 @@ T256s 符合标准 UVC (USB Video Class) 协议。在主流操作系统（Window
 
 ### Android 移动端使用
 - **连接方式**：支持 OTG 功能的手机可直接插在底部接口。
-- **配套软件**：推荐使用“USB摄像头 (USB Camera)”等支持 UVC 协议的应用程序。
+- **配套软件**：推荐使用“USB摄像头 (USB Camera)”等支持 UVC 协议的应用程序，由于热成像仪的 Type-C 接口设计为朝下接入，在手机上使用时，为了使屏幕画面与您的操作方向保持一致，请将画面进行**水平镜像（左右）并且垂直镜像（上下）**处理。
 - **操作步骤**：插入设备后，手机通常会弹出权限申请，点击“确定”即可预览热像画面。
 
 ![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
