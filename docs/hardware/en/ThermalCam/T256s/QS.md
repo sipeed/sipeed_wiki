@@ -104,6 +104,14 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 
 ![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
 
+
+### iPad Usage
+* **Compatibility:** Please note that **iOS is not supported** (iPhone). This device is compatible only with iPadOS.
+* **Connection:** Plug the device directly into the iPad's data port (USB-C).
+* **Software:** We recommend using apps that support the UVC protocol, such as "**USB Camera**." Since the thermal imager's Type-C connector is designed for a downward orientation, you will need to **rotate the image twice** (270°) in the app settings to align the display with your operating direction.
+* **Operation:** Once the device is plugged in, the iPad will typically prompt for permission. Tap "**OK**" to start the thermal imaging preview.
+
+
 ## Macro Lens Installation
 
 To observe PCB components, gently attach the included macro lens to the front of the thermal imaging module.
