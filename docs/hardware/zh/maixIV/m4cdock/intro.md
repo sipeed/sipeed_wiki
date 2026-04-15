@@ -44,7 +44,8 @@ AX650C/AX650N 芯片规格书：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
 
 ### 软件开发资料汇总
 软件开发文档：https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock
-软件开发SDK：https://github.com/AXERA-TECH/ax650n_bsp_sdk
+软件开发SDK（M4N）：https://github.com/AXERA-TECH/ax650n_bsp_sdk
+软件开发SDK：https://www.ebaina.com/down/240000038900
 
 ### AI 开发资料汇总
 AI工具链（模型转换、仿真、部署，ONNX）
