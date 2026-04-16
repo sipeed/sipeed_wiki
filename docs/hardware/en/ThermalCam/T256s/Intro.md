@@ -5,6 +5,7 @@ The Sipeed T256s is a high-efficiency, portable thermal imaging and temperature 
 ## Product Overview
 
 The design of the T256s centers on three core pillars: **Portability, Clarity, and Ease of Use**. It is ideal for electronics R&D and repair, industrial maintenance inspections, HVAC diagnostics, and scientific research or education. Key highlights include local AI hardware super-resolution, standard UVC protocol compatibility, independent touch-based operation, flexible dual Type-C power design, precision macro detection, and a high-performance CNC aluminum housing for efficient heat dissipation.
+![DSC08402](../../../zh/ThermalCam/T256s/assets/DSC08402.jpg)
 
 ## Core Features
 
@@ -39,23 +40,17 @@ The design of the T256s centers on three core pillars: **Portability, Clarity, a
 - **Industrial Maintenance:** Routine inspection of motors, power distribution cabinets, and transformers to identify overheating hazards.
 - **HVAC Inspection:** Detect building thermal leaks, underfloor heating pipe layouts, and insulation defects.
 - **Scientific Research & Maker Projects:** Utilize raw Y16 data for in-depth thermal analysis or secondary development using open-source tools.
+![Summary](../../../en/ThermalCam/T256s/assets/20260408-SUM.jpg)
 
 ## Visual Illustrations
 
 
-
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
-*Product Tri-view and Dimensions*
-
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![AISR](../../../en/ThermalCam/T256s/assets/20260408-AISR.jpg)
 *AI Super-Resolution Comparison (Left: Native; Right: AI ISR Enhanced)*
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08389](../../../zh/ThermalCam/T256s/assets/DSC08389.jpg)
 *PCB-level Precision Macro Detection*
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08464](../../../zh/ThermalCam/T256s/assets/DSC08464.jpg)
 *Industrial Field Inspection Example*
-
-
-
 

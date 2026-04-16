@@ -20,25 +20,39 @@ Without connecting to a phone or computer, the T256s can function as an independ
 2. **System Loading (Approx. 3-5s):** The system automatically initializes and loads the basic UI framework.
 3. **Sensor Warm-up & Calibration (Approx. 5-10s):** The **infrared module** completes its initial calibration, and the screen begins displaying real-time thermal distribution images.
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08368](../../../zh/ThermalCam/T256s/assets/DSC08368.jpg)
 
 ## UVC Online Mode
 
 The T256s complies with the standard **UVC (USB Video Class)** protocol. On major operating systems (Windows, Linux, Android), the device is recognized as a driverless camera, eliminating the need for additional driver installations.
+
+### macOs Connection
+<div style="text-align: center;">
+    <img src="../../../en/ThermalCam/T256s/assets/20260413-macOs-Camera.png" alt="Photo Booth">
+</div>
+
+![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.png)
+Connect T256s to your macOS device via a USB cable.
+- **Software Preview**: Launch **Photo Booth** and select **UVC Camera** from the camera list.
+- **Web Preview**: Visit [usbkvm.sipeed.com](https://usbkvm.sipeed.com/) and select **UVC Camera**.
+
 
 ### Windows Connection
 Connect the T256s to your PC via a USB data cable.
 - **Device Recognition:** Open "Device Manager." Under the "Cameras" or "Imaging Devices" category, you should see a device named **"USB Camera"** or **"T256s Thermal Camera."**
 - **Image Preview:** You can use the built-in Windows "Camera" app or third-party software such as OBS Studio, VLC, or PotPlayer.
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08458](../../../zh/ThermalCam/T256s/assets/DSC08458.jpg)
 
 ### Linux / Raspberry Pi Recognition
 In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 - **Recommended Tools:** Use `guvcview`, `cheese`, or `ffmpeg` for testing.
 - **Log Verification:** After plugging in the device, execute the `dmesg` command in the terminal to view recognition logs.
 
-**Example Recognition Log (from actual device):**
+![DSC08448](../../../zh/ThermalCam/T256s/assets/DSC08448.jpg)
+
+<details><summary>Example Recognition Log (from actual device)</summary>
+
 ```text
 [102310.868452] usb 1-7.4.2: new high-speed USB device number 35 using xhci_hcd
 [102310.966974] usb 1-7.4.2: New USB device found, idVendor=359f, idProduct=ffff, bcdDevice= 4.19
@@ -81,15 +95,19 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 [102317.350175] sd 8:0:0:0: [sdb] Attached SCSI removable disk
 ```
 
+</details>
+
 ### Android Mobile Usage
 - **Connection:** OTG-compatible phones can be directly connected via the bottom interface.
-- **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**
+- **Software:** We recommend using apps that support the UVC protocol, such as **"USB Camera."**. As the Type-C interface of the thermal imager is designed for downward connection , when using the device with a smartphone, please apply both "Horizontal Mirroring" and "Vertical Mirroring" to ensure the on-screen display aligns with your control movements.
 - **Operation:** Upon insertion, the phone will typically prompt for permission. Tap "OK" to start the thermal image preview.
 
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
+![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
 
 ## Macro Lens Installation
 
 To observe PCB components, gently attach the included macro lens to the front of the thermal imaging module.
 - **Working Distance:** Approximately 5cm.
 - **Effect:** Enables clear visualization of heat distribution on tiny components, such as **0402 surface-mount resistors**.
+
+![DSC08429](../../../zh/ThermalCam/T256s/assets/DSC08429.jpg)

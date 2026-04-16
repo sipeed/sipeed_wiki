@@ -10,7 +10,6 @@
 | +BAUD<br>uart baudrate         | =0: 9600<br>=1: 57600<br>=2: 115200<br>=3: 230400<br>=4: 460800<br>=5: 921600<br>=6: 1000000<br>=7: 2000000<br>=8: 3000000                                                                                     |
 | +UNIT<br>quantization unit     | =0: auto<br>=1-10: quantizated by unit(mm)                                                                                                                                                                     |
 | +FPS<br>frame per second       | =1-19: set frame per second                                                                                                                                                                                    |
-| +Save<br>save config           | : save current configuration                                 |
 
 句法：
 
@@ -123,15 +122,6 @@
 | < FPS > | 含义 |
 |---------|------|
 | 1...19 "frame per second" | tof出图帧率，越大越流畅 |
-
-### SAVE指令
-句法：
-
-| 输入 | 执行 | 注释 |
-|------|------|-----|
-| AT+SAVE | \r | 固化TOF摄像头当前配置，事后需要复位 |
-
-多机和 AE 指令建议加入
 
 ### ANTIMMI指令
 句法：

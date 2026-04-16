@@ -20,17 +20,22 @@ This document summarizes common issues and troubleshooting methods encountered d
 2. **Permission Authorization:** Upon insertion, the phone should prompt for "Allow the app to access the USB device." Please check "Always allow."
 3. **UVC Support:** Ensure your phone runs Android 9.0 or higher and use UVC-compatible software (such as the official Sipeed app).
 4. **Cross-Verification:** Test the device on a PC or another smartphone to rule out compatibility issues specific to a single mobile terminal.
+
+### Q: The device does not respond at all after connecting to a iOS?
+
+**A:** iOS is not supported at the moment. Please use an iPad or an Android device.
+
+
 ## Display & Imaging
+
+### Q: The image is upside down and the controls are reversed after connecting the device to my phone. What should I do?
+
+A: Due to the orientation of the device interface, you need to enable both "Vertical Flip" (Upside Down) and "Horizontal Flip" (Mirroring) after connecting to ensure the display matches the device's physical orientation.
+
 
 ### Q: The image freezes briefly accompanied by a faint mechanical "clicking" sound.
 
 A: This is the **Non-Uniformity Correction (NUC)** process, also known as "shutter calibration." The thermal module periodically closes an internal shutter to calibrate the sensor and compensate for drift caused by temperature changes. The momentary image freeze is a normal part of the operating mechanism.
-
-### Q: The app displays "No Signal" or a black screen with no thermal image.
-
-A: Check the physical connection. If the connection is secure but there is still no image, the module may have failed to initialize or the driver is occupied. Try re-plugging the device. If the following prompt persists, please contact technical support:
-
-![占位图](../../../zh/ThermalCam/T256s/assets/no-image-signal.jpg)
 
 ### Q: The image has noticeable noise, or the SR detail is not sharp enough.
 
@@ -81,4 +86,4 @@ A: Yes. The T256s integrates a high-performance AI processing chip which generat
 
 ### Q: Can I use it with Linux or Raspberry Pi?
 
-A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. Please run this as the root user. The VID/PID is typically `359f:ffff`.
+A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. Please run this as the root user. The VID/PID is typically `359f:4201`.
