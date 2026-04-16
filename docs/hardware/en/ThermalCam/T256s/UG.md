@@ -28,7 +28,7 @@ When not connected to a host computer, the T256s functions as a standalone therm
 ![DSC08448](../../../zh/ThermalCam/T256s/assets/DSC08448.jpg)
 ![DSC08444](../../../zh/ThermalCam/T256s/assets/DSC08444.jpg)
 
-The T256s is UVC-compliant and supports two primary video stream outputs. Choose the appropriate format based on your development needs.
+The T256s is UVC-compliant and supports two primary video stream outputs. Choose the appropriate format based on your development needs.**Supports iPad, but not iPhone.**
 
 ### MJPEG Format (Preview & Display)
 - **Purpose:** Standard video preview. Compatible with OBS, VLC, or the native Windows Camera app.
@@ -90,3 +90,4 @@ Note: Methods for capturing the Y16 stream depend on your platform (e.g., OpenCV
 - **Warm-up:** Allow the device to reach thermal equilibrium (approx. 2 minutes) to minimize **thermal drift**.
 - **Emissivity:** When measuring low-emissivity objects (like shiny metals), apply electrical tape or matte black paint to the surface. This increases the infrared radiation received by the detector, ensuring accurate data.
 - **Resource Conflict:** UVC devices generally do not support multiple simultaneous connections. Ensure only one application is accessing the camera at a time.
+- **iOS Support**: Currently **unavailable** due to Apple's UVC device whitelisting mechanism.
