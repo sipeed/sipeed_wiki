@@ -17,7 +17,7 @@ NanoKVM Pro 是 NanoKVM 的延续，作为 IP-KVM 产品继承了 NanoKVM 系列
 
 ![](./../../../assets/NanoKVM/pro/introduce/combine.png)
 
-NanoKVM-Desk 意为桌面版NanoKVM Pro，主体采用阳极氧化的磨砂金属外壳，前面板使用1.47寸触摸屏显示KVM核心信息，并且可以方便设置硬件功能，或作为mini副屏使用，搭配左侧无极旋钮获得更有质感的使用体验。
+NanoKVM-Desk 意为桌面版NanoKVM Pro，主体采用阳极氧化的磨砂金属外壳，前面板使用1.47寸触摸屏显示KVM核心信息，并且可以方便设置硬件功能，或作为mini副屏使用，搭配右侧无极旋钮获得更有质感的使用体验。
 
 NanoKVM-ATX 是NanoKVM Pro的机箱内版本，标配半高/全高挡板可安装在机箱内部，由于可以内置的USB线缆[3]和电源控制接口更方便主机用户安装。通过外部连接HDMI接口、网线和USB即可实现远程控制。
 
