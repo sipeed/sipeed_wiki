@@ -21,7 +21,7 @@ update:
 
 - Product Overview
 
-  Tang Mega 138K uses a 22nm process GW5AST-LV138FPG676A FPGA chip, which has 138,240 lookup table units and nearly 300 DSP units. It contains eight high-speed transceivers with a speed range of 270Mbps ~ 12.5Gbps, suitable for transmitting data through high-speed ports such as fiber optics or PCIE. In addition, the chip contains a hard-core PCIE, which consumes better resources when using PCIE and achieves better performance. It is suitable for high-speed communication, protocol conversion, high-performance computing, and other occasions.
+  Tang Mega 138K uses a 22nm process GW5AST-LV138FPG676AC1/I0 FPGA chip, which has 138,240 lookup table units and nearly 300 DSP units. It contains eight high-speed transceivers with a speed range of 270Mbps ~ 12.5Gbps, suitable for transmitting data through high-speed ports such as fiber optics or PCIE. In addition, the chip contains a hard-core PCIE, which consumes better resources when using PCIE and achieves better performance. It is suitable for high-speed communication, protocol conversion, high-performance computing, and other occasions.
 
   aliexpress purchase link: [Click me](https://www.aliexpress.us/item/3256805893801730.html)
 

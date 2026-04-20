@@ -17,7 +17,7 @@ To meet different user needs, NanoKVM Pro offers two forms: NanoKVM-Desk and Nan
 
 ![](./../../../assets/NanoKVM/pro/introduce/combine.png)
 
-NanoKVM-Desk is the desktop version of NanoKVM Pro, featuring an anodized matte metal shell. The front panel has a 1.47-inch touchscreen that displays core KVM information and allows for easy hardware function settings or can be used as a mini secondary screen, providing a more tactile user experience with the left-side infinite knob.
+NanoKVM-Desk is the desktop version of NanoKVM Pro, featuring an anodized matte metal shell. The front panel has a 1.47-inch touchscreen that displays core KVM information and allows for easy hardware function settings or can be used as a mini secondary screen, providing a more tactile user experience with the right-side infinite knob.
 
 NanoKVM-ATX is the internal version of NanoKVM Pro, equipped with half-height/full-height brackets for installation inside a case. It allows for easier installation for host users with built-in USB cables and power control interfaces. Remote control can be achieved via external HDMI, network, and USB connections.
 
