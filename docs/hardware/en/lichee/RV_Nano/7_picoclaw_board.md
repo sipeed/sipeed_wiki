@@ -79,7 +79,7 @@ Then log in with SSH or serial. Default username/password are both `root`. After
 On first boot, PicoClaw is not initialized yet. You need initial configuration first. You can use Web UI or TUI. The following uses Web UI.
 
 #### Web UI Setup
-Open `http://<device-ip>:18080` in your browser. A token is required on first access; currently the default token is `root`.
+Open `http://<device-ip>:18800` in your browser. A token is required on first access; currently the default token is `root`.
 
 #### Chat Model Setup
 Open settings, select **Model**, then choose a provider and model. For example, you can use `openai/gpt-5.4` as the default model.
