@@ -29,8 +29,7 @@ PMOD_Thermal32安装方式
 <img src="../../assets/maixcam/th32_2.jpg" width="400" height="300">
 
 参考使用代码：  
-https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/thermography_mlx90640/mlx90640_example.py
-
+<https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/thermography_mlx90640/mlx90640_example.py>
 
 ## PMOD_TOF100
 
@@ -52,16 +51,14 @@ PMOD_TOF100安装方式
 | MaixCAM Pro | <img src="../../assets/maixcam/pmod_tof100.jpg" width="400" height="300"> |
 | MaixCAM2            | <img src="../../assets/maixcam/pmod_tof100_maixcam2.jpg" width="400" height="300"> |
 
-
-单深度伪彩显示   
+单深度伪彩显示
 <img src="../../assets/maixcam/tof100_1.jpg" width="400" height="300">
 
 深度+可见光融合显示
 <img src="../../assets/maixcam/tof100_2.jpg" width="400" height="300">
 
 参考使用代码：  
-https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/tof100/tof100_example.py
-
+<https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/tof100/tof100_example.py>
 
 ## PMOD_Thermal160
 
@@ -83,7 +80,7 @@ PMOD_Thermal160安装方式
 | MaixCAM Pro | <img src="../../assets/maixcam/maixcam_pmod_thermal160.jpg" width="400" height="300"> |
 | MaixCAM2            | <img src="../../assets/maixcam/maixcam2_pmod_thermal160.jpg" width="400" height="300"> |
 
-> 参考代码在未来支持
+参考使用代码：<https://github.com/sipeed/MaixPy/blob/dev/projects/app_thermal160_camera/main.py>
 
 ## PMOD_Thermal256
 
@@ -106,6 +103,5 @@ PMOD_Thermal256安装方式
 | MaixCAM2            | <img src="../../assets/maixcam/maixcam2_pmod_thermal256.jpg" width="400" height="300"> |
 
 参考使用代码：
-https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/tiny1c_example.py
+<https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/tiny1c_example.py>
 > 如果要使用该示例，请先删除于`x3c_192x256`相关的代码
-
