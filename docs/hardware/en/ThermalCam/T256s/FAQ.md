@@ -76,7 +76,7 @@ A: 1. Ensure no other programs are occupying the UVC camera; 2. Try manually swi
 
 ### Q: How do I update the firmware for better AI capabilities?
 
-A: T256s supports OTA updates via a PC firmware upgrade tool. Please visit the Sipeed Download Station for the latest firmware packages. Do not disconnect power during the upgrade. If an upgrade failure causes a boot loop (stuck on Logo), refer to the official "Blind Flash" recovery tutorial.
+A: T256s supports OTA updates via a PC firmware upgrade tool. Please visit the Sipeed Download Station for the latest firmware packages. Do not disconnect power during the upgrade. If a power outage causes the upgrade to fail and the device is unable to boot (black screen), please return it to the official service center for repair at your own expense.
 
 ## Miscellaneous
 
