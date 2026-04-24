@@ -50,17 +50,21 @@ Project URL: <https://github.com/sipeed/picoclaw>
 
 Customized PicoClaw expansion-board image:
 
-[Download](https://github.com/sipeed/LicheeRV-Nano-Build/releases)
+[Download](https://github.com/sipeed/rvclaw/releases/latest)
 
 File name: `picoclaw-rv-nano-YYYYMMDD.img.xz`
 
 - Flashing method: You can use balenaEtcher to write the image directly to an SD card, or extract the `.xz` file first and then flash it using the `dd` command.
 
-- Expansion-board side code in the image is based on Python, located at `/opt/app_picoclaw`, which is convenient for custom development.
+- Expansion-board side code in the image is based on Python, located at `/opt/app_picoclaw` (source: [https://github.com/sipeed/rvclaw](https://github.com/sipeed/rvclaw)), which is convenient for custom development.
 
 ## Quick Start
 
-### 1. Network Connection
+### 1. Select an Application
+
+After startup, the system enters the application selection screen by default. Press `KEY1` to select the PicoClaw application, or press `KEY2` to select the CC Buddy application. CC Buddy is a customized virtual pet application that provides a cute interactive interface and simple conversation features, making it suitable for first-time users to try out.
+
+### 2. Network Connection
 
 First, access the device console. Recommended methods:
 
@@ -74,7 +78,7 @@ First, access the device console. Recommended methods:
 
 Then log in with SSH or serial. Default username/password are both `root`. After login, follow [Peripheral Usage](https://wiki.sipeed.com/hardware/en/lichee/RV_Nano/5_peripheral.html#WIFI) to connect Wi-Fi.
 
-### 2. Configure PicoClaw
+### 3. Configure PicoClaw
 
 On first boot, PicoClaw is not initialized yet. You need initial configuration first. You can use Web UI or TUI. The following uses Web UI.
 
