@@ -76,7 +76,20 @@ A: 1. Ensure no other programs are occupying the UVC camera; 2. Try manually swi
 
 ### Q: How do I update the firmware for better AI capabilities?
 
-A: T256s supports OTA updates via a PC firmware upgrade tool. Please visit the Sipeed Download Station for the latest firmware packages. Do not disconnect power during the upgrade. If a power outage causes the upgrade to fail and the device is unable to boot (black screen), please return it to the official service center for repair at your own expense.
+A: The T256s supports OTA updates. Please download the latest firmware package from the Sipeed download site. Do not power off the device during the update. If the update fails due to a power cut and the device cannot boot (black screen), please contact official support for return/exchange.
+
+First, [obtain the firmware package](https://dl.sipeed.com/shareURL/ThermalCam/T256s/firmware). Filename format: sipeed-thermal-camera-vXXXXX.OTA.
+
+Update steps:
+
+1. Connect the device to a PC via USB; the device will appear as a removable disk (USB drive).
+2. Open that drive, move the firmware package to the root directory of the USB drive, then perform “Safely Remove / Eject / Unmount” on the PC to unmount the drive (do not unplug).
+3. At this point the device will continue to operate normally while the update runs in the background. It is expected to automatically reboot after about 20–25 seconds. During reboot there will be a black screen for approximately 15 seconds while the update finalizes; afterward the normal boot screen will appear and the device will start up.
+**Warning: Keep the device powered until it boots normally; do not cut power. If the device becomes bricked as a result, contact official support for return/exchange.**
+
+Q: How do I check the current version number?
+
+A: Press and hold the capture button to view the current firmware version.
 
 ## Miscellaneous
 
