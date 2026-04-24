@@ -314,7 +314,7 @@ arecord -Dhw:0,0 -d 3 -r 48000 -f S16_LE -t wav test.wav & > /dev/null &
 ### 播放
 
 ```shell
-./aplay -D hw:1,0 -f S16_LE test.wav
+aplay -D hw:1,0 -f S16_LE test.wav
 ```
 
 ## GPIO
