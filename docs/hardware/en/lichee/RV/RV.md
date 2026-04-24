@@ -15,7 +15,7 @@ Lichee RV - Nezha CM is a compute module with modular design, equipped with Allw
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU                  | Allwinner D1 chip (Based on T-Head XuanTie C906 core) up to 1GHZ                                                                                                                                                                  |
 | RAM                  | 16bits 512MB DDR3，Up to 792MHz                                                                                                                                                                                                   |
-| Storage               | Onboard TF card slot，can use tf card for storing,1TB storage capacity have been tested ok <br>Reserve SD-NAND pads (Conflict with 8pins lcd interface. using for business custom made )                                                                                    |
+| Storage               | Onboard TF card slot，can use TF card for storing,1TB storage capacity have been tested ok <br>Reserve SD-NAND pads (Conflict with 8pins lcd interface. using for business custom made )                                                                                    |
 | Display              | **MIPI**：4-lane MIPI DSI <br>**RGB**：RGB888 interface(partially multiplexed with DSI) <br>**MCU** : I80 interface<br>**SPI**：Onboard 8pins SPI screen interface，can be used for 1.14 inch screen                              |
 | Audio                | Analog audio headphone output(HPOUT); <br>Analog audio line input(LINEIN); <br>Digital Audio (I2S/SPDIF); <br>Analog microphone interface(MIC3);<br>Digital microphone interface(DMIC);<br>All above pin out to connecting finger |
 | Ethernet             | Pin out RMII/RGMII to connecting finger (Multiplexed with some GPIOs)                                                                                                                                                             |
@@ -96,7 +96,7 @@ If you want to build your own custom image, you can visit the BSP SDK in the fol
 
 [BSP SDK](./user.html#BSP-SDK-development)
 
-## Pre made images
+## Pre-made images
 [**Sipeed Lichee RV** Archlinux 6.1.0-rc3 with LED and 1.14 Display support](https://github.com/miloserdev/sunxi_licheerv)  
 Default login `root` and password `archriscv`  
 ```console

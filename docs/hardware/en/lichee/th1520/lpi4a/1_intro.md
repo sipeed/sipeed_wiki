@@ -54,7 +54,7 @@ For quality contributions to the docs, we offer discount coupons from ¥5 to ¥1
 </tr>
 <tr>
   <td>CPU</td>
-  <td>RISC-V 64GCV C910*4@1.85GHz <br>· Each core contains 64KB I cache amd 64KB D Cache <br>· 1MB of Shared L2 Cache <br>· Support TEE and REE, configured during core booting<br>· Support multi-core debugging framework of custom and RISC-V compatible interface<br>· Independent power domain, supports DVFS</td>
+  <td>RISC-V 64GCV C910*4@1.85GHz <br>· Each core contains 64KB I cache and 64KB D Cache <br>· 1MB of Shared L2 Cache <br>· Support TEE and REE, configured during core booting<br>· Support multi-core debugging framework of custom and RISC-V compatible interface<br>· Independent power domain, supports DVFS</td>
 </tr>
 <tr>
   <td>GPU</td>

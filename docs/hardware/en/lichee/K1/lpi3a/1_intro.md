@@ -11,7 +11,7 @@ update:
 
 ## Intro
 
-LicheePi 3A is based on the [Lichee Module 3A](http://wiki.sipeed.com/hardware/zh/lichee/K1/lm3a.html)High performance RISC-V Linux development board for the core board, with [K1](https://www.spacemit.com/key-stone-k1/) SOC（ 8xX60@1.6G ， RV64GCV， 2TOPS@int8   NPU， 20GFLOP GPU）， Onboard maximum 16GB 32-bit LPDDR4X, 128GB eMMC, supports HDMI+MIPI dual 1080P display output, supports 16MP camera access, dual gigabit Ethernet ports (one of which supports POE power supply) and 4 USB3.0 interfaces, as well as 2 PCIE Gen2x2 channels, multiple audio input and output.
+LicheePi 3A is based on the [Lichee Module 3A](http://wiki.sipeed.com/hardware/zh/lichee/K1/lm3a.html)high-performance RISC-V Linux development board for the core board, with [K1](https://www.spacemit.com/key-stone-k1/) SOC（ 8xX60@1.6G ， RV64GCV， 2TOPS@int8   NPU， 20GFLOP GPU）， Onboard maximum 16GB 32-bit LPDDR4X, 128GB eMMC, supports HDMI+MIPI dual 1080P display output, supports 16MP camera access, dual gigabit Ethernet ports (one of which supports POE power supply) and 4 USB3.0 interfaces, as well as 2 PCIE Gen2x2 channels, multiple audio input and output.
 
 ![lpi3a](./assets/intro/lpi3a.jpg)
 ![pcie](./assets/intro/pcie.png)

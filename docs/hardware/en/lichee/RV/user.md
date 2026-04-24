@@ -4,7 +4,7 @@
 
 ### Connect Board
 
-- We can easily note the TX and RX pins marked on the bottom of motherboard, so we can use serial port of the ttl level wo communicate with computer(Both Tina and Debian os are OK).
+- We can easily note the TX and RX pins marked on the bottom of motherboard, so we can use serial port of the ttl level to communicate with computer(Both Tina and Debian os are OK).
 
 - For Tina OS we can use typeC cable to connect the core board with computer and use adb shell to communicate.
 
@@ -14,10 +14,10 @@
 
 It may run slow because of the speed of TF card.
 
-The users name is `root` and password is `licheepi`
+The username is `root` and password is `licheepi`
 
 **When using serial port connection board it always print kernel message, do following steps to stop it:**
-- Edit `/etc/rsyslog.conf` by root and change `*.emerg` located in lht last line into `#*.emerg` in this file
+- Edit `/etc/rsyslog.conf` by root and change `*.emerg` located in the last line into `#*.emerg` in this file
 - Restart rsyslog service by this command `/etc/init.d/rsyslog restart`
 
 **Want to use terminal in GUI**
@@ -25,7 +25,7 @@ The users name is `root` and password is `licheepi`
 
 ### Light LED
 
-After succeed login OS(Both Tina and Debian are OK), we can stat blink LED.
+After successfully logging into the OS(Both Tina and Debian are OK), we can start to blink the LED.
 
 There is an LED beside the screw fixing pad on the core board, This can be found in the dimension drawing:
 
@@ -34,7 +34,7 @@ There is an LED beside the screw fixing pad on the core board, This can be found
   <img src="./../../../zh/lichee/assets/RV/rv_coreboard_dimension.png">
 </details>
 
-And from the [schematic](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic) we can know the led connects with PC0 pin, and we can figure out its siginal number is ('C'-'A')x32+0 = 2x32+0=64 
+And from the [schematic](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/HDK/2_Schematic) we can know the led connects with PC0 pin, and we can figure out its signal number is ('C'-'A')x32+0 = 2x32+0=64 
 
 We can also know the IO multiplexing table from pinmux-pins file
 
@@ -74,7 +74,7 @@ We should cancel export if we don't use this IO.
 echo 64 > /sys/class/gpio/unexport    # cancel export GPIO64
 ```
 
-Up to now we have succeeded Lighting led on RISC-V 64 D1.
+Up to now we have succeeded in lighting the LED on RISC-V 64 D1.
 
 You can also  light on the serial RGB LED ws2812:
 
@@ -190,7 +190,7 @@ If the USB flash disk has not been formatted, you can use `mkfs.vfat` command to
   Then restart board(Use command `reboot`), use these two commands `ifconfig wlan0 up`; `udhcpc -iwlan0`  to connect wifi.
   Then we can use ssh to remote login or use scp to transfer files by network.
 
-##### **debian OS**
+##### **Debian OS**
 
 It's not supported to use command line to connect network
 
@@ -198,7 +198,7 @@ It's not supported to use command line to connect network
 
   ![](./../../../zh/lichee/assets/RV/wifi-1.jpg)
 
-  After succeeding connecting network, we can see the network IP
+  After successfully connecting to the network, we can see the network IP
 
   ![](./../../../zh/lichee/assets/RV/wifi-2.jpg)
 
@@ -253,7 +253,7 @@ Because it's decoded by cpu, so the Maximum screen resolution test is 750x540 , 
 
 <iframe src="https://player.bilibili.com/player.html?aid=209723771&bvid=BV1xa411r7PP&cid=457742249&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-#### Microphone array(For debian OS only)
+#### Microphone array(For Debian OS only)
 
 Connect board with microphone array (make sure not reverse the cable or not reverse the pin  ), then run `sudo ./micarr_0609` in terminal.
 
@@ -269,9 +269,9 @@ If your device display incorrectly, go to [Questions&Answers](./problems.md) to 
 
 Here we just show simple usage about this board, the usage for [Dock](#use-dock-motherboard) also can be used for 86Panel (Except Light LED by PC0 pins)
 
-For tina os there is no GUI, so we use debian as example.
+For Tina OS there is no GUI, so we use debian as example.
 
-After finishing burning debian OS, insert mirror card into the board, wait about 2 minutes to see the desktop displays on the screen, during which you can see log form uart port.
+After finishing burning Debian OS, insert mirror card into the board, wait about 2 minutes to see the desktop displays on the screen, during which you can see log form uart port.
 
 ![attachmentId-2734](./../../../zh/lichee/assets/RV/LicheeRV_login_picture.png)
 
@@ -279,7 +279,7 @@ Username `sipeed` and Password `licheepi`, use mouse and keyboard to operate it.
 
 ![attachmentId-2735](./../../../zh/lichee/assets/RV/desktop_appearance.png)
 
-Then we can de some basic operations.
+Then we can do some basic operations.
 
 - Use `Alt+F2` to run "run", then input `termit` to new a terminal command line.
 
@@ -289,7 +289,7 @@ Let's try to compile and run hello world
 
 ![attachmentId-2737](./../../../zh/lichee/assets/RV/Run_HelloWorld.png)
 
-We also provide 720P 720p high-definition screen, you can try this if you have enough money。
+We also provide 720P high-definition screen, you can try this if you have enough money。
 
 When you use this you need to overwrite the board-level configuration to set it in correct configurations to display.[Click here](problems.html#86-panel-screen-no-display-display-wrong) to see more details.
 
@@ -324,7 +324,7 @@ Same as operating dock motherboard.
 
 #### Touch screen test
 
-<font color=#16B2C>Only tina OS incorporates touch demo</font>
+<font color=#16B2C>Only Tina OS incorporates touch demo</font>
 
 IF you buy 86panel package, just use command `ts_test` to test touch screen
 
@@ -349,7 +349,7 @@ gzip -d licheerv_d1_compile.tar.gz                                #Decompress in
 docker import licheerv_d1_compile.tar licheerv_d1_compile:latest  #import docker image
 ```
 
-After succeed running it's suggested to relogin and username `nihao` password `sipeed123`
+After succeeding it's suggested to relogin and username `nihao` password `sipeed123`
 
 ```bash
 sudo docker run -it licheerv_d1_compile:latest /bin/bash # Start D1 compile docker image in interactive mode
