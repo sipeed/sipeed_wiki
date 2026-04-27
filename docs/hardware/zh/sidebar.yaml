@@ -477,6 +477,8 @@ items:
             file: logic_analyzer/combo8/update_firmware.md
         -   label: 常见问题(FAQ)
             file: logic_analyzer/combo8/faq.md
+        -   label: ngscopeclient
+            file: logic_analyzer/ngscopeclient/ngscopeclient.md
 
     -   label: SLogic16U3
         items:
@@ -488,6 +490,9 @@ items:
             file: logic_analyzer/slogic16u3/Software_User_Guide.md
         -   label: FAQ
             file: logic_analyzer/slogic16u3/FAQ.md
+        -   label: ngscopeclient
+            file: logic_analyzer/ngscopeclient/ngscopeclient.md
+
 -   label: ThermalCam
     items:
     -   label: Sipeed T256s
