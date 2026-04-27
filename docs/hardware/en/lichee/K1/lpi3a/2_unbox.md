@@ -11,7 +11,7 @@ update:
 
 ## Unbox Contents
 
-### Basic Suit
+### Basic Suite
 
 The package you received contains the following packaging:
 ![package](./assets/unbox/package_v1.jpg)
@@ -69,7 +69,7 @@ By default, LM3A SOM is already installed on the motherboard. If you need to upg
 
 ### Installation of radiator
 
-LicheePi 3A is a high-performance SBC that requires the installation of an active heat sink to dissipate heat from the SOM. Otherwise, it may automatically downshift due to core overheating at full load, resulting in suboptimal performance.
+LicheePi 3A is a high-performance SBC that requires the installation of an active heat sink to dissipate heat from the SOM. Otherwise, it may automatically throttle due to core overheating at full load, resulting in suboptimal performance.
 
 1. Install thermal conductive silicone grease sheet
 Remove the thermal conductive silicone grease sheet, tear off both sides of the film, place the silicone grease sheet in the position shown in the figure and gently press it to fix it (the silicone grease sheet has a certain degree of viscosity to fix it), paying attention to fully covering the main chip and two memory chips

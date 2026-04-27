@@ -37,13 +37,13 @@ We upload this image file on [mega](https://mega.nz/folder/1FxlVKrA#nONEKgZWKBze
 
 ### Software
 
-Visit [balenaEtcher](https://www.balena.io/etcher/) to download application. We have upload Windows edition software in our [Download station](https://dl.sipeed.com/shareURL/others/balenaEtcher), other edition can be downloaded from [balenaEtcher official site](https://www.balena.io/etcher/).
+Visit [balenaEtcher](https://www.balena.io/etcher/) to download application. We have uploaded Windows edition software in our [Download station](https://dl.sipeed.com/shareURL/others/balenaEtcher), other edition can be downloaded from [balenaEtcher official site](https://www.balena.io/etcher/).
 
 ### Flash System
 
 Prepare a SD card over 8G, the card with better performance can have better experience.
 
-Connect the TF card with computer by SD card reader or SD card slot in the computer. Here is an example about SD card slot in computer, if your computer dose not have SD card slot, you need the SD card reader.
+Connect the TF card with computer by SD card reader or SD card slot in the computer. Here is an example about SD card slot in computer, if your computer does not have SD card slot, you need the SD card reader.
 
 <table>
     <tr>
@@ -115,7 +115,7 @@ See `successfully`, then we have already connected to the wifi, and commands lik
 
 We can blink led on our board by this Ubuntu system like what we have done on Tina, here are the codes:
 
-Tuen on LED :
+Turn on LED :
 
 ```bash
 echo 1 > /sys/class/leds/\:status/brightness
@@ -135,7 +135,7 @@ echo 0 > /sys/class/leds/\:status/brightness
 
 ## In the end
 
-Based in [Ubuntu LicheeRV image](https://wiki.ubuntu.com/RISC-V/LicheeRV), we packed the wireless driver inside, which make user more convenient to experience this system.
+Based on [Ubuntu LicheeRV image](https://wiki.ubuntu.com/RISC-V/LicheeRV), we packed the wireless driver inside, which makes it more convenient for users to experience this system.
 
 ## Questions
 

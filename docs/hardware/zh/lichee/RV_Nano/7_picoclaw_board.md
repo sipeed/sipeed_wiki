@@ -50,17 +50,21 @@ PicoClaw 主要特性包括：
 
 PicoClaw 扩展板定制镜像下载：
 
-[下载地址](https://github.com/sipeed/LicheeRV-Nano-Build/releases)
+[下载地址](https://github.com/sipeed/rvclaw/releases/latest)
 
 文件：picoclaw-rv-nano-YYYYMMDD.img.xz
 
 - 烧录方式：可使用 balenaEtcher 直接将镜像烧录进 SD 卡；也可先解压 `.xz` 文件后，使用 `dd` 命令进行烧录。
 
-- 镜像内扩展板功能代码基于 Python，位于 `/opt/app_picoclaw` 目录下，便于按需二次开发和自定义。
+- 镜像内扩展板功能代码基于 Python，位于 `/opt/app_picoclaw`（源码：[https://github.com/sipeed/rvclaw](https://github.com/sipeed/rvclaw)），便于按需二次开发和自定义。
 
 ## 快速上手
 
-### 1. 连接网络
+### 1. 选择应用
+
+应用默认启动后进入应用选择界面，按下 `KEY1` 键选择 PicoClaw 应用，按下 `KEY2` 键选择 CC Buddy 应用。CC Buddy 自定义的虚拟宠物应用，提供了一个可爱的交互界面和简单的对话功能，适合初次使用者体验。
+
+### 2. 连接网络
 
 首先需要进入设备控制台，推荐以下两种方式：
 
@@ -74,7 +78,7 @@ PicoClaw 扩展板定制镜像下载：
 
 然后可以使用 SSH 工具或者串口工具登录设备，默认用户名和密码均为 `root`。登录进设备后可以按照[外设使用](https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/5_peripheral.html#WIFI)中的方法连接 Wi-Fi。
 
-### 2. 配置 PicoClaw
+### 3. 配置 PicoClaw
 
 第一次进入系统后，PicoClaw 还未完成初始化，需要先进行配置。可以使用 Web UI 或者 TUI 进行配置，以下以 Web UI 为例：
 
