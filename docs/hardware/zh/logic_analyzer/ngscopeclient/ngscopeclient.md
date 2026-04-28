@@ -192,7 +192,7 @@ LABEL="sipeed_rules_end"
 
 **进一步：协议解码**
 
-把数字波形拖进 [Protocol Analyzer](https://www.ngscopeclient.org/manual/) 就能解 UART、I²C、SPI、CAN 等协议——这是 ngscopeclient 比传统 sigrok GUI 强的地方。
+把数字波形拖进 [Protocol Analyzer](https://www.ngscopeclient.org/protocol-analysis) 就能解 UART、I²C、SPI、CAN 等协议——这是 ngscopeclient 比传统 sigrok GUI 强的地方。
 
 > 📷 **SPI解码参考图**：数字波形和协议解码结果。
 >
