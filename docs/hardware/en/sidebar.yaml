@@ -477,6 +477,8 @@ items:
             file: logic_analyzer/combo8/use_fouruart_function.md
         -   label: Update Firmware
             file: logic_analyzer/combo8/update_firmware.md
+        -   label: ngscopeclient
+            file: logic_analyzer/ngscopeclient/ngscopeclient.md
         -   label: FAQ
             file: logic_analyzer/combo8/faq.md
 
@@ -488,6 +490,8 @@ items:
             file: logic_analyzer/slogic16u3/Hardware_Specification.md
         -   label: Software User Guide
             file: logic_analyzer/slogic16u3/Software_User_Guide.md
+        -   label: ngscopeclient
+            file: logic_analyzer/ngscopeclient/ngscopeclient.md
         -   label: FAQ
             file: logic_analyzer/slogic16u3/FAQ.md
 -   label: ThermalCam

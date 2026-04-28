@@ -475,10 +475,10 @@ items:
             file: logic_analyzer/combo8/use_fouruart_function.md
         -   label: 更新固件
             file: logic_analyzer/combo8/update_firmware.md
-        -   label: 常见问题(FAQ)
-            file: logic_analyzer/combo8/faq.md
         -   label: ngscopeclient
             file: logic_analyzer/ngscopeclient/ngscopeclient.md
+        -   label: 常见问题(FAQ)
+            file: logic_analyzer/combo8/faq.md
 
     -   label: SLogic16U3
         items:
@@ -488,10 +488,10 @@ items:
             file: logic_analyzer/slogic16u3/Hardware_Specification.md
         -   label: 软件使用指南
             file: logic_analyzer/slogic16u3/Software_User_Guide.md
-        -   label: FAQ
-            file: logic_analyzer/slogic16u3/FAQ.md
         -   label: ngscopeclient
             file: logic_analyzer/ngscopeclient/ngscopeclient.md
+        -   label: 常见问题(FAQ)
+            file: logic_analyzer/slogic16u3/FAQ.md
 
 -   label: ThermalCam
     items:
