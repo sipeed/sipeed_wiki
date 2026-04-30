@@ -136,6 +136,18 @@ NanoKVM 的 USB 会默认虚拟出 RNDIS USB网卡（从设备），当 NanoKVM 
 ### 设置DNS
 
 + 如果需要设置DNS列表，请在创建/boot/resolv.conf，这将在启动后强制使用你自己的DNS配置
++ NanoKVM会在开机时自动从 `/boot/resolv.conf` 读取DNS配置，若 `/boot/resolv.conf` 不存在或为空，则会使用默认的DNS配置
++ 推荐的DNS：
+```
+nameserver 119.29.29.29     # 腾讯云DNS
+nameserver 182.254.116.116  # 腾讯云DNS
+nameserver 223.5.5.5        # 阿里云DNS
+nameserver 223.6.6.6        # 阿里云DNS
+nameserver 8.8.8.8          # Google DNS
+nameserver 8.8.4.4          # Google DNS
+nameserver 1.1.1.1          # Cloudflare DNS
+nameserver 1.0.0.1          # Cloudflare DNS
+```
 
 ### 关于mDNS
 

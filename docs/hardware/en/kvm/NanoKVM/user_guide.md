@@ -140,6 +140,18 @@ Note:
 ### Setting DNS
 
 + If you need to set a DNS list, create `/boot/resolv.conf`. This will enforce your own DNS configuration after booting.
++ NanoKVM will automatically read the DNS configuration from `/boot/resolv.conf` during startup. If `/boot/resolv.conf` does not exist or is empty, the default DNS configuration will be used.
++ Recommended DNS servers:
+```
+nameserver 119.29.29.29     # Tencent Cloud DNS
+nameserver 182.254.116.116  # Tencent Cloud DNS
+nameserver 223.5.5.5        # Aliyun DNS
+nameserver 223.6.6.6        # Aliyun DNS
+nameserver 8.8.8.8          # Google DNS
+nameserver 8.8.4.4          # Google DNS
+nameserver 1.1.1.1          # Cloudflare DNS
+nameserver 1.0.0.1          # Cloudflare DNS
+```
 
 ### About mDNS
 
