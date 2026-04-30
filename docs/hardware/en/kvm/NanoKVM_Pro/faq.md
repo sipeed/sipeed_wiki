@@ -86,6 +86,7 @@ NanoKVM Pro supports restoring or updating the system via USB image burning.
    * Download and install the burning tool [balenaEtcher](https://etcher.balena.io/).
 
 2. **Enter Burning Mode**
+   * Please remove the TF card if installed.
    * Use the USB data cable to connect the NanoKVM Pro's HID interface to your computer.
    * Press and hold the User button on the NanoKVM, then power it on (or press the Reset button while powered on) until the orange LED turns off.
    * The device will then enter burning mode, and the orange LED will start flashing again. Check if your computer recognizes the new disk device.
