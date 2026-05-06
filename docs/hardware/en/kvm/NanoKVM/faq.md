@@ -9,7 +9,7 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 
 1. Refer to [this link](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP) to connect the development board.
 2. Execute: `python /etc/kvm/update-nanokvm.py`
-   > Users outside of China may experience download failures due to DNS issues. Please add `nameserver 119.29.29.29` or `nameserver 223.5.5.5` to `/etc/resolv.conf` and try again.
+   > Users outside of China may experience download failures due to DNS issues. Please refer to [Detailed DNS Configuration Guide for NanoKVM Cube/Lite/PCIe](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/user_guide.html#Setting-DNS) to add recommended DNS servers and try again.
    > Earlier versions of the application may not have this script file. Please download [here](https://github.com/sipeed/NanoKVM/blob/main/kvmapp/system/update-nanokvm.py), extract it, and grant execute permissions before trying again.
 
 ### About Password

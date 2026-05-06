@@ -243,11 +243,11 @@ NanoKVM Pro will periodically push new application versions that include new fea
 
 ![](./../../../assets/NanoKVM/pro/extended/Update.png)
 
-After clicking download, the new application installation package will be automatically downloaded, which includes `kvmcomm_x.x.x_arm64.deb`, `nanokvmpro_x.x.x_arm64.deb`, and `pikvm_x.x.x_arm64.deb`:
+After clicking download, the new application installation package will be automatically downloaded, which includes `pikvm_x.x.x_arm64.deb`, `nanokvmpro_x.x.x_arm64.deb`, and `kvmcomm_x.x.x_arm64.deb`:
 
-- `kvmcomm_x.x.x_arm64.deb` is responsible for driving the shared hardware in the NanoKVM and PiKVM frameworks;
-- `nanokvmpro_x.x.x_arm64.deb` is the NanoKVM application software;
 - `pikvm_x.x.x_arm64.deb` is the PiKVM application software.
+- `nanokvmpro_x.x.x_arm64.deb` is the NanoKVM application software;
+- `kvmcomm_x.x.x_arm64.deb` is responsible for driving the shared hardware in the NanoKVM and PiKVM frameworks;
 
 Enabling the preview update feature will allow you to access the latest experimental application, which usually includes updated features but may lack stability. It is recommended to enable SSH before downloading preview updates.
 
@@ -261,8 +261,10 @@ sudo curl -L https://cdn.sipeed.com/nanokvm/preview/nanokvm_pro_1.1.6.tar.gz | s
 # Enter folder
 cd nanokvm_pro_1.1.6
 
-# Install deb packages
-sudo apt install ./*.deb
+# Install the .deb package. For web terminals, please follow the installation order below strictly!!!
+sudo apt install ./pikvm_1.2.14_arm64.deb
+sudo apt install ./nanokvmpro_1.2.14_arm64.deb
+sudo apt install ./kvmcomm_1.2.14_arm64.deb
 ```
 
 > Software version 1.1.5 and later underwent an architectural adjustment. Older NanoKVM-Pro units can only fetch up to version 1.1.5 initially; after updating, they will be able to retrieve the latest versions.
