@@ -62,7 +62,7 @@ File name: `picoclaw-rv-nano-YYYYMMDD.img.xz`
 
 ### 1. Select an Application
 
-After startup, the system enters the application selection screen by default. Press `KEY1` to select the PicoClaw application, or press `KEY2` to select the CC Buddy application. CC Buddy is a customized virtual pet application that provides a cute interactive interface and simple conversation features, making it suitable for first-time users to try out.
+After startup, the system enters the application selection screen by default. Press `KEY1` to select the PicoClaw application, or press `KEY2` to select the CC Buddy application. In the PicoClaw application, long-press `KEY2` to return to this application selection screen. CC Buddy is a customized virtual pet application that provides a cute interactive interface and simple conversation features, making it suitable for first-time users to try out.
 
 ### 2. Network Connection
 
@@ -83,7 +83,7 @@ Then log in with SSH or serial. Default username/password are both `root`. After
 On first boot, PicoClaw is not initialized yet. You need initial configuration first. You can use Web UI or TUI. The following uses Web UI.
 
 #### Web UI Setup
-Open `http://<device-ip>:18800` in your browser. A token is required on first access; currently the default token is `root`.
+Open `http://<device-ip>:18800` in your browser to enter the PicoClaw Web UI. On first access, you need to set a password. You can use this password to log in later. If you forget the password, delete the `/root/.picoclaw` directory or re-flash the image to reset it.
 
 #### Chat Model Setup
 Open settings, select **Model**, then choose a provider and model. For example, you can use `openai/gpt-5.4` as the default model.
