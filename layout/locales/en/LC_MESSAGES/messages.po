@@ -497,9 +497,9 @@ msgstr "Inchip 8.8G Transceivers"
 msgid "支持 USB3 数据传输"
 msgstr "Support USB3 SS Transmission"
 
-#: tang.html:144 tang.html:147
-msgid "内含 2.5G MIPI D-PHY RX/TX"
-msgstr "2.5G MIPI D-PHY RX/TX inside"
+#: tang.html:144
+msgid "支持 MIPI IO + 软 D-PHY RX/TX"
+msgstr "Support MIPI IO with Softcore D-PHY RX/TX"
 
 #: tang.html:144 tang.html:147
 msgid "支持 PCIe 2.0 通信"
@@ -520,6 +520,10 @@ msgstr "Support USB Joystick"
 #: tang.html:146
 msgid "丰富外设，HDMI/以太网/USB"
 msgstr "Rich peripherals, HDMI/Ethernet/USB"
+
+#: tang.html:147
+msgid "内含 2.5G MIPI D-PHY RX/TX"
+msgstr "2.5G MIPI D-PHY RX/TX inside"
 
 #: tang.html:147
 msgid "M.2 外形兼容"
