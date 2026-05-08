@@ -66,7 +66,7 @@ PicoClaw 扩展板定制镜像下载：
 
 ### 选择应用
 
-应用默认启动后进入应用选择界面，按下 `KEY1` 键选择 PicoClaw 应用，按下 `KEY2` 键选择 CC Buddy 应用。CC Buddy 自定义的虚拟宠物应用，提供了一个可爱的交互界面和简单的对话功能，适合初次使用者体验。
+应用默认启动后进入应用选择界面，按下 `KEY1` 键选择 PicoClaw 应用，按下 `KEY2` 键选择 CC Buddy 应用。在 PicoClaw 应用中长按 `KEY2` 可返回该应用选择界面。CC Buddy 自定义的虚拟宠物应用，提供了一个可爱的交互界面和简单的对话功能，适合初次使用者体验。
 
 ### 连接 Wi-Fi
 
@@ -90,11 +90,11 @@ PicoClaw 扩展板定制镜像下载：
 > ```bash
 > # 在 sd 卡第一个分区创建 wifi.sta 文件启用 sta 模式:
 > touch /boot/wifi.sta && rm -f /boot/wifi.ap /boot/wifi.mon
-> 
+>
 > # 然后将 AP 的 SSID 和密码写入文件:
 > echo ssid > /boot/wifi.ssid
 > echo pass > /boot/wifi.pass
-> 
+>
 > # 最后重启 Wifi 服务
 > /etc/init.d/S30wifi restart
 > ```
@@ -106,7 +106,7 @@ PicoClaw 扩展板定制镜像下载：
 第一次进入系统后，PicoClaw 还未完成初始化，需要先进行配置。可以使用 Web UI 或者 TUI 进行配置，以下以 Web UI 为例：
 
 #### Web UI 配置
-在浏览器中访问 `http://<设备 IP>:18800`，进入 PicoClaw Web UI。第一次进入需要输入令牌，目前令牌默认为 `root`。
+在浏览器中访问 `http://<设备 IP>:18800`，进入 PicoClaw Web UI。第一次进入需要设置密码，后续可以使用该密码登录。如果忘记密码，可以删除 `/root/.picoclaw` 文件夹，或者重刷镜像进行重置。
 
 #### 对话模型配置
 进入设置界面，选择 **模型**，根据需要选择合适的模型提供商和模型。例如可选择 `openai/gpt-5.4` 作为默认模型。
