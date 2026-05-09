@@ -474,8 +474,8 @@ msgstr ""
 msgid "支持 USB3 数据传输"
 msgstr ""
 
-#: tang.html:144 tang.html:147
-msgid "内含 2.5G MIPI D-PHY RX/TX"
+#: tang.html:144
+msgid "支持 MIPI IO + 软 D-PHY RX/TX"
 msgstr ""
 
 #: tang.html:144 tang.html:147
@@ -496,6 +496,10 @@ msgstr ""
 
 #: tang.html:146
 msgid "丰富外设，HDMI/以太网/USB"
+msgstr ""
+
+#: tang.html:147
+msgid "内含 2.5G MIPI D-PHY RX/TX"
 msgstr ""
 
 #: tang.html:147

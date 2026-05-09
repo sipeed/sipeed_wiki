@@ -138,8 +138,8 @@ TBD
                         <td>1100</td>
                     </tr>
                     <tr>
-                        <td>MIPI D-PHY硬核</td>
-                        <td>2.5Gbps（RX），<br>8个数据通道，<br>2个时钟通道</td>
+                        <td>MIPI IO（D-PHY软核）<br><i>无需RC匹配和额外LP BANK</i></br></td>
+                        <td>最高1.6Gbps（RX）<br>最高2.0Gbps（TX）<br>4个数据通道<br>1个时钟通道</td>
                     </tr>
                     <tr>
                         <td>硬核处理器</td>
