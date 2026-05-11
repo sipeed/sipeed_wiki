@@ -141,8 +141,8 @@ TBD
                         <td>1100</td>
                     </tr>
                     <tr>
-                        <td>MIPI D-PHY HardCore</td>
-                        <td>2.5Gbps（RX/TX），<br>4x data lane，<br>1x clock lane</td>
+                        <td>MIPI IO (with D-PHY SoftCore)<br><i>requires <b>NO</b> RC matching & separate LP bank</i></br></td>
+                        <td>Up to 1.6Gbps (RX) <br>Up to 2.0Gbps (TX) <br>4x data lane <br>1x clock lane</td>
                     </tr>
                     <tr>
                         <td>Hardcore SoC</td>
