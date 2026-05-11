@@ -8,11 +8,12 @@ update:
       - First version
 ---
 
-[*模型文件于此下载*](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/08_RVClaw)
-![rvclaw-kit-jpg](../../../zh/lichee/assets/RV_Nano/rvclaw/rvclaw-kit.jpg)
-
-
 ## PicoClaw 扩展板
+
+<div style="display:flex; gap:12px; justify-content:center; align-items:center; margin: 8px 0 16px;">
+  <img src="../../../zh/lichee/assets/RV_Nano/picoclaw/rvclaw.jpeg" style="width:60%; height:auto;" alt="rvclaw" />
+  <img src="../../../zh/lichee/assets/RV_Nano/rvclaw/rvclaw-kit.jpg" style="width:30.5%; height:auto;" alt="rvclaw kit" />
+</div>
 
 PicoClaw 扩展板是一款为 **PicoClaw** 交互应用打造、基于 **LicheeRV Nano** 开发板的功能扩展板，面向语音交互与本地显示场景，集成显示、按键、指示灯、电池管理与音频外设接口，便于快速搭建完整的人机交互终端。
 
@@ -28,6 +29,8 @@ PicoClaw 扩展板的主要功能包括：
 - Battery 接口（支持充电，最大 3W）
 - 支持喇叭连接与语音输出
 - 支持实时对话与结果显示（需配合定制镜像）
+
+如需自行打印外壳，可在此下载 [PicoClaw 扩展板外壳 3D 模型文件](https://dl.sipeed.com/shareURL/LICHEE/LicheeRV_Nano/08_RVClaw)。
 
 ### PicoClaw 介绍
 
