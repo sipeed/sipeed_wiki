@@ -48,9 +48,11 @@ When the host has multiple displays, it generally prioritizes the built-in scree
 
 DP adapters come in two types: passive and active. Passive DP adapters are low-cost but may pose compatibility risks, manifesting as resolution lists not matching EDID, host wake-up failing to activate the screen, etc. Using the reset HDMI function can wake up the screen.
 
-### Missing Resolution List, Inconsistent with EDID
+### Missing Resolution List, Inconsistent with Configured EDID
 
 The resolution list in the host display settings is determined by the host, EDID, (potentially existing) loop-out screen, and video adapter collectively. You can switch between different EDIDs on the web page to achieve the most reasonable compatibility.
+
+> **Note**: In the hardware design of NanoKVM-Pro, HDMI first passes through a splitter chip before entering the HDMI capture chip. Due to chip limitations, writing is only possible to the capture chip. When a loop-out display is connected, the splitter chip automatically combines two EDIDs (the EDID of the capture chip and the EDID of the loop-out display). This process cannot be controlled by the main control chip, which is why the actual EDID used may differ from the configured EDID.
 
 ### HDMI Icon Lit on NanoKVM Screen but No Video Displayed in Web Interface
 

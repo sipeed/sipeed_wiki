@@ -14,7 +14,7 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 ### 关于密码
 
   1. 更新至 2.1.5 版本应用后，若之前没有设置过网页密码，登录后会提示修改密码，修改密码时，后台的`root`密码也会同步修改成网页密码，若之前已经修改过网页密码，后台`root`密码不会主动修改，请在终端使用`passwd`或网页设置中点击重置密码以修改;
-  2. 应用版本大于 2.1.5 时，若忘记密码，可以按下机身`BOOT`按键10s以上（NanoKVM-Cube的BOOT按键位于USB-HID接口右边，PCIe版本BOOT按键可在面板上找到，较老版本的NanoKVM Full可能没有在对应位置开孔，需要拆机操作）
+  2. 应用版本大于 2.1.5 时，若忘记密码，可以按下机身`BOOT`按键10s以上（NanoKVM-Cube的BOOT按键位于USB-HID接口右边，PCIe版本BOOT按键可在面板上找到，较老版本的NanoKVM Full可能没有在对应位置开孔，需要拆机操作），详细操作指引请参考[重置密码](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/reset.html)
   3. 若长按无法重置密码，可能是应用版本小于 2.1.5 ，参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html)重新烧录镜像，注意，重烧镜像后会丢失所有配置信息。
 
 ### HID键鼠不工作
