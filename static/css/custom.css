@@ -1,0 +1,177 @@
+#content_body iframe {
+  width: 43vw;
+  height: 34vw;
+  min-width: 90%;
+}
+#page_footer {
+  margin-top: 0;
+}
+#big_btn_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5em 1em;
+}
+#sidebar .active > a,
+#navbar .active > a,
+#navbar .active_parent > a {
+  font-weight: 600;
+  color: #c62828;
+}
+#sidebar li > a:hover,
+#sidebar li.active_parent > a:hover,
+#navbar li > a:hover,
+#navbar .sub_items > a:hover {
+}
+
+#sidebar > ul > li > ul > li,
+#sidebar > ul > li > ul > li > ul > li{
+  border-left: 0.1em solid #24292e38;
+}
+blockquote {
+  border-left: 4px solid #ff6b63;
+}
+.title_pic {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.logo_maixpy {
+  margin-bottom: 15px;
+}
+.logo_maixpy img {
+  height: 200px;
+}
+.logo_sipeed img {
+  height: 43px;
+}
+.logo_mpy img {
+  height: 45px;
+}
+.limit_width {
+  min-width: 65px;
+  display: inline-block;
+}
+.grove_pic img {
+  height: 500px;
+}
+.center_table {
+  display: table;
+}
+th {
+  background-color: #ff6b63;
+  border: 2px solid #d8524b;
+}
+#navbar .site_logo {
+  height: 2em;
+}
+
+#navbar h2 {
+  color: #616161;
+  font-weight: 500;
+  padding-left: 2px;
+}
+#home #themes {
+  height: 2em;
+}
+#store a > img {
+  height: 40px;
+  transition: height 0.4s;
+  -moz-transition: height 0.4s; /* Firefox 4 */
+  -webkit-transition: height 0.4s; /* Safari and Chrome */
+  -o-transition: height 0.4s; /* Opera */
+}
+#store a:hover > img {
+  height: 50px;
+}
+
+#navbar #navbar_items {
+  flex-direction: row;
+}
+
+#page_content > div {
+  text-align: left;
+}
+
+#editPage {
+  position: relative;
+}
+#source_link {
+  position: relative;
+}
+#editPageHelp {
+  top: 3em;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  box-shadow: 1px 1px 17px 0px #e9e9e9;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+.dark #editPageHelp {
+  background: #212121;
+  box-shadow: 1px 1px 17px 0px black;
+}
+#source_link {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+#source_link > a {
+  cursor: pointer;
+}
+.faq table {
+  display: table;
+}
+
+#navbar #new_feature_btn > a {
+  padding: 0.5em;
+  font-size: 0.6em;
+}
+
+/* home */
+#home #page_content > div {
+  width: 100%;
+  max-width: 100%;
+}
+/* home end */
+
+@media screen and (max-width: 1000px) {
+  #navbar #navbar_items {
+    flex-direction: column;
+    align-items: start;
+  }
+  #navbar #navbar_items > div:last-child {
+    align-self: end;
+  }
+  #navbar {
+    align-items: self-start;
+  }
+  #navbar h2 {
+    margin: 0.5em 0;
+  }
+  #navbar #navbar_items > div:last-child ul {
+    margin: 0 0;
+  }
+  #navbar #navbar_items > div ul {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #big_btn_wrapper {
+    flex-direction: column;
+  }
+  #big_btn_wrapper > div {
+    margin: 2em 0;
+  }
+  #footer_top > ul {
+    margin: 0 0;
+  }
+  #navbar #navbar_items {
+    display: none;
+  }
+  #home #page_content > div {
+    margin: 0;
+  }
+}

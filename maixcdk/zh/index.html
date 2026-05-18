@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html lang="zh"  id="home_page"  class=" md_page ">
+
+<head>
+     
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="generator" content="teedoc">
+        <meta name="theme" content="teedoc-plugin-theme-default">
+    
+     
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser"><script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script src="/maixcdk/static/js/theme_default/pre_main.js"></script><link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/><link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/><link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/><link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/><script src="/maixcdk/static/js/theme_default/jquery.min.js"></script><script src="/maixcdk/static/js/theme_default/split.js"></script><link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/><link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+    
+    
+        <title>MaixCDK - MaixCDK</title>
+    
+    
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求点赞服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": "", "id": "home_page"}</script>
+</head>
+<body class="type_page">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/maixcdk/doc/zh/">文档</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class=""><a  href="/maixcdk/doc/zh/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class="active"><a  href="/maixcdk/zh/index.html">中文</a></li>
+<li class=""><a  href="/maixcdk/index.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page_wrapper">
+        <div id="page_content">
+            <div>
+                
+                <div>
+<script src="/maixcdk/static/css/tailwind.css"></script>
+</div>
+<style>
+h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    font-weight: bold;
+}
+#page_wrapper
+{
+    background: #f2f4f3;
+}
+.dark #page_wrapper
+{
+    background: #1b1b1b;
+}
+.md_page #page_content
+{
+    padding: 1em;
+}
+.md_page #page_content > div
+{
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+}
+h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+}
+#page_content h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.67em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+}
+#page_content h3 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+#tags > p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em;
+}
+#tags > p a {
+    margin: 0.2em 0.2em;
+}
+#feature video, #feature img {
+    height: 15em;
+}
+.feature_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em;
+    border: 1em solid white;
+    background: white;
+    border-radius: 0.5em;
+    overflow: hidden;
+    max-width: 20em;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.dark .feature_item {
+    border: 1em solid #2d2d2d;
+    background: #2d2d2d;
+}
+.feature_item .feature {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.feature_item .description {
+    font-size: 0.8em;
+    font-weight: 400;
+}
+.feature_item video, .feature_item img {
+    width: 100%;
+    object-fit: cover;
+}
+.feature_item .img_video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.feature_item > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.feature_item p {
+    padding: 0.5em;
+}
+#page_content li {
+    margin: 0.5em;
+    list-style-type: disc;
+}
+.white_border {
+    border: 1em solid white;
+}
+.dark .white_border {
+    border: 1em solid #2d2d2d;
+}
+.code-toolbar pre {
+    margin: 0;
+}
+.code_wrapper {
+    overflow: auto;
+}
+@media screen and (min-width: 1280px) {
+    .md_page #page_content > div
+    {
+        width: 1440px;
+        max-width: 1440px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .code_wrapper {
+        font-size: 0.6em;
+    }
+}
+</style>
+<!-- wrapper -->
+<div class="flex flex-col justify-center items-center">
+<div class="w-full flex flex-col justify-center text-center">
+    <div class="flex justify-center">
+        <img src="/maixcdk/static/image/maixcams.png" alt="MaixPy Banner">
+    </div>
+    <h1><span>MaixCDK</span></h1>
+    <h3>快速实现 AI 视觉和听觉应用</h3>
+</div>
+<div id="big_btn_wrapper" class="flex flex-wrap justify-center items-center">
+    <a class="btn m-1" href="/maixcdk/doc/zh/">快速开始 🚀📖</a>
+    <a class="btn m-1" href="/maixcdk/api/">API 参考 📚</a>
+    <a class="btn m-1" target="_blank" href="https://wiki.sipeed.com/maixcam-pro">硬件平台：MaixCAM 📷</a>
+    <a class="btn m-1" target="_blank" href="https://github.com/sipeed/MaixCDK">开源代码 ⭐️</a>
+    <a class="btn m-1" target="_blank" href="https://maixhub.com/app">应用商店 📦</a>
+</div>
+<div id="tags">
+<p><a href="https://github.com/sipeed/MaixCDK"  target="_blank"><img src="https://img.shields.io/github/stars/sipeed/MaixCDK?style=social" alt="GitHub Repo stars" /></a><a href="%22https://github.com/sipeed/MaixCDK/blob/main/LICENSE.html"  target="_blank"><img src="https://img.shields.io/badge/license-Apache%20v2.0-orange.svg" alt="Apache 2.0" /></a><a href="https://github.com/sipeed/MaixCDK"  target="_blank"><img src="https://img.shields.io/github/downloads/sipeed/maixcdk/total?label=GitHub%20downloads" alt="GitHub downloads" /></a> <a href="https://github.com/sipeed/MaixCDK/actions/workflows/build_maixcam.yml"  target="_blank"><img src="https://github.com/sipeed/MaixCDK/actions/workflows/build_maixcam.yml/badge.svg" alt="Build MaixCAM" /></a><a href="https://github.com/sipeed/MaixCDK/actions/workflows/trigger_wiki.yml"  target="_blank"><img src="https://github.com/sipeed/MaixCDK/actions/workflows/trigger_wiki.yml/badge.svg" alt="Trigger wiki" /></a></p>
+</div>
+<div class="text-center">
+<p><a href="../"  >English</a> | 中文</p>
+</div>
+<div class="mt-16"></div>
+<div class="text-gray-400 text-center">
+<p>如果您喜欢 MaixCDK 或 MaixPy，请为 <a href="https://github.com/sipeed/MaixPy"  target="_blank">MaixPy</a> 和 <a href="https://github.com/sipeed/MaixCDK"  target="_blank">MaixCDK</a> 开源项目点赞 ⭐️，以鼓励我们开发更多功能。</p>
+</div>
+<div class="mt-6"></div>
+<h2 class="text-center font-bold">简单的 API 设计，20 行代码实现 AI 图像识别</h2>
+<div id="id1" class="flex flex-row justify-center items-end flex-wrap max-w-full">
+<div class="shadow-xl code_wrapper">
+
+<pre class="language-cpp"><code class="language-cpp">#include &quot;maix_nn.hpp&quot;
+#include &quot;maix_camera.hpp&quot;
+#include &quot;maix_display.hpp&quot;
+
+int main()
+{
+    nn::Classifier classifier(&quot;/root/models/mobilenetv2.mud&quot;);
+    image::Size input_size = classifier.input_size();
+    camera::Camera cam = camera::Camera(input_size.width(), input_size.height(), classifier.input_format());
+    display::Display disp = display::Display();
+
+    char msg[64];
+    while(!app::need_exit())
+    {
+        image::Image *img = cam.read();
+        auto *result = classifier.classify(*img);
+        int max_idx = result-&gt;at(0).first;
+        float max_score = result-&gt;at(0).second;
+        snprintf(msg, sizeof(msg), &quot;%5.2f: %s&quot;, max_score, classifier.labels[max_idx].c_str());
+        img-&gt;draw_string(10, 10, msg, image::COLOR_RED);
+        disp.show(*img);
+        delete result;
+        delete img;
+    }
+    return 0;
+}
+</code></pre>
+</div>
+<video playsinline controls autoplay loop muted preload  class="p-0 mx-2 rounded-md shadow-xl white_border" src="https://wiki.sipeed.com/maixpy/static/video/classifier.mp4" type="video/mp4">
+分类结果视频
+</video>
+</div> <!-- id1 -->
+<h2 class="text-center font-bold">同样简单的 Python API 绑定</h2>
+<div id="id2" class="flex flex-row justify-center items-end flex-wrap max-w-full">
+<div class="shadow-xl code_wrapper">
+
+<pre class="language-python"><code class="language-python">from maix import camera, display, image, nn
+
+classifier = nn.Classifier(model=&quot;/root/models/mobilenetv2.mud&quot;)
+cam = camera.Camera(classifier.input_width(), classifier.input_height(), classifier.input_format())
+disp = display.Display()
+
+while 1:
+    img = cam.read()
+    res = classifier.classify(img)
+    max_idx, max_prob = res[0]
+    msg = f&quot;{max_prob:5.2f}: {classifier.labels[max_idx]}&quot;
+    img.draw_string(10, 10, msg, image.COLOR_RED)
+    disp.show(img)
+</code></pre>
+</div>
+<video playsinline controls autoplay loop muted preload  class="p-0 mx-2 rounded-md shadow-xl white_border" src="https://wiki.sipeed.com/maixpy/static/video/classifier.mp4" type="video/mp4">
+分类结果视频
+</video>
+</div> <!-- id2 -->
+<!-- div start-->
+<div class="text-center flex flex-col justify-center items-center">
+<h2>多样的内置功能</h2>
+<p>MaixCDK 的功能与 MaixPy 保持同步，MaixPy 的文档也适用于 MaixCDK。</p>
+<div style="display: flex; justify-content: left">
+    <a target="_blank" style="margin: 1em;color: white; font-size: 0.9em; border-radius: 0.3em; padding: 0.5em 2em; background-color: #a80202" href="https://wiki.sipeed.com/maixpy/">请访问 MaixPy 以了解更多功能</a>
+</div>
+</div>
+<!-- div end-->
+<!-- div start-->
+<div class="flex flex-col justify-center items-center max-w-full">
+<h2>一秒添加 Python 绑定</h2>
+<p>只需添加注释，即可在 MaixPy 中使用此 API！</p>
+<div class="flex flex-row justify-center items-center flex-wrap mt-3 max-w-full">
+<div class="mr-4 mt-4 shadow-xl code_wrapper flex flex-col justify-center items-center">
+<p>Python 示例代码：</p>
+
+<pre class="language-python"><code class="language-python">from maix import uart
+
+
+devices = uart.list_devices()
+print(devices)
+
+
+
+</code></pre>
+</div>
+<div class="max-w-full">
+<div class="mt-4 shadow-xl code_wrapper flex flex-col justify-center items-center">
+<p>MaixCDK 在 <code>maix_uart.hpp</code> 中的实现：</p>
+
+<pre class="language-cpp"><code class="language-cpp">namespace maix::uart {
+    /**
+     * List all UART devices can be directly used.
+     * @return All device path, list type, element is string type
+     * @maixpy maix.uart.list_devices
+     */
+    std::vector&lt;std::string&gt; list_devices();
+}
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<!-- div end-->
+<!-- start -->
+<div class="flex flex-col justify-center items-center">
+<h2>在线 AI 训练平台 MaixHub</h2>
+<p>无需 AI 专业知识或昂贵的训练设备，一键训练模型，一键部署到 MaixCAM。</p>
+<div class="mt-3"></div>
+<img class="shadow-xl white_border" src="/maixcdk/static/image/maixhub.jpg">
+</div>
+<!-- end -->
+<h2 id="Maix-%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F">Maix 生态系统</h2>
+<img src="/maixcdk/static/image/maix_ecosystem.png" class="white_border shadow-xl rounded-md">
+<h2 id="community">社区</h2>
+<div class="max-w-full">
+<div class="overflow-auto">
+<table>
+<thead>
+<tr>
+  <th>社区</th>
+  <th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>MaixCDK 文档</strong></td>
+  <td><a href="https://wiki.sipeed.com/maixcdk/"  target="_blank">MaixCDK 文档</a></td>
+</tr>
+<tr>
+  <td><strong>MaixPy 文档</strong></td>
+  <td><a href="https://wiki.sipeed.com/maixpy/"  target="_blank">MaixPy 文档</a></td>
+</tr>
+<tr>
+  <td><strong>应用商店</strong></td>
+  <td><a href="https://maixhub.com/app"  target="_blank">maixhub.com/app</a></td>
+</tr>
+<tr>
+  <td><strong>项目分享</strong></td>
+  <td><a href="https://maixhub.com/share"  target="_blank">maixhub.com/share</a></td>
+</tr>
+<tr>
+  <td><strong>Bilibili</strong></td>
+  <td>在 Bilibili 上搜索 <code>MaixCAM</code> 或 <code>MaixPy</code></td>
+</tr>
+<tr>
+  <td><strong>讨论</strong></td>
+  <td><a href="https://maixhub.com/discussion"  target="_blank">maixhub.com/discussion</a></td>
+</tr>
+<tr>
+  <td><strong>MaixCDK 问题</strong></td>
+  <td><a href="https://github.com/sipeed/MaixCDK/issues"  target="_blank">github.com/sipeed/MaixPy/issues</a></td>
+</tr>
+<tr>
+  <td><strong>Telegram</strong></td>
+  <td><a href="https://t.me/maixpy"  target="_blank">t.me/maixpy</a></td>
+</tr>
+<tr>
+  <td><strong>QQ 群</strong></td>
+  <td>862340358</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- wrapper end -->
+
+                
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="page_footer">
+            <div id="footer">
+                
+                <div id="footer_top">
+                    <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/maixpy/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+    
+</body>
+</html>

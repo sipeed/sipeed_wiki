@@ -1,0 +1,25 @@
+<script>
+    var hash = window.location.hash
+    if (hash.indexOf("start")!= -1)
+    {
+        if( navigator.language.indexOf("zh") == 0 ) 
+        {
+        location.href = "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/start.html"
+        }
+        else
+        {
+        location.href = "https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/start.html"
+        }
+    }
+    else
+    {
+        if( navigator.language.indexOf("zh") == 0 ) 
+        {
+        location.href = "https://wiki.sipeed.com/hardware/zh/tang/tang-primer-20k/primer-20k.html"
+        }
+        else
+        {
+        location.href = "https://wiki.sipeed.com/hardware/en/tang/tang-primer-20k/primer-20k.html"
+        }
+    }
+</script>

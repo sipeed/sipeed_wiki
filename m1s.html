@@ -1,0 +1,19 @@
+<script>
+    var hash = window.location.hash
+    if (hash.indexOf("dock")!= -1){
+        location.href = window.location.origin + "/hardware/zh/maix/m1s/m1s_dock.html"
+    }
+    else if (hash.indexOf("machine_key")!= -1){
+        location.href = window.location.origin + "/hardware/zh/maix/m1s/other/get_key.html"
+    }
+    else if (hash.indexOf("burn")!= -1){
+        location.href = window.location.origin + "/hardware/zh/maix/m1s/other/start.html#U-盘烧录"
+    }
+    else if (hash.indexOf("hardware")!= -1){
+        location.href = "https://dl.sipeed.com/shareURL/MAIX/M1s"
+    }
+    else
+    {
+        location.href = window.location.origin + "/hardware/zh/maix/m1s/m1s_module.html"
+    }
+</script>
