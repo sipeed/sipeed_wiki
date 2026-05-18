@@ -22,10 +22,11 @@ msgstr ""
 #: licheepi.html:221 licheepi.html:242 licheepi.html:258 licheepi.html:279
 #: licheepi.html:295 licheepi.html:311 maix.html:196 maix.html:213
 #: maix.html:230 maix.html:307 maix.html:328 maix.html:345 maix.html:362
-#: maixsense.html:44 maixsense.html:60 nanokvm.html:41 nanokvm.html:58
-#: nanokvm.html:75 nanokvm.html:92 others.html:42 slogic.html:41 slogic.html:58
-#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
-#: tang.html:251 tang.html:267 tang.html:283 tang.html:299 tang.html:315
+#: nanokvm.html:41 nanokvm.html:58 nanokvm.html:75 nanokvm.html:92
+#: others.html:42 sipeedsense.html:44 sipeedsense.html:60 sipeedsense.html:76
+#: slogic.html:41 slogic.html:58 tang.html:171 tang.html:187 tang.html:203
+#: tang.html:219 tang.html:235 tang.html:251 tang.html:267 tang.html:283
+#: tang.html:299 tang.html:315
 msgid "购买"
 msgstr ""
 
@@ -48,11 +49,11 @@ msgstr ""
 #: home.html:125 home.html:156 home.html:169 home.html:182 licheepi.html:217
 #: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
 #: licheepi.html:307 maix.html:245 maix.html:262 maix.html:303 maix.html:320
-#: maix.html:341 maix.html:358 maixsense.html:40 maixsense.html:56
-#: nanokvm.html:37 nanokvm.html:54 nanokvm.html:71 nanokvm.html:88
-#: others.html:38 slogic.html:37 slogic.html:54 tang.html:167 tang.html:183
-#: tang.html:199 tang.html:215 tang.html:231 tang.html:247 tang.html:263
-#: tang.html:279 tang.html:295 tang.html:311
+#: maix.html:341 maix.html:358 nanokvm.html:37 nanokvm.html:54 nanokvm.html:71
+#: nanokvm.html:88 others.html:38 sipeedsense.html:40 sipeedsense.html:56
+#: sipeedsense.html:72 slogic.html:37 slogic.html:54 tang.html:167
+#: tang.html:183 tang.html:199 tang.html:215 tang.html:231 tang.html:247
+#: tang.html:263 tang.html:279 tang.html:295 tang.html:311
 msgid "文档"
 msgstr ""
 
@@ -86,7 +87,7 @@ msgid "Maix AI 视觉"
 msgstr ""
 
 #: home.html:212
-msgid "MaixSense 传感器"
+msgid "Sipeed 传感器"
 msgstr ""
 
 #: home.html:216 nanokvm.html:4
@@ -359,18 +360,6 @@ msgstr ""
 msgid "https://item.taobao.com/item.htm?id=744014549573"
 msgstr ""
 
-#: maixsense.html:4
-msgid "MaixSense 传感器模组系列"
-msgstr ""
-
-#: maixsense.html:37
-msgid "深度传感器模组"
-msgstr ""
-
-#: maixsense.html:53
-msgid "深度摄像头模组"
-msgstr ""
-
 #: nanokvm.html:34
 msgid "迷你IP-KVM运维工具"
 msgstr ""
@@ -401,6 +390,22 @@ msgstr ""
 
 #: others.html:35 slogic.html:34
 msgid "逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具"
+msgstr ""
+
+#: sipeedsense.html:4
+msgid "Sipeed 传感器系列"
+msgstr ""
+
+#: sipeedsense.html:37
+msgid "深度传感器模组"
+msgstr ""
+
+#: sipeedsense.html:53
+msgid "深度摄像头模组"
+msgstr ""
+
+#: sipeedsense.html:69
+msgid "热成像传感器模组"
 msgstr ""
 
 #: slogic.html:4
