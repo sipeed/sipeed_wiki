@@ -103,5 +103,5 @@ PMOD_Thermal256安装方式
 | MaixCAM2            | <img src="../../assets/maixcam/maixcam2_pmod_thermal256.jpg" width="400" height="300"> |
 
 参考使用代码：
-<https://github.com/sipeed/MaixPy/tree/main/examples/ext_dev/sensors/tiny1c_example.py>
+<https://github.com/sipeed/MaixPy/blob/main/examples/ext_dev/sensors/tiny1c/tiny1c_example.py>
 > 如果要使用该示例，请先删除于`x3c_192x256`相关的代码
