@@ -3,19 +3,27 @@ title: F&Q
 keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 ---
 
-## 异常修复
 
+
+## 异常修复
+请查看右侧目录栏对应到自己对应的问题
 **以下解决方法都基于最新的应用，如果遇到问题，请先更新应用，若无法在网页端更新，请参照以下步骤完成强制更新：**
   1. 参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/updating.html#%E8%8E%B7%E5%8F%96-IP)连接开发板
   2. 执行：`python /etc/kvm/update-nanokvm.py`
   > 国外用户可能因为DNS原因下载失败，请参考[NanoKVM Cube/Lite/PCIe操作DNS的详细说明](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/user_guide.html#设置DNS)添加推荐的DNS后再试
   > 早期版本应用可能不存在该脚本文件，请下载 https://github.com/sipeed/NanoKVM/blob/main/kvmapp/system/update-nanokvm.py 解压赋予执行权限后再试
 
-### 关于密码
 
-  1. 更新至 2.1.5 版本应用后，若之前没有设置过网页密码，登录后会提示修改密码，修改密码时，后台的`root`密码也会同步修改成网页密码，若之前已经修改过网页密码，后台`root`密码不会主动修改，请在终端使用`passwd`或网页设置中点击重置密码以修改;
-  2. 应用版本大于 2.1.5 时，若忘记密码，可以按下机身`BOOT`按键10s以上（NanoKVM-Cube的BOOT按键位于USB-HID接口右边，PCIe版本BOOT按键可在面板上找到，较老版本的NanoKVM Full可能没有在对应位置开孔，需要拆机操作），详细操作指引请参考[重置密码](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/reset.html)
+### 关于网页密码和ssh密码如何重置
+  #### 默认密码
+  - **网页端：** `账号`/`密码` - `admin`/`admin`
+  - **ssh ：** `账号`/`密码` - `root`/`root`
+  #### 更改密码
+
+  1. 版本2.1.5 之后，若之前没有设置过网页密码，登录后会提示修改密码，修改密码后，SSH端的`root`密码也会同步修改成网页密码;
+  2. 版本2.1.5 之后，若忘记密码，可以按下机身`BOOT`按键10s以上（NanoKVM-Cube的BOOT按键位于USB-HID接口右边，PCIe版本BOOT按键可在面板上找到，较老版本的NanoKVM Full可能没有在对应位置开孔，需要拆机操作）
   3. 若长按无法重置密码，可能是应用版本小于 2.1.5 ，参考[这里](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html)重新烧录镜像，注意，重烧镜像后会丢失所有配置信息。
+
 
 ### HID键鼠不工作
   1. 使用网页中 "重置HID" 功能
@@ -26,30 +34,31 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 ### BIOS 不识别HID键鼠
   1. 部分主机系统对USB键鼠要求较高，需要使用“仅HID”模式，该模式下USB仅模拟支持BIOS的键鼠设备，请通过网页鼠标图标中切换该模式
   2. 使用网页中 "重置HID" 功能
+  3. dell部分机型由于主板驱动兼容性非常差，bios端可能无法识别。暂时无法解决。
 
 ### 非英文键盘键位错误
   + 键盘的键盘布局需要在被控主机系统设置中修改，以Ubuntu+修改法语键盘为例：
   设置->键盘->输入源->‘+’->添加->搜索"French"，添加
 
-### STA LED 无法正常闪烁
-
-  STA灯用于指示NanoKVM的运行状态，正常工作时，STA灯在不规律闪烁，当STA灯出现长亮/长灭或者 规律性间断熄灭时认为NanoKVM出现故障
-  1. 上电后 STA LED 规律性间断熄灭：系统未检测到TF卡中的系统，请检查TF卡是否正确插入，重新烧录TF镜像
-  2. STA LED 长时间熄灭：一般在无供电情况下导致，请查看电源状况
+### STA LED（蓝灯）无法正常闪烁
+  STA灯用于指示NanoKVM的运行状态，STA灯在，当STA灯出现长亮/长灭或者 规律性间断熄灭时认为NanoKVM出现故障
+  - **正常工作** : 不规律闪烁
+  - **上电后 STA LED 规律性间断熄灭** : 系统未检测到TF卡中的系统，请检查TF卡是否正确插入，重新烧录TF镜像
+  - **长时间熄灭** : 一般在无供电情况下导致，请查看电源状况
 
   > 若仅使用 USB-HID 供电，在电脑关机时可能会断开USB电源，请参考相关资料，在BIOS中设置USB常供电，或使用辅助供电。
   > 当不慎接入非常规电源后，NanoKVM 可能会烧坏，也会导致 STA LED 熄灭
 
-  3. STA LED 长时间亮起，不闪烁：NanoKVM 正式系统和应用一般不会出现该情况，若在NanoKVM系统内配置其他自定义功能，有概率导致系统卡死，STA LED长亮，建议重新烧录镜像
+  - **长时间亮起，不闪烁** : NanoKVM 正式系统和应用一般不会出现该情况，若在NanoKVM系统内配置其他自定义功能，有概率导致系统卡死，STA LED长亮，建议重新烧录镜像
 
 ### 无法获取IP地址
-
-  1. Lite用户首先检查有无插卡, Lite 版本默认不带卡出货,需用户自备TF卡,按照[此处](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html)的说明烧卡后重试;
-  2. 检查网络交换机是否支持100M, 部分新交换机不支持100M的连接, 请更换交换机后重试
-  3. NanoKVM Cube（包括NanoKVM Full 和 NanoKVM Lite）在接入少数电源/HDMI时会导致无法获取IP，请进行以下确认：
+  - Lite用户首先检查有无插卡, Lite 版本默认不带卡出货,需用户自备TF卡,按照[此处](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM/system/flashing.html)的说明烧卡后重试;
+  - NanoKVM Cube（包括NanoKVM Full 和 NanoKVM Lite）在接入少数电源/HDMI时会导致无法获取IP，请进行以下确认：
   > 拔出所有接口，使用充电宝供电，接入网线，查看是否能获取IP
   > 若可以获取IP，插入HDMI/电脑USB查看IP是否存在
   > 若仅充电宝供电时IP存在，插入HDMI/电脑USB后IP消失则确认出现了该问题，请联系客服购买隔离器以解决
+
+  - 检查网络交换机是否支持100M, 部分新交换机不支持100M的连接, 请更换交换机后重试
 
 ### 无法通过 DHCP 获取 IP 且显示为 192.168.70.70
 
@@ -59,29 +68,10 @@ keywords: NanoKVM, Remote desktop, Lichee, PiKVM, RISCV, tool
 
 #### 默认分辨率错误
   NanoKVM仅支持1080P分辨率，但主机有概率输出了1080P以上规格的画面，推荐修改默认EDID来解决该问题，在此之前请在网页中升级到最新的APP（2.3.2以上）
-  > 使用 Cube/Lite 版本时，必须现场操作。修改后请重新上电以应用新配置，否则可能导致 HDMI 采集异常。
-  进入网页终端，执行命令：`/kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin`, Cube/Lite需要确认现场操作
-``` shell
-## PCIe版本 正常烧录输出：
-# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
-Chip Version: LT6911UXC
-Product Version : PCIE_A
-
-=========================================================
-Incorrect EDID may cause issues such as
-inability to display images, please modify with caution
-=========================================================
-
-EDID data loaded successfully from /kvmapp/system/tool/E21_NanoKVM.bin
-Writing EDID....
-EDID write completed
-Reading EDID...
-EDID data verified successfully
-
-=========================================================
-✅  EDID update successful!
-=========================================================
-
+##### Cube 版本
+  必须现场操作。修改后请重新上电以应用新配置，否则可能导致 HDMI 采集异常。
+  进入网页终端，执行命令：`/kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin`
+```shell
 ## Cube/Lite 正常烧录输出：
 # /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
 Chip Version: LT6911UXC
@@ -114,6 +104,31 @@ EDID data verified successfully
 Please manually power cycle the device to apply changes.
 =========================================================
 ```
+##### PCIE 版本
+  修改后请重新上电以应用新配置，否则可能导致 HDMI 采集异常。
+  进入网页终端，执行命令：`/kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin`
+``` shell
+## PCIe版本 正常烧录输出：
+# /kvmapp/system/tool/nanokvm_update_edid /kvmapp/system/tool/E21_NanoKVM.bin
+Chip Version: LT6911UXC
+Product Version : PCIE_A
+
+=========================================================
+Incorrect EDID may cause issues such as
+inability to display images, please modify with caution
+=========================================================
+
+EDID data loaded successfully from /kvmapp/system/tool/E21_NanoKVM.bin
+Writing EDID....
+EDID write completed
+Reading EDID...
+EDID data verified successfully
+
+=========================================================
+✅  EDID update successful!
+=========================================================
+
+```
 
 #### 其他问题
   1. 被控主机可能处于睡眠状态，按下键盘任意按键尝试唤醒
@@ -125,7 +140,7 @@ Please manually power cycle the device to apply changes.
   6. 早期内测版 Full NanoKVM 使用普通排线连接 HDMI 采集板，可能因接触不良导致检测不到 HDMI 信号，可按下图所示重新连接排线，或联系客服购买专用排线
   ![](./../../../assets/NanoKVM/guide/Old_fix.png)
   7. 尝试重启解决：在网页终端中执行`reboot`
-  8. 若上述方式无法锁定问题，请在网页终端中执行`cat /proc/cvitek/vi_dbg`
+  8. **若上述方式无法锁定问题**，请在网页终端中执行`cat /proc/cvitek/vi_dbg`
   > 若 `VIDevFPS` 为0，则认为NanoKVM无法获取到HDMI输入，排查以下问题：主机是否输出视频信号、HDMI线缆损坏、Cube是否为早期版本，存在接触不良的情况
   > 若 `VIDevFPS` 非0 、`VIFPS` 为0 ，则认为NanoKVM没有正确配置HDMI参数，Cube可以重新插拔HDMI重新自动获取，PCIe可点击`视频`下`重置HDMI`自动获取
   > 查看 `VIInImgWidth` 和 `VIInImgHeight`与实际HDMI分辨率是否一致，若不同，则认为NanoKVM没有自动获取到正确的HDMI参数，按照第4点手动配置分辨率参数
