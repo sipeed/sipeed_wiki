@@ -505,6 +505,12 @@ items:
             file: ThermalCam/T256s/UG.md
         -   label: 常见问题
             file: ThermalCam/T256s/FAQ.md
+    -   label: Sipeed TN160
+        items:
+        -   label: 简介
+            file: ThermalCam/TN160/Intro.md
+        -   label: 固件下载
+            file: ThermalCam/TN160/firmware.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
