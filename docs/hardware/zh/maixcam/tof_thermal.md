@@ -67,7 +67,7 @@ PMOD_Thermal160 模块是符合PMOD接口标准的低成本热成像模块，可
 |**模块名**  | PMOD_Thermal160   |
 |-----------|------------------|
 |**分辨率**  |160x120|
-|**测温范围**|-20～120℃|
+|**测温范围**|0～80℃|
 |**视角**   | 34°x26°|
 |**帧率**   | 25fps|
 |**接口**   | 图像接口:UART/USB 控制接口:I2C |
@@ -81,6 +81,18 @@ PMOD_Thermal160安装方式
 | MaixCAM2            | <img src="../../assets/maixcam/maixcam2_pmod_thermal160.jpg" width="400" height="300"> |
 
 参考使用代码：<https://github.com/sipeed/MaixPy/blob/dev/projects/app_thermal160_camera/main.py>
+
+固件下载：
+
+| 项目 | 内容 |
+| :--- | :--- |
+| 文件 | [pico_tn160_2026-05-28.elf.uf2](../../assets/maixcam/firmware/pmod_thermal160/pico_tn160_2026-05-28.elf.uf2) |
+| 大小 | `438272` bytes |
+| SHA256 | `55a8776114e4696c2f3f3eb363b05777e9362523250b743c10192abc77e38885` |
+| 输出模式 | USB UVC，`160x120`，`YUY2`，`10fps` |
+| USB 传输 | full-speed Bulk UVC |
+
+烧录方法：按住模块上的 `BOOT` / `BOOTSEL` 按键后接入 USB，使 RP2350 进入 UF2 下载模式；电脑出现 RP2350/RPI-RP2 类似名称的 U 盘后，将上方 UF2 文件复制到该 U 盘根目录，等待设备自动重启。
 
 ## PMOD_Thermal256
 
