@@ -327,7 +327,7 @@ update:
 
     <!-- ![run_BLDevCube](./assets/run_bldc.jpg) -->
 
-- 在弹出的窗口中，选择芯片型号为 BL616/618
+- 在弹出的窗口中，选择芯片型号为 BL616/618或者 BL702/704/706
 
   <details>
     <summary><font color="#4F84FF">点击查看图片详情</font></summary>
@@ -451,11 +451,11 @@ update:
   | Nano 9K       | BL702      | N/A                                                                                                          | N/A       |N/A                                                                                                                                            |
   | Primer 20K    | BL702      | N/A                                                                                                          | N/A       |N/A                                                                                                                                            |
   |               |            |                                                                                                              |           |                                                                                                                                               |
-  | nano 20K      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_20kNano.bin)     |2025030317 |[bl616_fpga_partner_20kNano.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_20kNano.sha256)        |
-  | Primer 25K    | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.bin)     |2025030317 |[bl616_fpga_partner_25kDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.sha256)        |
-  | Mega NEO      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.bin)     |2025030317 |[bl616_fpga_partner_NeoDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.sha256)        |
-  | Mega 138K Pro | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.bin) |2025030317 |[bl616_fpga_partner_138kproDock.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.sha256)|
-  | Console       | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025041420/bl616_fpga_partner_Console.bin)     |2025041420 |[bl616_fpga_partner_Console.sha256](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025041420/bl616_fpga_partner_Console.sha256)        |
+  | nano 20K      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_20kNano.bin)     |2025030317 |[bl616_fpga_partner_20kNano.sha256](https://dl.sipeed.com/fileList/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_20kNano.bin.sha256)        |
+  | Primer 25K    | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.bin)     |2025030317 |[bl616_fpga_partner_25kDock.sha256](https://dl.sipeed.com/fileList/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_25kDock.bin.sha256)        |
+  | Mega NEO      | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.bin)     |2025030317 |[bl616_fpga_partner_NeoDock.sha256](https://dl.sipeed.com/fileList/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_NeoDock.bin.sha256)        |
+  | Mega 138K Pro | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.bin) |2025030317 |[bl616_fpga_partner_138kproDock.sha256](https://dl.sipeed.com/fileList/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_138kproDock.bin.sha256)|
+  | Console       | BL616      | [点我](https://api.dl.sipeed.com/TANG/Debugger/onboard/BL616/2025041420/bl616_fpga_partner_Console.bin)     |2025041420 |[bl616_fpga_partner_Console.sha256](https://dl.sipeed.com/fileList/TANG/Debugger/onboard/BL616/2025030317/bl616_fpga_partner_60kConsole.bin.sha256)        |
 
 ### 故障排除
 如果您在使用过程中遇到任何问题，或者对文档有任何意见或建议，请随时向我们反馈。联系方式如下。

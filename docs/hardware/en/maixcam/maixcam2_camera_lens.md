@@ -45,7 +45,7 @@ Datasheets for more lenses and mounts are available at the [download site](https
 | Interface         | **M12**                 | **M12**                       | **M12**                      |
 | Diameter          | 12mm                    | 12mm                          | 12mm                         |
 | Thread Pitch      | 0.5mm                   | 0.5mm                         | 0.5mm                        |
-| FOV               | H 90°<br>V 81°<br>D 90° | H 86.7°<br>V 48.8°<br>D 99.5° | H 88°<br>V 49.9°<br>D 100.2° |
+| FOV               | H 90°<br>V 51°<br>D 90° | H 86.7°<br>V 48.8°<br>D 99.5° | H 88°<br>V 49.9°<br>D 100.2° |
 | Distortion        | None                    | -25.6%                        | -25.6%                       |
 | IR-Cut            | None                    | None                          | None                         |
 | Lens Size         | **1/3"**                | **1/1.8"**                    | **1/1.8"**                   |
