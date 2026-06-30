@@ -1,0 +1,13 @@
+items:
+-   label: MF 人脸识别模块
+    items:
+    -   label: MF0&&MF0 Dock
+        file: mf_ml_module/mf0_ml_module.md
+    -   label: MF1 && MF2
+        file: mf_ml_module/mf1_ml_module.md
+    -   label: MF4 && MF5
+        file: mf_ml_module/mf5_product.md
+    -   label: MF 人脸识别模块 PCB 设计注意事项
+        file: mf_ml_module/mf_precautions.md
+    -   label: MF 更新固件说明
+        file: mf_ml_module/mf_update_firmwave.md

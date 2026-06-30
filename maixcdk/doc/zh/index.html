@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/maixcdk/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/maixcdk/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/search/style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/maixcdk/static/css/custom.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <link rel="stylesheet" href="/maixcdk/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixCDK 快速开始 - MaixCDK</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求点赞服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/maixcdk/">
+                
+                
+                    <h2>MaixCDK</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/maixcdk/doc/zh/">文档</a></li>
+<li class=""><a  href="/maixcdk/api/">API</a></li>
+<li class=""><a  href="/maixcdk/doc/zh/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/sipeed/MaixCDK"><img src='/maixcdk/static/image/github-fill.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;</a></li>
+<li class="sub_items "><a  ><img src='/maixcdk/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class="active"><a  href="/maixcdk/doc/zh/index.html">中文</a></li>
+<li class=""><a  href="/maixcdk/doc/index.html">English</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/maixcdk/doc/zh/index.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/faq.html"><span class="label">FAQ 常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">规范</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/index.html"><span class="label">编码规范</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/add_api.html"><span class="label">添加新 API</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/app.html"><span class="label">APP 框架</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/i18n.html"><span class="label">I18N(国际化/多语言)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/protocol.html"><span class="label">Maix 通信协议</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/nn.html"><span class="label">NN AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/convention/memcheck.html"><span class="label">内存泄漏检测</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/dev/docker/index.html"><span class="label">Docker 环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/more.html"><span class="label">更多文档</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用笔记</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/index.html"><span class="label">关于本笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ai/yolo11.html"><span class="label">YOLO11 开发笔记</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/maixcdk/doc/zh/application/ui/lvgl.html"><span class="label">LVGL</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCDK 快速开始</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc_zh/README.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="MaixCDK-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D">MaixCDK 基本介绍</h2>
+<p>MaixCDK 使用 C++ 封装了常用的 AI 图像、视觉、语音，外设相关的 API，使用 MaixCDK 可以快速验证产品原型和开发稳定的产品。</p>
+<p>MaixCDK 不光是一套 C++ SDK，同时会自动生成 Python API 绑定，即可以使用 Python 进行开发，也就是<a href="https://wiki.sipeed.com/maixpy/"  target="_blank">MaixPy</a>。</p>
+<p>使用 MaixCDK 需要基本的 Linux 使用经验和懂交叉编译的基本概念。</p>
+<h2 id="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</h2>
+<p>要使用 MaixCDK，均假设你已经会以下知识，不会请先自行学习或者请转角使用<a href="https://wiki.sipeed.com/maixpy/"  target="_blank">MaixPy</a>：</p>
+<ul>
+<li>熟练使用 Linux 进行开发，熟悉终端以及常见命令使用。</li>
+<li>熟练掌握 C/C++ 其中一种语言，其中 C++ 可以不熟练但是必须了解基础语法和面向对象概念。</li>
+<li>会主动看源码分析问题。</li>
+<li>中国开发者须了解使用网络代理。</li>
+<li>了解交叉编译。</li>
+</ul>
+<h2 id="%E5%A6%82%E4%BD%95%E6%89%BE%E8%B5%84%E6%96%99%E5%92%8C%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">如何找资料和解决问题</h2>
+<ol>
+<li>多看 <a href="https://github.com/sipeed/MaixCDK"  target="_blank">MaixCDK 源码</a>。</li>
+<li>由于功能 / <code>API</code> 和 <code>MaixPy</code> 相同，<code>MaixCDK</code> 不再单独提供详细的教程，请参考<a href="https://wiki.sipeed.com/maixpy/"  target="_blank">MaixPy 文档</a>，原理和代码基本一致，稍微转换一下就能使用。</li>
+<li>建议不要直接从 <code>MaixCDK</code> 上手，先体验完基本的 <code>MaixPy</code> 使用再使用 MaixCDK 会轻松很多。</li>
+<li>多看仔细看官方文档，包括 MaixCDK、MaixPy、硬件文档。</li>
+<li>遇到问题先从 <a href="https://wiki.sipeed.com/maixcdk/doc/zh/faq.html"  target="_blank">MaixCDK FAQ</a>, <a href="https://wiki.sipeed.com/maixpy/doc/zh/faq.html"  target="_blank">MaixPy FAQ</a>, <a href="https://wiki.sipeed.com/hardware/zh/maixcam/faq.html"  target="_blank">MaixCAM 硬件 FAQ</a> 以及<a href="https://github.com/sipeed/MaixCDK/issues"  target="_blank">源码 issues</a> 等地方找答案。</li>
+<li><a href="https://maixhub.com/share"  target="_blank">MaixHub 分享广场</a> 看社区成员的经验。</li>
+<li><strong>仔细 耐心</strong> 看 错误<code>LOG</code>， 从上到下看日志，出错日志有时可能在中间，不要跳过着急！！</li>
+</ol>
+<h2 id="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</h2>
+<h3 id="%E5%87%86%E5%A4%87%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%8E%AF%E5%A2%83">准备系统和环境</h3>
+<p>两种方式：</p>
+<h4 id="%E6%9C%AC%E6%9C%BA%EF%BC%9A">本机：</h4>
+<p><strong>仅支持 Linux 系统</strong>，推荐使用 <strong>Ubuntu &gt;= 20.04</strong>。<br />
+注意 MaixCAM 工具链只支持 x86_64 CPU，不支持 ARM 电脑，特别是如果你是 ARM MacOS 则无法编译过。</p>
+
+<pre class="language-none"><code class="language-none">sudo apt update
+sudo apt install git cmake build-essential python3 python3-pip autoconf automake libtool
+cmake --version # cmake 版本应该 &gt;= 3.13
+</code></pre>
+<blockquote>
+<p>如果你希望编译出来到 Linux PC 上跑，而不是交叉编译到开发板，如果是 <code>Ubuntu</code>，请使用系统版本<code>&gt;=20.04</code>，否则有些依赖包可能会版本太旧无法编译通过，并且按照<a href="https://github.com/sipeed/MaixCDK/blob/main/docs/doc/dev/docker/Dockerfile"  target="_blank">Dockerfile</a>里面的安装依赖的命令来安装依赖。<br />
+如果编译仍然报错，请<a href="./dev/docker/index.html"  >使用 Docker 环境进行编译</a>。</p>
+</blockquote>
+<h4 id="Docker%EF%BC%9A">Docker：</h4>
+<p><code>Docker</code> 环境准备好了 <code>ubuntu20.04</code> 系统和依赖，可以直接获取开始编译，<strong>对 <code>Docker</code> 熟悉 或者 搭建本地开发环境遇到问题</strong>可以参考。<br />
+详细请看 <a href="./dev/docker/index.html"  >Docker 环境使用方法</a>。</p>
+<h3 id="%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81">获取源码</h3>
+
+<pre class="language-none"><code class="language-none">git clone https://github.com/Sipeed/MaixCDK
+</code></pre>
+<blockquote>
+<ul>
+<li>稳定的 Release 版本可以到 <a href="https://github.com/Sipeed/MaixCDK/releases"  target="_blank">release 页面</a> 下载。</li>
+<li>另外也可以看 <a href="https://github.com/Sipeed/MaixPy/releases"  target="_blank">MaixPy release</a> assets 下的 <code>maixcdk_version_xxxxx.txt</code>， 这个<code>xxxxx</code> 就是 MaixPy 对应 release 使用的版本，可以使用<code>git checkout xxxx</code>来切换到对应的版本。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>中国国内用户可能克隆速度比较慢，可以使用<code>git clone https://gitee.com/Sipeed/MaixCDK</code></p>
+</blockquote>
+<h3 id="%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96">安装依赖</h3>
+
+<pre class="language-none"><code class="language-none">cd MaixCDK
+pip install -U pip                     # 更新 pip 到最新版本
+pip install -U -r requirements.txt     # 安装依赖
+</code></pre>
+<blockquote>
+<p>中国国内可以加<code>-i https://pypi.tuna.tsinghua.edu.cn/simple</code>参数来使用清华源。<br />
+<code>Docker</code>环境里面已经装好了，不过也可以在<code>Docker</code>容器里面执行命令更新到最新版本。</p>
+</blockquote>
+<p>此时在终端执行<code>maixtool</code>和<code>maixcdk</code>命令可以看到帮助信息。</p>
+<blockquote>
+<p>如果报错找不到命令，可以尝试重启终端，或者通过<code>find / -name &quot;maixtool&quot;</code>来找到<code>maixtool</code>命令的位置，然后通过<code>export PATH=maixtool所在目录;$PATH</code>来设置系统环境变量，重启终端就可以执行<code>maixtool</code>命令了。</p>
+</blockquote>
+<h3 id="%E7%BC%96%E8%AF%91">编译</h3>
+
+<pre class="language-shell"><code class="language-shell">cd examples/hello_world
+maixcdk menuconfig
+</code></pre>
+<p>根据提示选择设备平台，会出来一个界面可以配置一些参数，初次使用用默认的参数即可（用默认的参数也可以不执行 menuconfig, 直接执行 build 命令），然后按<code>ESC</code>按键，再按<code>Y</code>保存退出。</p>
+
+<pre class="language-shell"><code class="language-shell">maixcdk build
+</code></pre>
+<p>第一次执行这一步会根据设备下载编译工具链，下载如果太慢，可以根据提示手动下载到提示的目录，然后再执行编译。</p>
+<blockquote class="spoiler warning">
+<p> 下载的资源基本都是 github 上的，中国国内下载速度可能会比较慢甚至失败（要下载的文件列表在<code>dl/pkgs_info.json</code>），有几种常见解决方法：</p>
+<ol>
+<li>终端设置代理（推荐）， 比如：<code>export http_proxy=http://127.0.0.1:8123 https_proxy=http://127.0.0.1:8123</code>，这里<code>http://127.0.0.1:8123</code>就是你的<code>http</code>代理的地址。</li>
+<li>手动下载到<code>dl/pkgs</code>下：下载时，会打印下载连接和下载到本地的路径，手动下载文件方到对应路径，再次执行编译就会直接使用本地准备好的（注意文件 sha256 校验值必须相同即同一个文件）。</li>
+<li>中国国内用户可以到 <a href="../"  >首页 QQ 群</a> 群文件<code>MaixCDK</code>文件夹下载放到<code>MaixCDK/dl</code>目录下。</li>
+</ol>
+</blockquote>
+<blockquote class="spoiler warning">
+<p> 常见错误和解决方法看<a href="./faq.html"  >FAQ</a></p>
+</blockquote>
+<p>编译完后在<code>build</code>目录下可以看到二进制程序文件，以及<code>build/dl_lib</code>下有依赖的<code>so</code>文件。</p>
+<p>修改了代码后，再次执行<code>maixcdk build</code>即可编译。</p>
+<p>如果你<strong>没有增删源码文件可以执行<code>maixcdk build2</code> 或者 <code>maixcdk build --no-gen</code> 编译会更快</strong>（只编译修改了的文件）。</p>
+<blockquote>
+<p>因为<code>build</code>命令会从头开始构建，扫描文件再编译，<code>build2</code>命令则不会扫描文件增删，直接编译编辑过的文件。<br />
+注意<code>build2</code>命令不会检测到文件增加或者删除，如果<strong>增删了文件必须再执行一遍<code>build</code>命令</strong>。</p>
+</blockquote>
+<p>也可以执行<code>maixcdk distclean</code> 清除所有编译产生的临时文件以从一个干净的环境开始编译（但是这样构建时间会很长，一般编译出现奇怪的问题可以先尝试这样解决）。</p>
+<h3 id="%E4%B8%8A%E4%BC%A0%E7%A8%8B%E5%BA%8F%E5%88%B0%E8%AE%BE%E5%A4%87">上传程序到设备</h3>
+<p>拷贝 可执行文件 和 <code>dl_lib</code>文件夹 到设备运行。</p>
+<p>可以通过 <code>scp</code>命令来拷贝，比如：</p>
+
+<pre class="language-shell"><code class="language-shell">scp -r dist/ root@10.127.117.1:/root/
+</code></pre>
+<p>默认密码是<code>root</code></p>
+<h3 id="%E8%BF%90%E8%A1%8C">运行</h3>
+<p>通过 ssh 终端运行程序。注意要保证没有程序正在运行（包括开机的应用选择界面(Launcher)）。<br />
+具体方法：</p>
+<ul>
+<li>MaixVision 连接设备，这会让 Launcher 退出。也可以在 ssh 终端手动<code>kill</code> <code>launcher_daemon</code>程序。（<strong>重要!!</strong>）</li>
+<li>ssh 连接设备，比如 <code>ssh root@192.168.0.123</code>， 密码是 <code>root</code>。</li>
+<li>然后到可知性文件目录下执行文件， 比如 <code>cd /root/dist/camera_display_release &amp;&amp; ./camera_display</code></li>
+</ul>
+<h3 id="%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83">打包发布</h3>
+<p>在工程目录下，使用 <code>maixcdk -p maixcam release</code> 可以为 <code>maixcam</code> 打包一个程序包并且存放在<code>dist</code>目录，可以上传发布到<a href="https://maixhub.com/app"  target="_blank">MaixHub 应用商店</a>。</p>
+<p>安装包使用方法：</p>
+<ul>
+<li>方法一： ssh 终端，直接解压拷贝到设备，执行<code>chmod +x 程序名 &amp;&amp; ./程序名</code>即可运行。</li>
+<li>方法二： 在设备运行<a href="https://maixhub.com/app/12"  target="_blank">应用商店</a>应用，在 <a href="https://maixhub.com/app"  target="_blank">MaixHub 应用商店</a> 扫码安装。</li>
+<li>方法三： 对于开发者，保证设备已经连到了和电脑所在局域网，在工程目录执行<code>maixcdk deploy</code> 会出现一个二维码， 在设备运行<a href="https://maixhub.com/app/12"  target="_blank">应用商店</a>应用扫码安装。</li>
+<li>方法四： 拷贝安装包到设备，在设备执行<code>/maixapp/apps/app_store/app_store install xxx.zip</code> 即可安装应用。</li>
+</ul>
+<p>这里简单提及一下，发布的应用需要遵循<a href="./convention/app.html"  >APP 开发准则</a>。</p>
+<h3 id="%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B">新建工程</h3>
+<p>使用命令创建工程：</p>
+
+<pre class="language-shell"><code class="language-shell">maixcdk new
+</code></pre>
+<h2 id="%E4%B8%BA-MaixPy-%E6%B7%BB%E5%8A%A0-API">为 MaixPy 添加 API</h2>
+<p>因为 MaixPy 底层大多数就是 MaixCDK，而为 MaixPy 添加 API 也非常简单，给函数加一个注释<code>@maixpy maix.xxx.xxxx</code> 就可以了。</p>
+<p>比如要实现以下 API：</p>
+
+<pre class="language-python"><code class="language-python">from maix import example
+
+result = example.hello(&quot;Bob&quot;)
+print(result)
+</code></pre>
+<p>只需要在<a href="https://github.com/sipeed/MaixCDK/blob/main/components/basic/include/maix_api_example.hpp"  target="_blank">maix_api_example.hpp</a> 中添加声明：</p>
+
+<pre class="language-cpp"><code class="language-cpp">namespace maix::example
+{
+    /**
+     * @brief say hello to someone
+     * @param[in] name name of someone, string type
+     * @return string type, content is hello + name
+     * @maixpy maix.example.hello
+     */
+    std::string hello(std::string name);
+}
+</code></pre>
+<p>然后编译<code>MaixPy</code>项目得到 MaixPy 安装包，安装到设备即可使用新的 API 了，简单吧！</p>
+<p>更详细的文档请看 <a href="./convention/add_api.html"  >添加 API</a></p>
+<h2 id="%E5%BC%80%E5%8F%91%E5%87%86%E5%88%99">开发准则</h2>
+<p>要开始使用 MaixCDK，请从阅读<a href="./convention/index.html"  >MaixCDK 开发准则</a> 开始。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/maixcdk/doc/zh/faq.html">
+                            <span class="label">FAQ 常见问题</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://wiki.sipeed.com">Sipeed Wiki</a></li>
+<li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a  href="/maixcdk/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/maixpy">MaixPy 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/MaixCDK">MaixCDK 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://www.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/maixpy/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101C</a>
+</li>
+<li><a  href="https://wiki.sipeed.com/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/maixcdk/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script src="/maixcdk/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/main.js"></script>
+    
+        <script src="/maixcdk/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/maixcdk/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/maixcdk/static/js/search/search_main.js"></script>
+    
+        <script src="/maixcdk/static/js/custom.js"></script>
+    
+        <script src="/maixcdk/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
