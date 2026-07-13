@@ -541,6 +541,30 @@ items:
             file: kvm/NanoKVM/ipmi.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
+    -   label: NanoKVM Go
+        items:
+        -   label: 简介
+            file: kvm/NanoKVM_Go/introduction.md
+        -   label: 快速上手
+            file: kvm/NanoKVM_Go/quick_start.md
+        -   label: 用户指南
+            file: kvm/NanoKVM_Go/user_guide.md
+        -   label: 二次开发
+            file: kvm/NanoKVM_Go/development/development.md
+        -   label: 网络
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM_Go/network/Tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM_Go/network/frp.md
+            -   label: 静态 IP
+                file: kvm/NanoKVM_Go/network/static_ip.md
+        -   label: 系统
+            file: kvm/NanoKVM_Go/system/system.md
+        -   label: 重置
+            file: kvm/NanoKVM_Go/reset.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
         items:
         -   label: 简介

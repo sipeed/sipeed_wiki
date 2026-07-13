@@ -25,6 +25,7 @@ class: faq
 | MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ 汇总](/ai/zh/maixhub/faq.html) |
 | Tang FPGA | [Tang](/tang)  | [Tang FAQ 汇总](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
 | NanoKVM | [NanoKVM](/nanokvm) | [NanoKVM FAQ 汇总](/hardware/zh/kvm/NanoKVM/faq.html) | 
+| NanoKVM-Go | [NanoKVM-Go](/nanokvmgo) | [NanoKVM Go FAQ 汇总](/hardware/zh/kvm/NanoKVM_Go/faq.html) |
 | NanoKVM-PCIe | [NanoKVM-PCIe](/nanokvmpcie) | [NanoKVM PCIe FAQ 汇总](/hardware/zh/kvm/NanoKVM/faq.html) | 
 | NanoKVM-USB | [NanoKVM-USB](/nanokvmusb) | [NanoKVM USB FAQ 汇总](/hardware/zh/kvm/NanoKVM_USB/faq.html) | 
 | NanoKVM-Pro | [NanoKVM-Pro](/nanokvmpro) | [NanoKVM Pro FAQ 汇总](/hardware/zh/kvm/NanoKVM_Pro/faq.html) | 

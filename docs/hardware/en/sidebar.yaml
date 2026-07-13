@@ -540,6 +540,30 @@ items:
             file: kvm/NanoKVM/faq.md
         -   label: Development
             file: kvm/NanoKVM/development.md
+    -   label: NanoKVM Go
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM_Go/introduction.md
+        -   label: Quick Start
+            file: kvm/NanoKVM_Go/quick_start.md
+        -   label: User Guide
+            file: kvm/NanoKVM_Go/user_guide.md
+        -   label: Development
+            file: kvm/NanoKVM_Go/development/development.md
+        -   label: Network
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM_Go/network/Tailscale.md
+            -   label: frp
+                file: kvm/NanoKVM_Go/network/frp.md
+            -   label: Static IP
+                file: kvm/NanoKVM_Go/network/static_ip.md
+        -   label: System
+            file: kvm/NanoKVM_Go/system/system.md
+        -   label: Reset
+            file: kvm/NanoKVM_Go/reset.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
         items:
         -   label: Introduction

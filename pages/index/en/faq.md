@@ -24,6 +24,7 @@ The sharing location is the FAQ page of the corresponding product in the table b
 | MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ](/ai/zh/maixhub/faq.html) |
 | Tang FPGA | [Tang](/tang)  | [Tang FAQ](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
 | NanoKVM | [NanoKVM](/nanokvm) | [NanoKVM FAQ](/hardware/en/kvm/NanoKVM/faq.html) | 
+| NanoKVM-Go | [NanoKVM-Go](/nanokvmgo) | [NanoKVM Go FAQ](/hardware/en/kvm/NanoKVM_Go/faq.html) |
 | NanoKVM-PCIe | [NanoKVM-PCIe](/nanokvmpcie) | [NanoKVM PCIe FAQ](/hardware/en/kvm/NanoKVM/faq.html) | 
 | NanoKVM-USB | [NanoKVM-USB](/nanokvmusb) | [NanoKVM USB FAQ](/hardware/en/kvm/NanoKVM_USB/faq.html) | 
 | NanoKVM-Pro | [NanoKVM-Pro](/nanokvmpro) | [NanoKVM Pro FAQ](/hardware/en/kvm/NanoKVM_Pro/faq.html) | 
@@ -39,4 +40,3 @@ The sharing location is the FAQ page of the corresponding product in the table b
 | Telegram MaixPy | [t.me/maixpy](https://t.me/maixpy) |
 | Twitter  | [twitter.com/SipeedIO](https://twitter.com/SipeedIO) |
 | FPGA Reddit | [GowinFPGA](https://www.reddit.com/r/GowinFPGA/) |
-
