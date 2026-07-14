@@ -6,8 +6,6 @@ NanoKVM Pro 会不定期更新应用，一些问题可能在新的应用中已�
 
 ## 系统启动
 
-
-
 ### 绿色LED闪烁
 
 绿色LED是 NanoKVM Pro 的电源指示，如果连接了供电能力较弱的电源，绿色LED会因电压不稳定而无法启动，请拔掉所有供电并更换电源
@@ -73,7 +71,7 @@ NanoKVM-Pro具有采集和环出视频的功能，仅采集时默认向主机汇
 
 ## 镜像烧录方法
 
-### USB 烧录
+### USB 烧录（EMMC 版本）
 
 NanoKVM Pro 支持通过 USB 烧录镜像的方式来恢复或更新系统。
 
@@ -153,14 +151,14 @@ sudo sync
 - 首次启动可能需要较长时间进行初始化配置
 - 如果橙色灯一直不亮，或者磁盘设备没有出现，请参考下面的方法使用 AXDL 烧录
 
-### AXDL 烧录
+### AXDL 烧录（EMMC 版本）
 
 AXDL 是爱芯官方推出的镜像烧录工具，可以烧录 AXP 格式的系统镜像，目前仅支持 Windows 平台。
 
 #### 准备工作
 
 - 准备一根 USB 数据线
-- 访问 [NanoKVM Pro 发布页面](https://github.com/sipeed/NanoKVM-Pro/releases) 下载最新的 AXP 格式镜像文件
+- 访问 [NanoKVM Pro 发布页面](https://github.com/sipeed/NanoKVM-Pro/releases/latest) 下载最新的 AXP 格式镜像文件
 - 下载并安装 AXDL 工具和对应驱动 [下载地址](https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock/10_PC_Software)
 
 #### 烧录步骤
@@ -182,26 +180,24 @@ AXDL 是爱芯官方推出的镜像烧录工具，可以烧录 AXP 格式的系�
    - 烧录将自动开始，等待进度条完成
    - 直到提示烧录成功，整个过程完成
 
-### SD 卡烧录
+### SD 卡烧录（EMMC 版本或 SD 卡版本）
 
-NanoKVM Pro Desk 支持通过 SD 卡将镜像写入内置 eMMC 来恢复或更新系统。注意：目前仅支持将镜像从 SD 卡烧录到内置 eMMC，设备不能直接从 SD 卡启动。
+NanoKVM Pro Desk 目前支持从 SD 卡启动系统，用户可以通过烧录 SD 卡的方式启动系统，适用于 eMMC 版本和 SD 卡版本的 NanoKVM-Pro。
 
 #### 准备工作
 
-- 准备一张容量至少 8 GB 的 SD 卡。
-- 下载最新的 [NanoKVM Pro SD 镜像](https://github.com/sipeed/NanoKVM-Pro/releases)（通常为 zip 压缩包），解压后取出其中的 `img` 文件。
+- 准备一张容量至少 16 GB 的 SD 卡。
+- 下载最新的 [NanoKVM Pro SD 镜像](https://github.com/sipeed/NanoKVM-Pro/releases/latest)。
 - 准备烧录工具（如 `balenaEtcher`、`Rufus` 或使用命令行的 `dd`）。
 - 准备一个 USB 读卡器以连接 SD 卡。
 
 #### 烧录步骤
 
-1. 使用 `balenaEtcher` 或 `dd` 将 `img` 镜像写入 SD 卡（具体写入方法参照上文“USB 烧录”部分）。
+1. 使用 `balenaEtcher` 或 `dd` 将镜像写入 SD 卡（具体写入方法参照上文“USB 烧录”部分）。
 2. 将写好镜像的 SD 卡插入 NanoKVM Pro 的 SD 卡槽。
 3. 断开 NanoKVM Pro Desk 的电源。
-4. 按住 NanoKVM Pro Desk 的 `User` 按键，同时接通电源。
-5. 当橙色 LED 开始匀速闪烁时，表示开始将 SD 卡中的镜像烧录到内置 eMMC。
-6. 烧录完成后，橙色 LED 由闪烁变为常亮，表示烧录成功。
-7. 断开电源并取出 SD 卡，重新接通电源后设备将从内置 eMMC 自动启动新系统。
+4. 按住 NanoKVM Pro Desk 的 `User` 按键，同时接通电源。然后马上松开 `User` 按键，设备将从 SD 卡启动。
+5. 如果想通过 SD 卡启动系统烧录 EMMC，请在 SD 卡启动后，将 EMMC 镜像拷贝到系统中，然后使用 dd 命令将镜像写入 `/dev/mmcblk0` 即可。
 
 ## Desk版本LCD不亮
 

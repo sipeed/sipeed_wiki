@@ -71,7 +71,7 @@ When connected through video adapters or docking stations, the reported capabili
 
 ## Image Burning Methods
 
-### USB Burning
+### USB Burning (eMMC Version)
 
 NanoKVM Pro supports restoring or updating the system via USB image burning.
 
@@ -148,14 +148,14 @@ sudo sync
 * The first startup may take a long time for initialization and configuration.
 * If the orange light does not turn on or the disk device does not appear, please refer to the methods below to use AXDL for burning.
 
-### AXDL Burning
+### AXDL Burning (eMMC Version)
 
 AXDL is an official burning tool provided by Aixin, designed for burning AXP format system images. It currently supports Windows platform only.
 
 #### Preparation
 
 * Prepare a USB data cable.
-* Visit the [NanoKVM Pro Release Page](https://github.com/sipeed/NanoKVM-Pro/releases) to download the latest AXP format image file.
+* Visit the [NanoKVM Pro Release Page](https://github.com/sipeed/NanoKVM-Pro/releases/latest) to download the latest AXP format image file.
 * Download and install the AXDL tool and corresponding drivers [Download Link](https://dl.sipeed.com/shareURL/MaixIV/M4N-Dock/10_PC_Software).
 
 #### Burning Steps
@@ -177,26 +177,24 @@ AXDL is an official burning tool provided by Aixin, designed for burning AXP for
    * The burning process will start automatically, wait for the progress bar to complete.
    * Wait until the prompt indicates that burning was successful; the entire process is complete.
 
-### SD Card Flashing
+### SD Card Flashing (eMMC or SD Card Version)
 
-The NanoKVM Pro Desk supports writing an image from an SD card to the internal eMMC to restore or update the system. Note: this only supports flashing an image from an SD card to the internal eMMC; the device cannot boot directly from the SD card.
+The NanoKVM Pro Desk currently supports booting the system from an SD card. Users can boot the system by flashing an SD card. This applies to both the eMMC and SD card versions of NanoKVM Pro.
 
 #### Preparation
 
-* Prepare an SD card with at least 8 GB capacity.
-* Download the latest NanoKVM Pro SD image from the [NanoKVM Pro Releases](https://github.com/sipeed/NanoKVM-Pro/releases) page (the image is usually provided in a zip archive). Extract the archive and locate the `img` file.
+* Prepare an SD card with at least 16 GB capacity.
+* Download the latest [NanoKVM Pro SD image](https://github.com/sipeed/NanoKVM-Pro/releases/latest).
 * Prepare a flashing tool such as `balenaEtcher`, `Rufus`, or use the command-line `dd`.
 * Prepare a USB card reader to connect the SD card.
 
 #### Flashing Steps
 
-1. Use `balenaEtcher` or `dd` to write the `img` file to the SD card (see the "USB Burning" section above for details on writing images).
+1. Use `balenaEtcher` or `dd` to write the image to the SD card (see the "USB Burning" section above for details on writing images).
 2. Insert the flashed SD card into the NanoKVM Pro's SD card slot.
 3. Disconnect power from the NanoKVM Pro Desk.
-4. Press and hold the NanoKVM Pro Desk `User` button, then connect power.
-5. When the orange LED starts flashing steadily, the device is writing the image from the SD card to the internal eMMC.
-6. After flashing completes, the orange LED will stay solid, indicating success.
-7. Disconnect power, remove the SD card, and reconnect power. The device will boot the new system from internal eMMC.
+4. Press and hold the NanoKVM Pro Desk `User` button while connecting power, then immediately release the `User` button. The device will boot from the SD card.
+5. To flash the eMMC after booting from the SD card, copy the eMMC image into the system, then use the `dd` command to write the image to `/dev/mmcblk0`.
 
 ## Desk Version LCD Not Lighting Up
 
@@ -210,4 +208,3 @@ Click [here](https://wiki.sipeed.com/nanokvmpro-lcd) to view the issue and repai
 In the first batch of NanoKVM-Desk units, the screw in the top-left position (shown below) was found to affect WiFi connection stability due to structural design considerations. This screw hole is intentionally left empty in later assemblies.
 
 ![](./../../../assets/NanoKVM/pro/faq/screw.jpg)
-
