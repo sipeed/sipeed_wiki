@@ -549,8 +549,6 @@ items:
             file: kvm/NanoKVM_Go/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM_Go/user_guide.md
-        -   label: 二次开发
-            file: kvm/NanoKVM_Go/development/development.md
         -   label: 网络
             items:
             -   label: Tailscale
@@ -560,9 +558,13 @@ items:
             -   label: 静态 IP
                 file: kvm/NanoKVM_Go/network/static_ip.md
         -   label: 系统
-            file: kvm/NanoKVM_Go/system/system.md
-        -   label: 重置
-            file: kvm/NanoKVM_Go/reset.md
+            items:
+            -   label: 镜像烧录
+                file: kvm/NanoKVM_Go/system/flashing.md
+            -   label: 系统介绍
+                file: kvm/NanoKVM_Go/system/introduction.md
+            -   label: 系统更新
+                file: kvm/NanoKVM_Go/system/updating.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
