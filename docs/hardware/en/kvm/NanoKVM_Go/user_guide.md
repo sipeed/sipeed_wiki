@@ -17,7 +17,7 @@ The NanoKVM Go screen is used to show device status and access common settings. 
 
 The main screen shows network status, device IP address, current resolution, frame rate, and device status. After network configuration is complete, you can check the current IP address of NanoKVM Go here.
 
-![NanoKVM Go main screen](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.png)
+![NanoKVM Go main screen](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.webp)
 
 ### Settings Screen
 
@@ -25,13 +25,13 @@ The settings screen contains multiple function entries. Switch left or right to 
 
 Example settings pages are shown below:
 
-![NanoKVM Go settings screens](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-setting-screens.png)
+![NanoKVM Go settings screens](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-setting-screens.webp)
 
 | Setting Entry | Setting Entry | Setting Entry |
 | --- | --- | --- |
-| ![Wi-Fi](./../../../assets/NanoKVM/go/user_guide/icon-wifi.png) **Wi-Fi**: Configure wireless network connection. | ![MCP](./../../../assets/NanoKVM/go/user_guide/icon-mcp.png) **MCP**: Enter MCP-related settings. | ![Replay](./../../../assets/NanoKVM/go/user_guide/icon-replay.png) **Replay**: Enter replay-related features. |
-| ![NCM](./../../../assets/NanoKVM/go/user_guide/icon-ncm.png) **NCM**: Configure USB network sharing. | ![SSH](./../../../assets/NanoKVM/go/user_guide/icon-ssh.png) **SSH**: Configure SSH remote access. | ![Rotation](./../../../assets/NanoKVM/go/user_guide/icon-rotation.png) **Rotation**: Adjust screen rotation direction. |
-| ![Panel](./../../../assets/NanoKVM/go/user_guide/icon-panel.png) **Panel**: Adjust panel display settings. | ![Apps](./../../../assets/NanoKVM/go/user_guide/icon-apps.png) **Apps**: View app-related features. | ![About](./../../../assets/NanoKVM/go/user_guide/icon-about.png) **About**: View device and version information. |
+| ![Wi-Fi](./../../../assets/NanoKVM/go/user_guide/icon-wifi.webp) **Wi-Fi**: Configure wireless network connection. | ![MCP](./../../../assets/NanoKVM/go/user_guide/icon-mcp.webp) **MCP**: Enter MCP-related settings. | ![Replay](./../../../assets/NanoKVM/go/user_guide/icon-replay.webp) **Replay**: Enter replay-related features. |
+| ![NCM](./../../../assets/NanoKVM/go/user_guide/icon-ncm.webp) **NCM**: Configure USB network sharing. | ![SSH](./../../../assets/NanoKVM/go/user_guide/icon-ssh.webp) **SSH**: Configure SSH remote access. | ![Rotation](./../../../assets/NanoKVM/go/user_guide/icon-rotation.webp) **Rotation**: Adjust screen rotation direction. |
+| ![Panel](./../../../assets/NanoKVM/go/user_guide/icon-panel.webp) **Panel**: Adjust panel display settings. | ![Apps](./../../../assets/NanoKVM/go/user_guide/icon-apps.webp) **Apps**: View app-related features. | ![About](./../../../assets/NanoKVM/go/user_guide/icon-about.webp) **About**: View device and version information. |
 
 ## Network Configuration
 
@@ -52,11 +52,11 @@ Before configuration, make sure that:
 
 From the NanoKVM Go main screen, enter the Wi-Fi settings page and make sure the Wi-Fi switch is `ON`.
 
-![NanoKVM Go Wi-Fi switch](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-on.png)
+![NanoKVM Go Wi-Fi switch](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-on.webp)
 
 After entering the configuration method page, choose either `QRCODE` or `PASSWD` to complete network configuration.
 
-![NanoKVM Go Wi-Fi configuration method](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-via.png)
+![NanoKVM Go Wi-Fi configuration method](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-via.webp)
 
 ### Configure with QRCODE
 
@@ -66,15 +66,15 @@ After entering the configuration method page, choose either `QRCODE` or `PASSWD`
 2. NanoKVM Go displays the `Connect to AP` QR code.
 3. Scan the QR code with a phone and follow the phone prompt to connect to the temporary NanoKVM Go hotspot.
 
-![NanoKVM Go temporary hotspot QR code](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-connect-ap-qr.png)
+![NanoKVM Go temporary hotspot QR code](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-connect-ap-qr.webp)
 
 4. After connecting to the temporary hotspot, NanoKVM Go displays the `Configure WiFi` QR code.
 
-![NanoKVM Go Wi-Fi configuration QR code](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-configure-wifi-qr.png)
+![NanoKVM Go Wi-Fi configuration QR code](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-configure-wifi-qr.webp)
 
 5. Scan the QR code with the phone to open the Wi-Fi configuration page.
 
-![NanoKVM Go Wi-Fi configuration page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-config-page.png)
+![NanoKVM Go Wi-Fi configuration page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-config-page.webp)
 
 6. Enter the Wi-Fi SSID and password on the page, then submit the configuration.
 
@@ -87,12 +87,12 @@ Wait for NanoKVM Go to complete the connection after submitting. Do not disconne
 1. Select `PASSWD` on the configuration method page.
 2. Select the Wi-Fi SSID to be connected from the Wi-Fi list.
 
-![NanoKVM Go Wi-Fi SSID selection](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-ssid.png)
+![NanoKVM Go Wi-Fi SSID selection](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-ssid.webp)
 
 3. Enter the Wi-Fi password on the password input page.
 4. Select `OK` after entering the password to submit the configuration.
 
-![NanoKVM Go Wi-Fi password input](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-password.png)
+![NanoKVM Go Wi-Fi password input](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-password.webp)
 
 Wait for NanoKVM Go to complete the connection after submitting. If the password is incorrect, return to the Wi-Fi configuration page and configure it again.
 
@@ -100,7 +100,7 @@ Wait for NanoKVM Go to complete the connection after submitting. If the password
 
 After configuration is complete, NanoKVM Go returns to the main screen. If the main screen displays the device IP address, the network connection is successful.
 
-![NanoKVM Go network connected](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-network-success.png)
+![NanoKVM Go network connected](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-network-success.webp)
 
 After the control device and NanoKVM Go are connected to the same network, enter the IP address in the browser address bar to open the NanoKVM Go web control page.
 
@@ -108,7 +108,9 @@ After the control device and NanoKVM Go are connected to the same network, enter
 
 After logging in to the NanoKVM Go web control page, you can view the controlled device screen in the browser and access common management functions from the top floating toolbar.
 
-![NanoKVM Go management page floating toolbar demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.gif)
+![NanoKVM Go floating toolbar demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
+
+[View demo video](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
 
 The floating toolbar entries from left to right are: Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Image Mounting, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and Hide Floating Toolbar.
 
@@ -216,15 +218,15 @@ The default NanoKVM Go web username is `admin`, and the default password is `adm
 
 It is recommended to change the default password after the first login. Click the Settings icon in the floating toolbar to enter the NanoKVM Go settings page.
 
-![NanoKVM Go settings entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings.png)
+![NanoKVM Go settings entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings.webp)
 
 On the settings page, select `Account` on the left, then click `Modify` in the `Password` row.
 
-![NanoKVM Go account settings page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings.png)
+![NanoKVM Go account settings page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings.webp)
 
 On the change password page, enter the username and new password, then enter the new password again to confirm. After checking that the information is correct, click `Confirm` to save it.
 
-![NanoKVM Go change password](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password.png)
+![NanoKVM Go change password](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password.webp)
 
 Changing the password updates both the web login password and the system `root` user password (SSH login password). After changing the password, log in again with the new password.
 
@@ -232,10 +234,10 @@ Changing the password updates both the web login password and the system `root` 
 
 If you forget the web login password, click `Forgot Password` on the login page to view the default account information and reset entry.
 
-![NanoKVM Go forgot password entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password.png)
+![NanoKVM Go forgot password entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password.webp)
 
 The page shows that the default web account is `admin/admin`, and the default SSH account is `root/sipeed`. If the password has been changed and you cannot log in, click the `Reset` link on the page and follow the reset instructions to reset the password.
 
-![NanoKVM Go forgot password prompt](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset.png)
+![NanoKVM Go forgot password prompt](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset.webp)
 
 After the reset is complete, log in again with the default account and set a new secure password as soon as possible.

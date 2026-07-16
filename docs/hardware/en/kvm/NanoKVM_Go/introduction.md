@@ -1,6 +1,6 @@
 ---
 title: NanoKVM Go
-keywords: NanoKVM, Remote desktop, KVM
+keywords: NanoKVM Go, NanoKVM, Remote desktop, KVM
 update:
   - date: 2026-07-14
     version: v0.1
@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-![NanoKVM Go appearance](./../../../assets/NanoKVM/go/introduction/device-transparent.png)
+![NanoKVM Go appearance](./../../../assets/NanoKVM/go/introduction/device-transparent.webp)
 
 NanoKVM Go is a portable IP-KVM tool in the NanoKVM series, designed for mobile maintenance, temporary access, and remote operation scenarios. It connects to the controlled device through USB-C and lets you view the screen, control keyboard and mouse input, and perform remote access from a browser.
 
@@ -32,7 +32,9 @@ Unlike traditional remote desktop software, NanoKVM Go does not require remote s
 
 ## Use Cases
 
-![NanoKVM Go menu demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.gif)
+![NanoKVM Go floating toolbar demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
+
+[View demo video](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
 
 + Server management: remotely view the target host screen and control keyboard and mouse input;
 + Remote installation: enter BIOS/UEFI, adjust boot options, and install systems with mounted images;

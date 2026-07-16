@@ -11,13 +11,13 @@ update:
 
 ## 开箱
 
-![NanoKVM Go 开箱](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-unbox.png)
+![NanoKVM Go 开箱](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-unbox.webp)
 
 NanoKVM Go 包装内包含 NanoKVM Go 主机、全功能 USB-C 数据线和连接指引卡。具体配件请以实际购买版本为准。
 
 ## 接口介绍
 
-![NanoKVM Go 接口介绍](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-interface.png)
+![NanoKVM Go 接口介绍](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-interface.webp)
 
 NanoKVM Go 侧面有两个 Type-C 接口和一个复位孔：
 
@@ -38,7 +38,7 @@ NanoKVM Go 侧面有两个 Type-C 接口和一个复位孔：
 
 ## 连接设备
 
-![NanoKVM Go 连接设备](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-connect-phone-new.png)
+![NanoKVM Go 连接设备](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-connect-phone-new.webp)
 
 连接步骤如下：
 
@@ -55,7 +55,7 @@ NanoKVM Go 首次使用时，需要先完成网络连接。
 3. 按页面提示输入要连接的 Wi-Fi 名称和密码，并提交配置。
 4. 配置完成后，返回主页面。若主页面显示设备的 IP 地址，即为连接成功。
 
-![NanoKVM Go 主界面 IP 地址显示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.png)
+![NanoKVM Go 主界面 IP 地址显示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.webp)
 
 详细配置请参考 [用户指南的网络配置章节](./user_guide.html#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE)。
 
@@ -63,11 +63,11 @@ NanoKVM Go 首次使用时，需要先完成网络连接。
 
 完成网络配置后，在浏览器地址栏直接输入获取到的 IP，进入 NanoKVM Go 登录页面。初始账号为 `admin`，初始密码为 `admin`。
 
-![NanoKVM Go 登录界面](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-login-page.png)
+![NanoKVM Go 登录界面](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-login-page.webp)
 
 登录后即可查看被控设备画面并进行键盘、鼠标操作。网页控制页面通常由悬浮栏和显示区域组成：顶部悬浮栏用于进入图像设置、竖屏模式、音量设置、麦克风、屏幕键盘、鼠标样式、界面预览、镜像挂载、自定义脚本、KVM 网页终端、设置和全屏等功能，中间显示区域用于查看和操作被控设备画面。
 
-![NanoKVM Go 登录后控制页面](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-control-page.jpg)
+![NanoKVM Go 登录后控制页面](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-control-page.webp)
 
 + 显示区域用于查看被控设备画面；
 + 悬浮栏用于进入图像设置、竖屏模式、音量设置、麦克风、屏幕键盘、鼠标样式、界面预览、镜像挂载、自定义脚本、KVM 网页终端、设置和全屏等功能；

@@ -17,7 +17,7 @@ NanoKVM Go 屏幕用于显示设备状态和进入常用设置。常用界面包
 
 主界面会显示网络状态、设备 IP 地址、当前分辨率、帧率和设备状态。完成网络配置后，可在此处查看 NanoKVM Go 当前获得的 IP 地址。
 
-![NanoKVM Go 主界面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.png)
+![NanoKVM Go 主界面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.webp)
 
 ### 设置界面
 
@@ -25,13 +25,13 @@ NanoKVM Go 屏幕用于显示设备状态和进入常用设置。常用界面包
 
 设置页示例如下，左右切换可查看不同设置入口：
 
-![NanoKVM Go 设置界面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-setting-screens.png)
+![NanoKVM Go 设置界面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-setting-screens.webp)
 
 | 设置入口 | 设置入口 | 设置入口 |
 | --- | --- | --- |
-| ![Wi-Fi](./../../../assets/NanoKVM/go/user_guide/icon-wifi.png) **Wi-Fi**：配置无线网络连接。 | ![MCP](./../../../assets/NanoKVM/go/user_guide/icon-mcp.png) **MCP**：进入 MCP 相关设置。 | ![Replay](./../../../assets/NanoKVM/go/user_guide/icon-replay.png) **Replay**：进入回放相关功能。 |
-| ![NCM](./../../../assets/NanoKVM/go/user_guide/icon-ncm.png) **NCM**：配置 USB 网络共享。 | ![SSH](./../../../assets/NanoKVM/go/user_guide/icon-ssh.png) **SSH**：配置 SSH 远程访问。 | ![Rotation](./../../../assets/NanoKVM/go/user_guide/icon-rotation.png) **Rotation**：调整画面旋转方向。 |
-| ![Panel](./../../../assets/NanoKVM/go/user_guide/icon-panel.png) **Panel**：调整屏幕面板设置。 | ![Apps](./../../../assets/NanoKVM/go/user_guide/icon-apps.png) **Apps**：查看应用相关功能。 | ![About](./../../../assets/NanoKVM/go/user_guide/icon-about.png) **About**：查看设备和版本信息。 |
+| ![Wi-Fi](./../../../assets/NanoKVM/go/user_guide/icon-wifi.webp) **Wi-Fi**：配置无线网络连接。 | ![MCP](./../../../assets/NanoKVM/go/user_guide/icon-mcp.webp) **MCP**：进入 MCP 相关设置。 | ![Replay](./../../../assets/NanoKVM/go/user_guide/icon-replay.webp) **Replay**：进入回放相关功能。 |
+| ![NCM](./../../../assets/NanoKVM/go/user_guide/icon-ncm.webp) **NCM**：配置 USB 网络共享。 | ![SSH](./../../../assets/NanoKVM/go/user_guide/icon-ssh.webp) **SSH**：配置 SSH 远程访问。 | ![Rotation](./../../../assets/NanoKVM/go/user_guide/icon-rotation.webp) **Rotation**：调整画面旋转方向。 |
+| ![Panel](./../../../assets/NanoKVM/go/user_guide/icon-panel.webp) **Panel**：调整屏幕面板设置。 | ![Apps](./../../../assets/NanoKVM/go/user_guide/icon-apps.webp) **Apps**：查看应用相关功能。 | ![About](./../../../assets/NanoKVM/go/user_guide/icon-about.webp) **About**：查看设备和版本信息。 |
 
 ## 网络配置
 
@@ -52,11 +52,11 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 
 在 NanoKVM Go 主页面进入 Wi-Fi 设置页面，确认 Wi-Fi 开关处于 `ON` 状态。
 
-![NanoKVM Go Wi-Fi 开关](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-on.png)
+![NanoKVM Go Wi-Fi 开关](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-on.webp)
 
 进入配置方式选择页面后，可以选择 `QRCODE` 或 `PASSWD` 两种方式完成配网。
 
-![NanoKVM Go Wi-Fi 配置方式](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-via.png)
+![NanoKVM Go Wi-Fi 配置方式](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-via.webp)
 
 ### 使用 QRCODE 配置
 
@@ -66,15 +66,15 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 2. NanoKVM Go 屏幕会显示 `Connect to AP` 二维码。
 3. 使用手机扫描该二维码，并按手机提示连接到 NanoKVM Go 的临时热点。
 
-![NanoKVM Go 连接临时热点二维码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-connect-ap-qr.png)
+![NanoKVM Go 连接临时热点二维码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-connect-ap-qr.webp)
 
 4. 连接临时热点后，NanoKVM Go 屏幕会显示 `Configure WiFi` 二维码。
 
-![NanoKVM Go 配置 Wi-Fi 二维码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-configure-wifi-qr.png)
+![NanoKVM Go 配置 Wi-Fi 二维码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-configure-wifi-qr.webp)
 
 5. 使用手机扫描该二维码，打开 Wi-Fi 配置页面。
 
-![NanoKVM Go Wi-Fi 配置页面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-config-page.png)
+![NanoKVM Go Wi-Fi 配置页面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-config-page.webp)
 
 6. 在页面中填写需要连接的 Wi-Fi 名称和密码，并提交配置。
 
@@ -87,12 +87,12 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 1. 在配置方式页面选择 `PASSWD`。
 2. 在 Wi-Fi 列表中选择需要连接的 Wi-Fi 名称。
 
-![NanoKVM Go 选择 Wi-Fi](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-ssid.png)
+![NanoKVM Go 选择 Wi-Fi](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-ssid.webp)
 
 3. 在密码输入页面输入 Wi-Fi 密码。
 4. 输入完成后选择 `OK`，提交配置。
 
-![NanoKVM Go 输入 Wi-Fi 密码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-password.png)
+![NanoKVM Go 输入 Wi-Fi 密码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-wifi-password.webp)
 
 提交后请等待 NanoKVM Go 完成连接。若密码输入错误，可返回 Wi-Fi 配置页面重新配置。
 
@@ -100,7 +100,7 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 
 配置完成后，NanoKVM Go 会返回主页面。若主页面显示设备的 IP 地址，即表示网络连接成功。
 
-![NanoKVM Go 网络连接成功](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-network-success.png)
+![NanoKVM Go 网络连接成功](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-network-success.webp)
 
 控制端与 NanoKVM Go 连接到同一网络后，可在浏览器地址栏输入该 IP 地址，进入 NanoKVM Go 的 Web 控制页面。
 
@@ -108,7 +108,9 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 
 登录 NanoKVM Go Web 控制页面后，可以在浏览器中查看被控设备画面，并通过顶部悬浮栏进入常用管理功能。
 
-![NanoKVM Go 管理页面悬浮栏演示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.gif)
+![NanoKVM Go 悬浮栏演示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
+
+[查看演示视频](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
 
 悬浮栏从左到右依次为：图像设置、竖屏模式、音量设置、麦克风、屏幕键盘、鼠标样式、界面预览、镜像挂载、自定义脚本、KVM 网页终端、设置、全屏、隐藏悬浮栏。
 
@@ -216,15 +218,15 @@ NanoKVM Go 默认网页登录账号为 `admin`，默认密码为 `admin`。首�
 
 首次登录后建议及时修改默认密码。点击悬浮栏中的设置图标，进入 NanoKVM Go 设置页面。
 
-![NanoKVM Go 设置入口](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings.png)
+![NanoKVM Go 设置入口](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings.webp)
 
 在设置页面左侧选择 `账号`，然后在 `密码` 一栏点击 `修改`。
 
-![NanoKVM Go 账号设置页面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings.png)
+![NanoKVM Go 账号设置页面](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings.webp)
 
 在修改密码页面填写用户名、新密码，并再次输入新密码确认。确认无误后点击 `确定` 保存。
 
-![NanoKVM Go 修改密码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password.png)
+![NanoKVM Go 修改密码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password.webp)
 
 修改密码会同时更新网页登录密码和系统 `root` 用户密码（SSH 登录密码）。修改完成后，请使用新密码重新登录。
 
@@ -232,10 +234,10 @@ NanoKVM Go 默认网页登录账号为 `admin`，默认密码为 `admin`。首�
 
 如果忘记网页登录密码，可在登录页面点击 `忘记密码` 查看默认账号信息和重置入口。
 
-![NanoKVM Go 忘记密码入口](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password.png)
+![NanoKVM Go 忘记密码入口](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password.webp)
 
 页面会提示默认网页登录账号为 `admin/admin`，默认 SSH 账号为 `root/sipeed`。如果密码已经被修改且无法登录，请点击页面中的 `Reset` 链接，并按重置说明完成密码重置。
 
-![NanoKVM Go 忘记密码提示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset.png)
+![NanoKVM Go 忘记密码提示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset.webp)
 
 重置完成后，使用默认账号重新登录，并尽快重新设置新的安全密码。

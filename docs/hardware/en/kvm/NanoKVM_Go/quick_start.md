@@ -11,13 +11,13 @@ update:
 
 ## Unboxing
 
-![NanoKVM Go unboxing](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-unbox.png)
+![NanoKVM Go unboxing](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-unbox.webp)
 
 The NanoKVM Go package includes the NanoKVM Go device, a full-featured USB-C data cable, and a connection guide card. The exact accessories may vary by purchase version.
 
 ## Interface Overview
 
-![NanoKVM Go interface overview](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-interface.png)
+![NanoKVM Go interface overview](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-interface.webp)
 
 NanoKVM Go has two Type-C ports and one reset hole on the side:
 
@@ -38,7 +38,7 @@ Prepare the following devices and accessories before using NanoKVM Go:
 
 ## Connect Devices
 
-![NanoKVM Go device connection](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-connect-phone-new.png)
+![NanoKVM Go device connection](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-connect-phone-new.webp)
 
 Connection steps:
 
@@ -55,7 +55,7 @@ NanoKVM Go needs to be connected to the network before first use.
 3. Follow the prompts to enter the Wi-Fi SSID and password, then submit the configuration.
 4. After configuration is complete, return to the main screen. If the device IP address is displayed on the main screen, the connection is successful.
 
-![NanoKVM Go main screen with IP address](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.png)
+![NanoKVM Go main screen with IP address](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.webp)
 
 For detailed configuration steps, refer to the [Network Configuration section in the User Guide](./user_guide.html#Network-Configuration).
 
@@ -63,11 +63,11 @@ For detailed configuration steps, refer to the [Network Configuration section in
 
 After network configuration is complete, enter the obtained IP address directly in the browser address bar to open the NanoKVM Go login page. The default username is `admin`, and the default password is `admin`.
 
-![NanoKVM Go login page](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-login-page.png)
+![NanoKVM Go login page](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-login-page.webp)
 
 After logging in, you can view the controlled device screen and perform keyboard and mouse operations. The web control page usually consists of a floating toolbar and a display area: the top floating toolbar is used to access Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Image Mounting, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and other features. The center display area is used to view and operate the controlled device screen.
 
-![NanoKVM Go control page after login](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-control-page.jpg)
+![NanoKVM Go control page after login](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-control-page.webp)
 
 + The display area is used to view the controlled device screen;
 + The floating toolbar is used to access Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Image Mounting, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and other features;
