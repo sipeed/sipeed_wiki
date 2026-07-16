@@ -563,7 +563,7 @@ items:
                 file: kvm/NanoKVM_Go/system/flashing.md
             -   label: 系统介绍
                 file: kvm/NanoKVM_Go/system/introduction.md
-            -   label: 系统重置
+            -   label: 系统更新
                 file: kvm/NanoKVM_Go/system/updating.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
