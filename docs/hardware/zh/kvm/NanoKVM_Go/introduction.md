@@ -19,16 +19,7 @@ NanoKVM Go 是 NanoKVM 系列中的便携式 IP-KVM 工具，面向随身维护�
 
 ## 视频演示
 
-<div style="text-align:center; margin: 1.2em 0 2em;">
-  <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1iyTq6pEsD&p=1"
-          scrolling="no"
-          border="0"
-          frameborder="no"
-          framespacing="0"
-          allowfullscreen="true"
-          style="width: 100%; max-width: 640px; aspect-ratio: 16 / 9;">
-  </iframe>
-</div>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&bvid=BV1iyTq6pEsD&p=1" scrolling="no" allowfullscreen style="width:90%; max-width:960px; aspect-ratio:16/9; height:auto; border:0; display:block;margin:0 auto;"></iframe>
 
 ## 使用场景
 
