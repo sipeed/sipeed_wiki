@@ -552,7 +552,7 @@ items:
         -   label: 网络
             items:
             -   label: Tailscale
-                file: kvm/NanoKVM_Go/network/Tailscale.md
+                file: kvm/NanoKVM_Go/network/tailscale.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: 静态 IP

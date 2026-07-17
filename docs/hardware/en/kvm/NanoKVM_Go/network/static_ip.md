@@ -17,7 +17,7 @@ NanoKVM Go obtains an IP address from the router through DHCP by default. A DHCP
 
 After enabling static IP in the NanoKVM Go web interface, you can assign a fixed LAN address to the device and keep accessing it through the same address.
 
-> A static IP only fixes the address of NanoKVM Go inside the current LAN. It is not a public IP address and does not provide remote access by itself. To access NanoKVM Go from outside the LAN, refer to remote access solutions such as [Tailscale](./Tailscale.md).
+> A static IP only fixes the address of NanoKVM Go inside the current LAN. It is not a public IP address and does not provide remote access by itself. To access NanoKVM Go from outside the LAN, refer to remote access solutions such as [Tailscale](./tailscale.md).
 
 ## Before You Start
 

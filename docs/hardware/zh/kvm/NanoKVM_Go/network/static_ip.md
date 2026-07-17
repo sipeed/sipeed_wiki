@@ -17,7 +17,7 @@ NanoKVM Go 默认通过 DHCP 从路由器获取 IP 地址。DHCP 分配的地址
 
 在 NanoKVM Go 网页控制端启用静态 IP 后，可以为设备设置固定的局域网地址，方便通过同一个地址长期访问 NanoKVM Go。
 
-> 静态 IP 只用于固定 NanoKVM Go 在当前局域网中的地址，不能代替公网 IP，也不能直接实现外网访问。如需从外网访问 NanoKVM Go，可以参考 [Tailscale](./Tailscale.md) 等远程访问方案。
+> 静态 IP 只用于固定 NanoKVM Go 在当前局域网中的地址，不能代替公网 IP，也不能直接实现外网访问。如需从外网访问 NanoKVM Go，可以参考 [Tailscale](./tailscale.md) 等远程访问方案。
 
 ## 使用前准备
 
