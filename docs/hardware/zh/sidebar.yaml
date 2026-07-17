@@ -552,18 +552,18 @@ items:
         -   label: 网络
             items:
             -   label: Tailscale
-                file: kvm/NanoKVM_Go/network/Tailscale.md
+                file: kvm/NanoKVM_Go/network/tailscale.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: 静态 IP
                 file: kvm/NanoKVM_Go/network/static_ip.md
         -   label: 系统
             items:
-            -   label: 镜像烧录
-                file: kvm/NanoKVM_Go/system/flashing.md
-            -   label: 系统介绍
+            -   label: 系统编译
                 file: kvm/NanoKVM_Go/system/introduction.md
-            -   label: 系统更新
+            -   label: 烧录镜像
+                file: kvm/NanoKVM_Go/system/flashing.md
+            -   label: 更新应用
                 file: kvm/NanoKVM_Go/system/updating.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md

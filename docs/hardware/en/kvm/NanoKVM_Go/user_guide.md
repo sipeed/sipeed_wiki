@@ -114,6 +114,8 @@ The floating toolbar entries from left to right are: Image Settings, Portrait Mo
 
 Click the Image Settings icon on the left side of the floating toolbar to adjust remote image encoding, display parameters, and clarity. New users are advised to keep the default settings first, and adjust the following options only when the image is laggy, unclear, or the resolution does not match.
 
+![NanoKVM Go image settings demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-image-settings.gif)
+
 + Video Mode is used to select the video encoding and transmission method. In most cases, `H.264 WebRTC` is recommended for better compatibility. In a stable local network, Direct mode can also be tried if needed.
 
 + EDID is used to select the display parameters that NanoKVM Go provides to the controlled host. After the host reads the EDID, it outputs the corresponding resolution and refresh rate, such as `3840 x 2160 30Hz`, `2560 x 1440 60Hz`, or `1920 x 1080 60Hz`. After changing EDID, the host image may briefly go black or re-detect the display. This is normal.

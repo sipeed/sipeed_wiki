@@ -11,7 +11,7 @@ update:
 
 ## 简介
 
-![NanoKVM Go 外观](./../../../assets/NanoKVM/go/introduction/device-transparent.webp)
+![NanoKVM Go 外观](./../../../assets/NanoKVM/go/introduction/nanokvm-go-device.jpg)
 
 NanoKVM Go 是 NanoKVM 系列中的便携式 IP-KVM 工具，面向随身维护、临时接入和远程运维场景。它通过 USB-C 接入被控设备，将画面查看、键鼠控制和远程访问集中到浏览器中完成。
 
@@ -19,18 +19,11 @@ NanoKVM Go 是 NanoKVM 系列中的便携式 IP-KVM 工具，面向随身维护�
 
 ## 视频演示
 
-<div style="text-align:center; margin: 1.2em 0 2em;">
-  <iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV1iyTq6pEsD&p=1"
-          scrolling="no"
-          border="0"
-          frameborder="no"
-          framespacing="0"
-          allowfullscreen="true"
-          style="width: 100%; max-width: 640px; aspect-ratio: 16 / 9;">
-  </iframe>
-</div>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&bvid=BV1iyTq6pEsD&p=1" scrolling="no" allowfullscreen style="width:90%; max-width:960px; aspect-ratio:16/9; height:auto; border:0; display:block;margin:0 auto;"></iframe>
 
 ## 使用场景
+
+![NanoKVM Go 使用场景演示](./../../../assets/NanoKVM/go/introduction/nanokvm-go-use-cases.gif)
 
 + 服务器管理：远程查看目标主机画面，并进行键盘、鼠标操作；
 + 远程装机：进入 BIOS/UEFI，调整启动项，配合镜像完成系统安装；
