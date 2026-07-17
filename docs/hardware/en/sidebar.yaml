@@ -558,11 +558,11 @@ items:
                 file: kvm/NanoKVM_Go/network/static_ip.md
         -   label: System
             items:
-            -   label: Flashing
-                file: kvm/NanoKVM_Go/system/flashing.md
-            -   label: Introduction
+            -   label: System Build
                 file: kvm/NanoKVM_Go/system/introduction.md
-            -   label: Updating
+            -   label: Flash Image
+                file: kvm/NanoKVM_Go/system/flashing.md
+            -   label: Update Application
                 file: kvm/NanoKVM_Go/system/updating.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
