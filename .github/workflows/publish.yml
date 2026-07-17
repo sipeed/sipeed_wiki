@@ -88,6 +88,23 @@ jobs:
           teedoc-upload --progress raw --cloud tencent --region ${{ secrets.TENCENT_REGION }} --bucket ${{ secrets.TENCENT_BUCKET }} --secret_id ${{ secrets.TENCENT_SECRET_ID }} --secret_key ${{ secrets.TENCENT_SECRET_KEY }} --old $old_out_dir ./
           echo "== upload to gh-pages for pages service =="
 
+      # wiki.sipeed.com is served through 七牛 CDN in front of the COS origin, so
+      # the COS upload above is invisible to users until the edge cache is busted.
+      # Refresh it here. Best-effort: never fails the deploy (the upload already
+      # succeeded). Needs QINIU_ACCESS_KEY / QINIU_SECRET_KEY repo secrets.
+      - name: refresh Qiniu CDN cache
+        env:
+          QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
+          QINIU_SECRET_KEY: ${{ secrets.QINIU_SECRET_KEY }}
+        run: |
+          # The build step above runs `git checkout gh-pages`, whose tree has no
+          # .github/ (gh-pages holds only built output), so the working-tree copy
+          # of this script is gone by now. Read it from the triggering commit
+          # object instead (full history is present after `git fetch --unshallow`).
+          # `|| echo` keeps this best-effort — a refresh failure must not fail the deploy.
+          git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/refresh_qiniu_cdn.sh" | bash \
+            || echo "WARN: CDN refresh step failed to run (continuing)."
+
 
 #           SSHPATH="$HOME/.ssh"
 #           rm -rf "$SSHPATH"
