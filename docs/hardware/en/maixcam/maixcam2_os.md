@@ -36,6 +36,9 @@ Recommended choice: Normally, the boot partition has already been flashed once d
 
 3. TF Card System Image
 
+   > WARNING: Not for boards with onboard eMMC!
+   > If your MaixCAM2 works without a TF card, flash maixcam2-xxx.img (NOT *_sd.img).
+
    Contains the complete system, but can only boot from the TF card. That is, the image is flashed onto the TF card, and the system loads from the TF card. Suitable for situations where the `EMMC` is not needed.
 
    `Advantages`: Does not use the onboard EMMC; TF cards are inexpensive.
@@ -43,8 +46,8 @@ Recommended choice: Normally, the boot partition has already been flashed once d
    `Disadvantages`: Limited by TF card read/write speed; software read/write times may become slower.
 |            Format          | <center>Description</center>       |
 | :--------------------------: | :------------------------------ |
-|    `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img`     | `.sd_img` system image, used when booting from a TF card is required.      |
-| `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img.7z.00x` | After extracting with `7z`, you get the `.sd_img` system image. Uses split-volume compression to divide the image into multiple files for easier uploading. All volume files must be downloaded before extraction. |
+|    `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img`     | `_sd.img` system image, used when booting from a TF card is required.      |
+| `maixcam2-2026-01-27-maixpy-v4.12.5_sd.img.7z.00x` | After extracting with `7z`, you get the `_sd.img` system image. Uses split-volume compression to divide the image into multiple files for easier uploading. All volume files must be downloaded before extraction. |
 
 > `7z` Extraction Method Instructions::
 >
