@@ -39,8 +39,6 @@ update:
 
 1. 断开 NanoKVM Go 的 USB 连接；
 
-![NanoKVM Go Reset 按键和数据接口位置](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_ports_reset.png)
-
 2. 使用取卡针按住 NanoKVM Go 的 Reset 按键；
 
 ![使用取卡针按住 NanoKVM Go Reset 按键](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_press_reset.jpg)

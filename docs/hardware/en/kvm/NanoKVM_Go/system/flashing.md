@@ -38,8 +38,6 @@ Download and install [ImageUSB](https://www.osforensics.com/tools/write-usb-imag
 
 1. Disconnect the USB cable from NanoKVM Go.
 
-![NanoKVM Go Reset button and data port](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_ports_reset.png)
-
 2. Use the SIM eject pin to press and hold the Reset button on NanoKVM Go.
 
 ![Press and hold the NanoKVM Go Reset button with a SIM eject pin](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_press_reset.jpg)
