@@ -32,10 +32,6 @@ NanoKVM Go 是 NanoKVM 系列中的便携式 IP-KVM 工具，面向随身维护�
 
 ## 使用场景
 
-![NanoKVM Go 悬浮栏演示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
-
-[查看演示视频](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
-
 + 服务器管理：远程查看目标主机画面，并进行键盘、鼠标操作；
 + 远程装机：进入 BIOS/UEFI，调整启动项，配合镜像完成系统安装；
 + 故障排查：当远程桌面、SSH 或系统服务不可用时，通过硬件级画面继续维护；

@@ -108,10 +108,6 @@ After the control device and NanoKVM Go are connected to the same network, enter
 
 After logging in to the NanoKVM Go web control page, you can view the controlled device screen in the browser and access common management functions from the top floating toolbar.
 
-![NanoKVM Go floating toolbar demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
-
-[View demo video](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
-
 The floating toolbar entries from left to right are: Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Image Mounting, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and Hide Floating Toolbar.
 
 ### Image Settings

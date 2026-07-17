@@ -108,10 +108,6 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 
 登录 NanoKVM Go Web 控制页面后，可以在浏览器中查看被控设备画面，并通过顶部悬浮栏进入常用管理功能。
 
-![NanoKVM Go 悬浮栏演示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
-
-[查看演示视频](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
-
 悬浮栏从左到右依次为：图像设置、竖屏模式、音量设置、麦克风、屏幕键盘、鼠标样式、界面预览、镜像挂载、自定义脚本、KVM 网页终端、设置、全屏、隐藏悬浮栏。
 
 ### 图像设置

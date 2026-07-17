@@ -32,10 +32,6 @@ Unlike traditional remote desktop software, NanoKVM Go does not require remote s
 
 ## Use Cases
 
-![NanoKVM Go floating toolbar demo](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo-preview.webp)
-
-[View demo video](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-menu-demo.mp4)
-
 + Server management: remotely view the target host screen and control keyboard and mouse input;
 + Remote installation: enter BIOS/UEFI, adjust boot options, and install systems with mounted images;
 + Troubleshooting: continue hardware-level maintenance when remote desktop, SSH, or system services are unavailable;
