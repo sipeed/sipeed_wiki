@@ -216,15 +216,15 @@ The default NanoKVM Go web username is `admin`, and the default password is `adm
 
 It is recommended to change the default password after the first login. Click the Settings icon in the floating toolbar to enter the NanoKVM Go settings page.
 
-![NanoKVM Go settings entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings.webp)
+![NanoKVM Go settings entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings-en.webp)
 
 On the settings page, select `Account` on the left, then click `Modify` in the `Password` row.
 
-![NanoKVM Go account settings page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings.webp)
+![NanoKVM Go account settings page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings-en.webp)
 
 On the change password page, enter the username and new password, then enter the new password again to confirm. After checking that the information is correct, click `Confirm` to save it.
 
-![NanoKVM Go change password](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password.webp)
+![NanoKVM Go change password](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password-en.webp)
 
 Changing the password updates both the web login password and the system `root` user password (SSH login password). After changing the password, log in again with the new password.
 
@@ -232,10 +232,10 @@ Changing the password updates both the web login password and the system `root` 
 
 If you forget the web login password, click `Forgot Password` on the login page to view the default account information and reset entry.
 
-![NanoKVM Go forgot password entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password.webp)
+![NanoKVM Go forgot password entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password-en.webp)
 
 The page shows that the default web account is `admin/admin`, and the default SSH account is `root/sipeed`. If the password has been changed and you cannot log in, click the `Reset` link on the page and follow the reset instructions to reset the password.
 
-![NanoKVM Go forgot password prompt](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset.webp)
+![NanoKVM Go forgot password prompt](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset-en.webp)
 
 After the reset is complete, log in again with the default account and set a new secure password as soon as possible.
