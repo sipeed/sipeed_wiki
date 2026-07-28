@@ -4,7 +4,7 @@ title: "MaixCAM2 x AI: Build a Two-Axis Gimbal Tracker with an AI Agent"
 
 This page uses a real MaixCAM2 development recording as an example to show how to use an AI Agent to build a UART4 two-axis gimbal red-object tracker with the MaixCAM2 built-in camera. The recording used Codex with MCP to call maixpy-skill. To make the setup easier to reproduce on Windows, macOS, and Linux, this page only demonstrates OpenCode for installation and model configuration. The Codex and MCP UI shown in some images is only from the recorded session and is not the OpenCode interface.
 
-## Final Result
+## Project Goal and Final Result
 
 The goal is to detect a red object in the camera image and keep it near the center of the frame by driving a two-axis gimbal.
 
@@ -20,7 +20,7 @@ When the object moves, the gimbal adjusts accordingly. This is the target behavi
 
 If the embedded video does not play, open it on Bilibili: [MaixCAM2 x MCP auto debugging video tutorial](https://www.bilibili.com/video/BV13W3w6REa2/).
 
-## Choose an AI Agent
+## Choose an AI Agent for Development
 
 You can use Codex, Claude Code, or OpenCode. The recorded Agent was Codex + MCP, while this page only covers OpenCode installation and configuration to avoid duplicating multiple Agent interfaces. The later task description, device connection, and acceptance workflow do not depend on the Agent UI shown in the recording.
 
@@ -49,7 +49,7 @@ Steps:
 
 Note: the download page and client UI may change over time. Follow the system packages and versions shown on the current official download page.
 
-### Install cc-switch and Configure the OpenCode Model
+### Install cc-switch and Configure OpenCode Models
 
 Purpose: use cc-switch to manage OpenCode providers and model settings.
 
@@ -96,7 +96,7 @@ Steps:
 
 After uv is installed, continue by asking the Agent to install maixpy-skill. If maixpy-skill later needs a Python version or extra Python packages, the Agent will manage them through uv instead of modifying the system Python environment directly.
 
-## Download and Install maixpy-skill
+## Install maixpy-skill
 
 Purpose: give the Agent the workflows and device operation capabilities needed for MaixCAM series development.
 
@@ -144,7 +144,7 @@ The MaixCAM2 quick-start documentation explains that the device needs network ac
 
 Note: UART4 pin mapping, servo IDs, power requirements, and protocol details depend on the gimbal model. Do not treat values from a reference project as universal settings.
 
-## Describe the Requirement and Submit Task 1 to the AI
+## Submit the Initial Development Request
 
 Purpose: provide the goal, reference project, validation order, safety constraints, and final behavior in one message, reducing guesses on critical conditions.
 
@@ -170,11 +170,11 @@ Replace `[device address]` with the current device address and send:
 
 Note: do not publish private LAN addresses, passwords, or access tokens in public documentation. The reference project is used to understand the protocol and project structure. Direction, center position, limits, color thresholds, and control parameters must be validated again on the current hardware.
 
-## Wait for Task 1 to Finish and Guide the AI When Needed
+## Step-by-Step Debugging and Manual Confirmation
 
 Task 1 should be completed in stages, with the Agent reporting each result. When the Agent cannot determine the actual hardware state through APIs, the user should provide observations such as "the positive horizontal command actually turns right" or "the gimbal hits the bracket at this position".
 
-### Confirm Small Gimbal Movement
+### Gimbal Micro-Movement and Direction Calibration
 
 Purpose: confirm that both axes can communicate, move slightly, return to center, and establish local safety constraints.
 
@@ -195,7 +195,7 @@ Pass criteria: both axes are online, directions are recorded, the gimbal can ret
 
 The image shows the gimbal and device feedback. The recording alone is not enough to prove that servo firmware limits were finally read successfully; this should be confirmed separately in the runtime logs.
 
-### Red-Object Detection Unit Test Passes
+### Red-Object Detection Verification
 
 Purpose: confirm that the vision input is correct before adding gimbal control.
 
@@ -215,7 +215,7 @@ Pass criteria: the target can be repeatedly detected and coordinates can be obta
 
 The device screen shows the red target detection box. The exact threshold, bounding box, and frame-rate values should be confirmed from the current runtime logs and debug images.
 
-### Add Three-Stage Closed-Loop Control
+### Add the Three-Stage Closed-Loop Control Strategy
 
 Purpose: let the two-axis gimbal track the target according to the error between the object and the frame center, while avoiding overshoot from high-speed movement and oscillation near the center.
 
@@ -235,7 +235,7 @@ Each axis should maintain its own direction mapping, limits, speed, acceleration
 
 The Agent is investigating possible causes such as "movement too aggressive". The recording alone cannot prove all three-stage gain parameters; the actual parameters should be confirmed in the source code or logs.
 
-### First Closed Loop: Target Lost
+### Correct the Closed-Loop Direction Mapping
 
 After directly using the reference implementation, the real installation direction did not match the expected direction. The gimbal moved in the wrong direction and the target left the trackable range.
 
@@ -254,7 +254,7 @@ Debugging steps:
 
 Note: before direction is confirmed, do not tune PID, speed, or thresholds first. Otherwise, it is hard to tell whether the issue is wrong control direction or bad parameters.
 
-### Fix Oscillation and Overshoot
+### Suppress Oscillation and Overshoot
 
 After fixing the pitch direction, the gimbal still oscillated left and right when the target was static. After further tuning, tracking became stable.
 
@@ -276,7 +276,7 @@ Recommended order:
   <img src="../../assets/maixcam/maixcam2_xai/09_stable_tracking.jpg" alt="Figure 11: Stable tracking after the fix. Source: this recording, cropped to show the gimbal and target." width="640" style="max-width: 100%; height: auto;">
 </p>
 
-## Submit Task 2: Automated Test Passes
+## Automated Position Regression Test
 
 Purpose: use repeatable fixed-position tests instead of relying on "it looks fine once".
 
@@ -302,7 +302,7 @@ Check:
 
 The recording also includes multiple repeated position checks. If you publish a more complete acceptance report, consider adding screenshots or a result table from those clips.
 
-## Confirm the Result and Submit Task 3
+## Finalize the Implementation and Run Dynamic Acceptance Testing
 
 After the automated test passes, freeze the current implementation as the final dynamic tracking version, then perform manual dynamic testing.
 
@@ -324,7 +324,7 @@ Pass criteria: both axes move in the correct direction; far targets can be chase
   <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="Figure 14: Final dynamic tracking acceptance. Source: this recording, cropped as a looped animation." width="640" style="max-width: 100%; height: auto;">
 </p>
 
-## Accept and Collect Deliverables
+## Acceptance Results and Deliverable Archive
 
 After acceptance, collect these deliverables from the Agent:
 
@@ -337,7 +337,7 @@ After acceptance, collect these deliverables from the Agent:
 
 When checking the deliverables, confirm that continuous debug-image saving is disabled in the release version, that the application has a graceful exit path, and that it restores the MaixCAM2 built-in camera pass-through display after exit as required.
 
-## Task Template
+## General Task Template
 
 Replace the bracketed fields with your own project requirements:
 
