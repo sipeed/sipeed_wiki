@@ -171,6 +171,8 @@ items:
             file: maixcam/maixcam2_os.md
         -   label: Cammeras & Lens
             file: maixcam/maixcam2_camera_lens.md
+        -   label: Develop with AI Agent
+            file: maixcam/maixcam2_xAI.md
         -   label: Develop with MaixPy
             url: https://wiki.sipeed.com/maixpy/
         -   label: Develop with MaixCDK

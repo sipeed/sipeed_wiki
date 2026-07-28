@@ -173,6 +173,8 @@ items:
             file: maixcam/maixcam2_os.md
         -   label: 摄像头和镜头选择
             file: maixcam/maixcam2_camera_lens.md
+        -   label: 使用 AI Agent 开发
+            file: maixcam/maixcam2_xAI.md
         -   label: 使用 MaixPy 开发
             url: https://wiki.sipeed.com/maixpy/
         -   label: 使用 MaixCDK 开发
