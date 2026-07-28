@@ -2,7 +2,7 @@
 title: MaixCAM2 x AI：用 AI Agent 开发二轴云台物块追踪
 ---
 
-本文以一次实际录制的 MaixCAM2 开发过程为例，说明如何使用 AI Agent 开发基于 MaixCAM2 内置摄像头的 UART4 二轴云台红色物块追踪器。本次录制使用 Codex 通过 MCP 调用 maixpy-skill；为方便 Windows、macOS 和 Linux 用户复刻，安装与模型配置部分只演示 OpenCode。图中的 Codex 与 MCP 界面用于呈现实录过程，不是 OpenCode 的操作界面。
+本文以一次实际录制的 MaixCAM2 开发过程为例，说明如何使用 AI Agent 开发基于 MaixCAM2 内置摄像头的 UART4 二轴云台红色物块追踪器。本次录制使用 Codex 调用 maixpy-skill；为方便 Windows、macOS 和 Linux 用户复刻，安装与模型配置部分只演示 OpenCode。图中的 Codex 界面用于呈现实录过程，不是 OpenCode 的操作界面。
 
 ## 项目目标与最终效果
 
@@ -22,7 +22,7 @@ title: MaixCAM2 x AI：用 AI Agent 开发二轴云台物块追踪
 
 ## 选择开发用 AI Agent
 
-可使用 Codex、Claude Code（CC）或 OpenCode。实录中的 Agent 是 Codex + MCP；本文只展开 OpenCode 的安装和配置，避免重复介绍多个 Agent 的界面。后续任务描述、设备连接和验收步骤不依赖图中的 Agent 界面。
+可使用 Codex、Claude Code（CC）或 OpenCode。实录中的 Agent 是 Codex；本文只展开 OpenCode 的安装和配置，避免重复介绍多个 Agent 的界面。后续任务描述、设备连接和验收步骤不依赖图中的 Agent 界面。
 
 Agent 至少需要具备以下能力：
 

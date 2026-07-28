@@ -2,7 +2,7 @@
 title: "MaixCAM2 x AI: Build a Two-Axis Gimbal Tracker with an AI Agent"
 ---
 
-This page uses a real MaixCAM2 development recording as an example to show how to use an AI Agent to build a UART4 two-axis gimbal red-object tracker with the MaixCAM2 built-in camera. The recording used Codex with MCP to call maixpy-skill. To make the setup easier to reproduce on Windows, macOS, and Linux, this page only demonstrates OpenCode for installation and model configuration. The Codex and MCP UI shown in some images is only from the recorded session and is not the OpenCode interface.
+This page uses a real MaixCAM2 development recording as an example to show how to use an AI Agent to build a UART4 two-axis gimbal red-object tracker with the MaixCAM2 built-in camera. The recording used Codex to call maixpy-skill. To make the setup easier to reproduce on Windows, macOS, and Linux, this page only demonstrates OpenCode for installation and model configuration. The Codex UI shown in some images is only from the recorded session and is not the OpenCode interface.
 
 ## Project Goal and Final Result
 
@@ -22,7 +22,7 @@ If the embedded video does not play, open it on Bilibili: [MaixCAM2 x MCP auto d
 
 ## Choose an AI Agent for Development
 
-You can use Codex, Claude Code, or OpenCode. The recorded Agent was Codex + MCP, while this page only covers OpenCode installation and configuration to avoid duplicating multiple Agent interfaces. The later task description, device connection, and acceptance workflow do not depend on the Agent UI shown in the recording.
+You can use Codex, Claude Code, or OpenCode. The recorded Agent was Codex, while this page only covers OpenCode installation and configuration to avoid duplicating multiple Agent interfaces. The later task description, device connection, and acceptance workflow do not depend on the Agent UI shown in the recording.
 
 The Agent should at least be able to:
 
