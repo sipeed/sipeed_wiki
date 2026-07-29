@@ -230,12 +230,14 @@ Changing the password updates both the web login password and the system `root` 
 
 ### Reset Forgotten Password
 
-If you forget the web login password, click `Forgot Password` on the login page to view the default account information and reset entry.
+If you forget the web login password, you can only reset it by restoring the device to factory settings. Restoring factory settings clears the current device configuration.
 
-![NanoKVM Go forgot password entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password-en.webp)
+1. On the device settings screen, swipe to the last page and find the `About` option.
 
-The page shows that the default web account is `admin/admin`, and the default SSH account is `root/sipeed`. If the password has been changed and you cannot log in, click the `Reset` link on the page and follow the reset instructions to reset the password.
+![NanoKVM Go About entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-reset-about-entry.webp)
 
-![NanoKVM Go forgot password prompt](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset-en.webp)
+2. Press and hold `Reset` to restore factory settings.
 
-After the reset is complete, log in again with the default account and set a new secure password as soon as possible.
+![NanoKVM Go Reset button](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-reset-button.webp)
+
+After the reset is complete, log in with the default username `admin` and default password `admin`, then set a new secure password as soon as possible.

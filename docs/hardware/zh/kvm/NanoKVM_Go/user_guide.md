@@ -230,12 +230,14 @@ NanoKVM Go 默认网页登录账号为 `admin`，默认密码为 `admin`。首�
 
 ### 忘记密码重置
 
-如果忘记网页登录密码，可在登录页面点击 `忘记密码` 查看默认账号信息和重置入口。
+如果忘记网页登录密码，只能通过恢复出厂设置来重设密码。恢复出厂设置会清除当前设备配置。
 
-![NanoKVM Go 忘记密码入口](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-login-forgot-password.webp)
+1. 在设备屏幕的设置界面滑动到最后一页，找到 `About` 选项。
 
-页面会提示默认网页登录账号为 `admin/admin`，默认 SSH 账号为 `root/sipeed`。如果密码已经被修改且无法登录，请点击页面中的 `Reset` 链接，并按重置说明完成密码重置。
+![NanoKVM Go About 入口](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-reset-about-entry.webp)
 
-![NanoKVM Go 忘记密码提示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-forgot-password-reset.webp)
+2. 长按 `Reset` 恢复出厂设置。
 
-重置完成后，使用默认账号重新登录，并尽快重新设置新的安全密码。
+![NanoKVM Go Reset 按钮](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-reset-button.webp)
+
+恢复完成后，使用默认账号 `admin` 和默认密码 `admin` 登录，并尽快重新设置新的安全密码。

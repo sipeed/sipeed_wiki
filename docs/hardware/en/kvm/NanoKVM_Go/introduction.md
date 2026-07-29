@@ -74,7 +74,7 @@ To be added.
 
 If you encounter any issues or have suggestions during use, please provide feedback through the following channels:
 
-+ [Github issues](https://github.com/sipeed/NanoKVM/issues)
-+ [NanoKVM GitHub repository](https://github.com/sipeed/NanoKVM)
++ [Github issues](https://github.com/sipeed/NanoKVM-Go/issues)
++ [NanoKVM GitHub repository](https://github.com/sipeed/NanoKVM-Go)
 + [MaixHub forum](https://maixhub.com/discussion/nanokvm)
 + QQ group: 703230713
