@@ -65,7 +65,7 @@ NanoKVM Go 侧面提供两个 Type-C 接口和一个复位孔。带闪电标志�
 
 如果您在使用过程中有任何问题或建议，请通过以下渠道反馈：
 
-+ [Github issues](https://github.com/sipeed/NanoKVM/issues)
-+ [NanoKVM GitHub 仓库](https://github.com/sipeed/NanoKVM)
++ [Github issues](https://github.com/sipeed/NanoKVM-Go/issues)
++ [NanoKVM GitHub 仓库](https://github.com/sipeed/NanoKVM-Go)
 + [MaixHub 论坛](https://maixhub.com/discussion/nanokvm)
 + QQ 交流群: 703230713

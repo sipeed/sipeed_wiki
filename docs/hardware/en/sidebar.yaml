@@ -550,6 +550,8 @@ items:
             file: kvm/NanoKVM_Go/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM_Go/user_guide.md
+        -   label: Update Application
+            file: kvm/NanoKVM_Go/system/updating.md
         -   label: Network
             items:
             -   label: Tailscale
@@ -558,14 +560,12 @@ items:
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: Static IP
                 file: kvm/NanoKVM_Go/network/static_ip.md
-        -   label: System
+        -   label: Development
             items:
             -   label: System Build
                 file: kvm/NanoKVM_Go/system/introduction.md
             -   label: Flash Image
                 file: kvm/NanoKVM_Go/system/flashing.md
-            -   label: Update Application
-                file: kvm/NanoKVM_Go/system/updating.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
