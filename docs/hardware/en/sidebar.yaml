@@ -550,6 +550,8 @@ items:
             file: kvm/NanoKVM_Go/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM_Go/user_guide.md
+        -   label: MCP
+            file: kvm/NanoKVM_Go/mcp.md
         -   label: Update Application
             file: kvm/NanoKVM_Go/system/updating.md
         -   label: Network
