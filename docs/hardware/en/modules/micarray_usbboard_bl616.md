@@ -10,6 +10,16 @@ MA-USB8 is a USB audio + serial interface drive board designed for MicArray micr
 - CDC ACM (USB virtual COM): 16×16 raw hotmap frames
 - UART: 16×16 raw / HEX + pseudo-color hotmap frames at 2,000,000 bps (suitable for MCUs)
 
+The UAC channels are defined as follows:
+
+| Channel | Data |
+| --- | --- |
+| CH0–CH5 | Raw signed 16-bit PCM captured by PEC |
+| CH6 | Time-aligned average of CH0–CH5, used as the beamformed output |
+| CH7 | Raw signed 16-bit PCM captured by PEC |
+
+All channels use a 48 kHz sample rate. During UAC streaming, the raw PEC data for CH6 is replaced by the beamformed result.
+
 > This document is a user guide for MA-USB8. It covers connection, device verification, audio capture, beamforming, how to read/parse hotmap frames, and common troubleshooting.
 
 ## Quick start
@@ -44,6 +54,8 @@ Before proceeding, check:
 
 Open Device Manager and confirm the device appears as a multi-channel audio device and a CDC ACM serial port. Use software that supports multi-channel UAC capture (e.g., Audacity configured with WASAPI) to record all 8 channels.
 
+If recording software offers only 1 or 2 channels, see [Windows offers only 1 or 2 channels](#Windows-offers-only-1-or-2-channels).
+
 ![](../../assets/modules/micarray_usbboard_bl616/devmgmt.png)
 
 ## Record 8 channels (UAC2.0)
@@ -67,7 +79,7 @@ aplay ch6.wav
 
 Notes:
 - Device indexes and channel mapping may vary between systems and drivers. Use `arecord -l` / `aplay -l` to confirm hw index and channel mapping.
-- If Windows only shows 2 channels, use WASAPI in Audacity or use Linux for full multi-channel capture.
+- If you cannot access a serial device on Linux, see [Cannot access a serial device on Linux](#Cannot-access-a-serial-device-on-Linux).
 
 ### Audacity (GUI)
 
@@ -77,8 +89,7 @@ Notes:
 
 ![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.png)
 
-**Windows: Use WASAPI to enable 8-channel capture**
-Windows requires using WASAPI in Audacity to expose all 8 channels — choose the MA-USB8 device under WASAPI and select 8 channels.
+**Windows: Select WASAPI. If only 1 or 2 channels remain available, see [Windows offers only 1 or 2 channels](#Windows-offers-only-1-or-2-channels).**
 <div style="display: flex; justify-content: space-between;">
   <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-1.png" style="width: 48%;">
   <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-2.png" style="width: 48%;">
@@ -105,57 +116,99 @@ Note: `0..9, A, B` map to angles `0°, 30°, …, 330°`.
 
 ## Observe hotmap frames (CDC ACM / UART)
 
-The board outputs hotmap frames via CDC ACM (`/dev/ttyACM0`) or via UART (`/dev/ttyUSB0` at 2,000,000 bps).
+The board outputs sound-field hotmaps through CDC ACM (`/dev/ttyACM0`) or UART at 2,000,000 bps. Their default output modes differ:
+
+- CDC ACM continuously outputs raw binary data. Each frame contains a 16-byte header and 256 bytes of data; see [Hotmap Frame Format](#Hotmap-Frame-Format).
+- UART outputs raw binary data by default. Send uppercase `F` to enable the 16×16 text hotmap, then uppercase `C` to enable pseudo-color. Lowercase `f` and `c` disable the corresponding functions; see the [Full command table](#Full-command-table).
 
 ### Quick check with minicom / picocom
 
-- CDC ACM (raw):
+Use minicom to inspect raw CDC ACM frames:
 
 ```bash
 minicom -D /dev/ttyACM0 -H
 ```
 
-- UART (picocom raw/hex):
+Use picocom for UART; the baud rate is fixed at 2,000,000 bps:
 
 ```bash
-picocom -b 2000000 --imap 8bithex /dev/ttyUSB0
+picocom -b 2000000 /dev/ttyUSB0
 ```
 
-- In picocom, press `F` and then `C` to switch to HEX + color map (some versions/devices).
+After opening picocom, send uppercase `F` to switch from the raw binary stream to the 16×16 text hotmap. Send uppercase `C` to add pseudo-color.
 
-![](../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.png)
+If the serial port has no data or its output is garbled, see [CDC ACM does not output hotmaps](#CDC-ACM-does-not-output-hotmaps) and [UART output is garbled](#UART-output-is-garbled).
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="../../assets/modules/micarray_usbboard_bl616/picocom_uart-hex.png" style="width: 45%;">
-  <img src="../../assets/modules/micarray_usbboard_bl616/picocom_uart-hex-cmap.png" style="width: 45%;">
+<figure>
+  <img src="../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.png" style="width: 100%;">
+  <figcaption>Left: hexadecimal preview of raw CDC ACM frames. Right: UART changing from a plain-text hotmap to a pseudo-color hotmap after 16×16 printing is enabled.</figcaption>
+</figure>
+
+<div style="display: flex; gap: 2%; flex-wrap: wrap;">
+  <figure style="flex: 1 1 260px; margin: 0;">
+    <img src="../../assets/modules/micarray_usbboard_bl616/picocom_uart-hex.png" style="width: 100%;">
+    <figcaption>UART 16×16 text hotmap: send <code>F</code> to enable it.</figcaption>
+  </figure>
+  <figure style="flex: 1 1 260px; margin: 0;">
+    <img src="../../assets/modules/micarray_usbboard_bl616/picocom_uart-hex-cmap.png" style="width: 100%;">
+    <figcaption>UART pseudo-color hotmap: send <code>C</code> after enabling 16×16 printing.</figcaption>
+  </figure>
 </div>
-
-(Developer note: use `hexdump -C` or `cat /dev/ttyACM0 | hexdump -C -v | head -n 20` to validate frame structure manually.)
 
 ## Quick serial commands (user cheat sheet)
 
 - Set beamforming direction: send `0..9`, `A`, or `B` to the serial port; CH6 will be the beamformed output.
 - LED on/off: `e` (off) / `E` (on).
-- Toggle 16×16 ASCII hotmap print: `f` / `F` (UART only).
+- UART 16×16 ASCII hotmap: `f` disables it and `F` enables it.
 
 Other developer-level commands are shown in the Developer Reference section.
 
 ## Troubleshooting
 
-- Windows shows only 2 channels: This is either a Windows driver limitation or your recording software. Use WASAPI in Audacity or switch to Linux for full 8-channel capability.
-- Cannot access serial device: user permission issue — add your user to the `plugdev` group or create a udev rule (see Developer Reference):
+### Windows offers only 1 or 2 channels
+
+Select `WASAPI`, then open **Settings → System → Sound → Input → MicArray** and set **Audio Enhancements** to **Off**. Reopen the recording application. Windows effects such as Voice Clarity may limit the recording formats available to applications to 1 or 2 channels.
+
+### Cannot access a serial device on Linux
+
+If `/dev/ttyACM0` or `/dev/ttyUSB0` is not accessible, add the current user to the `plugdev` group and sign in again:
 
 ```bash
 sudo usermod -a -G plugdev $USER
-# Log out and log in again for the group change to take effect
 ```
 
-- CDC ACM does not output frames: Confirm the board is in CDC ACM + UAC modes (not only UAC). Close other applications that may occupy the serial port.
-- UART output appears garbled: Ensure `2000000 bps` selection; use `picocom -b 2000000` or `minicom -b 2000000`. On Windows, ensure the correct USB-serial driver for your adapter (e.g., CH340/CH341/CH552) is installed.
+Alternatively, create a udev rule (replace the vendor/product ID as needed):
+
+```bash
+# /etc/udev/rules.d/99-ma-usb8.rules
+SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
+```
+
+### CDC ACM does not output hotmaps
+
+Confirm that the board is operating in CDC ACM/UAC mode rather than UAC-only mode. Close other applications using the serial port, then reopen it.
+
+### UART output is garbled
+
+Confirm a baud rate of `2000000 bps`, and use `picocom -b 2000000` or `minicom -b 2000000`. On Windows, install the correct USB-to-serial driver for the adapter, such as CH340/CH341/CH552.
 
 ## Firmware
 
-Download the [firmware](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin) from the assets and follow the combo8 firmware update [guide](../logic_analyzer/combo8/update_firmware.html#Burn-firmware):
+The firmware on this page is intended only for MA-USB8:
+
+- File: [MA-USB8-251201.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin)
+- Size: 87552 bytes
+- SHA-256: `f2381d1f5a50b0fc7a15e6723f61c4204dfae9dc394bfa349a18404ecd0c2905`
+
+Upgrade procedure:
+
+1. Download the firmware and verify its size or SHA-256 checksum.
+2. Follow the combo8 firmware update [guide](../logic_analyzer/combo8/update_firmware.html#Burn-firmware) to connect the device, enter flashing mode, and write the firmware.
+3. Disconnect and reconnect the device after flashing completes.
+4. On Linux, use `lsusb -v` and `arecord -l`; on Windows, use Sound settings to confirm that MicArray provides 8-channel, PCM 16-bit, 48 kHz audio.
+5. If Windows recording software still offers only 1 or 2 channels, see [Windows offers only 1 or 2 channels](#Windows-offers-only-1-or-2-channels).
+
+Record the current firmware version and USB descriptors before upgrading so that you can compare the device state if flashing fails. Do not disconnect USB or close the flashing tool during the upgrade.
 
 ---
 ## Developer Reference (protocol, code examples, full command list)
@@ -195,6 +248,3 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 ### Serial/USB Notes
 - CDC ACM (`/dev/ttyACM0`) is bound to the Linux `cdc_acm` driver. If hotmap frames don’t appear, ensure the device is not held by another program.
 - UART (`/dev/ttyUSB0`) typically uses USB-to-serial adapters (CH34x/CH340/CH552); install proper drivers on Windows if necessary.
-
-
-That’s it — this English translation mirrors the Chinese guide and preserves the commands, examples, and images.
