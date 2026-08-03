@@ -551,6 +551,8 @@ items:
             file: kvm/NanoKVM_Go/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM_Go/user_guide.md
+        -   label: 分辨率与 EDID 设置
+            file: kvm/NanoKVM_Go/resolution.md
         -   label: MCP 功能
             file: kvm/NanoKVM_Go/mcp.md
         -   label: 更新应用
