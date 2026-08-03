@@ -20,6 +20,27 @@ The UAC channels are defined as follows:
 
 All channels use a 48 kHz sample rate. During UAC streaming, the raw PEC data for CH6 is replaced by the beamformed result.
 
+### Beam direction and physical microphone order
+
+View the front of the microphone array with its connector and flat edge at the bottom. MIC0 (CH0) is at the top; MIC1–MIC5 (CH1–CH5) continue clockwise around the outer ring. Serial commands `0,1,..9,A,B` start at MIC0 and select the beam direction clockwise in 30° steps:
+
+| Command | Angle | Physical direction |
+| --- | --- | --- |
+| `0` | 0° | MIC0 / CH0 |
+| `1` | 30° | Between MIC0 and MIC1 |
+| `2` | 60° | MIC1 / CH1 |
+| `3` | 90° | Between MIC1 and MIC2 |
+| `4` | 120° | MIC2 / CH2 |
+| `5` | 150° | Between MIC2 and MIC3 |
+| `6` | 180° | MIC3 / CH3 |
+| `7` | 210° | Between MIC3 and MIC4 |
+| `8` | 240° | MIC4 / CH4 |
+| `9` | 270° | Between MIC4 and MIC5 |
+| `A` | 300° | MIC5 / CH5 |
+| `B` | 330° | Between MIC5 and MIC0 |
+
+See the placement drawing in the [microphone array module guide](./micarray.md) for the physical numbering. CH6 is the beamformed output; it does not represent a seventh physical direction.
+
 > This document is a user guide for MA-USB8. It covers connection, device verification, audio capture, beamforming, how to read/parse hotmap frames, and common troubleshooting.
 
 ## Quick start
@@ -226,7 +247,7 @@ Total packet length = 16 + 256 = 272 bytes. The header is used for frame alignme
 
 | Command | Input (Lower/Uppercase: Off/On) | Default | Remarks | Input Source |
 | ------- | ------------------------------ | ------- | ------- | ------------ |
-| Set UAC CH6 beam direction | 0..9, A, B | 0 | angle = value × 30° (0..B → 0°,30°,…330°). Corresponds to the clockwise direction starting from microphone 0 as per the [microphone array](./micarray.md). | Any (serial/CDC) |
+| Set UAC CH6 beam direction | 0..9, A, B | 0 | Selects clockwise in 30° steps from MIC0 / CH0; see [Beam direction and physical microphone order](#Beam-direction-and-physical-microphone-order). CH6 carries the beamformed output. | Any (serial/CDC) |
 | Adjust source localization activation threshold | t/T | 650 | t: decrease by 50; T: increase by 50; adjustable range: 0–2000 | Any (serial/CDC) |
 | UART sound-map pseudocolor toggle | c/C | c | Requires ASCII 16×16 printing enabled | UART only |
 | UART internal debug info toggle | d/D | d | Enables/disables debug output | UART only |
