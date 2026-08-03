@@ -217,6 +217,14 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 
 本页提供的固件仅适用于 MA-USB8：
 
+### 20260803
+
+- 文件：[MA-USB8-260803.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-260803.bin)
+- 文件大小：87456 字节
+- SHA-256：`40a03a916f0cd95113109e9ba2e259e37b20db5cb19b8d1664280446cbb2ee07`
+
+### 20251201
+
 - 文件：[MA-USB8-251201.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin)
 - 文件大小：87552 字节
 - SHA-256：`f2381d1f5a50b0fc7a15e6723f61c4204dfae9dc394bfa349a18404ecd0c2905`

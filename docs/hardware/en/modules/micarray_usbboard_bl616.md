@@ -217,6 +217,14 @@ Confirm a baud rate of `2000000 bps`, and use `picocom -b 2000000` or `minicom -
 
 The firmware on this page is intended only for MA-USB8:
 
+### 20260803
+
+- File: [MA-USB8-260803.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-260803.bin)
+- Size: 87456 bytes
+- SHA-256: `40a03a916f0cd95113109e9ba2e259e37b20db5cb19b8d1664280446cbb2ee07`
+
+### 20251201
+
 - File: [MA-USB8-251201.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin)
 - Size: 87552 bytes
 - SHA-256: `f2381d1f5a50b0fc7a15e6723f61c4204dfae9dc394bfa349a18404ecd0c2905`
