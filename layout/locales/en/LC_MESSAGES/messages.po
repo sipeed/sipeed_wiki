@@ -304,9 +304,10 @@ msgid ""
 "微光夜视，AI 大模型 LLM / VLM。相机和核心板形态可选。"
 msgstr ""
 
-#: maix.html:197 maix.html:214 maix.html:231 tang.html:316
-msgid "https://sipeed.taobao.com"
-msgstr "https://www.aliexpress.com/store/911876460"
+#: maix.html:197
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?ft=t&id=1050380368975"
+msgstr "https://www.aliexpress.us/item/100500639"
 
 #: maix.html:206
 #, fuzzy
@@ -316,6 +317,11 @@ msgstr ""
 "touchscreens, compact size, sofatware fully compatible with Maix "
 "ecosystem."
 
+#: maix.html:214
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?ft=t&id=846226367137"
+msgstr "https://www.aliexpress.us/item/325680633"
+
 #: maix.html:223
 #, fuzzy
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，体积小巧，完美支持全新 Maix 生态所有软件"
@@ -323,6 +329,11 @@ msgstr ""
 "RISC-V 1GHz + 1TOPS NPU, 4M camera, multiple sizes capacitive "
 "touchscreens, compact size, sofatware fully compatible with Maix "
 "ecosystem."
+
+#: maix.html:231
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?ft=t&id=784724795837&spm=a21dvs.23580594.0.0.1d293d0d61xgBH"
+msgstr "https://www.aliexpress.us/item/100500639"
 
 #: maix.html:242
 msgid "Python 语法，简易 API，快速落地 AI 视觉、听觉应用"
@@ -376,8 +387,9 @@ msgstr ""
 " AI large model support"
 
 #: maix.html:363
-msgid "https://item.taobao.com/item.htm?id=744014549573"
-msgstr "https://www.aliexpress.us/item/3256806030962938.html"
+#, fuzzy
+msgid "https://item.taobao.com/item.htm?ft=t&id=939632895211"
+msgstr "https://www.aliexpress.us/item/100500639"
 
 #: nanokvm.html:34
 msgid "迷你IP-KVM运维工具"
@@ -580,8 +592,8 @@ msgstr "/hardware/en/tang/tang-console/mega-console.html"
 
 #: tang.html:172
 #, fuzzy
-msgid "https://sipeed.com/tangconsole"
-msgstr "https://sipeed.com/tangconsole"
+msgid "https://item.taobao.com/item.htm?ft=t&id=963677857301"
+msgstr "https://www.aliexpress.us/item/100500639"
 
 #: tang.html:180
 msgid "小体积的中等量 FPGA 开发板"
@@ -683,6 +695,10 @@ msgstr "Pre-saling..."
 #: tang.html:312
 msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"
 msgstr "/hardware/en/tang/tang-primer-15k/primer-15k.html"
+
+#: tang.html:316
+msgid "https://sipeed.taobao.com"
+msgstr "https://www.aliexpress.com/store/911876460"
 
 #~ msgid "预定"
 #~ msgstr "Order"
@@ -1005,4 +1021,10 @@ msgstr "/hardware/en/tang/tang-primer-15k/primer-15k.html"
 
 #~ msgid "..."
 #~ msgstr ""
+
+#~ msgid "https://item.taobao.com/item.htm?id=744014549573"
+#~ msgstr "https://www.aliexpress.us/item/3256806030962938.html"
+
+#~ msgid "https://sipeed.com/tangconsole"
+#~ msgstr "https://sipeed.com/tangconsole"
 

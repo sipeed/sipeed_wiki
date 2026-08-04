@@ -303,16 +303,24 @@ msgid ""
 "微光夜视，AI 大模型 LLM / VLM。相机和核心板形态可选。"
 msgstr ""
 
-#: maix.html:197 maix.html:214 maix.html:231 tang.html:316
-msgid "https://sipeed.taobao.com"
+#: maix.html:197
+msgid "https://item.taobao.com/item.htm?ft=t&id=1050380368975"
 msgstr ""
 
 #: maix.html:206
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，上手即用，完美支持全新 Maix 生态所有软件"
 msgstr ""
 
+#: maix.html:214
+msgid "https://item.taobao.com/item.htm?ft=t&id=846226367137"
+msgstr ""
+
 #: maix.html:223
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，体积小巧，完美支持全新 Maix 生态所有软件"
+msgstr ""
+
+#: maix.html:231
+msgid "https://item.taobao.com/item.htm?ft=t&id=784724795837&spm=a21dvs.23580594.0.0.1d293d0d61xgBH"
 msgstr ""
 
 #: maix.html:242
@@ -356,7 +364,7 @@ msgid "18Tops AI 算力，32 路 1080p 高清 AI 视频监控，AI 大模型支�
 msgstr ""
 
 #: maix.html:363
-msgid "https://item.taobao.com/item.htm?id=744014549573"
+msgid "https://item.taobao.com/item.htm?ft=t&id=939632895211"
 msgstr ""
 
 #: nanokvm.html:34
@@ -553,7 +561,7 @@ msgid "/hardware/zh/tang/tang-console/mega-console.html"
 msgstr ""
 
 #: tang.html:172
-msgid "https://sipeed.com/tangconsole"
+msgid "https://item.taobao.com/item.htm?ft=t&id=963677857301"
 msgstr ""
 
 #: tang.html:180
@@ -654,6 +662,10 @@ msgstr ""
 
 #: tang.html:312
 msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"
+msgstr ""
+
+#: tang.html:316
+msgid "https://sipeed.taobao.com"
 msgstr ""
 
 #~ msgid "/static/home/licheepi4a_post.jpg"
@@ -991,5 +1003,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "..."
+#~ msgstr ""
+
+#~ msgid "https://item.taobao.com/item.htm?id=744014549573"
+#~ msgstr ""
+
+#~ msgid "https://sipeed.com/tangconsole"
 #~ msgstr ""
 
