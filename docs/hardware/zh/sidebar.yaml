@@ -571,6 +571,8 @@ items:
                 file: kvm/NanoKVM_Go/system/introduction.md
             -   label: 烧录镜像
                 file: kvm/NanoKVM_Go/system/flashing.md
+        -   label: 扩展：自定义 APP
+            file: kvm/NanoKVM_Go/custom_app.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
