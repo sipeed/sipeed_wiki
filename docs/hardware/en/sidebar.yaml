@@ -570,6 +570,8 @@ items:
                 file: kvm/NanoKVM_Go/system/introduction.md
             -   label: Flash Image
                 file: kvm/NanoKVM_Go/system/flashing.md
+        -   label: Custom Apps
+            file: kvm/NanoKVM_Go/custom_app.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
