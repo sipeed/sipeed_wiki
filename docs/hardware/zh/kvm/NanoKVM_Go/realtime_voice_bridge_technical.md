@@ -212,12 +212,20 @@ Qwen WebSocket 不保证按 20 ms 返回 delta；网络分片必须先进入缓�
 
 ## 建立模型会话
 
-连接后、发送第一段音频前，用 `session.update` 配置模型、音色、输入输出格式、instructions 和交互模式。常用模式为 `server_vad` 和 `smart_turn`。
+建立 WebSocket 连接时，通过 URL 中的 `?model=<model>` 查询参数选择模型。官方 APP 按以下格式构造连接地址：
+
+```text
+wss://<workspace>.<region>.maas.aliyuncs.com/api-ws/v1/realtime?model=<model>
+```
+
+连接返回 `session.created` 后、发送第一段音频前，用 `session.update` 配置音色、输入输出格式、instructions 和交互模式，不要在 `session.update` 中发送 `model` 字段。常用交互模式为 `server_vad` 和 `smart_turn`。
 
 典型事件流：
 
 ```text
 client                         Qwen Realtime
+  │── WebSocket connect ───────────→│  ?model=<model>
+  │←─ session.created ──────────────│
   │── session.update ──────────────→│
   │── input_audio_buffer.append ───→│  16 kHz mono S16LE
   │←─ input_audio_buffer.speech_started
@@ -229,7 +237,7 @@ client                         Qwen Realtime
 
 WebSocket JSON 中的 PCM 使用 Base64 编解码；上行可累计 100 ms / 3200 字节再发送；下行 delta 到达后立即进入播放缓冲，不要等 `response.done` 再整段播放。客户端应忽略并低频记录未知事件，不能因为服务端增加事件类型而退出。
 
-替换其他实时语音模型时，可以保留 NanoKVM 的 MCP、WebRTC 和音频媒体层，只替换模型适配层。新的适配层需要重新实现鉴权、会话初始化、音频增量、transcript、结束、错误和取消事件，并将模型输出统一转换为 NanoKVM 所需的 `48 kHz / stereo / 20 ms` 音频帧。
+替换其他实时语音模型时，可以保留 NanoKVM 的 MCP、WebRTC 和音频媒体层，只替换模型适配层。新的适配层需要重新实现鉴权、会话初始化、音频增量、transcript、结束、错误和取消事件，再按所选 WebRTC 发送路径要求的格式提供固定时长 PCM 帧。官方 Python APP 应向 `aiortc` 提供 `AudioFrame`；对于当前 Qwen 输出，仍使用 `24 kHz / mono / 20 ms` 音频帧，由 `aiortc` 负责重采样和 Opus/RTP 编码。只有低层外部 Bridge 才需要把模型输出转换为 NanoKVM 协商得到的 WebRTC 格式，并自行处理 Opus/RTP。
 
 ## 实时缓冲、发送节拍与打断
 
@@ -365,15 +373,17 @@ AI 生成的代码同样必须以设备 MCP 返回值和模型官方文档为准
 
 如果模型是 Qwen Audio Realtime：
 
-- 等待 session.created，再发送 session.update；必须在第一段音频前完成模型、voice、
+- 建立 WebSocket 连接时，在 URL 中通过 `?model=<model>` 查询参数选择模型，
+  不要在 `session.update` 中包含 `model` 字段；
+- 等待 session.created，再发送 session.update；必须在第一段音频前完成 voice、
   instructions、输入输出格式和 interact_type 配置，并确认服务端接受更新；
 - 输入 PCM 为 S16LE/16000/mono，建议每 100 ms 发送 3200 字节；
 - 输出 PCM 为 S16LE/24000/mono；
 - PCM 在 WebSocket JSON 中按 API 文档进行 Base64 编解码；
 - interact_type 支持 server_vad 和 smart_turn，并通过环境变量配置；
 - response.audio.delta 到达后立即入队，不能等 response.done 后整段播放；
-- 处理完整 User/Qwen transcript、response.done/cancelled 和 error；忽略并低频记录
-  未知事件，不能因服务端增加事件类型而退出。
+- 处理完整 User/Qwen transcript、response.done（包括 status=cancelled）和 error；
+  忽略并低频记录未知事件，不能因服务端增加事件类型而退出。
 
 ## 替换为其他实时语音模型
 
@@ -385,7 +395,10 @@ NanoKVM 的媒体层只负责 WebRTC、Opus 和 UAC2 音频，不依赖 Qwen。�
 2. 输入/输出采样率、声道、PCM 编码、帧长和 Base64 规则；
 3. 音频增量、文本 transcript、结束、错误和取消事件的实际格式；
 4. VAD、打断、空闲超时、限流和会话轮换行为；
-5. 将模型输出统一转换到 NanoKVM 的 `48 kHz / stereo / 20 ms` WebRTC 音频轨道。
+5. 将模型输出转换为所选 WebRTC 发送路径要求的固定时长 PCM 帧。使用 Python
+   `aiortc` 时提供 `AudioFrame`，由 `aiortc` 完成重采样和 Opus/RTP 编码；对于当前
+   Qwen 输出，使用 `24 kHz / mono / 20 ms` 音频帧。只有低层外部 Bridge 才需要
+   转换为 NanoKVM 协商得到的 WebRTC 格式，并自行处理 Opus/RTP。
 
 不要把 Qwen 的事件名、字段名或 16/24 kHz 音频参数直接套到其他模型；先提供目标模型的官方文档，让 AI 重新完成适配和测试。
 
@@ -474,10 +487,22 @@ flush 屏障、Qwen-only 重连、媒体 TTL、进程退出清理和敏感信息
 
 ## 交付要求
 
-- 提供可运行实现、README 和可由 NanoKVM Go 网页安装的单 App ZIP；依赖打包在 App
-  自身目录，配置声明在 `app.json` 的 `env` 字段中，由 `Settings > Apps` 生成 environment 表单；
-- 不要要求用户使用 SSH、SCP、设备端 pip、独立 `.env` 或重启 `kvmcomm`；App 应能被
-  动态扫描，并由 Launcher 负责启动、停止和注入环境变量；
+设备端 Python APP 模式：
+
+- 提供可运行实现、README、`app.json` 和可由 NanoKVM Go 网页安装的单 APP ZIP；
+  依赖打包在 APP 自身目录，配置声明在 `app.json` 的 `env` 字段中，由
+  `Settings > Apps` 生成 environment 表单；
+- 不要要求用户使用 SSH、SCP、设备端 pip、独立 `.env` 或重启 `kvmcomm`；APP 应能被
+  动态扫描，并由 Launcher 负责启动、停止和注入环境变量。
+
+外部主机 Bridge 模式：
+
+- 提供可运行的外部可执行程序或系统服务，以及所需的依赖和部署文件；
+- 说明支持的操作系统与架构，以及安装、配置、启动、停止、重启、日志查看和开机自启方法；
+  不要求提供 APP ZIP、`app.json`，也不通过 `Settings > Apps` 安装。
+
+两种模式共同要求：
+
 - 配置项至少包含 URL、密钥环境变量、voice、interact_type、TTL、队列/Pacer、
   Qwen session 轮换、AEC 和 debug 开关；
 - 执行格式检查、单元测试和可完成的真实设备测试；

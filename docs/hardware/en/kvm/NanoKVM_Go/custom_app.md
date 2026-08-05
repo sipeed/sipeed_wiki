@@ -10,7 +10,7 @@ update:
       - Standardized the alignment of procedural screenshots
       - Fixed in-page navigation anchors
       - Corrected the manifest, lifecycle-script, and screen-recording examples
-      - Synchronized ZIP installation screenshots and screenshot placeholders
+      - Synchronized the ZIP installation screenshots
   - date: 2026-07-30
     version: v1.0
     author: taonyx
@@ -138,7 +138,7 @@ To install the ZIP file:
 
 3. after the web interface validates the ZIP file and `app.json`, complete any requested App configuration;
 
-![Confirm the App configuration and start installation](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-zip-install-confirm-en.png)
+![Confirm the App configuration and start installation](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-zip-install-confirm-en.webp)
 
 4. click `Install` and wait for the `Installation log` window to report success;
 
@@ -372,8 +372,6 @@ Install `hello-world.zip` by following [Install an App from a ZIP File](#upload-
 - the `Installation log` displays upload, validation, extraction, and lifecycle-script output in real time. Keep it open until installation succeeds;
 - if installation fails, save the complete log and use the final error messages to correct the App or its configuration;
 - after installation succeeds, open the `Apps` page on the device touchscreen and select `Hello World`.
-
-> 📷 **Screenshot needed:** The final `Hello World` display on the NanoKVM Go touchscreen, confirming that the example was installed and launched successfully.
 
 The installation log records only the current operation. When troubleshooting, copy or capture at least the final lines before closing it.
 

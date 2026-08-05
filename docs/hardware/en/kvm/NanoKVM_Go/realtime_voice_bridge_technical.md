@@ -207,12 +207,20 @@ The Qwen WebSocket does not guarantee that deltas arrive every 20 ms. Network ch
 
 ## Create a Model Session
 
-After connecting and before sending the first audio chunk, use `session.update` to configure the model, voice, input/output formats, instructions, and interaction mode. Common modes are `server_vad` and `smart_turn`.
+Select the model when opening the WebSocket by appending `?model=<model>` to the connection URL. The official App builds the endpoint as follows:
+
+```text
+wss://<workspace>.<region>.maas.aliyuncs.com/api-ws/v1/realtime?model=<model>
+```
+
+After the connection returns `session.created` and before sending the first audio chunk, use `session.update` to configure the voice, input/output formats, instructions, and interaction mode. Do not send `model` in `session.update`. Common interaction modes are `server_vad` and `smart_turn`.
 
 Typical event flow:
 
 ```text
 client                         Qwen Realtime
+  |-- WebSocket connect ----------->|  ?model=<model>
+  |<- session.created --------------|
   |-- session.update ------------->|
   |-- input_audio_buffer.append -->|  16 kHz mono S16LE
   |<- input_audio_buffer.speech_started
@@ -224,7 +232,7 @@ client                         Qwen Realtime
 
 PCM in WebSocket JSON is Base64 encoded and decoded. The upstream side can accumulate 100 ms / 3200 bytes before sending. Downstream deltas should enter the playback buffer immediately after arrival; do not wait for `response.done` and then play the whole response. The client should ignore and log unknown events at low frequency, instead of exiting when the server adds an event type.
 
-When replacing the realtime voice model, keep the NanoKVM MCP, WebRTC, and audio media layers, and replace only the model adapter layer. The new adapter needs to reimplement authentication, session initialization, audio deltas, transcripts, completion, errors, and cancellation events, then normalize model output into the `48 kHz / stereo / 20 ms` audio frames required by NanoKVM.
+When replacing the realtime voice model, keep the NanoKVM MCP, WebRTC, and audio media layers, and replace only the model adapter layer. The new adapter needs to reimplement authentication, session initialization, audio deltas, transcripts, completion, errors, and cancellation events, then provide fixed-duration PCM frames in the format expected by the selected WebRTC send path. In the official Python App, provide `AudioFrame` objects to `aiortc`; for the current Qwen output, these remain `24 kHz / mono / 20 ms` frames, and `aiortc` handles resampling and Opus/RTP encoding. A low-level external Bridge instead needs to convert the model output to the negotiated NanoKVM WebRTC format and handle Opus/RTP itself.
 
 ## Realtime Buffering, Pacing, and Interruption
 
@@ -383,8 +391,10 @@ Downstream: model output PCM -> Base64 decode -> bounded queue -> 20 ms audio
 
 If the model is Qwen Audio Realtime:
 
+- Select the model while opening the WebSocket by appending `?model=<model>` to
+  the connection URL. Do not include `model` in `session.update`.
 - Wait for session.created, then send session.update. Before sending the first
-  audio chunk, configure model, voice, instructions, input/output format, and
+  audio chunk, configure voice, instructions, input/output format, and
   interact_type, and confirm the server accepts the update.
 - Input PCM is S16LE/16000/mono. Sending 3200 bytes every 100 ms is
   recommended.
@@ -395,9 +405,9 @@ If the model is Qwen Audio Realtime:
   environment variables.
 - Queue response.audio.delta immediately after it arrives. Do not wait for
   response.done and then play the whole response.
-- Handle complete User/Qwen transcripts, response.done/cancelled, and error.
-  Ignore and log unknown events at low frequency; do not exit because the
-  server adds an event type.
+- Handle complete User/Qwen transcripts, response.done (including
+  status=cancelled), and error. Ignore and log unknown events at low frequency;
+  do not exit because the server adds an event type.
 
 ## Replace With Another Realtime Voice Model
 
@@ -413,8 +423,12 @@ When replacing the model, ask the AI to focus on:
    rules.
 3. Actual audio delta, transcript, completion, error, and cancel event formats.
 4. VAD, interruption, idle timeout, rate limit, and session rotation behavior.
-5. Converting model output to NanoKVM `48 kHz / stereo / 20 ms` WebRTC audio
-   frames.
+5. Converting model output into fixed-duration PCM frames expected by the
+   selected WebRTC send path. With Python `aiortc`, provide `AudioFrame` objects
+   and let `aiortc` handle resampling and Opus/RTP encoding; for the current Qwen
+   output, use `24 kHz / mono / 20 ms` frames. Only a low-level external Bridge
+   needs to convert to the negotiated NanoKVM WebRTC format and handle Opus/RTP
+   itself.
 
 Do not apply Qwen event names, field names, or 16/24 kHz audio parameters
 directly to another model. Provide the target model's official documentation
@@ -543,13 +557,27 @@ redaction.
 
 ## Delivery Requirements
 
-- Provide a runnable implementation, README, and a single-App ZIP installable
-  from the NanoKVM Go web UI. Dependencies should be packaged in the App's own
-  directory. Configuration should be declared in the `env` field of `app.json`,
-  and the `Settings > Apps` page should generate the environment form.
+For device-side Python App mode:
+
+- Provide a runnable implementation, README, `app.json`, and a single-App ZIP
+  installable from the NanoKVM Go web UI. Package dependencies in the App's own
+  directory, declare configuration in the `env` field of `app.json`, and let
+  `Settings > Apps` generate the environment form.
 - Do not require users to use SSH, SCP, device-side pip, a standalone `.env`, or
-  `kvmcomm` restart. The App should be dynamically scanned, and Launcher should
+  a `kvmcomm` restart. The App should be dynamically scanned, and Launcher should
   handle startup, stop, and environment injection.
+
+For external-host Bridge mode:
+
+- Provide a runnable external executable or system service, together with its
+  dependencies and deployment files.
+- Document the supported operating system and architecture, installation,
+  configuration, startup, shutdown, restart, log access, and automatic-start
+  procedure. Do not require an App ZIP, `app.json`, or installation through
+  `Settings > Apps`.
+
+For both modes:
+
 - Configuration items should at least include URL, secret environment variables,
   voice, interact_type, TTL, queue/Pacer, Qwen session rotation, AEC, and debug
   switches.
