@@ -32,7 +32,7 @@ Voice Bridge can be used to quickly build and verify:
 - call-test setups with live transcripts;
 - prompt, voice, and realtime model validation workflows.
 
-This guide only covers installing and running the official device-side App. You do not need to understand MCP, WebRTC, Opus, or audio resampling to try it. If you plan to replace the model, add a knowledge base or Agent, or customize the audio pipeline, first complete this quick start and confirm that the base workflow works.
+This guide only covers installing and running the official device-side App. You do not need to understand MCP, WebRTC, Opus, or audio resampling to try it. If you plan to replace the model, add a knowledge base or Agent, or customize the audio pipeline, first complete this quick start, confirm that the base workflow works, and then read the [Realtime Voice Chat Technical Guide](./realtime_voice_bridge_technical.html).
 
 ## Final Result
 
@@ -208,6 +208,6 @@ After Voice Bridge exits, it closes the model, WebRTC, and media sessions, and i
 
 The official device-side example source code is in the [`voice-bridge/` directory of the NanoKVM-Go-Apps `main` branch](https://github.com/sipeed/NanoKVM-Go-Apps/tree/main/voice-bridge). The shared App SDK and development documentation are in the [`base` branch](https://github.com/sipeed/NanoKVM-Go-Apps/tree/base).
 
-If you need to replace Qwen, connect another realtime voice model, or add a knowledge base, Agent, business tools, or custom audio processing, refer to the App source code and SDK documentation.
+If you need to replace Qwen, connect another realtime voice model, or add a knowledge base, Agent, business tools, or custom audio processing, continue with the [Realtime Voice Chat Technical Guide](./realtime_voice_bridge_technical.html).
 
 References: [NanoKVM-Go-Apps](https://github.com/sipeed/NanoKVM-Go-Apps) · [Alibaba Cloud Model Studio console](https://modelstudio.console.alibabacloud.com/) · [Get an API key](https://www.alibabacloud.com/help/en/model-studio/apikey) · [Get a Workspace ID](https://help.aliyun.com/en/model-studio/obtain-the-app-id-and-workspace-id) · [Qwen-Omni-Realtime documentation](https://www.alibabacloud.com/help/en/model-studio/realtime)

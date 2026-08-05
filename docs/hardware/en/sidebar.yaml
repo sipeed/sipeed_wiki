@@ -576,6 +576,8 @@ items:
             items:
             -   label: Quick Start
                 file: kvm/NanoKVM_Go/realtime_voice_bridge.md
+            -   label: Technical Guide
+                file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
