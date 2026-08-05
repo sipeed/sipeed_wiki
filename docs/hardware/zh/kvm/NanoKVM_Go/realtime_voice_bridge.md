@@ -12,7 +12,7 @@ update:
     version: v1.2
     author: Liang Ziyue
     content:
-      - 重整快速体验流程并补充截图占位
+      - 重整快速体验流程并补充操作截图
   - date: 2026-07-30
     version: v1.1
     author: taonyx
@@ -87,7 +87,7 @@ Voice Bridge 是运行在 NanoKVM Go 上的实时语音桥接 APP。它在被控
 ### 获取 Qwen 连接信息
 
 1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/)，注册或登录阿里云账号，并按页面提示开通百炼模型服务；
-2. 在控制台右上角选择支持实时语音模型的地域，例如 `华北2（北京）` 或 `新加坡`；
+2. 在控制台右上角选择 `华北2（北京）`。Voice Bridge 默认使用的 `qwen-audio-3.0-realtime-flash` 模型目前仅支持该地域；
 
 ![选择百炼地域](./../../../assets/NanoKVM/go/realtime_voice_bridge/model-studio-region-zh.webp)
 
@@ -99,7 +99,7 @@ Voice Bridge 是运行在 NanoKVM Go 上的实时语音桥接 APP。它在被控
 
 ![创建百炼 API Key](./../../../assets/NanoKVM/go/realtime_voice_bridge/model-studio-api-key-created-zh.webp)
 
-5. 创建完成后，页面会显示 `OpenAI compatible` 和 `Anthropic` 两类兼容接口地址。`QWEN_WORKSPACE_ID` 就是接口地址域名最前面的 `ws-...` 这一段；
+5. 创建完成后，页面会显示 `OpenAI compatible` 和 `Anthropic` 两类兼容接口地址。`QWEN_WORKSPACE_ID` 是接口地址域名最前面的 `ws-...`，紧随其后的地域代码则是 `QWEN_REGION`；
 
 例如接口地址为：
 
@@ -111,22 +111,24 @@ Anthropic:
 https://ws-xxxxxxxxxxxxxxxx.cn-beijing.maas.aliyuncs.com/apps/anthropic
 ```
 
-则 `QWEN_WORKSPACE_ID` 填写：
+则对应配置填写：
 
 ```text
-ws-xxxxxxxxxxxxxxxx
+Qwen Workspace ID: ws-xxxxxxxxxxxxxxxx
+Qwen region: cn-beijing
 ```
 
 ![查看百炼兼容接口地址](./../../../assets/NanoKVM/go/realtime_voice_bridge/model-studio-compatible-endpoints-zh.webp)
 
-6. 在百炼控制台或 [Qwen-Omni-Realtime 文档](https://help.aliyun.com/zh/model-studio/realtime)中确认账号当前可用的实时语音模型名称和地域。
+6. 在百炼控制台或 [Qwen Audio Realtime API 使用指南](https://help.aliyun.com/zh/model-studio/qwen-audio-realtime-user-guides)中确认账号当前可用的实时语音模型名称和支持地域。
 
-后续配置 Voice Bridge 时，必须填写的 Qwen 字段为：
+后续配置 Voice Bridge 时，需要填写或确认以下 Qwen 字段：
 
 - `Qwen Workspace ID`（对应 `QWEN_WORKSPACE_ID`）；
-- `Qwen API key`（对应 `QWEN_API_KEY`）。
+- `Qwen API key`（对应 `QWEN_API_KEY`）；
+- `Qwen region`（对应 `QWEN_REGION`），必须与 API Host 中的地域代码完全一致。
 
-`Qwen region` 和 `Qwen realtime model` 可以先使用 APP 表单中的默认值；如果你的百炼账号、地域或模型权限不同，再按控制台信息修改。
+按照上面的北京地域配置时，`Qwen region` 和 `Qwen realtime model` 均可保留 APP 默认值。安装前仍需确认 region 与 API Host 中的地域代码一致。
 
 不同账号的可用模型、地域和免费额度可能不同，请以百炼控制台显示的信息为准。
 
@@ -147,7 +149,7 @@ Voice Bridge 可以直接从 NanoKVM Go 内置的 Sipeed 官方 App Server 安�
 
 4. 等待安装配置窗口打开。
 
-5. 在自动生成的环境变量表单中填写连接信息。网页表单显示的是配置项名称，APP 内部会把它们保存为对应的环境变量。首次体验时通常只需要填写 `NanoKVM MCP API key`、`Qwen Workspace ID` 和 `Qwen API key`，其他字段可以先保留默认值。
+5. 在自动生成的环境变量表单中填写连接信息。网页表单显示的是配置项名称，APP 内部会把它们保存为对应的环境变量。首次体验时填写 `NanoKVM MCP API key`、`Qwen Workspace ID` 和 `Qwen API key`，确认 `Qwen region` 为与 API Host 一致的 `cn-beijing`，其他字段通常可以保留默认值。
 
 | 网页显示项 | 对应环境变量 | 说明 |
 | --- | --- | --- |
@@ -157,7 +159,7 @@ Voice Bridge 可以直接从 NanoKVM Go 内置的 Sipeed 官方 App Server 安�
 | `Assistant instructions` | `QWEN_INSTRUCTIONS` | 有默认值；用于设置模型的身份、回答方式和任务要求 |
 | `Base64 instructions` | `QWEN_INSTRUCTIONS_B64` | 可选；填写后会覆盖普通 instructions，首次体验建议留空 |
 | `Qwen realtime model` | `QWEN_MODEL` | 有默认值；如账号模型权限不同，再改为当前可用的实时语音模型 |
-| `Qwen region` | `QWEN_REGION` | 有默认值；如账号地域不同，再改为与 Qwen 服务和 Workspace 匹配的地域 |
+| `Qwen region` | `QWEN_REGION` | 有默认值；本文保留 `cn-beijing`，并确认它与 API Host 中的地域代码一致 |
 | `Session rotation interval` | `QWEN_SESSION_ROTATE_SECONDS` | 有默认值；用于设置 Qwen 会话轮换间隔 |
 | `Qwen voice` | `QWEN_VOICE` | 有默认值；用于设置模型回复使用的音色 |
 | `Qwen Workspace ID` | `QWEN_WORKSPACE_ID` | 从百炼兼容接口地址的 `ws-...` 前缀获取 |
@@ -226,4 +228,4 @@ Voice Bridge 的安装脚本会自动安装编译依赖，并把固定版本的 
 
 如果你需要替换 Qwen、接入其他实时语音模型，或者加入知识库、Agent、业务工具和自定义音频处理，请继续阅读[实时语音二次开发](./realtime_voice_bridge_technical.html)。
 
-参考：[NanoKVM-Go-Apps](https://github.com/sipeed/NanoKVM-Go-Apps) · [阿里云百炼控制台](https://bailian.console.aliyun.com/) · [获取 API Key](https://help.aliyun.com/zh/model-studio/get-api-key) · [获取 Workspace ID](https://help.aliyun.com/zh/model-studio/obtain-the-app-id-and-workspace-id) · [Qwen-Omni-Realtime 文档](https://help.aliyun.com/zh/model-studio/realtime)
+参考：[NanoKVM-Go-Apps](https://github.com/sipeed/NanoKVM-Go-Apps) · [阿里云百炼控制台](https://bailian.console.aliyun.com/) · [获取 API Key](https://help.aliyun.com/zh/model-studio/get-api-key) · [获取 Workspace ID](https://help.aliyun.com/zh/model-studio/obtain-the-app-id-and-workspace-id) · [Qwen Audio Realtime 文档](https://help.aliyun.com/zh/model-studio/qwen-audio-realtime-user-guides)

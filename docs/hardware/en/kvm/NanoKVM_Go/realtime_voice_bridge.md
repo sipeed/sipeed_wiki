@@ -77,7 +77,7 @@ Open the NanoKVM Go web interface, go to `Settings > Device > Virtual Audio`, an
 ### Get Qwen Connection Information
 
 1. Open the [Alibaba Cloud Model Studio console](https://modelstudio.console.alibabacloud.com/), register or sign in to an Alibaba Cloud account, and enable Model Studio as prompted.
-2. Select a region that supports realtime voice models, such as `China (Beijing)` or `Singapore`.
+2. Select `China (Beijing)`. The default `qwen-audio-3.0-realtime-flash` model used by Voice Bridge is currently available only in this region.
 
 ![Select a Model Studio region](./../../../assets/NanoKVM/go/realtime_voice_bridge/model-studio-region-en.webp)
 
@@ -91,29 +91,31 @@ Open the NanoKVM Go web interface, go to `Settings > Device > Virtual Audio`, an
 
 ![Save the Model Studio API key and API Host](./../../../assets/NanoKVM/go/realtime_voice_bridge/model-studio-api-key-created-en.webp)
 
-5. After the key is created, the page shows an `API Host` value. It may be shown as a hostname or as part of a full endpoint URL. `QWEN_WORKSPACE_ID` is the leading `ws-...` part of that host.
+5. After the key is created, the page shows an `API Host` value. It may be shown as a hostname or as part of a full endpoint URL. `QWEN_WORKSPACE_ID` is the leading `ws-...` part of that host, and `QWEN_REGION` is the region segment that follows it.
 
 For example:
 
 ```text
 API Host:
-https://ws-xxxxxxxxxxxxxxxx.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1
+https://ws-xxxxxxxxxxxxxxxx.cn-beijing.maas.aliyuncs.com
 ```
 
-In this case, enter the following value for `Qwen Workspace ID`:
+In this case, enter the following values:
 
 ```text
-ws-xxxxxxxxxxxxxxxx
+Qwen Workspace ID: ws-xxxxxxxxxxxxxxxx
+Qwen region: cn-beijing
 ```
 
-6. Confirm the realtime voice model name and region available to your account in the Model Studio console or the [Qwen-Omni-Realtime documentation](https://www.alibabacloud.com/help/en/model-studio/realtime).
+6. Confirm the realtime voice model name and supported region in the Model Studio console or the [Qwen-Audio Realtime documentation](https://www.alibabacloud.com/help/en/model-studio/qwen-audio-realtime-user-guides).
 
-When configuring Voice Bridge later, the required Qwen fields are:
+When configuring Voice Bridge later, provide or verify these Qwen fields:
 
 - `Qwen Workspace ID` (`QWEN_WORKSPACE_ID`);
-- `Qwen API key` (`QWEN_API_KEY`).
+- `Qwen API key` (`QWEN_API_KEY`);
+- `Qwen region` (`QWEN_REGION`), which must exactly match the region segment in the API Host.
 
-`Qwen region` and `Qwen realtime model` can use the App form defaults first. Change them only if your account region or model access differs.
+For the Beijing setup above, `Qwen region` and `Qwen realtime model` can keep the App defaults. Always verify that the region matches the API Host before installation.
 
 Available models, regions, quotas, and free usage may vary by account. Use the Model Studio console as the source of truth.
 
@@ -131,7 +133,7 @@ Voice Bridge can be installed directly from the built-in Sipeed official App Ser
 ![Install Voice Bridge from the App Store](./../../../assets/NanoKVM/go/realtime_voice_bridge/nanokvm-go-voice-bridge-install-en.webp)
 
 4. Wait for the installation configuration window to open.
-5. Fill in the automatically generated environment form. The web form shows user-facing field names, while the App saves them as environment variables internally. For a first test, you usually only need to fill in `NanoKVM MCP API key`, `Qwen Workspace ID`, and `Qwen API key`; keep the other fields at their defaults.
+5. Fill in the automatically generated environment form. The web form shows user-facing field names, while the App saves them as environment variables internally. For a first test, fill in `NanoKVM MCP API key`, `Qwen Workspace ID`, and `Qwen API key`. Confirm that `Qwen region` is `cn-beijing`, matching the API Host; the other fields can usually keep their defaults.
 
 | Web form field | Environment variable | Description |
 | --- | --- | --- |
@@ -141,7 +143,7 @@ Voice Bridge can be installed directly from the built-in Sipeed official App Ser
 | `Assistant instructions` | `QWEN_INSTRUCTIONS` | Has a default value. Sets the assistant identity, response style, and task requirements. |
 | `Base64 instructions` | `QWEN_INSTRUCTIONS_B64` | Optional. Base64-encoded UTF-8 instructions. If set, this overrides regular instructions. Leave it empty for the first test. |
 | `Qwen realtime model` | `QWEN_MODEL` | Has a default value. Change it only if your account requires a different available realtime voice model. |
-| `Qwen region` | `QWEN_REGION` | Has a default value. Change it only if your Qwen service and Workspace use a different region. |
+| `Qwen region` | `QWEN_REGION` | Has a default value. For this guide, keep `cn-beijing` and confirm that it matches the region segment in the API Host. |
 | `Session rotation interval` | `QWEN_SESSION_ROTATE_SECONDS` | Has a default value. Sets the interval for rotating the Qwen session. |
 | `Qwen voice` | `QWEN_VOICE` | Has a default value. Sets the voice used by model responses. |
 | `Qwen Workspace ID` | `QWEN_WORKSPACE_ID` | Get it from the `ws-...` prefix of the Model Studio `API Host`. |
@@ -210,4 +212,4 @@ The official device-side example source code is in the [`voice-bridge/` director
 
 If you need to replace Qwen, connect another realtime voice model, or add a knowledge base, Agent, business tools, or custom audio processing, continue with the [Realtime Voice Chat Technical Guide](./realtime_voice_bridge_technical.html).
 
-References: [NanoKVM-Go-Apps](https://github.com/sipeed/NanoKVM-Go-Apps) · [Alibaba Cloud Model Studio console](https://modelstudio.console.alibabacloud.com/) · [Get an API key](https://www.alibabacloud.com/help/en/model-studio/apikey) · [Get a Workspace ID](https://help.aliyun.com/en/model-studio/obtain-the-app-id-and-workspace-id) · [Qwen-Omni-Realtime documentation](https://www.alibabacloud.com/help/en/model-studio/realtime)
+References: [NanoKVM-Go-Apps](https://github.com/sipeed/NanoKVM-Go-Apps) · [Alibaba Cloud Model Studio console](https://modelstudio.console.alibabacloud.com/) · [Get an API key](https://www.alibabacloud.com/help/en/model-studio/apikey) · [Get a Workspace ID](https://help.aliyun.com/en/model-studio/obtain-the-app-id-and-workspace-id) · [Qwen Audio Realtime documentation](https://www.alibabacloud.com/help/en/model-studio/qwen-audio-realtime-user-guides)
