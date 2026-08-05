@@ -572,6 +572,10 @@ items:
                 file: kvm/NanoKVM_Go/system/flashing.md
         -   label: Custom Apps
             file: kvm/NanoKVM_Go/custom_app.md
+        -   label: AI Realtime Voice Chat
+            items:
+            -   label: Quick Start
+                file: kvm/NanoKVM_Go/realtime_voice_bridge.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe

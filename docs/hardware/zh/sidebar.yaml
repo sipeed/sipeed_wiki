@@ -573,6 +573,12 @@ items:
                 file: kvm/NanoKVM_Go/system/flashing.md
         -   label: 扩展：自定义 APP
             file: kvm/NanoKVM_Go/custom_app.md
+        -   label: AI 实时语音对话
+            items:
+            -   label: 快速体验
+                file: kvm/NanoKVM_Go/realtime_voice_bridge.md
+            -   label: 二次开发
+                file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe
