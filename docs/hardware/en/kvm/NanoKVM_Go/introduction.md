@@ -62,13 +62,9 @@ NanoKVM Go provides two Type-C ports and one reset hole on the side. The port wi
 
 > The data port of NanoKVM Go requires the controlled device's Type-C port to support DP Alt Mode video output. Type-C ports that only support charging or regular data transfer may not work with the remote display feature.
 
-## NanoKVM Go Software and Hardware Resources
-
-To be added.
-
 ## Purchase
 
-To be added.
++ [NanoKVM Go Kickstarter campaign](https://www.kickstarter.com/projects/zepan/nanokvm-go-worlds-first-ai-native-4k-usb-c-kvm?ref=2804x3)
 
 ## Feedback
 
