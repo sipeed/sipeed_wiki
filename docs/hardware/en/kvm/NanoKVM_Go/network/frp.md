@@ -346,11 +346,11 @@ The NanoKVM Go web interface does not provide an FRP entry, so you need to enabl
 
 1. Open the NanoKVM Go settings page;
 
-![NanoKVM Go settings entry](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.png)
+![NanoKVM Go settings entry](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.webp)
 
 2. Go to the settings item that contains the SSH switch, and enable SSH;
 
-![NanoKVM Go SSH switch](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.png)
+![NanoKVM Go SSH switch](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.webp)
 
 ### Log in through SSH
 
@@ -477,7 +477,7 @@ https://203.0.113.10:8080
 
 Replace the example IP address with the actual IP address of your public server. On first access, the browser may report that the certificate is not trusted. After confirming that you are accessing your own server, continue for testing. If the NanoKVM Go login page opens, the TCP forwarding configuration is correct. After testing, return to the SSH terminal and press `Ctrl+C` to stop `frpc`.
 
-![frpc connects to frps successfully](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.png)
+![frpc connects to frps successfully](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.webp)
 
 ### Enable frpc on boot
 

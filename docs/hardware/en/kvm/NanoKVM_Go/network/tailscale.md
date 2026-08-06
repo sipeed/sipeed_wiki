@@ -41,13 +41,13 @@ NanoKVM Go and the computer or phone used for remote access must join the same T
 1. Visit the [Tailscale website](https://tailscale.com/);
 2. Click `Get started` or `Log in`;
 
-![Registration and login entry on the Tailscale website](../../../../assets/NanoKVM/go/network/tailscale_homepage_get_started.png)
+![Registration and login entry on the Tailscale website](../../../../assets/NanoKVM/go/network/tailscale_homepage_get_started.webp)
 
 3. Sign in using one of the supported account providers;
 4. Follow the prompts to complete the initial authorization;
 5. Open the Tailscale admin console and select the `Machines` device list.
 
-![Machines device list in the Tailscale admin console](../../../../assets/NanoKVM/go/network/tailscale_admin_machines.png)
+![Machines device list in the Tailscale admin console](../../../../assets/NanoKVM/go/network/tailscale_admin_machines.webp)
 
 The `Machines` page is used to view and manage devices in the current Tailnet. After completing the following configuration, both NanoKVM Go and the client device will appear on this page.
 
@@ -59,45 +59,45 @@ The `Machines` page is used to view and manage devices in the current Tailnet. A
 
 Log in to the NanoKVM Go web interface and click the settings icon in the top toolbar.
 
-![Open the NanoKVM Go settings page](../../../../assets/NanoKVM/go/network/nanokvm_go_settings_button.png)
+![Open the NanoKVM Go settings page](../../../../assets/NanoKVM/go/network/nanokvm_go_settings_button.webp)
 
 ### Install or Start Tailscale
 
 Select `Tailscale` in the sidebar. If the page indicates that Tailscale is not running, click `Start` and wait for the service to start.
 
-![Start Tailscale on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_start.png)
+![Start Tailscale on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_start.webp)
 
 ### Log In to Tailscale
 
 1. After Tailscale starts, click `Log in`. The page generates a temporary authentication link and opens the Tailscale login page in the browser.
 
-![Click the Tailscale login button on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_login.png)
+![Click the Tailscale login button on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_login.webp)
 
 2. Select the same account or sign-in method used earlier and complete authentication.
 
-![Select a Tailscale login method](../../../../assets/NanoKVM/go/network/tailscale_login_methods.png)
+![Select a Tailscale login method](../../../../assets/NanoKVM/go/network/tailscale_login_methods.webp)
 
 3. Confirm that the device information is correct, then click `Connect` to add NanoKVM Go to the current Tailnet.
 
-![Confirm connecting NanoKVM Go to the Tailnet](../../../../assets/NanoKVM/go/network/tailscale_connect_device.png)
+![Confirm connecting NanoKVM Go to the Tailnet](../../../../assets/NanoKVM/go/network/tailscale_connect_device.webp)
 
 4. When the page displays `Login successful`, the Tailscale account authorization is complete.
 
-![Tailscale login successful](../../../../assets/NanoKVM/go/network/tailscale_login_success.png)
+![Tailscale login successful](../../../../assets/NanoKVM/go/network/tailscale_login_success.webp)
 
 5. Return to the NanoKVM Go web interface and click `Login complete`.
 
-![Confirm the completed login on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_confirm_login.png)
+![Confirm the completed login on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_confirm_login.webp)
 
 6. When the device name, device address, and account are displayed, NanoKVM Go has successfully joined the Tailnet.
 
-![Tailscale device address and account information on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_device_info.png)
+![Tailscale device address and account information on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_device_info.webp)
 
 ### Confirm That NanoKVM Go Is Online
 
 Open the `Machines` page in the Tailscale admin console and locate NanoKVM Go. A `Connected` status indicates that the device is online.
 
-![Confirm that NanoKVM Go is online in the Tailscale admin console](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_connected.png)
+![Confirm that NanoKVM Go is online in the Tailscale admin console](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_connected.webp)
 
 ## Install and Log In to Tailscale on the Client Device
 
@@ -128,19 +128,19 @@ After NanoKVM Go joins the Tailnet, it receives a Tailscale IP address in the `1
 
 Open `Settings` > `Tailscale` on NanoKVM Go and find the Tailscale IP in the `Device Address` field.
 
-![Find the Tailscale IP in NanoKVM Go settings](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_ip.png)
+![Find the Tailscale IP in NanoKVM Go settings](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_ip.webp)
 
 ### Find the Address in the Tailscale Admin Console
 
 Open the `Machines` page in the Tailscale admin console and find the Tailscale IP in the `ADDRESSES` column for NanoKVM Go.
 
-![Find the NanoKVM Go Tailscale IP in the Tailscale admin console](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_ip.png)
+![Find the NanoKVM Go Tailscale IP in the Tailscale admin console](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_ip.webp)
 
 ## Access NanoKVM Go Remotely
 
 Before connecting, confirm that both NanoKVM Go and the client device show `Connected` on the `Machines` page.
 
-![Confirm that the client device and NanoKVM Go are connected to Tailscale](../../../../assets/NanoKVM/go/network/tailscale_admin_devices_connected.png)
+![Confirm that the client device and NanoKVM Go are connected to Tailscale](../../../../assets/NanoKVM/go/network/tailscale_admin_devices_connected.webp)
 
 To ensure that the test uses an external network, disconnect the client device from the current LAN and use a phone hotspot or mobile network instead. Then follow these steps:
 

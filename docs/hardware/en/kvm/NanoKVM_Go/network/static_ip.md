@@ -157,25 +157,25 @@ Common subnet mask and CIDR mappings:
 1. Log in to the NanoKVM Go web interface through the current IP address;
 2. Click `Settings` in the top toolbar;
 
-![Open the NanoKVM Go settings page](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_toolbar_settings.png)
+![Open the NanoKVM Go settings page](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_toolbar_settings.webp)
 
 3. Select `Device` on the settings page, then open `Advanced Settings`.
 
-![Open the device advanced settings](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_device_advanced_settings.png)
+![Open the device advanced settings](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_device_advanced_settings.webp)
 
 ### Enable and Fill In the Static IP
 
 1. Find `Static IP` in `Advanced Settings`;
 
-![Find the static IP setting entry](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_setting_button.png)
+![Find the static IP setting entry](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_setting_button.webp)
 
 2. Enable `Static IP`;
 
-![Enable static IP](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_enable_switch.png)
+![Enable static IP](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_enable_switch.webp)
 
 3. Fill in the static IP configuration in the `IP/CIDR [Gateway]` format;
 
-![Fill in the static IP using IP, CIDR, and optional gateway](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_input_format.png)
+![Fill in the static IP using IP, CIDR, and optional gateway](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_input_format.webp)
 
 4. Check the IP address, CIDR, and gateway, then click `Confirm`.
 

@@ -346,11 +346,11 @@ NanoKVM Go 网页端没有 FRP 入口，因此需要先开启 SSH，再通过命
 
 1. 打开 NanoKVM Go 的设置页面；
 
-![NanoKVM Go 设置页面入口](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.png)
+![NanoKVM Go 设置页面入口](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.webp)
 
 2. 进入包含 SSH 开关的设置项；开启 SSH 服务；
 
-![NanoKVM Go SSH 开关页面](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.png)
+![NanoKVM Go SSH 开关页面](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.webp)
 
 ### 通过 SSH 登录
 
@@ -477,7 +477,7 @@ https://203.0.113.10:8080
 
 将示例 IP 替换为公网服务器的实际 IP。首次访问时，浏览器可能提示证书不受信任；确认访问的是自己的服务器后，可以继续访问测试。如果可以打开 NanoKVM Go 登录页面，说明 TCP 转发配置正确。完成测试后，返回 SSH 终端并按 `Ctrl+C` 停止 frpc。
 
-![frpc 成功连接 frps](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.png)
+![frpc 成功连接 frps](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.webp)
 
 
 ### 设置 frpc 开机自启

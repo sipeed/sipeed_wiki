@@ -42,13 +42,13 @@ NanoKVM Go 和用于远程访问的电脑或手机需要加入同一个 Tailscal
 2. 点击 `Get started` 或 `Log in`；
 
 
-![Tailscale 官网注册和登录入口](../../../../assets/NanoKVM/go/network/tailscale_homepage_get_started.png)
+![Tailscale 官网注册和登录入口](../../../../assets/NanoKVM/go/network/tailscale_homepage_get_started.webp)
 
 3. 使用页面支持的账号完成登录；
 4. 按照页面提示完成首次授权；
 5. 进入 Tailscale 管理后台，打开 `Machines` 设备列表。
 
-![Tailscale 管理后台的 Machines 设备列表](../../../../assets/NanoKVM/go/network/tailscale_admin_machines.png)
+![Tailscale 管理后台的 Machines 设备列表](../../../../assets/NanoKVM/go/network/tailscale_admin_machines.webp)
 
 `Machines` 页面用于查看和管理已经加入当前 Tailnet 的设备。完成后续配置后，NanoKVM Go 和访问端都会出现在该页面中。
 
@@ -60,45 +60,45 @@ NanoKVM Go 和用于远程访问的电脑或手机需要加入同一个 Tailscal
 
 登录 NanoKVM Go 网页控制端，点击顶部工具栏中的设置图标。
 
-![打开 NanoKVM Go 设置页面](../../../../assets/NanoKVM/go/network/nanokvm_go_settings_button.png)
+![打开 NanoKVM Go 设置页面](../../../../assets/NanoKVM/go/network/nanokvm_go_settings_button.webp)
 
 ### 安装或启动 Tailscale
 
 在设置页面左侧选择 `Tailscale`。如果页面提示 Tailscale 尚未运行，请点击 `启动`，等待服务启动完成。
 
-![在 NanoKVM Go 中启动 Tailscale](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_start.png)
+![在 NanoKVM Go 中启动 Tailscale](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_start.webp)
 
 ### 登录 Tailscale
 
 1. Tailscale 启动后，点击 `登录`。页面会生成一个临时认证链接，并在浏览器中打开 Tailscale 登录页面。
 
-![点击 NanoKVM Go 的 Tailscale 登录按钮](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_login.png)
+![点击 NanoKVM Go 的 Tailscale 登录按钮](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_login.webp)
 
 2. 选择与前文相同的账号或登录方式，完成身份验证。
 
-![选择 Tailscale 登录方式](../../../../assets/NanoKVM/go/network/tailscale_login_methods.png)
+![选择 Tailscale 登录方式](../../../../assets/NanoKVM/go/network/tailscale_login_methods.webp)
 
 3. 确认页面显示的设备信息无误，然后点击 `Connect`，将 NanoKVM Go 加入当前 Tailnet。
 
-![确认将 NanoKVM Go 连接到 Tailnet](../../../../assets/NanoKVM/go/network/tailscale_connect_device.png)
+![确认将 NanoKVM Go 连接到 Tailnet](../../../../assets/NanoKVM/go/network/tailscale_connect_device.webp)
 
 4. 页面显示 `Login successful` 后，表示 Tailscale 账号授权成功。
 
-![Tailscale 登录成功](../../../../assets/NanoKVM/go/network/tailscale_login_success.png)
+![Tailscale 登录成功](../../../../assets/NanoKVM/go/network/tailscale_login_success.webp)
 
 5. 返回 NanoKVM Go 网页控制端，点击 `登录完成`。
 
-![在 NanoKVM Go 页面确认登录完成](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_confirm_login.png)
+![在 NanoKVM Go 页面确认登录完成](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_confirm_login.webp)
 
 6. 页面显示设备名称、设备地址和账号后，表示 NanoKVM Go 已成功加入 Tailnet。
 
-![NanoKVM Go 的 Tailscale 设备地址和账号信息](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_device_info.png)
+![NanoKVM Go 的 Tailscale 设备地址和账号信息](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_device_info.webp)
 
 ### 确认 NanoKVM Go 已上线
 
 打开 Tailscale 管理后台的 `Machines` 页面，找到 NanoKVM Go。设备状态显示为 `Connected` 时，表示设备已经上线。
 
-![在 Tailscale 管理后台确认 NanoKVM Go 已上线](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_connected.png)
+![在 Tailscale 管理后台确认 NanoKVM Go 已上线](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_connected.webp)
 
 ## 在访问端安装并登录 Tailscale
 
@@ -129,20 +129,20 @@ NanoKVM Go 加入 Tailnet 后，会获得一个 `100.x.x.x` 格式的 Tailscale 
 
 打开 NanoKVM Go 的 `设置` > `Tailscale`，在 `设备地址` 一栏中查看 Tailscale IP。
 
-![在 NanoKVM Go 设置中查看 Tailscale IP](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_ip.png)
+![在 NanoKVM Go 设置中查看 Tailscale IP](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_ip.webp)
 
 ### 在 Tailscale 管理后台中查看
 
 打开 Tailscale 管理后台的 `Machines` 页面，在 NanoKVM Go 对应行的 `ADDRESSES` 一栏中查看 Tailscale IP。
 
-![在 Tailscale 管理后台中查看 NanoKVM Go 的 Tailscale IP](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_ip.png)
+![在 Tailscale 管理后台中查看 NanoKVM Go 的 Tailscale IP](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_ip.webp)
 
 
 ## 从外网访问 NanoKVM Go
 
 开始访问前，请先确认 NanoKVM Go 和访问端在 `Machines` 页面中均显示为 `Connected`。
 
-![确认访问端和 NanoKVM Go 均已连接到 Tailscale](../../../../assets/NanoKVM/go/network/tailscale_admin_devices_connected.png)
+![确认访问端和 NanoKVM Go 均已连接到 Tailscale](../../../../assets/NanoKVM/go/network/tailscale_admin_devices_connected.webp)
 
 为确保测试使用的是外网连接，建议断开访问端当前的局域网，改用手机热点或移动网络。然后按照以下步骤访问：
 
