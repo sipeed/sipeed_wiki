@@ -53,13 +53,9 @@ NanoKVM Go 侧面提供两个 Type-C 接口和一个复位孔。带闪电标志�
 
 > NanoKVM Go 的数据接口需要被控设备的 Type-C 接口支持 DP Alt Mode 视频输出功能。仅具备充电或普通数据传输能力的 Type-C 接口，可能无法正常使用远程显示功能。
 
-## NanoKVM Go 软硬件资料
-
-待补充。
-
 ## 购买入口
 
-待补充。
++ [NanoKVM Go Kickstarter 众筹页面](https://www.kickstarter.com/projects/zepan/nanokvm-go-worlds-first-ai-native-4k-usb-c-kvm?ref=2804x3)
 
 ## 产品反馈
 
