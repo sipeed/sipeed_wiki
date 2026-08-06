@@ -1,15 +1,15 @@
 ---
-title: 更新应用
+title: KVM 应用更新
 keywords: NanoKVM Go, Remote desktop, KVM, update
 update:
     - date: 2026-07-15
       version: v0.1
       author: Liang Ziyue
       content:
-          - 新增 NanoKVM Go 更新应用教程
+          - 新增 NanoKVM Go KVM 应用更新教程
 ---
 
-NanoKVM Go 支持在网页控制端中更新应用。更新前请确保设备已经连接网络，并且已经获得 IP 地址。
+NanoKVM Go 支持在网页控制端中更新内置的 KVM 应用。这里的 KVM 应用是负责网页控制、画面采集和键鼠控制的 NanoKVM Go 主程序，不是从 `Apps` 页面安装的自定义 APP，也不是系统镜像。更新前请确保设备已经连接网络，并且已经获得 IP 地址。
 
 ## 使用前准备
 
@@ -43,13 +43,13 @@ NanoKVM Go 支持在网页控制端中更新应用。更新前请确保设备已
 
 如果检测到可用更新，页面会弹出确认提示。点击 `确定` 开始更新。
 
-![确认更新 NanoKVM Go 应用](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_confirm_update.webp)
+![确认更新 NanoKVM Go KVM 应用](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_confirm_update.webp)
 
 ## 等待更新完成
 
-点击确定后，保持 NanoKVM Go 通电并保持网络连接，等待应用更新完成。
+点击确定后，保持 NanoKVM Go 通电并保持网络连接，等待 KVM 应用更新完成。
 
-![NanoKVM Go 应用更新进度](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_progress.webp)
+![NanoKVM Go KVM 应用更新进度](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_progress.webp)
 
 更新过程中请勿断电，也不要刷新或关闭页面。更新完成后，按照页面提示继续操作；如果页面自动刷新或重新进入登录页面，重新登录即可。
 

@@ -554,7 +554,7 @@ items:
             file: kvm/NanoKVM_Go/resolution.md
         -   label: MCP
             file: kvm/NanoKVM_Go/mcp.md
-        -   label: Update Application
+        -   label: KVM App Update
             file: kvm/NanoKVM_Go/system/updating.md
         -   label: Network
             items:
@@ -564,20 +564,22 @@ items:
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: Static IP
                 file: kvm/NanoKVM_Go/network/static_ip.md
-        -   label: Development
+        -   label: System
             items:
             -   label: System Build
                 file: kvm/NanoKVM_Go/system/introduction.md
             -   label: Flash Image
                 file: kvm/NanoKVM_Go/system/flashing.md
         -   label: Custom Apps
-            file: kvm/NanoKVM_Go/custom_app.md
-        -   label: AI Realtime Voice Chat
             items:
-            -   label: Quick Start
-                file: kvm/NanoKVM_Go/realtime_voice_bridge.md
-            -   label: Technical Guide
-                file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
+            -   label: App Installation and Development
+                file: kvm/NanoKVM_Go/custom_app.md
+            -   label: AI Realtime Voice Chat
+                items:
+                -   label: Quick Start
+                    file: kvm/NanoKVM_Go/realtime_voice_bridge.md
+                -   label: Technical Guide
+                    file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
     -   label: NanoKVM PCIe

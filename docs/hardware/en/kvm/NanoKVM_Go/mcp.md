@@ -214,7 +214,7 @@ Check:
 
 + Whether the NanoKVM Go system or application version is too old;
 + Whether the current version supports MCP;
-+ Whether the application needs to be updated from the web control page;
++ Whether the KVM App needs to be updated from the web control page;
 + Whether the settings page has been reopened after the update.
 
 ## Security Notes
