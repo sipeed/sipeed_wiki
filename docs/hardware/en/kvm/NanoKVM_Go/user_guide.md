@@ -166,7 +166,7 @@ Click the mouse settings icon in the floating toolbar to adjust pointer display,
 
 + Cursor Style sets the mouse pointer display on the web page. Available styles include default cursor, grab pointer, cell pointer, text pointer, and hidden pointer. This option only affects the pointer display in the browser and does not change the mouse settings of the controlled host.
 
-+ Mouse Mode selects how mouse coordinates are transmitted. For regular desktop systems, `Absolute Mode` is recommended. For Android devices, choose `Absolute Mode (Android)`. In BIOS, some system interfaces, or when the mouse position is inaccurate, switch to `Relative Mode`.
++ Mouse Mode selects how mouse coordinates are transmitted. `Relative Mode` works on all platforms and can be used in BIOS, some system interfaces, or when the mouse position is inaccurate. For regular desktop systems, `Absolute Mode` is recommended. When using an absolute mouse mode on Android, you must select `Absolute Mode (Android)` because the standard `Absolute Mode` does not work on Android.
 
 + Input Adapter selects how the browser receives mouse input. In most cases, `Auto (Pointer Lock)` is recommended. If you need fixed mouse movement capture, choose `Pointer Lock`. On touch devices or mobile browsers, choose `Touchpad`.
 

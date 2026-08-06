@@ -2,6 +2,11 @@
 title: 快速上手
 keywords: NanoKVM Go, Remote desktop, KVM, USB-C
 update:
+  - date: 2026-08-03
+    version: v0.2
+    author: kingo0807
+    content:
+      - 添加手机连接注意事项
   - date: 2026-07-14
     version: v0.1
     author: kingo0807
@@ -72,6 +77,22 @@ NanoKVM Go 首次使用时，需要先完成网络连接。
 + 显示区域用于查看被控设备画面；
 + 悬浮栏用于进入图像设置、竖屏模式、音量设置、麦克风、屏幕键盘、鼠标样式、界面预览、镜像挂载、自定义脚本、KVM 网页终端、设置和全屏等功能；
 + 如果画面没有显示，请确认被控设备的 Type-C 接口支持 DP Alt Mode，并检查线缆是否为全功能 Type-C 数据线。
+
+### 手机连接注意事项
+
+连接手机作为被控设备时，请留意系统连接提示，并根据手机系统调整相关设置：
+
++ 部分 Android 手机首次连接外接显示设备时，系统可能弹出有线投屏、外接显示或 USB 设备连接确认，请按照系统提示允许连接。如果未出现提示且画面和控制功能正常，则无需额外设置；NanoKVM Go 无需开启 USB 调试；
+
++ `相对模式` 适用于所有平台；
+
++ 连接 Android 手机时，如需使用绝对鼠标模式，请进入悬浮栏中的鼠标样式设置，并选择 `绝对模式（Android）`。普通的 `绝对模式` 无法在 Android 平台使用；
+
+![NanoKVM Go Android 鼠标模式](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-android-mouse-mode-zh.webp)
+
++ 连接 iPhone 时，每次连接成功后都需要在网页控制页面中点击 `修复 iPhone 拖曳`。如果没有点击该选项，可能会出现鼠标一直处于按下状态的问题。
+
+![NanoKVM Go 修复 iPhone 拖曳](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-fix-iphone-drag-zh.webp)
 
 ## 安全建议
 
