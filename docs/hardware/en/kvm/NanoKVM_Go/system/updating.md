@@ -1,15 +1,15 @@
 ---
-title: Update Application
+title: KVM App Update
 keywords: NanoKVM Go, Remote desktop, KVM, update
 update:
     - date: 2026-07-15
       version: v0.1
       author: Liang Ziyue
       content:
-          - Add NanoKVM Go application update guide
+          - Add the NanoKVM Go KVM App update guide
 ---
 
-NanoKVM Go supports updating the application from the web control page. Before updating, make sure the device is connected to the network and has obtained an IP address.
+NanoKVM Go supports updating its built-in KVM App from the web control page. The KVM App is the main NanoKVM Go application responsible for web control, video capture, and keyboard and mouse control. It is not a custom App installed from the `Apps` page or the system image. Before updating, make sure the device is connected to the network and has obtained an IP address.
 
 ## Preparation
 
@@ -42,13 +42,13 @@ On the settings page, click `Check for updates`.
 
 If an update is available, a confirmation dialog is displayed. Click `OK` to start the update.
 
-![Confirm the NanoKVM Go application update](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_confirm_update.webp)
+![Confirm the NanoKVM Go KVM App update](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_confirm_update.webp)
 
 ## Wait for the Update to Complete
 
-After clicking OK, keep NanoKVM Go powered on and connected to the network, then wait for the application update to complete.
+After clicking OK, keep NanoKVM Go powered on and connected to the network, then wait for the KVM App update to complete.
 
-![NanoKVM Go application update progress](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_progress.webp)
+![NanoKVM Go KVM App update progress](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_progress.webp)
 
 Do not power off the device during the update, and do not refresh or close the page. After the update is complete, follow the instructions on the page. If the page refreshes automatically or returns to the login page, log in again.
 
