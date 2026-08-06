@@ -463,6 +463,9 @@ items:
     items:
     -   label: 使用 Agent 操作 SLogic
         file: logic_analyzer/slogic_agent/readme.md
+    -   label: SLogic Agent 故事分享
+        file: logic_analyzer/slogic_agent/stories/readme.md
+        items: []
     -   label: SLogic Combo 8
         items:
         -   label: 简介
