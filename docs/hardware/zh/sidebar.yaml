@@ -461,6 +461,8 @@ items:
         file: maixsense/maixsense-a075v/maixsense-a075v.md
 -   label: SLogic
     items:
+    -   label: 使用 Agent 操作 SLogic
+        file: logic_analyzer/slogic_agent/readme.md
     -   label: SLogic Combo 8
         items:
         -   label: 简介
