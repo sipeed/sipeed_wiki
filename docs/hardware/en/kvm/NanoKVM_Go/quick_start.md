@@ -2,6 +2,11 @@
 title: Quick Start
 keywords: NanoKVM Go, Remote desktop, KVM, USB-C
 update:
+  - date: 2026-08-03
+    version: v0.2
+    author: kingo0807
+    content:
+      - Added notes for phone connections
   - date: 2026-07-14
     version: v0.1
     author: kingo0807
@@ -72,6 +77,22 @@ After logging in, you can view the controlled device screen and perform keyboard
 + The display area is used to view the controlled device screen;
 + The floating toolbar is used to access Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Image Mounting, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and other features;
 + If no image is displayed, confirm that the controlled device's Type-C port supports DP Alt Mode and that the cable is a full-featured Type-C data cable.
+
+### Notes for Phone Connections
+
+When using a phone as the controlled device, pay attention to system connection prompts and adjust the relevant settings for the phone system:
+
++ On some Android phones, the first connection may trigger a wired projection, external display, or USB device connection confirmation. Allow the connection as prompted. If no prompt appears and video and control work normally, no additional settings are required. USB debugging is not required for NanoKVM Go;
+
++ `Relative Mode` works on all platforms;
+
++ When connecting an Android phone, open Mouse Style from the floating toolbar. To use absolute positioning, select `Absolute Mode (Android)`; the standard `Absolute Mode` does not work on Android;
+
+![NanoKVM Go Android mouse mode](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-android-mouse-mode-en.webp)
+
++ For iPhone, click `Repair iPhone drag` on the web control page each time after the connection succeeds. If this option is not clicked, the mouse may stay in a pressed state.
+
+![NanoKVM Go repair iPhone drag](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-fix-iphone-drag-en.webp)
 
 ## Security Recommendations
 
