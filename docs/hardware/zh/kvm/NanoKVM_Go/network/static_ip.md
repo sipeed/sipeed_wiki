@@ -157,26 +157,26 @@ CIDR 中斜杠后的数字，表示子网掩码从左到右连续的二进制 `1
 1. 使用 NanoKVM Go 当前的 IP 地址登录网页控制端；
 2. 点击顶部工具栏中的 `设置`；
 
-![打开 NanoKVM Go 设置页面](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_toolbar_settings.png)
+![打开 NanoKVM Go 设置页面](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_toolbar_settings.webp)
 
 3. 在设置页面中选择 `设备`，然后打开 `高级设置`。
 
-![进入设备的高级设置](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_device_advanced_settings.png)
+![进入设备的高级设置](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_device_advanced_settings.webp)
 
 
 ### 启用并填写静态 IP
 
 1. 在 `高级设置` 中找到 `静态 IP`；
 
-![找到静态 IP 设置入口](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_setting_button.png)
+![找到静态 IP 设置入口](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_setting_button.webp)
 
 2. 启用 `静态 IP`；
 
-![启用静态 IP](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_enable_switch.png)
+![启用静态 IP](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_enable_switch.webp)
 
 3. 按照 `IP/CIDR [Gateway]` 格式填写静态 IP 配置；
 
-![按照 IP、CIDR 和可选网关格式填写静态 IP](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_input_format.png)
+![按照 IP、CIDR 和可选网关格式填写静态 IP](../../../../assets/NanoKVM/go/network/nanokvm_go_static_ip_input_format.webp)
 
 4. 检查 IP、CIDR 和网关无误后，点击 `确定`。
 

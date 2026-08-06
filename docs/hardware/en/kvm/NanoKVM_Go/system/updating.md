@@ -32,23 +32,23 @@ Before updating, confirm the following:
 
 On the top menu bar of the control page, click `Settings` to open the settings page.
 
-![NanoKVM Go Settings button](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_settings_button.png)
+![NanoKVM Go Settings button](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_settings_button.webp)
 
 ## Check for Updates
 
 On the settings page, click `Check for updates`.
 
-![NanoKVM Go check for updates page](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_check_update.png)
+![NanoKVM Go check for updates page](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_check_update.webp)
 
 If an update is available, a confirmation dialog is displayed. Click `OK` to start the update.
 
-![Confirm the NanoKVM Go application update](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_confirm_update.png)
+![Confirm the NanoKVM Go application update](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_confirm_update.webp)
 
 ## Wait for the Update to Complete
 
 After clicking OK, keep NanoKVM Go powered on and connected to the network, then wait for the application update to complete.
 
-![NanoKVM Go application update progress](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_progress.png)
+![NanoKVM Go application update progress](../../../../assets/NanoKVM/go/system/nanokvm_go_updating_progress.webp)
 
 Do not power off the device during the update, and do not refresh or close the page. After the update is complete, follow the instructions on the page. If the page refreshes automatically or returns to the login page, log in again.
 

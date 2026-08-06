@@ -11,7 +11,7 @@ update:
 
 ## 简介
 
-![NanoKVM Go 外观](./../../../assets/NanoKVM/go/introduction/nanokvm-go-device.jpg)
+![NanoKVM Go 外观](./../../../assets/NanoKVM/go/introduction/nanokvm-go-device.webp)
 
 NanoKVM Go 是 NanoKVM 系列中的便携式 IP-KVM 工具，面向随身维护、临时接入和远程运维场景。它通过 USB-C 接入被控设备，将画面查看、键鼠控制和远程访问集中到浏览器中完成。
 

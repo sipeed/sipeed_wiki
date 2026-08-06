@@ -11,7 +11,7 @@ update:
 
 ## Introduction
 
-![NanoKVM Go appearance](./../../../assets/NanoKVM/go/introduction/nanokvm-go-device.jpg)
+![NanoKVM Go appearance](./../../../assets/NanoKVM/go/introduction/nanokvm-go-device.webp)
 
 NanoKVM Go is a portable IP-KVM tool in the NanoKVM series, designed for mobile maintenance, temporary access, and remote operation scenarios. It connects to the controlled device through USB-C and lets you view the screen, control keyboard and mouse input, and perform remote access from a browser.
 
