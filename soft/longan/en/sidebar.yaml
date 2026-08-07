@@ -1,0 +1,30 @@
+items:
+-   label: Sipeed Longan
+    file: README.md
+-   label: Longan Nano
+    items:
+    -   label: Introduction
+        items:
+        -   label: Introduction
+            file: README.md
+    -   label: Getting started
+        items:
+        -   label: PIO configuration
+            file: get_started/pio.md
+        -   label: Getting to Blinky
+            file: get_started/blink.md
+        -   label: Debugging
+            file: get_started/debug.md
+            items:
+            -   label: Using Sipeed debugger
+                file: get_started/sipeed-debugger.md
+            -   label: Using RV-LINK
+                file: get_started/rv-link.md
+    -   label: Examples
+        items:
+        -   label: UART
+            file: examples/printf.md
+        -   label: Playing Badapple
+            file: examples/badapple.md
+-   label: Longan Zreo
+-   label: Longan One
