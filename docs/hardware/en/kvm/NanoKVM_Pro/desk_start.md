@@ -84,21 +84,37 @@ Touch screen supports the following actions:
 
 2. **Wi-Fi Connection**:
 
-   1. Open `Settings` → `Wi-Fi`
+   1. Go to `Settings` → `Wi-Fi`.
 
-   2. Short press the `Wi-Fi` switch
+   2. Turn on Wi-Fi to start the setup process.
 
-   3. If Wi-Fi has not been configured, KVM will start a Wi-Fi hotspot (AP) and display AP information on the screen
+   3. If Wi-Fi has not yet been configured, the Desk automatically creates a Wi-Fi access point (AP). The screen displays the AP name, password, and QR code.
 
-   4. Use a phone or computer to connect to the AP with the displayed password, or scan the QR code for quick connection
+      ![NanoKVM Wi-Fi AP information](../../../assets/NanoKVM/pro/start/desk_wifi_ap_info_en.webp)
 
-   5. Once successfully connected, the UI will automatically jump and display a web link
+   4. Connect your phone or computer to the Desk AP: scan the QR code, or select the AP shown on the screen from the Wi-Fi list and enter its password.
 
-   6. Open the link in a browser or scan the QR code to enter the Wi-Fi configuration page
+      ![Connect to the NanoKVM Wi-Fi AP](../../../assets/NanoKVM/pro/start/desk_wifi_ap_en.webp)
+
+   5. After your phone or computer connects to the Desk AP, the Desk screen automatically switches to the Wi-Fi setup link page and displays a URL and QR code.
+
+      ![NanoKVM web setup address](../../../assets/NanoKVM/pro/start/desk_wifi_web_link_en.webp)
+
+   6. On your phone or computer, open the displayed URL in a browser, or scan the QR code, to open the Wi-Fi setup page.
+
+      ![NanoKVM Wi-Fi configuration page](../../../assets/NanoKVM/pro/start/desk_wifi_form_en.webp)
+
+   7. Enter the name (SSID) and password of the target Wi-Fi network, then select `OK`.
+
+      ![Configure NanoKVM Wi-Fi](../../../assets/NanoKVM/pro/start/desk_wifi_config_en.webp)
+
+   8. Wait for the Desk to connect to the target Wi-Fi network. Once connected, the screen displays its assigned IP address.
+
+      ![NanoKVM Desk displaying its Wi-Fi IP address](../../../assets/NanoKVM/pro/start/desk_wifi_connected_ip.webp)
 
    > **Note**:
-   > You can switch between the AP info page and the web link page by swiping left/right.
-   > Once Wi-Fi is successfully connected and the Wi-Fi function is not disabled, the device will automatically connect on each startup.
+   > Swipe left or right to switch between the AP information page and the Wi-Fi setup link page.
+   > After Wi-Fi is configured, the Desk automatically reconnects to the saved network at every startup as long as Wi-Fi remains enabled.
 
 3. **USB-NCM Connection**: If needed, you can establish a network connection via USB-NCM.
 
