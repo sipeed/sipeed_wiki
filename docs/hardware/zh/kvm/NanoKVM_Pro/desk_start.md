@@ -84,16 +84,35 @@ Desk 版本正面配有两个可供交互的部件
 
    2. **Wi-Fi 连接**：
 
-      1. 打开 `Settings` → `Wi-Fi`
-      2. 短按 `Wi-Fi` 开关
-      3. 如果未配置过 Wi-Fi，KVM 会释放一个 Wi-Fi 热点（AP），屏幕会显示该 AP 的信息
-      4. 使用手机或电脑选择该 AP 并输入密码，或通过扫码快速连接
-      5. 首次连接成功后，UI 会自动跳转并显示网页链接
-      6. 使用浏览器打开该链接或扫码网页二维码进入配网界面
+      1. 进入 `Settings` → `Wi-Fi`。
+      2. 打开 Wi-Fi 开关，进入配网流程。
+      3. 若尚未配置 Wi-Fi，Desk 会自动创建一个 Wi-Fi 热点（AP），屏幕会显示热点名称、密码和二维码。
+
+         ![DESK热点界面](../../../assets/NanoKVM/pro/start/desk_wifi_ap_info.webp)
+
+      4. 使用手机或电脑连接 Desk 热点：扫描二维码快速连接，或在 Wi-Fi 列表中选择屏幕显示的热点并输入密码。
+
+         ![连接热点](../../../assets/NanoKVM/pro/start/desk_wifi_ap.webp)
+
+      5. 手机或电脑连接到 Desk 热点后，Desk 屏幕会自动切换到配网入口页面，显示网址和二维码。
+
+         ![DESK网页界面](../../../assets/NanoKVM/pro/start/desk_wifi_web_link.webp)
+
+      6. 在手机或电脑上，使用浏览器访问屏幕显示的网址，或扫描二维码，打开 Wi-Fi 配网页面。
+
+         ![配网网页页面](../../../assets/NanoKVM/pro/start/desk_wifi_form.webp)
+
+      7. 输入目标 Wi-Fi 的名称（SSID）和密码，然后点击 `确定`。
+
+         ![配置Wi-Fi](../../../assets/NanoKVM/pro/start/desk_wifi_config.webp)
+      8. 等待 Desk 连接到目标 Wi-Fi。连接成功后，屏幕会显示获取到的 IP 地址。
+
+         ![显示IP](../../../assets/NanoKVM/pro/start/desk_wifi_connected_ip.webp)
+
 
       > **注意**：
-      > 在 AP 信息页面和网页链接页面之间可通过左右切换。
-      > 成功连接 Wi-Fi 后且不关闭 Wi-Fi 功能，每次开机将自动连接。
+      > 在热点信息页面与配网入口页面之间，可通过左右滑动切换。
+      > 完成 Wi-Fi 配置后，只要 Wi-Fi 功能保持开启，Desk 每次开机都会自动连接已保存的网络。
 
    3. **USB-NCM 连接**：如有需要，可通过 USB-NCM 方式建立网络连接。
 
