@@ -4,42 +4,36 @@
 
 ![](../../assets/modules/micarray_usbboard_bl616/product-front.png)
 
-MA-USB8 是一块为麦克风阵列提供 USB 音频与串口数据接口的驱动板，主要用于把麦克风阵列采集到的音频（通过 UAC2.0 8 通道）和声场成像/声源定位热力图（通过 CDC ACM / UART 帧）输出到上位机或 MCU。常见应用场景有语音采集、降噪、波束指向与声场可视化等。
+MA-USB8 是一块为麦克风阵列提供 USB 音频与串口数据接口的驱动板，可通过 UAC2.0 传输 8 通道采集音频和 2 通道播放音频，并通过 CDC ACM 或物理 UART 输出声源定位热力图。标准板使用直径 80 mm 的六麦阵列（D80）固件。
 
 - UAC2.0（USB Audio Class）：8 通道，PCM S16_LE，48 kHz
-- CDC ACM（USB 虚拟串口）: 16×16 原始格式声场热力图（Hotmap Frame）串行输出
-- UART: 通过 UART (2,000,000 bps) 输出 16×16 原始/HEX+彩色格式声场热力图（适合 MCU 场景）
+- UAC2.0 播放：2 通道，PCM S16_LE，48 kHz
+- CDC ACM（USB 虚拟串口）：输出 16×16 原始声场热力图
+- UART：以 2,000,000 bps 输出 16×16 原始或文本声场热力图
 
 UAC 通道定义如下：
 
 | 通道 | 数据 |
 | --- | --- |
 | CH0～CH5 | PEC 采集的原始有符号 16-bit PCM |
-| CH6 | CH0～CH5 延时对齐后的平均值，用作波束合成输出 |
-| CH7 | PEC 采集的原始有符号 16-bit PCM |
+| CH6 | CH0～CH5 按所选方向延时求和后的全频段波束合成输出 |
+| CH7 | 保留的 PEC 第八采集通道，不作为六麦阵列的有效麦克风通道 |
 
 所有通道的采样率均为 48 kHz。UAC 传输期间，CH6 对应的 PEC 原始数据会被波束合成结果覆盖。
 
-### 波束方向与物理麦克风顺序
+USB 高速采集端点的间隔为 0.5 ms，标称每包 384 字节（24 帧）。PEC 的实际采样时钟略快于标称 48 kHz，固件会根据 FIFO 水位在 384 与 400 字节包长之间切换，以吸收长期时钟偏差。设备由 USB 总线供电，描述符申报最大电流为 500 mA。
 
-观察麦克风阵列正面并将连接器、平边朝下：外圈顶部为 MIC0（CH0），MIC1～MIC5（CH1～CH5）沿顺时针排列。串口命令 `0,1,..9,A,B` 从 MIC0 方向开始，以 30° 为步进沿顺时针选择波束方向：
+### 阵列参数与波束方向
 
-| 命令 | 角度 | 对应物理方向 |
-| --- | --- | --- |
-| `0` | 0° | MIC0 / CH0 |
-| `1` | 30° | MIC0 与 MIC1 之间 |
-| `2` | 60° | MIC1 / CH1 |
-| `3` | 90° | MIC1 与 MIC2 之间 |
-| `4` | 120° | MIC2 / CH2 |
-| `5` | 150° | MIC2 与 MIC3 之间 |
-| `6` | 180° | MIC3 / CH3 |
-| `7` | 210° | MIC3 与 MIC4 之间 |
-| `8` | 240° | MIC4 / CH4 |
-| `9` | 270° | MIC4 与 MIC5 之间 |
-| `A` | 300° | MIC5 / CH5 |
-| `B` | 330° | MIC5 与 MIC0 之间 |
+当前算法使用 PCM 通道 0～5 对应的六个外圈麦克风，不使用中心麦克风。算法表中的六麦角度顺序为 `90°, 30°, 330°, 270°, 210°, 150°`。标准 D80 阵列的半径为 40 mm；D107 派生版本的半径为 53.5 mm，并使用单独生成的 GCC-PHAT 时延矩阵和波束延迟。
 
-物理编号和板上位置可参见[麦克风阵列模块](./micarray.md)的点位图。CH6 是波束合成输出，不代表第 7 个物理方向。
+串口命令 `0..9,A,B` 选择 0～11 共 12 个波束档位，软件中的相邻档位按 30° 连续推进。当前版本已修复奇偶档位的方向旋转错位，但以下物理关系仍需使用固定声源夹具逐档验证：
+
+- 软件通道与丝印 U1～U6 的绝对对应关系；
+- 物理 0° 的基准位置；
+- 档位相对物理阵列的顺时针或逆时针方向。
+
+完成验证前，不应把命令编号直接解释为某个丝印麦克风或绝对物理角度。物理编号和板上位置可参见[麦克风阵列模块](./micarray.md)的点位图。CH6 是波束合成输出，不代表第 7 个物理麦克风。
 
 > 本文是 MA-USB8 的使用指南，覆盖从接线、验证设备、音频录制、波束成形到如何读取/解析声场热力图与常见故障排查。
 
@@ -51,7 +45,7 @@ UAC 通道定义如下：
 2. 将 MA-USB8 通过 USB 连接 PC（或杜邦线连接到 MCU 主板）。
 3. 选择一种模式：
    - 首选：USB（UAC2.0 音频 + CDC ACM 串口）—— 在 PC 上同时获取多通道音频与声场帧。
-   - 备用：UART / USB2TTL（2,000,000-bit baudrate）—— 在 MCU/嵌入式场景下只获取（HEX/伪彩）声场帧。
+   - 备用：物理 UART / USB 转串口（2,000,000 bps，8N1）—— 在 MCU 或嵌入式场景下获取声场帧。
 
 建议在 PC 主机上安装 [Audacity](https://www.audacityteam.org/download/) 常用音频处理软件。
 
@@ -60,13 +54,17 @@ UAC 通道定义如下：
 - 如果在 Windows 下使用 [Audacity](https://www.audacityteam.org/download/) 录音，请先打开设备管理或 [Audacity](https://www.audacityteam.org/download/) 的设置确认 MA-USB8 可见。
 
 ### 验证设备（Linux）
-- 插入设备后运行：
-  - 查 USB 复合设备：
-    - dmesg | tail  # 看到 /dev/ttyACM0 和 `SipeedUSB MicArray`。
-    - lsusb           # 查看设备 id，便于 udev 规则或故障排查
-  - 音频设备：
-    - arecord -l      # 列出可用录音设备（应该看到 8 通道 UAC 设备）
-    - pactl list short sources  # Pulseaudio 环境下查看来源
+
+设备的 USB VID:PID 为 `359f:3400`，产品名为 `SipeedUSB MicArray`。插入设备后运行：
+
+```bash
+dmesg | tail
+lsusb
+arecord -l
+pactl list short sources
+```
+
+系统应识别 UAC2.0 音频接口和 `/dev/ttyACM0` 一类的 CDC ACM 设备。实际编号可能不是 0，请以命令输出为准。
 
 ![](../../assets/modules/micarray_usbboard_bl616/dmesg.png)
 ![](../../assets/modules/micarray_usbboard_bl616/lsusb.png)
@@ -111,18 +109,32 @@ aplay ch6.wav
   <img src="../../assets/modules/micarray_usbboard_bl616/audacity-windows-wasapi-step-2.png" style="width: 48%;">
 </div>
 
-## 波束成形（Beamforming）示例
-MA-USB8 支持 12 方向的波束成形（0..B），每步为 30°。
+### 播放：输出 2 通道音频
 
-示例：要把波束指向 CH0（0°）并在输出通道 CH6 获取波束合成后的音频：
+UAC2.0 播放接口支持 2 通道、PCM 16-bit、48 kHz。固件将 USB 左右声道的原始交错数据送入 I2S0，不做单声道混合，也不固定选择其中一个声道。
+
+I2S0 引脚与格式如下：
+
+| 信号 | GPIO |
+| --- | --- |
+| DATA | GPIO27 |
+| BCLK | GPIO28 |
+| LRCLK | GPIO29 |
+
+数据格式为 left-justified。若驱动板后级只连接一个扬声器，实际播放左声道还是右声道由硬件接线决定。
+
+## 波束成形（Beamforming）示例
+MA-USB8 支持 12 个波束档位（`0..9,A,B`），相邻档位相差 30°。
+
+示例：选择波束档位 0，并在输出通道 CH6 获取波束合成后的音频：
 1. 打开串口（ttyACM0）：
 ```bash
 minicom -D /dev/ttyACM0 -H
 ```
-2. 在 minicom 中直接输入 `0`（字符）设置波束为方向 0°。
-3. 在音频软件（[Audacity](https://www.audacityteam.org/download/) / arecord）监听或录制 CH6：CH6 会包含指向 CH0 的波束合成音频（例如输入 0 对应角度 0°）。
+2. 在 minicom 中直接输入字符 `0`，选择波束档位 0。
+3. 在音频软件（[Audacity](https://www.audacityteam.org/download/) / arecord）中监听或录制 CH6。
 
-备注：输入 0..9, A, B 分别对应 0°,30°,…,330° 的 12 个方向；默认值 0。
+默认档位为 0。档位的绝对物理角度尚未完成夹具验证，参见[阵列参数与波束方向](#阵列参数与波束方向)。
 
 ![](../../assets/modules/micarray_usbboard_bl616/sine500hz@ch0_and_sine1000hz@ch3_with_beamforming@ch0.png)
 
@@ -133,9 +145,11 @@ minicom -D /dev/ttyACM0 -H
 - CDC ACM 连续输出原始二进制数据。每帧包含 16 字节帧头和 256 字节数据，详见 [Hotmap Frame 格式](#Hotmap-Frame-格式（开发者视角）)。
 - UART 默认输出原始二进制数据。在串口中输入大写 `F` 后，开启 16×16 文本热力图；再输入大写 `C`，开启伪彩显示。输入小写 `f`、`c` 可分别关闭对应功能，详见[完整指令表](#完整指令表（开发者）)。
 
+热力图使用六麦 GCC-PHAT/SRP 类定位处理，输出 16×16 灰度图。固件对每个像素应用 `3/4` 历史值加 `1/4` 当前帧的 EMA，以减少画面闪动。热力图自动跟随声源；波束档位命令只改变 UAC CH6，不控制热力图方向。
+
 ### 通过 minicom / picocom 观察（快速）
 
-CDC ACM 使用 minicom 观察原始帧：
+CDC ACM 默认输出二进制帧，直接使用普通终端查看会显示乱码。如需检查原始数据，可使用：
 
 ```bash
 minicom -D /dev/ttyACM0 -H
@@ -169,19 +183,21 @@ picocom -b 2000000 /dev/ttyUSB0
 
 ### MCU 解析串口数据帧
 
-如果要在 MCU 端解析这个帧，原则相同：丢弃 16 字节头并把后 256 字节按行/列解析。
+在 MCU 端解析时，先查找连续 16 个 `0xFF`，再把后续 256 字节按 16×16 行优先顺序解析。协议没有帧序号、时间戳或 CRC；CDC 忙时固件可能丢弃热力图帧，接收端应依靠下一组帧头重新同步。
 
 ## 常用串口命令 (用户速查)
 下面摘录最常用且对普通用户最有用的串口命令，便于现场调试：
 
-- 设置波束方向（0..9, A, B）：向串口直接输入字符（例如 `0`、`3`、`A`）来设置波束方向。
+- 设置波束档位（0..9, A, B）：向串口直接输入字符，例如 `0`、`3` 或 `A`。
 - 打开/关闭 LED 指示灯：输入 `e` / `E` （小写关，大写开）。
 - 切换 UART 热力图打印：输入 `f` 关闭、`F` 开启 16×16 ASCII 打印。
+- 调整定位阈值：输入 `t` / `T`，每次降低/提高 50，范围为 0～2000。
+- 恢复主要运行标志并选择波束档位 0：输入 `R`。
 
 更多详细指令及行为参见本文末的“开发者参考”中的完整指令表。
 
 ### 示例：设置并验证波束方向
-1. 在串口中输入 `3`（示例）设置方向为 90°（3×30=90）。
+1. 在串口中输入 `3`，选择波束档位 3。
 2. 在 Audacity 中监听 CH6：你应该在 CH6 听到来自目标方向的声音被增强，或在系统中录制 CH6 再回放分析。
 
 ## 常见问题与故障排查
@@ -202,7 +218,7 @@ sudo usermod -a -G plugdev $USER
 
 ```bash
 # /etc/udev/rules.d/99-ma-usb8.rules
-SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="3400", MODE="0666", GROUP="plugdev"
 ```
 
 ### CDC ACM 不输出热力图
@@ -215,19 +231,18 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 
 ## 固件升级
 
-本页提供的固件仅适用于 MA-USB8：
+本页只提供标准 D80 板固件：
 
-### 20260803
+### MA-USB8 D80（2026-08-11）
 
-- 文件：[MA-USB8-260803.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-260803.bin)
-- 文件大小：87456 字节
-- SHA-256：`40a03a916f0cd95113109e9ba2e259e37b20db5cb19b8d1664280446cbb2ee07`
+- 适用阵列：标准 D80 板，半径 40 mm、直径 80 mm
+- 文件：[MA-USB8-D80-260811.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-D80-260811.bin)
+- 文件大小：4079640 字节
+- SHA-256：`91ed7e1b8823b6fb73f0f16621e902eb50161452733f65e4f2ee3b1608a0aabe`
 
-### 20251201
+该文件是整合烧录镜像，请直接按照下方步骤升级。
 
-- 文件：[MA-USB8-251201.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin)
-- 文件大小：87552 字节
-- SHA-256：`f2381d1f5a50b0fc7a15e6723f61c4204dfae9dc394bfa349a18404ecd0c2905`
+不要将该固件用于 D107 阵列。
 
 升级步骤：
 
@@ -239,8 +254,15 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 
 升级前请记录当前固件版本和设备描述符，便于升级失败时核对设备状态。固件升级过程中不要断开 USB 连接或关闭烧录工具。
 
+### 当前版本限制
+
+- 最终固件不包含 AEC，也没有 AEC 启用或停用指令。
+- 热力图帧在 CDC 忙时可能丢失，协议没有帧序号、时间戳或 CRC。
+- 物理 0°、丝印 U1～U6 与软件通道的最终映射仍需固定声源夹具验证。
+- 播放数据保持双声道；单扬声器产品使用哪个声道取决于后级硬件接线。
+
 ---
-## 开发者参考（协议、代码示例、完整指令表）
+## 开发者参考（协议与完整指令表）
 
 以下内容针对需要二次开发或深入调试的用户；普通用户可以忽略其中的协议细节。
 
@@ -252,25 +274,29 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359F", MODE="0666", GROUP="plugdev"
 
 说明：总长度为 16 + 256 = 272 字节；head 用于对齐与帧头检测，payload 为 256 字节，每个字节表示该网格点的强度（0 最小，255 最大）。
 
+### 定位算法参数
+
+当前定位使用六麦 GCC-PHAT/SRP 类处理：512 点 FFT、15 对麦克风和 16×16 栅格。初始化参数为 `ma_sound2map_init(100, 2000, ...)`；在 48 kHz 采样率和 512 点 FFT 下，每个频点间隔为 93.75 Hz。结合当前低端严格排除逻辑，实际使用 FFT bins 2～21，即 187.5～1968.75 Hz。时延计算使用声速 340000 mm/s。
+
 ### 完整指令表（开发者）
 | 指令 | 输入(小/大写: 关/开) | 默认值 | 作用 | 输入源 |
 | - | - | - | - | - |
-| 设置 UAC CH6 波束成型方向角度 | 0,1,..9,A,B | 0 | 从 MIC0 / CH0 开始顺时针选择方向，每步 30°；映射见[波束方向与物理麦克风顺序](#波束方向与物理麦克风顺序)，CH6 输出合成音频 | 任意（串口/CDC） |
+| 设置 UAC CH6 波束档位 | 0,1,..9,A,B | 0 | 选择 0～11 共 12 个档位，相邻档位相差 30°；绝对物理方向尚待验证，CH6 输出合成音频 | 任意（串口/CDC） |
 | 修改声源定位激活阈值(t,T) | t, T | 650 | t: -50, T: +50, 阈值可调范围: 0~2000 | 任意（串口/CDC） |
-| UART 声源定位图伪彩映射开关 (c/C) | c, C | c | 打开/关闭热力图伪彩（color map），需要先开启 16×16 打印 | 仅 UART |
-| UART 打印内部调试信息 (d/D) | d, D | d | 启用/禁用调试信息输出 | 仅 UART |
-| LED 指示灯开关 (e/E) | e, E | E | 启用/禁用 LED 实时指示显示 | 任意 |
-| UART 16×16 打印开关 (f/F) | f, F | f | 切换 UART 打印 16×16 声场矩阵 (ASCII) | 仅 UART |
-| 恢复默认设置 (R) | R | - | 恢复驱动板所有默认设置 | 任意 |
+| UART 声源定位图伪彩映射开关 (c/C) | c, C | c | `C` 开启、`c` 关闭热力图伪彩，需要先开启 16×16 文本输出 | 仅 UART |
+| UART 打印内部调试信息 (d/D) | d, D | d | `D` 开启、`d` 关闭调试日志 | 仅 UART |
+| LED 自动方向显示 (e/E) | e, E | E | `E` 开启、`e` 关闭 LED 自动方向显示 | 任意 |
+| LED 手动环移 | <, > | - | LED 自动方向显示关闭后，手动移动 LED | 任意 |
+| UART 16×16 文本输出 (f/F) | f, F | f | `F` 开启、`f` 关闭 16×16 文本热力图 | 仅 UART |
+| 恢复默认设置 (R) | R | - | 恢复主要运行标志的默认值，并选择波束档位 0 | 任意 |
 
 ### udev 与权限建议
 若运行 Linux 且经常使用串口，建议为设备创建 udev 规则来简化权限管理：
 
 ```bash
 # /etc/udev/rules.d/99-ma-usb8.rules
-SUBSYSTEM=="tty", ATTRS{idVendor}=="XXXX", ATTRS{idProduct}=="YYYY", MODE="0666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="3400", MODE="0666", GROUP="plugdev"
 ```
-替换 `XXXX` / `YYYY` 为 `lsusb` 显示的设备 Vendor/Product id。
 
 ### 串口/USB 注意事项
 - CDC ACM（/dev/ttyACM0）在 Linux 下通常为内核 cdc_acm 驱动映射；若发现与 UAC 音频冲突，请先确认没有其他程序占用端口。
