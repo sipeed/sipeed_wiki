@@ -2,6 +2,11 @@
 title: Using as a Logic Analyzer
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - Updated the device name and removed the resolved floating-CH7 note
   - date: 2023-07-26
     version: v0.1
     author: ctx
@@ -16,7 +21,7 @@ Press the button to switch the indicator light to blue. As shown below:
 ![slogic_led_blue](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/slogic_led_blue.png)
 
 > To verify if Slogic functionality is enabled:
-> Open the device manager in Windows environment, and use the lsusb command in Linux environment to find the "USB TO LA" device
+> Check Device Manager on Windows or run `lsusb` on Linux. The device name is `SLogic8 U2`.
 
 ## Getting Started
 
@@ -92,8 +97,6 @@ The connection will be made automatically on first startup, or you can choose to
 1. Click on the "run" button to start sampling.
 
     ![waveform_fast_of_pulseview](./../../../zh/logic_analyzer/combo8/assets/use_logic_function/waveform_fast_of_pulseview.png)
-
-> Note:If the D7 channel is not used during the sampling process, a level inversion of the channel may be observed, but this is normal and does not affect normal use.
 
 #### Analyze the Sampling Result
 

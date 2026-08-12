@@ -2,6 +2,11 @@
 title:  FAQ
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - Updated CH7 floating-waveform and DAPLink serial troubleshooting
   - date: 2023-09-12
     version: v0.1
     author: lxo
@@ -30,9 +35,9 @@ The following lists some common problems according to the form of Q&A, please tr
 
 **A:**This may be the result of unstable contact that causes the device to disconnect, try to re-plug the device and then reconnect it to solve the problem.
 
-**Q:**When using 8-channel sampling, it was found that waveforms also appeared when the D7 channel was not connected.
+**Q:**Why is the floating CH7 waveform noisy during 8-channel acquisition?
 
-**A:**This is a problem to be solved, but this problem will not affect the sampled waveforms, and the waveform can still be acquired normally after connecting an external signal to the D7 channel.
+**A:**This issue is fixed in `slogic_combo8_pack_202608121500.bin`. [Update to this release or a newer one](./update_firmware.md). A floating input can still pick up environmental noise, so verify acquisition with a known high or low level or an actual signal instead of using a floating channel as a reference.
 
 **Q:**When sampling waveforms, the waveforms in the display window do not match the actual waveforms.
 
@@ -58,7 +63,7 @@ The following lists some common problems according to the form of Q&A, please tr
 
 **Q:**The serial port function in DAPLink mode does not work properly and messages are echoed back
 
-**A:**Please refer [here](./update_firmware.md) to update the firmware to the latest version before trying again
+**A:**This issue is fixed in `slogic_combo8_pack_202608121500.bin`. [Update to this release or a newer one](./update_firmware.md). The new release improves sustained high-speed transfers, serial-setting changes, and recovery after USB reconnection.
 
 **Q:**DAPLink error while burning firmware:`Connection refused due to device mismatch!`
 
@@ -76,4 +81,3 @@ None
 **Q:**The serial terminal cannot open the serial port.
 
 **A:**Try using a different serial terminal. For Windows, you can try using XCOM, and for Linux, you can try using Minicom.
-

@@ -2,6 +2,11 @@
 title:  作为逻辑分析仪使用
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - 更新设备名称并移除已修复的 CH7 悬空通道异常说明
   - date: 2023-07-23
     version: v0.1
     author: lxo
@@ -16,7 +21,7 @@ update:
 ![slogic_led_blue](./assets/use_logic_function/slogic_led_blue.png)
 
 > 验证逻辑分析仪功能是否开启:
-> Windows环境打开设备管理器，Linux环境使用lsusb命令，可以找到"USB TO LA"设备
+> Windows 环境可在设备管理器中查看，Linux 环境可运行 `lsusb`，设备名称为 `SLogic8 U2`。
 
 ## 开始使用
 
@@ -90,8 +95,6 @@ PulseView-SLogic-250910-aarch64.dmg
 1. 点击Run启动采集，并获得采样结果
 
     ![waveform_fast_of_pulseview](./assets/use_logic_function/waveform_fast_of_pulseview.png)
-
-> 若在采样过程中未使用D7通道，可能会观察到该通道的电平反转现象，该现象为正常情况不影响正常使用
 
 #### 分析采样结果
 

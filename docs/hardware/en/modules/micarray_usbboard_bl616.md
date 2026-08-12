@@ -215,19 +215,18 @@ Confirm a baud rate of `2000000 bps`, and use `picocom -b 2000000` or `minicom -
 
 ## Firmware
 
-The firmware on this page is intended only for MA-USB8:
+This page provides only the firmware for the standard MA-USB8 D80 board:
 
-### 20260803
+### MA-USB8 D80 (2026-08-11)
 
-- File: [MA-USB8-260803.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-260803.bin)
-- Size: 87456 bytes
-- SHA-256: `40a03a916f0cd95113109e9ba2e259e37b20db5cb19b8d1664280446cbb2ee07`
+- Array: standard D80 board, 40 mm radius and 80 mm diameter
+- File: [MA-USB8-D80-260811.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-D80-260811.bin)
+- Size: 4079640 bytes
+- SHA-256: `91ed7e1b8823b6fb73f0f16621e902eb50161452733f65e4f2ee3b1608a0aabe`
 
-### 20251201
+This file is an integrated flash image. Follow the procedure below to install it directly.
 
-- File: [MA-USB8-251201.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-251201.bin)
-- Size: 87552 bytes
-- SHA-256: `f2381d1f5a50b0fc7a15e6723f61c4204dfae9dc394bfa349a18404ecd0c2905`
+Do not use this firmware with a D107 array.
 
 Upgrade procedure:
 
@@ -240,7 +239,7 @@ Upgrade procedure:
 Record the current firmware version and USB descriptors before upgrading so that you can compare the device state if flashing fails. Do not disconnect USB or close the flashing tool during the upgrade.
 
 ---
-## Developer Reference (protocol, code examples, full command list)
+## Developer Reference (protocol and full command list)
 
 ### Hotmap Frame Format
 

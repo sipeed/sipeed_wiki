@@ -2,6 +2,11 @@
 title: Using as DAPLink
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - Documented the DAPLink serial stability fix
   - date: 2023-07-26
     version: v0.1
     author: ctx
@@ -32,9 +37,11 @@ Here's a step-by-step guide on using the STM32F103C8T6 chip with Windows MDK IDE
 
 In DAPLink mode, it can simultaneously support one DAPLink interface and one UART interface.
 
-The pins on the left side of the diagram (TXD, RXD) can be used as a UART interface. (note: DTR and RTS are reserved.)
+The pins on the left side of the diagram (TXD, RXD) carry UART data. The latest firmware also outputs the CDC DTR and RTS control signals.
 
 The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for DAPLink debugging.
+
+`slogic_combo8_pack_202608121500.bin` fixes DAPLink serial instability and improves sustained high-speed transfers, serial-setting changes, and recovery after USB reconnection. If data is lost, unexpected echoes appear, or the serial bridge stops transferring, [update to this release or a newer one](./update_firmware.md).
 
 ### Connecting DAPLink using MDK
 - Set the Reset Options to SYSRESETREQ.
@@ -51,4 +58,3 @@ The pins on the right side of the diagram (TCK, TDI, TDO, TMS) are used for DAPL
 ![start_debugger_in_mdk](./../../../zh/logic_analyzer/combo8/assets/use_daplink_function/start_debugger_in_mdk.png)
 
 Thank you for the document contribution from 'dragonforward'.
-

@@ -2,6 +2,11 @@
 title:  Update Firmware
 keywords: LogicAnalyzer, debugger, link, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - Added the fixes in `slogic_combo8_pack_202608121500.bin` and post-upgrade checks
   - date: 2023-09-01
     version: v0.1
     author: lxo
@@ -17,9 +22,14 @@ Tool: [Click to download](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4
 
 Firmware: [Click to download](https://dl.sipeed.com/shareURL/SLogic/SLogic_combo_8/4_application/Firmware)
 
-Just select the latest version of the burning tool and firmware, and unzip it after downloading.
+Use the latest flashing tool. Select `slogic_combo8_pack_202608121500.bin` or a newer firmware release, then extract the downloaded files.
 
 > Note:When the firmware is named `slogic_combo8_pack_202308171404.bin`, the date is 17/08/2023. The date naming rules are similar for other firmware.
+
+`slogic_combo8_pack_202608121500.bin` includes these fixes:
+
+- LA: fixes the dirty waveform on a floating CH7.
+- DAPLink: fixes serial instability and improves sustained high-speed transfers, serial-setting changes, and recovery after USB reconnection.
 
 ## Configure Tool
 
@@ -59,4 +69,8 @@ Configure the serial port and baud rate, and click `Create & Download` to downlo
 
 ![download_firmware](./../../../zh/logic_analyzer/combo8/assets/download_firmware/download_firmware.png)
 
-After the download is completed, the progress bar displays a green box, indicating that the download is successful and the firmware update is completed.
+When the progress bar turns green, power-cycle the device and check the update:
+
+1. Switch to blue logic-analyzer mode and confirm that the system detects `SLogic8 U2`.
+2. Switch to green DAPLink mode and confirm that the system detects `RV CMSIS-DAP`.
+3. If the update was intended to resolve DAPLink serial or debug stability, repeat the original test with the same wiring and baud rate.
