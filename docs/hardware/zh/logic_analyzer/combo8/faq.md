@@ -2,6 +2,11 @@
 title:  常见问题(FAQ)
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - 更新 CH7 悬空波形和 DAPLink 串口问题
   - date: 2023-09-12
     version: v0.1
     author: lxo
@@ -31,9 +36,9 @@ update:
 
 **A:**这可能是接触不稳定导致设备断连了，尝试重新插拔设备后再重新连接即可
 
-### 使用8通道采集时发现D7通道在悬空时也会出现波形
+### 使用 8 通道采集时发现 CH7 悬空波形不干净
 
-**A:**这是一个待解决的问题，但这个问题不会影响采集波形，给D7通道接入外部信号后仍然可以正常采集波形。如果不需要这个通道时也可以隐藏这个通道，很抱歉给您带来了困扰。
+**A:**该问题已在 `slogic_combo8_pack_202608121500.bin` 中修复，请[更新到该版本或更新版本](./update_firmware.md)。悬空输入仍可能拾取环境噪声；判断采集是否正常时，应连接确定的高、低电平或实际待测信号，不要以悬空通道为基准。
 
 ### 波形采集时，波形显示窗口中的波形和实际的波形不一致
 
@@ -57,7 +62,7 @@ update:
 
 ### DAPLink模式的串口功能无法正常使用，出现回显的情况
 
-**A:**请在更新固件章节中将固件更新到最新版本后再尝试
+**A:**该问题已在 `slogic_combo8_pack_202608121500.bin` 中修复，请[更新到该版本或更新版本](./update_firmware.md)。新版改进了高速连续传输、串口参数切换以及 USB 重新连接后的恢复过程。
 
 ### DAPLink在烧录固件时报错`Connection refused due to device mismatch!`
 
@@ -81,4 +86,3 @@ None
 ### 串口终端无法打开串口
 
 **A:**尝试一下其他的串口助手，Windows上可以尝试使用XCOM，Linux上可以尝试使用Minicom
-

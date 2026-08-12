@@ -2,6 +2,11 @@
 title:  作为DAPLink使用
 keywords: LogicAnalyzer, debugger, link, RISCV, tool
 update:
+  - date: 2026-08-12
+    version: v0.2
+    author: Sipeed
+    content:
+      - 补充 DAPLink 串口稳定性修复
   - date: 2023-07-23
     version: v0.1
     author: lxo
@@ -32,9 +37,11 @@ SLogic Combo 8 具备高速DAP-Link功能，适用于各种常规芯片，尤其
 
 DAPLink模式下可以同时支持一路DAPLink和一路UART
 
-- 上图左侧的引脚（TXD、RXD）可以作为串口使用（注：DTR、RTS 保留未使用）
+- 上图左侧的引脚（TXD、RXD）用于串口收发。最新固件也会同步输出 CDC DTR、RTS 控制信号。
 
 - 上图右侧的引脚（TCK(SWCLK)、TDI、TDO、TMS(SWDIO)）作为DAPLink调试使用
+
+`slogic_combo8_pack_202608121500.bin` 修复了 DAPLink 模式下的串口不稳定问题，改进了高速连续传输、串口参数切换以及 USB 重新连接后的恢复过程。遇到丢数据、异常回显或串口停止收发时，请先[更新到该版本或更新版本](./update_firmware.md)。
 
 ### 使用MDK连接DAPLink
 
