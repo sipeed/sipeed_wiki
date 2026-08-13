@@ -559,6 +559,8 @@ items:
             file: kvm/NanoKVM_Go/resolution.md
         -   label: MCP
             file: kvm/NanoKVM_Go/mcp.md
+        -   label: Memory Fabric
+            file: kvm/NanoKVM_Go/memory_weaving.md
         -   label: KVM App Update
             file: kvm/NanoKVM_Go/system/updating.md
         -   label: Network

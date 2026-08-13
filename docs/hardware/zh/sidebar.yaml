@@ -560,6 +560,8 @@ items:
             file: kvm/NanoKVM_Go/resolution.md
         -   label: MCP 功能
             file: kvm/NanoKVM_Go/mcp.md
+        -   label: 记忆织网
+            file: kvm/NanoKVM_Go/memory_weaving.md
         -   label: KVM 应用更新
             file: kvm/NanoKVM_Go/system/updating.md
         -   label: 网络
