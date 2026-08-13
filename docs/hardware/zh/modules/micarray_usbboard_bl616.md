@@ -233,12 +233,12 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="3400", MODE="0666"
 
 本页只提供标准 D80 板固件：
 
-### MA-USB8 D80（2026-08-11）
+### MA-USB8 D80（2026-08-13）
 
 - 适用阵列：标准 D80 板，半径 40 mm、直径 80 mm
-- 文件：[MA-USB8-D80-260811.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-D80-260811.bin)
+- 文件：[MA-USB8-D80-260813.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-D80-260813.bin)
 - 文件大小：4079640 字节
-- SHA-256：`91ed7e1b8823b6fb73f0f16621e902eb50161452733f65e4f2ee3b1608a0aabe`
+- SHA-256：`bf9f644783023a0bbe0fffb17c1da325c8756fb5b36c0fb9211f81e5e2f3ce01`
 
 该文件是整合烧录镜像，请直接按照下方步骤升级。
 

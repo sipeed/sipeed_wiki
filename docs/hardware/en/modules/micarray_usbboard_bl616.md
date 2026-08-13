@@ -217,12 +217,12 @@ Confirm a baud rate of `2000000 bps`, and use `picocom -b 2000000` or `minicom -
 
 This page provides only the firmware for the standard MA-USB8 D80 board:
 
-### MA-USB8 D80 (2026-08-11)
+### MA-USB8 D80 (2026-08-13)
 
 - Array: standard D80 board, 40 mm radius and 80 mm diameter
-- File: [MA-USB8-D80-260811.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-D80-260811.bin)
+- File: [MA-USB8-D80-260813.bin](../../assets/modules/micarray_usbboard_bl616/firmware/MA-USB8-D80-260813.bin)
 - Size: 4079640 bytes
-- SHA-256: `91ed7e1b8823b6fb73f0f16621e902eb50161452733f65e4f2ee3b1608a0aabe`
+- SHA-256: `bf9f644783023a0bbe0fffb17c1da325c8756fb5b36c0fb9211f81e5e2f3ce01`
 
 This file is an integrated flash image. Follow the procedure below to install it directly.
 
