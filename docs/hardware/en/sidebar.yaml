@@ -541,8 +541,6 @@ items:
                 file: kvm/NanoKVM/system/updating.md
             -   label: Configuration
                 file: kvm/NanoKVM/system/configuration.md
-        -   label: IPMI
-            file: kvm/NanoKVM/ipmi.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
         -   label: Development
@@ -615,8 +613,6 @@ items:
                 file: kvm/NanoKVM/system/updating.md
             -   label: Configuration
                 file: kvm/NanoKVM/system/configuration.md
-        -   label: IPMI
-            file: kvm/NanoKVM/ipmi.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
         -   label: Development
