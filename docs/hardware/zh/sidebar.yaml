@@ -544,8 +544,6 @@ items:
                 file: kvm/NanoKVM/system/updating.md
             -   label: 配置文件
                 file: kvm/NanoKVM/system/configuration.md
-        -   label: IPMI
-            file: kvm/NanoKVM/ipmi.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
     -   label: NanoKVM Go
@@ -618,8 +616,6 @@ items:
                 file: kvm/NanoKVM/system/updating.md
             -   label: 配置文件
                 file: kvm/NanoKVM/system/configuration.md
-        -   label: IPMI
-            file: kvm/NanoKVM/ipmi.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
     -   label: NanoKVM USB
