@@ -523,6 +523,8 @@ items:
             file: kvm/NanoKVM/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM/user_guide.md
+        -   label: MCP
+            file: kvm/NanoKVM/mcp.md
         -   label: Network
             items:
             -   label: Tailscale
@@ -595,6 +597,8 @@ items:
             file: kvm/NanoKVM_PCIe/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM_PCIe/user_guide.md
+        -   label: MCP
+            file: kvm/NanoKVM_PCIe/mcp.md
         -   label: Network
             items:
             -   label: Tailscale
