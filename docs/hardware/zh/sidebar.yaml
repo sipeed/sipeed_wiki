@@ -522,6 +522,8 @@ items:
             file: kvm/NanoKVM/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM/user_guide.md
+        -   label: MCP 功能
+            file: kvm/NanoKVM/mcp.md
         -   label: 二次开发
             file: kvm/NanoKVM/development.md
         -   label: 网络
@@ -596,6 +598,8 @@ items:
             file: kvm/NanoKVM_PCIe/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM_PCIe/user_guide.md
+        -   label: MCP 功能
+            file: kvm/NanoKVM_PCIe/mcp.md
         -   label: 二次开发
             file: kvm/NanoKVM/development.md
         -   label: 网络
