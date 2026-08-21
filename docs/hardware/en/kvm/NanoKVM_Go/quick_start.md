@@ -84,6 +84,24 @@ When using a phone as the controlled device, pay attention to system connection 
 
 + On some Android phones, the first connection may trigger a wired projection, external display, or USB device connection confirmation. Allow the connection as prompted. If no prompt appears and video and control work normally, no additional settings are required. USB debugging is not required for NanoKVM Go;
 
++ When connecting an iPhone, enable AssistiveTouch. Go to `Settings` > `Accessibility` > `Touch` > `AssistiveTouch`, then turn on the `AssistiveTouch` switch;
+
+1. Open Accessibility.
+
+   ![Accessibility in iPhone Settings](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-open-accessibility-en.webp)
+
+2. Open Touch.
+
+   ![Touch in iPhone Accessibility settings](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-open-touch-en.webp)
+
+3. Open AssistiveTouch.
+
+   ![AssistiveTouch in iPhone Touch settings](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-open-assistive-touch-en.webp)
+
+4. Turn on AssistiveTouch.
+
+   ![AssistiveTouch switch on iPhone](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-enable-assistive-touch-en.webp)
+
 + `Relative Mode` works on all platforms;
 
 + When connecting an Android phone, open Mouse Style from the floating toolbar. To use absolute positioning, select `Absolute Mode (Android)`; the standard `Absolute Mode` does not work on Android;

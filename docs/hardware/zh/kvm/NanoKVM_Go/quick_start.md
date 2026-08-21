@@ -84,15 +84,33 @@ NanoKVM Go 首次使用时，需要先完成网络连接。
 
 + 部分 Android 手机首次连接外接显示设备时，系统可能弹出有线投屏、外接显示或 USB 设备连接确认，请按照系统提示允许连接。如果未出现提示且画面和控制功能正常，则无需额外设置；NanoKVM Go 无需开启 USB 调试；
 
++ 连接 iPhone 时，需要开启 iPhone 的辅助触控功能。请前往 `设置` > `辅助功能` > `触控` > `辅助触控`，然后打开 `辅助触控` 开关；
+
+1. 打开“辅助功能”。
+
+   ![iPhone 设置中的辅助功能入口](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-open-accessibility-zh.webp)
+
+2. 打开“触控”。
+
+   ![iPhone 辅助功能中的触控入口](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-open-touch-zh.webp)
+
+3. 打开“辅助触控”。
+
+   ![iPhone 触控设置中的辅助触控入口](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-open-assistive-touch-zh.webp)
+
+4. 开启“辅助触控”。
+
+   ![iPhone 辅助触控开关](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-iphone-enable-assistive-touch-zh.webp)
+
 + `相对模式` 适用于所有平台；
 
 + 连接 Android 手机时，如需使用绝对鼠标模式，请进入悬浮栏中的鼠标样式设置，并选择 `绝对模式（Android）`。普通的 `绝对模式` 无法在 Android 平台使用；
 
 ![NanoKVM Go Android 鼠标模式](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-android-mouse-mode-zh.webp)
 
-+ 连接 iPhone 时，每次连接成功后都需要在网页控制页面中点击 `修复 iPhone 拖曳`。如果没有点击该选项，可能会出现鼠标一直处于按下状态的问题。
++ 连接 iPhone 时，每次连接成功后都需要在网页控制页面中点击 `修复 iPhone 拖拽`。如果没有点击该选项，可能会出现鼠标一直处于按下状态的问题。
 
-![NanoKVM Go 修复 iPhone 拖曳](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-fix-iphone-drag-zh.webp)
+![NanoKVM Go 修复 iPhone 拖拽](./../../../assets/NanoKVM/go/quick_start/nanokvm-go-fix-iphone-drag-zh.webp)
 
 ## 安全建议
 
