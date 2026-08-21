@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>MaixCAM2 x AI：用 AI Agent 开发二轴云台物块追踪 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "<a href='https://sipeed.com/maixcam2' target='_blank'>新一代可本地运行多模态大模型的 MaixCAM2 正在预售中! YOLO 帧率可达 K230 10倍！</a>", "show_times": 2, "show_after_s": 432000, "date": "2026-03-02 19:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/en/maixcam/maixcam2_xAI.html">English</a></li>
+<li class="active"><a  href="/hardware/zh/maixcam/maixcam2_xAI.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/start.html"><span class="label">M0sense 基础使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p.html"><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p_dock.html"><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0s/m0s.html"><span class="label">Maix M0S</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go（售罄）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_module.html"><span class="label">M1s 模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_dock.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/start.html"><span class="label">上手使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/others.html"><span class="label">其他事项（摄像头和外壳）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/maixhub_train.html"><span class="label">训练自己的 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/usage.html"><span class="label">基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/other.html"><span class="label">其他事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">使用 MaixPy3 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/V833.html"><span class="label">MaixII-S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/reources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/maixsense.html"><span class="label">MaixII-Sense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/flash_system.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/config_system.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/Usages.html"><span class="label">基本使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">连接MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/flash_system.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/basic_usage.html"><span class="label">系统使用手册</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/python_api.html"><span class="label">试试 Python 编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/dev_prepare.html"><span class="label">开始 C/C++ 编程</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/zh/deploy/ax-pi.html" ><span class="label">AI 开发指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/faq_axpi.html"><span class="label">常见问题（FAQ）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M4C SoM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/axmodel-deploy.html"><span class="label">AI 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Dock Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/intro.html"><span class="label">产品介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Hat Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/intro.html"><span class="label">产品介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/pcie-slaveboard.html"><span class="label">树莓派5 PCIe 加速指南</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/index.html"><span class="label">MaixCAM AI 系列</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MaixCAM / MaixCAM-Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam.html"><span class="label">MaixCAM 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam_pro.html"><span class="label">MaixCAM-Pro 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/cameras.html"><span class="label">摄像头介绍及拍摄效果</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/assemble.html"><span class="label">外壳使用说明</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/tof_thermal.html"><span class="label">ToF/热成像模块介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/microscope.html"><span class="label">数码显微镜套餐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">MaixCAM2</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2.html"><span class="label">MaixCAM2 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_camera_lens.html"><span class="label">摄像头和镜头选择</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/zh/maixcam/maixcam2_xAI.html"><span class="label">使用 AI Agent 开发</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_isp.html"><span class="label">摄像头 ISP 调校</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/tof_thermal.html"><span class="label">ToF/热成像模块介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/microscope.html"><span class="label">数码显微镜套餐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/lcon4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/setup_guide.html"><span class="label">组装指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">系统开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux 主线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (编写中)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/8_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html"><span class="label">玄铁多媒体AI平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">CPU 跑分测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/10_test_report.html"><span class="label">硬件测试报告</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/12_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/11_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/3_burn_image.html"><span class="label">镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/4_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/5_develop.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/6_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/7_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/8_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">板卡介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/RV.html"><span class="label">LicheePI RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/86_panel.html"><span class="label">LicheePI RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/Dock.html"><span class="label">LicheePI RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/user.html"><span class="label">基础上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/ubuntu.html"><span class="label">使用 Ubuntu 镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/5_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/6_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/7_picoclaw_board.html"><span class="label">PicoClaw 扩展板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF开发指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Zero/Zero.html"><span class="label">LicheePI Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Nano/Nano.html"><span class="label">LicheePI Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/ZeroPlus/ZeroPlus.html"><span class="label">LicheePI ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/nano-20k.html"><span class="label">介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/example/unbox.html"><span class="label">开箱</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano (售罄)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/examples.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/primer-20k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/start.html"><span class="label">开箱使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/example.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-25k/primer-25k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-15k/primer-15k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (售罄)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/index.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装 TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">Windows安装TD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_Linux.html"><span class="label">Linux安装TD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/fpga/led.html"><span class="label">使用FPGA点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-60k/mega-60k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Console</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-console/retro-console.html"><span class="label">Retro Console</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-console/mega-console.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic_agent/index.html"><span class="label">使用 Agent 操作 SLogic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic_agent/stories/index.html"><span class="label">SLogic Agent 故事分享</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/basic_operation.html"><span class="label">基础操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_logic_function.html"><span class="label">作为逻辑分析仪使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_cklink_function.html"><span class="label">作为CKLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_daplink_function.html"><span class="label">作为DAPLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">作为串口模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/update_firmware.html"><span class="label">更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/faq.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic16U3</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Hardware_Specification.html"><span class="label">硬件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Software_User_Guide.html"><span class="label">软件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/FAQ.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">ThermalCam</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed T256s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/Intro.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/QS.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/UG.html"><span class="label">使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/FAQ.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/cloudflared.html"><span class="label">Cloudflare</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM Go</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/resolution.html"><span class="label">分辨率与 EDID 设置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/finger_robot.html"><span class="label">手指机器人</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/memory_weaving.html"><span class="label">记忆织网</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/updating.html"><span class="label">KVM 应用更新</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/introduction.html"><span class="label">系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">自定义 APP</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/custom_app.html"><span class="label">APP 安装与开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">AI 实时语音对话</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge.html"><span class="label">快速体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge_technical.html"><span class="label">二次开发</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM PCIe</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM USB</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/deployment.html"><span class="label">本地部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/atx_start.html"><span class="label">NanoKVM-ATX 上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/desk_start.html"><span class="label">NanoKVM-Desk 上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/extended.html"><span class="label">高级应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/lcd.html"><span class="label">触摸屏&旋钮</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/app_diy.html"><span class="label">DIY 应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/ledstrip.html"><span class="label">屏幕色彩扩展灯带</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/cua.html"><span class="label">实验性AI Agent</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/kvm_admin.html"><span class="label">NanoKVM 批量管理</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Cluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoCluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/use.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/k3s.html"><span class="label">k3s 部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/distcc.html"><span class="label">distcc 部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/nanoctl.html"><span class="label">NanoCtl</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/nomad_playbook.html"><span class="label">Nomad 自动化部署</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/switch.html"><span class="label">交换机管理</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longan</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/8_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/Longan_nano.html"><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/pio.html"><span class="label">PIO配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/blink.html"><span class="label">点灯测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mfst40/mfst40.html"><span class="label">MF-ST40 人脸识别模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MF 资料</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/MF1-User-Manual" ><span class="label">点我前往 github 查看全部资料</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">转接板类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传感器类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">显示类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/camera_summary.html"><span class="label">摄像头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray.html"><span class="label">麦克风阵列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray_usbboard_bl616.html"><span class="label">麦克风阵列UAC驱动板 MA-USB8</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>MaixCAM2 x AI：用 AI Agent 开发二轴云台物块追踪</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/maixcam/maixcam2_xAI.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>本文以一次实际录制的 MaixCAM2 开发过程为例，说明如何使用 AI Agent 开发基于 MaixCAM2 内置摄像头的 UART4 二轴云台红色物块追踪器。本次录制使用 Codex 调用 maixpy-skill；为方便 Windows、macOS 和 Linux 用户复刻，安装与模型配置部分只演示 OpenCode。图中的 Codex 界面用于呈现实录过程，不是 OpenCode 的操作界面。</p>
+<h2 id="%E9%A1%B9%E7%9B%AE%E7%9B%AE%E6%A0%87%E4%B8%8E%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C">项目目标与最终效果</h2>
+<p>目标是识别画面中的红色物块，并让两轴云台持续将物块保持在画面中心附近。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="图 1：最终动态跟随。来源：本次实录，裁剪保留云台、目标物和设备屏幕。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>物块移动时，云台会随之调整；这是后续开发、调试和验收的目标状态。</p>
+<h2 id="%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B">视频教程</h2>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&bvid=BV13W3w6REa2&p=1" scrolling="no" allowfullscreen style="width:90%; max-width:960px; aspect-ratio:16/9; height:auto; border:0; display:block; margin:0 auto;"></iframe>
+<p>如果页面内视频无法播放，可以打开 B 站视频：<a href="https://www.bilibili.com/video/BV13W3w6REa2/"  target="_blank">【电赛特辑】MaixCAM2 x MCP 自动调试之视频详解</a>。</p>
+<h2 id="%E9%80%89%E6%8B%A9%E5%BC%80%E5%8F%91%E7%94%A8-AI-Agent">选择开发用 AI Agent</h2>
+<p>可使用 Codex、Claude Code（CC）或 OpenCode。实录中的 Agent 是 Codex；本文只展开 OpenCode 的安装和配置，避免重复介绍多个 Agent 的界面。后续任务描述、设备连接和验收步骤不依赖图中的 Agent 界面。</p>
+<p>Agent 至少需要具备以下能力：</p>
+<ul>
+<li>读取和修改本地工程；</li>
+<li>执行本地工具；</li>
+<li>与目标设备建立连接；</li>
+<li>读取运行日志；</li>
+<li>查看调试图片，或在无法查看时要求用户确认实际画面。</li>
+</ul>
+<h3 id="OpenCode-%E5%AE%89%E8%A3%85">OpenCode 安装</h3>
+<p>目的：在开发电脑上准备可执行本地工程任务的 Agent。</p>
+<p>步骤：</p>
+<ol>
+<li>打开 <a href="https://opencode.ai/download"  target="_blank">OpenCode 官方下载页</a>。</li>
+<li>选择与当前系统对应的 Desktop 安装包；官方页面列出了 macOS、Windows 和 Linux 的下载入口。</li>
+<li>完成安装后启动 OpenCode，并打开或创建本次项目的本地工作目录。</li>
+<li>在继续之前确认 Agent 能读取该目录中的文件并执行本地工具。</li>
+</ol>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/01_opencode_download.png" alt="图 2：OpenCode 官方下载页。来源：OpenCode 下载页。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>注意：下载页和客户端界面会随版本变化；以官方下载页当前显示的系统包和版本为准。</p>
+<h3 id="cc-switch-%E5%AE%89%E8%A3%85%E4%B8%8E-OpenCode-%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE">cc-switch 安装与 OpenCode 模型配置</h3>
+<p>目的：使用 cc-switch 管理 OpenCode 的服务商和模型配置。</p>
+<p>步骤：</p>
+<ol>
+<li>从 <a href="https://ccswitch.io"  target="_blank">cc-switch 官方网站</a> 或 <a href="https://github.com/farion1231/cc-switch/releases"  target="_blank">官方 Releases</a> 下载当前系统版本。</li>
+<li>打开 cc-switch，选择 OpenCode 对应的配置入口。</li>
+<li>添加或导入服务商配置，再选择需要使用的模型。</li>
+<li>启用该配置后，重新启动或重新打开 OpenCode，并确认当前模型与服务商显示符合预期。</li>
+</ol>
+<p>cc-switch 官方仓库说明其支持 Windows、macOS、Linux，并包含 OpenCode 的配置管理能力。DeepSeek、豆包、GPT、Claude 等模型是否可选，取决于当前 cc-switch 版本、服务商和账户权限，需以实际界面为准。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/02_ccswitch_home.png" alt="图 3：cc-switch 官方主页及配置管理界面示意。来源：ccswitch.io。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<h3 id="uv-%E5%AE%89%E8%A3%85">uv 安装</h3>
+<p>目的：为后续安装和运行 maixpy-skill 准备 Python 环境管理工具。</p>
+<p>maixpy-skill 在安装和执行设备辅助脚本时需要 Python 运行环境。这里不建议只手动安装一个系统级 Python：不同系统自带的 Python 版本、<code>pip</code> 权限和依赖隔离方式差异较大，容易出现包安装到错误环境、污染系统 Python、版本不匹配等问题。<code>uv</code> 可以统一管理 Python 版本、虚拟环境和依赖安装；如果本机已有合适的 Python，它可以直接使用，如果缺少所需版本，也可以按需安装和管理。</p>
+<p>步骤：</p>
+<ol>
+<li><p>安装 uv。</p>
+<p>macOS 和 Linux：</p>
+
+<pre class="language-bash"><code class="language-bash">curl -LsSf https://astral.sh/uv/install.sh | sh
+</code></pre>
+<p>Windows PowerShell：</p>
+
+<pre class="language-powershell"><code class="language-powershell">powershell -ExecutionPolicy ByPass -c &quot;irm https://astral.sh/uv/install.ps1 | iex&quot;
+</code></pre>
+</li>
+<li><p>重新打开终端，确认 <code>uv</code> 已经加入 <code>PATH</code>：</p>
+
+<pre class="language-bash"><code class="language-bash">uv --version
+</code></pre>
+</li>
+</ol>
+<p>安装完成后，继续让 Agent 安装 maixpy-skill。后续如果 maixpy-skill 需要 Python 版本或额外 Python 包，Agent 会通过 uv 管理依赖，而不是直接修改系统 Python 环境。</p>
+<h2 id="%E5%AE%89%E8%A3%85-maixpy-skill">安装 maixpy-skill</h2>
+<p>目的：让 Agent 获得 MaixCAM 系列设备开发所需的工作流和设备操作能力。</p>
+<p>前置条件：下载 <a href="https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/maixpy-skill.zip"  target="_blank">maixpy-skill.zip</a>，解压到本地可访问的位置。</p>
+<p>可直接向 OpenCode 发送：</p>
+<blockquote>
+<p>访问这个链接：<a href="https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/maixpy-skill.zip"  target="_blank">https://dl.sipeed.com/fileList/MaixCAM/MaixCAM2/Software/maixpy-skill.zip</a> ，下载并安装 maixpy-skill。安装完成后，检查它是否支持 MaixCAM2 的设备连接、开发模式、程序运行、日志读取和调试图片产物获取；不要在对话或日志中输出设备密码。</p>
+</blockquote>
+<p>安装完成后，要求 Agent 汇报：</p>
+<ul>
+<li>skill 是否已经被发现并启用；</li>
+<li>设备连接、运行、日志和调试图片能力是否可用；</li>
+<li>当前项目中保存运行记录的位置；</li>
+<li>缺失的依赖或待用户确认的信息。</li>
+</ul>
+<p>OpenCode 使用 <code>SKILL.md</code> 定义可复用的 Agent Skills；具体加载位置和发现规则应以当前 OpenCode 文档为准。</p>
+<h2 id="%E5%87%86%E5%A4%87-MaixCAM2-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%A4%96%E8%AE%BE">准备 MaixCAM2 开发环境和外设</h2>
+<p>适用范围：MaixCAM2、专用 UART4 二轴舵机云台和红色物块追踪项目。</p>
+<p>准备清单：</p>
+<ul>
+<li>MaixCAM2（使用其内置摄像头，不需要另配摄像头）；</li>
+<li>可访问同一局域网的开发电脑；</li>
+<li>专用 UART4 二轴舵机云台（型号：<code>RLU-C45</code>）；</li>
+<li>红色物块；</li>
+<li>可供云台安全运动的空间。</li>
+</ul>
+<p>步骤：</p>
+<ol>
+<li>给 MaixCAM2 供电并开机。</li>
+<li>在设备设置中连接 Wi-Fi，或使用官方文档说明的 USB 网络方式，使电脑与设备可互通。</li>
+<li>在设备的“设置 → 设备信息”中确认设备地址。</li>
+<li>将云台接入 UART4；确认供电、地线和信号线连接可靠。</li>
+<li>清理云台机械行程附近的线缆、手指和障碍物。</li>
+<li>将红色物块放入 MaixCAM2 内置摄像头视野。</li>
+</ol>
+<p>MaixCAM2 快速开始文档说明，首次使用需连接网络；连接 Wi-Fi 后可在设备信息中查看 IP。该文档也说明可通过 Wi-Fi 或 USB 网络方式连接电脑和设备。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/03_hardware_and_agent.jpg" alt="图 4：录制中的 MaixCAM2、二轴云台和红色物块。来源：本次实录，裁剪为实物设备画面。" width="480" style="max-width: 100%; height: auto;">
+</p>
+<p>注意：UART4 的具体引脚映射、舵机 ID、供电规格和协议取决于云台型号。本文不把参考工程中的数值视为通用配置。</p>
+<h2 id="%E6%8F%90%E4%BA%A4%E5%88%9D%E5%A7%8B%E5%BC%80%E5%8F%91%E9%9C%80%E6%B1%82">提交初始开发需求</h2>
+<p>目的：一次性提供目标、参考工程、验证顺序、安全约束和最终行为，减少 Agent 在关键条件上猜测。</p>
+<p>将下面的 <code>[设备地址]</code> 换成当前设备地址后发送：</p>
+<blockquote>
+<p>加载 maixpy skill，连接 maixcam2 <code>root@[设备地址]</code>。</p>
+<p>我连接了矽速测试过的二轴云台，他们有开源源码在 <a href="https://github.com/sipeed/MaixPy/tree/main/projects/demo_block_tracking"  target="_blank">https://github.com/sipeed/MaixPy/tree/main/projects/demo_block_tracking</a> 。我通过 uart4 连接了该云台，请给我开发一个红色物块追踪器，要求高速响应、实时追踪，并且保证精度，稳定追踪。你可以使用 <a href="https://wiki.sipeed.com/maixpy/doc/zh/index.html"  target="_blank">https://wiki.sipeed.com/maixpy/doc/zh/index.html</a> 这个里面的API函数进行开发，我的电脑中有uv。</p>
+<p>我已经把红色物体放在视野当中了，请先让二轴微动确认坐标和实际的移动方向，因为实际云台移动的方向和代码的方向不一致，所以请你先执行一下校准云台的操作，你可以控制云台向左移动，然后询问我云台的移动方向，其他方向亦是如此。</p>
+<p>原来的安全范围限定不一定准确，你可以解除云台的限制，让我手动掰到限位，然后你读取那个位置来进行校准，然后适当保守些，设置合适的安全范围。</p>
+<p>请大幅提速追踪，采用三段式增益：远距离大步高速追赶、中距离快速收敛、近中心低增益制动。并且当某方向甩动过头时要求能反向回来重新定位物体，否则就是单向运动。物体离开了可追踪角度则放弃追踪并居中回来。</p>
+<p>另外注意：开发过程中请在退出测试的时候，恢复一个简单的 MaixCAM2 内置摄像头画面直传显示屏的例程，避免 AI coding 的时候，设备长时间黑屏空置。</p>
+</blockquote>
+<p><code>projects/demo_block_tracking</code> 是 MaixPy 官方仓库中的项目目录，当前目录包含应用配置、主程序和舵机相关实现。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/04_task1_input.jpg" alt="图 5：任务一执行画面。来源：本次实录，裁剪保留实物画面和 Agent 任务区。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>注意：不要将内网地址、密码或访问令牌发布到公开文档。参考项目用于理解协议和工程结构；当前硬件的方向、中心、限位、颜色阈值和控制参数必须重新验证。</p>
+<h2 id="%E5%88%86%E9%98%B6%E6%AE%B5%E8%B0%83%E8%AF%95%E4%B8%8E%E4%BA%BA%E5%B7%A5%E7%A1%AE%E8%AE%A4">分阶段调试与人工确认</h2>
+<p>任务一应由 Agent 分阶段完成并汇报每一步结果。用户在 Agent 无法从接口确定实际硬件状态时补充观察结果，例如“水平轴正向命令实际向右转”或“云台到某位置会碰到支架”。</p>
+<h3 id="%E4%BA%91%E5%8F%B0%E5%BE%AE%E5%8A%A8%E4%B8%8E%E6%96%B9%E5%90%91%E6%A0%A1%E5%87%86">云台微动与方向校准</h3>
+<p>目的：确认两个轴可通信、可小幅运动、可回中，并建立本机的安全约束。</p>
+<p>步骤：</p>
+<ol>
+<li>分别探测两个舵机是否在线。</li>
+<li>读取当前角度或位置。</li>
+<li>一次只对一个轴发送小幅动作。</li>
+<li>观察实际转向，记录该轴的正反方向。</li>
+<li>让该轴回到中心，再测试另一个轴。</li>
+<li>尝试读取固件限位；若不可读取，采用小幅探测和人工观察建立保守限位。</li>
+</ol>
+<p>通过标准：两轴在线、方向已记录、可回中、动作未接近机械碰撞位置。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/05_micro_motion.jpg" alt="图 6：云台微动与设备反馈。来源：本次实录，裁剪保留云台姿态和 Agent 输出。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>画面可见云台与设备反馈。录像不足以证明最终成功读取了舵机固件限位；此项应在运行日志中单独确认。</p>
+<h3 id="%E7%BA%A2%E8%89%B2%E7%89%A9%E5%9D%97%E6%A3%80%E6%B5%8B%E9%AA%8C%E8%AF%81">红色物块检测验证</h3>
+<p>目的：在接入云台控制前确认视觉输入正确。</p>
+<p>步骤：</p>
+<ol>
+<li>仅运行 MaixCAM2 内置摄像头和红色物块检测，不发送云台追踪命令。</li>
+<li>识别红色候选区域，并过滤面积或像素数过小的噪声。</li>
+<li>选取最大候选区域，输出中心坐标、面积和帧率。</li>
+<li>移动物块并确认坐标同步变化。</li>
+<li>移出物块，确认程序报告未检测到目标，而不是继续使用旧坐标。</li>
+</ol>
+<p>通过标准：可重复识别目标并获得坐标；物块消失后不输出旧目标坐标。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/06_red_detection.jpg" alt="图 7：红色物块识别结果，设备屏幕显示检测框。来源：本次实录，裁剪保留实物设备和屏幕中的目标检测框。" width="480" style="max-width: 100%; height: auto;">
+</p>
+<p>设备屏幕显示红色目标的检测框。检测阈值、识别框和帧率的具体数值需以当前运行日志和调试图为准。</p>
+<h3 id="%E6%8E%A5%E5%85%A5%E4%B8%89%E6%AE%B5%E5%BC%8F%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%AD%96%E7%95%A5">接入三段式闭环控制策略</h3>
+<p>目的：让两轴云台依据物块相对画面中心的误差追踪目标，同时避免高速运动带来的超调和近中心摆动。</p>
+<p>建议将控制规则拆为三段：</p>
+<table>
+<thead>
+<tr>
+  <th>误差区间</th>
+  <th>行为</th>
+  <th>验证重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>远距离</td>
+  <td>大步长、高速度追赶</td>
+  <td>不越过安全限位</td>
+</tr>
+<tr>
+  <td>中距离</td>
+  <td>快速收敛，并限制加速度</td>
+  <td>不明显冲过中心</td>
+</tr>
+<tr>
+  <td>近中心</td>
+  <td>低增益制动；进入死区后保持当前位置</td>
+  <td>不持续摆动</td>
+</tr>
+</tbody>
+</table>
+<p>每个轴应独立维护方向、限位、速度、加速度和控制状态。目标连续丢失达到阈值后，应停止追赶旧坐标并按安全速度回中。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/07_closed_loop_debug.jpg" alt="图 8：闭环控制调试阶段。来源：本次实录，裁剪保留实物状态与 Agent 调试输出。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>Agent 正在针对追踪行为排查“动作过猛”等可能原因。录像无法单独证明三段式增益的全部参数，实际参数需在工程源码或日志中确认。</p>
+<h3 id="%E9%97%AD%E7%8E%AF%E6%96%B9%E5%90%91%E6%98%A0%E5%B0%84%E4%BF%AE%E6%AD%A3">闭环方向映射修正</h3>
+<p>直接使用参考实现后，实际安装方向不一致，云台向错误方向运动，目标离开可追踪范围。</p>
+<p>排查步骤：</p>
+<ol>
+<li>固定物块位置。</li>
+<li>一次只测试一个轴。</li>
+<li>对照目标在画面中的偏移和云台实际转向。</li>
+<li>只修改对应轴的方向映射。</li>
+<li>重新测试左、右、上、下四个方向。</li>
+<li>方向正确后再调整增益和速度。</li>
+</ol>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/08_wrong_direction.gif" alt="图 9：首次闭环方向错误。来源：本次实录，裁剪保留目标位置与云台实际转向。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>注意：方向未确认前，不应先调 PID、速度或阈值；否则无法区分是控制方向错误还是参数问题。</p>
+<h3 id="%E6%8A%91%E5%88%B6%E6%91%86%E5%8A%A8%E4%B8%8E%E8%B6%85%E8%B0%83">抑制摆动与超调</h3>
+<p>俯仰方向修复后，目标静止时云台仍在两侧来回摆；继续调整后，追踪恢复稳定。</p>
+<p>处理顺序：</p>
+<ol>
+<li>再次确认方向正确。</li>
+<li>增加中心死区。</li>
+<li>降低中心附近的最大速度和加速度。</li>
+<li>限制单次位置变化。</li>
+<li>进入死区时清空积分和历史状态。</li>
+<li>误差跨过中心后允许反向重新定位。</li>
+<li>目标持续丢失时停止追赶并安全回中。</li>
+</ol>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/09_wobble.gif" alt="图 10：修复前的摆动。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/09_stable_tracking.jpg" alt="图 11：修复后的稳定追踪。来源：本次实录，裁剪保留云台和目标。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<h2 id="%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BD%8D%E7%BD%AE%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95">自动化位置回归测试</h2>
+<p>目的：用可重复的固定位置测试替代“一次看起来正常”的主观判断。</p>
+<p>向 Agent 提交：</p>
+<blockquote>
+<p>请为当前云台生成自动化位置测试。你先控制云台偏离色块，然后运行程序，然后看看程序会不会自动跟踪回色块。偏离的位置随机，但是不要让红色的色块超出识别的范围。</p>
+</blockquote>
+<p>检查项：</p>
+<ul>
+<li>方向是否正确；</li>
+<li>回中是否稳定；</li>
+<li>重复执行后是否产生累积偏差；</li>
+<li>是否接近或越过安全限位；</li>
+<li>每一步的结果是否记录在日志或测试摘要中。</li>
+</ul>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/10_auto_test_request.jpg" alt="图 12：提交自动化测试请求。来源：本次实录，裁剪保留测试需求和执行区。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/10_auto_test.gif" alt="图 13：自动化位置测试。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<p>录制中还保留了多轮重复位置验证。若发布更完整的验收报告，建议补充这些片段中的截图或结果表。</p>
+<h2 id="%E5%9B%BA%E5%8C%96%E6%9C%80%E7%BB%88%E5%AE%9E%E7%8E%B0%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8A%A8%E6%80%81%E9%AA%8C%E6%94%B6">固化最终实现并进行动态验收</h2>
+<p>自动化测试通过后，将当前实现固化为最终动态跟随版本，再进行人工动态测试。</p>
+<p>向 Agent 提交：</p>
+<blockquote>
+<p>自动化位置测试通过。请固化当前最终动态跟随实现，关闭持续保存调试图片，保留正常退出和退出后 MaixCAM2 内置摄像头直传恢复。现在开始人工移动红色物块，我将根据真实跟随效果进行验收。程序退出的方法请参考MaixPy文档，实现一定要优雅。</p>
+</blockquote>
+<p>人工验收步骤：</p>
+<ol>
+<li>物块静止在中心。</li>
+<li>缓慢向左、右、上、下移动。</li>
+<li>在中距离快速改变方向。</li>
+<li>从中心移到边缘。</li>
+<li>离开画面后重新进入。</li>
+</ol>
+<p>通过标准：两轴方向正确；远距离能追赶；近中心不持续摆动；超调后能反向回正；目标丢失后不会继续追赶旧坐标。</p>
+<p align="center">
+  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="图 14：最终动态跟随验收。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
+</p>
+<h2 id="%E9%AA%8C%E6%94%B6%E7%BB%93%E6%9E%9C%E4%B8%8E%E4%BA%A4%E4%BB%98%E7%89%A9%E5%BD%92%E6%A1%A3">验收结果与交付物归档</h2>
+<p>验收通过后，应从 Agent 获取：</p>
+<ol>
+<li>当前工程源码；</li>
+<li>当前硬件验证过的 UART4、舵机 ID、方向、中心位置和安全限位；</li>
+<li>红色检测阈值和验证条件；</li>
+<li>自动化测试入口、运行记录和结论；</li>
+<li>少量调试图像与运行日志；</li>
+<li>已知限制和安全边界；</li>
+</ol>
+<p>检查交付时，应确认正式版本已关闭持续保存调试图片，应用具备正常退出路径，并按需求恢复 MaixCAM2 内置摄像头直传显示。</p>
+<h2 id="%E9%80%9A%E7%94%A8%E4%BB%BB%E5%8A%A1%E6%A8%A1%E6%9D%BF">通用任务模板</h2>
+<p>将方括号替换为自己的项目需求：</p>
+<blockquote>
+<p>加载 maixpy skill，连接我的 MaixCAM2。我要开发一个[目标功能]：默认使用 MaixCAM2 内置摄像头；如需其他传感器，输入是[输入]。设备需要执行[动作]，成功标准是[验收标准]。请先分别验证设备连接、外设通信和输入数据，再接入完整控制逻辑。不要直接复用其他设备的方向、中心、限位或参数；请在当前硬件上逐项确认。调试结束后给出工程源码、测试结果、日志/调试产物和确认视频；程序退出时恢复一个简单的 MaixCAM2 内置摄像头直传显示。</p>
+</blockquote>
+<h3 id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</h3>
+<ol>
+<li><a href="https://opencode.ai/download"  target="_blank">OpenCode 官方下载页</a>（桌面端下载入口与支持系统）。</li>
+<li><a href="https://opencode.ai/docs/skills/"  target="_blank">OpenCode Agent Skills 文档</a>（<code>SKILL.md</code> 形式的可复用 Agent 行为）。</li>
+<li><a href="https://opencode.ai/docs/models/"  target="_blank">OpenCode 模型配置文档</a>（服务商/模型配置与模型选择规则）。</li>
+<li><a href="https://github.com/farion1231/cc-switch"  target="_blank">cc-switch 官方仓库</a>（支持平台、支持的 Agent 工具与配置管理能力）。</li>
+<li><a href="https://docs.astral.sh/uv/getting-started/installation/"  target="_blank">uv 官方安装文档</a>（uv 安装方式和安装命令）。</li>
+<li><a href="https://wiki.sipeed.com/maixpy/doc/zh/README_MaixCAM2.html"  target="_blank">MaixCAM2 MaixPy 快速开始</a>（网络连接、设备地址、电脑连接与开发环境说明）。</li>
+<li><a href="https://github.com/sipeed/MaixPy/tree/main/projects/demo_block_tracking"  target="_blank">MaixPy <code>demo_block_tracking</code> 项目目录</a>（本次参考工程）。</li>
+<li><a href="https://wiki.sipeed.com/maixpy/doc/zh/peripheral/uart.html"  target="_blank">MaixPy UART 文档</a>（UART 外设使用）。</li>
+</ol>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/zh/maixcam/maixcam2_camera_lens.html">
+                            <span class="icon"></span>
+                            <span class="label">摄像头和镜头选择</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/zh/maixcam/maixcdk.html">
+                            <span class="label">使用 MaixCDK 开发</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101D</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

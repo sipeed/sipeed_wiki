@@ -1,0 +1,23 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language.indexOf("zh") == -1 )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#version" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html#version"
+            break;
+        case "#spec" : 
+            location.href = "https://dl.sipeed.com/shareURL/MaixIII/AXera/"
+            break;
+        case "#issue" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/faq_axpi.html"
+            break;
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/maixIII/ax-pi/axpi.html"
+    }
+</script>
