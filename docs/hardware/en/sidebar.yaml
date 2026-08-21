@@ -557,6 +557,8 @@ items:
             file: kvm/NanoKVM_Go/user_guide.md
         -   label: Resolution and EDID Settings
             file: kvm/NanoKVM_Go/resolution.md
+        -   label: Finger Robot
+            file: kvm/NanoKVM_Go/finger_robot.md
         -   label: MCP
             file: kvm/NanoKVM_Go/mcp.md
         -   label: Memory Fabric

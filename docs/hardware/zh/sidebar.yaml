@@ -558,6 +558,8 @@ items:
             file: kvm/NanoKVM_Go/user_guide.md
         -   label: 分辨率与 EDID 设置
             file: kvm/NanoKVM_Go/resolution.md
+        -   label: 手指机器人
+            file: kvm/NanoKVM_Go/finger_robot.md
         -   label: MCP 功能
             file: kvm/NanoKVM_Go/mcp.md
         -   label: 记忆织网
