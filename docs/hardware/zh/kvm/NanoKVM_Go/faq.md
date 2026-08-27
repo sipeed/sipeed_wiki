@@ -45,6 +45,26 @@ keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 
 也就是说，视频画面被 AirPlay 输出到了 NanoKVM Go（屏幕镜像设备）这一侧，而 iOS 设备本机不再显示该视频的本地画面帧。这是 **iOS 系统层面的默认行为**，无法在系统中关闭或禁用。
 
+### iPad Pro 连接后网页端仅显示扩展桌面
+
+部分 iPad Pro 机型支持扩展显示功能，包括 12.9 英寸 iPad Pro（第 5 代及更新机型）以及 11 英寸 iPad Pro（第 3 代及更新机型）。连接 NanoKVM Go 后，iPad 可能默认使用“扩展显示器”模式，此时 NanoKVM Go 网页端采集的是扩展桌面，通常只显示桌面背景，不显示 iPad 主屏幕上的应用窗口。
+
+![扩展显示模式下的 iPad Pro 桌面](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-extended-display-zh.webp)
+
+如果想在 NanoKVM Go 网页端查看 iPad 的当前主屏幕内容，请按以下步骤操作：
+
+在 iPad 上打开“设置 > 显示与亮度”
+
+![iPad Pro“显示与亮度”中的扩展显示器设置](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-extended-display-setting-zh.webp)
+
+在“显示与亮度”选项中，将 NanoKVM Go 的显示模式从“扩展显示器”切换为“屏幕镜像”
+
+![iPad Pro“显示与亮度”中的屏幕镜像设置](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-screen-mirroring-zh.webp)
+
+切换完成后，NanoKVM Go 网页端将显示 iPad 当前的主屏幕内容
+
+![iPad Pro“Display & Brightness”中的屏幕镜像设置](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-screen-mirroring-en.webp) 
+
 ## 键鼠与输入问题
 
 ### 被控设备是手机，锁屏后无法显示密码输入键盘
@@ -72,6 +92,10 @@ keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 请在 iPhone/iPad 上开启**竖排方向锁定/旋转锁定（Orientation Lock）**，确保光标追踪的准确性。
 
 ![iPhone 竖排方向锁定](./../../../assets/NanoKVM/go/faq/nanokvm-go-ios-orientation-lock.webp)
+
+### iPad Pro 修复 iPhone 拖拽后无法控制鼠标
+
+iPad Pro 修复 iPhone 拖拽后，有鼠标显示但是无法控制鼠标，这是由于辅助触控没有开启，具体开启方法可以通过[手机连接注意事项](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Go/quick_start.html#%E6%89%8B%E6%9C%BA%E8%BF%9E%E6%8E%A5%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 来开启
 
 ## 音频问题
 
