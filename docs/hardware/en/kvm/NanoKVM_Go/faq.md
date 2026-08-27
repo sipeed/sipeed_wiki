@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: F&Q
 keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 ---
 
