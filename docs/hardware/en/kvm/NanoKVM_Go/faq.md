@@ -1,5 +1,5 @@
 ---
-title: F&Q
+title: FAQ
 keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 ---
 
@@ -45,6 +45,26 @@ If an iPhone/iPad **does not show video on its own screen (no local video frames
 
 In other words, the video picture is output via AirPlay to the NanoKVM Go (the screen mirroring device) side, and the iOS device no longer shows the local video frames for that video on its own screen. This is a **default iOS system behavior** and cannot be turned off or disabled in the system.
 
+### iPad Pro shows only the extended desktop after connecting
+
+Some iPad Pro models support **Extended Display**, including the 12.9-inch iPad Pro (5th generation and later) and the 11-inch iPad Pro (3rd generation and later). When NanoKVM Go is connected, iPadOS may select Extended Display by default. In this mode, NanoKVM Go captures the extended desktop rather than the iPad's main screen, so the web interface may show only the desktop background instead of the apps open on the iPad.
+
+![iPad Pro desktop shown in Extended Display mode](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-extended-display-zh.webp)
+
+To display the iPad's main screen in the NanoKVM Go web interface:
+
+On the iPad, open `Settings` > `Display & Brightness`.
+
+![iPad Pro Display & Brightness settings with Extended Display selected](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-extended-display-setting-en.webp)
+
+Under `Display & Brightness`, select `Screen Mirroring` instead of `Extended Display`.
+
+![iPad Pro Display & Brightness settings with Screen Mirroring selected](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-screen-mirroring-setting-en.webp)
+
+After switching modes, the NanoKVM Go web interface will show the iPad's main screen content.
+
+![Alternative view of iPad Pro Display & Brightness with Screen Mirroring selected](./../../../assets/NanoKVM/go/faq/nanokvm-go-ipad-pro-screen-mirroring-en.webp)
+
 ## Keyboard & Input Issues
 
 ### The host is a phone and the password keyboard does not appear after the screen is locked
@@ -72,6 +92,10 @@ This is because precise cursor tracking on the iPhone/iPad requires **the device
 Enable **Orientation Lock (portrait/rotation lock)** on the iPhone/iPad to ensure accurate cursor tracking.
 
 ![iPhone Orientation Lock](./../../../assets/NanoKVM/go/faq/nanokvm-go-ios-orientation-lock.webp)
+
+### Mouse cursor is visible but unresponsive on iPad Pro after selecting Repair iPhone drag
+
+After selecting Repair iPhone drag on an iPad Pro, the mouse cursor may be visible but unresponsive. This occurs when AssistiveTouch is not enabled on the connected iOS device. To enable it, follow the steps in [Notes for Phone Connections](./quick_start.html#Notes-for-Phone-Connections).
 
 ## Audio Issues
 
