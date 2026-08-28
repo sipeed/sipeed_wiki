@@ -2,6 +2,11 @@
 title: Resolution and EDID Settings
 keywords: NanoKVM Go, resolution, EDID, Windows, macOS, display, scaling
 update:
+  - date: 2026-08-26
+    version: v0.2
+    author: Liang Ziyue
+    content:
+      - Add the 3840×2160@50Hz EDID and document its Beta status and stability notice
   - date: 2026-07-31
     version: v0.1
     author: Liang Ziyue
@@ -19,24 +24,26 @@ The resolution shown in the operating system display settings does not always re
 
 EDID tells the target device which resolutions, refresh rates, and display parameters the current "monitor" supports. NanoKVM Go is recognized by the target device as a monitor, and the target device generates available display modes based on the EDID provided by NanoKVM Go.
 
-For example, if NanoKVM Go is using the `1920x1080 60Hz` EDID, the target device usually will not output a real resolution higher than the range declared by that EDID. To use higher resolutions such as `2560x1440 60Hz`, `3440x1440 60Hz`, or `3840x2160 30Hz`, switch NanoKVM Go to the corresponding EDID first.
+For example, if NanoKVM Go is using the `1920x1080 60Hz` EDID, the target device usually will not output a real resolution higher than the range declared by that EDID. To use higher resolutions such as `2560x1440 60Hz`, `3440x1440 60Hz`, `3840x2160 30Hz`, or `3840x2160 50Hz`, switch NanoKVM Go to the corresponding EDID first.
 
 The table below lists the recommended real output modes for each EDID. Only the resolution and refresh rate combinations listed in this table are recommended as target real output modes for NanoKVM Go. Other resolutions or refresh rates shown by the operating system but not listed in the table should be treated as scaled modes, compatibility modes, modes beyond the device specifications, or modes derived by the system.
 
-| Resolution | Aspect ratio | 1920×1080@60Hz EDID | 2560×1440@60Hz EDID | 3440×1440@60Hz EDID | 3840×2160@30Hz EDID |
-| --- | --- | --- | --- | --- | --- |
-| 3840×2160 | 16:9 | × | × | × | 30 Hz |
-| 3440×1440 | 43:18 (~21:9) | × | × | 30 / 60 Hz | 60 Hz |
-| 2560×1440 | 16:9 | × | 30 / 60 Hz | 30 / 60 Hz | 30 / 60 Hz |
-| 1920×1200 | 16:10 | × | 60 Hz | 60 Hz | 60 Hz |
-| 1920×1080 | 16:9 | 30 / 50 / 60 Hz | 30 / 60 Hz | 30 / 60 Hz | 30 / 50 / 60 Hz |
-| 1600×900 | 16:9 | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
-| 1280×1024 | 5:4 | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
-| 1280×960 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
-| 1280×720 | 16:9 | 30 / 50 / 60 Hz | 60 Hz | 60 Hz | 30 / 50 / 60 Hz |
-| 1024×768 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
-| 800×600 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
-| 640×480 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| Resolution | Aspect ratio | 1920×1080@60Hz EDID | 2560×1440@60Hz EDID | 3440×1440@60Hz EDID | 3840×2160@30Hz EDID | 3840×2160@50Hz EDID (Beta) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 3840×2160 | 16:9 | × | × | × | 30 Hz | 30 / 50 Hz |
+| 3440×1440 | 43:18 (~21:9) | × | × | 30 / 60 Hz | 60 Hz | × |
+| 2560×1440 | 16:9 | × | 30 / 60 Hz | 30 / 60 Hz | 30 / 60 Hz | 30 / 60 / 90 Hz |
+| 1920×1200 | 16:10 | × | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| 1920×1080 | 16:9 | 30 / 50 / 60 Hz | 30 / 60 Hz | 30 / 60 Hz | 30 / 50 / 60 Hz | 30 / 50 / 60 Hz |
+| 1600×900 | 16:9 | 60 Hz | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| 1280×1024 | 5:4 | 60 Hz | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| 1280×960 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| 1280×720 | 16:9 | 30 / 50 / 60 Hz | 60 Hz | 60 Hz | 30 / 50 / 60 Hz | 30 / 50 / 60 Hz |
+| 1024×768 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| 800×600 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+| 640×480 | 4:3 | 60 Hz | 60 Hz | 60 Hz | 60 Hz | 60 Hz |
+
+> The `3840×2160@50Hz EDID` is currently in **Beta**. This mode is available for use, but the image may be unstable in some environments. If you encounter a problem, switch to the `3840×2160@30Hz` EDID or a lower-resolution EDID.
 
 > Connect PD power before changing EDID. If PD power is not connected, NanoKVM Go may need to be restarted manually after switching EDID.
 >

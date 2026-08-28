@@ -11,6 +11,10 @@ If NanoKVM Go shows "no video signal" after connecting to the host device, make 
 
 The host's USB-C port must support DP Alt mode (i.e. it can output a DP signal over the USB-C port), and the cable must be a full-featured USB-C data cable, for NanoKVM Go to receive the video signal. If the port does not support video output, or you are using a charge-only cable, no picture will be displayed.
 
+### <a id="edid-4k50-beta"></a>The 3840 × 2160 @ 50 Hz EDID is currently in Beta
+
+The `3840 × 2160 @ 50 Hz` EDID is currently an experimental feature. The mode is available for use, but some devices may have compatibility issues and the image may be unstable. If you encounter a problem, switch to the `3840 × 2160 @ 30 Hz` EDID or a lower-resolution EDID.
+
 ### After setting the EDID, the resolution shown on the NanoKVM Go screen does not match the one you set
 
 If, after setting the EDID, the **resolution shown on the NanoKVM Go screen** does not match the EDID you set, it is usually because the host device selected a **scaled display mode** instead of the real output mode declared in the EDID.

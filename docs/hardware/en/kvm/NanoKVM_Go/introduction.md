@@ -76,7 +76,7 @@ Choose NanoKVM Go if you need complete remote viewing and control. Choose Go+ if
 | Storage | 16 GB | 64 GB |
 | Display | 1.83-inch color touchscreen | 1.83-inch color touchscreen |
 | Maximum video capture capability | 4K @ 50 Hz; 2K @ 90 Hz | 4K @ 50 Hz; 2K @ 90 Hz |
-| Current built-in EDID modes | 3840 × 2160 @ 50 Hz; 3840 × 2160 @ 30 Hz; 3440 × 1440 @ 60 Hz; 2560 × 1440 @ 60 Hz; 1920 × 1080 @ 60 Hz | 3840 × 2160 @ 50 Hz; 3840 × 2160 @ 30 Hz; 3440 × 1440 @ 60 Hz; 2560 × 1440 @ 60 Hz; 1920 × 1080 @ 60 Hz |
+| Current built-in EDID modes | 3840 × 2160 @ 50 Hz ([Beta](./faq.html#edid-4k50-beta))<br>3840 × 2160 @ 30 Hz<br>3440 × 1440 @ 60 Hz<br>2560 × 1440 @ 60 Hz<br>1920 × 1080 @ 60 Hz | 3840 × 2160 @ 50 Hz ([Beta](./faq.html#edid-4k50-beta))<br>3840 × 2160 @ 30 Hz<br>3440 × 1440 @ 60 Hz<br>2560 × 1440 @ 60 Hz<br>1920 × 1080 @ 60 Hz |
 | Typical video latency | Approx. 60 ms @ 1080P60; 80 ms @ 2K60; 100 ms @ 4K30 | Approx. 60 ms @ 1080P60; 80 ms @ 2K60; 100 ms @ 4K30 |
 | Audio | Two-way audio | Two-way audio |
 | Wireless | WiFi 6, 2.4 GHz / 5 GHz, up to 286 Mbps | WiFi 6, 2.4 GHz / 5 GHz, up to 286 Mbps |
