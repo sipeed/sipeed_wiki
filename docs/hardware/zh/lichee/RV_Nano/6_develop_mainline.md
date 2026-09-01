@@ -50,7 +50,6 @@ https://github.com/sipeed/LicheeRV-Nano-Build/blob/main/.github/workflows/lichee
 文档:
 
 - 编译工具链下载地址：https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/03/07/16/host-tools.tar.gz
-- 软件SDK下载地址： https://github.com/sophgo/cvi_mmf_sdk
 - SDK开发文档汇总：https://developer.sophgo.com/thread/471.html
 - HDK 开发文档汇总： https://developer.sophgo.com/thread/472.html
 - TPU SDK 开发资料汇总：https://developer.sophgo.com/thread/473.html

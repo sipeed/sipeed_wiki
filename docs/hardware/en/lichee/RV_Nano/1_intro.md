@@ -62,7 +62,6 @@ Datasheets, schematic diagrams, dimension drawings, and more can be found here: 
 
 - [Datasheet](https://github.com/sophgo/sophgo-doc/releases)
 - [Compiler Toolchain Download](https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/03/07/16/host-tools.tar.gz)
-- [Software SDK Download](https://github.com/sophgo/cvi_mmf_sdk)
 - [SDK Development Documentation Summary](https://developer.sophgo.com/thread/471.html)
 - [HDK Development Documentation Summary](https://developer.sophgo.com/thread/472.html)
 - [TPU SDK Development Resources Summary](https://developer.sophgo.com/thread/473.html)
