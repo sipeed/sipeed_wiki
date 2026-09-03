@@ -8,7 +8,7 @@ update:
       content:
           - 补充 NanoKVM Go 系统镜像和 KVM APP 构建说明
 ---
-
+> 注意：镜像编译操作不当可能导致产品变砖，请务必谨慎操作
 NanoKVM Go 的软件由两部分组成：
 
 - 系统镜像；
