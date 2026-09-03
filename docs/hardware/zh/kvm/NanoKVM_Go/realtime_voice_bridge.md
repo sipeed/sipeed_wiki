@@ -1,23 +1,6 @@
 ---
 title: NanoKVM Go 实时语音对话快速体验
 keywords: NanoKVM Go, Qwen Audio, 实时语音, Voice Bridge
-update:
-  - date: 2026-08-05
-    version: v1.3
-    author: Liang Ziyue
-    content:
-      - 补充启用虚拟音频的前置步骤
-      - 优化 Qwen 连接信息获取说明
-  - date: 2026-08-03
-    version: v1.2
-    author: Liang Ziyue
-    content:
-      - 重整快速体验流程并补充操作截图
-  - date: 2026-07-30
-    version: v1.1
-    author: taonyx
-    content:
-      - 更新为 App Server 自动安装依赖和 environment 配置流程
 ---
 
 # 实时语音对话快速体验

@@ -1,19 +1,6 @@
 ---
 title: NanoKVM Go
 keywords: NanoKVM Go, NanoKVM Go+, USB-C KVM, 远程控制, 手机, 平板, AI, MCP, 记忆织网, Tailscale
-update:
-  - date: 2026-08-26
-    version: v0.2
-    author: Liang Ziyue
-    content:
-      - 重构产品定位、版本选择与使用场景，突出手机和平板远程协助，并补充兼容性、接口和完整规格
-      - 将使用场景移到型号参数之前，把型号差异和共有规格合并为一张对照表，并将接口介绍移到快速上手
-      - 将最高视频采集能力更新为 4K @ 50 Hz，并补充对应的 EDID 模式
-  - date: 2026-07-14
-    version: v0.1
-    author: kingo0807
-    content:
-      - 初版文档
 ---
 
 ## 简介

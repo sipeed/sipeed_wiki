@@ -1,12 +1,6 @@
 ---
 title: 用户指南
 keywords: NanoKVM Go, 网络配置, Wi-Fi, QRCODE, PASSWD, 管理页面, 悬浮栏
-update:
-  - date: 2026-07-14
-    version: v0.1
-    author: kingo0807
-    content:
-      - 初版文档
 ---
 
 ## 界面

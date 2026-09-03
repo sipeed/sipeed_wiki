@@ -1,12 +1,6 @@
 ---
 title: Flash Image
 keywords: NanoKVM Go, Remote desktop, KVM, flashing
-update:
-    - date: 2026-07-15
-      version: v0.1
-      author: Liang Ziyue
-      content:
-          - Add NanoKVM Go image flashing guide
 ---
 
 *NanoKVM Go is usually shipped with an image already flashed. If the device boots normally, you can skip this step at first.*

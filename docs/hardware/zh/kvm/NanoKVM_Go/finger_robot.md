@@ -1,12 +1,6 @@
 ---
 title: 手指机器人
 keywords: NanoKVM Go, 手指机器人, 物理电源键, 远程开关机, PWM
-update:
-  - date: 2026-08-19
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - 新增手指机器人连接、安装与操作说明
 ---
 
 ## 简介

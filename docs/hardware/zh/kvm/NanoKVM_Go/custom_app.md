@@ -1,21 +1,6 @@
 ---
 title: 扩展：自定义 APP
 keywords: NanoKVM Go, Python APP, appbase, framebuffer, 触摸屏
-update:
-  - date: 2026-08-04
-    version: v1.1
-    author: Liang Ziyue
-    content:
-      - 补充 AppContext 来源、生命周期和主循环说明
-      - 统一操作截图的对齐方式
-      - 修复章节内跳转锚点
-      - 修正清单、生命周期脚本和录屏命令示例
-      - 同步中英文 ZIP 安装截图
-  - date: 2026-07-30
-    version: v1.0
-    author: taonyx
-    content:
-      - 自定义 APP 开发与部署说明
 ---
 
 # 自定义 APP

@@ -1,12 +1,6 @@
 ---
 title: Static IP
 keywords: NanoKVM Go, static IP, network configuration
-update:
-    - date: 2026-07-14
-      version: v0.1
-      author: Liang Ziyue
-      content:
-          - Add NanoKVM Go static IP configuration guide
 ---
 
 # Configure a Static IP

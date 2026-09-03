@@ -1,17 +1,6 @@
 ---
 title: Resolution and EDID Settings
 keywords: NanoKVM Go, resolution, EDID, Windows, macOS, display, scaling
-update:
-  - date: 2026-08-26
-    version: v0.2
-    author: Liang Ziyue
-    content:
-      - Add the 3840×2160@50Hz EDID and document its Beta status and stability notice
-  - date: 2026-07-31
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - Add NanoKVM Go resolution and EDID settings guide
 ---
 
 ## Introduction

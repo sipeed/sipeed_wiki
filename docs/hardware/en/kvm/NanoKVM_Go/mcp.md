@@ -1,12 +1,6 @@
 ---
 title: MCP Feature
 keywords: NanoKVM Go, MCP, AI, Remote Control, KVM, OpenCode
-update:
-  - date: 2026-07-30
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - Add NanoKVM Go MCP guide
 ---
 
 ## Introduction

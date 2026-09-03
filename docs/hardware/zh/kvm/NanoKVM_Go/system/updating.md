@@ -1,12 +1,6 @@
 ---
 title: KVM 应用更新
 keywords: NanoKVM Go, Remote desktop, KVM, update
-update:
-    - date: 2026-07-15
-      version: v0.1
-      author: Liang Ziyue
-      content:
-          - 新增 NanoKVM Go KVM 应用更新教程
 ---
 
 NanoKVM Go 支持在网页控制端中更新内置的 KVM 应用。这里的 KVM 应用是负责网页控制、画面采集和键鼠控制的 NanoKVM Go 主程序，不是从 `Apps` 页面安装的自定义 APP，也不是系统镜像。更新前请确保设备已经连接网络，并且已经获得 IP 地址。

@@ -1,12 +1,6 @@
 ---
 title: User Guide
 keywords: NanoKVM Go, network configuration, Wi-Fi, QRCODE, PASSWD, management page, floating toolbar
-update:
-  - date: 2026-07-14
-    version: v0.1
-    author: kingo0807
-    content:
-      - Initial documentation
 ---
 
 ## Interface

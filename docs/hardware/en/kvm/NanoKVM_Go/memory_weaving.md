@@ -1,17 +1,6 @@
 ---
 title: NanoKVM Go+ Memory Fabric
 keywords: NanoKVM Go+, NanoKVM Go, Memory Fabric, MCP, AI, OCR, operation history, screen review
-update:
-  - date: 2026-08-17
-    version: v0.2
-    author: Liang Ziyue
-    content:
-      - Clarify supported hardware, model API, capture cadence, and retained records
-  - date: 2026-08-11
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - Add the NanoKVM Go+ Memory Fabric guide
 ---
 
 ## Introduction

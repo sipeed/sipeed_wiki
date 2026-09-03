@@ -1,12 +1,6 @@
 ---
 title: 静态 IP
 keywords: NanoKVM Go, 静态 IP, 网络配置
-update:
-    - date: 2026-07-14
-      version: v0.1
-      author: Liang Ziyue
-      content:
-          - 新增 NanoKVM Go 静态 IP 配置教程
 ---
 
 # 配置静态 IP

@@ -1,12 +1,6 @@
 ---
 title: frp
 keywords: NanoKVM Go, frp, 远程访问, 内网穿透
-update:
-    - date: 2026-07-14
-      version: v0.2
-      author: Liang Ziyue
-      content:
-          - 新增 NanoKVM Go frp 远程访问教程
 ---
 
 # 配置 frp 远程访问

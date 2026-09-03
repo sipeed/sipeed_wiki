@@ -1,15 +1,9 @@
 ---
 title: Tailscale
 keywords: Tailscale, remote access, NAT traversal
-update:
-    - date: 2026-07-14
-      version: v0.2
-      author: Liang Ziyue
-      content:
-          - Add NanoKVM Go Tailscale remote access guide
 ---
 
-# Tailscale
+# Configure Tailscale
 
 ## Introduction to Tailscale
 
