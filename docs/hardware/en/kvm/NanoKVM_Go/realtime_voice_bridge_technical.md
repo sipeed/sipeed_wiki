@@ -1,12 +1,6 @@
 ---
 title: NanoKVM Go Realtime Voice Chat Technical Guide
 keywords: NanoKVM Go, MCP, WebRTC, RTP, Opus, PCM, Qwen, AEC
-update:
-  - date: 2026-08-05
-    version: v1.0
-    author: Liang Ziyue
-    content:
-      - Added the English technical guide for Voice Bridge
 ---
 
 # Realtime Voice Chat Technical Guide

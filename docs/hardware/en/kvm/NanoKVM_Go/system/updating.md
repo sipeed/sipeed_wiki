@@ -1,12 +1,6 @@
 ---
 title: KVM App Update
 keywords: NanoKVM Go, Remote desktop, KVM, update
-update:
-    - date: 2026-07-15
-      version: v0.1
-      author: Liang Ziyue
-      content:
-          - Add the NanoKVM Go KVM App update guide
 ---
 
 NanoKVM Go supports updating its built-in KVM App from the web control page. The KVM App is the main NanoKVM Go application responsible for web control, video capture, and keyboard and mouse control. It is not a custom App installed from the `Apps` page or the system image. Before updating, make sure the device is connected to the network and has obtained an IP address.

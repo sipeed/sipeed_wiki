@@ -1,17 +1,6 @@
 ---
 title: NanoKVM Go+ 记忆织网
 keywords: NanoKVM Go+, NanoKVM Go, 记忆织网, MCP, AI, OCR, 操作记录, 页面回顾
-update:
-  - date: 2026-08-17
-    version: v0.2
-    author: Liang Ziyue
-    content:
-      - 补充适用型号、模型接口、采样周期和记录内容说明
-  - date: 2026-08-11
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - 新增 NanoKVM Go+ 记忆织网功能使用说明
 ---
 
 ## 简介

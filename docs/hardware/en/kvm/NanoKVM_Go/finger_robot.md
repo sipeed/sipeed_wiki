@@ -1,12 +1,6 @@
 ---
 title: Finger Robot
 keywords: NanoKVM Go, Finger Robot, Physical Power Button, Remote Power Control, PWM
-update:
-  - date: 2026-08-19
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - Added connection, installation, and operation instructions for the Finger Robot
 ---
 
 ## Introduction

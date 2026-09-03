@@ -1,19 +1,6 @@
 ---
 title: NanoKVM Go
 keywords: NanoKVM Go, NanoKVM Go+, USB-C KVM, remote control, phone, tablet, AI, MCP, Memory Fabric, Tailscale
-update:
-  - date: 2026-08-26
-    version: v0.2
-    author: Liang Ziyue
-    content:
-      - Rework the product positioning, model selection, and use cases around mobile remote assistance, with clearer compatibility, interface, and specification sections
-      - Move use cases before model specifications, merge model differences and shared specifications into one comparison table, and move the interface overview to Quick Start
-      - Update the maximum video capture capability to 4K @ 50 Hz and add the corresponding EDID mode
-  - date: 2026-07-14
-    version: v0.1
-    author: kingo0807
-    content:
-      - Initial documentation
 ---
 
 ## Introduction

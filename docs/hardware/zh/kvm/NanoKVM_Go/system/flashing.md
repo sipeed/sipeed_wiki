@@ -1,12 +1,6 @@
 ---
 title: 烧录镜像
 keywords: NanoKVM Go, Remote desktop, KVM, flashing
-update:
-    - date: 2026-07-15
-      version: v0.1
-      author: Liang Ziyue
-      content:
-          - 新增 NanoKVM Go 烧录镜像教程
 ---
 
 *NanoKVM Go 出厂时通常已经烧录了镜像，如设备可以正常启动，可以先跳过该步骤。*

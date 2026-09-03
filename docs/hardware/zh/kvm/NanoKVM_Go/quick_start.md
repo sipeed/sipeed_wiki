@@ -1,17 +1,6 @@
 ---
 title: 快速上手
 keywords: NanoKVM Go, Remote desktop, KVM, USB-C
-update:
-  - date: 2026-08-03
-    version: v0.2
-    author: kingo0807
-    content:
-      - 添加手机连接注意事项
-  - date: 2026-07-14
-    version: v0.1
-    author: kingo0807
-    content:
-      - 初版文档
 ---
 
 ## 开箱

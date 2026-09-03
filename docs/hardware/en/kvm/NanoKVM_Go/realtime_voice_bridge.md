@@ -1,13 +1,6 @@
 ---
 title: NanoKVM Go Realtime Voice Chat Quick Start
 keywords: NanoKVM Go, Qwen Audio, realtime voice, Voice Bridge
-update:
-  - date: 2026-08-05
-    version: v1.0
-    author: Liang Ziyue
-    content:
-      - Added the English quick-start guide for Voice Bridge
-      - Added the Virtual Audio prerequisite
 ---
 
 # Realtime Voice Chat Quick Start

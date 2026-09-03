@@ -1,17 +1,6 @@
 ---
 title: NanoKVM Go 实时语音二次开发
 keywords: NanoKVM Go, MCP, WebRTC, RTP, Opus, PCM, Qwen, AEC
-update:
-  - date: 2026-08-03
-    version: v1.2
-    author: Liang Ziyue
-    content:
-      - 重整二次开发篇结构并补充架构、准备和实现路径说明
-  - date: 2026-07-30
-    version: v1.1
-    author: taonyx
-    content:
-      - 补充 App Server、安装生命周期脚本和实时日志
 ---
 
 # 实时语音二次开发

@@ -1,21 +1,6 @@
 ---
 title: "Extension: Custom Apps"
 keywords: NanoKVM Go, Python App, appbase, framebuffer, touchscreen
-update:
-  - date: 2026-08-04
-    version: v1.1
-    author: Liang Ziyue
-    content:
-      - Explained the origin of AppContext, the App lifecycle, and the main loop
-      - Standardized the alignment of procedural screenshots
-      - Fixed in-page navigation anchors
-      - Corrected the manifest, lifecycle-script, and screen-recording examples
-      - Synchronized the ZIP installation screenshots
-  - date: 2026-07-30
-    version: v1.0
-    author: taonyx
-    content:
-      - Custom App development and deployment guide
 ---
 
 # Custom Apps

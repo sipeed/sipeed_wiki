@@ -1,17 +1,6 @@
 ---
 title: 分辨率与 EDID 设置
 keywords: NanoKVM Go, 分辨率, EDID, Windows, macOS, 显示器, 缩放
-update:
-  - date: 2026-08-26
-    version: v0.2
-    author: Liang Ziyue
-    content:
-      - 新增 3840×2160@50Hz EDID，并标注其 Beta 状态和稳定性注意事项
-  - date: 2026-07-31
-    version: v0.1
-    author: Liang Ziyue
-    content:
-      - 新增 NanoKVM Go 分辨率与 EDID 设置说明
 ---
 
 ## 简介

@@ -1,15 +1,9 @@
 ---
 title: Tailscale
 keywords: Tailscale，远程控制，内网穿透
-update:
-    - date: 2026-07-14
-      version: v0.2
-      author: Liang Ziyue
-      content:
-          - 新增 NanoKVM Go Tailscale 远程访问教程
 ---
 
-# Tailscale
+# 配置 Tailscale
 
 ## Tailscale 简介
 

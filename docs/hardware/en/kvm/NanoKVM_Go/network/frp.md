@@ -1,12 +1,6 @@
 ---
 title: frp
 keywords: NanoKVM Go, frp, remote access, intranet penetration
-update:
-    - date: 2026-07-14
-      version: v0.2
-      author: Liang Ziyue
-      content:
-          - Add NanoKVM Go frp remote access guide
 ---
 
 # Configure frp Remote Access

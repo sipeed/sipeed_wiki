@@ -1,17 +1,6 @@
 ---
 title: Quick Start
 keywords: NanoKVM Go, Remote desktop, KVM, USB-C
-update:
-  - date: 2026-08-03
-    version: v0.2
-    author: kingo0807
-    content:
-      - Added notes for phone connections
-  - date: 2026-07-14
-    version: v0.1
-    author: kingo0807
-    content:
-      - Initial documentation
 ---
 
 ## Unboxing
