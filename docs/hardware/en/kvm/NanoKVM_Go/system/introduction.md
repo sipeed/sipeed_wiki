@@ -8,7 +8,7 @@ update:
       content:
           - Add NanoKVM Go system image and KVM APP build instructions
 ---
-
+> Caution: Improper firmware image compilation may render the device inoperable. Please proceed with extreme care.
 NanoKVM Go software consists of two parts:
 
 - system image;
