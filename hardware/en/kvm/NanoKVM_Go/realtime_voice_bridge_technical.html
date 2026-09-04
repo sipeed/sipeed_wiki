@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="NanoKVM Go, MCP, WebRTC, RTP, Opus, PCM, Qwen, AEC">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>NanoKVM Go Realtime Voice Chat Technical Guide - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "<a href='https://www.kickstarter.com/projects/zepan/maixcam2-build-your-next-gen-4k-ai-camera' target='_blank'>Next-Gen 4K AI Camera MaixCAM2 is now crowdfunding! 10X faster than K230 in yolo task! </a>", "show_times": 2, "show_after_s": 432000, "date": "2026-03-02 19:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "Helpful", "label_down": "Not Helpful", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "You have already voted", "msg_thanks": "Thanks for your vote", "msg_down_prompt": "Thanks to tell us where we can improve?(At least 10 characters)", "msg_down_prompt_error": "Message should be at least 10 characters and less than 256 characters", "msg_error": "Request server failed!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/en/">Products</a></li>
+<li class="sub_items "><a >Software Docs</a><ul><li class=""><a  href="/maixpy/en/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/en/index.html">AI Guide</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">News</a></li>
+<li class=""><a  href="/en/faq.html">FAQ</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/en/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;English</a><ul><li class="active"><a  href="/hardware/en/kvm/NanoKVM_Go/realtime_voice_bridge_technical.html">English</a></li>
+<li class=""><a  href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge_technical.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Input keyword. Using Space to separate multiple keywords</span>
+                                <span id="search_loading_hint">Loading, please wait</span>
+                                <span id="search_download_err_hint">Fail download, Please retry or check network</span>
+                                <span id="search_other_docs_result_hint">Results form other doc</span>
+                                <span id="search_curr_doc_result_hint">Result form current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/sense/start.html"><span class="label">M0sense Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/./maixzero/m0s/m0s.html"><span class="label">Maix M0s</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I & Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 Module</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html&from=/hardware/en/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go (Sold out)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_module.html"><span class="label">M1s Module</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/m1s_dock.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/start.html"><span class="label">Basic Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maix/m1s/other/others.html"><span class="label">Others (Camera and Shell)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1a</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/index.html"><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/flash.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/usage.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/other.html"><span class="label">Other notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/V833.html"><span class="label">M2S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2S/reources.html"><span class="label">Board introduction</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/maixsense.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/flash_system.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixII/M2A/config_system.html"><span class="label">Config system</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/first.html&from=/hardware/en/maixII/M2A/first.html"><span class="label">Test board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/maixII/M2A/user.html&from=/hardware/en/maixII/M2A/user.html"><span class="label">Start to use</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">Using MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/flash_system.html"><span class="label">AXera-Pi manual</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/python_api.html"><span class="label">Python programming</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/dev_prepare.html"><span class="label">C/C++ programming</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/en/deploy/ax-pi.html" ><span class="label">AI development guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIII/ax-pi/faq_axpi.html"><span class="label">Questions (FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M4C SoM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/system-update.html"><span class="label">Flashing OS Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/axmodel-deploy.html"><span class="label">AI Models Deployment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Dock Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4cdock/intro.html"><span class="label">Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/system-update.html"><span class="label">Flashing OS Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4cdock/quick-start.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4cdock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Hat Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4chat/intro.html"><span class="label">Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4c/system-update.html"><span class="label">Flashing OS Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4chat/quick-start.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixIV/m4chat/pcie-slaveboard.html"><span class="label">RPI5 PCIe Card</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/index.html"><span class="label">MaixCAM AI Series</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MaixCAM / MaixCAM-Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam.html"><span class="label">MaixCAM Intro & Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam_pro.html"><span class="label">MaixCAM-Pro Intro & Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/cameras.html"><span class="label">Cammeras & Lens</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/assemble.html"><span class="label">MaixCAM Assembly</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/tof_thermal.html"><span class="label">ToF/Thermal PMOD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/microscope.html"><span class="label">MicroScope Kit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM2</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2.html"><span class="label">MaixCAM2 Intro & Data</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_os.html"><span class="label">System Upgrade</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_camera_lens.html"><span class="label">Cammeras & Lens</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_xAI.html"><span class="label">Develop with AI Agent</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">Develop with MaixPy</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcdk.html"><span class="label">Develop with MaixCDK</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_isp.html"><span class="label">Camera ISP Tuning</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/microscope.html"><span class="label">MicroScope Kit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixcam/maixcam2_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/setup_guide.html"><span class="label">setup_guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/3_images.html"><span class="label">images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">burn_image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/2_unbox.html"><span class="label">Unbox guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/3_images.html"><span class="label">Image summary</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">Burn image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/5_desktop.html"><span class="label">Desktop usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">System building</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux Mainline (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (Work in Progress)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/8_application.html"><span class="label">Application</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">Benchmark</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/10_test_report.html"><span class="label">Hardware report</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/12_faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/th1520/lpi4a/11_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/1_intro.html"><span class="label">SBC Intro</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/2_unbox.html"><span class="label">Unbox experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/3_burn_image.html"><span class="label">Burn Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/4_peripheral.html"><span class="label">Peripheral Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/5_develop.html"><span class="label">System develop</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/6_application.html"><span class="label">Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/7_faq.html"><span class="label">FAQs</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/K1/lpi3a/8_credits.html"><span class="label">Credits</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee RV</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Board Introduction</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/RV.html"><span class="label">Lichee RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/86_panel.html"><span class="label">Lichee RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/Dock.html"><span class="label">Lichee RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/flash.html"><span class="label">Burn System</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/user.html"><span class="label">Basic usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/problems.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV/ubuntu.html"><span class="label">Ubuntu Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/2_unbox.html"><span class="label">Unboxing Experience</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/3_images.html"><span class="label">Image Collection</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/4_burn_image.html"><span class="label">Flashing the Image</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/5_peripheral.html"><span class="label">peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/6_develop_mainline.html"><span class="label">System Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/7_picoclaw_board.html"><span class="label">PicoClaw Expansion Board</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF Development Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Zero/Zero.html"><span class="label">Lichee Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/Nano/Nano.html"><span class="label">Lichee Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/lichee/ZeroPlus/ZeroPlus.html"><span class="label">Lichee ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/nano-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-nano-20k/example/unbox.html"><span class="label">Unbox</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/examples.html"><span class="label">Tang Nano examples</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/primer-20k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-20k/start.html"><span class="label">Notice</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/TangPrimer-20K-example" ><span class="label">Examples(Github)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-25k/primer-25k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-primer-15k/primer-15k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (Sold out)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Install TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">In Windows</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/install_linux.html"><span class="label">In Linux</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/fpga/led.html"><span class="label">Blink by FPGA</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/E203.html"><span class="label"> Prepare E203 environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/Tang-primer/get_started/fpga_download.html"><span class="label">Burn FPGA</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-138k/mega-138k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-mega-60k/mega-60k.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Console</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-console/retro-console.html"><span class="label">Retro Console</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-console/mega-console.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/get_started/install-the-ide.html"><span class="label">Install IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/questions.html"><span class="label">Questions&Answers</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/tang/common-doc/update_debugger.html"><span class="label">Update debugger</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic_agent/index.html"><span class="label">Use SLogic with an Agent</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic_agent/stories/index.html"><span class="label">SLogic Agent Stories</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/basic_operation.html"><span class="label">Basic Operation</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_logic_function.html"><span class="label">Using as Logic Analyzer</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_cklink_function.html"><span class="label">Using as CKLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_daplink_function.html"><span class="label">Using as DAPLink</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">Using as Serial Module</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/update_firmware.html"><span class="label">Update Firmware</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/combo8/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic16U3</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/Introduction.html"><span class="label">Indroduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/Hardware_Specification.html"><span class="label">Hardware Specification</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/Software_User_Guide.html"><span class="label">Software User Guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/logic_analyzer/slogic16u3/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">ThermalCam</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed T256s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/ThermalCam/T256s/Intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/ThermalCam/T256s/QS.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/ThermalCam/T256s/UG.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/ThermalCam/T256s/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">KVM</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/mcp.html"><span class="label">MCP</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/development.html"><span class="label">Development</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">NanoKVM Go</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/quick_start.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/resolution.html"><span class="label">Resolution and EDID Settings</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/finger_robot.html"><span class="label">Finger Robot</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/mcp.html"><span class="label">MCP</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/memory_weaving.html"><span class="label">Memory Fabric</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/system/updating.html"><span class="label">KVM App Update</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/system/introduction.html"><span class="label">System Build</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/system/flashing.html"><span class="label">Flash Image</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">Custom Apps</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/custom_app.html"><span class="label">App Installation and Development</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">AI Realtime Voice Chat</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/realtime_voice_bridge.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/realtime_voice_bridge_technical.html"><span class="label">Technical Guide</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Go/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM PCIe</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/user_guide.html"><span class="label">User Guide</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_PCIe/mcp.html"><span class="label">MCP</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Network</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/static_ip.html"><span class="label">Static IP</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/network/cloudflared.html"><span class="label">Cloudflare</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">System</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/introduction.html"><span class="label">System Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/flashing.html"><span class="label">Flashing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/updating.html"><span class="label">Updating</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/system/configuration.html"><span class="label">Configuration</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM/development.html"><span class="label">Development</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM USB</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/development.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_USB/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/introduction.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/atx_start.html"><span class="label">NanoKVM-ATX Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/desk_start.html"><span class="label">NanoKVM-Desk Quick Start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/extended.html"><span class="label">Advanced Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/lcd.html"><span class="label">Screen & Knob</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/app_diy.html"><span class="label">DIY Applications</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/ledstrip.html"><span class="label">Screen Ambient Lighting</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/cua.html"><span class="label">Experimental AI Agent</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/kvm_admin.html"><span class="label">Batch Management</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/kvm/NanoKVM_Pro/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Cluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoCluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/index.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/use.html"><span class="label">Quick Start</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Application Development</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/k3s.html"><span class="label">k3s Deployment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/distcc.html"><span class="label">distcc Deployment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/no_translate.html?ref=/hardware/zh/cluster/NanoCluster/nanocctl.html&from=/hardware/en/cluster/NanoCluster/nanocctl.html"><span class="label">NanoCtl</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/nomad_playbook.html"><span class="label">Nomad Playbook</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/cluster/NanoCluster/switch.html"><span class="label">Switch Management</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longon</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/1_intro.html"><span class="label">Introduction</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/3_images.html"><span class="label">Images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/4_burn_image.html"><span class="label">Burn images</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/5_desktop.html"><span class="label">Desktop Usage</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/6_peripheral.html"><span class="label">Peripheral</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">Development</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/h618/lpi3h/8_test_report.html"><span class="label">Test report</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/Longan_nano.html"><span class="label">Longon Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/pio.html"><span class="label">Setup environment</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/longan/Nano/blink.html"><span class="label">Blink test</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf0_ml_module.html"><span class="label">MF0&&MF0 Dock</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf1_ml_module.html"><span class="label">MF1 && MF2</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf5_product.html"><span class="label">MF4 && MF5</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_precautions.html"><span class="label">Maixface PCB Design</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/maixface/mf_ml_module/mf_update_firmwave.html"><span class="label">Maixface Update firmware</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD Peripheral modules</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Adapter board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Sensor</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Communication</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Display</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Module</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">camera</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">GC0328</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(GC0328)</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV7740</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OV2640-M12</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Dual cam module(OV2640)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray.html"><span class="label">Mic array</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules/micarray_usbboard_bl616.html"><span class="label">MicArray UAC Drive Board (MA-USB8)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/en/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>NanoKVM Go Realtime Voice Chat Technical Guide</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/en/kvm/NanoKVM_Go/realtime_voice_bridge_technical.md" target="_blank">
+                                    <span id='editPage'>Edit this page</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="Realtime-Voice-Chat-Technical-Guide">Realtime Voice Chat Technical Guide</h1>
+<h2 id="Voice-Bridge-Technical-Overview">Voice Bridge Technical Overview</h2>
+<p>Voice Bridge is a bridge program that connects the NanoKVM Go audio media interface to a realtime voice model. It receives audio entering NanoKVM Go from the controlled host or phone call, converts channels, resamples it, and sends it to the model. The streaming audio returned by the model is buffered and then written to the controlled host through the NanoKVM Go UAC2 virtual microphone via the NanoKVM Go WebRTC audio track.</p>
+<p>This guide is the advanced companion to <a href="./realtime_voice_bridge.html"  >Realtime Voice Chat Quick Start</a>. It is intended for users who need to understand the underlying design or customize the implementation. Run the official App by following the quick start first, then read this guide. That confirms the hardware, account, and base audio path before you narrow issues down to your own changes.</p>
+<p>The official device-side App is a foreground Python App. It creates a short-lived media session through the device-local <code>https://127.0.0.1/api/mcp</code>, establishes WebRTC audio tracks with <code>aiortc</code>, uses PyAV for PCM resampling, and connects to Qwen Audio Realtime over WebSocket. When the App exits, it closes the Qwen WebSocket, WebRTC PeerConnection, and MCP media session. It does not continue bridging audio in the background.</p>
+<p>This guide first explains the minimal path implemented by the official App, then covers advanced customization such as model replacement, external Bridge services, AEC, and debug probes. The URLs, event names, and media parameters in this guide are used to explain the implementation approach. NanoKVM MCP tools, media-session parameters, and the signaling protocol must follow the interface description returned by the actual device. Model events and audio formats must follow the model's official documentation and the real server responses.</p>
+<h2 id="Suggested-Reading-Path">Suggested Reading Path</h2>
+<p>If you only want to understand how the official App works, read through &quot;Create a Model Session&quot;; those sections explain configuration, MCP, WebRTC, and Qwen audio formats.<br />
+If you want to replace Qwen or change model behavior, continue with &quot;Realtime Buffering, Pacing, and Interruption&quot; and &quot;Lifecycle and Reliability&quot;.<br />
+If you plan to build an external Bridge, add AEC, analyze recordings, or ask AI to help with implementation, also read the acceptance, troubleshooting, and prompt sections near the end.</p>
+<h2 id="What-You-Can-Customize">What You Can Customize</h2>
+<p>After you understand the Voice Bridge data flow, you can build on the official example to:</p>
+<ul>
+<li>replace Qwen with another realtime voice model that supports streaming audio input and output;</li>
+<li>change model instructions, voice, language, and turn detection strategy;</li>
+<li>connect knowledge bases, Agents, or business tools for phone customer-service and voice-assistant workflows;</li>
+<li>add AEC, noise suppression, recording, monitoring, and custom audio processing;</li>
+<li>turn the device-side App into a long-running service on a PC or server;</li>
+<li>add recovery for model disconnects, media-session expiration, and network jitter.</li>
+</ul>
+<h2 id="Overall-Architecture">Overall Architecture</h2>
+<p>Voice Bridge contains a control plane, a media plane, and a model connection:</p>
+
+<pre class="language-text"><code class="language-text">Bridge
+  |
+  +-- Control plane: MCP
+  |      Bridge -&gt; NanoKVM Go
+  |      Create/close media sessions
+  |
+  +-- Media plane: WebRTC / Opus
+  |      Bridge &lt;-&gt; NanoKVM Go &lt;-&gt; controlled host audio devices
+  |
+  +-- Model connection: WebSocket / PCM
+         Bridge &lt;-&gt; realtime voice model
+</code></pre>
+<table>
+<thead>
+<tr>
+  <th>Part</th>
+  <th>Role</th>
+  <th>Not Responsible For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>MCP control plane</td>
+  <td>Authentication, media-session creation and cleanup, short-lived token and signaling address return</td>
+  <td>Continuous audio transport</td>
+</tr>
+<tr>
+  <td>WebRTC media plane</td>
+  <td>Low-latency Opus track exchange with NanoKVM Go</td>
+  <td>Model event handling</td>
+</tr>
+<tr>
+  <td>Audio processing layer</td>
+  <td>PCM format conversion, buffering, and send pacing; in the official Python App, WebRTC Opus encoding and RTP pacing are handled by <code>aiortc</code></td>
+  <td>Device authentication</td>
+</tr>
+<tr>
+  <td>Model adapter layer</td>
+  <td>Model session creation, PCM upload, voice output, and transcript handling</td>
+  <td>Direct UAC2 device control</td>
+</tr>
+</tbody>
+</table>
+<p>The bidirectional audio flow is:</p>
+
+<pre class="language-text"><code class="language-text">Upstream: controlled host / phone -&gt; NanoKVM Go speakerReceive -&gt; Bridge -&gt; realtime voice model
+Downstream: realtime voice model -&gt; Bridge -&gt; NanoKVM Go micSend -&gt; controlled host virtual microphone
+</code></pre>
+<h2 id="Choose-a-Runtime-Mode">Choose a Runtime Mode</h2>
+<p>The Bridge can run inside NanoKVM Go or on an external PC or server. These modes are alternatives; normally choose one for a deployment.</p>
+<table>
+<thead>
+<tr>
+  <th>Mode</th>
+  <th>Best For</th>
+  <th>Implementation Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Device-side Python App</td>
+  <td>Quick deployment, standalone device operation, direct App Server management</td>
+  <td>App SDK version, ARM Python dependencies, storage and memory footprint</td>
+</tr>
+<tr>
+  <td>External Bridge</td>
+  <td>Long-running service, complex AEC, audio monitoring, centralized operations</td>
+  <td>Service management, network reachability, external-host audio toolchain, manual Opus/RTP handling</td>
+</tr>
+</tbody>
+</table>
+<p>The official device-side App uses <code>aiortc</code>, PyAV, and the model WebSocket. It is the best starting point for verifying the minimal working path. An external Bridge can use Go, <code>libopus</code>, <code>libspeexdsp</code>, and PipeWire, and is better suited to long-running services, complex AEC, or richer audio probes. The following external Bridge TUI example can show component status, audio connections, events, and transcripts:</p>
+<p><img src="./../../../assets/NanoKVM/go/realtime_voice_bridge/nanokvm-voice-bridge-tui.webp" alt="NanoKVM Voice Bridge external Bridge TUI" /></p>
+<p>The MCP, WebRTC, and audio-conversion principles below apply to both modes, but process lifecycle and dependency management need separate implementations. Do not infer an external Bridge lifecycle from the device-side App reconnection logic. Whether model reconnection can keep using an existing NanoKVM media session also depends on the media-session TTL and device implementation.</p>
+<h2 id="Before-Development">Before Development</h2>
+<p>Before changing the implementation, prepare:</p>
+<ul>
+<li>the official device-side App already verified by following <a href="./realtime_voice_bridge.html"  >Quick Start</a>;</li>
+<li><code>Settings &gt; Device &gt; Virtual Audio</code> and <code>Settings &gt; AI &gt; MCP Service</code> enabled;</li>
+<li>a NanoKVM Go App SDK version that supports <code>app.json</code> and parameterless <code>@app()</code>;</li>
+<li>the full NanoKVM Go access URL and MCP API key;</li>
+<li>the target model API key, service address, model name, region, or Workspace information;</li>
+<li>the current official realtime-audio API documentation for the target model;</li>
+<li>a Go or Python development and test environment matching your target runtime mode;</li>
+<li>a tool that can record the NanoKVM Go virtual microphone on the controlled host.</li>
+</ul>
+<p>Real secrets should only be provided through environment variables or App environment configuration. Do not write them into source code, logs, screenshots, or commits.</p>
+<h2 id="Get-the-Example-Source-Code">Get the Example Source Code</h2>
+<p>The runnable device-side implementation is in the <a href="https://github.com/sipeed/NanoKVM-Go-Apps/tree/main/voice-bridge"  target="_blank"><code>voice-bridge/</code> directory of the NanoKVM-Go-Apps <code>main</code> branch</a>. It contains the App entry point, configuration manifest, and installation scripts. The shared <code>appbase</code> SDK and development documentation are in the <a href="https://github.com/sipeed/NanoKVM-Go-Apps/tree/base"  target="_blank"><code>base</code> branch</a>.</p>
+<p>It is usually easiest to copy <code>voice-bridge/</code> as your own App first, then replace the model adapter or audio processing code layer by layer. The App environment configuration is declared in the <code>env</code> field of <code>app.json</code>, and the web UI generates a form when installing or editing the App configuration. Installation lifecycle scripts install apt build dependencies and pinned Python packages into the App-private <code>python/</code> directory, so users do not need to run <code>apt</code> or <code>pip</code> manually over SSH.</p>
+<p>Lifecycle scripts should pin dependency versions, run non-interactively, support idempotent execution, and set timeouts and retries for downloads and builds. The web UI shows stdout/stderr in real time and allows copying the installation log. Scripts run as root, so only use trusted App Servers and source code. Scripts must not print API keys or media-session tokens, and they should not leave background child processes after failures.</p>
+<h2 id="Modify%2C-Configure%2C-and-Deploy">Modify, Configure, and Deploy</h2>
+<p>If you continue using the device-side App mode, develop and deploy with this flow:</p>
+<ol>
+<li>Copy the official <code>voice-bridge/</code> directory, then change the App ID, name, and version.</li>
+<li>Modify the model adapter, audio processing, or UI code.</li>
+<li>Declare required addresses, secrets, and model parameters in the <code>env</code> field of <code>app.json</code>.</li>
+<li>Update the installation lifecycle scripts, and verify repeated execution in a clean environment.</li>
+<li>Package the App as a ZIP containing exactly one top-level App directory.</li>
+<li>Open <code>Settings &gt; Apps &gt; Installed</code> in the NanoKVM Go web interface and upload the ZIP.</li>
+<li>Fill in the generated environment form and wait until the installation log shows success.</li>
+<li>Start the App from the <code>Apps</code> page on the device touchscreen and complete a real call test.</li>
+</ol>
+<p>For the App directory layout, ZIP installation, and exit gesture, see <a href="./custom_app.html"  >Custom Apps</a>. After changing environment values during development, restart the App for the new values to take effect.</p>
+<p>If you choose an external Bridge, you do not need to package a NanoKVM Go App. Build the program on the PC or server, provide connection information through environment variables or a protected configuration file, and use that platform's service manager for startup, restart, and log rotation. The external host must be able to reach both NanoKVM Go and the realtime voice model.</p>
+<h2 id="Recommended-Development-Order">Recommended Development Order</h2>
+<p>Do not connect the device, model, and all audio processing at once at the beginning. Verify each layer in this order to locate failures faster:</p>
+<ol>
+<li>Read the NanoKVM MCP self-description and confirm media tools, parameters, return fields, and cleanup method.</li>
+<li>Receive only <code>speakerReceive</code>, and verify audio direction, sample rate, channels, and continuity.</li>
+<li>Test <code>micSend</code> with known-good PCM, and record it on the controlled host.</li>
+<li>Verify the model session, transcript, streaming output, and interruption without NanoKVM.</li>
+<li>Connect the NanoKVM-to-model upstream path and confirm the user transcript.</li>
+<li>Connect the model-to-NanoKVM downstream path and confirm the final recording on the controlled host.</li>
+<li>Add barge-in, AEC, layered reconnection, logs, and metrics last.</li>
+</ol>
+<p>The following sections explain each layer in the order of control plane, media format, model session, and realtime control.</p>
+<h2 id="Create-a-NanoKVM-Media-Session">Create a NanoKVM Media Session</h2>
+<p>The official device-side App targets the current NanoKVM Go App SDK and directly uses the known <code>media_session_create</code> and <code>media_session_close</code> tools. If you are building a generic external Bridge, adapting multiple firmware versions, or maintaining this part as a long-running tool, initialize MCP first and call <code>tools/list</code>. If the device supports resources, also call <code>resources/list</code>. Use the device's actual self-description to confirm the exact media tool names, parameters, return fields, token lifetime, and cleanup method. Optional capabilities should degrade gracefully; the client must not exit just because resources are unavailable.</p>
+<p>MCP is only the control plane. After authentication, the Bridge usually calls <code>media_session_create</code>, requests <code>speakerReceive</code> and <code>micSend</code>, and obtains a short-lived token plus a signaling address. The address usually looks like:</p>
+
+<pre class="language-text"><code class="language-text">/api/media/audio/webrtc?media_session=&lt;token&gt;
+</code></pre>
+<p>The official device-side App runs on NanoKVM Go itself, so the signaling URL is <code>wss://127.0.0.1</code> plus the <code>signalingPath</code> returned by MCP. The App creates the WebRTC <code>offer</code>, NanoKVM returns the <code>answer</code> and <code>candidate</code> messages, and WebRTC audio tracks carry continuous audio. An external Bridge needs to construct the <code>ws/wss</code> URL from the NanoKVM access address and confirm the real signaling order. Do not copy the flow from another WebRTC service blindly.</p>
+<p>Typical parameters are shown below. The actual fields must follow the tool schema returned by MCP:</p>
+
+<pre class="language-json"><code class="language-json">{
+  &quot;speakerReceive&quot;: true,
+  &quot;micSend&quot;: true,
+  &quot;ttlSeconds&quot;: 600
+}
+</code></pre>
+<p>Connection order:</p>
+<ol>
+<li>Initialize the MCP session.</li>
+<li>Call <code>media_session_create</code>.</li>
+<li>Connect to the signaling WebSocket with the short-lived token.</li>
+<li>Create the PeerConnection and exchange SDP and ICE.</li>
+<li>After the PeerConnection reaches the connected state, start audio conversion and the model session.</li>
+<li>On exit, close the model WebSocket, PeerConnection, signaling WebSocket, and media session.</li>
+</ol>
+<p>The MCP API key and media-session token are different credentials. Neither should appear in logs.</p>
+<h2 id="Process-Audio-Formats">Process Audio Formats</h2>
+<p>NanoKVM WebRTC and Qwen Realtime use different formats, so bytes cannot be forwarded directly:</p>
+<table>
+<thead>
+<tr>
+  <th>Endpoint</th>
+  <th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>NanoKVM WebRTC audio track</td>
+  <td>WebRTC audio; in the official Python App, <code>aiortc</code> handles Opus/RTP</td>
+</tr>
+<tr>
+  <td>PCM entering the App from NanoKVM</td>
+  <td>AudioFrame provided by <code>aiortc</code> / PyAV, then resampled to S16LE, 16 kHz, mono</td>
+</tr>
+<tr>
+  <td>Qwen input PCM</td>
+  <td>S16LE, 16 kHz, mono</td>
+</tr>
+<tr>
+  <td>Qwen output PCM</td>
+  <td>S16LE, 24 kHz, mono</td>
+</tr>
+</tbody>
+</table>
+<p>Complete data flow:</p>
+
+<pre class="language-text"><code class="language-text">NanoKVM speaker WebRTC audio
+  -&gt; aiortc / PyAV AudioFrame
+  -&gt; downmix + resample -&gt; PCM 16k mono -&gt; Qwen
+
+Qwen PCM 24k mono
+  -&gt; bounded buffer -&gt; 20 ms AudioFrame -&gt; aiortc audio track
+  -&gt; NanoKVM microphone WebRTC track
+</code></pre>
+<p>Common chunk sizes, where each S16LE sample is 2 bytes:</p>
+<table>
+<thead>
+<tr>
+  <th>Data</th>
+  <th style="text-align:right">Duration</th>
+  <th style="text-align:right">Samples Per Channel</th>
+  <th style="text-align:right">Bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Qwen input PCM, 16 kHz mono</td>
+  <td style="text-align:right">100 ms</td>
+  <td style="text-align:right">1600</td>
+  <td style="text-align:right">3200</td>
+</tr>
+<tr>
+  <td>Qwen output PCM, 24 kHz mono</td>
+  <td style="text-align:right">20 ms</td>
+  <td style="text-align:right">480</td>
+  <td style="text-align:right">960</td>
+</tr>
+<tr>
+  <td>NanoKVM PCM, 48 kHz stereo</td>
+  <td style="text-align:right">20 ms</td>
+  <td style="text-align:right">960</td>
+  <td style="text-align:right">3840</td>
+</tr>
+</tbody>
+</table>
+<p>The Qwen WebSocket does not guarantee that deltas arrive every 20 ms. Network chunks must enter a buffer first, then be cut into fixed frames. The official Python App stores Qwen output in a queue. <code>AudioStreamTrack.recv()</code> takes 20 ms of 24 kHz mono PCM at a time, inserts silence when the queue is empty, drops old chunks when the queue is full, and then lets <code>aiortc</code> handle WebRTC encoding and RTP sending. When replacing Qwen with another model, confirm input and output sample rates, channels, sample format, and chunking rules again. Do not reuse Qwen parameters directly.</p>
+<h2 id="Create-a-Model-Session">Create a Model Session</h2>
+<p>Select the model when opening the WebSocket by appending <code>?model=&lt;model&gt;</code> to the connection URL. The official App builds the endpoint as follows:</p>
+
+<pre class="language-text"><code class="language-text">wss://&lt;workspace&gt;.&lt;region&gt;.maas.aliyuncs.com/api-ws/v1/realtime?model=&lt;model&gt;
+</code></pre>
+<p>After the connection returns <code>session.created</code> and before sending the first audio chunk, use <code>session.update</code> to configure the voice, input/output formats, instructions, and interaction mode. Do not send <code>model</code> in <code>session.update</code>. Common interaction modes are <code>server_vad</code> and <code>smart_turn</code>.</p>
+<p>Typical event flow:</p>
+
+<pre class="language-text"><code class="language-text">client                         Qwen Realtime
+  |-- WebSocket connect -----------&gt;|  ?model=&lt;model&gt;
+  |&lt;- session.created --------------|
+  |-- session.update -------------&gt;|
+  |-- input_audio_buffer.append --&gt;|  16 kHz mono S16LE
+  |&lt;- input_audio_buffer.speech_started
+  |&lt;- conversation.item.input_audio_transcription.completed
+  |&lt;- response.audio.delta --------|  24 kHz mono S16LE
+  |&lt;- response.audio_transcript.* -|
+  |&lt;- response.done ---------------|
+</code></pre>
+<p>PCM in WebSocket JSON is Base64 encoded and decoded. The upstream side can accumulate 100 ms / 3200 bytes before sending. Downstream deltas should enter the playback buffer immediately after arrival; do not wait for <code>response.done</code> and then play the whole response. The client should ignore and log unknown events at low frequency, instead of exiting when the server adds an event type.</p>
+<p>When replacing the realtime voice model, keep the NanoKVM MCP, WebRTC, and audio media layers, and replace only the model adapter layer. The new adapter needs to reimplement authentication, session initialization, audio deltas, transcripts, completion, errors, and cancellation events, then provide fixed-duration PCM frames in the format expected by the selected WebRTC send path. In the official Python App, provide <code>AudioFrame</code> objects to <code>aiortc</code>; for the current Qwen output, these remain <code>24 kHz / mono / 20 ms</code> frames, and <code>aiortc</code> handles resampling and Opus/RTP encoding. A low-level external Bridge instead needs to convert the model output to the negotiated NanoKVM WebRTC format and handle Opus/RTP itself.</p>
+<h2 id="Realtime-Buffering%2C-Pacing%2C-and-Interruption">Realtime Buffering, Pacing, and Interruption</h2>
+<p><code>response.audio.delta</code> arrives in bursts according to network timing, while WebRTC and the UAC microphone need continuous input. Model output should be written into a bounded queue, then sent as fixed-length frames at a realtime 20 ms cadence. In the official Python App, <code>AudioStreamTrack.recv()</code> provides 20 ms PCM frames and <code>aiortc</code> drives the send pacing. A low-level external implementation usually needs its own Pacer. If the queue is full, drop stale audio. If it is empty, insert silence or wait according to your underrun policy. Do not push bursty deltas directly into WebRTC.</p>
+<p>When scheduling falls behind, do not send a burst to &quot;catch up&quot; with the clock. Drop expired frames and resume from the current time. Clear buffers on every start, stop, or model-session rotation to prevent old audio from playing again.</p>
+<p>When <code>input_audio_buffer.speech_started</code> arrives, perform barge-in: stop the current response, send <code>response.cancel</code>, clear pending playback PCM, then handle the new user turn. The official App implements basic flush and cancellation logic. If an external Bridge maintains its own Opus/RTP queues or more complex debug listeners, further use a generation or epoch marker to invalidate stale response frames, and place a serialized barrier between buffer flushing and the sender coroutine so in-flight old frames cannot continue playing.</p>
+<h2 id="Handle-Echo">Handle Echo</h2>
+<p>If the model response feeds back from the controlled host speaker into <code>speakerReceive</code>, it forms an echo loop. The current official device-side App does not include application-layer AEC. For the quick-start path, avoid playing the controlled host speaker back into the input, or use an external Bridge with AEC. AEC needs two time-aligned signals: <code>capture</code> is the input before it is sent to the model, and <code>reference</code> is the playback stream after the Pacer actually outputs it. Do not use raw network deltas that have not been paced yet. VAD is not a replacement for AEC.</p>
+<h2 id="Lifecycle-and-Reliability">Lifecycle and Reliability</h2>
+<p>Manage the model WebSocket, NanoKVM MCP media session, and WebRTC as separate layers. If the model connection breaks, prefer rebuilding only the model layer. If the media token or TTL expires, renew or rebuild the media layer according to the device MCP interface.</p>
+<p>Reconnection should use capped exponential backoff with random jitter. Model session rotation may lose cloud-side context. If continuity is required, save an application summary and inject it into the new session. All close operations should have timeouts. On normal exit, close the model connection, PeerConnection, signaling WebSocket, and media session, and terminate debug listener processes.</p>
+<p>In normal mode, aggregate connection status, PCM byte counts, codec frame counts, queue depth, Pacer late frames, and barge-in counts by second. Do not print per-frame logs. Logs must not contain API keys, media-session tokens, or full audio data.</p>
+<h2 id="Acceptance-and-Troubleshooting">Acceptance and Troubleshooting</h2>
+<p>After development, verify the system in the same layered order:</p>
+<ol>
+<li>Receive only: create MCP and WebRTC, and confirm <code>speakerReceive</code> direction, speed, and channels.</li>
+<li>Send only: verify <code>micSend</code> with known-good PCM and record it on the controlled host.</li>
+<li>Model only: verify session, transcript, streaming output, and interruption separately.</li>
+<li>Bridge upstream: decode and downsample audio, send it to Qwen, and confirm the user transcript.</li>
+<li>Bridge downstream: buffer, read 20 ms frames, resample or send through WebRTC, and send audio back to NanoKVM.</li>
+<li>After adding barge-in, AEC, and reconnection, repeat the full call test.</li>
+<li>Exit the program and confirm that the model, WebRTC, media session, and child processes are cleaned up.</li>
+</ol>
+<p>Acceptance must cover MCP, WebRTC, model input, model output, the final controlled-host recording, and exit cleanup. Do not conclude that the downstream path is correct just because model PCM or local Opus monitoring sounds normal. The actual recording on the controlled host is the final downstream proof.</p>
+<p>If local Opus is normal but the controlled host still has crackling or dropped audio, capture and time-align the pre-encode PCM, sent Opus, audio received by NanoKVM Server, pre-UAC-write audio, and final controlled-host recording. Use those captures to locate the layer where format or pacing breaks.</p>
+<p><a id="use-ai-complete-integration"></a></p>
+<h2 id="Use-AI-to-Complete-an-Integration">Use AI to Complete an Integration</h2>
+<p>After understanding the interfaces and data flow above, you can ask an AI system with code-editing, terminal, and MCP access to complete the implementation on top of the official example. Recommended flow:</p>
+<ol>
+<li>Prepare the NanoKVM address, MCP key, model credentials, model official documentation, and target runtime mode.</li>
+<li>Ask the AI to read MCP tools/resources and the existing source code before giving a layered plan.</li>
+<li>Verify receive-only, send-only, model-only, upstream, and downstream paths in the &quot;Recommended Development Order&quot;.</li>
+<li>After the base path works, implement interruption, AEC, reconnection, service management, and logs.</li>
+<li>Complete the controlled-host recording and exit-cleanup checks in &quot;Acceptance and Troubleshooting&quot;.</li>
+</ol>
+<p>AI-generated code must still follow the device MCP return values and the model's official documentation. Do not copy the typical URLs, event names, or parameters from this guide blindly.</p>
+<h3 id="Prepare-Qwen-API-Documentation">Prepare Qwen API Documentation</h3>
+<p>Before development, open the <a href="https://www.alibabacloud.com/help/en/model-studio/qwen-audio-realtime-user-guides"  target="_blank">Qwen Audio Realtime API guide</a> and confirm the currently available model and API version for your account and region. Do not give the model name alone to the AI, and do not let the AI guess the API from memory.</p>
+<p>Confirm the following from the official documentation and provide it to the AI:</p>
+<ul>
+<li>model name, region/Workspace, and service endpoint;</li>
+<li>API key and Workspace ID acquisition method and authentication requirements, with real secrets provided only through environment variables;</li>
+<li>WebSocket connection URL, request headers, and session initialization format;</li>
+<li>fields supported by <code>session.update</code>, including voice, input/output audio formats, and <code>server_vad</code> / <code>smart_turn</code>;</li>
+<li>actual JSON schema for <code>input_audio_buffer.append</code>, <code>response.audio.delta</code>, transcript events, <code>response.cancel</code>, <code>response.done</code>, and other events;</li>
+<li>current model sample rates, channels, PCM encoding, Base64 rules, rate limits, and idle timeout.</li>
+</ul>
+<p>Provide the official documentation URL or saved documentation content, selected model/region, and NanoKVM MCP self-description together. If the documentation differs from examples in this guide, follow the official documentation and real server responses.</p>
+<p>The prompt below includes the main issues encountered in this project. It is suitable for an AI system with code-editing, terminal, and MCP access. Its target is more complete than the current official device-side App and includes advanced capabilities such as an external Bridge, AEC, and debug probes. If you only need to replace the model in the official Python App, remove the unnecessary external-Bridge, AEC, and low-level Opus/RTP requirements. Also provide the <a href="https://github.com/sipeed/NanoKVM-Go-Apps/tree/main/voice-bridge"  target="_blank"><code>main/voice-bridge</code></a> source code, the SDK documentation in the <a href="https://github.com/sipeed/NanoKVM-Go-Apps/tree/base"  target="_blank"><code>base</code> branch</a>, device MCP return information, and the prepared Qwen documentation. Replace angle-bracket placeholders before use. Provide secrets through environment variables, not directly in the prompt or commits.</p>
+
+<pre class="language-text"><code class="language-text">You are a senior engineer familiar with MCP, WebRTC, RTP, Opus, USB Audio,
+realtime audio, and asynchronous concurrency. Complete the implementation and
+real verification in the current repository. Do not provide only sample code or
+a design proposal.
+
+## Goal
+
+Create a bidirectional audio media session through NanoKVM Go MCP:
+
+1. Receive audio from the controlled host speaker / phone call and send it to
+   the realtime voice model.
+2. Stream model-generated PCM and send it to the controlled host through the
+   UAC2 virtual microphone via a WebRTC audio track.
+3. Support realtime transcripts, user interruption, AEC, disconnect recovery,
+   and low-overhead debug probes.
+
+Connections and documentation:
+
+- NanoKVM URL: &lt;NANOKVM_URL, must be a full http:// or https:// URL&gt;
+- MCP URL: &lt;usually NANOKVM_URL/api/mcp&gt;
+- MCP key: read only from the NANOKVM_MCP_KEY environment variable
+- Model API key / Workspace ID: read only from environment variables
+- Model official documentation: &lt;REALTIME_AUDIO_API_DOCUMENT_URL; use the
+  corresponding official documentation for Qwen or any other model&gt;
+- Target language and runtime location: &lt;Go/external host, or Python/NanoKVM Go
+  device-side App&gt;
+
+## Prerequisite Checks
+
+1. Remind the user to enable Virtual Audio from Settings &gt; Device &gt; Virtual
+   Audio in the web interface. Phone call media currently cannot use DP audio;
+   it must enter NanoKVM Go through USB audio.
+2. Confirm MCP Service is enabled from Settings &gt; AI &gt; MCP Service in the web
+   interface, or from the second page on the device touchscreen.
+3. Check that URLs include ://. Do not accidentally convert https://&lt;host&gt; into
+   https:&lt;host&gt;.
+4. Check repository status and the existing implementation. Preserve user
+   changes and do not modify unrelated files.
+5. Give a short layered plan before coding. Do not guess information that can
+   be confirmed from code, MCP, or documentation.
+
+## Read the MCP Self-Description First
+
+1. Complete MCP initialize, store Mcp-Session-Id, and send it on later requests
+   if the server requires it.
+2. Call tools/list and, if supported, resources/list to read media-related
+   resource/tool schemas. Optional MCP capabilities should degrade gracefully;
+   do not exit just because resources are unavailable.
+3. Confirm the exact names, parameters, return fields, token lifetime,
+   signalingPath, authentication headers, error semantics, and cleanup method
+   for media_session_create and media_session_close.
+4. Follow the actual interface returned by the device. MCP is the control
+   plane; do not transport continuous audio through MCP tools, resources, or a
+   DataChannel.
+5. The MCP API key and short-lived media token are different credentials.
+   Neither may be written to logs.
+
+## NanoKVM WebRTC Interface Notes
+
+- Create a media session with speakerReceive=true and micSend=true.
+- speakerReceive: NanoKVM -&gt; client. This is the controlled host speaker /
+  phone call audio.
+- micSend: client -&gt; NanoKVM. This writes audio to the controlled host UAC2
+  virtual microphone.
+- Build the ws/wss URL from the NanoKVM host plus signalingPath, and
+  authenticate with the short-lived token.
+- Handle offer, answer, ICE candidates, and PeerConnection state. Confirm which
+  side creates the offer; do not copy the signaling order from another WebRTC
+  service blindly.
+- Negotiate and verify Opus/48000/2ch, 20 ms per frame, 960 samples per
+  channel. Suggested fmtp: minptime=10;useinbandfec=1.
+- Confirm whether the chosen WebRTC library expects PCM frames, Opus samples,
+  or RTP packets. Do not confuse one object type with another. Send duration
+  and timestamp must match 20 ms. RTP clock should advance by 960 per frame.
+- Prefer comparing against the NanoKVM Go official web microphone
+  implementation for negotiation, track handling, and send pacing.
+
+## Audio Pipeline
+
+Upstream: NanoKVM speaker Opus 48k stereo -&gt; decode -&gt; PCM S16LE 48k stereo
+     -&gt; downmix/resample -&gt; model input PCM.
+
+Downstream: model output PCM -&gt; Base64 decode -&gt; bounded queue -&gt; 20 ms audio
+     frames -&gt; NanoKVM microphone track. With Python aiortc, provide
+     AudioFrame objects and let aiortc handle WebRTC Opus/RTP. With a low-level
+     external Bridge, resample, encode Opus, and maintain RTP pacing yourself.
+
+If the model is Qwen Audio Realtime:
+
+- Select the model while opening the WebSocket by appending `?model=&lt;model&gt;` to
+  the connection URL. Do not include `model` in `session.update`.
+- Wait for session.created, then send session.update. Before sending the first
+  audio chunk, configure voice, instructions, input/output format, and
+  interact_type, and confirm the server accepts the update.
+- Input PCM is S16LE/16000/mono. Sending 3200 bytes every 100 ms is
+  recommended.
+- Output PCM is S16LE/24000/mono.
+- Base64 encode/decode PCM in WebSocket JSON according to the API
+  documentation.
+- interact_type supports server_vad and smart_turn, and should be configured by
+  environment variables.
+- Queue response.audio.delta immediately after it arrives. Do not wait for
+  response.done and then play the whole response.
+- Handle complete User/Qwen transcripts, response.done (including
+  status=cancelled), and error. Ignore and log unknown events at low frequency;
+  do not exit because the server adds an event type.
+
+## Replace With Another Realtime Voice Model
+
+The NanoKVM media layer only handles WebRTC, Opus, and UAC2 audio. It does not
+depend on Qwen. As long as another model provides streaming audio input and
+output, keep the NanoKVM media part and replace the model adapter in the Bridge.
+
+When replacing the model, ask the AI to focus on:
+
+1. WebSocket or HTTP streaming connection method, authentication, and session
+   initialization.
+2. Input/output sample rate, channels, PCM encoding, frame duration, and Base64
+   rules.
+3. Actual audio delta, transcript, completion, error, and cancel event formats.
+4. VAD, interruption, idle timeout, rate limit, and session rotation behavior.
+5. Converting model output into fixed-duration PCM frames expected by the
+   selected WebRTC send path. With Python `aiortc`, provide `AudioFrame` objects
+   and let `aiortc` handle resampling and Opus/RTP encoding; for the current Qwen
+   output, use `24 kHz / mono / 20 ms` frames. Only a low-level external Bridge
+   needs to convert to the negotiated NanoKVM WebRTC format and handle Opus/RTP
+   itself.
+
+Do not apply Qwen event names, field names, or 16/24 kHz audio parameters
+directly to another model. Provide the target model's official documentation
+first, then let the AI implement and test a new adapter.
+
+## Optional Agent Capabilities
+
+If the target also includes web search or local tool calls, do not assume that
+the realtime voice model itself has Agent capability. First confirm tool calling
+support in the model's official documentation. If it is not supported, treat the
+realtime voice layer as the input/output interface, let an independent
+Agent/tool orchestration layer consume complete User transcripts, and send the
+final answer into TTS/voice output.
+
+Ensure that only one response generator exists for a turn. Avoid playing both a
+native model response and Agent TTS at the same time. When the user interrupts,
+cancel the Agent task, TTS, and all downstream audio together. Web access and
+local tools must follow least privilege and require user confirmation before
+operations with side effects.
+
+Declare and test all sample rates, channels, sample formats, frame durations,
+and byte counts explicitly at every endpoint. Do not assume the final
+WebRTC/UAC path is correct just because local monitoring sounds clear.
+
+## Pacer and Buffering
+
+- Network deltas are not guaranteed to arrive every 20 ms. Do not send whatever
+  arrives as an immediate burst.
+- Use a monotonic clock and a single sender coroutine. Send fixed frames every
+  20 ms. A small prebuffer is allowed.
+- The queue must have a maximum duration/byte size. On overflow, drop stale
+  audio instead of accumulating unbounded latency.
+- Define the underrun policy and a short grace period. If silence is inserted,
+  insert it only at realtime pacing.
+- If scheduling falls behind, do not send consecutive bursts to &quot;catch up&quot;.
+  Drop expired frames and resume from the current clock.
+- Clear buffers every time the service starts or stops. Debug monitoring must
+  not feed historical data back into the sound card.
+
+## Interruption and AEC
+
+When input_audio_buffer.speech_started arrives, immediately:
+
+1. Stop the model voice currently playing locally or on the controlled host.
+2. Prefer sending response.cancel, but only when an active response exists.
+3. Clear all downstream Qwen PCM, Pacer, Codec, Opus sender, and debug listener
+   buffers.
+4. Use a generation/epoch marker to invalidate stale response frames.
+5. Place a serialized barrier between flush and the sender coroutine, so
+   in-flight old frames that already passed a check cannot escape.
+6. Start receiving the new user audio turn immediately.
+
+Control messages must have higher priority than queued audio append messages.
+server_vad/smart_turn may cancel the response automatically on the server, but
+the client must still clear local output immediately. Do not only wait for
+response.done.
+
+If speaker feedback exists, enable AEC. `capture` is the user PCM before it is
+sent to the model. `reference` must be the model PCM after actual Pacer output.
+The two streams must align in sample rate, frame duration, and time. VAD is not
+a replacement for AEC.
+
+## Lifecycle and Fault Tolerance
+
+- Manage the Qwen/model WebSocket, NanoKVM MCP media session, and WebRTC as
+  separate layers.
+- Qwen may return response_idle_timeout after 180 seconds without a response.
+  You may rotate the Qwen session at around 120 seconds or reconnect after an
+  error, but do not rebuild a working MCP/WebRTC layer for that reason.
+- Qwen session rotation loses cloud-side context. If context continuity is
+  required, save an application summary and inject it again.
+- Decide whether invalid_request_error can continue according to model
+  documentation. server_error, connection close, and network errors trigger
+  reconnection. Use capped exponential backoff with random jitter, such as
+  1s/2s/4s.
+- When media token/TTL expires, renew or rebuild the media layer according to
+  the MCP interface. Do not assume the token is permanent.
+- Set timeouts for every close operation. On normal exit, close the model,
+  PeerConnection, signaling WebSocket, and media session, and terminate pw-cat /
+  listener processes. Do not leave orphan processes or residual audio.
+
+## Logs and Debug Probes
+
+Normal mode records connection state, error category, reconnect reason,
+barge-in, and complete untruncated &quot;User transcript:&quot; and &quot;Qwen transcript:&quot;.
+Normal logs must not print audio deltas or per-frame state. Configure file size
+limits and rotation.
+
+Debug mode should provide independently startable and stoppable observation
+points that copy the main data stream without consuming it:
+
+1. Speaker Opus received by NanoKVM.
+2. User PCM after Opus decoding / actual PCM sent to the model.
+3. Raw PCM output from the model.
+4. Actual PCM output from the Pacer.
+5. Encoded microphone Opus / actual WebRTC send counters.
+
+Probes aggregate PCM bytes, Opus frames, RMS/peak, queue depth, dropped frames,
+underrun, overrun, and Pacer late frames by second. Clear listener buffers when
+stopping probes or restarting the service.
+
+## Implementation and Hardware Acceptance Order
+
+1. Receive only `speakerReceive`, save audio, and confirm direction, speed,
+   channels, and continuity.
+2. Send known-good voice PCM and a 1 kHz probe through Opus/WebRTC `micSend`,
+   then verify with a recording on the controlled host. Do not connect the model
+   first.
+3. Verify the model session, User/Qwen transcripts, streaming output, and
+   interruption with local audio only.
+4. Connect NanoKVM -&gt; model upstream and confirm stable, complete User
+   transcripts.
+5. Connect model -&gt; Pacer -&gt; NanoKVM downstream, and accept it using final
+   controlled-host recording plus speech recognition results.
+6. If local Opus is normal but the controlled host crackles, capture and
+   time-align pre-encode PCM, sent Opus, WebRTC audio received by NanoKVM
+   Server, pre-UAC-write audio, and final controlled-host recording to locate
+   the failing layer.
+7. Add AEC, automatic reconnection, service management, TUI/PipeWire monitoring,
+   and performance optimization last.
+
+Required tests: format conversion, frame byte counts, Pacer pacing and
+late-recovery behavior, bounded buffering, barge-in epoch / flush barrier,
+Qwen-only reconnection, media TTL, process exit cleanup, and sensitive-data
+redaction.
+
+## Delivery Requirements
+
+For device-side Python App mode:
+
+- Provide a runnable implementation, README, `app.json`, and a single-App ZIP
+  installable from the NanoKVM Go web UI. Package dependencies in the App's own
+  directory, declare configuration in the `env` field of `app.json`, and let
+  `Settings &gt; Apps` generate the environment form.
+- Do not require users to use SSH, SCP, device-side pip, a standalone `.env`, or
+  a `kvmcomm` restart. The App should be dynamically scanned, and Launcher should
+  handle startup, stop, and environment injection.
+
+For external-host Bridge mode:
+
+- Provide a runnable external executable or system service, together with its
+  dependencies and deployment files.
+- Document the supported operating system and architecture, installation,
+  configuration, startup, shutdown, restart, log access, and automatic-start
+  procedure. Do not require an App ZIP, `app.json`, or installation through
+  `Settings &gt; Apps`.
+
+For both modes:
+
+- Configuration items should at least include URL, secret environment variables,
+  voice, interact_type, TTL, queue/Pacer, Qwen session rotation, AEC, and debug
+  switches.
+- Run formatting checks, unit tests, and real-device tests that can be
+  completed.
+- Clearly report which steps were verified on hardware, which were only covered
+  by unit tests, and which still need hardware confirmation.
+- Do not commit real IP addresses, API keys, media tokens, private recordings,
+  or unrelated changes.
+</code></pre>
+<p>This prompt intentionally requires the AI to complete the isolated &quot;fixed test audio -&gt; controlled-host recording&quot; test first. The most common false positive in a voice bridge is that model PCM and local Opus monitoring sound normal, while NanoKVM Server, UAC write pacing, or the controlled host recording still has crackling or dropped audio. Final acceptance therefore cannot stop at local monitoring.</p>
+<p>References: <a href="https://github.com/sipeed/NanoKVM"  target="_blank">NanoKVM open-source repository</a> · <a href="https://www.alibabacloud.com/help/en/model-studio/qwen-audio-realtime-user-guides"  target="_blank">Qwen Audio Realtime API guide</a></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/en/kvm/NanoKVM_Go/realtime_voice_bridge.html">
+                            <span class="icon"></span>
+                            <span class="label">Quick Start</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/en/kvm/NanoKVM_Go/faq.html">
+                            <span class="label">FAQ</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>links</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">Sipeed AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/neutree/teedoc">Build by teedoc </a></li>
+</ul>
+</li>
+<li><a>Source Code</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki source</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">Open Source Projects</a></li>
+</ul>
+</li>
+<li><a>Follow us</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.aliexpress.com/store/911876460">AliExpress</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>Wechat</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>Contact us</a><ul><li><a>Tel: +86 0755-27808509</a>
+</li>
+<li><a>Business support: support@sipeed.com</a>
+</li>
+<li><a>Address: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101D</a>
+</li>
+<li><a  href="/join_us.html">Join us</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>

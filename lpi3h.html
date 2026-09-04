@@ -1,0 +1,15 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language.indexOf("zh") == -1 )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#shell" : 
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/longan/h618/lpi3h/1_intro.html"
+    }
+</script>

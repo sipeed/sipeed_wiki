@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="NanoKVM Go, frp, 远程访问, 内网穿透">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>frp - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "<a href='https://sipeed.com/maixcam2' target='_blank'>新一代可本地运行多模态大模型的 MaixCAM2 正在预售中! YOLO 帧率可达 K230 10倍！</a>", "show_times": 2, "show_after_s": 432000, "date": "2026-03-02 19:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/en/kvm/NanoKVM_Go/network/frp.html">English</a></li>
+<li class="active"><a  href="/hardware/zh/kvm/NanoKVM_Go/network/frp.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/start.html"><span class="label">M0sense 基础使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p.html"><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p_dock.html"><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0s/m0s.html"><span class="label">Maix M0S</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go（售罄）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_module.html"><span class="label">M1s 模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_dock.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/start.html"><span class="label">上手使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/others.html"><span class="label">其他事项（摄像头和外壳）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/maixhub_train.html"><span class="label">训练自己的 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/usage.html"><span class="label">基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/other.html"><span class="label">其他事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">使用 MaixPy3 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/V833.html"><span class="label">MaixII-S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/reources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/maixsense.html"><span class="label">MaixII-Sense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/flash_system.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/config_system.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/Usages.html"><span class="label">基本使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">连接MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/flash_system.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/basic_usage.html"><span class="label">系统使用手册</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/python_api.html"><span class="label">试试 Python 编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/dev_prepare.html"><span class="label">开始 C/C++ 编程</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/zh/deploy/ax-pi.html" ><span class="label">AI 开发指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/faq_axpi.html"><span class="label">常见问题（FAQ）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M4C SoM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/axmodel-deploy.html"><span class="label">AI 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Dock Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/intro.html"><span class="label">产品介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Hat Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/intro.html"><span class="label">产品介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/pcie-slaveboard.html"><span class="label">树莓派5 PCIe 加速指南</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/index.html"><span class="label">MaixCAM AI 系列</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MaixCAM / MaixCAM-Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam.html"><span class="label">MaixCAM 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam_pro.html"><span class="label">MaixCAM-Pro 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/cameras.html"><span class="label">摄像头介绍及拍摄效果</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/assemble.html"><span class="label">外壳使用说明</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/tof_thermal.html"><span class="label">ToF/热成像模块介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/microscope.html"><span class="label">数码显微镜套餐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM2</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2.html"><span class="label">MaixCAM2 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_camera_lens.html"><span class="label">摄像头和镜头选择</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_xAI.html"><span class="label">使用 AI Agent 开发</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_isp.html"><span class="label">摄像头 ISP 调校</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/tof_thermal.html"><span class="label">ToF/热成像模块介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/microscope.html"><span class="label">数码显微镜套餐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/lcon4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/setup_guide.html"><span class="label">组装指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">系统开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux 主线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (编写中)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/8_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html"><span class="label">玄铁多媒体AI平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">CPU 跑分测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/10_test_report.html"><span class="label">硬件测试报告</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/12_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/11_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/3_burn_image.html"><span class="label">镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/4_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/5_develop.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/6_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/7_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/8_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">板卡介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/RV.html"><span class="label">LicheePI RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/86_panel.html"><span class="label">LicheePI RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/Dock.html"><span class="label">LicheePI RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/user.html"><span class="label">基础上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/ubuntu.html"><span class="label">使用 Ubuntu 镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/5_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/6_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/7_picoclaw_board.html"><span class="label">PicoClaw 扩展板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF开发指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Zero/Zero.html"><span class="label">LicheePI Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Nano/Nano.html"><span class="label">LicheePI Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/ZeroPlus/ZeroPlus.html"><span class="label">LicheePI ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/nano-20k.html"><span class="label">介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/example/unbox.html"><span class="label">开箱</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano (售罄)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/examples.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/primer-20k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/start.html"><span class="label">开箱使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/example.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-25k/primer-25k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-15k/primer-15k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (售罄)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/index.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装 TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">Windows安装TD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_Linux.html"><span class="label">Linux安装TD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/fpga/led.html"><span class="label">使用FPGA点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-60k/mega-60k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Console</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-console/retro-console.html"><span class="label">Retro Console</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-console/mega-console.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic_agent/index.html"><span class="label">使用 Agent 操作 SLogic</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic_agent/stories/index.html"><span class="label">SLogic Agent 故事分享</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/basic_operation.html"><span class="label">基础操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_logic_function.html"><span class="label">作为逻辑分析仪使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_cklink_function.html"><span class="label">作为CKLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_daplink_function.html"><span class="label">作为DAPLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">作为串口模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/update_firmware.html"><span class="label">更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/faq.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic16U3</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Hardware_Specification.html"><span class="label">硬件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Software_User_Guide.html"><span class="label">软件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/FAQ.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">ThermalCam</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed T256s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/Intro.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/QS.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/UG.html"><span class="label">使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/FAQ.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">KVM</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/cloudflared.html"><span class="label">Cloudflare</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">NanoKVM Go</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/resolution.html"><span class="label">分辨率与 EDID 设置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/finger_robot.html"><span class="label">手指机器人</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/memory_weaving.html"><span class="label">记忆织网</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/updating.html"><span class="label">KVM 应用更新</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">网络</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/introduction.html"><span class="label">系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">自定义 APP</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/custom_app.html"><span class="label">APP 安装与开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">AI 实时语音对话</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge.html"><span class="label">快速体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge_technical.html"><span class="label">二次开发</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM PCIe</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM USB</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/deployment.html"><span class="label">本地部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/atx_start.html"><span class="label">NanoKVM-ATX 上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/desk_start.html"><span class="label">NanoKVM-Desk 上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/extended.html"><span class="label">高级应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/lcd.html"><span class="label">触摸屏&旋钮</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/app_diy.html"><span class="label">DIY 应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/ledstrip.html"><span class="label">屏幕色彩扩展灯带</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/cua.html"><span class="label">实验性AI Agent</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/kvm_admin.html"><span class="label">NanoKVM 批量管理</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Cluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoCluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/use.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/k3s.html"><span class="label">k3s 部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/distcc.html"><span class="label">distcc 部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/nanoctl.html"><span class="label">NanoCtl</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/nomad_playbook.html"><span class="label">Nomad 自动化部署</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/switch.html"><span class="label">交换机管理</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longan</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/8_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/Longan_nano.html"><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/pio.html"><span class="label">PIO配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/blink.html"><span class="label">点灯测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mfst40/mfst40.html"><span class="label">MF-ST40 人脸识别模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MF 资料</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/MF1-User-Manual" ><span class="label">点我前往 github 查看全部资料</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">转接板类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传感器类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">显示类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/camera_summary.html"><span class="label">摄像头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray.html"><span class="label">麦克风阵列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray_usbboard_bl616.html"><span class="label">麦克风阵列UAC驱动板 MA-USB8</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>frp</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/kvm/NanoKVM_Go/network/frp.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h1 id="%E9%85%8D%E7%BD%AE-frp-%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE">配置 frp 远程访问</h1>
+<p>frp 是一款内网穿透工具，可以将局域网内的 NanoKVM Go 服务转发到具有公网 IP 的服务器。配置完成后，即使 NanoKVM Go 所在网络没有公网 IP，也可以通过公网服务器远程访问它。</p>
+<p>frp 由两个组件组成：</p>
+<ul>
+<li><code>frps</code>：服务端，运行在具有公网 IP 的服务器上；</li>
+<li><code>frpc</code>：客户端，运行在 NanoKVM Go 上。</li>
+</ul>
+
+<pre class="language-text"><code class="language-text">远程电脑或手机
+       |
+       | 访问 https://公网 IP:8080
+       v
+公网服务器（frps） &lt;----- frpc 主动连接 ----- NanoKVM Go
+</code></pre>
+<blockquote>
+<p>NanoKVM Go 网页端目前没有 FRP 配置入口，需要先在网页端开启 SSH，再通过 SSH 手动安装和配置 <code>frpc</code>。</p>
+</blockquote>
+<blockquote>
+<p>将 NanoKVM Go 暴露到公网会增加被扫描、撞库和攻击的风险。请先为 NanoKVM Go 设置强密码。本文的基础 TCP 示例会转发 NanoKVM Go 本机的 HTTPS 服务，但设备证书通常是自签名证书，浏览器可能提示证书不受信任。有域名时可以配置可信域名证书；如果不希望暴露公网端口，也可以改用 Tailscale 等虚拟组网方案。</p>
+</blockquote>
+<h2 id="%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</h2>
+<p>开始配置前，请准备：</p>
+<ul>
+<li>一台具有公网 IPv4 地址的 Linux 服务器；</li>
+<li>已连接互联网的 NanoKVM Go；</li>
+<li>NanoKVM Go 和公网服务器的管理员权限；</li>
+<li>公网服务器云安全组和系统防火墙的修改权限；</li>
+<li>一个不容易被猜到的 frp 身份验证 Token。</li>
+</ul>
+<p>本文使用以下示例参数：</p>
+<table>
+<thead>
+<tr>
+  <th>项目</th>
+  <th>示例值</th>
+  <th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>公网服务器 IP</td>
+  <td><code>203.0.113.10</code></td>
+  <td>运行 <code>frps</code></td>
+</tr>
+<tr>
+  <td>frps 通信端口</td>
+  <td><code>7000</code></td>
+  <td><code>frpc</code> 连接 <code>frps</code></td>
+</tr>
+<tr>
+  <td>NanoKVM Go 公网访问端口</td>
+  <td><code>8080</code></td>
+  <td>浏览器访问 NanoKVM Go</td>
+</tr>
+<tr>
+  <td>NanoKVM Go Web 地址</td>
+  <td><code>127.0.0.1:443</code></td>
+  <td><code>frpc</code> 转发的本地 HTTPS 服务</td>
+</tr>
+<tr>
+  <td>Token</td>
+  <td><code>replace_with_a_strong_token</code></td>
+  <td>验证 <code>frpc</code> 身份</td>
+</tr>
+</tbody>
+</table>
+<p><code>203.0.113.10</code> 是文档示例地址，不能直接使用。请将本文中的公网 IP、端口和 Token 替换为自己的实际参数。</p>
+<h2 id="%E5%9C%A8%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%AE%89%E8%A3%85-frps">在公网服务器上安装 frps</h2>
+<h3 id="%E4%B8%8B%E8%BD%BD-frp">下载 frp</h3>
+<p>先查看服务器的 CPU 架构：</p>
+
+<pre class="language-bash"><code class="language-bash">uname -m
+</code></pre>
+<p>打开 <a href="https://github.com/fatedier/frp/releases"  target="_blank">frp Releases</a>，选择与服务器架构匹配的 Linux 安装包。常见架构对应关系如下：</p>
+<table>
+<thead>
+<tr>
+  <th><code>uname -m</code> 输出</th>
+  <th>frp 安装包架构</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>x86_64</code></td>
+  <td><code>linux_amd64</code></td>
+</tr>
+<tr>
+  <td><code>aarch64</code>、<code>arm64</code></td>
+  <td><code>linux_arm64</code></td>
+</tr>
+<tr>
+  <td><code>armv7l</code></td>
+  <td><code>linux_arm_hf</code></td>
+</tr>
+<tr>
+  <td>ARMv5 等较旧 ARM 设备</td>
+  <td><code>linux_arm</code></td>
+</tr>
+<tr>
+  <td><code>riscv64</code></td>
+  <td><code>linux_riscv64</code></td>
+</tr>
+</tbody>
+</table>
+<p>本文以 frp <code>0.70.0</code> 为例，可以在发布页面中直接下载：</p>
+<ul>
+<li><a href="https://github.com/fatedier/frp/releases/tag/v0.70.0"  target="_blank">frp 0.70.0 发布页面</a></li>
+<li><a href="https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_amd64.tar.gz"  target="_blank">Linux AMD64 安装包</a></li>
+<li><a href="https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm64.tar.gz"  target="_blank">Linux ARM64 安装包</a></li>
+<li><a href="https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm_hf.tar.gz"  target="_blank">Linux ARMv7 硬浮点安装包</a></li>
+<li><a href="https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_riscv64.tar.gz"  target="_blank">Linux RISC-V 64 安装包</a></li>
+</ul>
+<p>大多数云服务器的架构为 <code>x86_64</code>。如果 <code>uname -m</code> 输出为 <code>x86_64</code>，执行以下命令下载并安装：</p>
+
+<pre class="language-bash"><code class="language-bash">wget https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_amd64.tar.gz
+tar -xzf frp_0.70.0_linux_amd64.tar.gz
+cd frp_0.70.0_linux_amd64
+sudo install -m 755 frps /usr/local/bin/frps
+</code></pre>
+<p><code>sudo install -m 755 frps /usr/local/bin/frps</code> 的作用是将当前目录下的 <code>frps</code> 程序复制到 <code>/usr/local/bin/frps</code>，并把权限设置为 <code>755</code>，也就是所有用户都可以执行，只有文件所有者可以修改。</p>
+<p>如果服务器是其他架构，请下载表格中对应的安装包，并将命令中的压缩包名称和解压目录替换为实际名称。公网服务器与 NanoKVM Go 应使用同一个 frp 版本。</p>
+<p>确认 <code>frps</code> 可以运行：</p>
+
+<pre class="language-bash"><code class="language-bash">/usr/local/bin/frps --version
+</code></pre>
+<blockquote>
+<p>建议在公网服务器和 NanoKVM Go 上安装同一版本的 frp，避免因版本差异造成配置不兼容。</p>
+</blockquote>
+<h3 id="%E5%88%9B%E5%BB%BA-frps-%E9%85%8D%E7%BD%AE">创建 frps 配置</h3>
+<p>创建配置目录：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo mkdir -p /etc/frp
+</code></pre>
+<p>创建 <code>/etc/frp/frps.toml</code>：</p>
+
+<pre class="language-toml"><code class="language-toml">bindPort = 7000
+
+auth.method = &quot;token&quot;
+auth.token = &quot;replace_with_a_strong_token&quot;
+</code></pre>
+<p>请将 <code>auth.token</code> 替换为随机生成的强 Token。可以在公网服务器上使用以下命令生成：</p>
+
+<pre class="language-bash"><code class="language-bash">openssl rand -hex 32
+</code></pre>
+<p>frps 和 frpc 配置中的 Token 必须完全一致。Token 只用于验证 frpc，不能代替 NanoKVM Go 自身的登录密码，也不能代替浏览器访问时使用的 HTTPS 证书。</p>
+<h3 id="%E5%90%AF%E5%8A%A8-frps">启动 frps</h3>
+<p>先在前台启动，以便直接观察日志：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo /usr/local/bin/frps -c /etc/frp/frps.toml
+</code></pre>
+<p>没有报错时，按 <code>Ctrl+C</code> 停止测试。前台运行方式适用于所有 Linux 系统，但关闭终端后 frps 也会停止，因此长期使用时还需要将其注册为系统服务。</p>
+<h4 id="%E7%A1%AE%E8%AE%A4-init-%E7%B3%BB%E7%BB%9F">确认 init 系统</h4>
+<p>执行以下命令查看 PID 1 对应的程序：</p>
+
+<pre class="language-bash"><code class="language-bash">ps -p 1 -o comm=
+</code></pre>
+<p>根据输出选择启动方式：</p>
+<table>
+<thead>
+<tr>
+  <th>输出示例</th>
+  <th>启动方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>systemd</code></td>
+  <td>使用 systemd</td>
+</tr>
+<tr>
+  <td><code>init</code>、<code>sysvinit</code>，并且存在 <code>/etc/init.d/</code></td>
+  <td>使用 SysV init</td>
+</tr>
+<tr>
+  <td><code>openrc-init</code></td>
+  <td>使用 OpenRC</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>是否可以使用 systemd，应以 PID 1 是否为 <code>systemd</code> 为准。系统中存在 <code>systemctl</code> 命令，并不表示当前系统已经通过 systemd 启动。</p>
+</blockquote>
+<h4 id="%E4%BD%BF%E7%94%A8-systemd-%E5%90%AF%E5%8A%A8">使用 systemd 启动</h4>
+<p>仅当 <code>ps -p 1 -o comm=</code> 输出为 <code>systemd</code> 时，才使用本节命令。</p>
+<p>创建 <code>/etc/systemd/system/frps.service</code>：</p>
+
+<pre class="language-ini"><code class="language-ini">[Unit]
+Description=frp server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/frps -c /etc/frp/frps.toml
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>加载服务并设置开机自启：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable --now frps
+sudo systemctl status frps
+</code></pre>
+<p>如果状态为 <code>active (running)</code>，表示 frps 已经启动。使用以下命令查看实时日志：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo journalctl -u frps -f
+</code></pre>
+<h4 id="%E4%BD%BF%E7%94%A8-SysV-init-%E5%90%AF%E5%8A%A8">使用 SysV init 启动</h4>
+<p>如果系统使用 SysV init，并且存在 <code>start-stop-daemon</code> 命令，可以创建 <code>/etc/init.d/frps</code>：</p>
+
+<pre class="language-sh"><code class="language-sh">#!/bin/sh
+
+DAEMON=/usr/local/bin/frps
+CONFIG=/etc/frp/frps.toml
+PIDFILE=/var/run/frps.pid
+
+case &quot;$1&quot; in
+    start)
+        if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; kill -0 &quot;$(cat &quot;$PIDFILE&quot;)&quot; 2&gt;/dev/null; then
+            echo &quot;frps is already running&quot;
+            exit 0
+        fi
+        echo &quot;Starting frps&quot;
+        start-stop-daemon --start --background --make-pidfile \
+            --pidfile &quot;$PIDFILE&quot; --exec &quot;$DAEMON&quot; -- -c &quot;$CONFIG&quot;
+        ;;
+    stop)
+        echo &quot;Stopping frps&quot;
+        start-stop-daemon --stop --pidfile &quot;$PIDFILE&quot; --retry TERM/5/KILL/5
+        rm -f &quot;$PIDFILE&quot;
+        ;;
+    restart)
+        &quot;$0&quot; stop
+        &quot;$0&quot; start
+        ;;
+    status)
+        if [ -f &quot;$PIDFILE&quot; ] &amp;&amp; kill -0 &quot;$(cat &quot;$PIDFILE&quot;)&quot; 2&gt;/dev/null; then
+            echo &quot;frps is running&quot;
+        else
+            echo &quot;frps is not running&quot;
+            exit 1
+        fi
+        ;;
+    *)
+        echo &quot;Usage: $0 {start|stop|restart|status}&quot;
+        exit 1
+        ;;
+esac
+</code></pre>
+<p>为脚本添加执行权限：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo chmod +x /etc/init.d/frps
+</code></pre>
+<p>在 Debian、Ubuntu 等使用 <code>update-rc.d</code> 的 SysV init 系统中，设置开机自启并启动服务：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo update-rc.d frps defaults
+sudo service frps start
+sudo service frps status
+</code></pre>
+<p>如果系统没有 <code>update-rc.d</code>，请使用当前发行版提供的 SysV init 服务管理命令。</p>
+<h4 id="%E6%B2%A1%E6%9C%89-systemd-%E7%9A%84%E7%8E%AF%E5%A2%83">没有 systemd 的环境</h4>
+<p>如果出现以下错误：</p>
+
+<pre class="language-text"><code class="language-text">System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+</code></pre>
+<p>说明当前环境不是通过 systemd 启动的，不能继续使用 <code>systemctl</code>。可以先使用前台命令测试 frps：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo /usr/local/bin/frps -c /etc/frp/frps.toml
+</code></pre>
+<p>如果需要长期运行，请根据当前发行版实际使用的 init 系统添加服务配置。</p>
+<h3 id="%E6%94%BE%E8%A1%8C%E5%85%AC%E7%BD%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3">放行公网服务器端口</h3>
+<p>在云服务器安全组和系统防火墙中放行：</p>
+<ul>
+<li><code>7000/tcp</code>：NanoKVM Go 上的 frpc 连接 frps；</li>
+<li><code>8080/tcp</code>：远程浏览器访问 NanoKVM Go。</li>
+</ul>
+<p>不同 Linux 发行版使用的防火墙工具可能不同。先执行：</p>
+
+<pre class="language-bash"><code class="language-bash">command -v ufw
+command -v firewall-cmd
+</code></pre>
+<p>根据命令输出选择对应的小节。不要在没有安装相关工具的系统中直接执行命令。</p>
+<h4 id="%E4%BD%BF%E7%94%A8-UFW">使用 UFW</h4>
+<p>如果 <code>command -v ufw</code> 输出了 UFW 的路径，执行：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo ufw allow 7000/tcp
+sudo ufw allow 8080/tcp
+sudo ufw status
+</code></pre>
+<p>如果终端提示 <code>ufw: command not found</code>，说明当前系统没有安装 UFW。UFW 不是运行 frps 的必要组件，请继续检查系统是否使用 firewalld、其他防火墙，或者只使用云服务器安全组。</p>
+<h4 id="%E4%BD%BF%E7%94%A8-firewalld">使用 firewalld</h4>
+<p>如果 <code>command -v firewall-cmd</code> 输出了 firewalld 的命令路径，执行：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo firewall-cmd --permanent --add-port=7000/tcp
+sudo firewall-cmd --permanent --add-port=8080/tcp
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+</code></pre>
+<h4 id="%E4%BD%BF%E7%94%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E5%85%A8%E7%BB%84">使用云服务器安全组</h4>
+<p>阿里云、华为云、腾讯云、AWS 等云服务器通常还有独立于 Linux 系统的安全组。即使服务器内部没有安装 UFW 或 firewalld，也必须在云服务器管理页面中添加入站规则：</p>
+<table>
+<thead>
+<tr>
+  <th>协议</th>
+  <th>端口</th>
+  <th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>TCP</td>
+  <td><code>7000</code></td>
+  <td>NanoKVM Go 所在网络的公网 IP；无法固定时可临时使用任意来源进行测试</td>
+</tr>
+<tr>
+  <td>TCP</td>
+  <td><code>8080</code></td>
+  <td>需要访问 NanoKVM Go 的公网 IP；无法固定时可临时使用任意来源进行测试</td>
+</tr>
+</tbody>
+</table>
+<p>测试完成后，建议将来源范围缩小到实际需要的 IP，不要长期允许所有公网地址访问。</p>
+<p>确认 frps 正在监听 <code>7000</code> 端口：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo ss -lntp | grep ':7000'
+</code></pre>
+<p>还可以确认远程访问端口是否已由 frps 监听：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo ss -lntp | grep ':8080'
+</code></pre>
+<blockquote>
+<p><code>8080</code> 端口需要在 NanoKVM Go 上的 frpc 成功连接并注册代理后才会出现。</p>
+</blockquote>
+<h2 id="%E5%9C%A8-NanoKVM-Go-%E7%BD%91%E9%A1%B5%E7%AB%AF%E5%BC%80%E5%90%AF-SSH">在 NanoKVM Go 网页端开启 SSH</h2>
+<p>NanoKVM Go 网页端没有 FRP 入口，因此需要先开启 SSH，再通过命令行安装 frpc。</p>
+<h3 id="%E7%99%BB%E5%BD%95-NanoKVM-Go">登录 NanoKVM Go</h3>
+<ol>
+<li>在浏览器中打开 NanoKVM Go 的局域网地址；</li>
+<li>输入账号和密码，登录网页控制端；</li>
+<li>确认 NanoKVM Go 当前的局域网 IP 地址。</li>
+</ol>
+<h3 id="%E6%89%93%E5%BC%80-SSH-%E8%AE%BE%E7%BD%AE">打开 SSH 设置</h3>
+<ol>
+<li>打开 NanoKVM Go 的设置页面；</li>
+</ol>
+<p><img src="../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.webp" alt="NanoKVM Go 设置页面入口" /></p>
+<ol start="2">
+<li>进入包含 SSH 开关的设置项；开启 SSH 服务；</li>
+</ol>
+<p><img src="../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.webp" alt="NanoKVM Go SSH 开关页面" /></p>
+<h3 id="%E9%80%9A%E8%BF%87-SSH-%E7%99%BB%E5%BD%95">通过 SSH 登录</h3>
+<p>在与 NanoKVM Go 位于同一局域网的电脑上打开终端，通过 SSH 登录：</p>
+
+<pre class="language-bash"><code class="language-bash">ssh &lt;SSH用户名&gt;@&lt;NanoKVM-Go局域网IP&gt;
+
+例如: ssh root@192.168.0.225
+</code></pre>
+<blockquote>
+<p>首次连接时，终端会询问是否信任设备指纹。确认 IP 地址无误后输入 <code>yes</code>，再输入 SSH 密码。用户名是 <code>root</code>，密码是 <code>sipeed</code></p>
+</blockquote>
+<h2 id="%E5%9C%A8-NanoKVM-Go-%E4%B8%8A%E5%AE%89%E8%A3%85-frpc">在 NanoKVM Go 上安装 frpc</h2>
+<p>后续命令均在 NanoKVM Go 的 SSH 终端中执行。</p>
+<h3 id="%E7%A1%AE%E8%AE%A4%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84">确认系统架构</h3>
+<p>执行：</p>
+
+<pre class="language-bash"><code class="language-bash">uname -m
+</code></pre>
+<p>NanoKVM Go 实机执行 <code>uname -m</code> 的输出为：</p>
+
+<pre class="language-text"><code class="language-text">armv7l
+</code></pre>
+<p>因此应使用 frp 的 <code>linux_arm_hf</code> 安装包。该安装包针对 ARMv7 硬浮点环境构建，不要下载 <code>linux_arm64</code>。</p>
+<h3 id="%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85-frpc">下载并安装 frpc</h3>
+<p>NanoKVM Go 的 <code>/tmp</code> 通常挂载在内存中的 tmpfs 上，空间较小。建议将安装包下载到根分区中的 <code>/root</code> 目录。</p>
+<p>执行以下命令下载并安装 frpc：</p>
+
+<pre class="language-bash"><code class="language-bash">cd /root
+wget https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm_hf.tar.gz
+tar -xzf frp_0.70.0_linux_arm_hf.tar.gz
+cd frp_0.70.0_linux_arm_hf
+mkdir -p /usr/local/bin
+cp frpc /usr/local/bin/frpc
+chmod +x /usr/local/bin/frpc
+</code></pre>
+<p>下载或解压失败时，请先确认 NanoKVM Go 可以访问 GitHub，并检查命令中的版本号和文件名是否与 Releases 页面一致。</p>
+<p>确认安装结果：</p>
+
+<pre class="language-bash"><code class="language-bash">/usr/local/bin/frpc --version
+</code></pre>
+<p>如果 NanoKVM Go 无法直接访问 GitHub，也可以先在电脑上下载安装包，再使用 <code>scp</code> 上传到设备的 <code>/root</code> 目录：</p>
+
+<pre class="language-bash"><code class="language-bash">scp frp_0.70.0_linux_arm_hf.tar.gz &lt;SSH用户名&gt;@&lt;NanoKVM-Go局域网IP&gt;:/root/
+</code></pre>
+<h3 id="%E5%88%9B%E5%BB%BA-frpc-%E9%85%8D%E7%BD%AE">创建 frpc 配置</h3>
+<p>创建配置目录：</p>
+
+<pre class="language-bash"><code class="language-bash">mkdir -p /etc/frp
+</code></pre>
+<p>创建 <code>/etc/frp/frpc.toml</code>：</p>
+
+<pre class="language-toml"><code class="language-toml">serverAddr = &quot;203.0.113.10&quot;
+serverPort = 7000
+
+auth.method = &quot;token&quot;
+auth.token = &quot;replace_with_a_strong_token&quot;
+
+[[proxies]]
+name = &quot;nanokvm-go-web&quot;
+type = &quot;tcp&quot;
+localIP = &quot;127.0.0.1&quot;
+localPort = 443
+remotePort = 8080
+</code></pre>
+<p>需要修改的参数如下：</p>
+<table>
+<thead>
+<tr>
+  <th>参数</th>
+  <th>修改内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>serverAddr</code></td>
+  <td>公网服务器的实际 IP 或域名</td>
+</tr>
+<tr>
+  <td><code>serverPort</code></td>
+  <td>frps 的 <code>bindPort</code>，本文为 <code>7000</code></td>
+</tr>
+<tr>
+  <td><code>auth.token</code></td>
+  <td>与 <code>frps.toml</code> 完全相同的 Token</td>
+</tr>
+<tr>
+  <td><code>localPort</code></td>
+  <td>NanoKVM Go Web 服务的实际监听端口，本文使用 HTTPS 端口 <code>443</code></td>
+</tr>
+<tr>
+  <td><code>remotePort</code></td>
+  <td>公网访问端口，本文为 <code>8080</code></td>
+</tr>
+</tbody>
+</table>
+<p>先检查本地 Web 服务是否可以访问：</p>
+
+<pre class="language-bash"><code class="language-bash">wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
+</code></pre>
+<p>NanoKVM Go 的 HTTP 端口可能会重定向到 HTTPS。若直接访问 <code>http://127.0.0.1:80</code> 后看到 <code>307 Temporary Redirect</code>，并跳转到 <code>https://127.0.0.1/</code>，属于正常现象。由于设备使用的证书通常不是公网可信证书，使用 <code>wget</code> 测试时需要加上 <code>--no-check-certificate</code>。</p>
+<p>如果连接被拒绝，请先确认 NanoKVM Go Web 服务的实际端口，再修改 <code>localPort</code>。</p>
+<h3 id="%E6%B5%8B%E8%AF%95-frpc-%E8%BF%9E%E6%8E%A5">测试 frpc 连接</h3>
+<p>在前台启动 frpc：</p>
+
+<pre class="language-bash"><code class="language-bash">/usr/local/bin/frpc -c /etc/frp/frpc.toml
+</code></pre>
+<p>日志中出现 <code>login to server success</code> 和 <code>start proxy success</code> 等成功信息时，表示 frpc 已连接到 frps，并已注册代理。</p>
+<p>保持该终端运行，在外部网络的浏览器中访问：</p>
+
+<pre class="language-text"><code class="language-text">https://203.0.113.10:8080
+</code></pre>
+<p>将示例 IP 替换为公网服务器的实际 IP。首次访问时，浏览器可能提示证书不受信任；确认访问的是自己的服务器后，可以继续访问测试。如果可以打开 NanoKVM Go 登录页面，说明 TCP 转发配置正确。完成测试后，返回 SSH 终端并按 <code>Ctrl+C</code> 停止 frpc。</p>
+<p><img src="../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.webp" alt="frpc 成功连接 frps" /></p>
+<h3 id="%E8%AE%BE%E7%BD%AE-frpc-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF">设置 frpc 开机自启</h3>
+<p>NanoKVM Go 使用 systemd 管理系统服务。创建 <code>/etc/systemd/system/frpc.service</code>：</p>
+
+<pre class="language-ini"><code class="language-ini">[Unit]
+Description=frp client for NanoKVM Go
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/frpc -c /etc/frp/frpc.toml
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>加载服务并设置开机自启：</p>
+
+<pre class="language-bash"><code class="language-bash">systemctl daemon-reload
+systemctl enable --now frpc
+systemctl status frpc
+</code></pre>
+<p>查看实时日志：</p>
+
+<pre class="language-bash"><code class="language-bash">journalctl -u frpc -f
+</code></pre>
+<p>重启 NanoKVM Go 后，再次执行 <code>systemctl status frpc</code>，确认服务可以自动启动并重新连接 frps。</p>
+<h2 id="%E4%BB%8E%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE-NanoKVM-Go">从外网访问 NanoKVM Go</h2>
+<p>为了确认访问流量确实经过公网，请将电脑或手机切换到其他网络，例如手机热点或移动数据网络，然后：</p>
+<ol>
+<li>在浏览器中访问 <code>https://&lt;公网服务器IP&gt;:8080</code>；</li>
+<li>使用 NanoKVM Go 的账号和密码登录；</li>
+<li>测试远程画面、键盘、鼠标和电源控制；</li>
+<li>刷新页面，确认视频和控制功能仍能正常工作。</li>
+</ol>
+<p>TCP 代理会原样转发 HTTPS 和 WebSocket 连接，通常不需要单独配置 WebSocket。如果页面能打开但画面或控制功能异常，请查看浏览器开发者工具、frpc 日志和 frps 日志。</p>
+<h2 id="%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E5%92%8C-HTTPS%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89">配置域名和 HTTPS（可选）</h2>
+<p>基础示例中的 <code>https://&lt;公网IP&gt;:8080</code> 使用的是 NanoKVM Go 自身证书，浏览器可能提示证书不受信任。如果有可用域名，可以将域名解析到 frps 服务器，并使用 Nginx 或 Caddy 提供可信 HTTPS 反向代理。</p>
+<p>以 Nginx 为例，可以让 Nginx 监听 <code>443</code>，再将请求转发到 frp 暴露在服务器本机的 <code>8080</code> 端口：</p>
+
+<pre class="language-nginx"><code class="language-nginx">server {
+    listen 443 ssl;
+    server_name kvm.example.com;
+
+    ssl_certificate /path/to/fullchain.pem;
+    ssl_certificate_key /path/to/privkey.pem;
+
+    location / {
+        proxy_pass https://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_ssl_verify off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;upgrade&quot;;
+        proxy_read_timeout 3600s;
+    }
+}
+</code></pre>
+<p>配置步骤概括如下：</p>
+<ol>
+<li>将域名的 A 记录指向 frps 服务器公网 IP；</li>
+<li>在服务器上安装 Nginx 或 Caddy；</li>
+<li>为域名申请 TLS 证书；</li>
+<li>将 HTTPS 请求反向代理到 <code>https://127.0.0.1:8080</code>；</li>
+<li>在安全组和防火墙中放行 <code>443/tcp</code>；</li>
+<li>确认 <code>https://kvm.example.com</code> 可以访问后，关闭公网入站的 <code>8080/tcp</code>。</li>
+</ol>
+<p>配置 HTTPS 后，应通过云安全组和服务器防火墙拒绝 <code>8080/tcp</code> 的公网入站流量，仅允许服务器本机的 Nginx 访问该端口。不要在 HTTPS 配置完成后继续将 HTTP 端口公开在互联网中。</p>
+<h2 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</h2>
+<h3 id="frpc-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5-frps">frpc 无法连接 frps</h3>
+<p>依次检查：</p>
+<ul>
+<li><code>serverAddr</code> 和 <code>serverPort</code> 是否正确；</li>
+<li>frps 是否为 <code>active (running)</code>；</li>
+<li><code>7000/tcp</code> 是否已在云安全组和系统防火墙中放行；</li>
+<li>frps 和 frpc 的 Token 是否完全一致；</li>
+<li>公网服务器和 NanoKVM Go 的 frp 版本是否兼容；</li>
+<li>NanoKVM Go 是否可以访问互联网和公网服务器。</li>
+</ul>
+<p>可以在 NanoKVM Go 上测试端口连通性：</p>
+
+<pre class="language-bash"><code class="language-bash">nc -vz &lt;公网服务器IP&gt; 7000
+</code></pre>
+<p>如果系统没有 <code>nc</code>，也可以直接观察 frpc 的连接日志。</p>
+<h3 id="frpc-%E5%B7%B2%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%86%E5%85%AC%E7%BD%91%E7%AB%AF%E5%8F%A3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE">frpc 已连接，但公网端口无法访问</h3>
+<p>检查：</p>
+<ul>
+<li><code>remotePort</code> 是否被其他程序或其他 frp 代理占用；</li>
+<li><code>8080/tcp</code> 是否已在云安全组和系统防火墙中放行；</li>
+<li>frpc 日志中是否显示代理启动成功；</li>
+<li>frps 日志中是否出现 <code>nanokvm-go-web</code>；</li>
+<li>浏览器使用的是 <code>https://</code>，而不是 <code>http://</code>。</li>
+</ul>
+<p>在公网服务器上确认端口是否正在监听：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo ss -lntp | grep ':8080'
+</code></pre>
+<h3 id="%E9%A1%B5%E9%9D%A2%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%88%96%E8%BF%94%E5%9B%9E%E8%BF%9E%E6%8E%A5%E6%8B%92%E7%BB%9D">页面无法打开或返回连接拒绝</h3>
+<p>在 NanoKVM Go 上执行：</p>
+
+<pre class="language-bash"><code class="language-bash">wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
+</code></pre>
+<p>如果本地访问也失败，说明 <code>localIP</code> 或 <code>localPort</code> 不正确，或者 NanoKVM Go Web 服务没有运行。</p>
+<h3 id="%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E6%8F%90%E7%A4%BA%E8%AF%81%E4%B9%A6%E4%B8%8D%E5%8F%97%E4%BF%A1%E4%BB%BB">本地测试提示证书不受信任</h3>
+<p>如果执行 <code>wget -S -O /dev/null http://127.0.0.1:80</code> 后看到 <code>307 Temporary Redirect</code>，并跳转到 <code>https://127.0.0.1/</code>，说明 NanoKVM Go 会自动使用 HTTPS。随后出现以下证书错误通常是正常的：</p>
+
+<pre class="language-text"><code class="language-text">ERROR: The certificate of '127.0.0.1' is not trusted.
+ERROR: The certificate's owner does not match hostname '127.0.0.1'
+</code></pre>
+<p>这是因为 NanoKVM Go 使用的证书不是为 <code>127.0.0.1</code> 签发的公网可信证书。测试本机 HTTPS 服务时，使用：</p>
+
+<pre class="language-bash"><code class="language-bash">wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
+</code></pre>
+<p>frpc 配置中也应转发 <code>localPort = 443</code>。</p>
+<h3 id="%E9%A1%B5%E9%9D%A2%E8%83%BD%E6%89%93%E5%BC%80%EF%BC%8C%E4%BD%86%E8%A7%86%E9%A2%91%E6%88%96%E6%8E%A7%E5%88%B6%E5%8A%9F%E8%83%BD%E5%BC%82%E5%B8%B8">页面能打开，但视频或控制功能异常</h3>
+<p>检查：</p>
+<ul>
+<li>浏览器开发者工具中是否存在 WebSocket 连接错误；</li>
+<li>frpc 和 frps 是否频繁断线或重连；</li>
+<li>Nginx/Caddy 是否正确转发 WebSocket Upgrade 请求；</li>
+<li>HTTPS 页面是否加载了 HTTP 资源；</li>
+<li>公网服务器带宽和 NanoKVM Go 所在网络的上行带宽是否足够。</li>
+</ul>
+<h3 id="%E9%87%8D%E5%90%AF%E5%90%8E-frpc-%E6%B2%A1%E6%9C%89%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C">重启后 frpc 没有自动运行</h3>
+<p>在 NanoKVM Go 上执行：</p>
+
+<pre class="language-bash"><code class="language-bash">systemctl status frpc
+journalctl -u frpc -b
+</code></pre>
+<p>检查服务是否已启用、配置文件路径是否正确，以及网络就绪后 frpc 能否连接 frps。</p>
+<h2 id="%E5%81%9C%E7%94%A8-frp">停用 frp</h2>
+<h3 id="%E4%B8%B4%E6%97%B6%E5%81%9C%E7%94%A8">临时停用</h3>
+<p>如果只是暂时不使用 frp，并希望以后继续使用，可以停止服务并取消开机自启，同时保留程序和配置文件。</p>
+<p>在 NanoKVM Go 上停止并禁用 frpc：</p>
+
+<pre class="language-bash"><code class="language-bash">systemctl disable --now frpc
+</code></pre>
+<p>如果公网服务器使用 systemd，停止并禁用 frps：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo systemctl disable --now frps
+</code></pre>
+<p>如果公网服务器使用 SysV init，停止 frps 并取消开机自启：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo service frps stop
+sudo update-rc.d -f frps remove
+</code></pre>
+<p>需要恢复 NanoKVM Go 上的 systemd 服务时，执行：</p>
+
+<pre class="language-bash"><code class="language-bash">systemctl enable --now frpc
+</code></pre>
+<p>需要恢复公网服务器上的 systemd 服务时，执行：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo systemctl enable --now frps
+</code></pre>
+<p>需要恢复公网服务器上的 SysV init 服务时，执行：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo update-rc.d frps defaults
+sudo service frps start
+</code></pre>
+<blockquote>
+<p>只执行与当前 init 系统对应的命令。如果公网服务器使用其他服务管理器，请使用对应的停止和禁用命令。</p>
+</blockquote>
+<h3 id="%E5%BD%BB%E5%BA%95%E5%8D%B8%E8%BD%BD">彻底卸载</h3>
+<p>frp 是通过手动复制二进制文件安装的，不受 <code>apt</code>、<code>dnf</code> 等软件包管理器管理。彻底卸载时，需要手动删除服务、程序和配置文件。</p>
+<p>在 NanoKVM Go 上先停止 frpc，并删除 systemd 服务文件：</p>
+
+<pre class="language-bash"><code class="language-bash">systemctl disable --now frpc
+rm -f /etc/systemd/system/frpc.service
+systemctl daemon-reload
+</code></pre>
+<p>然后在 NanoKVM Go 上删除 frpc 程序和配置：</p>
+
+<pre class="language-bash"><code class="language-bash">rm -f /usr/local/bin/frpc
+rm -f /etc/frp/frpc.toml
+rmdir /etc/frp 2&gt;/dev/null || true
+</code></pre>
+<p>删除 NanoKVM Go 中下载和解压产生的临时文件：</p>
+
+<pre class="language-bash"><code class="language-bash">rm -f /root/frp_0.70.0_linux_arm_hf.tar.gz
+rm -rf /root/frp_0.70.0_linux_arm_hf
+</code></pre>
+<p>如果实际下载的是其他版本或架构，请将文件名替换为实际名称。</p>
+<p>如果公网服务器使用 systemd，先删除 frps 服务：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo systemctl disable --now frps
+sudo rm -f /etc/systemd/system/frps.service
+sudo systemctl daemon-reload
+</code></pre>
+<p>如果公网服务器使用 SysV init，先删除 frps 服务：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo service frps stop
+sudo update-rc.d -f frps remove
+sudo rm -f /etc/init.d/frps
+</code></pre>
+<p>完成对应的服务清理后，删除 frps 程序和配置：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo rm -f /usr/local/bin/frps
+sudo rm -f /etc/frp/frps.toml
+sudo rmdir /etc/frp 2&gt;/dev/null || true
+</code></pre>
+<p>公网服务器上的 frp 压缩包和解压目录位于此前执行下载命令的目录中。确认目录和文件名无误后，可以将其删除。</p>
+<h3 id="%E6%B8%85%E7%90%86%E9%98%B2%E7%81%AB%E5%A2%99%E5%92%8C%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE">清理防火墙和其他配置</h3>
+<p>如果安装并使用了 UFW，删除本文添加的放行规则：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo ufw delete allow 7000/tcp
+sudo ufw delete allow 8080/tcp
+</code></pre>
+<p>如果安装并使用了 firewalld，执行：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo firewall-cmd --permanent --remove-port=7000/tcp
+sudo firewall-cmd --permanent --remove-port=8080/tcp
+sudo firewall-cmd --reload
+</code></pre>
+<p>最后还需要检查并清理：</p>
+<ul>
+<li>云服务器安全组中的 <code>7000/tcp</code>、<code>8080/tcp</code> 等 frp 端口；</li>
+<li>专门为 NanoKVM Go 创建的 Nginx 或 Caddy 配置；</li>
+<li>不再使用的 TLS 证书；</li>
+<li>不再使用的域名 DNS 记录。</li>
+</ul>
+<blockquote>
+<p>如果相应防火墙命令不存在，可以跳过该组命令。如果端口、反向代理或证书还被其他服务使用，请不要直接删除对应配置。</p>
+</blockquote>
+<h2 id="%E5%AE%89%E5%85%A8%E5%BB%BA%E8%AE%AE">安全建议</h2>
+<ul>
+<li>为 NanoKVM Go 设置独立的强密码；</li>
+<li>使用随机生成的强 Token，不要使用本文示例值；</li>
+<li>不要对公网开放 frps Dashboard；</li>
+<li>仅开放实际需要的端口，并尽可能通过防火墙限制来源 IP；</li>
+<li>有域名时，可以配置可信 HTTPS 反向代理；</li>
+<li>定期更新 NanoKVM Go、frp 和公网服务器系统；</li>
+<li>定期检查 frpc、frps 和反向代理日志；</li>
+<li>不再使用时立即停止服务并关闭公网端口。</li>
+</ul>
+<h2 id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</h2>
+<ul>
+<li><a href="https://gofrp.org/zh-cn/"  target="_blank">frp 官方文档</a></li>
+<li><a href="https://github.com/fatedier/frp"  target="_blank">frp GitHub 仓库</a></li>
+<li><a href="https://github.com/fatedier/frp/releases"  target="_blank">frp Releases</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/zh/kvm/NanoKVM_Go/network/tailscale.html">
+                            <span class="icon"></span>
+                            <span class="label">Tailscale</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/zh/kvm/NanoKVM_Go/network/static_ip.html">
+                            <span class="label">静态 IP</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101D</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
