@@ -565,6 +565,8 @@ items:
             file: kvm/NanoKVM_Go/memory_weaving.md
         -   label: KVM App Update
             file: kvm/NanoKVM_Go/system/updating.md
+        -   label: Two-Factor Authentication
+            file: kvm/NanoKVM_Go/two_factor_authentication.md
         -   label: Network
             items:
             -   label: Tailscale
