@@ -10,7 +10,7 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 Before flashing, prepare the following items:
 
 - NanoKVM Go;
-- a SIM eject pin or another tool that can press and hold the Reset button;
+- a SIM eject pin or another tool that can press and hold the flashing-mode button;
 - a USB data cable;
 - a Windows computer;
 - the NanoKVM Go image file;
@@ -20,7 +20,7 @@ Before flashing, prepare the following items:
 
 Download the latest NanoKVM Go image from GitHub.
 
-Image download link: TODO
+Image download link: [NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
 ## Download the Flashing Tool
 
@@ -30,21 +30,23 @@ Download and install [ImageUSB](https://www.osforensics.com/tools/write-usb-imag
 
 ## Enter Flashing Mode
 
-1. Disconnect the USB cable from NanoKVM Go.
+1. Disconnect the USB cable from NanoKVM Go to power off the device.
 
-2. Use the SIM eject pin to press and hold the Reset button on NanoKVM Go.
+2. Open ImageUSB on the computer.
 
-![Press and hold the NanoKVM Go Reset button with a SIM eject pin](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_press_reset.webp)
+3. Insert the SIM eject pin through the opening and press and hold the flashing-mode button on NanoKVM Go.
 
-3. Keep holding the Reset button, connect the USB data cable to the NanoKVM Go data port, and connect the other end to the computer.
+![Press and hold the NanoKVM Go flashing-mode button with a SIM eject pin](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_press_reset.webp)
 
-![Hold Reset and connect the NanoKVM Go data port](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_connect_data_port.webp)
+4. Keep holding the flashing-mode button, insert the USB data cable connected to the computer into the NanoKVM Go data port (Data Port).
 
-4. Open ImageUSB and wait until it detects the USB device for NanoKVM Go.
+![Hold the flashing-mode button and connect the NanoKVM Go data port](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_connect_data_port.webp)
 
-![NanoKVM Go device detected in ImageUSB](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_device_detected.webp)
+5. Click the Refresh Drives button in ImageUSB.
 
-5. Release the Reset button after the device is detected.
+![NanoKVM Go device detected in ImageUSB](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_refresh_drives.webp)
+
+6. Release the flashing-mode button after the device is detected.
 
 ## Flash the Image with ImageUSB
 

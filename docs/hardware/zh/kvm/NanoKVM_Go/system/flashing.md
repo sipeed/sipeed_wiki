@@ -10,7 +10,7 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 烧录前请先准备：
 
 - NanoKVM Go；
-- 取卡针或其他可以按住 Reset 按键的工具；
+- 取卡针或其他可以按住烧录模式按键的工具；
 - USB 数据线；
 - Windows 电脑；
 - NanoKVM Go 镜像文件；
@@ -20,7 +20,7 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 前往 GitHub 下载最新版 NanoKVM Go 镜像。
 
-镜像下载链接：TODO
+镜像下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
 
 ## 下载烧录工具
@@ -31,22 +31,23 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 ## 进入烧录模式
 
-1. 断开 NanoKVM Go 的 USB 连接；
+1. 断开 NanoKVM Go 的 USB 连接，使设备整体处于关机状态；
 
-2. 使用取卡针按住 NanoKVM Go 的 Reset 按键；
+2. 电脑上打开 ImageUSB；
 
-![使用取卡针按住 NanoKVM Go Reset 按键](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_press_reset.webp)
+3. 使用取卡针通过按键孔按住 NanoKVM Go 的烧录模式按键；
 
-3. 保持按住 Reset 按键，将 USB 数据线插入 NanoKVM Go 的数据接口(Data Port)，并连接到电脑；
+![使用取卡针按住 NanoKVM Go 烧录模式按键](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_press_reset.webp)
 
-![按住 Reset 按键并连接 NanoKVM Go 数据接口](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_connect_data_port.webp)
+4. 保持按住烧录模式按键，将连接电脑的 USB 数据线插入 NanoKVM Go 的数据接口(Data Port)；
 
-4. 打开 ImageUSB，等待软件识别到 NanoKVM Go 对应的 USB 设备;
+![按住烧录模式按键并连接 NanoKVM Go 数据接口](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_connect_data_port.webp)
 
-![ImageUSB 识别到 NanoKVM Go 设备](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_device_detected.webp)
+5. 点击 ImageUSB的 Refresh Drives 按钮；
 
-5. 识别成功后，松开 Reset 按键。
+![ImageUSB 识别到 NanoKVM Go 设备](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_refresh_drives.webp)
 
+6. 识别成功后，松开烧录模式按键。
 
 
 ## 使用 ImageUSB 烧录镜像
