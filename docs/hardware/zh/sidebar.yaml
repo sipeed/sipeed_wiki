@@ -566,6 +566,8 @@ items:
             file: kvm/NanoKVM_Go/memory_weaving.md
         -   label: KVM 应用更新
             file: kvm/NanoKVM_Go/system/updating.md
+        -   label: 双重验证
+            file: kvm/NanoKVM_Go/two_factor_authentication.md
         -   label: 网络
             items:
             -   label: Tailscale
