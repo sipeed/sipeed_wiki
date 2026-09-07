@@ -9,7 +9,11 @@ The NanoKVM Go screen is used to show device status and access common settings. 
 
 ### Main Screen
 
-The main screen shows network status, device IP address, current resolution, frame rate, and device status. After network configuration is complete, you can check the current IP address of NanoKVM Go here.
+The main screen shows network status, the device IP address, the current video resolution and frame rate, and the status of keyboard and mouse input. After network configuration is complete, you can check the current IP address of NanoKVM Go here.
+
+The keyboard area to the right of the resolution and frame rate displays keyboard input status. Special keys, such as Cmd and Ctrl, are shown above, while regular keys, such as C and A, are shown below. In the example below, Cmd and C are displayed simultaneously, indicating that NanoKVM Go is receiving a Cmd+C key combination.
+
+The mouse arrow at the far right indicates mouse input status. It lights up when the mouse is being controlled.
 
 ![NanoKVM Go main screen](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-main-screen.webp)
 
