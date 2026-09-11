@@ -572,6 +572,10 @@ items:
                 file: kvm/NanoKVM_Go/network/tailscale.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
+            -   label: 花生壳
+                file: kvm/NanoKVM_Go/network/phtunnel.md
+            -   label: Cloudflare Tunnel
+                file: kvm/NanoKVM_Go/network/cloudflare_tunnel.md
             -   label: 静态 IP
                 file: kvm/NanoKVM_Go/network/static_ip.md
         -   label: 系统

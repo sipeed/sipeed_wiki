@@ -571,6 +571,8 @@ items:
                 file: kvm/NanoKVM_Go/network/tailscale.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
+            -   label: Cloudflare Tunnel
+                file: kvm/NanoKVM_Go/network/cloudflare_tunnel.md
             -   label: Static IP
                 file: kvm/NanoKVM_Go/network/static_ip.md
         -   label: System
