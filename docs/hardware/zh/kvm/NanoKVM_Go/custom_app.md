@@ -99,9 +99,6 @@ Sipeed 官方仓库 [NanoKVM-Go-Apps](https://github.com/sipeed/NanoKVM-Go-Apps)
 
 ![选择并启动已安装的 APP](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-device-app-list.webp)
 
-
-<a id="upload-zip-install-app"></a>
-
 ### 上传 ZIP 安装 APP
 
 从其他渠道取得 APP，或需要安装自己开发的 APP 时，可以上传 ZIP 文件。ZIP 内必须只有一个顶层 APP 目录，例如：
@@ -131,8 +128,6 @@ example-app.zip
 ![ZIP 安装成功日志](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-zip-install-log-zh.webp)
 
 5. 回到设备触摸屏的 `Apps` 页面，选择对应 APP 启动。
-
-<a id="exit-app"></a>
 
 ### 退出 APP
 
@@ -352,7 +347,7 @@ hello-world.zip
 zip -r hello-world.zip hello-world
 ```
 
-然后按照[上传 ZIP 安装 APP](#upload-zip-install-app)中的流程安装 `hello-world.zip`。安装时请注意：
+然后按照[上传 ZIP 安装 APP](#上传-ZIP-安装-APP)中的流程安装 `hello-world.zip`。安装时请注意：
 
 - 如果声明了 `app.json.env`，网页会在安装前显示环境变量表单；
 - `Installation log` 会实时显示上传、校验、解压和生命周期脚本的输出，请等日志显示安装成功后再关闭窗口；
@@ -494,7 +489,7 @@ icon_path = APP_DIR / "assets" / "icon.png"
 
 `ctx.poll()` 返回的事件包括 `tap`、`up`、`down`、`left`、`right`，坐标已经转换到旋转后的逻辑坐标系。
 
-主机保留了[左边缘退出手势](#exit-app)。APP 自己定义横向滑动操作时，建议不要把控件放在左边缘区域，以免用户退出 APP 时同时触发其他操作。触摸设备不可用时，主机会拒绝启动 APP。
+主机保留了[左边缘退出手势](#退出-APP)。APP 自己定义横向滑动操作时，建议不要把控件放在左边缘区域，以免用户退出 APP 时同时触发其他操作。触摸设备不可用时，主机会拒绝启动 APP。
 
 ### 运行环境和安全
 

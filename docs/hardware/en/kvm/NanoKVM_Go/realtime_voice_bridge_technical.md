@@ -264,8 +264,6 @@ Acceptance must cover MCP, WebRTC, model input, model output, the final controll
 
 If local Opus is normal but the controlled host still has crackling or dropped audio, capture and time-align the pre-encode PCM, sent Opus, audio received by NanoKVM Server, pre-UAC-write audio, and final controlled-host recording. Use those captures to locate the layer where format or pacing breaks.
 
-<a id="use-ai-complete-integration"></a>
-
 ## Use AI to Complete an Integration
 
 After understanding the interfaces and data flow above, you can ask an AI system with code-editing, terminal, and MCP access to complete the implementation on top of the official example. Recommended flow:

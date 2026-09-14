@@ -5,7 +5,7 @@ keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 
 ## 账号与密码
 
-### <a id="default-password"></a>NanoKVM Go 的 SSH 默认账号和密码是什么？
+### NanoKVM Go 的 SSH 默认账号和密码是什么？
 
 NanoKVM Go 的 SSH 默认账号为 `root`，默认密码为 `sipeed`。
 
@@ -25,7 +25,7 @@ ssh root@<NanoKVM Go 的局域网 IP>
 
 被控设备的 USB-C 接口必须支持 DP Alt 模式（即能通过 USB-C 口输出 DP 信号），且线缆为全功能 USB-C 数据线，NanoKVM Go 才能获取到视频信号。如果接口不支持视频输出，或使用的只是普通充电线，则无法显示画面。
 
-### <a id="edid-4k50-beta"></a>3840 × 2160 @ 50 Hz EDID 目前为 Beta
+### 3840 × 2160 @ 50 Hz EDID 目前为 Beta {#edid-4k50-beta}
 
 `3840 × 2160 @ 50 Hz` EDID 目前仍是实验性功能。该模式已经可以使用，但部分设备可能存在兼容性问题，画面也可能不稳定。如果遇到异常，建议切换到 `3840 × 2160 @ 30 Hz` 或更低分辨率的 EDID。
 
@@ -113,7 +113,7 @@ ssh root@<NanoKVM Go 的局域网 IP>
 
 ### iPad Pro 修复 iPhone 拖拽后无法控制鼠标
 
-iPad Pro 修复 iPhone 拖拽后，有鼠标显示但是无法控制鼠标，这是由于辅助触控没有开启，具体开启方法可以通过[手机连接注意事项](https://wiki.sipeed.com/hardware/zh/kvm/NanoKVM_Go/quick_start.html#%E6%89%8B%E6%9C%BA%E8%BF%9E%E6%8E%A5%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 来开启
+iPad Pro 修复 iPhone 拖拽后，有鼠标显示但是无法控制鼠标，这是由于辅助触控没有开启，具体开启方法可以通过[手机连接注意事项](./quick_start.html#手机连接注意事项) 来开启
 
 ## 音频问题
 
