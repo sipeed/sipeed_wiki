@@ -3,6 +3,20 @@ title: F&Q
 keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 ---
 
+## 账号与密码
+
+### <a id="default-password"></a>NanoKVM Go 的 SSH 默认账号和密码是什么？
+
+NanoKVM Go 的 SSH 默认账号为 `root`，默认密码为 `sipeed`。
+
+使用前请先登录 NanoKVM Go 网页控制端，进入 `设置` > `设备`，开启 SSH 服务；然后在与 NanoKVM Go 位于同一局域网的电脑上执行：
+
+```bash
+ssh root@<NanoKVM Go 的局域网 IP>
+```
+
+> 首次连接时，终端会询问是否信任设备指纹。确认 IP 地址无误后输入 `yes`，再输入密码 `sipeed`。输入密码时终端不会显示字符，属于正常现象。出于安全考虑，请不要将开启了 SSH 服务的设备直接暴露到公网。
+
 ## 视频问题
 
 ### 连接到设备后显示“无视频信号”

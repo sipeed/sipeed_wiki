@@ -224,8 +224,6 @@ NanoKVM Go 默认网页登录账号为 `admin`，默认密码为 `admin`。首�
 
 ![NanoKVM Go 修改密码](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password.webp)
 
-修改密码会同时更新网页登录密码和系统 `root` 用户密码（SSH 登录密码）。修改完成后，请使用新密码重新登录。
-
 ### 忘记密码重置
 
 如果忘记网页登录密码，只能通过恢复出厂设置来重设密码。恢复出厂设置会清除当前设备配置。

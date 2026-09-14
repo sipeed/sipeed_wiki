@@ -28,7 +28,7 @@ Run the following in Windows PowerShell or another terminal:
 ssh root@192.168.255.255
 ```
 
-Replace `192.168.255.255` with the actual LAN IP address of your NanoKVM Go. On the first connection, check that the IP address is correct, type `yes` to accept the device fingerprint, then enter the SSH password.
+Replace `192.168.255.255` with the actual LAN IP address of your NanoKVM Go. On the first connection, check that the IP address is correct, type `yes` to accept the device fingerprint, then enter the SSH password. The default SSH username is `root` and the default password is `sipeed`; see the [FAQ](../faq.html#default-password).
 
 ### Install cloudflared
 

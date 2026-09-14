@@ -28,7 +28,7 @@ Cloudflare Tunnel 通过运行在 NanoKVM Go 上的 `cloudflared` 主动连接 C
 ssh root@192.168.255.255
 ```
 
-将 `192.168.255.255` 替换为 NanoKVM Go 的实际局域网 IP。首次连接时，确认 IP 地址无误后输入 `yes` 接受设备指纹，再输入 SSH 密码。
+将 `192.168.255.255` 替换为 NanoKVM Go 的实际局域网 IP。首次连接时，确认 IP 地址无误后输入 `yes` 接受设备指纹，再输入 SSH 密码。NanoKVM Go 的 SSH 默认账号为 `root`，默认密码为 `sipeed`，详见[常见问题](../faq.html#default-password)。
 
 ### 安装 cloudflared
 

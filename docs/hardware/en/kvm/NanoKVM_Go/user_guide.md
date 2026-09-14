@@ -216,15 +216,13 @@ It is recommended to change the default password after the first login. Click th
 
 ![NanoKVM Go settings entry](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-toolbar-settings-en.webp)
 
-On the settings page, select `Account` on the left, then click `Modify` in the `Password` row.
+On the settings page, select `Account` on the left, then click `Change` in the `Password` row.
 
 ![NanoKVM Go account settings page](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-account-settings-en.webp)
 
-On the change password page, enter the username and new password, then enter the new password again to confirm. After checking that the information is correct, click `Confirm` to save it.
+On the change password page, enter the username and new password, then enter the new password again to confirm. After checking that the information is correct, click `Ok` to save it.
 
 ![NanoKVM Go change password](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-change-password-en.webp)
-
-Changing the password updates both the web login password and the system `root` user password (SSH login password). After changing the password, log in again with the new password.
 
 ### Reset Forgotten Password
 
