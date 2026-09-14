@@ -3,6 +3,20 @@ title: F&Q
 keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 ---
 
+## Account & Password
+
+### <a id="default-password"></a>What are the default SSH username and password for NanoKVM Go?
+
+The default SSH username for NanoKVM Go is `root`, and the default password is `sipeed`.
+
+Before connecting, open the NanoKVM Go web console, go to `Settings` > `Device`, and enable the SSH service. Then run the following command on a computer on the same LAN as NanoKVM Go:
+
+```bash
+ssh root@<NanoKVM Go LAN IP>
+```
+
+> On the first connection, the terminal asks whether to trust the device fingerprint. After confirming that the IP address is correct, enter `yes`, then enter the password `sipeed`. The terminal does not display characters while you type the password; this is normal. For security, do not expose a device with SSH enabled directly to the public internet.
+
 ## Video Issues
 
 ### "No video signal" when connected to the host device
