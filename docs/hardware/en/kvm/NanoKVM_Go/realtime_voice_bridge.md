@@ -197,7 +197,7 @@ Exit Voice Bridge, save the new configuration from `Settings > Apps > Installed`
 
 ### How to Exit the App
 
-After Voice Bridge exits, it closes the model, WebRTC, and media sessions, and it does not keep playing audio in the background. For the common App exit gesture and management method, see [Custom Apps: Exit an App](./custom_app.html#exit-app).
+After Voice Bridge exits, it closes the model, WebRTC, and media sessions, and it does not keep playing audio in the background. For the common App exit gesture and management method, see [Custom Apps: Exit an App](./custom_app.html#Exit-an-App).
 
 ## Learn More and Customize
 

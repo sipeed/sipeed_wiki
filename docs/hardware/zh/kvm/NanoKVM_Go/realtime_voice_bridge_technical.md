@@ -264,8 +264,6 @@ WebSocket JSON 中的 PCM 使用 Base64 编解码；上行可累计 100 ms / 320
 
 如果本地 Opus 正常而被控主机仍有爆音或吞音，应按时间对齐采集编码前 PCM、发送 Opus、NanoKVM Server 接收音频、UAC 写入前音频和被控主机最终录音，从中定位发生格式或节拍错误的层级。
 
-<a id="use-ai-complete-integration"></a>
-
 ## 使用 AI 完成接入
 
 理解上述接口和数据流后，可以让具备代码编辑、终端和 MCP 访问能力的 AI 在官方示例上完成实现。推荐流程如下：

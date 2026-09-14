@@ -99,8 +99,6 @@ The log shows repository access, validation, extraction, installation scripts, a
 
 ![Select and launch an installed App](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-device-app-list.webp)
 
-<a id="upload-zip-install-app"></a>
-
 ### Install an App from a ZIP File
 
 You can upload a ZIP file to install an App obtained elsewhere or one that you developed yourself. The ZIP archive must contain exactly one top-level App directory:
@@ -130,8 +128,6 @@ To install the ZIP file:
 ![Successful ZIP installation log](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-zip-install-log-en.webp)
 
 5. open the `Apps` page on the device touchscreen and select the App.
-
-<a id="exit-app"></a>
 
 ### Exit an App
 
@@ -351,7 +347,7 @@ Create the archive in a **local terminal**:
 zip -r hello-world.zip hello-world
 ```
 
-Install `hello-world.zip` by following [Install an App from a ZIP File](#upload-zip-install-app). During installation:
+Install `hello-world.zip` by following [Install an App from a ZIP File](#Install-an-App-from-a-ZIP-File). During installation:
 
 - if `app.json.env` is defined, the web interface displays an environment-variable form before installation;
 - the `Installation log` displays upload, validation, extraction, and lifecycle-script output in real time. Keep it open until installation succeeds;
@@ -494,7 +490,7 @@ Always base the layout on `ctx.width`, `ctx.height`, and `ctx.fb.rotate`; do not
 
 `ctx.poll()` returns `tap`, `up`, `down`, `left`, and `right` events. Their coordinates are already transformed into the rotated logical coordinate system.
 
-The host reserves the [left-edge exit gesture](#exit-app). Avoid placing controls that require horizontal swipes on the left edge, because they could be triggered while a user exits the App. The host refuses to launch an App if the touch device is unavailable.
+The host reserves the [left-edge exit gesture](#Exit-an-App). Avoid placing controls that require horizontal swipes on the left edge, because they could be triggered while a user exits the App. The host refuses to launch an App if the touch device is unavailable.
 
 ### Runtime and Security
 

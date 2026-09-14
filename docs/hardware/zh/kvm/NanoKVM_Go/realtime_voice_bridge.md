@@ -203,7 +203,7 @@ Voice Bridge 的安装脚本会自动安装编译依赖，并把固定版本的 
 
 ### 如何退出 APP
 
-退出 Voice Bridge 后，APP 会关闭模型、WebRTC 和媒体会话，不会继续在后台播放。APP 的通用退出手势和管理方法请参考[自定义 APP：退出 APP](./custom_app.html#exit-app)。
+退出 Voice Bridge 后，APP 会关闭模型、WebRTC 和媒体会话，不会继续在后台播放。APP 的通用退出手势和管理方法请参考[自定义 APP：退出 APP](./custom_app.html#退出-APP)。
 
 ## 了解原理和二次开发
 

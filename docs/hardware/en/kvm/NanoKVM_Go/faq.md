@@ -5,7 +5,7 @@ keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 
 ## Account & Password
 
-### <a id="default-password"></a>What are the default SSH username and password for NanoKVM Go?
+### What are the default SSH username and password for NanoKVM Go?
 
 The default SSH username for NanoKVM Go is `root`, and the default password is `sipeed`.
 
@@ -25,7 +25,7 @@ If NanoKVM Go shows "no video signal" after connecting to the host device, make 
 
 The host's USB-C port must support DP Alt mode (i.e. it can output a DP signal over the USB-C port), and the cable must be a full-featured USB-C data cable, for NanoKVM Go to receive the video signal. If the port does not support video output, or you are using a charge-only cable, no picture will be displayed.
 
-### <a id="edid-4k50-beta"></a>The 3840 × 2160 @ 50 Hz EDID is currently in Beta
+### The 3840 × 2160 @ 50 Hz EDID is currently in Beta {#edid-4k50-beta}
 
 The `3840 × 2160 @ 50 Hz` EDID is currently an experimental feature. The mode is available for use, but some devices may have compatibility issues and the image may be unstable. If you encounter a problem, switch to the `3840 × 2160 @ 30 Hz` EDID or a lower-resolution EDID.
 

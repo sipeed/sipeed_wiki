@@ -53,7 +53,7 @@ https://192.168.255.255/
 ssh root@192.168.255.255
 ```
 
-确认 IP 地址无误后输入 `yes`，再输入 SSH 密码。NanoKVM Go 的 SSH 默认账号为 `root`，默认密码为 `sipeed`，详见[常见问题](../faq.html#default-password)。输入密码时终端不会显示字符，属于正常现象。
+确认 IP 地址无误后输入 `yes`，再输入 SSH 密码。NanoKVM Go 的 SSH 默认账号为 `root`，默认密码为 `sipeed`，详见[常见问题](../faq.html#NanoKVM-Go-的-SSH-默认账号和密码是什么？)。输入密码时终端不会显示字符，属于正常现象。
 
 ## 安装包下载
 
