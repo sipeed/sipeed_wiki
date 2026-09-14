@@ -3,8 +3,6 @@ title: frp
 keywords: NanoKVM Go, frp, remote access, intranet penetration
 ---
 
-# Configure frp Remote Access
-
 frp is an intranet penetration tool. It can forward the NanoKVM Go service in a local network to a server with a public IP address. After configuration, you can remotely access NanoKVM Go through the public server even if the network where NanoKVM Go is located does not have a public IP address.
 
 frp consists of two components:

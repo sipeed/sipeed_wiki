@@ -3,8 +3,6 @@ title: Tailscale
 keywords: Tailscale, remote access, NAT traversal
 ---
 
-# Configure Tailscale
-
 ## Introduction to Tailscale
 
 Tailscale is a WireGuard-based mesh networking tool. It can add NanoKVM Go, computers, phones, and other devices to the same virtual LAN, allowing you to access NanoKVM Go remotely without a public IP address or router port forwarding.

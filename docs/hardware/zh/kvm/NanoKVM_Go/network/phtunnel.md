@@ -3,8 +3,6 @@ title: 花生壳内网穿透
 keywords: NanoKVM Go, 花生壳, PHTunnel, 内网穿透, 远程访问
 ---
 
-# 配置花生壳内网穿透
-
 花生壳 PHTunnel 可以将 NanoKVM Go 的本地网页服务映射到公网。完成配置后，即使 NanoKVM Go 所在网络没有公网 IP，也可以通过花生壳分配的外网域名和端口访问设备。
 
 ```text

@@ -3,8 +3,6 @@ title: Cloudflare Tunnel
 keywords: NanoKVM Go, Cloudflare Tunnel, cloudflared, Quick Tunnel, 内网穿透, 远程访问
 ---
 
-# 配置 Cloudflare Tunnel
-
 Cloudflare Tunnel 通过运行在 NanoKVM Go 上的 `cloudflared` 主动连接 Cloudflare，使设备无需公网 IP、端口转发或入站防火墙规则即可从外网访问。
 如果你完全不了解域名、DNS 的用法，建议直接**参考第二部分**；如果你已经知道如何购买域名，以及如何修改 DNS 记录，则**参考第三部分**。
 

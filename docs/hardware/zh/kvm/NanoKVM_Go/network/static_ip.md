@@ -3,8 +3,6 @@ title: 静态 IP
 keywords: NanoKVM Go, 静态 IP, 网络配置
 ---
 
-# 配置静态 IP
-
 ## 静态 IP 简介
 
 NanoKVM Go 默认通过 DHCP 从路由器获取 IP 地址。DHCP 分配的地址可能会在设备重启、路由器重启或租约更新后发生变化，导致原来的访问地址失效。

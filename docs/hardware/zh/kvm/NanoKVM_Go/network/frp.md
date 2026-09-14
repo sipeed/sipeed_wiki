@@ -3,8 +3,6 @@ title: frp
 keywords: NanoKVM Go, frp, 远程访问, 内网穿透
 ---
 
-# 配置 frp 远程访问
-
 frp 是一款内网穿透工具，可以将局域网内的 NanoKVM Go 服务转发到具有公网 IP 的服务器。配置完成后，即使 NanoKVM Go 所在网络没有公网 IP，也可以通过公网服务器远程访问它。
 
 frp 由两个组件组成：
