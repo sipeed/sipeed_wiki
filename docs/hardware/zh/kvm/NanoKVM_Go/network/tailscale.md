@@ -3,8 +3,6 @@ title: Tailscale
 keywords: Tailscale，远程控制，内网穿透
 ---
 
-# 配置 Tailscale
-
 ## Tailscale 简介
 
 Tailscale 是一款基于 WireGuard 的异地组网工具。它可以将 NanoKVM Go 与电脑、手机等设备加入同一个虚拟局域网，使用户无需公网 IP，也无需在路由器上配置端口转发，即可从外网访问 NanoKVM Go。

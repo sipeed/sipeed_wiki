@@ -3,8 +3,6 @@ title: Cloudflare Tunnel
 keywords: NanoKVM Go, Cloudflare Tunnel, cloudflared, Quick Tunnel, remote access
 ---
 
-# Configure Cloudflare Tunnel
-
 Cloudflare Tunnel runs `cloudflared` on NanoKVM Go and connects outward to Cloudflare, so the device can be reached from the Internet without a public IP address, port forwarding, or inbound firewall rules.
 If you are not familiar with domains and DNS, start with **Part 2**. If you already know how to buy a domain and change DNS records, go straight to **Part 3**.
 

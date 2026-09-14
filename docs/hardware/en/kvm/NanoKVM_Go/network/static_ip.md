@@ -3,8 +3,6 @@ title: Static IP
 keywords: NanoKVM Go, static IP, network configuration
 ---
 
-# Configure a Static IP
-
 ## Introduction
 
 NanoKVM Go obtains an IP address from the router through DHCP by default. A DHCP address may change after the device restarts, the router restarts, or the DHCP lease is renewed. If that happens, the old access address will no longer work.
