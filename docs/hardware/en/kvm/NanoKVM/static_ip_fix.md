@@ -25,7 +25,9 @@ If it is convenient to remove the SD card, connect it to your computer with a ca
 
 ### Method 3: If the SD card is not easy to remove (e.g., Cube users)
 
-1. Use a SIM pin or other pointed tool, insert it into the small round hole next to the USB-C port (this is the Reset button), and press down.
-2. Keep holding the button, then connect the device to your computer using a USB cable.
-3. Wait until a USB storage device appears on your computer. After the `boot` volume shows up, release the pin.
-4. Delete the `eth.nodhcp` file in that partition.
+1. Power off the device and keep the SD card inserted.
+2. Locate the small round hole next to the HID (PC-USB) port. **The `BOOT` button sits inside the case, deeper and lower than the hole rather than directly behind its center**, so a pin pushed straight in and then pressed downward never reaches it.
+3. Insert the pin all the way into the hole, then **use the edge of the hole as a fulcrum and lever the exposed end of the pin toward the top of the device**, so that the tip inside is pushed down onto the `BOOT` button. Use moderate force: you only need to feel the button being pressed. For the illustrated full procedure, see "USB Update TF Card Image" in [Flashing](https://wiki.sipeed.com/hardware/en/kvm/NanoKVM/system/flashing.html).
+4. **Keep levering the pin upward without releasing it**, then plug one end of the USB cable into **the USB-C port next to the hole** (the HID port, below the HDMI port) and connect the other end to your computer.
+5. Wait until a USB storage device appears on your computer. Release the pin only after the `boot` volume shows up.
+6. Delete the `eth.nodhcp` file in that partition.
