@@ -1,12 +1,23 @@
 ---
-title: 用 Agent 操作 SLogic：Plugin 快速开始
-keywords: SLogic, LogicAnalyzer, sigrok-cli, Agent, Plugin, Skill
+title: SLogic 接入 AI Agent：Plugin 快速开始
+keywords: SLogic, LogicAnalyzer, sigrok-cli, Agent, Plugin, Skill, Story, SLogic32U3
 update:
-  - date: 2026-08-05
+  - date: 2026-09-15
+    version: v0.3
+    author: taorye
+    content:
+      - 合并「SLogic Agent 故事分享」页面并调整标题，统一为单页
+  - date: 2026-08-07
     version: v0.2
     author: taorye
     content:
+      - 增加故事悬赏活动信息表，突出满减券额度和使用限制
       - 改用 SLogic plugin，并补充安装、采集、解码和排错流程
+  - date: 2026-08-06
+    version: v0.1
+    author: taorye
+    content:
+      - 新增 SLogic Agent 使用教程和故事悬赏规则
 ---
 
 安装 `sigrok-cli-slogic-plugin` 后，无需学习 PulseView。接好逻辑分析仪，把通道、协议和任务目标告诉支持 Plugin 或 Skill 的 Agent，它便能调用 `sigrok-cli` 扫描设备、采集 `.sr` 波形，并通过 libsigrokdecode 解码。例如：
@@ -14,6 +25,8 @@ update:
 > SLogic 的 D0 接了 UART RX，参数是 115200 8N1。请先扫描设备，再用 10 MHz 采集 50 ms，保存原始波形并解码收到的字符。
 
 开始前，请先确认信号电压和电气安全，见下文「连接 SLogic 前」。
+
+文末还包含 SLogic32U3 的故事悬赏活动，欢迎投稿你的使用故事，见 [SLogic Agent 故事悬赏](#SLogic-Agent-故事悬赏)。
 
 ## 适用型号
 
@@ -402,3 +415,54 @@ SLogicCombo8 可能在端点清理时偶发不退出。先确认 `.sr` 已完整
 - 扫描不到设备时不采集；扫描到多台设备时先指定目标。
 - 缺少预期协议或必要的 decoder 引脚映射时不开始解码。
 - `run --` 会直接传递参数给 `sigrok-cli`，不检查采集上限或输出路径，只用于包装脚本尚未覆盖的高级操作。
+
+## SLogic Agent 故事悬赏
+
+如果你使用 Agent 和 `sigrok-cli-slogic` 解决了真实问题，欢迎提交使用故事和改进建议。入选内容将用于完善教程及 Plugin，也会帮助我们为新品 SLogic32U3 准备更贴近实际需求的示例。
+
+| 活动信息 | 说明 |
+|---|---|
+| 开始于 | 2026 年 8 月 8 日 |
+| 结束于 | SLogic32U3 由 Sipeed 正式官方上架当天 |
+| 投稿方式 | 向官方 [`sipeed/sipeed_wiki`](https://github.com/sipeed/sipeed_wiki) 仓库提交 Pull Request |
+| 投稿内容 | 使用 Agent 和 `sigrok-cli-slogic` 解决真实问题的故事，以及具体改进建议 |
+| 奖励 | **SLogic32U3 满减券，最高 200 CNY** |
+| 使用期限 | 仅限 SLogic32U3 首发周使用，首发周结束后自动失效 |
+| 使用人 | 仅限获奖者本人，不得转赠或交易 |
+| 评选方式 | 合格性检查后进行排名，并从其余合格投稿中抽奖 |
+| 待公布 | 具体券档位与使用门槛、名额、排名公布方式和抽奖规则 |
+
+### 活动时间
+
+活动开始于 2026 年 8 月 8 日，结束于 SLogic32U3 由 Sipeed 正式官方上架当天。结束日期将随 SLogic32U3 上架信息在本页更新。
+
+### 投稿方式
+
+投稿方式：向官方 [`sipeed/sipeed_wiki`](https://github.com/sipeed/sipeed_wiki) 仓库提交 Pull Request。中文故事放在 `docs/hardware/zh/logic_analyzer/slogic_agent/stories/`，英文故事放在 `docs/hardware/en/logic_analyzer/slogic_agent/stories/`（目录不存在时新建）。PR 还须修改对应语言的 `sidebar.yaml`，将文章添加到中文的 **SLogic Agent 故事分享** 或英文的 **SLogic Agent Stories** 分组（分组内当前没有页面，第一篇投稿会成为首个条目）；只提交外部链接或仅在 PR 描述中粘贴正文不计为投稿。
+
+> 提示：如果不熟悉 Wiki 目录和 sidebar 配置，可以让支持操作 Git 仓库的 Agent 协助放置 Markdown、添加导航并检查渲染，也可以自行查阅 `sipeed_wiki` 的贡献文档。例如：“请把我的故事 Markdown 放到 `sipeed_wiki` 的 SLogic Agent stories 目录，更新对应语言的 sidebar，并检查链接、图片和页面能否正常渲染。不要修改无关文件。”
+
+### 投稿格式
+
+投稿须使用 Markdown，并按以下字段组织；缺少必填项的内容不进入评选：
+
+| 字段 | 要求 |
+|---|---|
+| 标题 | 用一句话说明解决了什么问题 |
+| 使用背景 | 说明被测对象、目标和原有困难，不写无关经历 |
+| [硬件与环境](#适用型号) | SLogic 型号、操作系统、协议和必要的软件版本 |
+| [接线与采集参数](#采集前怎样描述需求) | 通道映射、采样率、时长/样本数/帧数、触发条件 |
+| 给 Agent 的提示词 | 保留关键原文；较长对话只摘录影响结果的部分 |
+| [分析结果](#怎样验收-Agent-的结果) | decoder、引脚映射、选项、关键数据、warning 和验证方法 |
+| 证据 | 提供必要的波形截图、解码片段或可复现步骤，不上传敏感数据 |
+| 改进建议 | 明确指出希望改进的文档、Plugin 流程或 SLogic32U3 使用体验 |
+
+投稿必须为本人真实使用记录，并移除密钥、设备序列号、客户数据等敏感信息。图片应能看清通道名和关键波形；不要只提交结论、宣传文案、无法复现的截图或由 AI 编造的经历。
+
+### 评选与奖励
+
+我们会先检查内容是否完整、真实且可复现，再根据技术完整度、复现价值、表达清晰度和建议的可执行性进行排名。排名靠前、进入候选名单以及从其余合格投稿中抽取的内容，将分别获得不同等级的 SLogic32U3 满减券。
+
+中文页展示国内奖励，最高为 200 CNY。奖励地区以购买 SLogic32U3 时的收货地址为准：中国大陆收货地址适用国内奖励，其他收货地址适用海外奖励；投稿语言不影响奖励档位。满减券仅限获奖者本人在 SLogic32U3 首发周购买该产品时使用，首发周结束后自动失效，不得转赠或交易。
+
+满减券的具体档位与使用门槛、名额、排名公布方式和抽奖规则将在本页另行公布。投稿是否合格以 PR 中的文章内容和上述格式要求为准。

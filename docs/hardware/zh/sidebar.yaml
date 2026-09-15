@@ -461,10 +461,9 @@ items:
         file: maixsense/maixsense-a075v/maixsense-a075v.md
 -   label: SLogic
     items:
-    -   label: 使用 Agent 操作 SLogic
+    -   label: SLogic 接入 AI Agent
         file: logic_analyzer/slogic_agent/readme.md
     -   label: SLogic Agent 故事分享
-        file: logic_analyzer/slogic_agent/stories/readme.md
         items: []
     -   label: SLogic Combo 8
         items:

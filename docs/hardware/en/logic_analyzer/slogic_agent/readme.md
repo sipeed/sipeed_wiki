@@ -1,19 +1,32 @@
 ---
-title: "Use SLogic with an Agent: Plugin Quick Start"
-keywords: SLogic, LogicAnalyzer, sigrok-cli, Agent, Plugin, Skill
+title: "SLogic with an AI Agent: Plugin Quick Start"
+keywords: SLogic, LogicAnalyzer, sigrok-cli, Agent, Plugin, Skill, Story, SLogic32U3
 update:
-  - date: 2026-08-06
+  - date: 2026-09-15
+    version: v0.3
+    author: taorye
+    content:
+      - Merged the "SLogic Agent Stories" page into a single page and updated the title
+  - date: 2026-08-07
     version: v0.2
     author: taorye
     content:
-      - Added the SLogic plugin installation, capture, decoding, and troubleshooting workflow
+      - Added a campaign summary table highlighting coupon limits and restrictions
+      - Switched to the SLogic plugin and added the installation, capture, decoding, and troubleshooting workflow
+  - date: 2026-08-06
+    version: v0.1
+    author: taorye
+    content:
+      - Added the SLogic Agent guide and the story campaign rules
 ---
 
 With `sigrok-cli-slogic-plugin` installed, you do not need to learn PulseView first. Connect the logic analyzer, then tell an Agent that supports Plugins or Skills which channels are connected, which protocol you expect, and what you want to find. The Agent can use `sigrok-cli` to scan the device, capture an `.sr` waveform, and decode it with libsigrokdecode. For example:
 
 > SLogic D0 is connected to UART RX. The format is 115200 8N1. Scan the device first, capture 50 ms at 10 MHz, save the original waveform, and decode the received characters.
 
-Before connecting anything, verify the signal voltage and electrical safety requirements described in [Before Connecting SLogic](#before-connecting-slogic).
+Before connecting anything, verify the signal voltage and electrical safety requirements described in [Before Connecting SLogic](#Before-Connecting-SLogic).
+
+The end of this page also covers the SLogic32U3 story campaign; see [SLogic Agent Story Rewards](#SLogic-Agent-Story-Rewards).
 
 ## Supported Models
 
@@ -62,7 +75,7 @@ The Skill follows these rules:
 - After decoding, the Agent should report the decoder, pin mapping, options, and whether annotations were produced.
 - Decoding an existing `.sr` file does not require a connected analyzer. Only scanning, querying a device, and capturing require USB access.
 
-The Plugin does not include an MCP server, network service, `sigrok-cli`, USB driver, or GTKWave. The Plugin itself also does not predict protocols. When the protocol or wiring is unknown, the AI model can use waveform characteristics, circuit information, and context to propose candidate protocols and signal mappings. After those candidates are confirmed, the Skill runs the specified decoder with explicit pin mappings. See [Unknown Protocol or Wiring](#unknown-protocol-or-wiring).
+The Plugin does not include an MCP server, network service, `sigrok-cli`, USB driver, or GTKWave. The Plugin itself also does not predict protocols. When the protocol or wiring is unknown, the AI model can use waveform characteristics, circuit information, and context to propose candidate protocols and signal mappings. After those candidates are confirmed, the Skill runs the specified decoder with explicit pin mappings. See [Unknown Protocol or Wiring](#Unknown-Protocol-or-Wiring).
 
 ## Install the Plugin
 
@@ -402,3 +415,54 @@ SLogicCombo8 may occasionally remain running during endpoint cleanup. Confirm th
 - Do not capture if no device is found. Select a target first if multiple devices are found.
 - Do not decode until the expected protocol and required decoder pin mappings are known.
 - `run --` passes arguments directly to `sigrok-cli` without checking capture limits or output paths. Use it only for advanced operations not covered by the wrapper.
+
+## SLogic Agent Story Rewards
+
+If you used an Agent and `sigrok-cli-slogic` to solve a real problem, you may submit the story together with suggestions for improvement. Selected submissions may help improve the guide, the Plugin workflow, and practical examples for the upcoming SLogic32U3.
+
+| Campaign information | Details |
+|---|---|
+| Starts | August 8, 2026 |
+| Ends | The day SLogic32U3 is officially listed for sale by Sipeed |
+| Submission method | Open a Pull Request against the official [`sipeed/sipeed_wiki`](https://github.com/sipeed/sipeed_wiki) repository |
+| Submission content | A real problem solved with an Agent and `sigrok-cli-slogic`, plus specific suggestions for improvement |
+| Reward | **SLogic32U3 discount coupon worth up to USD 30** |
+| Redemption period | Valid only during the SLogic32U3 launch week; expires when that week ends |
+| Recipient | May be used only by the winner; it may not be transferred, gifted, or traded |
+| Selection | Eligible submissions are ranked, with a lottery among the remaining eligible entries |
+| To be announced | Coupon tiers and minimum-spend requirements, reward count, ranking publication method, and lottery rules |
+
+### Campaign Period
+
+The campaign starts on August 8, 2026 and ends on the day SLogic32U3 is officially listed for sale by Sipeed. This page will be updated with the closing date when the official listing is announced.
+
+### How to Submit
+
+To submit, open a Pull Request against the official [`sipeed/sipeed_wiki`](https://github.com/sipeed/sipeed_wiki) repository. Put Chinese stories in `docs/hardware/zh/logic_analyzer/slogic_agent/stories/` and English stories in `docs/hardware/en/logic_analyzer/slogic_agent/stories/` (create the directory if it does not exist). The PR must also update the corresponding `sidebar.yaml` and add the article under **SLogic Agent 故事分享** for Chinese or **SLogic Agent Stories** for English (the group has no page yet, so the first submission becomes its first entry). An external link by itself, or story text included only in the PR description, is not a submission.
+
+> Tip: If you are unfamiliar with the Wiki directory layout or sidebar configuration, ask an Agent that can work with Git repositories to place the Markdown file, add the navigation entry, and verify rendering. You may also study the `sipeed_wiki` contribution documentation and do it yourself. For example: “Put my story Markdown in the SLogic Agent stories directory in `sipeed_wiki`, update the sidebar for the correct language, and check that links, images, and the page render correctly. Do not modify unrelated files.”
+
+### Submission Format
+
+Submissions must use Markdown and include every required field below. Incomplete submissions are not eligible for evaluation.
+
+| Field | Requirement |
+|---|---|
+| Title | State the problem solved in one sentence |
+| Context | Describe the target, objective, and original difficulty; omit unrelated background |
+| [Hardware and environment](#Supported-Models) | SLogic model, operating system, protocol, and necessary software versions |
+| [Wiring and capture settings](#How-to-Describe-a-Capture) | Channel mapping, sample rate, duration/sample count/frame count, and trigger conditions |
+| Agent prompts | Preserve the important original prompts; for long conversations, include only the parts that affected the result |
+| [Analysis result](#Verify-the-Agent's-Result) | Decoder, pin mapping, options, key data, warnings, and verification method |
+| Evidence | Include only the waveform screenshots, decode excerpts, or reproduction steps needed to support the result; do not publish sensitive data |
+| Suggestions | Identify a specific improvement to the documentation, Plugin workflow, or SLogic32U3 user experience |
+
+Submissions must describe the author's own real use. Remove secrets, device serial numbers, customer data, and other sensitive information. Images must show relevant channel names and waveform details clearly. A conclusion without supporting details, promotional copy, an unreproducible screenshot, or an AI-generated experience is not eligible.
+
+### Selection and Rewards
+
+We will first check whether a submission is complete, authentic, and reproducible. Eligible submissions will then be ranked by technical completeness, reproduction value, clarity, and whether the suggestions can be acted on. Top-ranked entries, shortlisted entries, and entries selected by lottery from the remaining eligible submissions will receive different tiers of SLogic32U3 discount coupons.
+
+The English page shows the international reward, worth up to USD 30. The applicable reward region is determined by the shipping address used to purchase SLogic32U3: addresses in mainland China follow the domestic reward rules, while other addresses follow the international reward rules. The submission language does not affect the reward tier. Each coupon may be used only by its recipient during the SLogic32U3 launch week. It expires when that week ends and may not be transferred, gifted, or traded.
+
+The specific coupon tiers and minimum-spend requirements, the number of rewards, the ranking publication method, and lottery rules will be announced on this page. Eligibility is determined from the article included in the PR and the format requirements above.
