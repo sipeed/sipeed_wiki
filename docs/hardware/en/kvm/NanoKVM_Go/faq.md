@@ -123,6 +123,12 @@ Due to iOS system limitations, once an iPhone/iPad is connected to a screen mirr
 
 This is a normal behavior restriction of iOS for external audio output devices, not a NanoKVM Go fault. If you need to control the volume, adjust it on the host device (iPhone/iPad) or within the app playing the content, or use an external audio device to adjust the volume.
 
+## Boot Issues
+
+### NanoKVM Go keeps rebooting after power-on
+
+This is usually caused by an unstable power supply. To resolve it, power NanoKVM Go from a dedicated PD charger.
+
 ## Feedback
 
 + If the above methods do not solve the problem, please tell us your purchased model and the issue you encountered on the forum, GitHub or the QQ group, and we will answer patiently.
