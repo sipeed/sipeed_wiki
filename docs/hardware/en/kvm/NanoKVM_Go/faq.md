@@ -123,6 +123,21 @@ Due to iOS system limitations, once an iPhone/iPad is connected to a screen mirr
 
 This is a normal behavior restriction of iOS for external audio output devices, not a NanoKVM Go fault. If you need to control the volume, adjust it on the host device (iPhone/iPad) or within the app playing the content, or use an external audio device to adjust the volume.
 
+## Boot Issues
+
+### NanoKVM Go keeps rebooting after power-on
+
+If NanoKVM Go keeps restarting after power-on (the screen repeatedly turns on and off, or the device never reaches the home screen), the cause is usually an insufficient or unstable power supply.
+
+The following power setups commonly trigger this issue:
+
+1. Powering from a computer's USB port: a USB-A port or a plain USB-C data port typically guarantees only 5 V / 0.5 A, which is not enough to meet the power requirement.
+2. Using an underpowered charger: an older 5 V / 1 A charger, for example, runs at or beyond its limit under load.
+3. Powering through a dock, USB hub or multi-port charger: the current has to be shared with other devices, so the voltage becomes unstable under load.
+4. Using a poor-quality, overly long or repeatedly adapted cable: the higher resistance means the voltage reaching the device is already too low.
+
+**Solution:** Power NanoKVM Go separately with a USB-PD charger and cable.
+
 ## Feedback
 
 + If the above methods do not solve the problem, please tell us your purchased model and the issue you encountered on the forum, GitHub or the QQ group, and we will answer patiently.
