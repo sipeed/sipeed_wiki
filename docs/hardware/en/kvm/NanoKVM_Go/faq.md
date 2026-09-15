@@ -127,7 +127,16 @@ This is a normal behavior restriction of iOS for external audio output devices, 
 
 ### NanoKVM Go keeps rebooting after power-on
 
-This is usually caused by an unstable power supply. To resolve it, power NanoKVM Go from a dedicated PD charger.
+If NanoKVM Go keeps restarting after power-on (the screen repeatedly turns on and off, or the device never reaches the home screen), the cause is usually an insufficient or unstable power supply.
+
+The following power setups commonly trigger this issue:
+
+1. Powering from a computer's USB port: a USB-A port or a plain USB-C data port typically guarantees only 5 V / 0.5 A, which is not enough to meet the power requirement.
+2. Using an underpowered charger: an older 5 V / 1 A charger, for example, runs at or beyond its limit under load.
+3. Powering through a dock, USB hub or multi-port charger: the current has to be shared with other devices, so the voltage becomes unstable under load.
+4. Using a poor-quality, overly long or repeatedly adapted cable: the higher resistance means the voltage reaching the device is already too low.
+
+**Solution:** Power NanoKVM Go separately with a USB-PD charger and cable.
 
 ## Feedback
 
