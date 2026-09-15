@@ -438,7 +438,7 @@ SLogicCombo8 可能在端点清理时偶发不退出。先确认 `.sr` 已完整
 
 ### 投稿方式
 
-投稿方式：向官方 [`sipeed/sipeed_wiki`](https://github.com/sipeed/sipeed_wiki) 仓库提交 Pull Request。中文故事放在 `docs/hardware/zh/logic_analyzer/slogic_agent/stories/`，英文故事放在 `docs/hardware/en/logic_analyzer/slogic_agent/stories/`（目录不存在时新建）。PR 还须修改对应语言的 `sidebar.yaml`，将文章添加到中文的 **SLogic Agent 故事分享** 或英文的 **SLogic Agent Stories** 分组（分组内当前没有页面，第一篇投稿会成为首个条目）；只提交外部链接或仅在 PR 描述中粘贴正文不计为投稿。
+投稿方式：向官方 [`sipeed/sipeed_wiki`](https://github.com/sipeed/sipeed_wiki) 仓库提交 Pull Request。中文故事放在 `docs/hardware/zh/logic_analyzer/slogic_agent/stories/`，英文故事放在 `docs/hardware/en/logic_analyzer/slogic_agent/stories/`（目录不存在时新建）。PR 还须修改对应语言的 `sidebar.yaml`，将文章加为侧栏中本页条目的子条目，也就是 `logic_analyzer/slogic_agent/readme.md` 下的 `items`（该列表当前为空，侧栏暂不展开，第一篇故事加入后自动展开）；只提交外部链接或仅在 PR 描述中粘贴正文不计为投稿。
 
 > 提示：如果不熟悉 Wiki 目录和 sidebar 配置，可以让支持操作 Git 仓库的 Agent 协助放置 Markdown、添加导航并检查渲染，也可以自行查阅 `sipeed_wiki` 的贡献文档。例如：“请把我的故事 Markdown 放到 `sipeed_wiki` 的 SLogic Agent stories 目录，更新对应语言的 sidebar，并检查链接、图片和页面能否正常渲染。不要修改无关文件。”
 

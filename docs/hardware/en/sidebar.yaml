@@ -465,7 +465,6 @@ items:
     items:
     -   label: SLogic with an AI Agent
         file: logic_analyzer/slogic_agent/readme.md
-    -   label: SLogic Agent Stories
         items: []
     -   label: SLogic Combo 8
         items:

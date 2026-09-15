@@ -463,7 +463,6 @@ items:
     items:
     -   label: SLogic 接入 AI Agent
         file: logic_analyzer/slogic_agent/readme.md
-    -   label: SLogic Agent 故事分享
         items: []
     -   label: SLogic Combo 8
         items:
