@@ -1,0 +1,32 @@
+items:
+-   label: Sipeed Longan
+    collapsed: false
+    file: README.md
+-   label: Longan Nano
+    collapsed: false
+    items:
+    -   label: 简介
+        collapsed: false
+        file: README.md
+    -   label: 准备
+        collapsed: false
+        items:
+        -   label: PIO 配置
+            file: get_started/pio.md
+        -   label: Blink闪灯
+            file: get_started/blink.md
+        -   label: DEBUG 调试
+            collapsed: false
+            file: get_started/debug.md
+            items:
+            -   label: 使用 Sipeed 调试器
+                file: get_started/sipeed-debugger.md
+            -   label: 使用 RV-LINK
+                file: get_started/rv-link.md
+    -   label: 示例
+        collapsed: false
+        items:
+        -   label: 串口输出
+            file: examples/printf.md
+        -   label: 播放 Badapple
+            file: examples/badapple.md
