@@ -19,11 +19,13 @@ More contribute doc :
 
 ```bash
 git clone https://github.com/sipeed/sipeed_wiki.git
-pip install teedoc
 cd sipeed_wiki
-teedoc install
-teedoc serve
+uv sync
+uv run teedoc serve
 ```
+
+`uv sync` creates/updates the `.venv` from [`pyproject.toml`](./pyproject.toml) and `uv.lock`, which already includes `teedoc` and all plugins used by this site (so `teedoc install` is not needed).
+Install [uv](https://docs.astral.sh/uv/) first if you don't have it.
 
 More build tool usage see [teedoc](http://github.com/teedoc/teedoc)
 

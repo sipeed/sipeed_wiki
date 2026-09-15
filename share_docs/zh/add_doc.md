@@ -46,11 +46,12 @@
 
 ```bash
 git clone https://github.com/sipeed/sipeed_wiki.git
-pip install teedoc
 cd sipeed_wiki
-teedoc install
-teedoc serve
+uv sync
+uv run teedoc serve
 ```
+
+`uv sync` 会根据仓库里的 `pyproject.toml` 和 `uv.lock` 创建/更新 `.venv`，其中已经包含 `teedoc` 和本站点用到的所有插件，因此不需要再执行 `teedoc install`。如果本机还没有 uv，先参考 [uv 文档](https://docs.astral.sh/uv/) 安装（例如 `pip install uv` 或官方安装脚本）。
 
 在我们所 Fork 的 Sipeed wiki 的仓库中，点击下图所标注的位置来获得当前仓库的地址。
 
@@ -60,10 +61,9 @@ teedoc serve
 
 ```bash
 git clone https://github.com/example/sipeed_wiki.git
-pip install teedoc
 cd sipeed_wiki
-teedoc install
-teedoc serve
+uv sync
+uv run teedoc serve
 ```
 
 wiki 仓库里面的主要文档存在的文件目录如下：
