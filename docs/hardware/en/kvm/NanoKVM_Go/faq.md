@@ -138,6 +138,19 @@ The following power setups commonly trigger this issue:
 
 **Solution:** Power NanoKVM Go separately with a USB-PD charger and cable.
 
+### NanoKVM Go reboots after unplugging the PD power from the auxiliary USB-C port while both USB-C ports are connected
+
+If both the data USB-C port and the **Auxiliary USB-C port (lightning icon, Power Port)** are connected, and you unplug the USB-PD power supply from the auxiliary USB-C port while NanoKVM Go is running, NanoKVM Go will **reboot** once. **This is normal behavior**, not a device fault.
+
+![Auxiliary USB-C port (lightning icon, Power Port) location](./../../../assets/NanoKVM/go/faq/nanokvm-go-power-port-pd-unplug-reboot.webp)
+
+**Cause:** Once a PD power supply is connected to the auxiliary USB-C port, NanoKVM Go draws power from that port first. When the PD power supply is unplugged, the device has to switch its power source back to the target device's USB-C port. This switch causes a brief power interruption, so the device restarts.
+
+**Notes:**
+
+- The reboot usually happens only once; afterwards the device continues to be powered by the target device's USB-C port, and no further action is needed.
+- If the device does not just restart once but **keeps rebooting**, the target device's USB-C port cannot supply enough power. See "NanoKVM Go keeps rebooting after power-on" above.
+
 ## Feedback
 
 + If the above methods do not solve the problem, please tell us your purchased model and the issue you encountered on the forum, GitHub or the QQ group, and we will answer patiently.
