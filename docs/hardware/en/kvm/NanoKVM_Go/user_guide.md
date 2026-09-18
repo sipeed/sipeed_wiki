@@ -160,21 +160,28 @@ The on-screen keyboard is used to input keys from the web page. It is suitable w
 
 ### Mouse Settings
 
-Click the mouse settings icon in the floating toolbar to adjust pointer display, mouse input mode, and HID-related features. New users are advised to keep the default settings first. If the mouse cannot control the host, the pointer position is inaccurate, or the scroll direction does not match your habit, adjust the following options as needed.
+Click the mouse settings icon in the floating toolbar to adjust the mouse input mode, input calibration, and HID-related features. New users are advised to keep the default settings first. If the mouse cannot control the host, the pointer position is inaccurate, or the scroll direction does not match your habit, adjust the following options as needed.
 
-+ Cursor Style sets the mouse pointer display on the web page. Available styles include default cursor, grab pointer, cell pointer, text pointer, and hidden pointer. This option only affects the pointer display in the browser and does not change the mouse settings of the controlled host.
++ Mouse Mode selects how mouse input is transmitted. Choose the mode that matches the target device:
 
-+ Mouse Mode selects how mouse coordinates are transmitted. `Relative Mode` works on all platforms and can be used in BIOS, some system interfaces, or when the mouse position is inaccurate. For regular desktop systems, `Absolute Mode` is recommended. When using an absolute mouse mode on Android, you must select `Absolute Mode (Android)` because the standard `Absolute Mode` does not work on Android.
+    - `Follow Mouse`: suitable for computers and other regular desktop systems. The target pointer follows the pointer in the web page. Do not use this mode when the target device is an Android phone, as control will not work correctly.
+    - `Follow Mouse (Better Android Compatibility)`: use this mode when the target device is an Android phone. It is adapted for Android pointer and touch input and provides better compatibility.
+    - `Multi-touch Screen`: emulates a multi-touch screen. It suits using a phone as the control device to operate another phone and provides touch-style control.
+    - `Exclusive Mouse`: sends relative movement. It suits games, remote desktops, BIOS/UEFI, and other scenarios that need relative pointer movement or pointer lock. After selecting it, click the screen to lock the pointer; the local pointer is then hidden.
 
-+ Input Adapter selects how the browser receives mouse input. In most cases, `Auto (Pointer Lock)` is recommended. If you need fixed mouse movement capture, choose `Pointer Lock`. On touch devices or mobile browsers, choose `Touchpad`.
+![NanoKVM Go mouse settings menu](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-mouse-mode-en.webp)
 
-+ Scroll Direction switches the scroll wheel direction. Choose up or down according to your preference. Scroll Speed adjusts scroll sensitivity. If scrolling is too fast, slow it down; if the scroll distance is not enough, make it faster.
++ Input Calibration manages the mapping profiles of the follow (absolute coordinate) input modes. The built-in `No calibration` and `Automatic calibration` profiles are read-only, and `Automatic calibration` follows the current Portal crop dynamically. If the pointer position is still off, create a custom profile and run the four-point calibration. Portal must be turned off before calibration, and the calibration relies on visible pointer or touch feedback from the target system.
+
++ Scroll Direction switches the scroll wheel direction. Choose up or down according to your preference. Scroll Speed adjusts scroll sensitivity. If scrolling is too fast, slow it down; if the scroll distance is not enough, make it faster. These two options are not available in `Multi-touch Screen` mode.
 
 + `HID-Only Mode` makes USB simulate only keyboard and mouse devices. If some hosts or BIOS interfaces have poor compatibility with composite USB devices, try enabling this mode.
 
 + `Reset HID` reinitializes the keyboard and mouse simulation device. When the keyboard or mouse cannot control the host, check the USB connection first, then try this function.
 
-+ `Fix iPhone Drag` is used to handle drag issues that may occur in iPhone browsers. `Touchpad Guide` shows the operation instructions for touchpad mode.
++ `Repair iPhone drag` is used to handle drag issues that may occur in iPhone browsers. `Pointer input guide` shows how to swipe to move, tap to click, and hold to drag on touch devices.
+
+![NanoKVM Go repair iPhone drag](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-fix-iphone-drag-en.webp)
 
 ### Interface Preview
 
