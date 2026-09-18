@@ -54,6 +54,21 @@ NanoKVM Go → 手指机器人 PWM 接口
 
 <!-- TODO(image): 补充电源线、手指机器人和 NanoKVM Go 的完整接线图，并标出 PWR、PWM 及 NanoKVM Go 连接位置。建议保存为 ../../../assets/NanoKVM/go/finger_robot/nanokvm-go-finger-robot-wiring.webp，并在此处插入图片。 -->
 
+## 摆臂 3D 打印模型
+
+手指机器人的长摆臂和短摆臂提供 STEP 格式的 3D 打印模型，可以自行打印备件或按安装环境改制：
+
++ [长摆臂 Finger_Robot_Arm_Long.stp](https://dl.sipeed.com/fileList/KVM/Finger_Robot/3d_print/Finger_Robot_Arm_Long.stp)
++ [短摆臂 Finger_Robot_Arm_Short.stp](https://dl.sipeed.com/fileList/KVM/Finger_Robot/3d_print/Finger_Robot_Arm_Short.stp)
++ [下载目录](https://dl.sipeed.com/shareURL/KVM/Finger_Robot/3d_print)
+
+两个文件是安装位置相同、长度不同的两版摆臂，按需二选一打印即可，不需要同时使用：
+
++ 长摆臂：电源键位置比较刁钻、手指机器人没法紧贴按键安装时使用，例如电源键在机身**底部**的 Mac mini（M4）这类设备，需要摆臂伸进去才能按到；
++ 短摆臂：电源键在正面或顶面、手指机器人可以贴着按键安装的常规场景，例如普通台式机机箱。
+
+打印并装好摆臂后，请在网页控制端的 `选择摆臂` 中选择与实际安装一致的类型，该选项会影响摆臂的运动范围。
+
 ## 安装手指机器人
 
 1. 根据手指机器人与电源键之间的距离和安装空间，选择长摆臂或短摆臂。
