@@ -56,6 +56,21 @@ Follow the port labels when connecting the cables. Do not swap the `PWR` and `PW
 
 <!-- TODO(image): Add a complete wiring diagram showing the power cable, Finger Robot, and NanoKVM Go. Label PWR, PWM, and the NanoKVM Go connection point. Suggested path: ../../../assets/NanoKVM/go/finger_robot/nanokvm-go-finger-robot-wiring.webp. Insert the image here. -->
 
+## Arm Models for 3D Printing
+
+STEP models of the long arm and the short arm are available for download. You can print spare arms or adapt them to your installation:
+
++ [Long arm - Finger_Robot_Arm_Long.stp](https://dl.sipeed.com/fileList/KVM/Finger_Robot/3d_print/Finger_Robot_Arm_Long.stp)
++ [Short arm - Finger_Robot_Arm_Short.stp](https://dl.sipeed.com/fileList/KVM/Finger_Robot/3d_print/Finger_Robot_Arm_Short.stp)
++ [Download directory](https://dl.sipeed.com/shareURL/KVM/Finger_Robot/3d_print)
+
+The two files are two length variants of the arm that share the same mounting point. Print only the one that fits your setup:
+
++ Long arm: for devices whose power button sits in an awkward spot, so the Finger Robot cannot be mounted right next to it. A typical case is the Mac mini (M4), whose power button is on the **bottom** of the chassis and needs a longer arm to reach;
++ Short arm: for the common case where the power button is on the front or top panel and the Finger Robot can be attached right beside it, such as a regular desktop PC case.
+
+After installing the printed arm, set `Select the Arm` in the web control page to the arm type you actually installed. This option changes the arm travel range.
+
 ## Install the Finger Robot
 
 1. Choose the long arm or short arm based on the distance to the power button and the available installation space.
