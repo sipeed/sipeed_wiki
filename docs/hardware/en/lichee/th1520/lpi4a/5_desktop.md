@@ -247,6 +247,20 @@ LibreOffice Writer is the WORD function:
 
 ![office_writer](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/office_writer.png) 
 
+## Mainline GPU status
+
+The TH1520 PowerVR BXM-4-64 GPU also has an upstream Linux graphics path. Support is present in the Linux `drm/imagination` driver, and firmware for the TH1520 GPU (BVNC 36.52.104.182) is available in `linux-firmware` as `powervr/rogue_36.52.104.182_v1.fw`. Mesa provides the open PowerVR Vulkan userspace driver.
+
+This is separate from the graphics stack included in older LicheePi 4A system images. When testing a mainline kernel, make sure the matching `linux-firmware` file and a recent Mesa are installed before diagnosing missing GPU acceleration. The PowerVR userspace driver is Vulkan-first; desktop OpenGL/WebGL may use Mesa Zink, which translates OpenGL to Vulkan. Browser acceleration therefore depends on the Vulkan driver exposing the features Zink requires and should be verified rather than assumed.
+
+For a mainline desktop bring-up, `vulkaninfo --summary` can confirm that Mesa sees the PowerVR Vulkan device. `glxinfo -B` (X11) or `eglinfo` can then show whether desktop GL/EGL is hardware-backed instead of falling back to software rendering.
+
+Upstream references:
+
+- [Linux firmware commit](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/commit/?id=f328d8c751ab4d2fae0e66b600bd02779d777808)
+- [Linux PowerVR driver](https://docs.kernel.org/gpu/imagination/index.html)
+- [Mesa PowerVR driver](https://docs.mesa3d.org/drivers/powervr.html)
+
 ## Web Browser
 
 The Chromium browser is built-in and is available by clicking the browser icon at the bottom of the desktop: 
