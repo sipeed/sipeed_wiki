@@ -92,6 +92,7 @@ chmod +x Pulseview.appimage
 --- 
 
 ## 相关链接
+- 购买（官方）：https://classic.sipeed.com/slogic16u3
 - 购买（淘宝）：https://item.taobao.com/item.htm?id=994512536278
 - 购买（AliExpress）：https://www.aliexpress.com/item/1005010321792670.html
 - MaixHub: [maixhub.com](https://maixhub.com/discussion/slogic)
