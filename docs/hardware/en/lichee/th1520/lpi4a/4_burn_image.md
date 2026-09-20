@@ -30,6 +30,8 @@ After decompression the fastboot binary is found in the win/linux/mac subfolders
 
 Note that different versions of hardware have slightly different ways to enter the burning mode, see the following chapters.
 
+> **Enclosure note:** RESET and BOOT are separate keys. Some LPi4A enclosures expose the RESET key while covering the adjacent BOOT key. If the BOOT key is not reachable, partially open or remove the enclosure to access it before following the USB burning procedure. Pressing RESET alone does not enter USB burning mode.
+
 ### Beta Hardware
 
 Press and hold the BOOT button on the board while plugging in the USB-C cable to power on the board
