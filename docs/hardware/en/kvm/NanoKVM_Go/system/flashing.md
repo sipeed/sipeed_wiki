@@ -12,9 +12,9 @@ Before flashing, prepare the following items:
 - NanoKVM Go;
 - a SIM eject pin or another tool that can press and hold the flashing-mode button;
 - a USB data cable;
-- a Windows computer;
+- a Linux / macOS / Windows computer;
 - the NanoKVM Go image file;
-- the ImageUSB flashing tool.
+- the balenaEtcher flashing tool.
 
 ## Download the Image
 
@@ -24,15 +24,15 @@ Image download link: [NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/
 
 ## Download the Flashing Tool
 
-Download and install [ImageUSB](https://www.osforensics.com/tools/write-usb-images.html).
+Download and install [balenaEtcher](https://etcher.balena.io/#download-etcher).
 
-![ImageUSB download page](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_imageusb_download.webp)
+![balenaEtcher download page](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_download.webp)
 
 ## Enter Flashing Mode
 
 1. Disconnect the USB cable from NanoKVM Go to power off the device.
 
-2. Open ImageUSB on the computer.
+2. Open balenaEtcher on the computer.
 
 3. Insert the SIM eject pin through the opening and press and hold the flashing-mode button on NanoKVM Go.
 
@@ -42,42 +42,38 @@ Download and install [ImageUSB](https://www.osforensics.com/tools/write-usb-imag
 
 ![Hold the flashing-mode button and connect the NanoKVM Go data port](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_connect_data_port.webp)
 
-5. Click the Refresh Drives button in ImageUSB.
+5. Confirm that the computer detects the NanoKVM Go device. It appears as a USB drive in This PC.
 
-![NanoKVM Go device detected in ImageUSB](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_refresh_drives.webp)
+![NanoKVM Go appears as a USB drive in This PC](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_device_detected_en.webp)
 
 6. Release the flashing-mode button after the device is detected.
 
-## Flash the Image with ImageUSB
+## Flash the Image with balenaEtcher
 
-1. In ImageUSB, select the USB device corresponding to NanoKVM Go.
+1. In balenaEtcher, click `Flash from file` and select the downloaded NanoKVM Go image.
 
-![Select NanoKVM Go in ImageUSB](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_select_device.webp)
+![Click Flash from file in balenaEtcher](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_flash_from_file_en.webp)
 
-2. Select the mode for writing an image.
+2. When the `Missing partition table` warning appears, click `Continue`.
 
-![Select write image mode in ImageUSB](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_write_mode.webp)
+![Missing partition table warning in balenaEtcher](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_no_partition_table_en.webp)
 
-3. Select the downloaded NanoKVM Go image file.
+3. Click `Select target`.
 
-![Select the NanoKVM Go image in ImageUSB](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_select_image.webp)
+![Click Select target in balenaEtcher](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_select_target_en.webp)
 
-4. Click the write button to start flashing.
+4. Select the drive that corresponds to NanoKVM Go (listed as `Compute Module`) and click `Select 1`.
 
-![Click the ImageUSB write button](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_start_write.webp)
+![Select the NanoKVM Go drive in balenaEtcher](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_choose_disk_en.webp)
 
-5. Confirm the write operation when prompted.
+5. Click `Flash!` and wait for the flashing to finish.
 
-![Confirm the ImageUSB write operation](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_confirm_write.webp)
+![balenaEtcher starting the flash](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_write_progress_en.webp)
 
-6. Wait for flashing to complete.
+6. balenaEtcher reports `Flash Completed!` once the image has been written.
 
-![ImageUSB writing the image](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_write_progress.webp)
-
-7. Flashing succeeded.
-
-![ImageUSB flashing complete](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_complete.webp)
+![balenaEtcher reports Flash Completed](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_complete_en.webp)
 
 After flashing is complete, safely eject the USB device, disconnect the USB cable, reconnect NanoKVM Go, and wait for the system to boot.
 
-> Do not disconnect USB or close ImageUSB during flashing. Otherwise, the image may fail to write correctly.
+> Do not disconnect USB or close balenaEtcher during flashing. Otherwise, the image may fail to write correctly.
