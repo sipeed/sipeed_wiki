@@ -233,6 +233,8 @@ TF卡默认挂载与 NanoKVM 系统 `/sdcard` 目录下，当开启`虚拟U盘`�
 - 所有上传的镜像将储存于NanoKVM-Pro的 `/data` 目录，用户可在 NanoKVM 终端内直接读写该分区
 - 若挂载镜像出现问题，可以尝试在主机上弹出镜像后再点击挂载
 
+针对 macOS 的重装流程（制作可引导 ISO、上传、挂载、从镜像启动安装）单独整理了一篇：[重装 macOS 系统](./macos_reinstall.md)。
+
 ## 如何设置静态IP
 
 NanoKVM-Pro 在`1.1.6`及以上版本中加入了以太网卡的静态IP设置功能，通过配置`/boot/eth.nodhcp`文件来主动赋予IP，详细设置方法如下：

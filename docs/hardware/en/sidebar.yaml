@@ -657,6 +657,10 @@ items:
             file: kvm/NanoKVM_Pro/cua.md
         -   label: Batch Management
             file: kvm/NanoKVM_Pro/kvm_admin.md
+        -   label: Practical Guides
+            items:
+            -   label: Reinstall macOS
+                file: kvm/NanoKVM_Pro/macos_reinstall.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster
