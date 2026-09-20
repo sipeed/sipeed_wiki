@@ -250,6 +250,20 @@ LibreOffice Writer 即 WORD 功能：
 
 ![office_writer](./assets/desktop/office_writer.png) 
 
+## 主线 GPU 支持现状
+
+TH1520 的 PowerVR BXM-4-64 GPU 同样有上游 Linux 图形栈的支持路径：Linux 的 `drm/imagination` 驱动已支持它，TH1520 GPU（BVNC 36.52.104.182）的固件也已收录进 `linux-firmware`，文件名为 `powervr/rogue_36.52.104.182_v1.fw`；用户态的开放 PowerVR Vulkan 驱动由 Mesa 提供。
+
+这条路径与旧版 LicheePi 4A 系统镜像里的图形栈是相互独立的两套东西。测试主线内核时，请先确认已安装匹配的 `linux-firmware` 固件和较新的 Mesa，再去排查 GPU 加速缺失的问题。PowerVR 用户态驱动以 Vulkan 为主，桌面 OpenGL/WebGL 可能经由 Mesa Zink 实现，由 Zink 把 OpenGL 翻译成 Vulkan。因此浏览器能否硬件加速，取决于 Vulkan 驱动是否暴露了 Zink 所需的特性，应当实测确认，不能想当然。
+
+在主线桌面环境调试时，可以用 `vulkaninfo --summary` 确认 Mesa 是否识别到 PowerVR Vulkan 设备；再用 `glxinfo -B`（X11）或 `eglinfo` 查看桌面 GL/EGL 是否由硬件加速，而不是回退到软件渲染。
+
+上游参考：
+
+- [Linux 固件提交](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/commit/?id=f328d8c751ab4d2fae0e66b600bd02779d777808)
+- [Linux PowerVR 驱动](https://docs.kernel.org/gpu/imagination/index.html)
+- [Mesa PowerVR 驱动](https://docs.mesa3d.org/drivers/powervr.html)
+
 ## 浏览器
 
 系统内置了 Chromium 浏览器，点击桌面下方的浏览器图标即可使用： 
