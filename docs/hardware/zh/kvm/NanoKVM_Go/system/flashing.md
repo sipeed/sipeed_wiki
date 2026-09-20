@@ -12,9 +12,9 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 - NanoKVM Go；
 - 取卡针或其他可以按住烧录模式按键的工具；
 - USB 数据线；
-- Windows 电脑；
+- Linux / macOS / Windows系统；
 - NanoKVM Go 镜像文件；
-- ImageUSB 烧录工具。
+- balenaEtcher 烧录工具。
 
 ## 下载镜像
 
@@ -22,18 +22,17 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 镜像下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
-
 ## 下载烧录工具
 
-下载并安装 [ImageUSB](https://www.osforensics.com/tools/write-usb-images.html)。
+下载并安装 [balenaEtcher](https://etcher.balena.io/#download-etcher)。
 
-![ImageUSB 下载页面](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_imageusb_download.webp)
+![balenaEtcher 下载页面](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_download.webp)
 
 ## 进入烧录模式
 
 1. 断开 NanoKVM Go 的 USB 连接，使设备整体处于关机状态；
 
-2. 电脑上打开 ImageUSB；
+2. 电脑上打开 balenaEtcher；
 
 3. 使用取卡针通过按键孔按住 NanoKVM Go 的烧录模式按键；
 
@@ -43,43 +42,39 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 ![按住烧录模式按键并连接 NanoKVM Go 数据接口](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_connect_data_port.webp)
 
-5. 点击 ImageUSB的 Refresh Drives 按钮；
+5. 确认电脑已识别到 NanoKVM Go 设备（可在「此电脑」或「磁盘管理」中查看）；
 
-![ImageUSB 识别到 NanoKVM Go 设备](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_refresh_drives.webp)
+![在「此电脑」中确认识别到 NanoKVM Go 设备](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_device_detected.webp)
 
 6. 识别成功后，松开烧录模式按键。
 
 
-## 使用 ImageUSB 烧录镜像
+## 使用 balenaEtcher 烧录镜像
 
-1. 在 ImageUSB 中选择 NanoKVM Go 对应的 USB 设备；
+1. 打开 balenaEtcher，点击 `从文件烧录`，选择下载好的 NanoKVM Go 镜像文件；
 
-![在 ImageUSB 中选择 NanoKVM Go 设备](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_select_device.webp)
+![balenaEtcher 点击从文件烧录](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_flash_from_file.webp)
 
-2. 选择写入镜像的模式；
+2. 弹出 `找不到分区表` 提示时，点击 `继续`；
 
-![在 ImageUSB 中选择写入镜像模式](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_write_mode.webp)
+![balenaEtcher 找不到分区表提示，点击继续](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_no_partition_table.webp)
 
-3. 选择下载好的 NanoKVM Go 镜像文件；
+3. 点击 `选择目标磁盘`；
 
-![在 ImageUSB 中选择 NanoKVM Go 镜像文件](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_select_image.webp)
+![balenaEtcher 选择目标磁盘](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_select_target.webp)
 
-4. 点击写入按钮开始烧录；
+4. 在磁盘列表中勾选 NanoKVM Go 对应的磁盘（通常显示为 `Compute Module`），点击 `选定`；
 
-![点击 ImageUSB 写入按钮](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_start_write.webp)
+![balenaEtcher 选择 NanoKVM Go 对应的磁盘](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_choose_disk.webp)
 
-5. 根据软件提示确认写入操作；
+5. 点击 `现在烧录!`，进入烧录界面，等待烧录完成；
 
-![确认 ImageUSB 写入操作](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_confirm_write.webp)
+![balenaEtcher 烧录进行中](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_write_progress.webp)
 
-6. 等待烧录完成。
+6. 界面显示 `烧录成功！`，即烧录完成。
 
-![ImageUSB 正在写入镜像](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_write_progress.webp)
-
-7. 烧录成功。
-
-![ImageUSB 烧录完成](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_complete.webp)
+![balenaEtcher 烧录成功](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_etcher_complete.webp)
 
 烧录完成后，安全弹出 USB 设备，断开 USB 数据线，然后重新连接 NanoKVM Go，等待系统启动。
 
-> 烧录过程中不要断开 USB 连接，也不要关闭 ImageUSB，否则可能导致镜像写入失败。
+> 烧录过程中不要断开 USB 连接，也不要关闭 balenaEtcher，否则可能导致镜像写入失败。
