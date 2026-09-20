@@ -3,6 +3,16 @@ title: F&Q
 keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 ---
 
+## 如何分辨Go和Go+
+
+1. 查看包装盒侧面：`Go` 和 `Go+` 两个选项中，被勾选的一项就是实际型号。
+
+![包装盒侧面的 Go 与 Go+ 型号勾选标识](./../../../assets/NanoKVM/go/faq/nanokvm-go-box-side-go-go-plus-label.webp)
+
+2. 上电后查看屏幕：开机 Logo 会显示 `NanoKVM-Go` 或 `NanoKVM-Go+`。
+
+![上电后屏幕上的 NanoKVM-Go 与 NanoKVM-Go+ Logo](./../../../assets/NanoKVM/go/faq/nanokvm-go-boot-logo-go-go-plus.webp)
+
 ## 账号与密码
 
 ### NanoKVM Go 的 SSH 默认账号和密码是什么？

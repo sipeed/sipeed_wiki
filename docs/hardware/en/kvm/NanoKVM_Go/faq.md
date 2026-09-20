@@ -3,6 +3,18 @@ title: F&Q
 keywords: NanoKVM Go, KVM, USB-C, DisplayPort Alt, FAQ
 ---
 
+## How to Tell Go and Go+ Apart
+
+The two models look the same from the outside, so use one of the methods below to identify which unit you have.
+
+1. Check the side of the retail box. The model whose checkbox is marked is the one inside.
+
+![Go and Go+ checkboxes on the side of the retail box](./../../../assets/NanoKVM/go/faq/nanokvm-go-box-side-go-go-plus-label.webp)
+
+2. Power on the device and watch the boot screen. The startup logo reads either `NanoKVM-Go` or `NanoKVM-Go+`.
+
+![NanoKVM-Go and NanoKVM-Go+ boot logos](./../../../assets/NanoKVM/go/faq/nanokvm-go-boot-logo-go-go-plus.webp)
+
 ## Account & Password
 
 ### What are the default SSH username and password for NanoKVM Go?
