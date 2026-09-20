@@ -658,6 +658,10 @@ items:
             file: kvm/NanoKVM_Pro/cua.md
         -   label: NanoKVM 批量管理
             file: kvm/NanoKVM_Pro/kvm_admin.md
+        -   label: 实践应用
+            items:
+            -   label: 重装 macOS 系统
+                file: kvm/NanoKVM_Pro/macos_reinstall.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
 -   label: Cluster

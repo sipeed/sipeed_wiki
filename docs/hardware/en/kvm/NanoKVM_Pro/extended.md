@@ -287,6 +287,8 @@ Note:
 - All uploaded ISO files are stored in the `/data` directory of the NanoKVM-Pro. Users can directly read and write this partition from within the NanoKVM terminal.
 - If you encounter issues mounting the ISO, try ejecting the ISO from the host first, then click to mount it again.
 
+The macOS flow (building a bootable ISO, uploading it, mounting it, and booting the target Mac from it) has its own guide: [Reinstall macOS](./macos_reinstall.md).
+
 ## How to Set a Static IP
 
 NanoKVM-Pro introduced static IP configuration for Ethernet cards in version `1.1.6` and above. You can assign a static IP by configuring the `/boot/eth.nodhcp` file. The detailed setup method is as follows:
