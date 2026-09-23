@@ -1,0 +1,128 @@
+items:
+-   label: MaixPy3 是什么？能做什么？
+    file: readme.md
+    items:
+    -   label: 如何获取、安装、使用？
+        file: install/install.md
+    -   label: 安装或配置 IDE 开发工具
+        file: tools/MaixPy3_IDE.md
+        items:
+        -   label: 基于 USB 开发 MaixII-Dock
+            file: tools/0.MaixII-Dock.ipynb
+        -   label: 基于 WIFI 开发 MaixSense
+            file: tools/maixsense.md
+    -   label: M2DOCK (V831)上手视觉指南
+        url: /news/MaixPy3/v831_usage/v831_usage.html
+    -   label: 遇到问题怎么办？
+        items:
+        -   label: 如何正确反馈问题！
+            file: origin/helper.md
+        -   label: 常见问题与解决方法
+            file: question/maixpy3_faq.ipynb
+    -   label: 相关的基础知识
+        items:
+        -   label: MaixPy 和 MaixPy3 的区别
+            url: /news/MaixPy3/difference.html
+        -   label: 收录一些国内 Python 基础教程
+            file: origin/video.md
+        -   label: 大佬鼠の嵌入式 Python 入门教程 [1]
+            file: origin/hello_world.md
+        -   label: 大佬鼠の嵌入式 Python 入门教程 [2]
+            file: origin/loop_python.md
+        -   label: 使用必应搜索 V831 M2DOCK 的内容
+            url: https://bing.com/search?q=v831+m2dock
+        -   label: 咸鱼菌の MaixII-Dock 上手系列教程
+            url: https://bbs.sipeed.com/user/909
+        -   label: 喏呐の【攻城狮成长记】
+            file: origin/xiaoxu.md
+    -   label: 开发者更新日志
+        file: develop/readme.md
+        items:
+        -   label: 【项目开发基础】项目架构介绍
+            file: others/framework.md
+        -   label: 【底层开发基础】编译安装测试
+            file: others/develop.md
+        -   label: 【移植适配实例】开发新的平台
+            file: others/platform.md
+        -   label: 【图像处理开发】传统视觉算法
+            file: develop/opmv_cv.md
+-   label: 基础功能模块
+    collapsed: false
+    items:
+    -   label: 图像处理
+        items:
+        -   label: 背景知识
+            file: usage/vision/back-information.ipynb
+        -   label: 基础用法
+            file: usage/vision/maixpy3-example.ipynb
+        -   label: 传统视觉
+            file: usage/vision/image_example.ipynb
+    -   label: 硬件外设
+        items:
+        -   label: GPIO  (点灯)
+            file: usage/hardware/GPIO.ipynb
+        -   label: I2C  (pylibi2c)
+            file: usage/hardware/I2C.ipynb
+        -   label: PWM  (脉冲宽度调制)
+            file: usage/hardware/PWM.ipynb
+        -   label: UART  (pyserial)
+            file: usage/hardware/UART.ipynb
+        -   label: SPI  (spidev)
+            file: usage/hardware/SPI.ipynb
+        -   label: EVENT  (evdev)
+            file: usage/hardware/event.ipynb
+        -   label: ADC*  (模/数转换器)
+            file: usage/hardware/ADC.ipynb
+        -   label: WATCHDOG*  (看门狗定时器)
+            file: usage/hardware/watchdog.ipynb
+    -   label: 网络功能
+        file: usage/net.md
+    -   label: 媒体功能
+        items:
+        -   label: 视频播放 (pyav)
+            file: usage/Audio/play_mp4.md
+        -   label: 录音与播放 (pyaudio)
+            file: usage/Audio/audio.md
+-   label: 获取 AI 算法
+    collapsed: false
+    items:
+    -   label: 边缘检测 (sobel)
+        file: usage/AI_net/Edge_detection.ipynb
+    -   label: 物品分类 (resnet)
+        file: usage/AI_net/resnet.ipynb
+    -   label: 物体检测 (yolov2)
+        file: usage/AI_net/yolo.ipynb
+    -   label: 数字识别
+        file: usage/AI_net/number_recognize.ipynb
+    -   label: 人脸识别
+        file: usage/AI_net/face_recognize.ipynb
+    -   label: 自学习分类
+        file: usage/AI_net/self_learn.ipynb
+    -   label: 车牌识别
+        file: usage/AI_net/car_registration_plate_recognition.ipynb
+    -   label: 在线训练 AI 模型
+        url: https://maixhub.com
+    -   label: 本地训练 AI 模型
+        items:
+        -   label: 深度神经网络基础知识 (必看)
+            file: usage/train_AI/information.md
+        -   label: 本地训练环境搭建
+            file: usage/train_AI/ready.md
+        -   label: 边缘检测模型搭建过程
+            file: usage/train_AI/v831_sobel.ipynb
+        -   label: 如何制作数据集
+            file: usage/train_AI/data.md
+        -   label: 训练物体分类模型
+            file: usage/train_AI/train_resnet.md
+        -   label: 训练物体检测模型
+            file: usage/train_AI/train_yolov2.md
+-   label: 核心 API 手册
+    items:
+    -   label: image
+        file: api/maix/image.md
+    -   label: display
+        file: api/maix/display.md
+    -   label: camera
+        file: api/maix/camera.md
+    -   label: nn
+        file: api/maix/nn.md

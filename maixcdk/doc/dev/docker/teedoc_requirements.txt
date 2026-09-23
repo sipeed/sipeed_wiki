@@ -1,0 +1,12 @@
+teedoc-plugin-ad-hint
+teedoc-plugin-assets
+teedoc-plugin-baidu-tongji
+teedoc-plugin-blog
+teedoc-plugin-comments-gitalk
+teedoc-plugin-google-analytics
+teedoc-plugin-google-translate
+teedoc-plugin-jupyter-notebook-parser
+teedoc-plugin-markdown-parser
+teedoc-plugin-search
+teedoc-plugin-theme-default
+teedoc-plugin-thumbs-up

@@ -1,0 +1,13 @@
+<script>
+    var hash = window.location.hash
+    if (hash.indexOf("dock")!= -1){
+        location.href = window.location.origin + "/hardware/en/maix/m1s/m1s_dock.html"
+    }
+    else if (hash.indexOf("machine_key")!= -1){
+        location.href = window.location.origin + "/hardware/en/maix/m1s/other/get_key.html"
+    }
+    else
+    {
+        location.href = window.location.origin + "/hardware/en/maix/m1s/m1s_module.html"
+    }
+</script>

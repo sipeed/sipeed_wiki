@@ -1,0 +1,11 @@
+version: 0.5.0
+files:
+  - url: MaixVision-0.5.0-setup.exe
+    sha512: O8hPHQpyndkbGUSb0vi0/3rtmXzv5iuGwFNFlOcSxQaUM+wudUjwJNPic5ImLhPfJLVysToTOTefzZ2GsbGpKA==
+    size: 110203013
+  - url: MaixVision-0.5.0-setup2.exe
+    sha512: O8hPHQpyndkbGUSb0vi0/3rtmXzv5iuGwFNFlOcSxQaUM+wudUjwJNPic5ImLhPfJLVysToTOTefzZ2GsbGpKA==
+    size: 110203013
+path: MaixVision-0.5.0-setup.exe
+sha512: O8hPHQpyndkbGUSb0vi0/3rtmXzv5iuGwFNFlOcSxQaUM+wudUjwJNPic5ImLhPfJLVysToTOTefzZ2GsbGpKA==
+releaseDate: '2024-03-15T06:52:40.195Z'
