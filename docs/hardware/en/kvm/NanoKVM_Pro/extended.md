@@ -316,6 +316,12 @@ echo "192.168.2.2/22" > /boot/eth.nodhcp
 
 NanoKVM Pro provides two sets of available serial ports: UART1/UART2. (Note: The ATX version, limited by the standard bracket size, does not have these ports externally exposed; only the internal solder pads are retained.)
 
+> **Note: These two serial ports are TTL-level (3.3V) UARTs, not RS232 serial ports.**
+>
+> - Do not connect RS232 devices directly (for example, a DB9 port on a PC motherboard, which uses ±12V levels), or NanoKVM Pro may be damaged.
+> - To connect an RS232 device, use a TTL-to-RS232 converter module (such as MAX3232).
+> - If you use a USB-to-serial adapter, choose a 3.3V TTL-level module, and note the wiring: NanoKVM Pro's TX goes to the adapter's RX, RX goes to the adapter's TX, and GND must be connected (common ground).
+
 The interface definition diagram for the Desk version is as follows:
 ![](./../../../assets/NanoKVM/pro/extended/UART.png)
 

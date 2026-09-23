@@ -262,6 +262,12 @@ echo "192.168.2.2/22" > /boot/eth.nodhcp
 
 NanoKVM Pro 提供两组可用串口 UART1/UART2（ATX版本受限挡板规范尺寸没有引出，仅保留内部焊盘）
 
+> **注意：这两组串口是 TTL 电平（3.3V）的 UART，不是 RS232 串口。**
+>
+> - 请勿直接连接 RS232 设备（例如电脑主板上 DB9 接口的 ±12V 电平），否则可能损坏 NanoKVM Pro；
+> - 若需要连接 RS232 设备，请使用 TTL 转 RS232 的转换模块（如 MAX3232 等）；
+> - 若使用 USB 转串口工具连接，请选用 3.3V 电平的 TTL 串口模块，并注意接线：NanoKVM Pro 的 TX 接模块的 RX，RX 接模块的 TX，同时将 GND 相连（共地）。
+
 Desk 版本接口定义示意图如下：
 ![](./../../../assets/NanoKVM/pro/extended/UART.png)
 
