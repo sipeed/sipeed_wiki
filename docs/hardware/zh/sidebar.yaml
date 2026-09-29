@@ -570,6 +570,8 @@ items:
             items:
             -   label: Tailscale
                 file: kvm/NanoKVM_Go/network/tailscale.md
+            -   label: Sipeed 远程网络连接
+                file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: 花生壳

@@ -26,13 +26,22 @@ NanoKVM Go ── Tailscale 虚拟网络 ── 外网电脑或手机
 
 > 如果设置页面中没有 Tailscale 选项，请先检查并更新 NanoKVM Go 的系统和应用版本。
 
+## 与 Sipeed 远程网络的区别
+
+NanoKVM Go 支持两种连接方式：`Sipeed 远程网络` 由 Sipeed 提供控制服务器，不需要注册 Tailscale 账号，配置方法见 [Sipeed 远程网络连接](sipeed_remote_network.html)；另一种是 Tailscale，由 Tailscale 提供控制服务器，需要注册并登录 Tailscale 账号，也就是本文介绍的这种方式。两种方式的访问端（电脑或手机）都需要安装 Tailscale 客户端。
+
+![在 NanoKVM Go 中选择连接网络的方式](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_network_select.webp)
+
+已经启用过其中一种方式、想改用另一种时，在 NanoKVM Go 页面点击 `退出` 并确认，设备会移出当前网络并返回 `选择连接网络` 页面，重新选择即可。
+
+![退出当前网络并返回网络选择页面](../../../../assets/NanoKVM/go/network/nanokvm_go_sipeed_remote_network_exit.webp)
+
 ## 注册并登录 Tailscale
 
 NanoKVM Go 和用于远程访问的电脑或手机需要加入同一个 Tailscale 网络（Tailnet）。首次使用时，请先注册并登录 Tailscale：
 
 1. 访问 [Tailscale 官网](https://tailscale.com/)；
 2. 点击 `Get started` 或 `Log in`；
-
 
 ![Tailscale 官网注册和登录入口](../../../../assets/NanoKVM/go/network/tailscale_homepage_get_started.webp)
 
@@ -50,13 +59,21 @@ NanoKVM Go 和用于远程访问的电脑或手机需要加入同一个 Tailscal
 
 ### 打开 Tailscale 设置
 
-登录 NanoKVM Go 网页控制端，点击顶部工具栏中的设置图标。
+1. 登录 NanoKVM Go 网页控制端，点击顶部工具栏中的设置图标。
 
 ![打开 NanoKVM Go 设置页面](../../../../assets/NanoKVM/go/network/nanokvm_go_settings_button.webp)
 
+2. 在设置页面左侧选择 `远程网络`，然后点击 `Tailscale`。
+
+![在 NanoKVM Go 的远程网络页面打开 Tailscale](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_remote_network_entry.webp)
+
 ### 安装或启动 Tailscale
 
-在设置页面左侧选择 `Tailscale`。如果页面提示 Tailscale 尚未运行，请点击 `启动`，等待服务启动完成。
+1. 在 `选择连接网络` 中选择 `官方 Tailscale`，然后点击 `启动`；
+
+![在 NanoKVM Go 中选择官方 Tailscale 并启动](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_official_select.webp)
+
+2. 如果页面提示 `Tailscale 尚未运行`，点击 `启动`，等待服务启动完成。
 
 ![在 NanoKVM Go 中启动 Tailscale](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_start.webp)
 
@@ -104,6 +121,8 @@ NanoKVM Go 和用于远程访问的电脑或手机需要加入同一个 Tailscal
 | Android | 参考 [Tailscale Android 安装指南](https://tailscale.com/docs/install/android) 从官方渠道安装 |
 | iOS / iPadOS | 参考 [Tailscale iOS 安装指南](https://tailscale.com/docs/install/ios) 从 App Store 安装 |
 
+> 国区 App Store 未上架 Tailscale，需要先用非中国大陆地区的 Apple ID 登录 App Store，再下载安装。
+
 安装完成后，按照以下步骤连接到 Tailnet：
 
 1. 启动 Tailscale 客户端，并点击 `Log in`；
@@ -119,7 +138,7 @@ NanoKVM Go 加入 Tailnet 后，会获得一个 `100.x.x.x` 格式的 Tailscale 
 
 ### 在 NanoKVM Go 设置中查看
 
-打开 NanoKVM Go 的 `设置` > `Tailscale`，在 `设备地址` 一栏中查看 Tailscale IP。
+打开 NanoKVM Go 的 `设置` > `远程网络` > `Tailscale`，在 `设备地址` 一栏中查看 Tailscale IP。
 
 ![在 NanoKVM Go 设置中查看 Tailscale IP](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_ip.webp)
 
@@ -129,8 +148,7 @@ NanoKVM Go 加入 Tailnet 后，会获得一个 `100.x.x.x` 格式的 Tailscale 
 
 ![在 Tailscale 管理后台中查看 NanoKVM Go 的 Tailscale IP](../../../../assets/NanoKVM/go/network/tailscale_admin_nanokvm_ip.webp)
 
-
-## 从外网访问 NanoKVM Go
+## 从外网访问 NanoKVM Go（Tailscale IP）
 
 开始访问前，请先确认 NanoKVM Go 和访问端在 `Machines` 页面中均显示为 `Connected`。
 
