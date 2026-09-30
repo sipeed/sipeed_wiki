@@ -14,10 +14,10 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
 | - | - | - | - |
 | Model | SLogic Combo8 | SLogic16U3 | SLogic32U3 |
 | USB Type | USB2.0 | USB3.0 | USB3.2 Gen2 |
-| Max Sample Rate | 80M | 800M | 1500M |
+| Max Sample Rate | 80M | 800M | 1400M |
 | Max Channels | 8 | 16 | 32 |
 | Max Bandwidth | 0.3Gbps | 3.2Gbps | 6.4Gbps |
-| Typical Comb. (stream, unlimited) | 80M@4CH, 40M@8CH | 800M@4CH, 400M@8CH, 200M@16CH | 1500M@4CH, 800M@8CH, 400M@16CH, 200M@32CH |
+| Typical Comb. (stream, unlimited) | 80M@4CH, 40M@8CH | 800M@4CH, 400M@8CH, 200M@16CH | 1400M@4CH, 800M@8CH, 400M@16CH, 200M@32CH |
 | Sigrok Compatible | Y | Y | Y |
 | Adjustable Threshold | N | Y | Y |
 | Case | Plastic | Aluminum | Aluminum |

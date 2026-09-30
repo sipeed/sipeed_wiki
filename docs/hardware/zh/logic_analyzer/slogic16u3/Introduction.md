@@ -15,10 +15,10 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 | - | - | - | - |
 | 型号 | SLogic Combo8 | SLogic16U3 | SLogic32U3 |
 | USB 类型 | USB2.0 | USB3.0 | USB3.2 Gen2 |
-| 最大采样率 | 80M | 800M | 1500M |
+| 最大采样率 | 80M | 800M | 1400M |
 | 最大通道数 | 8 | 16 | 32 |
 | 最大带宽 | 0.3Gbps | 3.2Gbps | 6.4Gbps |
-| Typical Comb. (stream, unlimited) | 80M@4CH, 40M@8CH | 800M@4CH, 400M@8CH, 200M@16CH | 1500M@4CH, 800M@8CH, 400M@16CH, 200M@32CH |
+| Typical Comb. (stream, unlimited) | 80M@4CH, 40M@8CH | 800M@4CH, 400M@8CH, 200M@16CH | 1400M@4CH, 800M@8CH, 400M@16CH, 200M@32CH |
 | 兼容 Sigrok | Y | Y | Y |
 | 可调阈值 | N | Y | Y |
 | 外壳材质 | 塑料 | 铝合金 | 铝合金 |
