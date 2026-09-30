@@ -501,7 +501,15 @@ items:
     -   label: SLogic32U3
         items:
         -   label: 简介
-            file: logic_analyzer/slogic32u3/Introduction.md
+            file: logic_analyzer/slogic32u3/Intro.md
+        -   label: 快速上手
+            file: logic_analyzer/slogic32u3/QS.md
+        -   label: 用户指南
+            file: logic_analyzer/slogic32u3/UG.md
+        -   label: ngscopeclient
+            file: logic_analyzer/ngscopeclient/ngscopeclient.md
+        -   label: 常见问题(FAQ)
+            file: logic_analyzer/slogic32u3/FAQ.md
 
 -   label: ThermalCam
     items:
