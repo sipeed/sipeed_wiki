@@ -25,22 +25,26 @@ update:
 
 ### 接口总览
 
-> 🚧 **TODO(配图)**：正面 / 背面接口标注图。建议：`assets/MISC/front.jpg`、`assets/MISC/rear.jpg`
+> [!NOTE]
+> **📷 配图待补（TODO）**：正面 / 背面接口标注图 —— 需标出 4 组 Mini-HDMI、USB-C、MODE 小孔、ACT 指示灯。
+> 文件：`assets/MISC/front.jpg`、`assets/MISC/rear.jpg`｜要求：正视角、≥1000px 宽、接口周围留出标注空间。
 
-- **4 × Mini-HDMI 通道组**：32 通道分为 4 组，每组 8 通道（CH0–7 / CH8–15 / CH16–23 / CH24–31），经屏蔽线引出。**(待确认：每组是否含独立 GND / VCC / CK 引脚)**
+- **4 × Mini-HDMI 通道组**：32 通道分为 4 组，每组 8 通道（CH0–7 / CH8–15 / CH16–23 / CH24–31），经同轴屏蔽探头线引出。每个 Mini-HDMI（HDMI Type-C 1.4）口含 8 路数据 + GND + VCC(+5V) + CK；**4 组的 GND / VCC / CK 为同源共用**（并非各组独立）。
 - **USB-C**：USB3.2 Gen2，需使用具备 USB3 能力的线缆与主机端口。
-- **MODE 按键**：**(待确认：是否沿用 16U3 的隐藏式卡针按键，用于切换 DFU 模式)**
+- **MODE 按键**：切换 APP（逻辑分析仪）/ DFU（固件升级）模式，详见 [MODE 按键与 DFU 模式](#mode-按键与-dfu-模式)。
 - **ACT 指示灯**：见 [指示灯](#指示灯) 小节。
-- **CK / 触发输出 (TO)**：**(待确认：是否提供外部采样时钟输入 / 触发信号输出)**
+- **CK**：100MHz LVCMOS33 **固定时钟输出**（不可调、仅输出）。
 
 ### 通道与探头线
 
-> 🚧 **TODO(配图)**：Mini-HDMI 探头线与测试夹接线细节。建议：`assets/MISC/probe.jpg`
+> [!NOTE]
+> **📷 配图待补（TODO）**：Mini-HDMI 同轴探头线 + 测试夹接线细节 —— 需体现每组 8 路的八色配色。
+> 文件：`assets/MISC/probe.jpg`｜要求：特写、色彩还原准确。
 
 - 32 通道分 4 组，每组 8 通道合并到 **1 个 Mini-HDMI** 接口输入。
 - **通道配色**：每组 8 通道按 **红 / 橙 / 黄 / 绿 / 棕 / 蓝 / 白 / 灰** 八色循环标识。
-- **(待确认)** 探头线的方向标记、信号/GND 排布。
-- **(待确认)** VCC 输出能力（电压 / 电流上限）。
+- **探头线**：前端为同轴电缆子板（每板 8 通道 / 1 个 Mini-HDMI）。每路信号走同轴——芯线=信号（数字输入阻抗约 100kΩ），屏蔽层=信号地。
+- **VCC**：Mini-HDMI 提供 +5V 输出（4 组同源）。
 
 ### 可选 ADC 示波器模组
 
@@ -48,41 +52,45 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 - 通道数：4
 - 分辨率：8-bit
-- 模拟带宽：10MHz
-- 输入量程：±15V / ±7.5V 可选
-- 耦合：AC / DC 可切换
-- 采样率：**(待确认：100 或 200 MSa/s)**
+- 采样率：100 MSa/s
+- 模拟带宽：20 MHz
+- 安全输入电压：±15V
+- 输入阻抗：由探头决定
 - 启用方式：在 ngscopeclient（单二进制）的 UI 中配置；32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。**(具体 UI 步骤待补)**
 
-> 🚧 **TODO(配图)**：ADC 模组照片 + 示波器模式波形。建议：`assets/DCIM/adc-module.jpg`、`assets/Screenshots/scope-mode.png`
+> [!NOTE]
+> **📷 配图待补（TODO）**：可选 ADC 模组实物照 + 示波器模式波形截图。
+> 文件：`assets/DCIM/adc-module.jpg`（实物照，交同事产出）、`assets/Screenshots/scope-mode.png`（软件截图，实机截取）。
 
 ### 指示灯
 
-> 复用 16U3（需按 32U3 实物核对灯语）。<!-- TODO 核对 32U3 的 RGB 灯语是否与 16U3 一致 -->
+> 灯语与 SLogic16U3 一致。指示灯为 3 色 RGB：**蓝=电源，绿=USB LINK，红=运行状态**。
 
-> 🚧 **TODO(配图)**：ACT 指示灯位置与状态。建议：`assets/MISC/act-led.jpg`
+> [!NOTE]
+> **📷 配图待补（TODO）**：ACT 指示灯位置与状态 —— 可配正常连接 / 采集中 / DFU 几张。
+> 文件：`assets/MISC/act-led.jpg`｜要求：暗环境拍摄以突出灯色。
 
 | 状态 | 颜色 | 备注 |
 | - | - | - |
-| 正常连接 | 青色（蓝+绿） | **(待确认)** |
-| 数据传输 | 青+红快闪 | **(待确认)** |
-| DFU 模式 | 青+红慢闪 | **(待确认)** |
+| 正常连接 | 青色（蓝+绿） | 已上电且 USB 已连接 |
+| 数据传输 | 青+红快闪 | 采集中 |
+| DFU 模式 | 青+红慢闪 | 固件升级模式 |
 | USB 连接失败 | 只亮蓝 | 常见于非 USB3 线材/口 |
 | Flash 加载异常 | 只亮红 | 线材压降过大 / 硬件问题 |
 
 ### MODE 按键与 DFU 模式
 
-**MODE 按键用于在 APP（SLogic 逻辑分析仪）模式与 DFU（固件升级）模式之间切换。** 上电默认进入 APP 模式；按 MODE 切到 DFU 模式后即可刷写固件（见 [固件更新](#固件更新)）。
+**MODE 按键为隐藏式小孔按键**（同 16U3，需用卡针/SIM 卡针捅入按下），用于在 APP（SLogic 逻辑分析仪）与 DFU（固件升级）模式之间切换。上电默认进入 APP 模式；按 MODE 切到 DFU 模式后即可刷写固件（见 [固件更新](#固件更新)）。
 
-> 🚧 **TODO**：确认按键形态（是否沿用 16U3 的隐藏式卡针按键）与切换时的指示灯变化。
+切到 DFU 模式时指示灯为**红灯慢闪**（同 16U3）。
 
 ### 固件更新
 
-> 🚧 **TODO**：补齐 32U3 固件更新工具链与固件下载地址（类比 [slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools)）。
+> 固件更新工具：[slogic16u3-tools releases](https://github.com/sipeed/slogic16u3-tools/releases/latest)（与 SLogic16U3 共用工具链）。SLogic32U3 固件尚未发布，正式发布后将于[下载站](https://dl.sipeed.com/shareURL/SLogic)提供。
 
 1. 进入 DFU 模式（按 MODE，等红灯慢闪）。
 2. 确认出现 "SLogic DFU" 设备。
-3. 使用命令行工具刷入固件：`spi_flash_xxx <固件路径>` **(待确认工具名)**。
+3. 用 [slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest) 的刷写工具刷入固件（命令形如 `spi_flash_xxx <固件路径>`）。
 
 ### 探测与信号完整性
 
@@ -102,7 +110,7 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 - VCC 为电源输出，**切勿与 GND 短接**。
 - 与市电供电电脑配合时，探头地会与电脑地相连，请仅连接等电位接地点，**切勿接热地**。
-- **(待确认：32U3 的 VCC 供电能力与过流保护参数)**
+- **VCC**：Mini-HDMI 提供 +5V 输出（4 组同源），**切勿与 GND 短接**。
 
 ### 驱动与安装
 
@@ -175,7 +183,7 @@ SLogic32U3 支持**多通道、多边沿组合触发**（在 PulseView / sigrok-
 
 > ⚠️ **ngscopeclient 集成当前仅支持单通道、单边沿触发**——需要多通道 / 多边沿组合时请改用 PulseView 或 sigrok-cli。
 
-- **触发位置**：SLogic32U3 为 Stream 模式，触发位置**(待确认——流式设备通常固定在采集起点附近，是否可调需研发确认)**。
+- **预触发 (pre-trigger)**：支持，可在 UI 中设置触发点之前保留的采样量。
 
 > 🚧 **TODO**：为常见总线各配 1~2 个触发实例（如 UART 起始位、I²C 起始条件）。
 
