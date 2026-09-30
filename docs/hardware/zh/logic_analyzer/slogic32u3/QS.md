@@ -19,7 +19,7 @@ update:
 
 本页用最短路径带你完成第一次采集。深入配置、原理与全部功能见[用户指南](./UG.md)；遇到问题见[常见问题](./FAQ.md)。
 
-## 1. 开箱
+## 开箱
 
 > [!NOTE]
 > **📷 配图待补（TODO）**：开箱全家福（配件清单定稿后拍摄）。
@@ -36,7 +36,7 @@ update:
 - 可选：ADC 示波器模组 × **(待确认)**
 - **(待确认：卡针 / 说明卡 / 收纳包等)**
 
-## 2. 安装软件（PulseView）
+## 安装软件（PulseView）
 
 SLogic32U3 为绿色便携软件，无系统级安装。从 [GitHub Release](https://github.com/sipeed/SLogic/releases/latest) 下载对应平台的最新版（下载站为备份镜像，见 [Intro · 软件下载](./Intro.md#软件下载)）。
 
@@ -48,7 +48,7 @@ SLogic32U3 为绿色便携软件，无系统级安装。从 [GitHub Release](htt
 
 > 🚧 **TODO(配图)**：三平台各一张软件启动截图。建议：`assets/Screenshots/pv-win.png` / `pv-linux.png` / `pv-macos.png`
 
-## 3. 安装驱动 / 配置权限
+## 安装驱动 / 配置权限
 
 不同平台首次使用需要一次性配置，否则软件可能扫描不到设备。
 
@@ -56,7 +56,7 @@ SLogic32U3 为绿色便携软件，无系统级安装。从 [GitHub Release](htt
 - **Linux**：需安装 udev 规则（设备 VID `359f`），否则普通用户无权限访问 USB。见 [UG · Linux udev 规则](./UG.md#linux-udev-规则)。
 - **macOS**：支持；若首次运行被系统阻止，在「系统设置 → 隐私与安全性」放行。
 
-## 4. 接线与接地
+## 接线与接地
 
 > 🚧 **TODO(配图)**：接线示意图（Mini-HDMI 探头方向 + 信号/GND 对应）。建议：`assets/MISC/wiring.jpg`
 
@@ -65,7 +65,7 @@ SLogic32U3 为绿色便携软件，无系统级安装。从 [GitHub Release](htt
 3. 把待测信号接到任一空闲 **CH**，并**务必将被测设备 GND 与 SLogic GND 相连**。
 4. 高速信号建议**每根信号线就近配一根地线**——详见 [UG · 探测与信号完整性](./UG.md#探测与信号完整性)。
 
-## 5. 第一次采集（以 UART 为例）
+## 第一次采集（以 UART 为例）
 
 以采集一路 115200 8N1 的 UART 为例：
 
@@ -77,7 +77,7 @@ SLogic32U3 为绿色便携软件，无系统级安装。从 [GitHub Release](htt
 
 > 🚧 **TODO(配图)**：采集参数设置面板 + 采到的波形各一张。建议：`assets/Screenshots/qs-capture-cfg.png` / `qs-uart-wave.png`
 
-## 6. 看结果并解码
+## 看结果并解码
 
 1. 打开 Decoder 面板，添加 **UART** 解码器。
 2. 配置引脚映射（RX/TX）、波特率 115200、8N1。

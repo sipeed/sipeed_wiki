@@ -1,7 +1,7 @@
 <!--
 维护者说明（不渲染）：SLogic32U3 用户指南骨架（功能全参考）。
 待办以 "TODO" 标记；配图占位以 "> 🚧 **TODO(配图)**" 给出，附建议资源名。
-可迁移自 SLogic16U3 的内容已在对应小节用 "复用 16U3" 注明——迁移时请按 32U3 实物核对（通道数、接口、灯语等）。
+部分内容迁移自 SLogic16U3，已按 32U3 实物核对（通道数、接口、灯语等）。
 若本页过长，可拆为 UG_Hardware.md + UG_Software.md，届时同步更新 sidebar.yaml。
 -->
 ---
@@ -21,7 +21,7 @@ update:
 
 ---
 
-## 一、硬件详解
+## 硬件详解
 
 ### 接口总览
 
@@ -106,11 +106,8 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 ### 安全与注意事项
 
-> 复用 16U3。
-
-- VCC 为电源输出，**切勿与 GND 短接**。
-- 与市电供电电脑配合时，探头地会与电脑地相连，请仅连接等电位接地点，**切勿接热地**。
 - **VCC**：Mini-HDMI 提供 +5V 输出（4 组同源），**切勿与 GND 短接**。
+- 与市电供电电脑配合时，探头地会与电脑地相连，请仅连接等电位接地点，**切勿接热地**。
 
 ### 驱动与安装
 
@@ -118,7 +115,7 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 SLogic32U3 默认即为 WinUSB 设备，Windows 10/11 即插即用，**无需 Zadig、无需手动安装驱动**——这是相比部分 sigrok 生态竞品的体验优势。插上设备后直接运行 PulseView 或 ngscopeclient 即可。
 
-> 🚧 **TODO**：确认 PulseView 原生 Windows 版是否有带宽/采样率上限（16U3 上原生 exe 曾无法跑满目标带宽）。
+> PulseView 原生 Windows 版**无软件层面的带宽/采样率上限**，实际可达速率仅取决于物理机性能（不同于 SLogic16U3 早期 Windows 原生 exe 的降速限制）。
 
 #### Linux udev 规则
 
@@ -142,11 +139,9 @@ sudo udevadm control --reload && sudo udevadm trigger
 
 ---
 
-## 二、软件使用 — PulseView (sigrok)
+## 软件使用 — PulseView (sigrok)
 
 ### 连接与设备检测
-
-> 复用 16U3 软件指南（把设备名改为 SLogic32U3）。
 
 最佳做法：先把设备连到 USB3 口，再启动 PulseView，让软件启动时自动检测。若已在运行，用 "Connect to Device" → 选驱动 → Scan → 选中设备。
 
@@ -214,7 +209,7 @@ SLogic32U3 支持**多通道、多边沿组合触发**（在 PulseView / sigrok-
 
 ---
 
-## 三、软件使用 — ngscopeclient
+## 软件使用 — ngscopeclient
 
 SLogic32U3 是 ngscopeclient 分发版的重点支持型号。完整安装与连接见 [ngscopeclient 上手指南](../ngscopeclient/ngscopeclient.md)。
 
@@ -231,7 +226,7 @@ SLogic32U3 是 ngscopeclient 分发版的重点支持型号。完整安装与连
 
 ---
 
-## 四、命令行 — sigrok-cli
+## 命令行 — sigrok-cli
 
 用于自动化、CI、无头采集。
 
@@ -251,19 +246,18 @@ sigrok-cli -i capture.sr -P uart:rx=D0:baudrate=115200 -A uart   # 解码
 
 ---
 
-## 五、接入 AI Agent
+## 接入 AI Agent
 
 配合 `sigrok-cli-slogic-plugin`，无需学 PulseView，把通道与协议目标告诉 Agent 即可自动扫描/采集/解码。完整教程见 [SLogic 接入 AI Agent](../slogic_agent/readme.md)。
 
 ---
 
-## 六、真实约束与已知问题
+## 真实约束与已知问题
 
 > 学习 sigrok 的 "Known Issues" 文化——如实标注限制，建立可信度。
 
 > 🚧 **TODO**：随测试完善本节。候选条目：
 
 - 采样率 × 通道数 × 深度 的组合限制（哪些组合不可用）。
-- PulseView 原生 Windows 版是否有带宽/采样率上限（16U3 上原生 exe 曾无法跑满目标带宽；32U3 待验证。注：设备本身在 Windows 免驱、为 WinUSB）。
 - 触发在 Stream 模式下的限制。
 - ADC 模组与数字采集是否可同时使用。
