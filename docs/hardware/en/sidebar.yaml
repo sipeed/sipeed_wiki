@@ -499,6 +499,10 @@ items:
             file: logic_analyzer/ngscopeclient/ngscopeclient.md
         -   label: FAQ
             file: logic_analyzer/slogic16u3/FAQ.md
+    -   label: SLogic32U3
+        items:
+        -   label: Introduction
+            file: logic_analyzer/slogic32u3/Introduction.md
 -   label: ThermalCam
     items:
     -   label: Sipeed T256s

@@ -498,6 +498,11 @@ items:
         -   label: 常见问题(FAQ)
             file: logic_analyzer/slogic16u3/FAQ.md
 
+    -   label: SLogic32U3
+        items:
+        -   label: 简介
+            file: logic_analyzer/slogic32u3/Introduction.md
+
 -   label: ThermalCam
     items:
     -   label: Sipeed T256s
