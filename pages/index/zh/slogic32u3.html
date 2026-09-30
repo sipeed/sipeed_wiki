@@ -1,16 +1,11 @@
+<!-- 短链 /slogic32u3 → 按浏览器语言跳转到 SLogic32U3 简介页 -->
+<!-- TODO: 目前仅有 zh 文档；en 版 (docs/hardware/en/logic_analyzer/slogic32u3/Intro.md) 尚未建立，英文访客会 404，建 en 骨架后即自动生效 -->
 <script>
-    var hash = window.location.hash
     var url_language = "zh"
 
-    if( navigator.language.indexOf("zh") == -1 )
-    {
+    if (navigator.language.indexOf("zh") == -1) {
         url_language = "en"
     }
 
-    switch (window.location.hash) {
-        case "#c8" : 
-            break;
-        default : 
-            location.href = window.location.origin + "/hardware/" + url_language + "/logic_analyzer/slogic32u3/Introduction.html"
-    }
+    location.href = window.location.origin + "/hardware/" + url_language + "/logic_analyzer/slogic32u3/Intro.html"
 </script>
