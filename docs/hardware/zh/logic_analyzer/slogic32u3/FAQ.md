@@ -38,7 +38,7 @@ Linux 上普通用户默认无权限访问 USB，见下方 udev 规则。
 
 ### Windows 需要装驱动吗？
 
-**不需要。** SLogic32U3 默认即 WinUSB 设备，Windows 10/11 即插即用，无需 Zadig 或手动装驱动。插上设备后直接运行 PulseView 或 `sigrok-bridge` 即可。
+**不需要。** SLogic32U3 默认即 WinUSB 设备，Windows 10/11 即插即用，无需 Zadig 或手动装驱动。插上设备后直接运行 PulseView 或 ngscopeclient 即可。
 
 ### 如何为 Linux 设置 udev 规则？
 
@@ -48,8 +48,7 @@ Linux 上普通用户默认无权限访问 USB，见下方 udev 规则。
 sudo tee /etc/udev/rules.d/60-sipeed.rules <<EOF
 SUBSYSTEM!="usb|usb_device", GOTO="sipeed_rules_end"
 ACTION!="add", GOTO="sipeed_rules_end"
-ATTRS{idVendor}=="359f", MODE="0666", GROUP="plugdev", TAG+="uaccess"
-ENV{ID_MM_DEVICE_IGNORE}="1"
+ATTRS{idVendor}=="359f", MODE="0666", GROUP="plugdev", TAG+="uaccess", ENV{ID_MM_DEVICE_IGNORE}="1"
 LABEL="sipeed_rules_end"
 EOF
 sudo udevadm control --reload
@@ -60,7 +59,7 @@ sudo udevadm trigger
 
 ### macOS 支持吗？需要额外配置吗？
 
-支持。PulseView 与 sigrok-cli 提供 macOS 版（ngscopeclient 的 macOS 版即将推出）。若首次运行被系统阻止，在「系统设置 → 隐私与安全性」中放行即可。
+支持。PulseView、ngscopeclient 与 sigrok-cli 均提供 macOS 版。若首次运行被系统阻止，在「系统设置 → 隐私与安全性」中放行即可。
 
 ## 采集与性能
 
@@ -97,7 +96,9 @@ SLogic32U3 为 **Stream（流式）模式**：实时回传、采集时长理论�
 
 ### 如何启用示波器（模拟）模式？
 
-在 ngscopeclient 中，启动 `sigrok-bridge` 时加 `--adc-mode analog`（例：`./sigrok-bridge --adc-mode analog`）。32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。**该模式只能在 bridge 启动时指定，连接后不能动态切换**，改模式需重启 bridge。需硬件支持外接 ADC 模块。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。
+在 ngscopeclient 的 UI 中启用（ngscopeclient 现为单二进制程序，全部在界面中配置，无需命令行参数）。32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3；需硬件支持外接 ADC 模块。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。
+
+> 🚧 **TODO**：补充在 ngscopeclient UI 中启用/切换模拟模式的具体步骤。
 
 ### ADC 模组能和数字采集同时用吗？
 

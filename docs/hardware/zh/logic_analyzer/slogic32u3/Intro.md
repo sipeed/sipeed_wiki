@@ -34,7 +34,7 @@ SLogic32U3 是 Sipeed SLogic 系列的旗舰逻辑分析仪。它在铝合金外
 2. **32 通道 / 最高 1400MSa/s**：1400M@4CH、800M@8CH、400M@16CH、200M@32CH，覆盖从单总线调试到多路并行总线分析。
 3. **可调阈值 + 宽输入范围**：数字输入 0~10V，逻辑阈值 0~6V 可调，适配 1.2V/1.8V/3.3V/5V 等多种逻辑电平。
 4. **Mini-HDMI 屏蔽探头**：32 通道分为 4 组、每组 8 通道合并到 1 个 Mini-HDMI 接口，每组按 红/橙/黄/绿/棕/蓝/白/灰 八色循环标识，兼顾高速信号完整性与接线便利。
-5. **可选 ADC → 示波器**：选配 4 通道 ADC 模组（8-bit，10MHz 模拟带宽，±15V/±7.5V 量程，AC/DC 耦合可切换 <!-- TODO 采样率 100 还是 200 MSa/s 待确认 -->），同一台设备兼作采样示波器，实现混合信号观测。在 ngscopeclient 中以 `sigrok-bridge --adc-mode analog` 启用。
+5. **可选 ADC → 示波器**：选配 4 通道 ADC 模组（8-bit，10MHz 模拟带宽，±15V/±7.5V 量程，AC/DC 耦合可切换 <!-- TODO 采样率 100 还是 200 MSa/s 待确认 -->），同一台设备兼作采样示波器，实现混合信号观测。在 ngscopeclient 的 UI 中启用。
 6. **多前端 + 绿色免安装**：PulseView（sigrok）、ngscopeclient、sigrok-cli 任选，无系统级安装、随插随用。
 7. **接入 AI Agent**：配合 `sigrok-cli-slogic-plugin`，把通道与协议目标告诉 Agent，即可自动扫描、采集 `.sr` 波形并解码。详见 [SLogic 接入 AI Agent](../slogic_agent/readme.md)。
 
@@ -62,7 +62,7 @@ SLogic32U3 是 Sipeed SLogic 系列的旗舰逻辑分析仪。它在铝合金外
 | 供电 | USB 供电 **(待确认：功耗与 VCC 输出能力)** |
 | 外壳 / 尺寸 | 铝合金，50 × 50 × 10 mm |
 | 兼容软件 | sigrok/PulseView、ngscopeclient、sigrok-cli |
-| 支持系统 | Windows 10/11 x64、Linux x86_64、macOS（ngscopeclient 的 macOS 版即将推出） |
+| 支持系统 | Windows 10/11 x64、Linux x86_64、macOS |
 | 参考价格 | ~¥999 / ~$149 **(待确认：最终定价与众筹档位)** |
 
 ---
@@ -102,11 +102,11 @@ SLogic32U3 提供 4 种使用方式，按需选择：
 
 ## 软件下载
 
-> 🚧 **TODO**：补齐 SLogic32U3 的发布下载地址与各平台包名。
+多平台上位机（PulseView / ngscopeclient / sigrok-cli）从 **GitHub Release** 获取最新版；下载站为备份镜像。
 
-- 软件下载站（SLogic 系列）：https://dl.sipeed.com/shareURL/SLogic <!-- TODO 确认 SLogic32U3 专属子目录与各平台包名 -->
+- **GitHub Release（推荐，最新）**：https://github.com/sipeed/SLogic/releases/latest
+- 下载站（备份镜像）：https://dl.sipeed.com/shareURL/SLogic
 - SLogic 版 sigrok-cli（命令行）：`sigrok-cli-SLogic-xxxx.{AppImage,exe,dmg}`
-- ngscopeclient + sigrok-bridge：https://dl.sipeed.com/shareURL/SLogic/ngscopeclient
 - AI Agent Plugin：`https://dl.sipeed.com/fileList/SLogic/sigrok-cli-slogic-plugin.zip`
 - 源代码（libsigrok，slogic-dev 分支）：https://github.com/sipeed/libsigrok/tree/slogic-dev
 - libsigrok 驱动名：`sipeed-slogic-analyzer`

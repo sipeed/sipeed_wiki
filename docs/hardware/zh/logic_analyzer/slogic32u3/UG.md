@@ -52,7 +52,7 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 - 输入量程：±15V / ±7.5V 可选
 - 耦合：AC / DC 可切换
 - 采样率：**(待确认：100 或 200 MSa/s)**
-- 启用方式：在 ngscopeclient 的 `sigrok-bridge` 启动时加 `--adc-mode analog`；32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。**该模式只能在 bridge 启动时指定，连接后不能动态切换**（改模式需重启 bridge）。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。
+- 启用方式：在 ngscopeclient（单二进制）的 UI 中配置；32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。**(具体 UI 步骤待补)**
 
 > 🚧 **TODO(配图)**：ADC 模组照片 + 示波器模式波形。建议：`assets/DCIM/adc-module.jpg`、`assets/Screenshots/scope-mode.png`
 
@@ -108,7 +108,7 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 #### Windows：免驱（WinUSB）
 
-SLogic32U3 默认即为 WinUSB 设备，Windows 10/11 即插即用，**无需 Zadig、无需手动安装驱动**——这是相比部分 sigrok 生态竞品的体验优势。插上设备后直接运行 PulseView 或 `sigrok-bridge` 即可。
+SLogic32U3 默认即为 WinUSB 设备，Windows 10/11 即插即用，**无需 Zadig、无需手动安装驱动**——这是相比部分 sigrok 生态竞品的体验优势。插上设备后直接运行 PulseView 或 ngscopeclient 即可。
 
 > 🚧 **TODO**：确认 PulseView 原生 Windows 版是否有带宽/采样率上限（16U3 上原生 exe 曾无法跑满目标带宽）。
 
@@ -120,8 +120,7 @@ SLogic32U3 默认即为 WinUSB 设备，Windows 10/11 即插即用，**无需 Za
 sudo tee /etc/udev/rules.d/60-sipeed.rules <<'EOF'
 SUBSYSTEM!="usb|usb_device", GOTO="sipeed_rules_end"
 ACTION!="add", GOTO="sipeed_rules_end"
-ATTRS{idVendor}=="359f", MODE="0666", GROUP="plugdev", TAG+="uaccess"
-ENV{ID_MM_DEVICE_IGNORE}="1"
+ATTRS{idVendor}=="359f", MODE="0666", GROUP="plugdev", TAG+="uaccess", ENV{ID_MM_DEVICE_IGNORE}="1"
 LABEL="sipeed_rules_end"
 EOF
 sudo udevadm control --reload && sudo udevadm trigger
@@ -131,7 +130,7 @@ sudo udevadm control --reload && sudo udevadm trigger
 
 #### macOS
 
-支持 macOS。PulseView 与 sigrok-cli 提供 macOS 版；若首次运行被系统阻止，在「系统设置 → 隐私与安全性」中放行即可。ngscopeclient 的 macOS 版即将推出。
+支持 macOS。PulseView、ngscopeclient 与 sigrok-cli 均提供 macOS 版；若首次运行被系统阻止，在「系统设置 → 隐私与安全性」中放行即可。
 
 ---
 
@@ -213,10 +212,12 @@ SLogic32U3 是 ngscopeclient 分发版的重点支持型号。完整安装与连
 
 本节仅补 32U3 特有（完整安装/连接见共享页）：
 
-- **先启动 `sigrok-bridge` 再连**：bridge 是绿色单文件，`./sigrok-bridge` 启动后保持运行、不要关闭。
-- **连接参数**：菜单 File → Add → Oscilloscope，填 Driver=`sigrok`、Transport=`twinlan`、Path=`localhost:10101`（硬件在远程机器则填 `<IP>:10101`）。防火墙需放通 **10101**（命令）与 **10102**（数据）。连上后通道面板出现 **32** 路通道。
+- **单二进制、全 UI 配置**：ngscopeclient 现为单个可执行程序，直接运行即可；连接、采集模式与参数都在 UI 中设置，无需单独的后台程序或命令行参数。
+- **连接设备**：在 ngscopeclient 界面中添加/选择 SLogic 设备，连上后通道面板出现 **32** 路通道。
 - **Filter Graph**：ngscopeclient 把协议解码/数学/测量统一为 Filter 节点，串成处理链。
-- **ADC 模拟模式**：`./sigrok-bridge --adc-mode analog` 启动，把数字管脚合并为 4 路 8-bit 模拟通道 A0–A3，像采样示波器一样观测（量程/坐标轴/FFT 等自动可用）。
+- **ADC 模拟模式**：在 UI 中启用后，把数字管脚合并为 4 路 8-bit 模拟通道 A0–A3，像采样示波器一样观测（量程/坐标轴/FFT 等自动可用）。需硬件支持外接 ADC 模块。
+
+> 🚧 **TODO**：补充 ngscopeclient 单二进制版的实际连接步骤与在 UI 中启用模拟模式的具体操作。共享页 [ngscopeclient](../ngscopeclient/ngscopeclient.md) 的现有内容仍是旧的 sigrok-bridge 架构，需同步更新。
 
 > 🚧 **TODO(配图)**：ngscopeclient 里 32U3 的波形/解码。建议：`assets/Screenshots/ngscope-32u3.png`
 
@@ -226,7 +227,7 @@ SLogic32U3 是 ngscopeclient 分发版的重点支持型号。完整安装与连
 
 用于自动化、CI、无头采集。
 
-Sipeed 按平台预分发 SLogic 版 `sigrok-cli`：`sigrok-cli-SLogic-xxxx.{AppImage,exe,dmg}`（[下载站](https://dl.sipeed.com/shareURL/SLogic)）。libsigrok 驱动名为 `sipeed-slogic-analyzer`。
+Sipeed 按平台预分发 SLogic 版 `sigrok-cli`：`sigrok-cli-SLogic-xxxx.{AppImage,exe,dmg}`（[GitHub Release](https://github.com/sipeed/SLogic/releases/latest)，下载站为备份镜像）。libsigrok 驱动名为 `sipeed-slogic-analyzer`。
 
 ```bash
 sigrok-cli --scan                                   # 扫描设备

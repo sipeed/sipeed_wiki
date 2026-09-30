@@ -36,15 +36,13 @@ update:
 
 ## 2. 安装软件（PulseView）
 
-SLogic32U3 为绿色便携软件，无系统级安装。
-
-> 🚧 **TODO**：补齐三平台下载地址与包名（见 [Intro 软件下载](./Intro.md#软件下载)）。
+SLogic32U3 为绿色便携软件，无系统级安装。从 [GitHub Release](https://github.com/sipeed/SLogic/releases/latest) 下载对应平台的最新版（下载站为备份镜像，见 [Intro · 软件下载](./Intro.md#软件下载)）。
 
 | 平台 | 操作 |
 | - | - |
 | Windows 10/11 | 解压便携包，双击 `pulseview.exe` |
 | Linux x86_64 | `chmod +x Pulseview.appimage && ./Pulseview.appimage` |
-| macOS | 打开 `Pulseview.dmg` 直接运行（ngscopeclient 的 macOS 版即将推出） |
+| macOS | 打开 `Pulseview.dmg` 直接运行 |
 
 > 🚧 **TODO(配图)**：三平台各一张软件启动截图。建议：`assets/Screenshots/pv-win.png` / `pv-linux.png` / `pv-macos.png`
 
