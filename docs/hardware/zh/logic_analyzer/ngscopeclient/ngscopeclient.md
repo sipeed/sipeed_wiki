@@ -215,6 +215,6 @@ USB 权限没配好。回到上面 Linux 一节装 udev 规则，然后**拔插�
 
 ---
 
-> 📷 **项目家族合照**： SLogic 硬件实物 + ngscopeclient 屏幕画面 + bridge 终端日志，三件套同屏。
+> 📷 **项目家族合照**： SLogic 硬件实物 + ngscopeclient 屏幕画面 + 终端日志，三件套同屏。
 >
 > ![完整使用场景](../../../zh/logic_analyzer/ngscopeclient/family-ngscopeclient-macOS-SLogic32U3.jpg)
