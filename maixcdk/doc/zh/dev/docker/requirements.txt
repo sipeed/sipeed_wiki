@@ -1,0 +1,6 @@
+PyYAML
+progress
+requests
+maixtool
+pybind11-stubgen
+

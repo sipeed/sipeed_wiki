@@ -1,0 +1,28 @@
+
+<script>
+    var hash = window.location.hash
+    if (hash.indexOf("hardware")!= -1){
+        location.href = "https://dl.sipeed.com/shareURL/Maix-Zero/M0P/M0P"
+    }
+    else if(hash.indexOf("module")!= -1)
+    {
+        if( navigator.language.indexOf("zh") == 0 )
+        {
+            location.href = window.location.origin + "/hardware/zh/maixzero/m0p/m0p.html"
+        }
+        else
+        {
+            location.href = window.location.origin + "/hardware/en/maixzero/m0p/m0p.html"
+        }
+    }
+    else 
+    {   if( navigator.language.indexOf("zh") == 0 )
+        {
+            location.href = window.location.origin + "/hardware/zh/maixzero/m0p/m0p_dock.html"
+        }
+        else
+        {
+            location.href = window.location.origin + "/hardware/en/maixzero/m0p/m0p_dock.html"
+        }
+    }
+</script>
