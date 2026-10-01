@@ -502,7 +502,7 @@ items:
     -   label: SLogic32U3
         items:
         -   label: Introduction
-            file: logic_analyzer/slogic32u3/Introduction.md
+            file: logic_analyzer/slogic32u3/Intro.md
 -   label: ThermalCam
     items:
     -   label: Sipeed T256s
