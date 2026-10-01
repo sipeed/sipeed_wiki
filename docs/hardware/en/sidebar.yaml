@@ -503,6 +503,14 @@ items:
         items:
         -   label: Introduction
             file: logic_analyzer/slogic32u3/Intro.md
+        -   label: Quick Start
+            file: logic_analyzer/slogic32u3/QS.md
+        -   label: User Guide
+            file: logic_analyzer/slogic32u3/UG.md
+        -   label: ngscopeclient
+            file: logic_analyzer/ngscopeclient/ngscopeclient.md
+        -   label: FAQ
+            file: logic_analyzer/slogic32u3/FAQ.md
 -   label: ThermalCam
     items:
     -   label: Sipeed T256s
