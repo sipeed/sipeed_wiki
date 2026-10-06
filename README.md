@@ -18,7 +18,7 @@ More contribute doc :
 ## Preview locally
 
 ```bash
-git clone https://github.com/sipeed/sipeed_wiki.git
+git clone --depth=1 https://github.com/sipeed/sipeed_wiki.git
 cd sipeed_wiki
 uv sync
 uv run teedoc serve
@@ -26,6 +26,23 @@ uv run teedoc serve
 
 `uv sync` creates/updates the `.venv` from [`pyproject.toml`](./pyproject.toml) and `uv.lock`, which already includes `teedoc` and all plugins used by this site (so `teedoc install` is not needed).
 Install [uv](https://docs.astral.sh/uv/) first if you don't have it.
+
+### Why `--depth=1`
+
+This is a documentation site, so most of the repo is images. Git keeps every past revision
+of every one of them forever, including large originals that have since been replaced by
+compressed versions. A full clone therefore downloads roughly **1 GB of history** even
+though you only ever need the current version of each file.
+
+`--depth=1` fetches just the latest commit and skips all of that. Editing docs and opening
+a pull request works exactly the same from a shallow clone. Use a full clone only when you
+actually need the history (`git log`, `git blame`, `git bisect`) — you can always deepen a
+shallow clone later with `git fetch --unshallow`.
+
+When adding images, please keep them small (ideally under 300 KB, 500 KB max): anything
+committed here stays in the history for good, so an oversized image costs every future
+contributor bandwidth even after it is deleted. See [AGENTS.md](./AGENTS.md) for the full
+image and authoring guidelines.
 
 More build tool usage see [teedoc](http://github.com/teedoc/teedoc)
 

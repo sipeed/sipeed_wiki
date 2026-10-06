@@ -1,0 +1,24 @@
+name: check_image_links
+
+# Broken image links are easy to introduce and hard to spot: the published site
+# keeps serving stale copies uploaded by earlier builds, so a page can look fine
+# long after the image was moved or deleted from the repo. Check it here instead.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-image-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check that referenced images exist
+        run: python3 tools/check_image_links.py --list
