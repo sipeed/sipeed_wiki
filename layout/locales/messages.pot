@@ -2,54 +2,15 @@
 msgid "翻译内容"
 msgstr ""
 
-#: home.html:96
-msgid "/static/home/banner_maixcam_pro.jpg"
+#: home.html:97
+msgid "/static/home/banner_nanokvm_go.jpg"
 msgstr ""
 
-#: home.html:99
-msgid "硬件文档"
-msgstr ""
-
-#: home.html:100
-msgid "/maixcam-pro"
-msgstr ""
-
-#: home.html:104
-msgid "/maixpy/"
-msgstr ""
-
-#: home.html:107 home.html:129 home.html:160 home.html:173 home.html:186
-#: licheepi.html:221 licheepi.html:242 licheepi.html:258 licheepi.html:279
-#: licheepi.html:295 licheepi.html:311 maix.html:196 maix.html:213
-#: maix.html:230 maix.html:307 maix.html:328 maix.html:345 maix.html:362
-#: nanokvm.html:41 nanokvm.html:58 nanokvm.html:75 nanokvm.html:92
-#: nanokvm.html:109 others.html:42 sipeedsense.html:44 sipeedsense.html:60
-#: sipeedsense.html:76 slogic.html:58 slogic.html:75 tang.html:171
-#: tang.html:187 tang.html:203 tang.html:219 tang.html:235 tang.html:251
-#: tang.html:267 tang.html:283 tang.html:299 tang.html:315
-msgid "购买"
-msgstr ""
-
-#: home.html:108 maix.html:214
-msgid "https://item.taobao.com/item.htm?id=846226367137"
-msgstr ""
-
-#: home.html:113
-msgid "/static/home/banner_tang_console.jpg"
-msgstr ""
-
-#: home.html:116 home.html:138 home.html:147
-msgid "文档和购买"
-msgstr ""
-
-#: home.html:122
-msgid "/static/home/banner_nanokvm_zh.jpg"
-msgstr ""
-
-#: home.html:125 home.html:156 home.html:169 home.html:182 licheepi.html:217
-#: licheepi.html:238 licheepi.html:254 licheepi.html:275 licheepi.html:291
-#: licheepi.html:307 maix.html:245 maix.html:262 maix.html:303 maix.html:320
-#: maix.html:341 maix.html:358 nanokvm.html:37 nanokvm.html:54 nanokvm.html:71
+#: home.html:99 home.html:106 home.html:113 home.html:127 home.html:134
+#: home.html:140 home.html:146 licheepi.html:217 licheepi.html:238
+#: licheepi.html:254 licheepi.html:275 licheepi.html:291 licheepi.html:307
+#: maix.html:245 maix.html:262 maix.html:303 maix.html:320 maix.html:341
+#: maix.html:358 nanokvm.html:37 nanokvm.html:54 nanokvm.html:71
 #: nanokvm.html:88 nanokvm.html:105 others.html:38 sipeedsense.html:40
 #: sipeedsense.html:56 sipeedsense.html:72 slogic.html:37 slogic.html:54
 #: slogic.html:71 tang.html:167 tang.html:183 tang.html:199 tang.html:215
@@ -58,43 +19,90 @@ msgstr ""
 msgid "文档"
 msgstr ""
 
-#: home.html:126
-msgid "/nanokvm"
+#: home.html:100
+msgid "预售"
 msgstr ""
 
-#: home.html:130 nanokvm.html:42
-msgid "https://item.taobao.com/item.htm?id=811206560480"
+#: home.html:104
+msgid "/static/home/banner_slogic32u3.jpg"
 msgstr ""
 
-#: home.html:135
-msgid "/static/home/banner_nanokvm_pcie.jpg"
+#: home.html:107 slogic.html:75
+msgid "众筹"
+msgstr ""
+
+#: home.html:111
+msgid "/static/home/banner_t256s.jpg"
+msgstr ""
+
+#: home.html:114 home.html:128 licheepi.html:221 licheepi.html:242
+#: licheepi.html:258 licheepi.html:279 licheepi.html:295 licheepi.html:311
+#: maix.html:196 maix.html:213 maix.html:230 maix.html:307 maix.html:328
+#: maix.html:345 maix.html:362 nanokvm.html:41 nanokvm.html:58 nanokvm.html:75
+#: nanokvm.html:92 nanokvm.html:109 others.html:42 sipeedsense.html:44
+#: sipeedsense.html:60 sipeedsense.html:76 slogic.html:41 slogic.html:58
+#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
+#: tang.html:251 tang.html:267 tang.html:283 tang.html:299 tang.html:315
+msgid "购买"
+msgstr ""
+
+#: home.html:114
+msgid "https://item.taobao.com/item.htm?abbucket=17&id=1042038028765"
+msgstr ""
+
+#: home.html:118
+msgid "/static/home/banner_maixcam2.jpg"
+msgstr ""
+
+#: home.html:120
+msgid "硬件文档"
+msgstr ""
+
+#: home.html:120
+msgid "/maixcam2"
+msgstr ""
+
+#: home.html:121
+msgid "/maixpy/"
+msgstr ""
+
+#: home.html:125
+msgid "/static/home/banner_slogic16u3.jpg"
+msgstr ""
+
+#: home.html:128 slogic.html:59
+msgid "https://item.taobao.com/item.htm?id=994512536278"
+msgstr ""
+
+#: home.html:132
+msgid "/static/home/banner_nanokvm_pro.jpg"
+msgstr ""
+
+#: home.html:138
+msgid "/static/home/banner_maixiv_m4.jpg"
 msgstr ""
 
 #: home.html:144
-msgid "/static/home/banner_nanokvm_usb.jpg"
+msgid "/static/home/banner_nanocluster.jpg"
 msgstr ""
 
-#: home.html:187 others.html:43 slogic.html:76
-msgid "https://item.taobao.com/item.htm?id=737788586308"
-msgstr ""
-
-#: home.html:196
+#: home.html:163
 msgid "产品动态"
 msgstr ""
 
-#: home.html:200
+#: home.html:167
 msgid "Maix AI 视觉"
 msgstr ""
 
-#: home.html:212
+#: home.html:179
 msgid "Sipeed 传感器"
 msgstr ""
 
-#: home.html:216 nanokvm.html:4
+#: home.html:183 nanokvm.html:4
 msgid "NanoKVM"
 msgstr ""
 
-#: home.html:220
+#: home.html:187
 msgid "SLogic"
 msgstr ""
 
@@ -312,6 +320,10 @@ msgstr ""
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，上手即用，完美支持全新 Maix 生态所有软件"
 msgstr ""
 
+#: maix.html:214
+msgid "https://item.taobao.com/item.htm?id=846226367137"
+msgstr ""
+
 #: maix.html:223
 msgid "RISC-V 1GHz + 1Tops NPU, 4M高清摄像头，多种尺寸高清电容触摸屏，体积小巧，完美支持全新 Maix 生态所有软件"
 msgstr ""
@@ -368,6 +380,10 @@ msgstr ""
 msgid "迷你IP-KVM运维工具"
 msgstr ""
 
+#: nanokvm.html:42
+msgid "https://item.taobao.com/item.htm?id=811206560480"
+msgstr ""
+
 #: nanokvm.html:51
 msgid "可安装到ATX机箱的IP-KVM"
 msgstr ""
@@ -414,8 +430,12 @@ msgstr ""
 msgid "在左侧目录查找"
 msgstr ""
 
-#: others.html:35 slogic.html:68
+#: others.html:35 slogic.html:34
 msgid "逻辑分析仪+CKLink+DAPLink+USB转串口 多合一指尖工具"
+msgstr ""
+
+#: others.html:43 slogic.html:42
+msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr ""
 
 #: sipeedsense.html:4
@@ -438,20 +458,12 @@ msgstr ""
 msgid "SLogic 逻辑分析仪系列"
 msgstr ""
 
-#: slogic.html:34
-msgid "32通道 10Gbps USB3.2 高速逻辑分析仪"
-msgstr ""
-
-#: slogic.html:41
-msgid "众筹"
-msgstr ""
-
 #: slogic.html:51
-msgid "16通道高速USB3逻辑分析仪"
+msgid "16通道 5Gbps 高速USB3逻辑分析仪"
 msgstr ""
 
-#: slogic.html:59
-msgid "https://item.taobao.com/item.htm?id=994512536278"
+#: slogic.html:68
+msgid "32通道 10Gbps 高速USB3逻辑分析仪"
 msgstr ""
 
 #: tang.html:4
