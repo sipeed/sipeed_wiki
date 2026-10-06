@@ -1,125 +1,308 @@
-<!--
-维护者说明（不渲染）：SLogic32U3 用户指南骨架（功能全参考）。
-待办以 "TODO" 标记；配图占位以 "> 🚧 **TODO(配图)**" 给出，附建议资源名。
-部分内容迁移自 SLogic16U3，已按 32U3 实物核对（通道数、接口、灯语等）。
-若本页过长，可拆为 UG_Hardware.md + UG_Software.md，届时同步更新 sidebar.yaml。
--->
 ---
-title: SLogic32U3 用户指南
-keywords: SLogic32U3, User Guide, PulseView, sigrok-cli, ngscopeclient, trigger, decoder, 信号完整性
+title: SLogic32U3 硬件使用指南
+keywords: SLogic32U3, 硬件, Mini-HDMI, 探头, ACT 指示灯, MODE, DFU, 固件更新, 信号完整性, udev
 update:
+  - date: 2026-10-06
+    version: v0.3
+    author: Sipeed
+    content:
+      - 新增配件章节（选配精细探头夹、ADC 模组、同轴探头线）
+      - 新增 Mini-HDMI 线序与 AFE 电路说明，附探头子板原理图
+      - 通道配色表加上色块，修正探头线与 ADC 模组参数
+  - date: 2026-10-06
+    version: v0.2
+    author: Sipeed
+    content:
+      - 按 SLogic16U3 页面结构重构，拆分出独立的硬件使用指南
+      - 补充接口标注、配件一览与实物配图
   - date: 2026-09-30
     version: v0.1
     author: Sipeed
     content:
-      - 初始化用户指南骨架（章节 + 已知硬件事实 + 占位/TODO）
+      - 初始化文档
 ---
 
-# SLogic32U3 用户指南
+# 硬件使用指南
 
-本指南是 SLogic32U3 的功能全参考，涵盖硬件、三套上位机、触发、协议解码与信号完整性。想快速上手请先看[快速上手](./QS.md)。
+本页介绍 SLogic32U3 的硬件接口、配件、指示灯、固件更新与探测要点。软件操作见[软件使用指南](./Software_User_Guide.md)，快速上手见[快速上手](./Quick_Start.md)。
 
 ---
 
-## 硬件详解
+## 硬件概览
+
+![SLogic32U3](./assets/DCIM/SLogic32U3-perspective.jpg)
+
+SLogic32U3 为 CNC 铝合金一体外壳，尺寸 59 × 51 × 13 mm，表面散热齿兼顾散热与握持。所有接口分布在机身前后两端：
+
+- **正面**：4 × Mini-HDMI 通道组接口，标号 0 ~ 3
+- **背面**：USB-C 接口、ACT 指示灯、MODE 小孔按键
 
 ### 接口总览
 
-> [!NOTE]
-> **📷 配图待补（TODO）**：正面 / 背面接口标注图 —— 需标出 4 组 Mini-HDMI、USB-C、MODE 小孔、ACT 指示灯。
-> 文件：`assets/MISC/front.jpg`、`assets/MISC/rear.jpg`｜要求：正视角、≥1000px 宽、接口周围留出标注空间。
+**正面：4 组 Mini-HDMI 通道口**
 
-- **4 × Mini-HDMI 通道组**：32 通道分为 4 组，每组 8 通道（CH0–7 / CH8–15 / CH16–23 / CH24–31），经同轴屏蔽探头线引出。每个 Mini-HDMI（HDMI Type-C 1.4）口含 8 路数据 + GND + VCC(+5V) + CK；**4 组的 GND / VCC / CK 为同源共用**（并非各组独立）。
-- **USB-C**：USB3.2 Gen2，需使用具备 USB3 能力的线缆与主机端口。
-- **MODE 按键**：切换 APP（逻辑分析仪）/ DFU（固件升级）模式，详见 [MODE 按键与 DFU 模式](#mode-按键与-dfu-模式)。
-- **ACT 指示灯**：见 [指示灯](#指示灯) 小节。
-- **CK**：100MHz LVCMOS33 **固定时钟输出**（不可调、仅输出）。
+![正面接口](./assets/MISC/view-front-mini-hdmi.jpg)
 
-### 通道与探头线
+32 通道分为 4 组，每组 8 通道，经同轴屏蔽探头线引出。接口标号与通道对应关系：
 
-> [!NOTE]
-> **📷 配图待补（TODO）**：Mini-HDMI 同轴探头线 + 测试夹接线细节 —— 需体现每组 8 路的八色配色。
-> 文件：`assets/MISC/probe.jpg`｜要求：特写、色彩还原准确。
+| 接口标号 | 对应通道 |
+| - | - |
+| 0 | CH0 – CH7 |
+| 1 | CH8 – CH15 |
+| 2 | CH16 – CH23 |
+| 3 | CH24 – CH31 |
 
-- 32 通道分 4 组，每组 8 通道合并到 **1 个 Mini-HDMI** 接口输入。
-- **通道配色**：每组 8 通道按 **红 / 橙 / 黄 / 绿 / 棕 / 蓝 / 白 / 灰** 八色循环标识。
-- **探头线**：前端为同轴电缆子板（每板 8 通道 / 1 个 Mini-HDMI）。每路信号走同轴——芯线=信号（数字输入阻抗约 100kΩ），屏蔽层=信号地。
-- **VCC**：Mini-HDMI 提供 +5V 输出（4 组同源）。
+每个 Mini-HDMI（HDMI Type-C 1.4）口含 8 路数据 + GND + VCC(+5V) + CK。**4 组的 GND / VCC / CK 为同源共用**，并非各组独立。
 
-### 可选 ADC 示波器模组
+**背面：USB-C、指示灯与 MODE 按键**
+
+![背面接口](./assets/MISC/view-rear-usb-c.jpg)
+
+- **USB-C**：USB3.2 Gen2。必须接 10 Gbps 的 USB3 口才能跑满标称速率，**不支持 USB2.0 采集**。优先用 USB-C 直连，随附的 C 转 A 转接头会带来额外插损。
+- **ACT 指示灯**：见下文[ACT 指示灯](#act-指示灯)。
+- **MODE 按键**：隐藏式小孔按键，见下文 [MODE 按键](#mode-按键)。
+- **CK**：100 MHz LVCMOS33 **固定时钟输出**，不可调、仅输出。
+
+### 连接方式
+
+1. 用随附 USB-C 线把设备**直连**电脑的 **10 Gbps USB-C 口**（通常标 `SS10` 或 `10`）。接口规格直接决定采集速率，详见[快速上手 · 连接设备](./Quick_Start.md#4-连接设备)。
+2. 指示灯亮**青色**表示已上电且 USB3 链路正常。
+3. 按需把 Mini-HDMI 探头线插到对应通道组。
+4. 把测试夹接到待测信号与地。
+
+![实际连接](./assets/DCIM/SLogic32U3-desk-scene.jpg)
+
+### 开始使用
+
+连接完成后，启动 SLogicView / ngscopeclient / sigrok-cli 任一上位机即可采集。首次使用请先完成[驱动与权限配置](#驱动与权限)。
+
+---
+
+## 通道与探头线
+
+- 32 通道分 4 组，每组 8 通道合并到 **1 个 Mini-HDMI** 接口。
+- **探头线结构**：前端为同轴电缆子板（每板 8 通道对应 1 个 Mini-HDMI）。每路信号走 15 cm 同轴线，芯线为信号（数字输入阻抗约 100 kΩ），屏蔽层为信号地；末端为特氟龙杜邦线。
+- 同轴屏蔽线相比普通杜邦线能显著降低串扰、改善高速信号完整性，这也是 SLogic32U3 能跑到 350 MHz 数字信号带宽的前提之一。
+- **Mini-HDMI 为防呆接口**，只能单向插入，不会插反。
+- **VCC**：Mini-HDMI 提供 +5 V 输出（4 组同源），可为小型被测电路供电，**切勿与 GND 短接**。
+
+### 通道配色
+
+探头远端每组 8 路信号用 8 种不同颜色区分，排列顺序与通道顺序一致，**肉眼从第一根依次数过去即可确定通道号**。典型线序为：
+
+<table>
+  <tr><th>组内序号</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+  <tr>
+    <th>典型线色</th>
+    <td style="background:#e03131;color:#fff;text-align:center">红</td>
+    <td style="background:#f76707;color:#fff;text-align:center">橙</td>
+    <td style="background:#f2d024;color:#333;text-align:center">黄</td>
+    <td style="background:#2f9e44;color:#fff;text-align:center">绿</td>
+    <td style="background:#8a5a2b;color:#fff;text-align:center">棕</td>
+    <td style="background:#1c7ed6;color:#fff;text-align:center">蓝</td>
+    <td style="background:#ffffff;color:#333;text-align:center;border:1px solid #ccc">白</td>
+    <td style="background:#adb5bd;color:#fff;text-align:center">灰</td>
+  </tr>
+</table>
+
+> 每组一定是 8 种颜色，但具体用哪几种颜色、按什么顺序排列，可能因生产批次而略有不同。上表为典型线序，以手上实物的排列为准。
+
+4 组的线色方案相同，跨组分辨靠 Mini-HDMI 接口标号，也可以用随附的标号热缩管做长期标记。
+
+---
+
+## Mini-HDMI 线序与 AFE 电路
+
+每组 8 通道通过一块同轴电缆子板汇总到 1 个 Mini-HDMI（HDMI Type-C 1.4）接口。
+
+### 引脚规律
+
+线序规律非常简单：**奇数脚全是 GND，偶数脚全是信号。**
+
+这对应 Mini-HDMI 公头的物理结构：**梯形长边那一面全是奇数脚，短边那一面全是偶数脚**。所以只要认准梯形的朝向，就知道哪一面是地、哪一面是信号。
+
+偶数脚 2 ~ 18 共 9 个，按顺序就是 8 个通道加 1 路时钟输出：
+
+| 引脚 | 功能 | | 引脚 | 功能 |
+| :-: | - | - | :-: | - |
+| **2** | CH0 | | **12** | CH5 |
+| **4** | CH1 | | **14** | CH6 |
+| **6** | CH2 | | **16** | CH7 |
+| **8** | CH3 | | **18** | CLK 输出（100 MHz LVCMOS33，固定不可调、仅输出）|
+| **10** | CH4 | | 奇数脚 | GND |
+
+> 通道号为组内编号。接口标号 0~3 依次对应 CH0–7 / CH8–15 / CH16–23 / CH24–31，例如 2 号口的 pin 2 实际是整机的 CH16。
+>
+> **4 组的 GND / VCC(+5V) / CK 为同源共用**，并非各组独立。
+
+### 子板原理图
+
+![HDMI 8CH 探头子板原理图](./assets/MISC/hdmi-probe-schematic.jpg)
+
+子板上每路信号的前端网络：同轴芯线经 **100 kΩ** 串入，并有 **100 Ω + 15 pF** 对地；主板侧再经 **33 Ω** 串入 FPGA，并有 **100 kΩ** 下拉。
+
+### 想在自己板上放 Mini-HDMI 对插？
+
+> [!WARNING]
+> **务必补上 AFE 部分电路。**
+>
+> Mini-HDMI 接口本身只是连接器，SLogic32U3 的输入特性（100 kΩ 输入阻抗、带宽与过冲抑制）由探头子板上的 AFE 网络决定。如果你的板子只把信号直接焊到 Mini-HDMI 引脚上、省掉 AFE，会出现：
+>
+> - 输入阻抗与标称不符，加重对被测电路的负载；
+> - 高速边沿产生过冲和振铃，波形失真、解码出错；
+> - 极端情况下可能损伤设备输入端。
+>
+> 请按上方原理图中 `AFE For SLogic (Each Data Channel)` 虚线框内的网络，在**每一条数据通道**上照搬实现。
+
+---
+
+## 配件
+
+### 随机标配
+
+| 配件 | 数量 | 说明 |
+| - | - | - |
+| Mini-HDMI 同轴探头线 | × 4 | 15 cm 同轴屏蔽线 + 特氟龙杜邦线，每条 8 通道 |
+| 逻辑分析仪测试夹 | × 32 | 通用测试夹，适配常规排针与元件引脚 |
+| USB-C 数据线 | × 1 | 含 C 转 A 转接头 |
+| 标号热缩管 | × 32 | 带通道编号，由用户自行套到对应线上 |
+
+![同轴屏蔽探头线](./assets/DCIM/accessory-coax-probe-cable.jpg)
+
+### 选配：精细探头夹
+
+![精细探头夹](./assets/DCIM/accessory-fine-hook-clips.jpg)
+
+标配测试夹适合常规排针和较大引脚。遇到细间距封装时，可选配**精细探头夹（Fine-Pitch Micro Hook Clips）**：
+
+- 可夹 **0.65 mm 间距的 TSSOP 引脚**，也适用于 SOP、SSOP 等细间距封装。
+- 钩爪更细、弹性更好，直接勾住引脚即可，不易滑脱或连带相邻引脚。
+- 多色可选，便于与通道编号对应。
+
+> 做高密度芯片调试（细间距 SOP/TSSOP、QFP 边缘引脚）建议备一套，比用标配夹子去够引脚可靠得多。
+
+---
+
+### 选配：ADC 示波器模组
 
 SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit 模拟信号上传**，让同一台设备兼作采样示波器。
 
-- 通道数：4
-- 分辨率：8-bit
-- 采样率：100 MSa/s
-- 模拟带宽：20 MHz
-- 安全输入电压：±15V
-- 输入阻抗：由探头决定
-- 启用方式：在 ngscopeclient（单二进制）的 UI 中配置；32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。**(具体 UI 步骤待补)**
+| 项目 | 规格 |
+| - | - |
+| 通道数 | 4 |
+| 分辨率 | 8-bit |
+| 采样率 | 100 MSa/s |
+| 模拟带宽 | 10 MHz |
+| 安全输入电压 | ±15 V |
+| 输入阻抗 | 由探头决定 |
 
-> [!NOTE]
-> **📷 配图待补（TODO）**：可选 ADC 模组实物照 + 示波器模式波形截图。
-> 文件：`assets/DCIM/adc-module.jpg`（实物照，交同事产出）、`assets/Screenshots/scope-mode.png`（软件截图，实机截取）。
+![可选 ADC 示波器模组](./assets/DCIM/adc-module-photo.jpg)
 
-### 指示灯
+启用方式：在 ngscopeclient 的 UI 中配置。启用后 32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。
 
-> 灯语与 SLogic16U3 一致。指示灯为 3 色 RGB：**蓝=电源，绿=USB LINK，红=运行状态**。
+---
 
-> [!NOTE]
-> **📷 配图待补（TODO）**：ACT 指示灯位置与状态 —— 可配正常连接 / 采集中 / DFU 几张。
-> 文件：`assets/MISC/act-led.jpg`｜要求：暗环境拍摄以突出灯色。
+## ACT 指示灯
 
-| 状态 | 颜色 | 备注 |
+指示灯为 3 色 RGB：**蓝 = 电源，绿 = USB LINK，红 = 运行状态**，叠加后呈现不同颜色。
+
+### 颜色与功能
+
+| 状态 | 颜色 | 说明 |
 | - | - | - |
-| 正常连接 | 青色（蓝+绿） | 已上电且 USB 已连接 |
-| 数据传输 | 青+红快闪 | 采集中 |
-| DFU 模式 | 青+红慢闪 | 固件升级模式 |
-| USB 连接失败 | 只亮蓝 | 常见于非 USB3 线材/口 |
-| Flash 加载异常 | 只亮红 | 线材压降过大 / 硬件问题 |
+| 正常连接 | 青色（蓝+绿） | 已上电且 USB3 链路已建立 |
+| 数据传输 | 青 + 红快闪 | 采集中 |
+| DFU 模式 | 青 + 红慢闪 | 固件升级模式 |
 
-### MODE 按键与 DFU 模式
+### 异常状态
 
-**MODE 按键为隐藏式小孔按键**（同 16U3，需用卡针/SIM 卡针捅入按下），用于在 APP（SLogic 逻辑分析仪）与 DFU（固件升级）模式之间切换。上电默认进入 APP 模式；按 MODE 切到 DFU 模式后即可刷写固件（见 [固件更新](#固件更新)）。
+| 现象 | 可能原因 | 处理 |
+| - | - | - |
+| 只亮蓝灯 | USB3 链路未建立 | 换 USB3 线材 / 换 USB3 接口，避免劣质延长线与 USB2 HUB |
+| 只亮红灯 | Flash 加载异常 | 线材压降过大或硬件问题，换线后仍异常请联系售后 |
+| 完全不亮 | 未上电 | 检查线材与接口是否供电正常 |
 
-切到 DFU 模式时指示灯为**红灯慢闪**（同 16U3）。
+---
 
-### 固件更新
+## MODE 按键
 
-> 固件更新工具：[slogic16u3-tools releases](https://github.com/sipeed/slogic16u3-tools/releases/latest)（与 SLogic16U3 共用工具链）。SLogic32U3 固件尚未发布，正式发布后将于[下载站](https://dl.sipeed.com/shareURL/SLogic)提供。
+**MODE 为隐藏式小孔按键**，位于机身背面，需用卡针或 SIM 卡针捅入按下。用于在 APP（逻辑分析仪）与 DFU（固件升级）模式之间切换。
 
-1. 进入 DFU 模式（按 MODE，等红灯慢闪）。
-2. 确认出现 "SLogic DFU" 设备。
-3. 用 [slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest) 的刷写工具刷入固件（命令形如 `spi_flash_xxx <固件路径>`）。
+- 上电默认进入 **APP 模式**，即正常的逻辑分析仪工作模式。
+- 按下 MODE 切到 **DFU 模式**，指示灯变为慢闪，此时可刷写固件。
 
-### 探测与信号完整性
+---
 
-> 本节是高速逻辑分析仪的重点，建议充实为教学内容（参考 Saleae 的探针/接地教学）。
+## 更新固件
 
-- **接地是关键**：低频、少通道可共用一根地；随频率/通道数升高，地线自感会在地线上产生压降、劣化测量——**高速时每根信号线就近配一根地线**。
-- **地线绝不可接到信号线上**（可能损坏设备）。
-- **阈值电压**：按 DUT 逻辑电平设置（如 3.3V 逻辑设 ~1.6V）。不确定时先用万用表/示波器测量。
-- **输入范围 0~10V**，超范围前请确认硬件限制。
-- Mini-HDMI 屏蔽线相比杜邦线更适合高速信号。
+SLogic32U3 支持 Easy OTA，固件可在线升级。
 
-> 🚧 **TODO(配图)**：接地对比示意（好/坏接地下的波形）。建议：`assets/MISC/grounding-good-bad.png`
+### 更新步骤
 
-### 安全与注意事项
+1. 按 MODE 键进入 DFU 模式，等待指示灯慢闪。
+2. 确认电脑上出现 "SLogic DFU" 设备。
+3. 运行固件刷写工具，按提示选择固件文件并刷入。
+4. 刷写完成后重新插拔设备，设备会回到 APP 模式。
 
-- **VCC**：Mini-HDMI 提供 +5V 输出（4 组同源），**切勿与 GND 短接**。
-- 与市电供电电脑配合时，探头地会与电脑地相连，请仅连接等电位接地点，**切勿接热地**。
+> **SLogic32U3 固件尚未发布**，正式发布后将于[下载站](https://dl.sipeed.com/shareURL/SLogic)提供。
+>
+> 刷写工具与 SLogic16U3 共用同一套工具链：[slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest)。
 
-### 驱动与安装
+---
 
-#### Windows：免驱（WinUSB）
+## 探测与信号完整性
 
-SLogic32U3 默认即为 WinUSB 设备，Windows 10/11 即插即用，**无需 Zadig、无需手动安装驱动**——这是相比部分 sigrok 生态竞品的体验优势。插上设备后直接运行 PulseView 或 ngscopeclient 即可。
+高速逻辑分析仪的测量质量，一大半取决于怎么接线。
 
-> PulseView 原生 Windows 版**无软件层面的带宽/采样率上限**，实际可达速率仅取决于物理机性能（不同于 SLogic16U3 早期 Windows 原生 exe 的降速限制）。
+### 接地是关键
 
-#### Linux udev 规则
+- 低频、少通道时可以共用一根地线。
+- 随着频率和通道数升高，地线自感会在地线上产生压降、劣化测量结果。
+- **高速测量时，每根信号线就近配一根地线**，这是改善波形质量最有效的手段。
+- **地线绝不可接到信号线上**，可能损坏设备。
 
-普通用户默认无权限访问 USB，需安装一次 udev 规则（设备 VID 为 `359f`）：
+### 阈值电压
+
+按被测电路的逻辑电平设置阈值。常见取值：
+
+| 逻辑电平 | 建议阈值 |
+| - | - |
+| 1.2 V | 0.6 V |
+| 1.8 V | 0.9 V |
+| 2.5 V | 1.25 V |
+| 3.3 V | 1.6 V |
+| 5 V | 2.5 V |
+
+不确定被测电平时，先用万用表或示波器量一下再设。
+
+### 其他要点
+
+- **输入范围 0 ~ 10 V**，超出范围前务必确认硬件限制。
+- Mini-HDMI 同轴屏蔽线比杜邦线更适合高速信号，高速测量优先用同轴线。
+- 探头线尽量短、尽量不要盘绕。
+
+---
+
+## 安全与注意事项
+
+- **VCC**：Mini-HDMI 提供 +5 V 输出（4 组同源），**切勿与 GND 短接**。
+- 与市电供电的电脑配合使用时，探头地会与电脑地相连。请仅连接等电位接地点，**切勿接热地**，否则可能损坏设备甚至造成危险。
+- 不要在带电状态下反复插拔探头线。
+- 由于 10 Gbps 数据量较大，设备持续工作时外壳会较烫，可能接近 50 ℃，属正常现象。
+
+---
+
+## 驱动与权限
+
+### Windows：免驱（WinUSB）
+
+SLogic32U3 默认即为 WinUSB 设备，Windows 10/11 即插即用，**无需 Zadig、无需手动安装驱动**。插上设备后直接运行 SLogicView 或 ngscopeclient 即可。
+
+> 原生 Windows 版上位机**没有软件层面的带宽或采样率上限**，实际可达速率仅取决于物理机性能。这一点与 SLogic16U3 早期 Windows 原生 exe 的降速限制不同，32U3 在 Windows 下不需要靠 Linux 虚拟机来跑满带宽。
+
+### Linux：udev 规则
+
+普通用户默认无权限访问 USB 设备，需安装一次 udev 规则（设备 VID 为 `359f`）：
 
 ```bash
 sudo tee /etc/udev/rules.d/60-sipeed.rules <<'EOF'
@@ -131,133 +314,8 @@ EOF
 sudo udevadm control --reload && sudo udevadm trigger
 ```
 
-> Arch 系统将 `GROUP="plugdev"` 改为 `GROUP="uucp"`。装完后拔插一次设备使规则生效。
+> Arch 系统请把 `GROUP="plugdev"` 改为 `GROUP="uucp"`。配置完成后拔插一次设备使规则生效。
 
-#### macOS
+### macOS
 
-支持 macOS。PulseView、ngscopeclient 与 sigrok-cli 均提供 macOS 版；若首次运行被系统阻止，在「系统设置 → 隐私与安全性」中放行即可。
-
----
-
-## 软件使用 — PulseView (sigrok)
-
-### 连接与设备检测
-
-最佳做法：先把设备连到 USB3 口，再启动 PulseView，让软件启动时自动检测。若已在运行，用 "Connect to Device" → 选驱动 → Scan → 选中设备。
-
-> 🚧 **TODO(配图)**：连接对话框截图。建议：`assets/Screenshots/pv-connect.png`
-
-### Stream 采集与采样率组合
-
-SLogic32U3 采用 **Stream（流式）模式**：数据实时回传上位机，采集时长理论不限（受磁盘容量限制），并由板载 **2Gbit（256MB）DDR** 作弹性缓存平滑 USB 传输。稳定带宽达 **6.4Gbps（800MB/s）**。
-
-各通道数下的最高采样率（受带宽或最高采样时钟约束）：
-
-| 使能通道数 | 最高采样率 | 数据率 |
-|---|---|---|
-| 4ch | 1400 MHz | 5.6 Gbps |
-| 8ch | 800 MHz | 6.4 Gbps |
-| 16ch | 400 MHz | 6.4 Gbps |
-| 32ch | 200 MHz | 6.4 Gbps |
-
-> 8 / 16 / 32ch 均跑满 6.4Gbps（800MB/s）带宽上限；4ch 受最高采样时钟 1400MHz 约束（5.6Gbps）。**使能通道越少 → 可用采样率越高**，因此只启用本次采集需要的通道。
-
-> **vs USB3.0 竞品**：DreamSourceLab DSLogic U3Pro32（USB3.0）Stream 模式 16ch 约 125MHz、32ch 约 50MHz（据其公开 Datasheet）；SLogic32U3 对应为 16ch@400MHz、32ch@200MHz，Stream 采样率约 3~4×。
-
-### 采样率、深度与通道的相互制约
-
-- 使能通道越多，可用采样率越低（受 USB 吞吐限制）。
-- **采样率怎么选**（决策式）：经验上取信号最高频率的 **≥10 倍**；采样率过低会错过边沿，过高则可能采到毛刺。
-- 采样率 × 深度 决定内存/磁盘占用，长采集前先确认磁盘空间。
-
-> 🚧 **TODO(配图)**：采样率/通道预设面板；采样率过高/过低的波形对比。建议：`assets/Screenshots/samplerate-presets.png`、`assets/Screenshots/samplerate-compare.png`
-
-### 触发
-
-SLogic32U3 支持**多通道、多边沿组合触发**（在 PulseView / sigrok-cli 中配置）：可对多个通道分别设定上升沿 / 下降沿 / 任意边沿 / 电平条件并组合使用。
-
-> ⚠️ **ngscopeclient 集成当前仅支持单通道、单边沿触发**——需要多通道 / 多边沿组合时请改用 PulseView 或 sigrok-cli。
-
-- **预触发 (pre-trigger)**：支持，可在 UI 中设置触发点之前保留的采样量。
-
-> 🚧 **TODO**：为常见总线各配 1~2 个触发实例（如 UART 起始位、I²C 起始条件）。
-
-> 🚧 **TODO(配图)**：触发设置面板。建议：`assets/Screenshots/trigger.png`
-
-### 浏览与光标测量
-
-- 缩放：滚轮；平移：拖动或 Shift+滚动；垂直平移：Ctrl+滚动。
-- 用光标测量时间差，换算波特率 / 脉宽 / 事件间隔（Shift+拖动创建测量光标）。
-
-> 🚧 **TODO(配图)**：光标测量示例。建议：`assets/Screenshots/cursors.png`
-
-### 协议解码
-
-1. 打开 Decoder 面板，选择协议（I2C/SPI/UART/CAN/SDIO…）。
-2. 配置引脚映射、字节序、时钟极性/相位、波特率/时钟速率。
-3. 解码帧标注在波形上，可点击查看详情；支持 decoder 堆叠（stack）。
-
-**常见解码失败原因**：阈值设置不当、采样率不足、引脚映射错误。
-
-> 🚧 **TODO**：为常用协议各补一个 32U3 实测示例（接线 + 触发 + 解码结果截图）。
-> 建议每协议一小节：`UART` / `I2C` / `SPI` / `CAN` / `SDIO`。
-
-### 文件操作
-
-- 保存会话：保存样本、通道配置、触发与 decoder 状态。
-- 导出：CSV / VCD 等；导入已有 `.sr` 波形。
-
----
-
-## 软件使用 — ngscopeclient
-
-SLogic32U3 是 ngscopeclient 分发版的重点支持型号。完整安装与连接见 [ngscopeclient 上手指南](../ngscopeclient/ngscopeclient.md)。
-
-本节仅补 32U3 特有（完整安装/连接见共享页）：
-
-- **单二进制、全 UI 配置**：ngscopeclient 现为单个可执行程序，直接运行即可；连接、采集模式与参数都在 UI 中设置，无需单独的后台程序或命令行参数。
-- **连接设备**：在 ngscopeclient 界面中添加/选择 SLogic 设备，连上后通道面板出现 **32** 路通道。
-- **Filter Graph**：ngscopeclient 把协议解码/数学/测量统一为 Filter 节点，串成处理链。
-- **ADC 模拟模式**：在 UI 中启用后，把数字管脚合并为 4 路 8-bit 模拟通道 A0–A3，像采样示波器一样观测（量程/坐标轴/FFT 等自动可用）。需硬件支持外接 ADC 模块。
-
-> 🚧 **TODO**：补充 ngscopeclient 单二进制版的实际连接步骤与在 UI 中启用模拟模式的具体操作。共享页 [ngscopeclient](../ngscopeclient/ngscopeclient.md) 的现有内容仍是旧的 sigrok-bridge 架构，需同步更新。
-
-> 🚧 **TODO(配图)**：ngscopeclient 里 32U3 的波形/解码。建议：`assets/Screenshots/ngscope-32u3.png`
-
----
-
-## 命令行 — sigrok-cli
-
-用于自动化、CI、无头采集。
-
-Sipeed 按平台预分发 SLogic 版 `sigrok-cli`：`sigrok-cli-SLogic-xxxx.{AppImage,exe,dmg}`（[GitHub Release](https://github.com/sipeed/SLogic/releases/latest)，下载站为备份镜像）。libsigrok 驱动名为 `sipeed-slogic-analyzer`。
-
-```bash
-sigrok-cli --scan                                   # 扫描设备
-sigrok-cli -d sipeed-slogic-analyzer --show         # 查看设备能力
-sigrok-cli -d sipeed-slogic-analyzer \              # 采集：只启用 D0，10MHz 采 500k 样本
-  --config samplerate=10m -C D0 \
-  --samples 500k -o capture.sr
-sigrok-cli -i capture.sr -P uart:rx=D0:baudrate=115200 -A uart   # 解码
-```
-
-> 采样时间(秒) = 样本数 ÷ 采样率。想让 AI Agent 代跑扫描/采集/解码，见 [SLogic 接入 AI Agent](../slogic_agent/readme.md)。
-> 🚧 **TODO**：补一个完整的端到端脚本示例（扫描→采集→解码→导出 CSV），并核对驱动名在发布版 `sigrok-cli` 中的确切拼写。
-
----
-
-## 接入 AI Agent
-
-配合 `sigrok-cli-slogic-plugin`，无需学 PulseView，把通道与协议目标告诉 Agent 即可自动扫描/采集/解码。完整教程见 [SLogic 接入 AI Agent](../slogic_agent/readme.md)。
-
----
-
-## 真实约束与已知问题
-
-> 学习 sigrok 的 "Known Issues" 文化——如实标注限制，建立可信度。
-
-> 🚧 **TODO**：随测试完善本节。候选条目：
-
-- 采样率 × 通道数 × 深度 的组合限制（哪些组合不可用）。
-- 触发在 Stream 模式下的限制。
-- ADC 模组与数字采集是否可同时使用。
+SLogicView、ngscopeclient 与 sigrok-cli 均提供 macOS 版。若首次运行被系统阻止，在「系统设置 → 隐私与安全性」中放行即可。

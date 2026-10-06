@@ -1,45 +1,48 @@
-<!--
-Maintainer note (not rendered): SLogic32U3 FAQ scaffold.
-Items to do are marked "TODO". Some entries were migrated from the SLogic16U3 FAQ and verified against the actual 32U3 (device name, VID, LED behavior, driver method, etc.).
-Goal: categorized, "symptom → cause → fix" decision-style troubleshooting that also covers usage questions (which competitors' FAQs often miss).
--->
 ---
 title: SLogic32U3 FAQ
-keywords: SLogic32U3, FAQ, troubleshooting, udev, Zadig, 驱动, 采样率
+keywords: SLogic32U3, FAQ, troubleshooting, udev, driver, sample rate, DFU
 update:
+  - date: 2026-10-06
+    version: v0.2
+    author: Sipeed
+    content:
+      - Updated internal links for the doc restructure
+      - Corrected the buffer size and stream-rate wording
   - date: 2026-09-30
     version: v0.1
     author: Sipeed
     content:
-      - Initialize FAQ scaffold
+      - Initialize doc
 ---
 
-# SLogic32U3 FAQ
+# FAQ
 
 ## Device and Connection
 
-### Why is the SLogic32U3 device not found?
+### Why is the SLogic32U3 not found?
 
-The most common cause is that the software was started before the device was connected. Fix: connect the device first, then start PulseView; or, inside the software, open "Connect to Device" → pick the driver → Scan → select the device.
+The most common reason is that the software was launched before the device was connected.
 
-On Linux, a normal user has no permission to access the USB device by default — see the udev rule below.
+Fix: connect the device first, then launch the host app; or inside the app open **Connect to Device** → choose the driver → **Scan** → select the device.
 
-### What does a blue-only / red-only LED mean?
+On Linux a normal user has no USB access by default and also needs a udev rule, see below.
 
-> The LED behavior matches SLogic16U3.
+### Blue only / red only — what's wrong?
 
-- **Blue only**: USB did not come up as USB3 — the cable isn't USB3-capable, it's plugged into a front-panel port / incompatible hub, insufficient power, or the cable is too long.
-- **Red only**: a poor cable with excessive voltage drop, a faulty host USB port, or hardware damage.
+- **Blue only**: USB is not connected as USB3. The cable may not support USB3, a front-panel or incompatible hub is in the way, power is insufficient, or the cable is too long.
+- **Red only**: a Flash load error. Usually a poor cable causing excessive voltage drop, a faulty host USB port, or hardware damage.
+
+In normal operation the indicator should be **cyan** (blue+green). For the full indicator guide see the [Hardware Guide](./Hardware_Specification.md#act-indicator).
 
 ## Drivers and Permissions
 
-### Do I need to install a driver on Windows?
+### Do I need a driver on Windows?
 
-**No.** The SLogic32U3 is a WinUSB device by default — plug-and-play on Windows 10/11, no Zadig or manual driver install. Just plug it in and run PulseView or ngscopeclient.
+**No.** The SLogic32U3 is a WinUSB device by default; Windows 10/11 is plug and play, no Zadig or manual driver install. Just run SLogicView or ngscopeclient after plugging in.
 
-### How do I set up udev rules on Linux?
+### How do I set the Linux udev rule?
 
-> The SLogic series USB VID is `359f`.
+The SLogic series USB VID is `359f`.
 
 ```bash
 sudo tee /etc/udev/rules.d/60-sipeed.rules <<EOF
@@ -52,55 +55,58 @@ sudo udevadm control --reload
 sudo udevadm trigger
 ```
 
-> On Arch, use `GROUP="uucp"` instead. After that, replug the device and you can run as a normal user.
+> On Arch, use `GROUP="uucp"` instead of `GROUP="plugdev"`. Replug the device once and you can run as a normal user.
 
-### Is macOS supported? Any extra configuration?
+### Is macOS supported? Any extra setup?
 
-Yes. PulseView, ngscopeclient and sigrok-cli all ship macOS builds. If the first launch is blocked by the system, allow it in System Settings → Privacy & Security.
+Yes. SLogicView, ngscopeclient and sigrok-cli all provide a macOS build. If the first launch is blocked, allow it under System Settings → Privacy & Security.
 
 ## Capture and Performance
 
-### Why can't the sample rate go higher / why is it capped?
+### Why can't the sample rate go higher than a certain value?
 
-The maximum sample rate depends on the number of enabled channels and USB bandwidth — **disable unused channels** to raise the available sample rate. See [UG · Sample Rate Constraints](./UG.md#sample-rate-depth-and-channels).
+The max sample rate depends on the number of channels enabled and the USB bandwidth. **Turn off unused channels** to raise the available rate.
+
+The mapping: 4ch@1400MHz, 8ch@800MHz, 16ch@400MHz, 32ch@200MHz. See [Software Guide · Sample rate vs channel count](./Software_User_Guide.md#sample-rate-vs-channel-count).
 
 ### Which capture mode does the SLogic32U3 use?
 
-The SLogic32U3 is **Stream mode**: real-time readback, effectively unlimited capture length (disk-bound), with an onboard 2Gbit (256MB) DDR elastic buffer and a sustained 6.4Gbps (800MB/s) bandwidth. The sample rate varies with the number of enabled channels: 4ch@1400MHz / 8ch@800MHz / 16ch@400MHz / 32ch@200MHz — enable only the channels you need to get a higher sample rate. See [UG · Stream Capture](./UG.md#stream-capture-and-sample-rates).
+**Stream mode**: data streams back to the host in real time, with capture length unlimited in theory, bounded only by disk. The onboard 2 Gbit DDR3 acts as an elastic buffer to smooth USB transfer, sustaining 800 MB/s (6.4 Gbps) in practice.
 
-### What should I do about dropped samples?
+See [Software Guide · Stream capture](./Software_User_Guide.md#stream-capture).
 
-- Lower the sample rate or reduce the number of enabled channels.
-- Use a USB3 port directly on the motherboard + a high-quality short cable, and avoid unpowered hubs.
+### What if I get dropped samples?
+
+- Lower the sample rate or reduce the channels enabled.
+- Use a USB3 port directly on the motherboard with a good short cable; avoid unpowered hubs and front-panel ports.
+- Close other high-traffic USB devices competing for bandwidth.
 
 ## Decoding
 
-### Protocol decode results don't match?
+### The decode result doesn't match?
 
-Common causes: **wrong threshold / insufficient sample rate / wrong pin mapping**. Check each: threshold matches the DUT level, sample rate ≥ 10× the signal frequency, pin mapping correct (e.g. SPI's MOSI/MISO/SCLK/CS).
+Three common causes, in order:
+
+1. **Threshold set wrong**: match the threshold to the DUT logic level, about 1.6 V for 3.3 V logic.
+2. **Sample rate too low**: take at least 10× the highest signal frequency.
+3. **Pin mapping wrong**: confirm each decoder signal maps to the right channel, e.g. MOSI / MISO / SCLK / CS for SPI.
+
+Empty output only means the current config produced no annotations, not that there is no traffic. Go back to the waveform and confirm the levels are changing.
 
 ## Firmware and Modes
 
-### The device is stuck in DFU mode and won't switch back to SLogic mode?
+### The device is stuck in DFU mode and won't return to SLogic mode?
 
-Usually the SLogic firmware is corrupted (a failed OTA). Fix: re-OTA the correct firmware.
+Usually the SLogic firmware is corrupted, often from an interrupted OTA. Re-flash the correct firmware by OTA to recover.
 
-### Can't enter DFU mode — it shows "unknown usb device"?
+### Can't enter DFU mode, it says "unknown usb device"?
 
-USB enumeration failed, usually due to a too-long or poor-quality cable. Fix: use a shorter, better-quality USB cable.
+USB enumeration failed, usually from a too-long or poor-quality cable. Use a shorter, better USB cable.
 
 ## ADC Oscilloscope Module
 
 ### How do I enable oscilloscope (analog) mode?
 
-Enable it in the ngscopeclient UI (ngscopeclient is now a single-binary program, configured entirely in the UI with no command-line arguments). The 32U3 merges D0–7 / D8–15 / D16–23 / D24–31 into 4 × 8-bit analog channels A0–A3; requires an external ADC module. See [ngscopeclient](../ngscopeclient/ngscopeclient.md).
+Enable it in the ngscopeclient UI. ngscopeclient is now a single binary, with everything configured in the UI and no command-line arguments.
 
-> 🚧 **TODO**: Add the exact UI steps to enable/switch analog mode in ngscopeclient.
-
-### Can the ADC module be used together with digital capture?
-
-> 🚧 **TODO**: Confirm and fill in.
-
----
-
-> 🚧 **TODO**: Keep adding high-frequency "usage" questions from beta feedback (competitors' FAQs mostly cover only drivers/after-sales — this is our differentiator).
+Once enabled, the 32U3 merges D0–7 / D8–15 / D16–23 / D24–31 into 4 analog channels A0–A3 (8-bit); the optional ADC module is required. See [ngscopeclient](../ngscopeclient/ngscopeclient.md).

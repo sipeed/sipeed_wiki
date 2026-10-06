@@ -502,11 +502,13 @@ items:
     -   label: SLogic32U3
         items:
         -   label: Introduction
-            file: logic_analyzer/slogic32u3/Intro.md
+            file: logic_analyzer/slogic32u3/Introduction.md
         -   label: Quick Start
-            file: logic_analyzer/slogic32u3/QS.md
-        -   label: User Guide
-            file: logic_analyzer/slogic32u3/UG.md
+            file: logic_analyzer/slogic32u3/Quick_Start.md
+        -   label: Hardware Guide
+            file: logic_analyzer/slogic32u3/Hardware_Specification.md
+        -   label: Software Guide
+            file: logic_analyzer/slogic32u3/Software_User_Guide.md
         -   label: ngscopeclient
             file: logic_analyzer/ngscopeclient/ngscopeclient.md
         -   label: FAQ
