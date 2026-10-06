@@ -89,7 +89,7 @@ High-precision mapping of differences in object placement distances, point cloud
 
 The module can be carried by a car or drone to move back and forth to obtain the depth value of the obstacle, and judge whether there is an obstacle in the screen through the difference, make a rapid response and accurately avoid the obstacle (the example has not been open sourced, will be sorted out and disclosed).
 
-![me_car](./../../../zh/maixsense/assets/me_car.gif)
+![me_car](./../../../zh/maixsense/assets/me_car.webp)
 ### Case: Detect foot traffic
 
 High-precision, high resolution real-time monitoring of the flow of people moving around the situation statistics(the example has not been open sourced, will be sorted out and disclosed).

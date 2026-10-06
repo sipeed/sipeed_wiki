@@ -37,7 +37,7 @@ update:
 
 直接将想要烧录的固件拖进 U 盘，成功烧录后 U 盘会自动弹出且板子会自动复位来重新加载新固件。
 
-![m0sense_drag_burn](./assets/start/m0sense_drag_burn.gif)
+![m0sense_drag_burn](./assets/start/m0sense_drag_burn.webp)
 
 这边提供了几个 Demo 固件 [点我跳转](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos)，可以直接拖拽到 U 盘查看烧录结果，其对应的源码均可在 [github](https://github.com/sipeed/M0sense_BL702_example) 上面获取。
 
@@ -51,7 +51,7 @@ update:
 
 通过 U 盘烧录方式将它烧录进板子后，可以通过串口软件打开板子串口，可以看到板子打印出的 `Hello,World`
 
-![m0sense_hello_world](./assets/start/m0sense_hello_world.gif)
+![m0sense_hello_world](./assets/start/m0sense_hello_world.webp)
 
 ### blink_baremetal.uf2
 
@@ -61,11 +61,11 @@ update:
 
 - 打开串口软件
 
-![m0sense_blink_baremetal_uart](./assets/start/m0sense_blink_baremetal_uart.gif)
+![m0sense_blink_baremetal_uart](./assets/start/m0sense_blink_baremetal_uart.webp)
 
 - LED 闪灯
 
-![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif)
+![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.webp)
 
 ### blink_rtos.uf2
 
@@ -77,11 +77,11 @@ update:
 
 - 打开串口软件
 
-![m0sense_blink_baremetal_uart](./assets/start/m0sense_blink_baremetal_uart.gif)
+![m0sense_blink_baremetal_uart](./assets/start/m0sense_blink_baremetal_uart.webp)
 
 - LED 闪灯
 
-![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.gif)
+![m0sense_blink_baremetal_led](./assets/start/m0sense_blink_baremetal_led.webp)
 
 ### lcd_flush.uf2
 
@@ -89,8 +89,8 @@ update:
 
 烧录进板子后，板子配套的 lcd 背景色变化，打开串口会显示当前屏幕颜色的数值。
 
-![m0sense_lcd_flush](./assets/start/m0sense_lcd_flush.gif)
-![m0sense_lcd_flush_uart](./assets/start/m0sense_lcd_flush_uart.gif)
+![m0sense_lcd_flush](./assets/start/m0sense_lcd_flush.webp)
+![m0sense_lcd_flush_uart](./assets/start/m0sense_lcd_flush_uart.webp)
 
 ### imu.uf2
 
@@ -108,7 +108,7 @@ update:
 
 具体逻辑可以查看[源码](https://gitee.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c)。
 
-![single_button_control](./assets/start/single_button_control.gif)
+![single_button_control](./assets/start/single_button_control.webp)
 ![single_button_control_uart](./assets/start/single_button_control_uart.gif)
 
 ### audio_recording.uf2

@@ -31,7 +31,7 @@ The GW1NSR-LV4CQN48PC6/I5 on the Tang Nano 4K development board is a System-in-P
 
 ### Pinmap
 
-![Pinmap](./../../../zh/tang/Tang-Nano/assets/Tang_nano_4K_0813.png)
+![Pinmap](./../../../zh/tang/Tang-Nano/assets/Tang_nano_4K_0813.jpg)
 
 ## Development software
 

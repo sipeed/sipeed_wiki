@@ -29,7 +29,7 @@ To meet different user needs, NanoKVM is available in two versions:
 
 ## Use Cases
 
-![](./../../../assets/NanoKVM/introduce/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.webp)
 
 - **Server Management**: For real-time monitoring and control of servers.
 - **Remote Desktop and Power Control**: Provides remote control functionality without requiring the host to be networked or run specific software.

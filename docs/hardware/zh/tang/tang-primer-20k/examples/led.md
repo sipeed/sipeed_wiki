@@ -322,7 +322,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 如图所示，只有一个灯在闪。
 
-![led_blink](./assets/led_assets/led_blink.gif)
+![led_blink](./assets/led_assets/led_blink.webp)
 
 ## 结语
 

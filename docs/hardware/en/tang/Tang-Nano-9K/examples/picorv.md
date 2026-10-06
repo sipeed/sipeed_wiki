@@ -52,7 +52,7 @@ Flashing completed
 ```
 
 Then we can use serial port tools to execute command and use HDMI to display the code interface.
-![](./../../../../../zh/tang/Tang-Nano-9K/nano_9k/picorv.jpg)
+![](../../../../zh/tang/Tang-Nano-9K/nano_9k/picorv.jpg)
 
 ## End
 

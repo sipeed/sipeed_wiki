@@ -64,7 +64,7 @@ key:57F80642C3F97E2655772C48AF17455EC9E79BBF76C16EED4E0EC1096D664435
     <th>Chip KEY in logs</th>
     </tr>
     <tr>
-    <td><img src="./../../../../zh/maix/m1s/other/assets/get_key/rst_key.png" alt="rst_key"></td>
+    <td><img src="./../../../../zh/maix/m1s/other/assets/get_key/rst_key.jpg" alt="rst_key"></td>
     <td><img src="./../../../../zh/maix/m1s/other/assets/get_key/chip_key.png" alt="chip_key"></td>
     </tr>
 </table>

@@ -106,7 +106,7 @@ endmodule
 ![](./../../../assets/examples/led_pjt_2.png)
 
 接下来通过 双击 Process 界面里的FloorPlanner来设置管脚约束。第一次打开会弹出缺少.cst文件.选择“OK”即可；
-    ![](./../../assets/LED-9.pngassets/LED-9.png)
+    ![](../../assets/LED-9.png)
 
 nano 的 rgb led电路图如下所示
     ![](./assets/nano_led_pins.png "nano rgb pins")

@@ -12,7 +12,7 @@
 - 外壳上开关处于已打开状态（有外壳版本）
 - Button 丝印处保持跳线帽短接（裸板版本）
 
-![top](../assets/top.png)
+![top](../assets/top.jpg)
 
 ### 正常开机
 通过 HDMI1 连接显示器并接入 12V DC 供电，等待片刻约 20 多秒后显示器屏幕将会如下显示 LightDM 登录界面，表示系统启动成功。
@@ -54,8 +54,8 @@ apt install cmake
 原始代码由爱芯官方开源于 GITHUB：[SAM-ONNX-AX650-CPP](https://github.com/AXERA-TECH/SAM-ONNX-AX650-CPP) 可下载官方预编译版本或按仓库内文档自行编译进行体验，下图是移除照片某球员的效果展示。
 
 <div><table><tr>
-<td><img src="../assets/sam_example_before.png" alt=sam_example_before border=0></td>
-<td><img src="../assets/sam_example_after.png" alt=sam_example_after border=0></td>
+<td><img src="../assets/sam_example_before.jpg" alt=sam_example_before border=0></td>
+<td><img src="../assets/sam_example_after.jpg" alt=sam_example_after border=0></td>
 </tr></table></div>
 
 以下是实机操作画面。
@@ -147,11 +147,11 @@ cd ~/ax-pipeline/bin
 
 
 <div><table><tr>
-<td><img src="../assets/dinov2-1.png" alt=dinov2-1></td>
-<td><img src="../assets/dinov2-2.png" alt=dinov2-2></td>
+<td><img src="../assets/dinov2-1.jpg" alt=dinov2-1></td>
+<td><img src="../assets/dinov2-2.jpg" alt=dinov2-2></td>
 </tr></table></div>
 
-![dinov2-3](../assets/dinov2-3.png)
+![dinov2-3](../assets/dinov2-3.jpg)
 
 
 
@@ -165,4 +165,4 @@ cd ~/ax-pipeline/bin
         -f ~/boxvideos/25.mp4
 ```
 
-![yolov5_seg](../assets/yolov5_seg.png)
+![yolov5_seg](../assets/yolov5_seg.jpg)

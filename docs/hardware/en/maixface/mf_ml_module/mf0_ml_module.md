@@ -105,7 +105,7 @@ After connecting according to the following table, when downloading using kflash
 | 3 | TX | IO4 | --- |
 | 4 | RX | IO5 | --- |
 
-![](./../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_dock_flash.png)
+![](./../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_dock_flash.jpg)
 
 Then use kflash_gui to download the MF0 firmware
 

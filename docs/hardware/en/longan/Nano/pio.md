@@ -27,7 +27,7 @@ platformio platform install gd32v
 ```
 platformio platform install https://github.com/sipeed/platform-gd32v
 ```
-![](../../assets/pio_install_gd32v.png)
+![](../../../zh/longan/Nano/assets/pio_install_gd32v.png)
 
 注：受国内网络环境影响，安装过程需要较长时间，请耐心等待。
 
@@ -35,7 +35,7 @@ platformio platform install https://github.com/sipeed/platform-gd32v
 ### 图形界面
 
 打开VS CODE -> 点击左侧 PIO 图标 -> 点击左下方的 Open 选项 -> 点击 Platforms 页面 -> 点击 Advanced Installation 打开添加窗口
-![](../../assets/pio_install_add_gd32v_step1.png)
+![](../../../zh/longan/Nano/assets/pio_install_add_gd32v_step1.png)
 
 在打开的窗口中输入下面的网址
 ```
@@ -44,7 +44,7 @@ https://github.com/sipeed/platform-gd32v.git
 
 点击 Install 即可添加完成。
 
-![](../../assets/pio_install_add_gd32v_step2.png)
+![](../../../zh/longan/Nano/assets/pio_install_add_gd32v_step2.png)
 
 耐心等待即可安装成功。 （安装失败多为网络原因， 请更换网络环境后再次尝试）
-![](../../assets/pio_install_add_gd32v_step3.png)
+![](../../../zh/longan/Nano/assets/pio_install_add_gd32v_step3.png)

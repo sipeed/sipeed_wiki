@@ -12,7 +12,7 @@ update:
 ## 简介
 
 LicheePi 4A 是基于 [Lichee Module 4A](http://wiki.sipeed.com/hardware/zh/lichee/th1520/lm4a.html) 核心板的 高性能 RISC-V Linux 开发板，以 [TH1520](https://www.t-head.cn/product/yeying)  为主控核心（4xC910@1.85G， RV64GCV，4TOPS@int8 NPU， 50GFLOP GPU），板载最大 16GB 64bit LPDDR4X，128GB eMMC，支持 HDMI+MIPI 双4K 显示输出，支持 4K 摄像头接入，双千兆网口（其中一个支持POE供电）和 4 个 USB3.0 接口，多种音频输入输出（由专用 C906 核心处理）。  
-![lpi4a](./assets/intro/lpi4a.png)
+![lpi4a](./assets/intro/lpi4a.jpg)
 
 LicheePi 4A 是截止目前（2023Q2）为止最强的 RISC-V SBC。性能约为上一代 RISC-V SBC [VisionFive2](https://www.starfivetech.com/en/site/boards)的2倍；未开启专用指令集加速的情况下，性能逼近基于 ARM A72 的树莓派 4，在开启相关指令集加速的情况下，可以与树莓派 4 持平。而且最高具备 16GB 超大内存，是树莓派 4 最高配置 8GB 内存的两倍！
 

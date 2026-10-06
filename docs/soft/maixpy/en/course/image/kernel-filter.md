@@ -5,7 +5,7 @@ desc: maixpy  nuclear filtering
 ---
 
 
-![image-20200812191240724](kernel-filter.assets/image-20200812191240724.png)
+![image-20200812191240724](../../../zh/course/image/kernel-filter.assets/image-20200812191240724.png)
 
 
 Routine

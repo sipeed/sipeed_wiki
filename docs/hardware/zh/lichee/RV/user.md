@@ -282,11 +282,11 @@ sudo ./micarr_0609
 
 - Alt+F2 可以打开 运行 ，接着输入 termit 即可打开命令行终端
 
-![基础操作](./../assets/RV/Basic_operation.png "基础操作")
+![基础操作](./../assets/RV/Basic_operation.jpg "基础操作")
 
 接下来让我们尝试在Debian下跑一下Hello World:
 
-![运行自制程序](./../assets/RV/Run_HelloWorld.png "运行自制程序")
+![运行自制程序](./../assets/RV/Run_HelloWorld.jpg "运行自制程序")
 
 另有720P高清屏的效果对比，有米的朋友可以考虑入手。
 
@@ -294,9 +294,9 @@ sudo ./micarr_0609
 
 实际显示效果如下：
 
-![高清显示_1](./../assets/RV/display_1.png)
+![高清显示_1](./../assets/RV/display_1.jpg)
 
-![高清显示_2](./../assets/RV/display_2.png)
+![高清显示_2](./../assets/RV/display_2.jpg)
 
 ### 点灯操作
 

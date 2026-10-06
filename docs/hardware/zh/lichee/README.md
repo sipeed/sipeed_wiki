@@ -22,7 +22,7 @@ title: Lichee Pi
 ## Lichee 核心版照片(Linux)
 ### Lichee Zero
 <div align="center">
-<a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.png" width=400></a>
+<a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.jpg" width=400></a>
 </div>
 
 ### Lichee Nano

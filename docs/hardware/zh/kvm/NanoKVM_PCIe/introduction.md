@@ -25,7 +25,7 @@ NanoKVM 系列产品包含一个 HDMI 输入接口，可以被电脑识别为显
 
 ## 使用场景
 
-![](./../../../assets/NanoKVM/introduce/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.webp)
 
 + 服务器管理：用于实时监控服务器，获取服务器运行状态，并对其加以控制；
 + 远程桌面、开关机：NanoKVM 摆脱主机必须联网和系统软件的限制，作为主机外置硬件，直接提供远程控制的功能；

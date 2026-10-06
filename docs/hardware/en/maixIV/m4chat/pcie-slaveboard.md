@@ -495,7 +495,7 @@ vae decoder inference take 913.7ms
 grid image saved in ./lcm_lora_sdv1-5_imgGrid_output.png
 save image take 445.9ms
 ```
-![img2img_output_axe](../../../zh/maixIV/assets/m4chat/PCIe/img2img_output_axe.png)
+![img2img_output_axe](../../../zh/maixIV/assets/m4chat/PCIe/img2img_output_axe.jpg)
 
 <div style="width: 80%; margin: 0 auto;">
     <canvas id="SDV1_5BarChart"></canvas>
@@ -570,8 +570,8 @@ python infer.py --model depth_anything_v2_vits.axmodel --img examples/demo01.jpg
 # or
 python infer_onnx.py --model depth_anything_v2_vits.onnx --img examples/demo02.jpg
 ```
-![depth_ouput_ax1](../../../zh/maixIV/assets/m4chat/PCIe/depth_ouput_ax1.png)
-![depth_ouput_ax2](../../../zh/maixIV/assets/m4chat/PCIe/depth_ouput_ax2.png)
+![depth_ouput_ax1](../../../zh/maixIV/assets/m4chat/PCIe/depth_ouput_ax1.jpg)
+![depth_ouput_ax2](../../../zh/maixIV/assets/m4chat/PCIe/depth_ouput_ax2.jpg)
 
 <div style="width: 80%; margin: 0 auto;">
     <canvas id="Depth_Anything_V2BarChart"></canvas>

@@ -17,7 +17,7 @@ The default firmware in Tang Nano 20K is [litex](https://github.com/litex-hub), 
 
 Power on Tang Nano 20K, leds flow.
 
-![unbox_nano_20k_led_water_flow](./../../../../zh/tang/tang-nano-20k/assets/unbox/unbox_nano_20k_led_water_flow.gif)
+![unbox_nano_20k_led_water_flow](./../../../../zh/tang/tang-nano-20k/assets/unbox/unbox_nano_20k_led_water_flow.webp)
 
 Windows 10 and Windows 11 can install the driver automatically, and there is at least one USB Serial Port in the device manager. We can open this serial port via the serial port available application like [Mobaxterm](https://mobaxterm.mobatek.net/).
 

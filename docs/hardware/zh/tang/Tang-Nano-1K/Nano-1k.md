@@ -26,7 +26,7 @@ Tang Nano 1K 开发板板载的 GW1NZ-LV1QN48C6/I5 FPGA芯片功能非常强大�
 
 ### 引脚图
 
-![pin_map](./../Tang-Nano/assets/1k-pin.png)
+![pin_map](./../Tang-Nano/assets/1k-pin.jpg)
 
 ## 资料
 

@@ -32,7 +32,7 @@ Tang Nano is a core board designed based on [Gowin](https://www.gowinsemi.com/en
 | Onboard PSRAM     | 64Mbits     |
 
 
-![Nano-Pin](./../../../assets/Tang/Nano/Tang-Nano-Pin.png)
+![Nano-Pin](./../../../assets/Tang/Nano/Tang-Nano-Pin.jpg)
 
 ## Support
 

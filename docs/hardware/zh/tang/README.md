@@ -36,7 +36,7 @@ Tang Nano 系列板卡都有迷你的体积，板载了 Jtag 调试器，能够�
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><a href="/nano20k"><img src="/hardware/assets/Tang/nano_20k/tang_nano_20k_3920_top.png" alt="Tang Nano 20K"></a></td>
+<td style="text-align:center"><a href="/nano20k"><img src="tang-nano-20k/assets/nano_20k/tang_nano_20k_3920_top.png" alt="Tang Nano 20K"></a></td>
 <td style="text-align:center"><a href="./Tang-Nano-9K/Nano-9K.html"><img src="./../../assets/Tang/Nano-9K/9K.png" alt="Tang Nano 9K"></a></td>
 </tr>
 </tbody>
@@ -74,7 +74,7 @@ Tang Primer 系列开发板是为了便于用户直接连接并驱动外设所�
 
 | Tang Primer 20K                                                              | Tang Primer 20K Dock                             | Tang Primer 20K Lite                                         |
 | ---------------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------ |
-| <img src="./tang-primer-20k/assets/20k_core.png" alt="20k_core" width="85%"> | ![dock-up](./tang-primer-20k/assets/dock-up.png) | ![20k_lite_home](./tang-primer-20k/assets/20k_lite_home.png) |
+| <img src="./tang-primer-20k/assets/20k_core.jpg" alt="20k_core" width="85%"> | ![dock-up](./tang-primer-20k/assets/dock-up.png) | ![20k_lite_home](./tang-primer-20k/assets/20k_lite_home.png) |
 
 ## 开发板选择建议
 

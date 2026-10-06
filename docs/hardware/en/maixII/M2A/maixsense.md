@@ -49,7 +49,7 @@ MaixSense not only can run Tina os, but also can run **armbian**, which is built
 ## Maixsense appearance
 
 <div align="center">
-    <img src="./../../maixII/M2A/assets/M2A-1.gif" alt="Maixsense outlook" >
+    <img src="./../../maixII/M2A/assets/M2A-1.webp" alt="Maixsense outlook" >
 </div>
 
 ## MaixSense Specs

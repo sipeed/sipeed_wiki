@@ -129,7 +129,7 @@ M1s Dock 和 M0Sense 总览：3:15 之前的都是 M1s Dock。
 
 ### 引脚图
 
-<img alt="m1s_doc_pin_map" src="./assets/m1s_dock/m1s_doc_pin_map.png" width=45%>
+<img alt="m1s_doc_pin_map" src="./assets/m1s_dock/m1s_doc_pin_map.jpg" width=45%>
 
 ## 产品对比
 

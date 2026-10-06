@@ -22,7 +22,7 @@ Note: The black 5V cable needs to be cut at the position indicated in the figure
 
 3.  Press here.
 
-![](./../../../assets/NanoKVM/pro/usb/usb5.png)
+![](./../../../assets/NanoKVM/pro/usb/usb5.jpg)
 
 4.  Use a tool like tweezers, a toothpick, or a small screwdriver to lift the plastic tab for the red wire on the 2.54mm terminal header.
 

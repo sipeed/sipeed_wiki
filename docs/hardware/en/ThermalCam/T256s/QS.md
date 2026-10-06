@@ -31,7 +31,7 @@ The T256s complies with the standard **UVC (USB Video Class)** protocol. On majo
     <img src="../../../en/ThermalCam/T256s/assets/20260413-macOs-Camera.png" alt="Photo Booth">
 </div>
 
-![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.png)
+![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.jpg)
 Connect T256s to your macOS device via a USB cable.
 - **Software Preview**: Launch **Photo Booth** and select **UVC Camera** from the camera list.
 - **Web Preview**: Visit [usbkvm.sipeed.com](https://usbkvm.sipeed.com/) and select **UVC Camera**.

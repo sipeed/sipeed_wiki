@@ -8,7 +8,7 @@
 MAIX Bit开发板是SiPEED公司MAIX产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片K210(RISC-V架构 64位双核)设计的一款AIOT开发板。经典两侧排针设计，可以直接配合面包板使用，板载Type-C接口和USB-UART电路，用户可以直接通过USB Type-C线连接电脑进行开发，配置128Mbit Flash、LCD、DVP、Micro SD卡等接口并把所有IO引出，方便用户扩展。
 
 ## 外观
-<img src="./../assets/dk_board/maix_bit/Bit.png" alt="Maxi bit" >
+<img src="../../../zh/maix/assets/dk_board/maix_bit/Bit.png" alt="Maxi bit" >
 
 ## 特性
 

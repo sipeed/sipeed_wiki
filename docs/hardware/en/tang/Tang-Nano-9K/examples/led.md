@@ -132,7 +132,7 @@ Click the button shown in the figure to start the firmware download process:
 ### Result
 
 Once that's complete, the LEDs start flashing like this：
-![Finish](./../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.gif)
+![Finish](./../../../../zh/tang/Tang-Nano-9K/nano_9k/blink.webp)
 
 ## Other
 

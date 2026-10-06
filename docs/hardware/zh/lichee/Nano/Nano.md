@@ -6,7 +6,7 @@ Lichee Nano是基于全志科技的F1C100s(ARM 926EJS内核)高性能soC芯片�
 > 默认用户名称:root 用户密码:licheepi
 
 <img src="./../assets/Nano/Nano_2.png" width=400>
-<img src="./../assets/Nano/Nano_3.png" width=400>
+<img src="./../assets/Nano/Nano_3.jpg" width=400>
 
 ## 参数
 

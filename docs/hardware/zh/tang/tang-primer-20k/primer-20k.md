@@ -6,7 +6,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 
 <div>
     <img src="./assets/20k_front.png" width=45%>
-    <img src="./assets/20k_back.png" width=45%>
+    <img src="./assets/20k_back.jpg" width=45%>
 </div>
 
 购买链接：[淘宝](https://item.taobao.com/item.htm?&id=680099020807)
@@ -117,7 +117,7 @@ Tang Primer 20K 是基于 [GW2A-LV18PG256C8/I7](http://www.gowinsemi.com.cn/prod
 底板 R8 与 P9 之间为 P8 引脚。参考右图左上方，已标明
 
 <div>
-<img src="./assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./assets/lite-up.jpg" alt="lite-up" width=45%>
 <img src="./assets/lite-back.png" alt="lite-back" width=45%>
 </div>
 
@@ -352,7 +352,7 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 
 这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。可以短接 Flash 的 1、4 引脚，让芯片上电时不能正常读 FLASH 。
 
-![flash_cs](./assets/flash_cs.png)
+![flash_cs](./assets/flash_cs.jpg)
 
 如果有 dock 底板的话，可以直接操作一号拨码开关重新救活核心板，具体操作如下：
 

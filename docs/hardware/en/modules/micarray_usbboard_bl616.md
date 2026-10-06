@@ -108,7 +108,7 @@ Notes:
 2. Choose the number of channels (8) in the recording options.
 3. Record and inspect the tracks; you can solo or export an individual channel as needed.
 
-![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.png)
+![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.jpg)
 
 **Windows: Select WASAPI. If only 1 or 2 channels remain available, see [Windows offers only 1 or 2 channels](#Windows-offers-only-1-or-2-channels).**
 <div style="display: flex; justify-content: space-between;">
@@ -161,7 +161,7 @@ After opening picocom, send uppercase `F` to switch from the raw binary stream t
 If the serial port has no data or its output is garbled, see [CDC ACM does not output hotmaps](#CDC-ACM-does-not-output-hotmaps) and [UART output is garbled](#UART-output-is-garbled).
 
 <figure>
-  <img src="../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.png" style="width: 100%;">
+  <img src="../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.jpg" style="width: 100%;">
   <figcaption>Left: hexadecimal preview of raw CDC ACM frames. Right: UART changing from a plain-text hotmap to a pseudo-color hotmap after 16×16 printing is enabled.</figcaption>
 </figure>
 

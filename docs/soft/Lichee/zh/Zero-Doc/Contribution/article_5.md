@@ -55,14 +55,14 @@ BT有2个1.27偏移的焊盘，建议焊接方法如下所示：
 1.  下图红圈处需要剪断，否则无法插屏幕
 2.  天线要弯过来，或者重新焊接到背面。
 
-![](./../static/Contribution/article_37.png)
+![](./../static/Contribution/article_37.jpg)
 
 
 ### 堆叠插拔形式
 
 如果不想把TF WiFi焊死上去，可以使用排座焊接到TF WiFi上，插拔使用：
 
-![](./../static/Contribution/article_38.png)
+![](./../static/Contribution/article_38.jpg)
 
 
 ## WiFi使用方法

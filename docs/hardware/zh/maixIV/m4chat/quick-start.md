@@ -64,7 +64,7 @@ python python/infer.py --img examples/demo02.jpg --model depth_anything_v2_vits_
 ```
 ![DepthAnything-v2-before](../assets/m4chat/DSC07539.JPG)
 ![DepthAnything-v2-after](../assets/m4chat/DSC07540.JPG)
-![depthanything-output](../assets/m4chat/depthanything-output.png)
+![depthanything-output](../assets/m4chat/depthanything-output.jpg)
 
 
 ## 交互式图像分割和修复（Segment and Inpaint Anything）
@@ -76,8 +76,8 @@ python python/infer.py --img examples/demo02.jpg --model depth_anything_v2_vits_
 原始代码由爱芯官方开源于 GITHUB：[SAM-ONNX-AX650-CPP](https://github.com/AXERA-TECH/SAM-ONNX-AX650-CPP) 可下载官方预编译版本或按仓库内文档自行编译进行体验，下图是移除照片某球员的效果展示。
 
 <div><table><tr>
-<td><img src="../assets/sam_example_before.png" alt=sam_example_before border=0></td>
-<td><img src="../assets/sam_example_after.png" alt=sam_example_after border=0></td>
+<td><img src="../assets/sam_example_before.jpg" alt=sam_example_before border=0></td>
+<td><img src="../assets/sam_example_after.jpg" alt=sam_example_after border=0></td>
 </tr></table></div>
 
 以下是实机操作画面。

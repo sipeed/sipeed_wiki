@@ -12,7 +12,7 @@ desc: maixpy  打包文件系统
 操作示例 GIF：
 ![pack fs](https://cdn.sipeed.com/pack_spiffs_ops.gif)
 
-GIF 备用链接： [pack_spiffs_ops.gif](../../../assets/course/advance/pack_spiffs_ops.gif)
+GIF 备用链接： [pack_spiffs_ops.gif](../../../assets/course/advance/pack_spiffs_ops.webp)
 
 
 

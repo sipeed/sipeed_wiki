@@ -29,7 +29,7 @@ There is a mark 1 on convert board, which notes the direction to connect lcd scr
 The mark 1 on screen is as below:
 
 <div>
-    <img src="./../../../zh/maixII/M2/asserts/other/1.3.png" width=350>
+    <img src="./../../../zh/maixII/M2/asserts/other/1.3.jpg" width=350>
     <img src="./../../../zh/maixII/M2/asserts/other/2.4.jpg" width=350>
 </div>
 

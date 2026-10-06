@@ -58,7 +58,7 @@ MF0: https://dl.sipeed.com/MAIX/HDK/Sipeed-MF0/MF0-2802
 
 - 参考自动进入下载模式电路：
 
-![](../../assets/mf_module/m1_m1w/K210_boot_reference.png)
+![](../assets/mf_module/m1_m1w/K210_boot_reference.png)
 
 
 参考来源：

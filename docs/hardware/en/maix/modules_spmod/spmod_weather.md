@@ -129,13 +129,13 @@ low power consumption (75uA).
 
 * MaixPy
 
-    <img src="../../assets/spmod/spmod_weather/log_py.png" height="200">
+    <img src="../assets/spmod/spmod_weather/log_py.png" height="200">
 
 ## Outlook
 
 - SPMOD_Weather Size drawing:
 
-<img src="../../assets/spmod/spmod_weather/sipeed_spmod_weather.png" height="250" />
+<img src="../assets/spmod/spmod_weather/sipeed_spmod_weather.png" height="250" />
 
 -----
 

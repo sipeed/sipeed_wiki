@@ -25,7 +25,7 @@ To meet diverse user needs, the NanoKVM-PCIe offers two optional modules for WiF
 
 ## Use Cases
 
-![](./../../../assets/NanoKVM/introduce/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.webp)
 
 + **Server Management**: Used for real-time monitoring of servers, obtaining the operating status of servers, and controlling them.
 + **Remote Power&Desktop**: NanoKVM frees itself from the limitations of having the host connected to the network and dependent on system software. As an external hardware solution, it directly provides remote control functionality.

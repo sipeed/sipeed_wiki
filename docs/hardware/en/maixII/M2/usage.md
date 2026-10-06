@@ -59,7 +59,7 @@ Edit the `wpa_supplicant.conf` file which is in the u-disk,
 
 Change `yourWIFIname` and `yourWIFIpassword` into your target wireless network name and password. Then remove the u-disk from your system, use your operating system command to remove the u-disk, otherwise this file will be damaged. After removing the u-disk, reboot M2Dock by press RST KEY.
 
-![wap_conf_gif](./../../../zh/maixII/M2/asserts/usage/wap_conf.gif)
+![wap_conf_gif](./../../../zh/maixII/M2/asserts/usage/wap_conf.webp)
 
 ### Update MaixPy3
 
@@ -146,7 +146,7 @@ from maix import camera, display, image
 display.show(camera.capture())
 ```
 
-<center><img src="./asserts/hello_world.jpg" width="500"></center>
+<center><img src="../../../zh/maixII/M2/asserts/hello_world.jpg" width="500"></center>
 
 > If your screen doesn't display anything, make sure your mirror is the latest one and your drivers are correct.
 

@@ -1291,7 +1291,7 @@ After compiling, you can find the `supertuxkart` program in the `bin/` folder in
 
 The effect is as follows:
 
-![supertuxkart_play](./../../../../zh/lichee/th1520/lpi4a/assets/application/supertuxkart_play.png)
+![supertuxkart_play](./../../../../zh/lichee/th1520/lpi4a/assets/application/supertuxkart_play.jpg)
 
 ## llama2.c
 
@@ -1399,7 +1399,7 @@ steps: 10
 
 The result is the `result.png` file, and the image from the above prompt is as follows:
 
-![onnxstream_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/onnxstream_result.png)
+![onnxstream_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/onnxstream_result.jpg)
 
 
 ## PSP Simulator
@@ -1509,8 +1509,8 @@ Start the game: Open EBOOT.PBP under the PPSSPPSDL command
 
 The operation effect is shown in the figure:
 
-![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_2.png)
-![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_3.png)
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_2.jpg)
+![game_result](./../../../../zh/lichee/th1520/lpi4a/assets/application/psp_3.jpg)
 
 ## Use of OpenCV
 

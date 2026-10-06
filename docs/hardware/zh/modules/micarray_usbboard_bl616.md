@@ -101,7 +101,7 @@ aplay ch6.wav
 2. 在录音通道处选择 8 通道。
 3. 开始录制，你会看到多通道波形，停止后可以选择某一路音轨听/导出。
 
-![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.png)
+![](../../assets/modules/micarray_usbboard_bl616/audacity-linux-sine1k.jpg)
 
 **Windows 下请选择 WASAPI；如果仍然只有 1 或 2 通道，请参见[Windows 只能选择 1 或 2 通道](#Windows-只能选择-1-或-2-通道)。**
 <div style="display: flex; justify-content: space-between;">
@@ -166,7 +166,7 @@ picocom -b 2000000 /dev/ttyUSB0
 如果串口没有数据或输出乱码，请分别参见[CDC ACM 不输出热力图](#CDC-ACM-不输出热力图)和[UART 输出乱码或无法显示](#UART-输出乱码或无法显示)。
 
 <figure>
-  <img src="../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.png" style="width: 100%;">
+  <img src="../../assets/modules/micarray_usbboard_bl616/minicom_acm&picocom_uart-combine.jpg" style="width: 100%;">
   <figcaption>左：CDC ACM 原始二进制帧的十六进制预览。右：UART 开启 16×16 打印后，从普通文本热力图切换到伪彩热力图的过程。</figcaption>
 </figure>
 

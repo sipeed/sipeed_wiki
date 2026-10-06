@@ -24,7 +24,7 @@ title: Windows 下烧录指南
     - 点击右下角 `Format` 
     - 等待弹框提示 `successful`
 
-<img src="./../static/System_Development/format.gif" >
+<img src="./../static/System_Development/format.webp" >
 
 -  打开Etcher
 
@@ -34,6 +34,6 @@ title: Windows 下烧录指南
     - 点击`Flash`烧录
     - 等待烧录完成
 
-<img src="./../static/System_Development/flash.gif" >
+<img src="./../static/System_Development/flash.webp" >
 
 到此就已经结束烧录了。

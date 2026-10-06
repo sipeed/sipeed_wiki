@@ -132,10 +132,10 @@ Test Equipment: Xiaomi 13, LPi4A
 Heat Sink: Fan + Aluminum Heat Sink(25*25*5)
 Silicon pad: Laird 500
 Standby Status:
-![temp_idle](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_idle.png) 
+![temp_idle](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_idle.jpg) 
 
 End of pressure test:
-![temp_press](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_press.png) 
+![temp_press](./../../../../zh/lichee/th1520/lpi4a/assets/test_report/temp_press.jpg) 
 
 ## Browser Testing
 

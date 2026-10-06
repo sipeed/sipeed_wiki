@@ -62,7 +62,7 @@ Connect the TF card with computer by SD card reader or SD card slot in the compu
 
 Run balenaEtcher, choose the downloaded image file, choose your TF card, click Flash:
 
-![d1_ubuntu_burn_image](./../../../zh/lichee/assets/RV/ubuntu/d1_ubuntu_burn_image.gif)
+![d1_ubuntu_burn_image](./../../../zh/lichee/assets/RV/ubuntu/d1_ubuntu_burn_image.webp)
 
 Make sure you choose the correct SD card.
 

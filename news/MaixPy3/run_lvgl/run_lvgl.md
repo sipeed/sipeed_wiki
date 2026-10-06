@@ -103,7 +103,7 @@ python3 project.py build
 <html>
 <div class="imbox">
     <img src="./assets/lvgl-4.png" height=300>
-    <img src="./assets/lvgl-5.png" height=300>
+    <img src="./assets/lvgl-5.jpg" height=300>
 <style>
 .imbox{
      display:flex;

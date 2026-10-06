@@ -67,7 +67,7 @@ Version: B** ，如果是字母 **C** 就是**Device Version: C**，以此类推
     <body>
       <details class="indent">
         <summary><font color="#4F84FF">点击此处查看138K-B FPG676A器件版本印记</font></summary>
-        <img src="./get_started/assets/138K-Pro-Ver.B.png">
+        <img src="./get_started/assets/138K-Pro-Ver.B.jpg">
       </details>
     </body>
     <br>

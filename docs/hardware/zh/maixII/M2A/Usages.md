@@ -12,7 +12,7 @@
 
 这里我们使用 `nmtui` 命令来配置 wifi
 
-![202108051626](./assets/202108051626.gif)
+![202108051626](./assets/202108051626.webp)
 
 <details>
 <summary><font color="#4F84FF">点开查看图文版操作</font></summary>
@@ -122,13 +122,13 @@ sudo apt install armbian-config -y
 
 在 `armbian-config` 设置界面中一直按键盘上的 `Esc` 键也能有退出的效果。
 
-![202108062005](./assets/202108062005.gif)
+![202108062005](./assets/202108062005.webp)
 
 ## 设置中文显示
 
 命令行中输入`armbian-config`，选中Personal -> Locales，下滑到最下面（可以试着使用键盘上的 `PageDown` 按键加快下滑），使用键盘空格键来选中 zh.GBK 和 zh.UTF-8 ，回车确认后再选择 zh_CN.UTF8 为系统默认语言，然后多次按下 `Esc` 键来退回到命令行终端界面。<!-- 执行命令 `sudo apt install fonts-wqy-zenhei` 来下载中文字体， --> 然后使用 `reboot` 命令来重启后系统后就会发现命令行终端有中文显示了。
 
-![202108062054](./assets/202108062054.gif)
+![202108062054](./assets/202108062054.webp)
 
 ## 配置蓝牙
 
@@ -213,7 +213,7 @@ maixsense:~:# pactl set-default-sink 2
 
 这里使用 `alsamixer` 这个应用来改变音量
 
-![202108071440](./assets/202108071440.gif)
+![202108071440](./assets/202108071440.webp)
 
 <html>
 <details>
@@ -355,7 +355,7 @@ gcc hello.c -o hello.o
 ./hello.o
 ```
 
-![202108091201](./assets/202108091201.gif)
+![202108091201](./assets/202108091201.webp)
 
 ## 编写python代码
 
@@ -370,7 +370,7 @@ esc
 python3 helloworld.py
 ```
 
-![202108091339](./assets/202108091339.gif)
+![202108091339](./assets/202108091339.webp)
 
 ## 使用 python 点亮第一个灯
 

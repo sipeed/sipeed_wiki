@@ -59,7 +59,7 @@ Open the box, these things are shown:
 
 There are two TypeC Ports on M1s Dock. The UART TypeC Port is for serial communication between M1s Dock and computer. The OTG Port is designed for burning firmware of the C906 Core in BL808 chip, and you can change its function by programming it as if you want to learn USB protocol.
 
-<img alt="m1s_doc_pin_map" src="./../../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.png">
+<img alt="m1s_doc_pin_map" src="./../../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.jpg">
 
 1. We can see there are `S1_Button` and `S2_button`, and there are also `BOOT` key and `RST` key.
 2. There is a `UART` on the left bottom, it's used for communication with two cores of BL808.
@@ -79,7 +79,7 @@ Power the M1s Dock，Click the RST (reset) key。
 
 And it will be as follows：
 
-![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware_20230509.png)
+![default_firmware](./../../../../zh/maix/m1s/other/assets/start/default_firmware_20230509.jpg)
 
 - Click the ① key, the btn marked ④ turns green, and the number marked ⑥ increases, maximum number is 100.
 - ② is the camera, and screen shows what the camera captures
@@ -154,7 +154,7 @@ Besides, when 2 side keys are being pressed, power on this board can make this b
 
 A removable disk with tiny storage capacity will be shown on your computer if this board is in u-disk burn mode. Just drag the firmware <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin"> Here are some demo bins </a> into the removable disk to burn the firmware.
 
-<img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
+<img src="./../../../../zh/maix/m1s/other/assets/start/udisk_burn.webp" alt="udisk_burn" style="transform:rotate(0deg);">
 
 After succeed dragging the firmware bin into removable disk, the board will reboot and the u-disk is removed. 
 
@@ -852,7 +852,7 @@ Burning the compiled [blai_mnist_demo](https://dl.sipeed.com/shareURL/MAIX/M1s/M
 ./build.sh blai_mnist_demo
 ```
 
-![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif)
+![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.webp)
 
 After burning this firmware (when the u-disk is automatically removed it means we have finished burning this firmware), press RST key to reset M1s Dock and reload firmware, then open the smaller serial port (with baudrate 2000000) we can see it shows failed loading model.
 
@@ -898,7 +898,7 @@ To start this, refer to the [SDK compile](https://wiki.sipeed.com/hardware/en/ma
 
 Burn the compiled firmware into M1s Dock.
 
-![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.gif)
+![udisk_burn](./../../../../zh/maix/m1s/other/assets/start/udisk_burn.webp)
 
 Form the source code of `main.c` in tom_and_jerry_classification_demo we can see that the ai model file is the models folder in the Flash, and the ai model file name is `tj.blai`.
 
@@ -906,7 +906,7 @@ Form the source code of `main.c` in tom_and_jerry_classification_demo we can see
 
 We download the example ai model from [MaixHub](https://maixhub.com/model/zoo/127), and rename the file whose extended name is `.blai` into `tj.blai`.
 
-![tom_jerry_model_rename](./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_rename.gif)
+![tom_jerry_model_rename](./../../../../zh/maix/m1s/other/assets/start/tom_jerry_model_rename.webp)
 
 Connect computer with OTG port of M1s Dock we can see there is a u-disk with nearly 7M storage memory.
 

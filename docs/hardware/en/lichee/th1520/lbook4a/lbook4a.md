@@ -198,7 +198,7 @@ https://mega.nz/folder/p9BCTbLb#sWSZvLw6nrBmqujQXfvWrg
 
 
 Common application Show:
-![sys1](./assets/lbook4a/sys1.png)
+![sys1](./assets/lbook4a/sys1.jpg)
 
 
 The system architecture of the Book is as follows. Refer to the schematic or device tree files for details.

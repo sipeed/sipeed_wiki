@@ -132,7 +132,7 @@ Nano 9K 的 led 部分的原理图如下所示
 ### 结果展示
 
 结果显示：
-![流水灯](./../nano_9k/blink.gif)
+![流水灯](./../nano_9k/blink.webp)
 
 ## 其他
 

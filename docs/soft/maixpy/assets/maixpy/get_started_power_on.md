@@ -26,8 +26,8 @@ desc: maixpy  MaixPy 开发板上电
 如果没有发现设备， 需要确认有没有装驱动以及接触是否良好
 
 上电后， 如果是新出厂的开发板， 可能会显示红色背景，前景是简单的 MaixPy 介绍，包括官网地址，画面是静止的，需要通过接下来的编程让它改变。
-![](./../../assets/maixpy/welcome_maixpy.png)
-![](./../../assets/maixpy/welcome_maixpy.png)
+![](./../../assets/maixpy/welcome_maixpy.jpg)
+![](./../../assets/maixpy/welcome_maixpy.jpg)
 
 
 ## 检查固件版本

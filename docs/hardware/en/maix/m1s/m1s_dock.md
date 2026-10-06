@@ -121,7 +121,7 @@ Three cores in chip: M0，D0，LP。
 
 ### Pinmap
 
-<img alt="m1s_doc_pin_map" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.png" width=45%>
+<img alt="m1s_doc_pin_map" src="./../../../zh/maix/m1s/assets/m1s_dock/m1s_doc_pin_map.jpg" width=45%>
 
 ## Comparison
 

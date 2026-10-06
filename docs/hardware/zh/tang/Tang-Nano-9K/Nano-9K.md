@@ -34,7 +34,7 @@ Tang Nano 9K 是基于高云半导体 GW1NR-LV9QN88PC6/I5 FPGA芯片设计的精
 
 ### 板子引脚图
 
-![Generated](./assets/clip_image010.gif)
+![Generated](./assets/clip_image010.webp)
 
 ## 前代对比
 
@@ -42,7 +42,7 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 | 版型            | Tang Nano 1K                                                                   | Tang Nano 4K                                                                   | Tang Nano 9K                                                                   |
 | :-------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
-| 外观图          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" > |
+| 外观图          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.webp" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.webp" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.webp" width="180" > |
 | 逻辑单元 (LUT4) | 1152                                                                           | 4608                                                                           | 8640                                                                           |
 | 硬核处理器      |                                                                                | Cortex M3                                                                      |                                                                                |
 | 板载晶振        | 27MHZ                                                                          | 27MHZ                                                                          | 27MHZ                                                                          |

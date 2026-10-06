@@ -80,7 +80,7 @@ Demo video:
     ```
 ![DepthAnything-v2-before](../../../zh/maixIV/assets/m4chat/DSC07539.JPG)
 ![DepthAnything-v2-after](../../../zh/maixIV/assets/m4chat/DSC07540.JPG)
-![depthanything-output](../../../zh/maixIV/assets/m4chat/depthanything-output.png)
+![depthanything-output](../../../zh/maixIV/assets/m4chat/depthanything-output.jpg)
 
 
 ## Interactive Image Segmentation & Inpainting
@@ -95,8 +95,8 @@ Download prebuilt binaries or compile from source.
 Example: Removing a player from a photo:
 
 <div><table><tr>
-<td><img src="../../../zh/maixIV/assets/sam_example_before.png" alt=sam_example_before border=0></td>
-<td><img src="../../../zh/maixIV/assets/sam_example_after.png" alt=sam_example_after border=0></td>
+<td><img src="../../../zh/maixIV/assets/sam_example_before.jpg" alt=sam_example_before border=0></td>
+<td><img src="../../../zh/maixIV/assets/sam_example_after.jpg" alt=sam_example_after border=0></td>
 </tr></table></div>
 
 Live Demo (Screenshots):

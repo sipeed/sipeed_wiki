@@ -7,7 +7,7 @@
 
 荔枝糖不仅担起开源开发者们的期待，更志向于在国内推广RISC-V架构相关的开发与教育，向世界介绍中国的一款优秀开发板。
 
-![](./../assets/material.png)
+![](./../assets/material.jpg)
 
 
 荔枝糖使用 安路科技(Anlogic Technologies) 的 EG4S20 作为核心单元, **20K逻辑单元(LUT4/LUT5混合架构)，约130KB SRAM，内置32bit位宽 64MBit SDRAM，丰富的LVDS引脚，内置12-bit 1MSPS ADC**，这为荔枝糖提供了无限的可能性：
@@ -23,13 +23,13 @@
 -   双排插针间距900mil， **兼容面包板开发** 
 -   半孔引出额外 **40 IO**，整板引出 **130+ IO** 。
 
-![荔枝糖资源图](./../assets./../assets./../assets/E203_function.png)
+![荔枝糖资源图](./../assets./../assets./../assets/E203_function.jpg)
 
 
-![荔枝糖引脚图(旧板,底面丝印较小版本)](./../assets./../assets/E203_pin.png)
+![荔枝糖引脚图(旧板,底面丝印较小版本)](./../assets./../assets/E203_pin.jpg)
 
 
-![ 荔枝派引脚图(新板,底面丝印较大版本)](./../assets/Lichee-tang_NewIoMap.png)
+![ 荔枝派引脚图(新板,底面丝印较大版本)](./../assets/Lichee-tang_NewIoMap.jpg)
 
 
 2018年8月15日之前收到的板子预烧录的码流为旧版本IO分配，需要烧录[新版本码流](./../assets/LicheeTangNewIoMap_BitStream.bit)

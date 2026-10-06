@@ -4,7 +4,7 @@
 
 `nmtui`
 
-![202108051626](./../assets/202108051626.gif)
+![202108051626](./../assets/202108051626.webp)
 
 
 
@@ -47,13 +47,13 @@ print(platform.uname())
 
 打开`armbian-config`，选中Personal，选择Timezone > Asia >Shanghai设置上海时间（不用找，Debian没有北京时间），按住TAB键切换到ok，保存即可。		
 
-![202108062005](./../assets/202108062005.gif)
+![202108062005](./../assets/202108062005.webp)
 
 ## 设置中文显示
 
 打开`armbian-config`，选中Personal >Locales>下滑到最下面，空格选中zh.GBK和zh.UTF-8,，然后勾选zh_CN.UTF8设置为系统默认语言，按住TAB键切换到ok，保存，exit退出，下载中文字体，`apt-get install fonts-wqy-zenhei`，重启后系统环境就变成中文的了。
 
-![202108062054](./../assets/202108062054.gif)
+![202108062054](./../assets/202108062054.webp)
 
 ## 配置蓝牙
 
@@ -139,7 +139,7 @@ maixsense:~:# pactl set-default-sink 2
 
 `alsamixer`
 
-![202108071440](./../assets/202108071440.gif)
+![202108071440](./../assets/202108071440.webp)
 
 常用命令
 
@@ -229,7 +229,7 @@ gcc hello.c -o hello.o
 ./hello.o
 ```
 
-![202108091201](./../assets/202108091201.gif)
+![202108091201](./../assets/202108091201.webp)
 
 ## 编写python代码
 
@@ -242,7 +242,7 @@ esc
 python3 helloworld.py
 ```
 
-![202108091339](./../assets/202108091339.gif)
+![202108091339](./../assets/202108091339.webp)
 
 ## 运行神经网络实例
 

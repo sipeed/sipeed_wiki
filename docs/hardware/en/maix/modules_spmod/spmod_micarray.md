@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../../assets/spmod/spmod_micarray/sp_micarray.png" align="right" width="" height="500" />
+<img src="../assets/spmod/spmod_micarray/sp_micarray.png" align="right" width="" height="500" />
 
 SPMOD_MicArray(Microphone array module) uses RY3708(DC-DC)Boost Module
 
@@ -54,7 +54,7 @@ Thermal Shutdown,Integrated 80mΩ Power MOSFET
 
 - SPMOD_MicArray Size drawing:
 
-<img src="../../assets/spmod/spmod_micarray/sipeed_spmod_micarray.png" height="250" />
+<img src="../assets/spmod/spmod_micarray/sipeed_spmod_micarray.png" height="250" />
 
 -----
 

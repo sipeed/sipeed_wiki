@@ -47,7 +47,7 @@ update:
 
 由于高云半导体的IDE在不断的更新中，下图为 2023 年 09 月 25 日截图
 
-![IDE](./assets/IDE-1.png)
+![IDE](./assets/IDE-1.jpg)
 
 ---
 
@@ -106,7 +106,7 @@ IDE 分为商业版和教育版：
     <body>
       <details class="indent">
         <summary><font color="#4F84FF">点击此处查看138K-C PG484A器件版本印记</font></summary>
-        <img src="./assets/138K-Ver.C.png">
+        <img src="./assets/138K-Ver.C.jpg">
       </details>
     </body>
     <br>
@@ -126,7 +126,7 @@ IDE 分为商业版和教育版：
     <body>
       <details class="indent">
         <summary><font color="#4F84FF">点击此处查看138K-B PG484A器件版本印记</font></summary>
-        <img src="./assets/138K-Ver.B.png">
+        <img src="./assets/138K-Ver.B.jpg">
       </details>
     </body>
     <br>
@@ -146,7 +146,7 @@ IDE 分为商业版和教育版：
     <body>
       <details class="indent">
         <summary><font color="#4F84FF">点击此处查看138K-B FPG676A器件版本印记</font></summary>
-        <img src="./assets/138K-Pro-Ver.B.png">
+        <img src="./assets/138K-Pro-Ver.B.jpg">
       </details>
     </body>
     <br>

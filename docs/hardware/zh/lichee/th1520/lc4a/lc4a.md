@@ -124,11 +124,11 @@ LicheeRV SOM（D1 C906@1GHz）有5个原生串口，以及两个USB串口，分�
 
 向两侧拉开白色锁扣，插入前请确认缺口为止，避免方向错误导致损坏
 
-![lc4a_install_goldfinger](./assets/lc4a/lc4a_install_goldfinger.png)
+![lc4a_install_goldfinger](./assets/lc4a/lc4a_install_goldfinger.jpg)
 
 放入核心板后均匀的向下施加压力
 
-![lc4a_install_install_lm4a](./assets/lc4a/lc4a_install_install_lm4a.png)
+![lc4a_install_install_lm4a](./assets/lc4a/lc4a_install_install_lm4a.jpg)
 
 听到喀哒声后，确认白色锁扣正确扣上，安装完成。如果需要取出核心板，向两侧拉开白色锁扣即可。
 
@@ -148,7 +148,7 @@ LicheeRV SOM（D1 C906@1GHz）有5个原生串口，以及两个USB串口，分�
 
 插上跳线帽
 
-![lc4a_power_jumpwire](./assets/lc4a/lc4a_power_jumpwire.png)
+![lc4a_power_jumpwire](./assets/lc4a/lc4a_power_jumpwire.jpg)
 
 #### 网络连接
 

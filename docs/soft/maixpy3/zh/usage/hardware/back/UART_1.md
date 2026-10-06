@@ -44,7 +44,7 @@ except KeyboardInterrupt:
 - RX：接收数据端，要接对面设备的TX
 - GND：保证两设备共地，有统一的参考平面
 
-![](./../asserts/UART.jpg)
+![](../../asserts/UART.jpg)
 
 ## 串口工作原理
 

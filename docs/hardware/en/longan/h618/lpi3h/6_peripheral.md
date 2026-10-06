@@ -131,11 +131,11 @@ sudo gpioget gpiochip0 196
 
 The system serial port of the LonganPi 3H is UART0, which is provided in the side pins.  
 
-![uart_pin](./../../../../zh/longan/h618/lpi3h/assets/peripheral/uart_pin.png)  
+![uart_pin](./../../../../zh/longan/h618/lpi3h/assets/peripheral/uart_pin.jpg)  
 
 You can use USB to serial module to connect the serial port, namely `U0-RX` and `U0-TX`, pay attention to cross connection, as well as GND connection (there is also an extra power line in the following picture, if you use typeC port to power, you can not connect this power line).
 
-![uart_connect](./../../../../zh/longan/h618/lpi3h/assets/peripheral/uart_connect.png)  
+![uart_connect](./../../../../zh/longan/h618/lpi3h/assets/peripheral/uart_connect.jpg)  
 
 After the connection is completed, you can use the serial port tool for communication, recommended `XShell` and `mobaterm` under Windows, and `minicom` under Linux.
 Set the serial port baud rate to `115200`, and you can log in and operate the commands under the serial terminal:

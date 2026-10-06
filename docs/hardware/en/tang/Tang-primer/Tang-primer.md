@@ -8,7 +8,7 @@ draft: false
 
 ## The Tang Primer at a Glance
 
-![Tang Primer at a Glance](./../../../zh/tang/assets/material.png "Tang Primer at a Glance")
+![Tang Primer at a Glance](./../../../zh/tang/assets/material.jpg "Tang Primer at a Glance")
 
 Tang Primer uses Anlogic's EG4S20 as the core unit, **20K logic unit (LUT4/LUT5 hybrid architecture), approximately 130KB SRAM, built-in 32bit bit width 64MBit SDRAM, rich LVDS pin, built-in 12-bit 1MSPS ADC** This provides unlimited possibilities for Tang Primer:
 
@@ -29,11 +29,11 @@ Tang Primer uses Anlogic's EG4S20 as the core unit, **20K logic unit (LUT4/LUT5 
 
 Pinout for **New** Tang Primer Board.
 
-![Tang Primer at a Glance](./../../../zh/tang/assets/Lichee-tang_NewIoMap.png "Tang Primer at a Glance")
+![Tang Primer at a Glance](./../../../zh/tang/assets/Lichee-tang_NewIoMap.jpg "Tang Primer at a Glance")
 
 Pinout for **Old** Tang Primer Board.
 
-![Tang Primer at a Glance](./../../../zh/tang/assets/E203_pin.png "Tang Primer at a Glance")
+![Tang Primer at a Glance](./../../../zh/tang/assets/E203_pin.jpg "Tang Primer at a Glance")
 
 ## Resources
 

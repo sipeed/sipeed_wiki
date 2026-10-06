@@ -226,7 +226,7 @@ NanoKVM Full and PCIe versions include an OLED screen for displaying information
 1. It is recommended to configure the host so that USB remains powered after shutdown.
 2. For **Full version** users: use a soldering iron to disconnect the 5V resistor or the shorted header at the location shown below, and power the unit only through the auxiliary power port.
 
-![](./../../../assets/NanoKVM/guide/fix2.png)
+![](./../../../assets/NanoKVM/guide/fix2.jpg)
 
 ### Try Power Cycling to Solve Unknown Issues
 

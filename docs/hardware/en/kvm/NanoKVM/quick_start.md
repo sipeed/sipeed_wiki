@@ -64,7 +64,7 @@ The wiring diagram for the NanoKVM-Full version is as follows. The Lite version 
 
   The official KVM-B board features a standard 9-pin header interface compatible with most motherboards, allowing direct connection. The case's power button and Power LED can be connected to the KVM-B header, as shown in the diagram (only the power button is connected here):
 
-  ![](./../../../assets/NanoKVM/unbox/new-ATX-B.png)
+  ![](./../../../assets/NanoKVM/unbox/new-ATX-B.jpg)
 
   > Note: The KVM-B board with version number 30132 cannot be directly connected to the pin header on the board with the built-in 9-pin bus header of the chassis, and must be connected with the included male to female cable according to the figure above.
 

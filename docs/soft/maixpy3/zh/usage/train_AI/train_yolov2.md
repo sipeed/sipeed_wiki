@@ -21,7 +21,7 @@
 
 （4）分割-Segmentation：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。
 
-![](./dnn/yolo.png)
+![](./dnn/yolo.jpg)
 
 > 了解更多可以查看 CSDN 博文：<https://blog.csdn.net/yegeli/article/details/109861867>
 

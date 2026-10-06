@@ -82,7 +82,7 @@ Before upgrading and restoring the factory configuration **MF face recognition m
 Use the USB Type-C data cable to connect the **MF face recognition module** to the computer
 
 
-![MF1 connect USB](../../assets/mf_module/mf1/mf1_view.png)
+![MF1 connect USB](../../../zh/maixface/assets/mf_module/mf1/mf1_view.png)
 
 Open Kflash_gui, select the file to be burned, select the version (default is `automatic selection`, if the burn fails, select `MaixDuino`), select the serial port number (CH522 has two serial ports, try the other one if it fails), configure the wave Special rate (default is `150000`, if programming fails, reduce the baud rate appropriately, such as `115200`)
 
@@ -120,4 +120,4 @@ How to confirm the firmware corresponding to the camera: (identified by the came
 
 | Horizontal board | Vertical board |
 | --- | --- |
-| ![](../../assets/mf_module/mf1/mf_dual_camera_1.jpg) | ![](../../assets/mf_module/mf1/mf_dual_camera_2.png) |
+| ![](../../../zh/maixface/assets/mf_module/mf1/mf_dual_camera_1.jpg) | ![](../../assets/mf_module/mf1/mf_dual_camera_2.png) |

@@ -101,10 +101,10 @@ USB2.0 Type-A, MicroSD Slot </td>
 
 ### 开箱
 打开包装盒，上层是LicheeConsole4A主机
-![unbox1](./assets/lcon4a/unbox1.png)
+![unbox1](./assets/lcon4a/unbox1.jpg)
 
 取下上层主机后，下层是12V3A电源适配器，和MiniHDMI线。
-![unbox2](./assets/lcon4a/unbox2.png)
+![unbox2](./assets/lcon4a/unbox2.jpg)
 
 
 取出主机，认识下主机侧面的接口：
@@ -143,7 +143,7 @@ Console的镜像与LicheePi4A的镜像一同发布，默认为Full镜像，建�
 
 
 常见应用展示：
-![sys1](./assets/lcon4a/sys1.png)
+![sys1](./assets/lcon4a/sys1.jpg)
 
 
 Console 系统架构如下，细节可参照原理图或设备树文件。
@@ -175,10 +175,10 @@ echo xxx > brightness   # xxx is brightness you want, 0~100
 
 ### 散热
 Console使用3cm涡轮风扇+10cm热管对CPU进行散热, 热管一端贴CPU，另一端由涡轮风扇散热，并且顶面使用导热硅脂接触底壳散热。  
-![heat1](./assets/lcon4a/heat1.png)
+![heat1](./assets/lcon4a/heat1.jpg)
 ![heat1](./assets/lcon4a/heat2.png)
 在持续进行高负载工作下（如浏览器视频软解），CPU温度最终可达60～65度，底壳温度最高可达50度左右。  
-![heat1](./assets/lcon4a/heat3.png)
+![heat1](./assets/lcon4a/heat3.jpg)
 
 如有更好的散热建议，可发送邮件到support@sipeed.com 
 > 目前（2023.11）浏览器硬解尚未适配，所以在观看浏览器视频时会占用大量CPU，预计在12月份会合并入浏览器硬解功能。  

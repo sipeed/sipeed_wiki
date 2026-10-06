@@ -34,7 +34,7 @@ T256s 符合标准 UVC (USB Video Class) 协议。在主流操作系统（Window
     <img src="../../../zh/ThermalCam/T256s/assets/20260413-macOs-Camera.png" alt="Photo Booth">
 </div>
 
-![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.png)
+![Photo Booth](../../../zh/ThermalCam/T256s/assets/20260413-macOs-PhotoBooth.jpg)
 将 T256s 通过 USB 数据线连接至 macOs。
 - **软件预览**：下载Photo Booth ，摄像头选择UVC Camera。
 - **网页预览**：进入[usbkvm.sipeed.com](https://usbkvm.sipeed.com/)，选择UVC Camera。

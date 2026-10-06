@@ -9,7 +9,7 @@ desc: maixpy  Maix Bit
 
 ### 外观一览
 
-![Maix Bit](../../assets/hardware/maix_bit/maix_bit.png)
+![Maix Bit](../../assets/hardware/maix_bit/maix_bit.jpg)
 
 ### 板载功能
 

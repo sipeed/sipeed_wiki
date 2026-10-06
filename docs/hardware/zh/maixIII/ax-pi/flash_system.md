@@ -98,7 +98,7 @@ update:
 
 **烧录镜像文件到 SD 卡：**
 
-![burn_image_by_etcher](./../../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
+![burn_image_by_etcher](./../../../assets/maixIII/ax-pi/burn_image_by_etcher.webp)
 
 | 烧录中                                                                          | 烧录完成                                                    |
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------- |

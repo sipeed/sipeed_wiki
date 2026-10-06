@@ -12,4 +12,4 @@ For details, please see the instructions: [pack SPIFFS for MaixPy](https://githu
 Operation example GIF:
 ![pack fs](https://cdn.sipeed.com/pack_spiffs_ops.gif)
 
-GIF alternate link: [pack_spiffs_ops.gif](../../../assets/course/advance/pack_spiffs_ops.gif)
+GIF alternate link: [pack_spiffs_ops.gif](../../../assets/course/advance/pack_spiffs_ops.webp)

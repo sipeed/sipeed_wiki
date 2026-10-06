@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../../assets/spmod/spmod_tof/sp_tof.png" style="padding-right:100px;" align="right" width="" height="500" />
+<img src="../assets/spmod/spmod_tof/sp_tof.png" style="padding-right:100px;" align="right" width="" height="500" />
 
 SPMOD_TOF(TOF module) uses VL53L0X .
 
@@ -166,7 +166,7 @@ Modify the following parameters to fit other K210 boards.
 
 - SPMOD_TOF Size drawing:
 
-<img src="../../assets/spmod/spmod_tof/sipeed_spmod_tof.png" height="250" />
+<img src="../assets/spmod/spmod_tof/sipeed_spmod_tof.png" height="250" />
 
 -----
 

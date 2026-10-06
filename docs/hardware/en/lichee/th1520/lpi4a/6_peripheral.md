@@ -635,7 +635,7 @@ make -j4
 ``` 
 #### Renderings
 
-![效果图1](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tft_demo.png)
+![效果图1](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/tft_demo.jpg)
 
 -->
 
@@ -764,7 +764,7 @@ After installing guvcview, use the appropriate commands to see the image stream 
 sudo apt-get install guvcview
 guvcview
 ```
-![usb_cam_use](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_cam_use.png)  
+![usb_cam_use](./../../../../zh/lichee/th1520/lpi4a/assets/peripheral/usb_cam_use.jpg)  
 
 You can end the image stream by pressing Ctrl+C or by clicking the quit button on the guvcview window.
 

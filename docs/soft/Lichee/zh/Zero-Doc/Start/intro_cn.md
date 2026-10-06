@@ -119,7 +119,7 @@ Zero可使用Wifi，Ethernet连入网络，还在配套演示底板上集成了L
 
 TF Wifi卡的多种使用方法：
 
-![](./../static/start/intro_11.gif)
+![](./../static/start/intro_11.webp)
 
 #### 直插板载卡槽
 
@@ -241,7 +241,7 @@ PA模块可带动3W*2个扬声器，并自带音量旋钮，适合做一些手�
 底板的输入除了四个ADC做的功能按键外，还可选配下小手柄/键盘。
 
 手柄与2.4寸屏幕搭配食用风味更佳 /斜眼笑
-![](./../static/start/intro_26.gif)
+![](./../static/start/intro_26.webp)
 
 ### 底板的通信接口
 

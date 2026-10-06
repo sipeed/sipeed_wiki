@@ -43,6 +43,6 @@
     固件下载完后是使用杜邦线连接nano和电脑, 在终端输入sudo minicom -s,配置好串口参数(115200 8N1).
 
 -   正常运行的打印截图
-    ![](../static/step_by_step/console_run_is_ok.png)
+    ![](../static/step_by_step/console_run_is_ok.jpg)
 -   正常运行的液晶显示
     ![](../static/step_by_step/lcd_run_is_ok.jpg)

@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../../assets/spmod/spmod_joystick/sp_joystick.png" align="right" width="" height="500" />
+<img src="../assets/spmod/spmod_joystick/sp_joystick.png" align="right" width="" height="500" />
 
 SPMOD_JoyStick (JoyStick module).
 
@@ -41,7 +41,7 @@ SPMOD_JoyStick (JoyStick module).
 
 - SPMOD_JoyStick Size drawing:
 
-<img src="../../assets/spmod/spmod_joystick/sipeed_spmod_joystick.png" height="250" />
+<img src="../assets/spmod/spmod_joystick/sipeed_spmod_joystick.png" height="250" />
 
 -----
 

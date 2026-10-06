@@ -47,4 +47,4 @@ for i in range(hist_x_num):
 
 效果：
 
-![](../../../assets/course/fft_waterfall.gif)
+![](../../../assets/course/fft_waterfall.webp)

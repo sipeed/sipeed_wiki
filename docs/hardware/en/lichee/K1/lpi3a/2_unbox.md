@@ -133,7 +133,7 @@ The POE module requires manual welding and installation by the user. Please weld
 
 After completing the initial lighting of the board, you can take a moment to familiarize yourself with the hardware of LicheePi 3A, which will facilitate possible maintenance work in the future.
 
-![pi_view](./assets/unbox/pi_view.png) 
+![pi_view](./assets/unbox/pi_view.jpg) 
 
 
 

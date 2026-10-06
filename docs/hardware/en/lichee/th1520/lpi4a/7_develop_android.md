@@ -181,7 +181,7 @@ Finished. Total time: 0.071s
 
 When the completion of the burn-in reset power into the system boot mode, you can access the command line of the system through the serial port / ADB, and can interact with the touch screen or external HDMI display system image interface:
 
-![licheepi4a_aosp](./assets/develop_android/licheepi4a_aosp.png)
+![licheepi4a_aosp](../../../../zh/lichee/th1520/lpi4a/assets/develop_android/licheepi4a_aosp.png)
 
 ### Common Problems
 

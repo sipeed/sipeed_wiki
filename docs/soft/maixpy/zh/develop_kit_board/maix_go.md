@@ -9,7 +9,7 @@ desc: maixpy  Maix Go
 
 ### 外观一览
 
-![Maix Go](../../assets/hardware/maix_go/Go.png)
+![Maix Go](../../assets/hardware/maix_go/Go.jpg)
 
 ### 板载功能
 

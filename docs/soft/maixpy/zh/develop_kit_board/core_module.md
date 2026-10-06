@@ -8,7 +8,7 @@ desc: maixpy  Sipeed M1/M1W (Lichee Dan)
 1. M1/M1W
 
 ![M1/M1W](./../../assets/hardware/m1_m1w/M1_Dan.png)
-![M1/M1W](./../../assets/hardware/m1_m1w/M1_pin.png)
+![M1/M1W](./../../assets/hardware/m1_m1w/M1_pin.jpg)
 
 M1: K210全引脚引出, 芯片内置 8M SRAM, 模块内置 16M Flash
 M1W 是带 WiFi(esp8285) 版本

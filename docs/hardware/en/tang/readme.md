@@ -75,7 +75,7 @@ Tang Primer FPGA boards are for users secondary development
 
 | Tang Primer 20K                                                                              | Tang Primer 20K Dock                                             | Tang Primer 20K Lite                                                         |
 | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| <img src="/hardware/zh/tang/tang-primer-20k/assets/20k_core.png" alt="20k_core" width="85%"> | ![dock-up](/hardware/zh/tang/tang-primer-20k/assets/dock-up.png) | ![20k_lite_home](/hardware/zh/tang/tang-primer-20k/assets/20k_lite_home.png) |
+| <img src="/hardware/zh/tang/tang-primer-20k/assets/20k_core.jpg" alt="20k_core" width="85%"> | ![dock-up](/hardware/zh/tang/tang-primer-20k/assets/dock-up.png) | ![20k_lite_home](/hardware/zh/tang/tang-primer-20k/assets/20k_lite_home.png) |
 
 ## FPGA boards selection suggestion
 

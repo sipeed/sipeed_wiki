@@ -23,9 +23,9 @@ Note: The image above shows the NanoKVM-PCIe version with WiFi and PoE. The vers
 
 The two USB-C ports on the old version of the beta hardware are reversed. Please refer to the diagram, and follow the labels on the backplate once you receive it.
 
-![](./../../../assets/NanoKVM/unbox/PCIe-Interface1.png)
+![](./../../../assets/NanoKVM/unbox/PCIe-Interface1.jpg)
 
-![](./../../../assets/NanoKVM/unbox/PCIe-Interface2.png)
+![](./../../../assets/NanoKVM/unbox/PCIe-Interface2.jpg)
 
 ## Power Supply
 

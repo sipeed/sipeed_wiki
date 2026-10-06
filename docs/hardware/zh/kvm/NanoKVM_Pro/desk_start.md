@@ -47,7 +47,7 @@ update:
 
    KVM-B 板带有通用的9Pin排母接口，可以直接插在主板上，机箱的开机按键、Power LED 等接口可接到 KVM-B 的排针上，参考示意图（此处机箱仅连接开机线）：
 
-   ![img](../../../assets/NanoKVM/unbox/new-ATX-B.png)
+   ![img](../../../assets/NanoKVM/unbox/new-ATX-B.jpg)
 
 ## UI 操作指南
 
@@ -130,7 +130,7 @@ Desk 版本正面配有两个可供交互的部件
 
    4. 登陆成功后，检查图像显示、键鼠控制及开关机按钮功能是否正常。
 
-      ![4k](../../../assets/NanoKVM/pro/start/nanokvm4K.png)
+      ![4k](../../../assets/NanoKVM/pro/start/nanokvm4K.jpg)
 
 ## 远程连接
 

@@ -23,10 +23,10 @@ The official version is expected to release in July 2023, comes up with 8+32 (DD
 ### Beta Version
 
 If you received the board as part of the beta program, you will receive the following package:
-![package_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_alpha.png)
+![package_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/package_alpha.jpg)
 
 The opened box will look like this：
-![unbox_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unbox_alpha.png) 
+![unbox_alpha](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unbox_alpha.jpg) 
 
 The main body of LicheePi 4A is wrapped in black foam, and the other labeled parts are:
 1. 30x30mm thermal grease pad, used to attach the heatsink to the CPU.
@@ -97,8 +97,8 @@ By default, the LM4A SOM has been installed on the motherboard. If you need to u
       <td colspan=2>Unlock the board by pushing the retainer tabs outwards and lift up the SOM</td>
     </tr>
     <tr>
-      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unlock_som.png" alt="unlock_som"></td>
-      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/remove_som.png" alt="remove_som"></td>
+      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/unlock_som.jpg" alt="unlock_som"></td>
+      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/remove_som.jpg" alt="remove_som"></td>
     </tr>
    </table>
 
@@ -108,8 +108,8 @@ By default, the LM4A SOM has been installed on the motherboard. If you need to u
       <td colspan=2>First insert the SOM into the connector, ensure that it´s pushed all the way in and push down on both sides till the retainer clips automatically hold the board.</td>
     </tr>
     <tr>
-      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_som.png" alt="insert_som"></td>
-      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/lock_som.png" alt="lock_som"></td>
+      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/insert_som.jpg" alt="insert_som"></td>
+      <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/unbox/lock_som.jpg" alt="lock_som"></td>
     </tr>
    </table>
 
@@ -152,7 +152,7 @@ The PoE module should be installed like this：
 ### Assembly completed
 
 This is what the fully assembled board looks like:
-![assemble_ok](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/assemble_ok.png)
+![assemble_ok](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/assemble_ok.jpg)
 
 ## Booting the board
 
@@ -249,7 +249,7 @@ The PoE module requires manual soldering as shown:
 ## Board hardware overview
 
 After booting up the board for the first time, let´s take a look at the hardware of LicheePi 4A, so you can get familiar with it and maybe do some maintenance work in the future.
-![pi_view](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/pi_view.png) 
+![pi_view](./../../../../zh/lichee/th1520/lpi4a/assets/unbox/pi_view.jpg) 
 
 ### Overclocking
 

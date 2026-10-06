@@ -122,7 +122,7 @@ POE模块需要用户手工焊接安装，请按下图焊接：
 ## 板卡硬件说明
 
 完成初次点亮板卡后，可以静下心来认识下 LicheePi 3A 的硬件，方便后期可能的维护工作。
-![pi_view](./assets/unbox/pi_view.png) 
+![pi_view](./assets/unbox/pi_view.jpg) 
 
 
 ### 硬件资料下载

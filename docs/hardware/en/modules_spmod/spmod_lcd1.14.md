@@ -43,7 +43,7 @@ SPMOD_LCD1.14(1.14寸 LCD 屏幕模块)采用 ST7735S TFT LCD屏。
 | 7 | SI | I/O  | MOSI数据引脚，主机输出从机输入 |
 | 8 | BL | I  | 背光控制引脚，低电平关闭背光 |
 
-<img src="../../assets/spmod/spmod_lcd1.14/back.png" width="300" />
+<img src="../../assets/spmod/spmod_lcd1.14/back.jpg" width="300" />
 
 - 接线方式:
 

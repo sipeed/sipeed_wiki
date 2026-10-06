@@ -283,19 +283,19 @@ Then we can do some basic operations.
 
 - Use `Alt+F2` to run "run", then input `termit` to new a terminal command line.
 
-![attachmentId-2736](./../../../zh/lichee/assets/RV/Basic_operation.png)
+![attachmentId-2736](./../../../zh/lichee/assets/RV/Basic_operation.jpg)
 
 Let's try to compile and run hello world
 
-![attachmentId-2737](./../../../zh/lichee/assets/RV/Run_HelloWorld.png)
+![attachmentId-2737](./../../../zh/lichee/assets/RV/Run_HelloWorld.jpg)
 
 We also provide 720P high-definition screen, you can try this if you have enough money。
 
 When you use this you need to overwrite the board-level configuration to set it in correct configurations to display.[Click here](problems.html#86-panel-screen-no-display-display-wrong) to see more details.
 
-![attachmentId-2738](./../../../zh/lichee/assets/RV/display_1.png)
+![attachmentId-2738](./../../../zh/lichee/assets/RV/display_1.jpg)
 
-![attachmentId-2739](./../../../zh/lichee/assets/RV/display_2.png)
+![attachmentId-2739](./../../../zh/lichee/assets/RV/display_2.jpg)
 
 ### Light LED
 

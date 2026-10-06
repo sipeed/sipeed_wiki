@@ -163,10 +163,10 @@ LicheeRV Nano适配不同尺寸的屏幕，其中3寸、2.3寸为单串LED；5�
 接入2.8/3寸屏幕会明显发烫，内测版70405需拆掉BL电阻（下图位置），70415及后续版本可通过PWM自动适配小尺寸屏幕；
 接入7/10.1寸屏幕时屏幕略暗，若需达到100%亮度，要将该电阻修改为3.3R
 
-![](./../assets/RV_Nano/unbox/BL_RES.png)
+![](./../assets/RV_Nano/unbox/BL_RES.jpg)
 
 ## 电池应用
 
 LicheeRV Nano 上不包含锂电池充电电路，如果用户需要嵌入电池，同时希望使用 RV Nano 自带的 USB TypeC 充电，则需要断开VBUS与VSYS的电阻（下图位置），VBUS接口作为PMU的外部电源输入，VSYS接口连接PMU的VSYS。如有疑问，请联系我们获得支持。
 
-![](./../assets/RV_Nano/unbox/5V_RES.png)
+![](./../assets/RV_Nano/unbox/5V_RES.jpg)

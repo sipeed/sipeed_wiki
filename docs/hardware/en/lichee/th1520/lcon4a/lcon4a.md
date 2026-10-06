@@ -103,10 +103,10 @@ USB2.0 Type-A, MicroSD Slot </td>
 
 ### Unboxing
 Open the box, the upper layer is the LicheeConsole4A host
-![unbox1](./assets/lcon4a/unbox1.png)
+![unbox1](./assets/lcon4a/unbox1.jpg)
 
 After removing the upper host, the lower layer is the 12V3A power adapter and MiniHDMI cable.
-![unbox2](./assets/lcon4a/unbox2.png)
+![unbox2](./assets/lcon4a/unbox2.jpg)
 
 
 Take out the host and get to know the interfaces on the side of the host:
@@ -146,7 +146,7 @@ Mega cloud disk: [Click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_b
 
 
 Common application displays:
-![sys1](./assets/lcon4a/sys1.png)
+![sys1](./assets/lcon4a/sys1.jpg)
 
 
 The Console system architecture is as follows. For details, please refer to the schematic diagram or device tree file.
@@ -177,10 +177,10 @@ Power consumption composition (300MHz no-load bright screen, 50% brightness)
 
 ### Heat Dissipation
 Console uses a 3cm turbo fan + 10cm heat pipe to dissipate heat from the CPU. One end of the heat pipe is attached to the CPU, and the other end is dissipated by a turbo fan. The top surface uses thermal conductive silicone grease to contact the bottom case for heat dissipation.
-![heat1](./assets/lcon4a/heat1.png)
+![heat1](./assets/lcon4a/heat1.jpg)
 ![heat1](./assets/lcon4a/heat2.png)
 Under continuous high-load work (such as browser video soft decoding), the CPU temperature can eventually reach 60 to 65 degrees, and the bottom case temperature can reach a maximum of about 50 degrees.
-![heat1](./assets/lcon4a/heat3.png)
+![heat1](./assets/lcon4a/heat3.jpg)
 
 If you have better cooling suggestions, you can send an email to support@sipeed.com
 > At present (2023.11), the browser hardware decoding has not yet been adapted, so it will occupy a lot of CPU when watching browser videos. It is expected that the browser hardware decoding function will be incorporated in December.

@@ -594,7 +594,7 @@ exit 0
 
 下面是启动日志（截取）：
 
-![m3axpi_debian_boot_log_screenshot](./../../../en/maixiii/ax-pi/assets/flash_system/m3axpi_debian_boot_log_screenshot.png)
+![m3axpi_debian_boot_log_screenshot](../../../en/maixIII/ax-pi/assets/flash_system/m3axpi_debian_boot_log_screenshot.png)
 
 1. 虽然上面显示 `DRAM: 1 GiB`，但是在系统中弄可以查到实际的存储是 `2 GiB`.
 2. 因物料更换屏幕现有不同的版本，需区别版本以及使用屏幕时出现锯齿等画面请移步到[ Maix-III 系列 AXera-Pi 常见问题(FAQ) ](https://wiki.sipeed.com/hardware/zh/maixIII/ax-pi/faq_axpi.html#Q：硬件物料更改说明、没有-wlan0-、屏幕烧屏、摄像头倒过来怎么解决？)查询。
@@ -723,7 +723,7 @@ fbv yolov5s_out.jpg
 
 ### 排针引脚图
 
-![layout_axpi](./../assets/layout_axpi_1.png)
+![layout_axpi](./../assets/layout_axpi_1.jpg)
 
 ### RTC
 

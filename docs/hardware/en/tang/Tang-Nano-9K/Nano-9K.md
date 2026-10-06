@@ -12,7 +12,7 @@ Tang Nano 9K is the 5th product of Sipeed Tang series. Several Tang FPGA product
 
 | Model               | Tang Nano 1K                                                                   | Tang Nano 4K                                                                   | Tang Nano 9K                                                                   |
 | :------------------ | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
-| Appearance          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.gif" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.gif" width="180" > |
+| Appearance          | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image002.webp" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image004.webp" width="180" > | <img src="./../../../zh/tang/Tang-Nano/assets/clip_image006.webp" width="180" > |
 | Logic Units (LUT4)  | 1152                                                                           | 4608                                                                           | 8640                                                                           |
 | Hard core processor | /                                                                              | Cortex m3                                                                      | /                                                                              |
 | Crystal oscillator  | 27MHZ                                                                          | 27MHZ                                                                          | 27MHZ                                                                          |
@@ -52,7 +52,7 @@ Indepth specifications of the tang nano 9k.
 
 ### Pinmap
 
-![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image010.gif)
+![Generated](./../../../zh/tang/Tang-Nano-9K/assets/clip_image010.webp)
 
 | Usage        | FPGA                     | MCU                                                                                                | FPGA+MCU                                                              |
 | :----------- | :----------------------- | :------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |

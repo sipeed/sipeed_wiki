@@ -15,7 +15,7 @@ Tang Primer 20K is a core board with DDR3 sodimm shape based on [GW2A-LV18PG256C
 
 <div>
     <img src="./assets/20k_front.png" width=45%>
-    <img src="./assets/20k_back.png" width=45%>
+    <img src="./assets/20k_back.jpg" width=45%>
 </div>
 
 Buy it: [Aliexpress](https://www.aliexpress.com/item/1005004653308809.html)
@@ -126,7 +126,7 @@ The corresponding pins numbering of LED2 and LED3 is N16 and N14. See the mark o
 The corresponding pin numbering between R8 and P9 is P8. See the mark on the top left of the right picture.
 
 <div>
-<img src="./../../../zh/tang/tang-primer-20k/assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./../../../zh/tang/tang-primer-20k/assets/lite-up.jpg" alt="lite-up" width=45%>
 <img src="./../../../zh/tang/tang-primer-20k/assets/lite-back.png" alt="lite-back" width=45%>
 </div>
 
@@ -331,7 +331,7 @@ Note that the description is there was a successful Flash burnt one time.
 
 In this case, the default reason is that the wrong Dual-Purpose pin is enabled and the debugger can no longer scan the FPGA's JTAG. You can short pin 1 and pin 4 of Flash, by which the chip cannot read FLASH normally when it is powered on.
 
-![flash_cs](./../../../zh/tang/tang-primer-20k/assets/flash_cs.png)
+![flash_cs](./../../../zh/tang/tang-primer-20k/assets/flash_cs.jpg)
 
 Besides, if you have dock ext-board, this can be solved by the enable pin of dip switch. Here art the steps
 
@@ -339,22 +339,22 @@ Firstlt, enable the core board, put the 1 switch on the dip switch down, then do
 
 <table>
 	<tr>
-		<td><img src="./assets/start/switch_1_on.png" alt="switch_1_on"></td>
+		<td><img src="../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on"></td>
 		<td> Enable the core board first </td>
 	</tr>
 	<tr>
-		<td><img src="./assets/start/progress_bar.jpg" alt="progress_bar"></td>
+		<td><img src="../../../zh/tang/tang-primer-20k/assets/start/progress_bar.jpg" alt="progress_bar"></td>
 		<td> Do operation on board, when progress bar shows, switch the 1 switch on the dip switch up and down</td>
 	</tr>
 	<tr>
 		<td>
-		<img src="./assets/start/switch_1_off.jpg" alt="switch_1_off" witdh="25%">
-		<img src="./assets/start/switch_1_on.png" alt="switch_1_on" witdh="25%">
+		<img src="../../../zh/tang/tang-primer-20k/assets/start/switch_1_off.jpg" alt="switch_1_off" witdh="25%">
+		<img src="../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" witdh="25%">
 		</td>
 		<td> put the 1 switch on the dip switch up and down </td>
 	</tr>
 	<tr>
-		<td><img src="./assets/start/progress_bar_running.jpg" alt="progress_bar_running"><img src="./assets/start/progress_bar_finishing.jpg" alt="progress_bar_finishing"></td>
+		<td><img src="../../../zh/tang/tang-primer-20k/assets/start/progress_bar_running.jpg" alt="progress_bar_running"><img src="../../../zh/tang/tang-primer-20k/assets/start/progress_bar_finishing.jpg" alt="progress_bar_finishing"></td>
 		<td> Progress bar works and finish your operations on fpga </td>
 	</tr>
 </table>

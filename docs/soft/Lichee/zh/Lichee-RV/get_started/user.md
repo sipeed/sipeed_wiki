@@ -222,11 +222,11 @@ LicheeRV_Debian_hdmi 为 dock的hdmi输出的debian镜像
 ![桌面样式](./../assets/desktop_appearance.png "桌面样式")
 进入桌面后可以进行一些基础操作
 
-![基础操作](./../assets/Basic_operation.png "基础操作")
+![基础操作](./../assets/Basic_operation.jpg "基础操作")
 
 接下来让我们尝试在Debian下跑一下Hello World:
 
-![运行自制程序](./../assets/Run_HelloWorld.png "运行自制程序")
+![运行自制程序](./../assets/Run_HelloWorld.jpg "运行自制程序")
 
 另有720P高清屏的效果对比，有米的同学可以考虑入手：
 

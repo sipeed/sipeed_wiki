@@ -7,9 +7,9 @@ Lichee Tang Primer是基于安路科技的EG4S20BG256 FPGA芯片设计的简约�
 
 ## 管脚定义
 
-![Tang_permier_2](./../../../assets/Tang/permier/Tang_permier_2.png)
+![Tang_permier_2](./../../../assets/Tang/permier/Tang_permier_2.jpg)
 
-![Tang_permier_3](./../../../assets/Tang/permier/Tang_permier_3.png)
+![Tang_permier_3](./../../../assets/Tang/permier/Tang_permier_3.jpg)
 
 ## 参数
 

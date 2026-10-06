@@ -34,7 +34,7 @@ update:
 
 ## Management Page Features
 
-![](./../../../assets/NanoKVM/introduce/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.webp)
 
 The floating toolbar from left to right includes: Image Settings, On-Screen Keyboard, Mouse Style, Image Mounting, Custom Scripts, KVM Web Terminal, WOL, ATX Control/Indicator, Settings, Full Screen, and Hide Floating Toolbar.
 

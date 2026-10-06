@@ -26,7 +26,7 @@ Longan Nano is a minimalist RISC-V development board based on GigaDevice GD32VF1
  
 ![](./../../../assets/Longan/nano/longan-nano-1.png)
 ### Old Photo
-![](./../../../assets/Longan/nano/longan_nano_pinout_old.png)
+![](./../../../assets/Longan/nano/longan_nano_pinout_old.jpg)
 
 ![](./../../../assets/Longan/nano/longan-nano-old.png)
 

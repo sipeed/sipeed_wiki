@@ -112,7 +112,7 @@ NanoKVM Go 首次使用或更换 Wi-Fi 环境时，需要先完成网络配置�
 
 点击悬浮栏左侧的图像设置图标，可调整远程画面的编码、显示参数和清晰度。新手用户建议优先保持默认设置；当画面卡顿、清晰度不足或分辨率不匹配时，再按需调整以下选项。
 
-![NanoKVM Go 图像设置演示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-image-settings.gif)
+![NanoKVM Go 图像设置演示](./../../../assets/NanoKVM/go/user_guide/nanokvm-go-image-settings.webp)
 
 + 视频模式用于选择视频编码和传输方式。一般情况下建议使用 `H.264 WebRTC`，兼容性较好；在网络稳定的局域网环境中，也可以按需尝试 Direct 模式。
 

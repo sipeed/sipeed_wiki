@@ -1340,7 +1340,7 @@ make -j$(nproc)
 
 效果如下：
 
-![supertuxkart_play](./assets/application/supertuxkart_play.png)
+![supertuxkart_play](./assets/application/supertuxkart_play.jpg)
 
 ## llama2.c
 
@@ -1448,7 +1448,7 @@ steps: 10
 
 得到的结果为`result.png`文件，上述 prompt 得到的图片如下：
 
-![onnxstream_result](./assets/application/onnxstream_result.png)
+![onnxstream_result](./assets/application/onnxstream_result.jpg)
 
 ## PSP模拟器
 
@@ -1541,8 +1541,8 @@ unzip [压缩包名].zip
 ```
 
 运行效果如图：
-![game_result](./assets/application/psp_2.png)
-![game_result](./assets/application/psp_3.png)
+![game_result](./assets/application/psp_2.jpg)
+![game_result](./assets/application/psp_3.jpg)
 
 ## opencv 的使用
 首先安装依赖，以及python3环境

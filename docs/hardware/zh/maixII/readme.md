@@ -33,7 +33,7 @@ MAIX-II 系列包含多款硬件产品，目前有:
 
 官方开放资料很多，目前比较适合动手能力比较强的开发者。
 
-![](./M2A/assets/M2A-1.gif)
+![](./M2A/assets/M2A-1.webp)
 
 * 购买链接: [sipeed.taobao.com](https://sipeed.taobao.com)
 * 详情： [MaixSense](./M2A/maixsense.md)

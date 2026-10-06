@@ -45,7 +45,7 @@ desc: maixpy  其他事项
 屏幕标识的 1 如下所示
 
 <html>
-    <img src="./asserts/other/1.3.png" width=45%>
+    <img src="./asserts/other/1.3.jpg" width=45%>
     <img src="./asserts/other/2.4.jpg" width=45%>
 </html>
 

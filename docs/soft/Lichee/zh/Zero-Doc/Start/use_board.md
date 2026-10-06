@@ -69,6 +69,6 @@ The framebuffer device was mapped to memory successfully.
 
 从上面的信息可以看到之分辨率为 480\*800 的图形。因此要是在480\*272的屏幕中会显示不全
 
-![](./../static/start/800_400_zero_lvgl_demo.png)
+![](./../static/start/800_400_zero_lvgl_demo.jpg)
 
 关于其他的使用会在后序章节中提到。

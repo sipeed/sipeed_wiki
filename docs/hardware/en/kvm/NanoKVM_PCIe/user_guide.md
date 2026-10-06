@@ -32,7 +32,7 @@ On the NanoKVM-PCIe, the OLED has two interfaces: the main interface and the WiF
 
 ## Management Page Functions
 
-![](./../../../assets/NanoKVM/introduce/web_ui.gif)
+![](./../../../assets/NanoKVM/introduce/web_ui.webp)
 
 The floating toolbar from left to right includes: image settings, on-screen keyboard, mouse style, image mounting, custom scripts, KVM web terminal, WOL, ATX control/indicator, settings, full screen, and hide floating toolbar.
 

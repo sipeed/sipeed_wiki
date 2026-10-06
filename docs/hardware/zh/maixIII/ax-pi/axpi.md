@@ -200,7 +200,7 @@ keywords: MAIX-III, AXera-Pi, Maix3, Sipeed, ax620a, axera, sipeed, AI, model, m
 
 <p align="center">
   <img src="./../assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
-  <img src="./../assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
+  <img src="./../assets/layout_axpi_1.jpg" alt="layout_axpi_1" width="45%">
 </p>
 
 ### 核心板参数

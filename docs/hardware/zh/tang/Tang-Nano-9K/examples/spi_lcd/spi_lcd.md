@@ -13,7 +13,7 @@ update:
 
 Tang Nano 9K 板卡上有一个 8P 的 spi lcd 连接器，可以用来去驱动配套的 spi lcd 屏幕。
 
-<img src="./../nano_9k/spi_lcd.jpg" alt="spi_lcd" width=48%>
+<img src="../../nano_9k/spi_lcd.jpg" alt="spi_lcd" width=48%>
 
 配套 SPI 屏幕可以在淘宝店询问客服购买：[点我跳转到淘宝页面](https://sipeed.taobao.com/)
 
@@ -50,4 +50,4 @@ SPI 屏幕的数据手册在这里：[点我跳转到下载页面](https://dl.si
 
 感谢群友提供的代码，前往 https://github.com/sipeed/TangNano-9K-example/tree/main/spi_lcd 查看详情，相关说明会在整理之后展示。
 
-![spi_lcd](./../nano_9k/spi_lcd.jpg)
+![spi_lcd](../../nano_9k/spi_lcd.jpg)

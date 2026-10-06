@@ -35,8 +35,8 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07962.png" style="width: 32%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07963.png" style="width: 32%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07961.png" style="width: 32%;">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155815.png" style="width: 32%;">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155818.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155815.jpg" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155818.jpg" style="width: 32%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155808.png" style="width: 32%;">
 </div>
 
@@ -51,7 +51,7 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
   - If you’re using a Windows PC and want to achieve the full 400 MB/s bandwidth, you can install a Linux virtual machine to perform full‑speed captures.
   <details class="indent">
     <summary><b>另 Linux 虚拟机可满速运行</b></summary>
-    <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">
+    <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.jpg">
   </details>
 - Linux (x86_64)
   - **Necessary preparation:** [How do I set up udev rules for Linux?](./FAQ.html#How-do-I-set-up-udev-rules-for-Linux%3F)
@@ -69,7 +69,7 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
 pulseview-debug.exe -l5
 ```
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.jpg)
 
 #### Linux
 
@@ -79,13 +79,13 @@ chmod +x Pulseview.appimage
 # ./Pulseview.appimage -l5   # enable debug mode
 ```
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_19-12-07.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_19-12-07.jpg)
 
 #### macOS
 
 - Download and open `Pulseview.dmg` to run directly.
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.jpg)
 
 ---
 

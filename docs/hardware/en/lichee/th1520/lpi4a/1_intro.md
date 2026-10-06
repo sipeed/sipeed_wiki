@@ -17,7 +17,7 @@ update:
 ## Introduction
 
 LicheePi 4A is the high performance RISC-V linux development board using [Lichee Module 4A](http://wiki.sipeed.com/hardware/en/lichee/th1520/lm4a.html), based on [TH1520](https://www.t-head.cn/product/yeying) SOC (4xC910@1.85G, RV64GCV, 4TOPS@int8 NPU,  50GFLOP GPU), LicheePi 4A contains maximum 16GB 64bit LPDDR4X, 128GB eMMC, supports HDMI+MIPI dual 4K display, supports 4K camera input, dual Gigabit Ethernet interfaces (one of these supports POE) amd 4 USB3.0 interfaces, supports kinds of audio processing by C906 core.
-![lpi4a](./../../../../zh/lichee/th1520/lpi4a/assets/intro/lpi4a.png)
+![lpi4a](./../../../../zh/lichee/th1520/lpi4a/assets/intro/lpi4a.jpg)
 
 The LicheePi 4A is the most powerful RISC-V SBC as of now (Q2 2023). Its performance is about 2 times that of the previous generation RISC-V SBC [VisionFive2](https://www.starfivetech.com/en/site/boards). Without enabled custom instruction set acceleration, its performance is close to the Raspberry Pi 4 based on ARM A72. With acceleration enabled, it can match the Raspberry Pi 4. It also has a maximum 16GB ultra-large memory, twice that of the Raspberry Pi 4's max 8GB! 
 

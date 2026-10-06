@@ -37,7 +37,7 @@ Hold BOOT key, then click RESET key once, a removable disk is shown in computer.
 
 Just drag the firmware you want to burn and drop it in the removable disk, the removable disk will be automatically removed and M0sense will be automatically burned with this firmware.
 
-![m0sense_drag_burn](./../../../zh/maixzero/sense/assets/start/m0sense_drag_burn.gif)
+![m0sense_drag_burn](./../../../zh/maixzero/sense/assets/start/m0sense_drag_burn.webp)
 
 Here are some demos [Click me](https://dl.sipeed.com/shareURL/Maix-Zero/M0sense/7_Example_demos), just use them by dragging and dropping firmware to u-disk to see their result, the source codes are in [github](https://github.com/sipeed/M0sense_BL702_example).
 
@@ -49,7 +49,7 @@ And the result of each demo is as follows:
 
 Burn it into m0sense via u-disk burn. Run serial application, and open the serial port, `Hello, World` is being printed.
 
-![m0sense_hello_world](./../../../zh/maixzero/sense/assets/start/m0sense_hello_world.gif)
+![m0sense_hello_world](./../../../zh/maixzero/sense/assets/start/m0sense_hello_world.webp)
 
 ### blink_baremetal.uf2
 
@@ -59,11 +59,11 @@ Dragging and dropping this file to u-disk, then repower M0sense, LED flashes, op
 
 - Open the serial port
 
-![m0sense_blink_baremetal_uart](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_uart.gif)
+![m0sense_blink_baremetal_uart](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_uart.webp)
 
 - LED flashes
 
-![m0sense_blink_baremetal_led](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_led.gif)
+![m0sense_blink_baremetal_led](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_led.webp)
 
 ### blink_rtos.uf2
 
@@ -73,11 +73,11 @@ This demo has the same effect as the previous one, but this demo is based on RTO
 
 - Open the serial port
 
-![m0sense_blink_baremetal_uart](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_uart.gif)
+![m0sense_blink_baremetal_uart](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_uart.webp)
 
 - LED flashes
 
-![m0sense_blink_baremetal_led](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_led.gif)
+![m0sense_blink_baremetal_led](./../../../zh/maixzero/sense/assets/start/m0sense_blink_baremetal_led.webp)
 
 ### lcd_flush.uf2
 
@@ -85,8 +85,8 @@ This demo has the same effect as the previous one, but this demo is based on RTO
 
 Burn this demo to M0sense, lcd background color flushes, and the color of screen is printed by serial port.
 
-![m0sense_lcd_flush](./../../../zh/maixzero/sense/assets/start/m0sense_lcd_flush.gif)
-![m0sense_lcd_flush_uart](./../../../zh/maixzero/sense/assets/start/m0sense_lcd_flush_uart.gif)
+![m0sense_lcd_flush](./../../../zh/maixzero/sense/assets/start/m0sense_lcd_flush.webp)
+![m0sense_lcd_flush_uart](./../../../zh/maixzero/sense/assets/start/m0sense_lcd_flush_uart.webp)
 
 ### imu.uf2
 
@@ -106,7 +106,7 @@ Burn this demo to M0sense, press BOOT key, LED changes the color, and the state 
 
 The detailed usage can be analyzed by reading <a href="https://github.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c">source code</a>.
 
-![single_button_control](./../../../zh/maixzero/sense/assets/start/single_button_control.gif)
+![single_button_control](./../../../zh/maixzero/sense/assets/start/single_button_control.webp)
 ![single_button_control_uart](./../../../zh/maixzero/sense/assets/start/single_button_control_uart.gif)
 
 ### audio_recording.uf2

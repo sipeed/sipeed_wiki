@@ -20,7 +20,7 @@ For first-time use, verify the following status matches your hardware version:
 
 - Jumper cap remains shorted at Button marking (for bare board versions)
 
-![top](../../../zh/maixIV/assets/top.png)
+![top](../../../zh/maixIV/assets/top.jpg)
 
 ### Normal Boot
 
@@ -53,8 +53,8 @@ Download prebuilt binaries or compile from source.
 Example: Removing a player from a photo:
 
 <div><table><tr>
-<td><img src="../../../zh/maixIV/assets/sam_example_before.png" alt=sam_example_before border=0></td>
-<td><img src="../../../zh/maixIV/assets/sam_example_after.png" alt=sam_example_after border=0></td>
+<td><img src="../../../zh/maixIV/assets/sam_example_before.jpg" alt=sam_example_before border=0></td>
+<td><img src="../../../zh/maixIV/assets/sam_example_after.jpg" alt=sam_example_after border=0></td>
 </tr></table></div>
 
 Live Demo (Screenshots):
@@ -190,11 +190,11 @@ cd ~/ax-pipeline/bin
 **Results:**
 
 <div><table><tr>
-<td><img src="../../../zh/maixIV/assets/dinov2-1.png" alt=dinov2-1></td>
-<td><img src="../../../zh/maixIV/assets/dinov2-2.png" alt=dinov2-2></td>
+<td><img src="../../../zh/maixIV/assets/dinov2-1.jpg" alt=dinov2-1></td>
+<td><img src="../../../zh/maixIV/assets/dinov2-2.jpg" alt=dinov2-2></td>
 </tr></table></div>
 
-![dinov2-3](../../../zh/maixIV/assets/dinov2-3.png)
+![dinov2-3](../../../zh/maixIV/assets/dinov2-3.jpg)
 
 
 
@@ -208,4 +208,4 @@ cd ~/ax-pipeline/bin
         -f ~/boxvideos/25.mp4
 ```
 
-![yolov5_seg](../../../zh/maixIV/assets/yolov5_seg.png)
+![yolov5_seg](../../../zh/maixIV/assets/yolov5_seg.jpg)

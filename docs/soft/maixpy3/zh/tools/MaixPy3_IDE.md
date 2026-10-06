@@ -16,7 +16,7 @@ desc: maixpy  如何连接并使用 MaixPy3 的 IDE
 上述命令行的编程方式是上世纪 80 年代流行的开发方式，建议在有一定的 linux 基础后再来使用会比较好。
 但 2022 现代 IDE 工具的重点应该是传达出 Python 代码所运行的结果或效果。
 
-<img style="width:100%;height:auto;min-width:600px;min-height:400px;" src="./assets/python_cmd.gif">
+<img style="width:100%;height:auto;min-width:600px;min-height:400px;" src="./assets/python_cmd.webp">
 
 如果你是一名开发者，你要如何教会初学者使用你的代码？像你一样使用命令行敲出来看实际的效果吗？
 - **对初学者来说，这一定是一场灾难，所以我们需要 IDE 来结束这一场悲剧。**

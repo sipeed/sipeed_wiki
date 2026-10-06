@@ -83,7 +83,7 @@ At present, the hardware can only support SPI protocol reading, try to buy a reg
 For example: the two cards on the left side of the picture below are not supported by MaixPy drivers, the middle and right ones are supported, but the class 10 card in the middle has the fastest speed (up to 128GB tested and available)
 > I have also tested several SanDisk, Kingston, and Samsung cards purchased online, and found that one of the Samsung cards cannot be used
 
-![](../../assets/hardware/other/tf_sdcard.png)
+![](../../assets/hardware/other/tf_sdcard.jpg)
 
 
 ## How much capacity does the SD card support?
@@ -324,7 +324,7 @@ Check the Python code error line and check ValueError error. This normally happe
 
 This error means that the board failed to initialize the camera. from `sensor.reset()` we see that this function initializing the camera.
 
-![os_error](./assets/maixpy_faq/os_error.png)
+![os_error](../../zh/others/assets/maixpy_faq/os_error.png)
 
 1. Camera connection wrong, so the board can not initialize the camera.
 2. Camera is damaged, board can not initialize the camera.

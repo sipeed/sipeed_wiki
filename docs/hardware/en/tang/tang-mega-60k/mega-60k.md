@@ -356,7 +356,7 @@ Tang Mega 60K can meet different needs of customers in various scenarios. For te
 
 2. Check the position of the DIP switch; the correct position is shown in the figure below:
 
-<img src="./assets/dip-key_defualt.png" alt="dip-key_defualt" width=35%>
+<img src="./assets/dip-key_defualt.jpg" alt="dip-key_defualt" width=35%>
 
 ### No Response or Undesirable Pin Phenomenon After Burning
 

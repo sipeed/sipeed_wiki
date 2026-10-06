@@ -139,11 +139,11 @@ Supports non-contact reader mode in accordance with ISO/IEC 14443 protocol,
 
 * C
 
-  <img src="../../assets/spmod/spmod_rfid/c_log.png" height="200" />
+  <img src="../assets/spmod/spmod_rfid/c_log.png" height="200" />
 
 * MaixPy
 
-  <img src="../../assets/spmod/spmod_rfid/maixpy_log.png" height="200" />
+  <img src="../assets/spmod/spmod_rfid/maixpy_log.png" height="200" />
 
 ### Transplant:
 
@@ -182,7 +182,7 @@ The following parameters need to be modified
 
 - SPMOD_RFID Size drawing:
 
-<img src="../../assets/spmod/spmod_rfid/sipeed_spmod_rfid.png" height="250" />
+<img src="../assets/spmod/spmod_rfid/sipeed_spmod_rfid.png" height="250" />
 
 
 -----

@@ -58,7 +58,7 @@ display.show(camera.capture().draw_string(0, 0, "hello world!"))
 
 通常来说，像树莓派 2B 这类拥有桌面环境的 linux 设备也是可以通过 pip 进行安装 Linux Desktop 分支的，使用效果一样。
 
-![](./asserts/rpi2b.png)
+![](./asserts/rpi2b.jpg)
 
 ## MaixII-Dock (m2dock) 安装与更新 MaixPy3
 

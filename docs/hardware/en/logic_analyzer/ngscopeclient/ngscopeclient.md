@@ -4,7 +4,7 @@
 
 ---
 
-![macOS-A](../../../zh/logic_analyzer/ngscopeclient/ngscopeclient-macOS-A.png)
+![macOS-A](../../../zh/logic_analyzer/ngscopeclient/ngscopeclient-macOS-A.jpg)
 
 
 ## What is Sipeed SLogic

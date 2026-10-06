@@ -137,11 +137,11 @@ APP 全屏运行时，可以使用设备保留的左边缘手势返回 `Apps` �
 2. 保持手指不动，等待左边缘的上下两段进度条逐渐靠近并填满；
 3. 进度条填满后松开手指，退出 APP。
 
-![左边缘滑动并成功退出 APP](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-gesture-demo.gif)
+![左边缘滑动并成功退出 APP](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-gesture-demo.webp)
 
 如果想取消退出，请在松手前将手指向左移回去，等进度条重新分开后再松手，APP 会继续运行：
 
-![左边缘退出手势中途取消](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-cancel-gesture-demo.gif)
+![左边缘退出手势中途取消](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-cancel-gesture-demo.webp)
 
 ### 管理已安装的 APP
 

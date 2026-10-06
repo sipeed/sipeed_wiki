@@ -88,7 +88,7 @@ AC '97, I²C, SPI, UART, CAN, JTAG, 1-Wire, PWM, USB, and many more.
 pulseview-debug.exe -l5
 ```
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.jpg)
 
 #### Linux
 
@@ -105,8 +105,8 @@ chmod +x Pulseview.appimage
 
 - Download and open `Pulseview.dmg` to install.
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.png)
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-15-40.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.jpg)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-15-40.jpg)
 
 **Related Links:**  
 Taobao, AliExpress, MaixHub  

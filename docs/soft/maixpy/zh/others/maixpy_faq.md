@@ -68,7 +68,7 @@ Micro SD 读取不到现象及解决方法:
 比如：下图左边两张卡 MaixPy 的驱动不支持， 中间和右边的都支持， 但是中间的 class10 卡速度最快（最高测过 128GB可用）
 > 另外测试过网上购买的几张闪迪、金士顿、三星的卡，其中发现有一张三星的卡无法使用
 
-![](../../assets/hardware/other/tf_sdcard.png)
+![](../../assets/hardware/other/tf_sdcard.jpg)
 
 
 ## SD 卡支持多大容量

@@ -62,7 +62,7 @@ Example reference [image_draw_string.py](https://gitee.com/Sipeed/maixpy_scripts
 
 ## display effect
 
-![view_image_font](./view_image_font.jpg)
+![view_image_font](../../../../zh/course/image/image_draw_font/view_image_font.jpg)
 
 ## Font Tool
 
@@ -70,19 +70,19 @@ We will use [FontGenerator.zip](https://gitee.com/Sipeed/maixpy_scripts/tree/mas
 
 1. Select the font encoding type as Unicode encoding, which will support the languages ​​of most countries.
 
-   ![image-20200902180913322](./image-20200902180913322.png)
+   ![image-20200902180913322](../../../../zh/course/image/image_draw_font/image-20200902180913322.png)
 
 2. Select the scanning mode, which is the scanning and printing direction of 5 horizontal, up and down, then left and right fonts.
 
-   ![image-20200902181130459](./image-20200902181130459.png)
+   ![image-20200902181130459](../../../../zh/course/image/image_draw_font/image-20200902181130459.png)
 
 3. Create the font library after configuring the required font style as shown in the figure below.
 
-   ![image-20200902181311553](./image-20200902181311553.png)
+   ![image-20200902181311553](../../../../zh/course/image/image_draw_font/image-20200902181311553.png)
 
 4. Just save it in DZK format, the font data access method is shown in the text description
 
-   ![image-20200902181442677](./image-20200902181442677.png)
+   ![image-20200902181442677](../../../../zh/course/image/image_draw_font/image-20200902181442677.png)
 
 ## Font tool
 
@@ -92,21 +92,21 @@ Use [Pc2Lcd2002.zip](https://gitee.com/Sipeed/maixpy_scripts/tree/master/multime
 
 1. Confirm that the software is in character mode.
 
-![image-20200902175614964](./image-20200902175614964.png)
+![image-20200902175614964](../../../../zh/course/image/image_draw_font/image-20200902175614964.png)
 
 
 
 2. Set as shown in the figure to export the desired string.
 
-   ​ ![image-20200902180153452](./image-20200902180153452.png)
+   ​ ![image-20200902180153452](../../../../zh/course/image/image_draw_font/image-20200902180153452.png)
 
 3. After filling in the text, click to generate the font.
 
-   ![image-20200902175948599](./image-20200902175948599.png)
+   ![image-20200902175948599](../../../../zh/course/image/image_draw_font/image-20200902175948599.png)
 
 4. Extract the font string and use it.
 
-   ![image-20200902180505263](./image-20200902180505263.png)
+   ![image-20200902180505263](../../../../zh/course/image/image_draw_font/image-20200902180505263.png)
 
 ```
  This (0) is (1) test (2) test (3)
@@ -119,4 +119,4 @@ Use [Pc2Lcd2002.zip](https://gitee.com/Sipeed/maixpy_scripts/tree/master/multime
 
 > You can use the graphics mode to draw your favorite font graphics, supporting 32 * 32 graphics.
 >
-> ![image-20200902181645277](./image-20200902181645277.png)
+> ![image-20200902181645277](../../../../zh/course/image/image_draw_font/image-20200902181645277.png)

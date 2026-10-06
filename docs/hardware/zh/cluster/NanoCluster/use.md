@@ -8,7 +8,7 @@ title: 快速上手
 
 目前有两种外壳样式在发货，如果您收到了红白配色的外壳，则几乎不需要执行下面的步骤，因为配件都已经预先安装好了。
 
-![case1](./assets/case1.png)![case2](./assets/case2.png)
+![case1](./assets/case1.jpg)![case2](./assets/case2.jpg)
 
 如果您想自己打印新款外壳，可以在makerworld下载模型文件自己打印，链接是
 
@@ -18,7 +18,7 @@ https://makerworld.com.cn/zh/models/1311487
 
 https://makerworld.com.cn/zh/models/1349837
 
-![case3](./assets/case3.png)
+![case3](./assets/case3.jpg)
 
 ### LM3H 安装
 

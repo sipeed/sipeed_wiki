@@ -134,7 +134,7 @@ v0.5.4 版本系统镜像和之前的镜像联网方法未兼容，根据烧录�
 
       可以看到里面有 `yourWIFIname` 和 `yourWIFIpassword` 两项，将他们更改成你想要连接的无线网络和对应的无线网络密码并保存后，使用电脑系统自带的弹出 U 盘操作方式来移除 U 盘，这样可以避免损坏 U 盘的文件系统。接着在 m2dock 命令行终端执行 `reboot` 命令来重启板卡，开机后就自动连接 WiFi 了。
 
-      ![wap_conf_gif](./asserts/usage/wap_conf.gif)
+      ![wap_conf_gif](./asserts/usage/wap_conf.webp)
 
 
 ## Opkg 软件包管理器

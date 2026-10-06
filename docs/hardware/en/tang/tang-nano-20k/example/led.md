@@ -303,7 +303,7 @@ Then we can run our program when power on.
 
 One led flashes like below.
 
-![nano_20k_led_blink](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_blink.gif)
+![nano_20k_led_blink](./../../../../zh/tang/tang-nano-20k/assets/led/nano_20k_led_blink.webp)
 
 ## End
 

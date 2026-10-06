@@ -9,7 +9,7 @@ desc: maixpy  Maix Go
 
 ### Appearance list
 
-![Maix Go](../../assets/hardware/maix_go/Go.png)
+![Maix Go](../../assets/hardware/maix_go/Go.jpg)
 
 ### Onboard functions
 

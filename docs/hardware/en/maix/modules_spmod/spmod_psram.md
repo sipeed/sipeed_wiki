@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../../assets/spmod/spmod_psram/sp_psram.png" align="right" width="" height="500" />
+<img src="../assets/spmod/spmod_psram/sp_psram.png" align="right" width="" height="500" />
 
 SPMOD_PSRAM(PSRAM module) uses IPS6404L-SQ PSRAM.
 
@@ -55,7 +55,7 @@ SPMOD_PSRAM(PSRAM module) uses IPS6404L-SQ PSRAM.
 
 - SPMOD_PSRAM Size drawing:
 
-<img src="../../assets/spmod/spmod_psram/sipeed_spmod_psram.png" height="250" />
+<img src="../assets/spmod/spmod_psram/sipeed_spmod_psram.png" height="250" />
 
 -----
 

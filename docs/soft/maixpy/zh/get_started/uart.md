@@ -40,4 +40,4 @@ USB，是英文Universal Serial Bus（通用串行总线）的缩写，是一个
 
 ## 串口和 USB 串口的区别
 
-![](./../../assets/get_started/usb_vs_uart.png)
+![](./../../assets/get_started/usb_vs_uart.jpg)

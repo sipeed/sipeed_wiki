@@ -60,7 +60,7 @@ The NanoKVM-ATX includes:
 >   If you connect a 1080P display, the computer will recognize it as a maximum 1080P display (limited by the loop-out display).
 5. (Optional) Connect the ATX power control interface.
 
-![](./../../../assets/NanoKVM/pro/start/07_ATX.png)
+![](./../../../assets/NanoKVM/pro/start/07_ATX.jpg)
 
 ## Internal Network Access
 
@@ -82,7 +82,7 @@ The NanoKVM-ATX includes:
 3. The default initial account is `admin`, and the password is `admin`. It is strongly recommended to change the account password immediately.
 4. Check if the image, keyboard/mouse, and power buttons are functioning correctly.
 
-![](./../../../assets/NanoKVM/pro/start/nanokvm4K.png)
+![](./../../../assets/NanoKVM/pro/start/nanokvm4K.jpg)
 
 ## Remote Connection
 

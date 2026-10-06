@@ -23,7 +23,7 @@ M1/M1W Al模块系统主要由电源(3 Channel DC-DC)、Flash芯片(16M)电路�
 
 
 <p><img loading="M1/M1W" src="./assets/m1_m1w/M1_vs_M1W.png" width = 500 ></p>
-<p><img loading="M1/M1W" src="./assets/m1_m1w/M1_pin.png" width = 500 ></p>
+<p><img loading="M1/M1W" src="./assets/m1_m1w/M1_pin.jpg" width = 500 ></p>
 <p><img loading="M1/M1W" src="./assets/m1_m1w/M1W_2.png" width=500 ></p>
 
 <table role="table" class="center_table">

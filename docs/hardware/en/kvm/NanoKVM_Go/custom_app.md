@@ -137,11 +137,11 @@ While an App is running full screen, use the reserved left-edge gesture to retur
 2. keep holding while the upper and lower progress bars on the left edge move together and fill the edge;
 3. release your finger after the progress bars are full to exit the App.
 
-![Exit an App with the left-edge gesture](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-gesture-demo.gif)
+![Exit an App with the left-edge gesture](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-gesture-demo.webp)
 
 To cancel, move your finger back to the left before releasing it. Release your finger after the two progress bars separate again, and the App will continue running:
 
-![Cancel the left-edge App exit gesture](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-cancel-gesture-demo.gif)
+![Cancel the left-edge App exit gesture](./../../../assets/NanoKVM/go/custom_app/nanokvm-go-exit-app-cancel-gesture-demo.webp)
 
 ### Manage Installed Apps
 

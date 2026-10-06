@@ -133,10 +133,10 @@ rm test
 散热器: 风扇+铝散热片(25*25*5)
 硅脂垫: Laird 500
 待机状态：
-![temp_idle](./assets/test_report/temp_idle.png) 
+![temp_idle](./assets/test_report/temp_idle.jpg) 
 
 压测结束：
-![temp_press](./assets/test_report/temp_press.png) 
+![temp_press](./assets/test_report/temp_press.jpg) 
 
 ## 浏览器测试
 

@@ -89,7 +89,7 @@ LED2 与 LED3 的丝印错误，应当为：
 
 对于 Lite 底板，可以从如下图所指的位置来了解当前自己所使用的板子版本。
 
-![lite-version](./assets/start/lite-version.png)
+![lite-version](./assets/start/lite-version.jpg)
 
 比如上面这张图的板子的版本号为 3710
 
@@ -100,7 +100,7 @@ LED2 与 LED3 的丝印错误，应当为：
 底板 R8 与 P9 之间为 P8 引脚。参考右图左上方，已标明
 
 <div>
-<img src="./assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./assets/lite-up.jpg" alt="lite-up" width=45%>
 <img src="./assets/lite-back.png" alt="lite-back" width=45%>
 </div>
 

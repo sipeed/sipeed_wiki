@@ -109,4 +109,4 @@ MF0 Dock 硬件连接：
 
 然后使用 kflash_gui 下载 MF0 固件
 
-![](./../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)
+![](../assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)

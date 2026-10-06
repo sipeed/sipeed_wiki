@@ -123,4 +123,4 @@ Windows不能很好的识别Licheepi Zero的usb网络，需要手动安装驱动
 
 操作如下
 
-![202109011224](./../static/Drive/202109011224.gif)
+![202109011224](./../static/Drive/202109011224.webp)

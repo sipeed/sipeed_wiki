@@ -124,11 +124,11 @@ By default, all SOMs have been installed on the LC4A during transportation. If y
 
 Pull the white lock buckle to both sides. Please confirm the gap before inserting to avoid damage caused by incorrect direction.
 
-![lc4a_install_goldfinger](./assets/lc4a/lc4a_install_goldfinger.png)
+![lc4a_install_goldfinger](./assets/lc4a/lc4a_install_goldfinger.jpg)
 
 After placing the core board, apply downward pressure evenly
 
-![lc4a_install_install_lm4a](./assets/lc4a/lc4a_install_install_lm4a.png)
+![lc4a_install_install_lm4a](./assets/lc4a/lc4a_install_install_lm4a.jpg)
 
 After hearing a click, confirm that the white lock is properly engaged and the installation is complete. If you need to take out the core board, just pull the white locks to both sides.
 
@@ -148,7 +148,7 @@ Make sure the buckle of the ATX power socket is fastened to avoid poor contact c
 
 Plug in the jumper cap
 
-![lc4a_power_jumpwire](./assets/lc4a/lc4a_power_jumpwire.png)
+![lc4a_power_jumpwire](./assets/lc4a/lc4a_power_jumpwire.jpg)
 
 #### Internet connection
 

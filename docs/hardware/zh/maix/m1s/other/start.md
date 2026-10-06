@@ -63,7 +63,7 @@ M1s Dock 设计精巧，可以用来所很多有意思的事，这里简单说�
 
 M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑和 M1S Dock 的串口通信，OTG 口默认用于给板子上的 BL808 芯片里面的 C906 核心烧录固件。
 
-<img alt="m1s_doc_pin_map" src="./../assets/m1s_dock/m1s_doc_pin_map.png">
+<img alt="m1s_doc_pin_map" src="./../assets/m1s_dock/m1s_doc_pin_map.jpg">
 
 1. 上图中可以看到 `S1` 、 `S2` 两个按键，另外还有 `BOOT` 按键和 `RST` 按键
 2. 上图中板子的左下角有 UART 口，默认有 USB 转双串口功能连接到 BL808 芯片的两个核心上
@@ -83,7 +83,7 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 会有如下现象：
 
-![default_firmware](./assets/start/default_firmware_20230509.png)
+![default_firmware](./assets/start/default_firmware_20230509.jpg)
 
 - 按下 ① 处所指向的按键，屏幕上 ④ 处 `btn` 会变成绿色，并且 ⑥ 处的数字会增加，最大为 100
 - ② 是摄像头，屏幕会默认显示摄像头所拍摄到的画面
@@ -158,7 +158,7 @@ M1S Dock 搭载有两个 TypeC 接口。默认情况下 UART 口用做于电脑�
 
 板子成功进入 U 盘烧录模式后在电脑上会显示出一个容量很小的磁盘，直接把固件 <a href="https://dl.sipeed.com/shareURL/MAIX/M1s/M1s_Dock/7_Firmware/demo_bin">点我跳转部分例程固件</a> 拖拽进去即可完成烧录。
 
-<img src="./assets/start/udisk_burn.gif" alt="udisk_burn" style="transform:rotate(0deg);">
+<img src="./assets/start/udisk_burn.webp" alt="udisk_burn" style="transform:rotate(0deg);">
 
 文件存放进去后数秒后板子会重启，U 盘被弹出，表示烧录完成。
 
@@ -516,7 +516,7 @@ cd M1s_BL808_example/c906_app
 
 然后编译出来的固件就会在 M1s_BL808_example/c906_app/build_out 目录下，名称为 `d0fw.bin`，通过虚拟 U 盘拖拽烧录即可。
 
-![udisk_burn](./assets/start/udisk_burn.gif)
+![udisk_burn](./assets/start/udisk_burn.webp)
 
 虚拟 U 盘找不到的话也可以通过博流官方烧录工具来使用串口下载，注意在 d0fw 框中应当勾选自己所编译出来的 `d0fw.bin` （下图仅做示例）
 
@@ -891,7 +891,7 @@ DebugServerConsole -port 12345
 ./build.sh blai_mnist_demo
 ```
 
-![udisk_burn](./assets/start/udisk_burn.gif)
+![udisk_burn](./assets/start/udisk_burn.webp)
 
 烧录进去后（U 盘自动弹出就表示烧录完成）按下 RST 按键复位芯片来重新加载固件，此时查看通过串口号较小的串口（记住波特率为 2000000）查看会发现提示加载模型失败。
 
@@ -935,7 +935,7 @@ models
 
 然后通过 U 盘拖拽烧录的方法将编译出来的固件烧录进板子。
 
-![udisk_burn](./assets/start/udisk_burn.gif)
+![udisk_burn](./assets/start/udisk_burn.webp)
 
 在 tom_and_jerry_classification_demo 里面的 `main.c` 源码中可以所加载的模型在 Flash 里面的 models 文件夹里面，且模型名称为 `tj.blai`。
 
@@ -943,7 +943,7 @@ models
 
 所以我们在 [MaixHub](https://maixhub.com/model/zoo/127) 下载到这个例程模型后，解压并将里面拓展名为 `.blai` 的文件重命名为 `tj.blai`。
 
-![tom_jerry_model_rename](./assets/start/tom_jerry_model_rename.gif)
+![tom_jerry_model_rename](./assets/start/tom_jerry_model_rename.webp)
 
 然后将板子的 OTG 口与电脑连接的话会看到一个大小为 7M 的 U 盘。
 

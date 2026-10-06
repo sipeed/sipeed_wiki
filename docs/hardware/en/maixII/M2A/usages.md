@@ -12,7 +12,7 @@ System containing MaixPy3 will not auto expand the capacity, so we need to run t
 
 Here we use `nmtui` to connect network.
 
-![](./../../zh/../maixII/M2A/assets/202108051626.gif)
+![](./../../zh/../maixII/M2A/assets/202108051626.webp)
 
 <details>
 <summary><font color="#4F84FF">Click to see graphic steps</font></summary>
@@ -121,7 +121,7 @@ Just use `armbian-config` to change timezone. Here we take change to Shanghai ti
 
 `armbian-config` -> `Presonal` -> `Timezone` -> `Asia` -> `Shanghai` to set Shanghai time as timezone, then use keyboard `Tab` switch to OK to finish our settings.
 
-![202108062005](./../../../zh/maixII/M2A/assets/202108062005.gif)
+![202108062005](./../../../zh/maixII/M2A/assets/202108062005.webp)
 
 ## Config language
 
@@ -238,7 +238,7 @@ Then we can play audio to a Bluetooth device or connect the phone via Bluetooth 
 
 Here we use `alsamixer` to change volume
 
-![202108071440](./../../../zh/maixII/M2A/assets/202108071440.gif)
+![202108071440](./../../../zh/maixII/M2A/assets/202108071440.webp)
 
 Use keyboard `H` to see help.
 
@@ -353,7 +353,7 @@ After finishing compiling our code, run it.
 ./hello.o
 ```
 
-![202108091201](./../../../zh/maixII/M2A/assets/202108091201.gif)
+![202108091201](./../../../zh/maixII/M2A/assets/202108091201.webp)
 
 ## Prepare python code
 
@@ -368,7 +368,7 @@ esc
 python3 helloworld.py
 ```
 
-![202108091339](./../../../zh/maixII/M2A/assets/202108091339.gif)
+![202108091339](./../../../zh/maixII/M2A/assets/202108091339.webp)
 
 ## Light an led by python
 

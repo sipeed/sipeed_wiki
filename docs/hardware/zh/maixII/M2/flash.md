@@ -145,17 +145,17 @@ PhoenixSuit 和 PhoenixCard 是常用来烧录全志科技芯片的两种工具�
 
 `sudo livesuit` 打开烧录工具，并点击“固件”选择镜像文件
 
-![](./asserts/flash_15.png)
+![](./asserts/flash_15.jpg)
 
 不插入 SD 卡，将 V831 USB OTG 接口连接到 PC, 提示是否格式化分区，这时候插入 SD 卡，之后点击 `YES`
 
-![](./asserts/flash_17.png)
+![](./asserts/flash_17.jpg)
 
 等待烧录完成，提示“固件升级成功”，即可断开 USB ，至此固件烧录完毕
 
-![](./asserts/flash_19.png)
+![](./asserts/flash_19.jpg)
 
-![](./asserts/flash_21.png)
+![](./asserts/flash_21.jpg)
 
 
 ## 其它

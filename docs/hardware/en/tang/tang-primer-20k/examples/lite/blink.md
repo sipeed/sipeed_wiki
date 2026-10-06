@@ -334,7 +334,7 @@ Then we can run our program when power on.
 
 After using PMOD designed by Sipeed，one led flashes like below.
 
-![result](./../../../../../../../news/others/20k_lite_start/assets/result.gif)
+![result](./../../../../../../../news/others/20k_lite_start/assets/result.webp)
 
 ## Question
 

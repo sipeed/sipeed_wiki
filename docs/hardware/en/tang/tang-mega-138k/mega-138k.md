@@ -46,7 +46,7 @@ update:
 
 ## Product Appearance
 
-<img src="./assets/mega_138k_top.png" width="45%">
+<img src="./assets/mega_138k_top.jpg" width="45%">
 
 ## Block Diagram
 
@@ -339,7 +339,7 @@ educational version IDE ≥ 1.9.11.03.
 
 2. Check the position of the DIP switch; the correct position is shown in the figure below:
 
-<img src="./assets/dip-key_defualt.png" alt="dip-key_defualt" width=35%>
+<img src="./assets/dip-key_defualt.jpg" alt="dip-key_defualt" width=35%>
 
 ### No Response or Undesirable Pin Phenomenon After Burning
 

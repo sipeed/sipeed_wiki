@@ -312,7 +312,7 @@ Tang Nano 20K 板卡上搭载了 BL616 芯片，用来烧录 FPGA 固件到板�
 
 如图所示，只有一个灯在闪。
 
-![nano_20k_led_blink](./../assets/led/nano_20k_led_blink.gif)
+![nano_20k_led_blink](./../assets/led/nano_20k_led_blink.webp)
 
 ## 结语
 

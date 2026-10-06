@@ -98,7 +98,7 @@ Run [Etcher](https://www.balena.io/etcher/ "Etcher") application, click `Flash f
 
 **Burn the TF card**
 
-![burn_image_by_etcher](./../../../assets/maixIII/ax-pi/burn_image_by_etcher.gif)
+![burn_image_by_etcher](./../../../assets/maixIII/ax-pi/burn_image_by_etcher.webp)
 
 
 | Burning                                                                          | Finish burning                                                    |
@@ -532,7 +532,7 @@ Run `git pull` to get the latest libmaix code.
 
 ### Pin maps
 
-![layout_axpi](./../../../zh/maixIII/assets/layout_axpi_1.png)
+![layout_axpi](./../../../zh/maixIII/assets/layout_axpi_1.jpg)
 
 ### RTC
 

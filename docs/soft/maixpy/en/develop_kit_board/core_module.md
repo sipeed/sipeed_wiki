@@ -8,7 +8,7 @@ desc: maixpy  Sipeed M1/M1W (Lichee Dan)
 1. M1/M1W
 
 ![M1/M1W](./../../assets/hardware/m1_m1w/M1_Dan.png)
-![M1/M1W](./../../assets/hardware/m1_m1w/M1_pin.png)
+![M1/M1W](./../../assets/hardware/m1_m1w/M1_pin.jpg)
 
 M1: K210 all-pin leads, built-in 8M SRAM in chip, built-in 16M Flash in module
 M1W is the version with WiFi (esp8285)

@@ -47,4 +47,4 @@ Acquire audio data in real time and draw it as an FFT waterfall chart
 
 effect:
 
-![](../../../assets/course/fft_waterfall.gif)
+![](../../../assets/course/fft_waterfall.webp)

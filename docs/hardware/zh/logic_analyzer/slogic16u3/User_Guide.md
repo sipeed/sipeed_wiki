@@ -97,7 +97,7 @@ AC '97、I²C、SPI、UART、CAN、JTAG、1-Wire、PWM、USB 等等。
 pulseview-debug.exe -l5
 ```
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.jpg)
 
 #### Linux
 
@@ -114,8 +114,8 @@ chmod +x Pulseview.appimage
 
 - 下载并打开 `Pulseview.dmg` 安装。
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.png)
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-15-40.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.jpg)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-15-40.jpg)
 
 **相关链接：**  
 淘宝、AliExpress、MaixHub  

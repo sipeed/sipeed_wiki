@@ -17,7 +17,7 @@ Tang Nano 20K 默认的固件内容是 [litex](https://github.com/litex-hub) ，
 
 上电后可以看到板卡上的六颗 LED 以流水灯样式运行着。
 
-![unbox_nano_20k_led_water_flow](./../assets/unbox/unbox_nano_20k_led_water_flow.gif)
+![unbox_nano_20k_led_water_flow](./../assets/unbox/unbox_nano_20k_led_water_flow.webp)
 
 通电后 win10 和 win11 会自动加载驱动，然后在电脑的设备管理器中可以看到至少有一个串口设备，这时可以使用 [Mobaxterm](https://mobaxterm.mobatek.net/) 这类支持串口的软件来打开开发板上的串口。
 

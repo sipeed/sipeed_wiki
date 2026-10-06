@@ -495,7 +495,7 @@ Modify the Picture quality in the Options option to High:
 
 The effect displayed is as follows:
 
-![vnc_viewer_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_use.png)
+![vnc_viewer_use](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/vnc_viewer_use.jpg)
 
 ## btop
 

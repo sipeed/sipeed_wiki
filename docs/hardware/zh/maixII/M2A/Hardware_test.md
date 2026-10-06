@@ -22,7 +22,7 @@ armbian 内置了 ffmpeg ，可以快速捕捉 sensor 数据并输出到屏幕�
 使用 `nmtui` 指令可以进入可视化的配网界面，
 选择 Activate a connection ， 选择对应的 WIFI名称 ，输入连接密码，确认即可。
 
-![202108051626](./assets/202108051626.gif)
+![202108051626](./assets/202108051626.webp)
 
 设置完毕后使用 ifconfig 查看本机操作，然后就可以使用 ssh 等操作了。
 
@@ -38,7 +38,7 @@ sudo apt install neofetch armbian-config
 
 如果遇到终端显示错位，还需要`sudo apt-get install xterm`安装下xterm，然后`resize`即可。
 
-![202108061015](./assets/202108061015.gif)
+![202108061015](./assets/202108061015.webp)
 
 ## 测试AIPU
 

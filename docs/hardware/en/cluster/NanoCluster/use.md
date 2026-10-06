@@ -8,7 +8,7 @@ title: Quick Start
 
 There are currently two shell styles being shipped. If you receive a red and white colored shell, you almost don't need to follow the steps below, as the accessories are already pre-installed.
 
-![case1](../../../zh/cluster/NanoCluster/assets/case1.png)![case2](../../../zh/cluster/NanoCluster/assets/case2.png)
+![case1](../../../zh/cluster/NanoCluster/assets/case1.jpg)![case2](../../../zh/cluster/NanoCluster/assets/case2.jpg)
 
 If you want to print a new shell yourself, you can download the model files from makerworld and print it yourself. The link is
 
@@ -18,7 +18,7 @@ If you want to install three Cluster in a 10-inch rack, you can use the followin
 
 https://makerworld.com.cn/zh/models/1349837
 
-![case3](../../../zh/cluster/NanoCluster/assets/case3.png)
+![case3](../../../zh/cluster/NanoCluster/assets/case3.jpg)
 
 ### LM3H Installation
 

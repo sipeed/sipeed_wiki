@@ -41,4 +41,4 @@
 ## **Function Introduction**
 
 
-![MF1 pin map](../../assets/mf_module/mf1/mf1_pin_map.png)
+![MF1 pin map](../../../zh/maixface/assets/mf_module/mf1/mf1_pin_map.png)

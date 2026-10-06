@@ -44,7 +44,7 @@ Tina 系统需要自己进行编译，具体编译方式参考 [https://github.c
 
 下面只是用原始的 armbian 作为展示，有需求的话可也已选择下载带有 MaixPy3 的镜像文件。
 
-![burn](./assets/95133.gif)
+![burn](./assets/95133.webp)
 
 最终下载结束后的效果会和下图一样，显示 `Flash Complete!`：
 

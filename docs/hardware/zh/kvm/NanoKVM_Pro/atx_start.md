@@ -60,7 +60,7 @@ NanoKVM-ATX包含：
 >   如果你连接了一个1080P的显示屏，电脑会识别为一个最高1080P的屏幕（被环出显示器限制）
 5. （非必须）连接ATX电源控制接口
 
-![](./../../../assets/NanoKVM/pro/start/07_ATX.png)
+![](./../../../assets/NanoKVM/pro/start/07_ATX.jpg)
 
 
 ## 内网访问
@@ -83,7 +83,7 @@ NanoKVM-ATX包含：
 3. 初始默认帐号`admin`，密码`admin`可以登陆至系统内部，强烈建议您立即修改帐号密码；
 4. 检查图像/键鼠/开关机按钮是否正常工作
 
-![](./../../../assets/NanoKVM/pro/start/nanokvm4K.png)
+![](./../../../assets/NanoKVM/pro/start/nanokvm4K.jpg)
 
 
 ## 远程连接

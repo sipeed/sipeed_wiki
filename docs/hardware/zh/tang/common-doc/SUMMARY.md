@@ -11,7 +11,7 @@ Tang nano系列开发板是基于[高云半导体](http://www.gowinsemi.com.cn/)
 
 | 型号     | Tang Nano 1K         | Tang Nano 4K   | Tang Nano 9K        |
 | --- | -------- | ----------------- | -------- |
-| 图片             | ![Generated](./../Tang-Nano/assets/clip_image002.gif) | ![Generated](./../Tang-Nano/assets/clip_image004.gif) | ![Generated](./../Tang-Nano/assets/clip_image006.gif) |
+| 图片             | ![Generated](./../Tang-Nano/assets/clip_image002.webp) | ![Generated](./../Tang-Nano/assets/clip_image004.webp) | ![Generated](./../Tang-Nano/assets/clip_image006.webp) |
 | 逻辑单元（LUT4） | 1152                                                         | 4608                                                         | 8640                                                         |
 | 硬核处理器       | 无                                                           | Cortex-M3                                                    | 无                                                           |
 | 有源晶振         | 27Mhz                                                        | 27Mhz                                                        | 27Mhz                                                        |

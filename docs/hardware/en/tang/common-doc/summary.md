@@ -11,7 +11,7 @@ Tang Nano series development boards are designed based on [Gowin](https://www.go
 
 | Model     | Tang Nano 1K         | Tang Nano 4K   | Tang Nano 9K        |
 | --- | -------- | ----------------- | -------- |
-| Appreance             | ![Generated](/hardware/zh/tang/Tang-Nano/assets/clip_image002.gif) | ![Generated](/hardware/zh/tang/Tang-Nano/assets/clip_image004.gif) | ![Generated](/hardware/zh/tang/Tang-Nano/assets/clip_image006.gif) |
+| Appreance             | ![Generated](/hardware/zh/tang/Tang-Nano/assets/clip_image002.webp) | ![Generated](/hardware/zh/tang/Tang-Nano/assets/clip_image004.webp) | ![Generated](/hardware/zh/tang/Tang-Nano/assets/clip_image006.webp) |
 | Logic units（LUT4） | 1152                                                         | 4608                                                         | 8640                                                         |
 | Hard core       |                                                            | Cortex-M3                                                    |                                                            |
 | Crystal oscillator frequency         | 27Mhz                                                        | 27Mhz                                                        | 27Mhz                                                        |

@@ -126,7 +126,7 @@ COMTOOL 上位机的配置控件说明
 .. details::点击查看 K210 Maix Bit 介绍
     Maix Bit 是 sipeed Maix 中产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片 K210 设计的一款 AIOT 开发板。以 K210 作为核心单元，功能非常很强大，芯片内置 64 位双核处理器，拥有 8M 的片上 SRAM，在Al机器视觉、听觉性能方便表现突出，内置多种硬件加速单元(KPU、FPU，FFT等)，总算力最高可达 1TOPS，可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。
 
-    ![bit](./../../../../soft/maixduino/assets/BiT.png)
+    ![bit](./../../../../soft/maixduino/assets/BiT.jpg)
 
 **Maix Bit 购买传送门**：[点击查看](https://item.taobao.com/item.htm?spm=a230r.1.14.11.681570a1yq4sJD&id=586580351110&ns=1&abbucket=10&mt=)
 **Maix Bit 资料传送门**：[更多详细资料](https://wiki.sipeed.com/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html)

@@ -105,14 +105,14 @@ Only bussiness edition M2 model contains the Flash, so we need to start the syst
 
 - Run command `sudo livesuit` to run livesuit software, then click the red box marked in the picture below to choose your image file.
 
-![choose firmware](./../../../zh/maixII/M2/asserts/flash_15.png)
+![choose firmware](./../../../zh/maixII/M2/asserts/flash_15.jpg)
 
 - Connect your computer with **OTG** interface on MaixII-Dock without SD card in it, this software will show a dialog, then insert SD card into MaixII-Dock and click yes to format SD card and burning system.
 
-![format SD card](./../../../zh/maixII/M2/asserts/flash_17.png)
+![format SD card](./../../../zh/maixII/M2/asserts/flash_17.jpg)
 
 - Wait burning finished, then we can begin to use it.
 
-![progress](./../../../zh/maixII/M2/asserts/flash_19.png)
+![progress](./../../../zh/maixII/M2/asserts/flash_19.jpg)
 
-![Finish](./../../../zh/maixII/M2/asserts/flash_21.png)
+![Finish](./../../../zh/maixII/M2/asserts/flash_21.jpg)

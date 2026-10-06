@@ -26,7 +26,7 @@ Troubleshooting checklist:
 ### Windows
 - Menus, dialogs, and file dialogs follow Windows conventions.
 
-![](./assets/Screenshots/Screenshot_2025-09-23_11-09-53.png)
+![](./assets/Screenshots/Screenshot_2025-09-23_11-09-53.jpg)
 
 ### Linux
 - Layout is similar to other platforms.
@@ -166,8 +166,8 @@ Tips:
 ### SDIO / SDCard examples
 ![](./assets/Screenshots/Screenshot_2025-09-26_16-17-19.png)
 ![](./assets/Screenshots/Screenshot_2025-09-26_16-17-57.png)
-![](./assets/Screenshots/Screenshot_2025-09-26_11-08-53.png)
-![](./assets/Screenshots/Screenshot_2025-09-26_11-10-26.png)
+![](./assets/Screenshots/Screenshot_2025-09-26_11-08-53.jpg)
+![](./assets/Screenshots/Screenshot_2025-09-26_11-10-26.jpg)
 
 ## File operations (save / load)
 - Save session: stores captured samples, channel configuration, trigger settings, and decoder state. Use sessions to preserve work for later analysis.

@@ -18,10 +18,10 @@ LicheePi 4A 分为两个版本，内测版与正式版。
 ### 内测版
 
 如果你是第一批内测版 LicheePi 4A 用户，你收到的包裹内将是如下包装：
-![package_alpha](./assets/unbox/package_alpha.png)
+![package_alpha](./assets/unbox/package_alpha.jpg)
 
 打开塑料盒包装，你将看到如下的内容：
-![unbox_alpha](./assets/unbox/unbox_alpha.png) 
+![unbox_alpha](./assets/unbox/unbox_alpha.jpg) 
 包裹在黑色泡棉内的就是 LicheePi 4A 主体，其余标号部件为：
 1. 30x30mm 散热硅脂
 2. 30mm 5V 散热风扇，右边已连接至风扇插针。如果松动脱出，请自行安装回去，注意红线为正极，装反后风扇不会转动。
@@ -86,8 +86,8 @@ LicheePi 4A还有丰富的配件可供选择，如下图所示：
       <td colspan=2>先用手指往外拨动弹片解锁 SOM, 然后将 SOM 取出</td>
     </tr>
     <tr>
-      <td><img src="./assets/unbox/unlock_som.png" alt="unlock_som"></td>
-      <td><img src="./assets/unbox/remove_som.png" alt="remove_som"></td>
+      <td><img src="./assets/unbox/unlock_som.jpg" alt="unlock_som"></td>
+      <td><img src="./assets/unbox/remove_som.jpg" alt="remove_som"></td>
     </tr>
    </table>
 
@@ -97,8 +97,8 @@ LicheePi 4A还有丰富的配件可供选择，如下图所示：
       <td colspan=2>先把 SOM 斜着插入连接器插槽, 然后按压SOM，两边弹片会自动锁住SOM</td>
     </tr>
     <tr>
-      <td><img src="./assets/unbox/insert_som.png" alt="insert_som"></td>
-      <td><img src="./assets/unbox/lock_som.png" alt="lock_som"></td>
+      <td><img src="./assets/unbox/insert_som.jpg" alt="insert_som"></td>
+      <td><img src="./assets/unbox/lock_som.jpg" alt="lock_som"></td>
     </tr>
    </table>
 
@@ -139,7 +139,7 @@ PoE模块安装如图所示：
 ### 组装完成
 
 组装完成后的状态如下所示：
-![assemble_ok](./assets/unbox/assemble_ok.png)
+![assemble_ok](./assets/unbox/assemble_ok.jpg)
 
 ## 启动板卡
 
@@ -221,7 +221,7 @@ POE模块需要用户手工焊接安装，请按下图焊接：
 ## 板卡硬件说明
 
 完成初次点亮板卡后，可以静下心来认识下 LicheePi 4A 的硬件，方便后期可能的维护工作。
-![pi_view](./assets/unbox/pi_view.png) 
+![pi_view](./assets/unbox/pi_view.jpg) 
 
 ### 超频说明
 

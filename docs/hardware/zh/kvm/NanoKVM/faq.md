@@ -177,7 +177,7 @@ EDID data verified successfully
   + 早期内测版 Full NanoKVM 存在电流倒灌问题: 主机关机且USB无电源输出, 当连接辅助供电电源时电流会倒灌入主机
   1. 首先建议设置主机关机后USB保持供电
   2. Full版用户: 按下图位置使用电烙铁断开5V电阻或排针短接处, 仅使用辅助供电口供电
-      ![](./../../../assets/NanoKVM/guide/fix2.png)
+      ![](./../../../assets/NanoKVM/guide/fix2.jpg)
 
 ### 尝试断电重启解决未知问题
 

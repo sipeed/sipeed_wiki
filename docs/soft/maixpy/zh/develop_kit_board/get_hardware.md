@@ -181,7 +181,7 @@ desc: maixpy  如何选购开发板
 比如：下图左边两张卡 MaixPy 的驱动不支持,  中间和右边的都支持,  但是中间的 class10 卡速度最快(最高测过 128GB可用)
 > 另外测试过网上购买的几张闪迪、金士顿、三星的卡, 其中发现有一张三星的卡无法使用
 
-![TF SDCard](../../assets/hardware/other/tf_sdcard.png)
+![TF SDCard](../../assets/hardware/other/tf_sdcard.jpg)
 
 [**Sipeed 官方店 SD 卡购买链接**](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21231188711.12.5a7f7379ZEhEdC&id=587713418483)，该卡 SPI 协议只支持 V1 版本， 所以读取速率较低，建议购买其他支持 SPI V2 协议的 SD 卡，淘宝店开发板套餐中可以单选 SD 卡。
 

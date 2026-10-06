@@ -367,7 +367,7 @@ endmodule
 
 使用 Sipeed 的 PMOD 后，如下图所示有一个灯在闪。
 
-![result](./assets/result.gif)
+![result](./assets/result.webp)
 
 ## 常见问题
 

@@ -9,7 +9,7 @@ desc: maixpy  Maix Bit
 
 ### Appearance list
 
-![Maix Bit](../../assets/hardware/maix_bit/maix_bit.png)
+![Maix Bit](../../assets/hardware/maix_bit/maix_bit.jpg)
 
 ### Onboard functions
 

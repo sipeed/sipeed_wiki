@@ -15,7 +15,7 @@ desc: maixpy  MaixAmigo
 
 ### Appearance list
 
-![MaixAmigo](../../assets/hardware/maix_amigo/maix_amigo_0.png)
+![MaixAmigo](../../assets/hardware/maix_amigo/maix_amigo_0.jpg)
 
 ### Onboard functions
 

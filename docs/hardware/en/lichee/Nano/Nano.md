@@ -4,7 +4,7 @@
 Lichee Nano是基于全志科技的F1C100s(ARM 926EJS内核)高性能soC芯片设计的迷你开发板。开发板设计小巧精致，将芯片的所有资源都引出，板载USB、Flash、TF卡、4OP LCD接口等，并把所有IO资源引出，方便开发者拓展使用，非常适合初学者学习linux或者商用于产品开发。
 
 <img src="./../assets/Nano/Nano_2.png" width=400>
-<img src="./../assets/Nano/Nano_3.png" width=400>
+<img src="./../assets/Nano/Nano_3.jpg" width=400>
 
 ## 参数
 

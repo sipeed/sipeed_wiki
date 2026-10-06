@@ -620,7 +620,7 @@ make -j4
 
 ### 效果图
 
-![效果图1](./assets/peripheral/tft_demo.png)-->
+![效果图1](./assets/peripheral/tft_demo.jpg)-->
 
 SPI 常用的 ioctl 命令：
 
@@ -747,7 +747,7 @@ int main(int argc, char *argv[]) {
 sudo apt-get install guvcview
 guvcview
 ```
-![usb_cam_use](./assets/peripheral/usb_cam_use.png)  
+![usb_cam_use](./assets/peripheral/usb_cam_use.jpg)  
 
 按下 Ctrl+C 或点击 guvcview 窗口的 quit 按钮都可以结束图像流。
 

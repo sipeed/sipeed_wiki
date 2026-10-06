@@ -47,7 +47,7 @@
 
 如下图， 左边两张卡 MaixPy 的驱动不支持， 中间和右边的都支持， 但是中间的 class10 卡速度最快
 
-![](../../assets/TF.png)
+![](../../assets/TF.jpg)
 
 
 ### ST-Link （用来给开发板 Maix Go 上的 STM32 更新固件） （可选）

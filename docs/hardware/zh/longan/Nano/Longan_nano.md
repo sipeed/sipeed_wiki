@@ -26,7 +26,7 @@ Longan Nano是基于兆易创新(GigaDevice)的GD32VF103CBT6(RISC-V架构)芯片
  
 ![](./../../../assets/Longan/nano/longan-nano-1.png)
 ### 旧版照片
-![](./../../../assets/Longan/nano/longan_nano_pinout_old.png)
+![](./../../../assets/Longan/nano/longan_nano_pinout_old.jpg)
 
 ![](./../../../assets/Longan/nano/longan-nano-old.png)
 

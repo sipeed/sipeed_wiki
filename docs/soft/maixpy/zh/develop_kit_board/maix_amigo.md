@@ -15,7 +15,7 @@ desc: maixpy  MaixAmigo
 
 ### 外观一览
 
-![MaixAmigo](../../assets/hardware/maix_amigo/maix_amigo_0.png)
+![MaixAmigo](../../assets/hardware/maix_amigo/maix_amigo_0.jpg)
 
 ### 板载功能
 

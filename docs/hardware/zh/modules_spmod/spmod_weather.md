@@ -8,7 +8,7 @@
 
 SPMOD - Weather (气象站模块), 集成三轴传感器 QMC7983,与温湿度气压传感器 BME280。
 
-<img src="../../assets/spmod/spmod_weather/demo.gif"  width="500" >
+<img src="../../assets/spmod/spmod_weather/demo.webp"  width="500" >
 
 ## SPMOD - Weather 介绍
 

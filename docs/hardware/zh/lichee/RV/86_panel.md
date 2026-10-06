@@ -5,7 +5,7 @@
 Lichee RV-86 Panel是为智能家居中控应用场景而设计的开发套件。在硬件上，套件包含了LicheeRV 核心板（全志D1+512MB DDR3)、4英寸 IPS 显示屏+电容触摸屏、WIFI + BT、以太网、双数字硅麦和 GPIO 拓展接口等。
 在软件上，我们提供了 Linux 系统（OpenWRT 及 Debian )和阿里 WAFT 开发环境( WAFT 是阿里基于 WebAssembly 和自研的渲染引擎打造的一款面向 AIOT 的高性能应用框架)。
 
-![裸板视图](./../assets/RV/86_2.png)
+![裸板视图](./../assets/RV/86_2.jpg)
 
 ## 参数
 | 项目 | 参数 |

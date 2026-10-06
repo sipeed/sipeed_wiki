@@ -496,7 +496,7 @@ vncserver -localhost no
 
 显示的效果如下：  
 
-![vnc_viewer_use](./assets/desktop/vnc_viewer_use.png)
+![vnc_viewer_use](./assets/desktop/vnc_viewer_use.jpg)
 
 
 ## btop

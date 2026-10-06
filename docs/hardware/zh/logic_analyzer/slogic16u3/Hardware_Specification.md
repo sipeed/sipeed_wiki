@@ -335,14 +335,14 @@ update:
 装置上电后默认功能是 **逻辑分析仪**，正常情况下[ACT指示灯](#ACT指示灯)显示青色。
 同时出现一个新的 **USB3** 装置：**SLogic16 U3**（逻辑分析仪）
 
-<!-- ![slogic16_u3](./assets/slogic_u3.png) -->
+<!-- ![slogic16_u3](assets/Screenshots/slogic_u3.png) -->
 
 **按下MODE按键**切换功能，切换成功后可以看到**指示灯变化：** 红灯慢闪。
 同时出现一个新的 **USB2** 装置：**SLogic DFU** （升级模式）
 
 > **SLogic** 模式使用 **USB3** 模式，而 **DFU** 模式使用 **USB2** 模式。
 
-<!-- ![slogic16_u2](./assets/slogic_u2.png) -->
+<!-- ![slogic16_u2](assets/Screenshots/slogic_u2.png) -->
 
 再次按下 **MODE** 则切换回 **SLogic16 U3**，重复按下 **MODE** 再进入**SLogic DFU**，如此往复循环在两个模式中来回切换。
 

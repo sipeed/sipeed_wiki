@@ -254,7 +254,7 @@ Apart from these, many models are uploaded to [github AXERA-TECH/ax-samples](htt
 Visit [Deploy models to AX-Pi (Maix-III(M3) series) board](/ai/en/deploy/ax-pi.html) to deploy models to AX-Pi.
 
 <!-- <p align="center">
-  <img src="./../../../en/maixIII/assets/ai_guide.jpg" style="zoom: 75%;" />
+  <img src="../../../zh/maixIII/assets/ai_guide.jpg" style="zoom: 75%;" />
 </p> -->
 
 ### Tranning your models
@@ -354,7 +354,7 @@ AX-Pipeline is provided by Axera. With M3AXPI, this project is used for people t
 
 <p align="center">
   <img src="./../../../zh/maixIII/assets/layout_axpi_2.png" alt="layout_axpi_2" width="45%">
-  <img src="./../../../zh/maixIII/assets/layout_axpi_1.png" alt="layout_axpi_1" width="45%">
+  <img src="./../../../zh/maixIII/assets/layout_axpi_1.jpg" alt="layout_axpi_1" width="45%">
 </p>
 
 ### Core module parameters

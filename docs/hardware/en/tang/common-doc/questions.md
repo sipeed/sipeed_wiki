@@ -51,7 +51,7 @@ Here are some normal questions.
     <body>
       <details class="indent">
         <summary><font color="#4F84FF">Click here to view the 138K-B FPG676A device version marking</font></summary>
-        <img src="./assets/questions/138K-Pro-Ver.B.png">
+        <img src="./assets/questions/138K-Pro-Ver.B.jpg">
       </details>
     </body>
     <br>

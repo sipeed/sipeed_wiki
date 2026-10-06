@@ -31,7 +31,7 @@ Tang Nano 4K开发板板载的GW1NSR-LV4CQN48PC6/I5，是一款系统级封装�
 
 ### 引脚图
 
-![Pinmap](./../Tang-Nano/assets/Tang_nano_4K_0813.png)
+![Pinmap](./../Tang-Nano/assets/Tang_nano_4K_0813.jpg)
 
 ## 开发环境
 

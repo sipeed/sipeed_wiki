@@ -243,6 +243,6 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 注意描述是成功烧录过一次 Flash。
 这种情况默认为启用了错误的引脚复用而导致下载器不能再识别到 FPGA 的 JTAG。可以短接 Flash 的 1、4 引脚，让芯片上电时不能正常读 FLASH 。
 
-![flash_cs](./../assets/flash_cs.png)
+![flash_cs](./../assets/flash_cs.jpg)
 
 ### 更多问题及其解决办法前往[相关问题](./../common-doc/questions.md)查看

@@ -37,8 +37,8 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07962.png" style="width: 32%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07963.png" style="width: 32%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/DSC07961.png" style="width: 32%;">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155815.png" style="width: 32%;">
-  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155818.png" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155815.jpg" style="width: 32%;">
+  <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155818.jpg" style="width: 32%;">
   <img src="../../../en/logic_analyzer/slogic16u3/assets/DCIM/20250927-155808.png" style="width: 32%;">
 </div>
 
@@ -53,7 +53,7 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
   - 如果你使用windows电脑，且想跑满400MB/s的带宽，可安装linux虚拟机实现满速采集
   <details class="indent">
     <summary><b>另 Linux 虚拟机可满速运行</b></summary>
-    <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.png">
+    <img src="../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-27_11-05-12.jpg">
   </details>
 - Linux (x86_64)
   - **必须：额外配置解决权限问题：**[如何为 Linux 设置 udev 规则？](./FAQ.html#如何为-Linux-设置-udev-规则？)
@@ -71,7 +71,7 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 pulseview-debug.exe -l5
 ```
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.jpg)
 
 #### Linux
 
@@ -81,13 +81,13 @@ chmod +x Pulseview.appimage
 # ./Pulseview.appimage -l5   # 启用调试模式
 ```
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_19-12-07.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_19-12-07.jpg)
 
 #### macOS
 
 - 下载并打开 `Pulseview.dmg` 即可直接运行。
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-18_11-11-57.jpg)
 
 --- 
 

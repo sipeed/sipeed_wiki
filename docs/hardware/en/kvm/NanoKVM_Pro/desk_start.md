@@ -47,7 +47,7 @@ update:
 
    The KVM-B board includes a general 9-pin header, which can be directly attached to the motherboard. The case’s power button, Power LED, and other connectors can be plugged into the KVM-B header. Reference diagram (only power button connected here):
 
-   ![img](../../../assets/NanoKVM/unbox/new-ATX-B.png)
+   ![img](../../../assets/NanoKVM/unbox/new-ATX-B.jpg)
 
 ## UI Operation Guide
 
@@ -132,7 +132,7 @@ Touch screen supports the following actions:
 
 4. Once logged in, check whether image display, keyboard/mouse control, and power buttons function properly.
 
-   ![4k](../../../assets/NanoKVM/pro/start/nanokvm4K.png)
+   ![4k](../../../assets/NanoKVM/pro/start/nanokvm4K.jpg)
 
 ## Remote Connection
 

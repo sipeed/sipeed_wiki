@@ -6,15 +6,15 @@ Lichee Zero是基于全志科技的V3s(ARM Cortex-A7内核)高性能CPL芯片设
 核心板：
 
 
-<img src="./../assets/Zero/Zero_1.png" width=500>
+<img src="./../assets/Zero/Zero_1.jpg" width=500>
 
-<img src="./../assets/Zero/Zero_6.png" width=500>
+<img src="./../assets/Zero/Zero_6.jpg" width=500>
 
 
 核心板+扩展板：
 
-<img src="./../assets/Zero/Zero_3.png" width=500>
-<img src="./../assets/Zero/Zero_4.png" width=500>
+<img src="./../assets/Zero/Zero_3.jpg" width=500>
+<img src="./../assets/Zero/Zero_4.jpg" width=500>
 
 
 ## 参数
@@ -66,7 +66,7 @@ V3s框架
 
 
 
-![](./../assets/Zero/Zero_9.png)
+![](./../assets/Zero/Zero_9.jpg)
 
 ## 使用教程
 

@@ -158,7 +158,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 可以看到相差可能有 1 秒，而事实上只需要 90ms 就可以完成 func 函数的运算，这就产生了误差导致不准确，若是使用 jupyter 输出就会看到 0.026456356048583984 需要 26ms 可以较为准确的推算出它的真实运算结果。
 
-![](./asserts/time_python.png)
+![](../usage/asserts/time_python.png)
 
 为什么会造成这种差异的原因是因为串口依次输入命令输出结果需要时间，所以依次输入语句执行自然会存在误差，而 jupyter 是通过网络 socket 连接传输显示到屏幕上，所以耗时误差只会发生在运算重定向输出结果的时候，最终结果会较为贴近真实运算结果，通过保存下述代码文件来运行即可得知真实情况下约为 26 ~ 28ms 完成。
 

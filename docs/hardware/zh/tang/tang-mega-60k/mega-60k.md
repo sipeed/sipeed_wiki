@@ -344,7 +344,7 @@ Tang Mega 60K 可以在多种场景实现客户不同方面的需要，技术支
 
 2. 检查拨码开关的位置，正确的位置如下图所示：
 
-<img src="./assets/dip-key_defualt.png" alt="dip-key_defualt" width=35%>
+<img src="./assets/dip-key_defualt.jpg" alt="dip-key_defualt" width=35%>
 
 ### 烧录后没反应或者引脚现象不对
 

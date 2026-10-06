@@ -64,7 +64,7 @@ Ubuntu 是基于另一个 Linux 发行版 Debian 发展而来，网上大多数 
 
 打开 balenaEtcher，选择所下载的镜像文件，选择 TF 卡，点击烧录：
 
-![d1_ubuntu_burn_image](./../assets/RV/ubuntu/d1_ubuntu_burn_image.gif)
+![d1_ubuntu_burn_image](./../assets/RV/ubuntu/d1_ubuntu_burn_image.webp)
 
 要注意的是烧录的时候别选错了 TF 卡。
 

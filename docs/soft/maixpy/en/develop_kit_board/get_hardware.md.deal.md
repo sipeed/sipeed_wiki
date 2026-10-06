@@ -170,7 +170,7 @@ Because the K210 does not have SDIO hardware peripherals, it uses SPI to communi
 For example: the two cards on the left side of the picture below are not supported by MaixPy drivers, the middle and right ones are supported, but the class10 card in the middle has the fastest speed (up to 128GB tested available)
 > I have also tested several SanDisk, Kingston, and Samsung cards purchased online, and found that one of the Samsung cards cannot be used
 
-![TF SDCard](../../assets/hardware/other/tf_sdcard.png)
+![TF SDCard](../../assets/hardware/other/tf_sdcard.jpg)
 
 [**Sipeed official store SD card purchase link**](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21231188711.12.5a7f7379ZEhEdC&id=587713418483), the card’s SPI protocol only It supports the V1 version, so the reading rate is low. It is recommended to buy other SD cards that support the SPI V2 protocol. The SD card can be selected in the Taobao store development board package.
 

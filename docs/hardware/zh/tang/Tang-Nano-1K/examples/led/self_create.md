@@ -78,7 +78,7 @@ endmodule
 
 想让 Fpga 实现代码的功能，必须将代码中涉及的 端口 绑定到 Fpga 实际的引脚上。
 如下图，在左边的工作区点击 process，然后双击 FloorPlanner
-   ![](./../../assets/examples/led_pjt_2.png)
+   ![](../../../assets/examples/led_pjt_2.png)
    
 在工程中第一次点击，可能会提示创建文件，点击确定即可
    ![](./../../../Tang-Nano/assets/LED-9.png)

@@ -45,7 +45,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 | 7 | SI | I/O | MOSI数据引脚，主机输出从机输入 |
 | 8 | BSY | O | BUSY状态输出引脚 |
 
-<img src="../../assets/spmod/spmod_eink/sp_eink_back.png" height="300" />
+<img src="../../assets/spmod/spmod_eink/sp_eink_back.jpg" height="300" />
 
 - 接线方式：
 
@@ -160,7 +160,7 @@ SPMOD_Eink(墨水屏模块)采用 GDEW0154M09 电子墨水屏。
 
 * C
 
-  <img src="../../assets/spmod/spmod_eink/sp_eink_c.png" height="250" />
+  <img src="../../assets/spmod/spmod_eink/sp_eink_c.jpg" height="250" />
 
 * MaixPy
 

@@ -86,7 +86,7 @@ Visit [Questions](./../common-doc/questions.md) for more solvements
 
 For Lite ext-board，we can know the version of our board from the mark in the following picture.
 
-![lite-version](./../../../zh/tang/tang-primer-20k/assets/start/lite-version.png)
+![lite-version](./../../../zh/tang/tang-primer-20k/assets/start/lite-version.jpg)
 
 From the figure we can know the version of this board is 3710.
 
@@ -97,7 +97,7 @@ Here are their errors.
 The mask between R8 and P9 is P8. Refer to the left top of the right picture.
 
 <div>
-<img src="./../../../zh/tang/tang-primer-20k/assets/lite-up.png" alt="lite-up" width=45%>
+<img src="./../../../zh/tang/tang-primer-20k/assets/lite-up.jpg" alt="lite-up" width=45%>
 <img src="./../../../zh/tang/tang-primer-20k/assets/lite-back.png" alt="lite-back" width=45%>
 </div>
 

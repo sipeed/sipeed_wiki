@@ -26,7 +26,7 @@
 ### Windows
 - 菜单、对话框和文件对话框遵循 Windows 约定。
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-23_11-09-53.jpg)
 
 ### Linux
 - 布局与其他平台相似。
@@ -166,8 +166,8 @@
 ### SDIO / SDCard 示例
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_16-17-19.png)
 ![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_16-17-57.png)
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_11-08-53.png)
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_11-10-26.png)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_11-08-53.jpg)
+![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-26_11-10-26.jpg)
 
 ## 文件操作（保存 / 加载）
 - 保存会话：存储捕获的样本、通道配置、触发设置和解码器状态。使用会话可保存工作以便以后分析。
