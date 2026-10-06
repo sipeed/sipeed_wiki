@@ -30,7 +30,7 @@ ngscopeclient 现为**单个可执行程序**：下载即运行，连接、采�
     <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/15k_la_photo.png" alt="2" style="width:100%;height:100%;object-fit:cover;display:block;" />
   </div>
   <div class="slide" style="flex:1 1 0;height:220px;overflow:hidden;">
-    <img src="../../../zh/logic_analyzer/slogic32u3/assets/SLogic32U3-photo.jpg" alt="3" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    <img src="../../../zh/logic_analyzer/slogic32u3/assets/DCIM/SLogic32U3-perspective.jpg" alt="3" style="width:100%;height:100%;object-fit:cover;display:block;" />
   </div>
 </div>
 

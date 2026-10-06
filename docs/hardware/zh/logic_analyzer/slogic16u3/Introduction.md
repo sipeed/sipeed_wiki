@@ -23,7 +23,7 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 | 可调阈值 | N | Y | Y |
 | 外壳材质 | 塑料 | 铝合金 | 铝合金 |
 | 额外特性 | DAP-Link, CK-Link, 4-UART |  | Extend ADC -> Oscilloscope |
-| 尺寸 | 20x40x10mm | 40x40x10mm | 50x50x10mm |
+| 尺寸 | 20x40x10mm | 40x40x10mm | 59x51x13mm |
 | 价格 | ￥69 | ￥369 | ~￥999 |
 
 ---
