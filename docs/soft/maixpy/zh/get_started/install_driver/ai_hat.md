@@ -29,7 +29,7 @@ Linux 不需要装驱动，系统自带了，使用 `ls /dev/ttyUSB*` 即可看�
     ![](../../../assets/get_started/win_device_3.png)
 
 3. 点击安装
-    ![](../../../assets/get_started/drives.gif)
+    ![](../../../assets/get_started/drives.webp)
 
 4. 安装完成之后,可以在设备管理器看到已经识别到两个串口设备了(其中只有一个串口可用)
     ![](../../../assets/get_started/win_device_4.png)

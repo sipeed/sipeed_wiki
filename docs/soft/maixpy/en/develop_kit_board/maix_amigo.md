@@ -98,7 +98,7 @@ When we get Maix Amigo and connect to the computer, we can open the device manag
 1. Open the link in the previous section to download the driver
     ![](../../assets/get_started/win_device_3.png)
 1. Click Install
-    ![](../../assets/get_started/drives.gif)
+    ![](../../assets/get_started/drives.webp)
 1. After the installation is complete, you can see in the device manager that two serial devices have been identified
     ![](../../assets/get_started/win_device_4.png)
 

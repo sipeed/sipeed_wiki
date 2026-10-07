@@ -96,7 +96,7 @@ Burn this demo to board, the data of onboard 6 axi IMU is printed by serial port
 
 烧录进板子后，从串口可以看到板子上面 6 轴 IMU (惯性传感器)的数据。
 
-![m0sense_imu_uart](./../../../zh/maixzero/sense/assets/start/m0sense_imu_uart.gif)
+![m0sense_imu_uart](./../../../zh/maixzero/sense/assets/start/m0sense_imu_uart.webp)
 
 ### single_button_control.uf2
 
@@ -107,7 +107,7 @@ Burn this demo to M0sense, press BOOT key, LED changes the color, and the state 
 The detailed usage can be analyzed by reading <a href="https://github.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c">source code</a>.
 
 ![single_button_control](./../../../zh/maixzero/sense/assets/start/single_button_control.webp)
-![single_button_control_uart](./../../../zh/maixzero/sense/assets/start/single_button_control_uart.gif)
+![single_button_control_uart](./../../../zh/maixzero/sense/assets/start/single_button_control_uart.webp)
 
 ### audio_recording.uf2
 
@@ -115,7 +115,7 @@ The detailed usage can be analyzed by reading <a href="https://github.com/Sipeed
 
 Burn this demo to M0sense, the 16bit pcm format data of the onboard microphone is printed by serial port.
 
-![audio_recording](./../../../zh/maixzero/sense/assets/start/audio_recording.gif)
+![audio_recording](./../../../zh/maixzero/sense/assets/start/audio_recording.webp)
 
 ## SDK usage
 

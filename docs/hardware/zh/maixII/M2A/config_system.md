@@ -119,4 +119,4 @@ passwd: password updated successfully
 
 下面是部分示例~
 
-![2021080511-46-52](./assets/2021080511-46-52.gif)
+![2021080511-46-52](./assets/2021080511-46-52.webp)

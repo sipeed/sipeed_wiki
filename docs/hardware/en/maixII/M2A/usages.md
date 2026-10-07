@@ -135,7 +135,7 @@ Dont't forget to download your language font to avoid wrong display.
 
 Use `armbian-config`. `armbian-config` -> `Network` -> `BTinstall` to install bluetooth support package.
 
-![](./../../../zh/maixII/M2A/assets/202108071034.gif)
+![](./../../../zh/maixII/M2A/assets/202108071034.webp)
 
 Then we can use `bluetoothctl` to use the bluetooth.
 
@@ -196,7 +196,7 @@ pair XX:XX:XX:XX
 connect XX:XX:XX:XX 
 ```
 
-![202108071610](./../../../zh/maixII/M2A/assets/202108071610.gif)
+![202108071610](./../../../zh/maixII/M2A/assets/202108071610.webp)
 
 ### Set bluetooth audio in/out
 
@@ -230,7 +230,7 @@ maixsense:~:# pactl list short sinks
 maixsense:~:# pactl set-default-sink 2 
 ```
 
-![202108071726](./../../../zh/maixII/M2A/assets/202108071726.gif)
+![202108071726](./../../../zh/maixII/M2A/assets/202108071726.webp)
 
 Then we can play audio to a Bluetooth device or connect the phone via Bluetooth to use as a Bluetooth speaker.
 

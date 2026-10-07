@@ -123,4 +123,4 @@ passwd: password updated successfully
 
 Here are part of example:
 
-![](./../assets/../M2A/assets/2021080511-46-52.gif)
+![](./../assets/../M2A/assets/2021080511-46-52.webp)

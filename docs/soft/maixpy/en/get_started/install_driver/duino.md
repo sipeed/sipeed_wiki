@@ -30,7 +30,7 @@ When we get the MaixPy development board and connect it to the computer, we can 
     ![](../../../assets/get_started/win_device_3.png)
 
 3. Click Install
-    ![](../../../assets/get_started/drives.gif)
+    ![](../../../assets/get_started/drives.webp)
 
 4. After the installation is complete, you can see in the device manager that two serial devices have been identified (only one serial port is available)
     ![](../../../assets/get_started/win_device_4.png)

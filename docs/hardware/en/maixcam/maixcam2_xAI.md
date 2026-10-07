@@ -9,7 +9,7 @@ This page uses a real MaixCAM2 development recording as an example to show how t
 The goal is to detect a red object in the camera image and keep it near the center of the frame by driving a two-axis gimbal.
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="Figure 1: Final dynamic tracking. Source: this recording, cropped to show the gimbal, target object, and device screen." width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.webp" alt="Figure 1: Final dynamic tracking. Source: this recording, cropped to show the gimbal, target object, and device screen." width="640" style="max-width: 100%; height: auto;">
 </p>
 
 When the object moves, the gimbal adjusts accordingly. This is the target behavior for the following development, debugging, and acceptance steps.
@@ -249,7 +249,7 @@ Debugging steps:
 6. After the direction is correct, adjust gain and speed.
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/08_wrong_direction.gif" alt="Figure 9: Wrong direction in the first closed-loop test. Source: this recording, cropped to show target position and actual gimbal movement." width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/08_wrong_direction.webp" alt="Figure 9: Wrong direction in the first closed-loop test. Source: this recording, cropped to show target position and actual gimbal movement." width="640" style="max-width: 100%; height: auto;">
 </p>
 
 Note: before direction is confirmed, do not tune PID, speed, or thresholds first. Otherwise, it is hard to tell whether the issue is wrong control direction or bad parameters.
@@ -269,7 +269,7 @@ Recommended order:
 7. Stop chasing and return to center safely when the target is continuously lost.
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/09_wobble.gif" alt="Figure 10: Oscillation before the fix. Source: this recording, cropped as a looped animation." width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/09_wobble.webp" alt="Figure 10: Oscillation before the fix. Source: this recording, cropped as a looped animation." width="640" style="max-width: 100%; height: auto;">
 </p>
 
 <p align="center">
@@ -321,7 +321,7 @@ Manual acceptance steps:
 Pass criteria: both axes move in the correct direction; far targets can be chased; there is no continuous oscillation near the center; after overshoot, the gimbal can move back in the opposite direction; after target loss, it does not continue chasing old coordinates.
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="Figure 14: Final dynamic tracking acceptance. Source: this recording, cropped as a looped animation." width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.webp" alt="Figure 14: Final dynamic tracking acceptance. Source: this recording, cropped as a looped animation." width="640" style="max-width: 100%; height: auto;">
 </p>
 
 ## Acceptance Results and Deliverable Archive

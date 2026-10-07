@@ -97,7 +97,7 @@ MaixAmigo 同样使用 MaixPy 入门 AIoT ，由于硬件特殊性，请在[配�
 1. 打开上一节的链接下载驱动
     ![](../../assets/get_started/win_device_3.png)
 1. 点击安装
-    ![](../../assets/get_started/drives.gif)
+    ![](../../assets/get_started/drives.webp)
 1. 安装完成之后，可以在设备管理器看到已经识别到两个串口设备了
     ![](../../assets/get_started/win_device_4.png)
 

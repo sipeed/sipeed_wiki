@@ -9,7 +9,7 @@ title: MaixCAM2 x AI：用 AI Agent 开发二轴云台物块追踪
 目标是识别画面中的红色物块，并让两轴云台持续将物块保持在画面中心附近。
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="图 1：最终动态跟随。来源：本次实录，裁剪保留云台、目标物和设备屏幕。" width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.webp" alt="图 1：最终动态跟随。来源：本次实录，裁剪保留云台、目标物和设备屏幕。" width="640" style="max-width: 100%; height: auto;">
 </p>
 
 物块移动时，云台会随之调整；这是后续开发、调试和验收的目标状态。
@@ -250,7 +250,7 @@ Agent 正在针对追踪行为排查“动作过猛”等可能原因。录像�
 6. 方向正确后再调整增益和速度。
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/08_wrong_direction.gif" alt="图 9：首次闭环方向错误。来源：本次实录，裁剪保留目标位置与云台实际转向。" width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/08_wrong_direction.webp" alt="图 9：首次闭环方向错误。来源：本次实录，裁剪保留目标位置与云台实际转向。" width="640" style="max-width: 100%; height: auto;">
 </p>
 
 注意：方向未确认前，不应先调 PID、速度或阈值；否则无法区分是控制方向错误还是参数问题。
@@ -270,7 +270,7 @@ Agent 正在针对追踪行为排查“动作过猛”等可能原因。录像�
 7. 目标持续丢失时停止追赶并安全回中。
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/09_wobble.gif" alt="图 10：修复前的摆动。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/09_wobble.webp" alt="图 10：修复前的摆动。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
 </p>
 
 <p align="center">
@@ -322,7 +322,7 @@ Agent 正在针对追踪行为排查“动作过猛”等可能原因。录像�
 通过标准：两轴方向正确；远距离能追赶；近中心不持续摆动；超调后能反向回正；目标丢失后不会继续追赶旧坐标。
 
 <p align="center">
-  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.gif" alt="图 14：最终动态跟随验收。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
+  <img src="../../assets/maixcam/maixcam2_xai/11_final_tracking.webp" alt="图 14：最终动态跟随验收。来源：本次实录，裁剪为循环动图。" width="640" style="max-width: 100%; height: auto;">
 </p>
 
 ## 验收结果与交付物归档

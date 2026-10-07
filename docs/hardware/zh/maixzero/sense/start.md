@@ -98,7 +98,7 @@ update:
 
 烧录进板子后，从串口可以看到板子上面 6 轴 IMU (惯性传感器)的数据。
 
-![m0sense_imu_uart](./assets/start/m0sense_imu_uart.gif)
+![m0sense_imu_uart](./assets/start/m0sense_imu_uart.webp)
 
 ### single_button_control.uf2
 
@@ -109,7 +109,7 @@ update:
 具体逻辑可以查看[源码](https://gitee.com/Sipeed/M0sense_BL702_example/blob/main/m0sense_apps/rtos_demos/single_button_control/main.c)。
 
 ![single_button_control](./assets/start/single_button_control.webp)
-![single_button_control_uart](./assets/start/single_button_control_uart.gif)
+![single_button_control_uart](./assets/start/single_button_control_uart.webp)
 
 ### audio_recording.uf2
 
@@ -117,7 +117,7 @@ update:
 
 烧录进板子后，串口会持续打印麦克风所获得的周围环境音的 16bit pcm 格式数据。
 
-![audio_recording](./assets/start/audio_recording.gif)
+![audio_recording](./assets/start/audio_recording.webp)
 
 ## SDK 环境搭建
 

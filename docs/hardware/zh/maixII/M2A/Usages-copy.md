@@ -108,7 +108,7 @@ print(platform.uname())
 
 打开`armbian-config`，选中Network，选择BTinstall安装蓝牙支持包。
 
-![202108071034](./assets/202108071034.gif)
+![202108071034](./assets/202108071034.webp)
 
 可以使用Xftp传输，安装完毕后断电重启即可。
 
@@ -146,7 +146,7 @@ connect XX:XX:XX:XX #连接设备
 
 
 
-![202108071610](./assets/202108071610.gif)
+![202108071610](./assets/202108071610.webp)
 
 ### 设置蓝牙音频输入/输出
 
@@ -180,7 +180,7 @@ maixsense:~:# pactl list short sinks
 maixsense:~:# pactl set-default-sink 2 
 ```
 
-![202108071726](./assets/202108071726.gif)
+![202108071726](./assets/202108071726.webp)
 
 然后就可以播放音频到蓝牙设备，或者通过蓝牙连接手机当作蓝牙音箱使用。
 
