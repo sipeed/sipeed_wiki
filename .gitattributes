@@ -1,0 +1,25 @@
+# 本仓库历史上同时存在 CRLF 和 LF 的文档，不做全局强制转换，
+# 否则一次格式化会把几万行无关内容塞进 diff，git blame 从此失效。
+#
+# * text=auto 的含义：让 git 自己判断是否文本文件，但保持各文件
+# 现有的行尾不变（不主动改写已有文件）。批量脚本编辑文档时，
+# 读写请用 newline='' 保留原始行尾，详见 AGENTS.md。
+
+* text=auto
+
+# 二进制资源明确标记，避免被当作文本做行尾转换或在 diff 里展开
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.bmp   binary
+*.ico   binary
+*.mp4   binary
+*.webm  binary
+*.pdf   binary
+*.zip   binary
+*.7z    binary
+*.gz    binary
+*.bin   binary
+*.mo    binary
