@@ -164,16 +164,64 @@ update:
 
 ### 压缩（硬指标）
 
-单张 **<300KB 为宜，500KB 为上限**。现状全站 4332 张图共约 897MB，其中 429 张超 500KB、118 张超 1MB——别再往上加。
+单张 **<300KB 为宜，500KB 为上限**。
+
+这不是洁癖：**git 会永久保存每张图的每个历史版本**，一张没压的大图即使以后删掉，也会让之后每一个完整 clone 的人多下载一次。本仓库历史已积到约 1GB，README 因此建议贡献者用 `--depth=1`。你现在省下的每一 MB，是替后面所有人省的。
 
 ```bash
 # 检查自己新加的图
 find docs/hardware/zh/logic_analyzer/<product> -type f -size +500k -printf '%s\t%p\n' | sort -rn
 ```
 
-- 照片/渲染：`convert in.jpg -resize '1600x>' -quality 82 out.jpg`，宽度一般不需要超过 1600px。
-- 软件截图：PNG 先做调色板量化，仍超标就转 JPG。
-- **动图/示意图如果是 html 渲染出来的，去改源 html 的输出尺寸**，不要硬压已经生成的大图。
+### 静态图：先分清是「照片」还是「合成图形」
+
+这是选对压缩方式的**唯一关键**，两类的处理方向完全相反：
+
+| | 照片 / 渲染图 | 合成图形（截图、线稿、原理图、UI） |
+|---|---|---|
+| 特征 | 连续色调、噪点、渐变 | 大片纯色、锐利边缘、文字 |
+| 用 | **JPEG 有损** | **PNG 调色板量化**（或 WebP 无损） |
+| 命令 | `convert in.jpg -resize '1920x>' -quality 85 -strip out.jpg` | `convert in.png -colors 256 -strip -define png:compression-level=9 out.png` |
+| 禁忌 | 别用无损，体积会暴涨 | **别用 JPEG/有损**，文字会糊且更大 |
+
+- 照片宽度一般不需要超过 1920px。
+- 带透明通道的 PNG：若透明其实没被用到（`identify -format '%[opaque]' x.png` 为 true），转 JPEG 零视觉损失；真有透明的，合成**白底**再转（`-background white -alpha remove -alpha off`），别用默认黑底。
+- 相机样片（传感器对比、微光夜视、显微图）**画质本身就是内容，不要有损压缩**。
+- 实测参考：11.7MB 的产品 PNG 转 JPEG 后 444KB（−96%）；1.4MB 的 PulseView 截图调色板量化后 44KB（−97%）且文字依旧锐利。
+
+### 动图：不要直接提交 GIF
+
+先用同样的「照片 / 合成」二分法，再选模式。需要 `sudo apt install webp`（提供 `gif2webp`、`cwebp`）。
+
+```bash
+# 合成图形 / 终端录屏 —— 无损（WebP 无损模式自带调色板，全面强于 GIF）
+gif2webp -min_size -m 6 in.gif -o out.webp
+
+# 实物影像 / 摄像头回放 —— 有损
+gif2webp -lossy -q 35 -m 6 in.gif -o out.webp
+```
+
+**坑一：有损 WebP 对文字是灾难。** 有损走 VP8 的 DCT 变换编码，是为照片设计的；文字和线条是高频锐利边缘，DCT 要堆大量系数才能表示，于是**又大又糊**。实测一个 1884KB 的终端录屏：无损 800KB（−58%），有损 q45 反而 3640KB（**+93%**），`-mixed` 更差（+131%）。
+
+**坑二：缩放要用最近邻，不能用 lanczos。** 终端录屏的本质是少量字形位图重复成千上万次，无损 WebP 靠 LZ77 把这些重复整段匹配掉。lanczos 这类插值滤镜做抗锯齿，会让同一个字母在不同位置变成不同的像素图案，重复匹配全部失效。同一文件缩到 2/3：lanczos 2000KB，**最近邻 570KB**，差 3.5 倍。
+
+```bash
+# 录屏缩放：最近邻 + 不抖动（抖动会毁掉无损赖以生效的平坦色块）
+ffmpeg -i in.gif -vf "scale=iw*2/3:-1:flags=neighbor,split[a][b];\
+[a]palettegen=max_colors=256[p];[b][p]paletteuse=dither=none" out.gif
+```
+
+**缩放尺度**：桌面录屏按 **2/3** 缩（直接砍到 640 会糊到看不清文字）；实物拍摄长边超过 **512** 就缩到 512。缩完务必按原尺寸看一眼文字还认不认得出。
+
+**长录播考虑 MP4。** 超过十几秒、画幅又大的录屏，H.264 的帧间预测碾压 WebP——实测一个 2147KB 的 GIF，WebP 最优 829KB，MP4 只要 87KB。代价是 markdown 要写成 HTML，且 `muted` 和 `playsinline` 不能省，否则 iOS 不自动播放；MP4 也不支持透明通道。
+
+```html
+<video src="./assets/demo.mp4" autoplay loop muted playsinline></video>
+```
+
+已经是 MP4 的不用动——现有 21 个 MP4 共 34MB，码率都合理，重编码收益极小。
+
+**动图/示意图如果是 html 渲染出来的**，去改源 html 的输出尺寸，不要硬压已经生成的大图。
 
 ### 命名与归类
 
