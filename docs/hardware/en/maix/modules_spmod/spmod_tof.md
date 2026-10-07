@@ -43,7 +43,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 | 8 | SCL | I  | Transmit clock signal |
 
 
-<img src="../../assets/spmod/spmod_tof/back.png" height="300" />
+<img src="../assets/spmod/spmod_tof/back.png" height="300" />
 
 - Mode of connection:
 
@@ -58,7 +58,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 |   2.8~3.5V    |  3.3V   |
 |      GND      |   GND   |
 
-<img src="../../assets/spmod/spmod_tof/connection.png" height="250">
+<img src="../assets/spmod/spmod_tof/connection.png" height="250">
 
 
 ## Usage
@@ -128,7 +128,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 
 * C
 
-  <img src="../../assets/spmod/spmod_tof/log_c.png" height="200" />
+  <img src="../assets/spmod/spmod_tof/log_c.png" height="200" />
 
 * MaixPy
 

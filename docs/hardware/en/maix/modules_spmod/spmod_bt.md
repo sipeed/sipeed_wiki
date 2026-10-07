@@ -46,7 +46,7 @@ SPMOD-BT(Bluetooth module) uses YDJ-23.
 | 7 | RST | I/O | Reset (active low) |
 | 8 | TX  | O | Serial output pin (TTL level) |
 
-<img src="../../assets/spmod/spmod_bt/back.jpg" height="250" />
+<img src="../assets/spmod/spmod_bt/back.jpg" height="250" />
 
 - Mode of connection:
 
@@ -57,7 +57,7 @@ SPMOD-BT(Bluetooth module) uses YDJ-23.
 | 1.8-3.3V | 3.3V |
 | GND | GND |
 
-<img src="../../assets/spmod/spmod_bt/connection.png" height="250">
+<img src="../assets/spmod/spmod_bt/connection.png" height="250">
 
 ### AT instruction list:
 

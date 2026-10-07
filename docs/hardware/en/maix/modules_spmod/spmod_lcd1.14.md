@@ -48,7 +48,7 @@ Timing Controller,
 | 7 | SI | I/O  | Master Out Slave In |
 | 8 | BL | I  | BackLight control pin (active high) |
 
-<img src="../../assets/spmod/spmod_lcd1.14/back.png" width="300" />
+<img src="../assets/spmod/spmod_lcd1.14/back.png" width="300" />
 
 - Mode of connection:
 
@@ -63,7 +63,7 @@ Timing Controller,
 |  2.5~4.8V   |  3.3V  |
 |  GND   |  GND   |
 
-<img src="../../assets/spmod/spmod_lcd1.14//connection.png" height="250">
+<img src="../assets/spmod/spmod_lcd1.14/connection.png" height="250">
 
 ## Usage
 

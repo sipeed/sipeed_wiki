@@ -61,7 +61,7 @@ DC-DC, SRAM, LUT, VCOM, and border are supplied with each panel.
 |  2.3-3.6V   |  3.3V   |
 |   GND    |   GND   |
 
-<img src="../../assets/spmod/spmod_eink/connection.png" height="250">
+<img src="../assets/spmod/spmod_eink/connection.png" height="250">
 
 ### AT instruction list
 

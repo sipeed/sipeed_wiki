@@ -47,7 +47,7 @@ SPMOD_LoRa(LoRa Module) uses M-XL8 module.
 | 7 | SI | I/O | Master Out Slave In |
 | 8 | IRQ | I | Connected to DIO0 of the module,，Programmable decision function |
 
-<img src="../../assets/spmod/spmod_lora/back.png" width="300" />
+<img src="../../../assets/spmod/spmod_lora/back.png" width="300" />
 
 - Mode of communication
 
@@ -62,7 +62,7 @@ SPMOD_LoRa(LoRa Module) uses M-XL8 module.
 |  1.8-6.3V    |  3.3V  |
 |   GND      |  GND   |
 
-<img src="../../assets/spmod/spmod_lora//connection.png" height="250">
+<img src="../assets/spmod/spmod_lora/connection.png" height="250">
 
 ## Usage
 

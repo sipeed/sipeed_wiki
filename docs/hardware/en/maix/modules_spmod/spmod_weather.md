@@ -61,7 +61,7 @@ low power consumption (75uA).
 | 7  | NC | NC | Not connected |
 | 8  | SCL | I | Transmit clock signal |
 
-<img src="../../assets/spmod/spmod_weather/back.png" width="300" />
+<img src="../assets/spmod/spmod_weather/back.png" width="300" />
 
 ## Mode of connection:
 
@@ -76,7 +76,7 @@ low power consumption (75uA).
 |   2.8~3.5V    |  3.3V   |
 |      GND      |   GND   |
 
-<img src="../../assets/spmod/spmod_weather/connection.png" height="250">
+<img src="../assets/spmod/spmod_weather/connection.png" height="250">
 
 ## Usage
 
@@ -125,7 +125,7 @@ low power consumption (75uA).
 
 * C
 
-    <img src="../../assets/spmod/spmod_weather/log_c.png" height="200">
+    <img src="../assets/spmod/spmod_weather/log_c.png" height="200">
 
 * MaixPy
 

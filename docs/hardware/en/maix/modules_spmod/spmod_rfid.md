@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../../assets/spmod/spmod_rfid/sp_rfid.png" style="padding-right:100px;" align="right" width="" height="500" />
+<img src="../../../assets/spmod/spmod_rfid/sp_rfid.png" style="padding-right:100px;" align="right" width="" height="500" />
 
 SPMOD_RFID (NFC module) uses  FM17510 IC.
 
@@ -55,7 +55,7 @@ Supports non-contact reader mode in accordance with ISO/IEC 14443 protocol,
 | 7 | SI | I/O | Master Out Slave In |
 | 8 | IRQ | O | Interrupt output pin |
 
-<img src="../../assets/spmod/spmod_rfid/back.png" height="300" />
+<img src="../assets/spmod/spmod_rfid/back.png" height="300" />
 
 - Mode of connection:
 
@@ -70,7 +70,7 @@ Supports non-contact reader mode in accordance with ISO/IEC 14443 protocol,
 | 2.2~3.6V    |  3.3V   |
 | GND       |   GND   |
 
-<img src="../../assets/spmod/spmod_rfid/connection.png" height="250">
+<img src="../assets/spmod/spmod_rfid/connection.png" height="250">
 
 
 ## Usage
