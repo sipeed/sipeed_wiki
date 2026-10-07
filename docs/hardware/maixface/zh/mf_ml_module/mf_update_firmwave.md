@@ -86,7 +86,7 @@
 
 使用USB Type-C 数据线 将**MF 人脸识别模块** 连接 电脑
 
-![MF1 connect USB](../../assets/mf_module/mf1/mf1_view.png)
+![MF1 connect USB](../../../zh/maixface/assets/mf_module/mf1/mf1_view.png)
 
 打开 Kflash_gui 选择需要烧录的文件，选择版型(默认选择`自动选择`， 如果烧录失败则选择 `MaixDuino`)，选择串口号(CH522 有两个串口，失败则尝试另外一个)，配置波特率(默认选择 `150000`, 如果烧录失败则适当减低波特率,如 `115200`)
 
@@ -123,4 +123,4 @@
 
 | 横板 | 竖版 |
 | --- | --- |
-| ![](../../assets/mf_module/mf1/mf_dual_camera_1.jpg) | ![](../../assets/mf_module/mf1/mf_dual_camera_2.png) |
+| ![](../../../zh/maixface/assets/mf_module/mf1/mf_dual_camera_1.jpg) | ![](../../assets/mf_module/mf1/mf_dual_camera_2.png) |

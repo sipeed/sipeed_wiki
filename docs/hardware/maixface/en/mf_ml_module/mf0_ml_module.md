@@ -16,11 +16,11 @@ MF0 face recognition module appearance at a glance
     <tr>
         <td width="100">MF0</td>
         <td>
-            <img src="../../assets/mf_module/mf0_mf0dock/mf0_pin_map.png" width="600" alt="MF0 front">
+            <img src="../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_pin_map.png" width="600" alt="MF0 front">
             Pin Map</br>
         </td>
         <td>
-            <img src="../../assets/mf_module/mf0_mf0dock/mf0_buttom.png" width="600" alt="MF0 back view">
+            <img src="../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_buttom.png" width="600" alt="MF0 back view">
         </td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ MF0 hardware connection:
 | 5 | DTR | BOOT | --- |
 | 6 | RTS | RST | --- |
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_flash.png)
+![](../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_flash.png)
 
 MF0 Dock hardware connection:
 
@@ -109,4 +109,4 @@ After connecting according to the following table, when downloading using kflash
 
 Then use kflash_gui to download the MF0 firmware
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)
+![](../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)

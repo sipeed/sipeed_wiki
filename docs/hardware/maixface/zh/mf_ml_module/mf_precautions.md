@@ -31,7 +31,7 @@
 
 5、M1/M1w 模块的 RST、BANK6/7、摄像头 8 位数据和屏幕 8 位数据的工作电压和容忍电压都是 1.8V，BANK0/1/2/3/4/5 的工作电压和容忍电压都是 3.3V 耐压，一定不能超出耐压范围使用。如果要把 RST 引脚引出使用，强烈建议增加保护电路，以下两种电路都可以起到保护/兼容更高电平的作用：
 
-![](../../assets/other/mf_precautions.png)
+![](../../../zh/maixface/assets/other/mf_precautions.png)
 
 6、IO16（BOOT）要在底板加 10K 上拉电阻到 3.3V
 

@@ -12,7 +12,7 @@ GPIO 是可以复用成别的通信接口，对于 MaixPy3 来说并不需要那
 
 通过查看 MaixII-Dock 的引出管脚图可以知道，那些管脚可以直接用来当 GPIO 口使用
 
-![](./../asserts/M2Dock_pin.png)
+![](../../../../../../hardware/zh/maixII/M2/asserts/M2Dock_pin.png)
 
 > 以下代码由于 MaixPy3 还在优化中，可能不能运行，具体的代码到 [github](https://github.com/sipeed/MaixPy3) 上查看
 

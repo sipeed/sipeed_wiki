@@ -21,7 +21,7 @@ Lichee Book 4A 使用了模块化的设计方式，如果你之前购买了Liche
 > 注意:高性能RISCV消费电子在当前(2024年)还是属于较为早期的阶段，Lichee Book 4A主要面向 RISC-V 开发者体验开发使用，至少要求熟练的Linux操作经验，普通消费者是无法直接上手使用的。
 > 如果你是没有Linux经验的普通用户，请不要购买。
 
-![lbook4a](./assets/lbook/lbook.jpg)
+![lbook4a](assets/lbook4a/lbook.jpg)
 
 
 ## 技术规格

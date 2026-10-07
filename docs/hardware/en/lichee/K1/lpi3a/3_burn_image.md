@@ -21,15 +21,15 @@ LicheePi3A image from Spacemit
 Spacemit image: https://archive.spacemit.com/image/k1/version/debian/
 
 ### Fedora 
-![fedora](./assets/images/fedora.png)
+![fedora](assets/image/fedora.png)
 https://images.fedoravforce.com/LicheePi%203A
 
 ### openKylin 
-![openKylin](./assets/images/openkylin.png)
+![openKylin](assets/image/openkylin.png)
 https://www.openkylin.top/downloads/
 
 ### Deepin 
-![deepin](./assets/images/deepin.jpg)   
+![deepin](assets/image/deepin.jpg)   
 https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240815/riscv64/
 
 ### irradium 

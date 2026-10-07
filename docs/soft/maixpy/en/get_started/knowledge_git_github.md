@@ -132,7 +132,7 @@ Everyone asks questions here, similar to forums, they will be recorded for easy 
 ## What is fork
 
 On github, there is a fork button in the upper right corner of the warehouse page
-![](/assets/other/github_star.jpg)
+![](../../assets/other/github_star.jpg)
 Click to fork the warehouse to your own warehouse, which is equivalent to a copy. The reason why it is called fork is that after you fork into your own warehouse, you can modify your own warehouse at will, which is regarded as a development branch of the original fork warehouse. Derived from it but not the same as it
 
 

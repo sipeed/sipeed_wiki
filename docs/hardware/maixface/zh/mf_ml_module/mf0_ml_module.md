@@ -16,11 +16,11 @@ MF0 人脸识别模块外观一览
     <tr>
         <td  width="100">MF0</td>
         <td>
-            <img src="../../assets/mf_module/mf0_mf0dock/mf0_pin_map.png" width="600" alt="MF0 正面">
+            <img src="../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_pin_map.png" width="600" alt="MF0 正面">
             Pin Map</br>
         </td>
         <td>
-            <img src="../../assets/mf_module/mf0_mf0dock/mf0_buttom.png" width="600" alt="MF0 背面视图">
+            <img src="../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_buttom.png" width="600" alt="MF0 背面视图">
         </td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ MF0 硬件连接：
 | 5 | DTR | BOOT | --- |
 | 6 | RTS | RST | --- |
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_flash.png)
+![](../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_flash.png)
 
 MF0 Dock 硬件连接：
 
@@ -109,4 +109,4 @@ MF0 Dock 硬件连接：
 
 然后使用 kflash_gui 下载 MF0 固件
 
-![](../../assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)
+![](../../../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_upgrade_firmwave.png)

@@ -91,11 +91,11 @@ Additionally, the Lichee Cluster 3A is equipped with a BMC (Baseboard Management
 
 ### Motherboard introduction
 
-![lc3a_top](./assets/lc3a/lc3a_top.png)
+![lc3a_top](assets/lc3a_top.png)
 
 ### Motherboard frame diagram
 
-![lc3a_architecture](./assets/lc3a/lc3a_architecture.png)
+![lc3a_architecture](assets/lc3a_architecture.png)
 
 LicheeRV SOM (D1 C906@1GHz) has 5 native serial ports and two USB serial ports, which are independently connected to 7 SOMs.
 
@@ -111,7 +111,7 @@ It is recommended to choose the MINI-ITX chassis. This chassis has good appearan
 
 The chassis is adapted to the MINI-ITX motherboard, equipped with a 250W high-power power supply, and installed with a 12cm silent fan for heat dissipation, which can ensure that the CPU temperature is below 70 degrees when running at full load.
 
-![lc3a_box](./assets/lc3a/lc3a_box.png)
+![lc3a_box](assets/lc3a_box.png)
 
 ### Hardware Installation Guide
 
@@ -129,7 +129,7 @@ After placing the core board, apply downward pressure evenly
 
 After hearing a click, confirm that the white lock is properly engaged and the installation is complete. If you need to take out the core board, just pull the white locks to both sides.
 
-![lc3a_install_slot](./assets/lc3a/lc3a_install_slot.jpeg)
+![lc3a_install_slot](assets/lc3a_install_slot.jpeg)
 
 #### Install BMC
 
@@ -141,7 +141,7 @@ Optional ATX power supply or DC movie power supply.
 
 Make sure the buckle of the ATX power socket is fastened to avoid poor contact causing the connector to heat up.
 
-![lc3a_power_atx20_cable](./assets/lc3a/lc3a_power_atx20_cable.png)
+![lc3a_power_atx20_cable](assets/lc3a_power_atx20_cable.png)
 
 Plug in the jumper cap
 

@@ -20,7 +20,7 @@ Thanks to the modular SOM design, Lichee Book 4A can also be upgraded to LM3A or
 > Note: High-performance RISC-V consumer electronics are still in the early stages as of 2024. Lichee Book 4A is mainly aimed at RISC-V developers with at least proficient Linux operating experience, and ordinary consumers may not be able to use it directly.
 > If you are an ordinary user without Linux experience, please do not purchase
 
-![lbook4a](./assets/lbook/lbook.jpg)
+![lbook4a](assets/lbook4a/lbook.jpg)
 
 
 ## Technical Specifications

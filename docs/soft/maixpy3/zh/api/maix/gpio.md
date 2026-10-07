@@ -10,7 +10,7 @@ desc: maixpy  MaixII M2dock gpio 调试
 
 - lichee/linux-4.9/drivers/pinctrl/sunxi/pinctrl-sun8iw19p1.c
 
-![](./asserts/v831_pin_maps.png)
+![](../../../../../hardware/zh/maixII/M2/asserts/v831_pin_maps.png)
 
 ### V831 Dock PIN Maps
 
@@ -105,7 +105,7 @@ ll /sys/devices/platform/soc/r_pio/
 
 ## Python-gpiod
 
-![](./asserts/v831_gpio.png)
+![](../../../../../hardware/zh/maixII/M2/asserts/v831_gpio.png)
 
 ```python
 import gpiod

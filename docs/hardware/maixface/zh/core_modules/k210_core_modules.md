@@ -11,7 +11,7 @@
 
 |                            | M1                                                           | M1w                                                         | M1n                                                          | MF0                                                          |
 | -------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 外观                       | ![M1 模组](../../assets/mf_module/m1_m1w/sipeed_m1_module.png) | ![M1W 模组](../../assets/mf_module/m1_m1w/sipeed_m1w_module.png) | ![M1n 模组](../../assets/mf_module/m1n/sipeed_m1n_module.png) | ![MF0 模组](../../assets/mf_module/mf0_mf0dock/sipeed_mf0_module.png) |
+| 外观                       | ![M1 模组](../../../zh/maixface/assets/mf_module/m1_m1w/sipeed_m1_module.png) | ![M1W 模组](../../../zh/maixface/assets/mf_module/m1_m1w/sipeed_m1w_module.png) | ![M1n 模组](../../../zh/maixface/assets/mf_module/m1n/sipeed_m1n_module.png) | ![MF0 模组](../../../zh/maixface/assets/mf_module/mf0_mf0dock/sipeed_mf0_module.png) |
 | 尺寸                       | 25.4x25.4x3.3（mm）                                          | 25.4x25.4x3.3（mm）                                         | 25.0x22.0x2.7（mm）                                          | 20.0x20.0x4.5（mm）                                          |
 | 电压输出（提供给底板使用） | 1.8V和3.3V                                                   | 1.8V和3.3V                                                  | 1.8V和3.3V                                                   | 3.3V                                                         |
 | 最大功耗（非瞬态）         | 1.5W                                                         | 3W                                                          | 1.5W                                                         | 1.5W                                                         |
@@ -58,7 +58,7 @@ MF0: https://dl.sipeed.com/MAIX/HDK/Sipeed-MF0/MF0-2802
 
 - 参考自动进入下载模式电路：
 
-![](../../assets/mf_module/m1_m1w/K210_boot_reference.png)
+![](../../../zh/maixface/assets/mf_module/m1_m1w/K210_boot_reference.png)
 
 
 参考来源：

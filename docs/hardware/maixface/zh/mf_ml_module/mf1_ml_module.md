@@ -41,4 +41,4 @@
 ## **功能简介**
 
 
-![MF1 引脚图](../../assets/mf_module/mf1/mf1_pin_map.png)
+![MF1 引脚图](../../../zh/maixface/assets/mf_module/mf1/mf1_pin_map.png)

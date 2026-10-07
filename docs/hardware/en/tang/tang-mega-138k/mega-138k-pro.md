@@ -319,7 +319,7 @@ Tang Mega 138K can meet different needs of customers in various scenarios. For t
 
 1. First, ensure that the IDE has selected the correct model **GW5AST-LV138FPG676AC1/10**; every parameter in the figure below **MUST** be consistent.
 
-<img src="./assets/partno_138K_Pro.png" alt="device_choose" width=35%>
+<img src="assets/partno_138K_pro.png" alt="device_choose" width=35%>
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 
