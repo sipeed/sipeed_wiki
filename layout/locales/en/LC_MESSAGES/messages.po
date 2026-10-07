@@ -71,9 +71,8 @@ msgid "/static/home/banner_slogic16u3.jpg"
 msgstr "/static/home/banner_slogic16u3_en.jpg"
 
 #: home.html:128 slogic.html:59
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=994512536278"
-msgstr "https://www.aliexpress.com/item/1005006080116482.html"
+msgstr "https://www.aliexpress.com/item/1005010321792670.html"
 
 #: home.html:132
 msgid "/static/home/banner_nanokvm_pro.jpg"
@@ -314,9 +313,8 @@ msgid ""
 msgstr ""
 
 #: maix.html:197
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=1050380368975"
-msgstr "https://www.aliexpress.com/item/1005006080116482.html"
+msgstr "https://www.aliexpress.com/item/1005012233581836.html"
 
 #: maix.html:206
 #, fuzzy
@@ -339,9 +337,8 @@ msgstr ""
 "ecosystem."
 
 #: maix.html:231
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=784724795837"
-msgstr "https://www.aliexpress.us/item/325680633"
+msgstr "https://www.aliexpress.com/item/1005008053333693.html"
 
 #: maix.html:242
 msgid "Python 语法，简易 API，快速落地 AI 视觉、听觉应用"
@@ -395,9 +392,8 @@ msgstr ""
 " AI large model support"
 
 #: maix.html:363
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=939632895211"
-msgstr "https://www.aliexpress.us/item/325680633"
+msgstr "https://www.aliexpress.com/item/1005006217277690.html"
 
 #: nanokvm.html:34
 msgid "迷你IP-KVM运维工具"
@@ -412,27 +408,24 @@ msgid "可安装到ATX机箱的IP-KVM"
 msgstr "ATX-case-mountable IP-KVM"
 
 #: nanokvm.html:59
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?ft=t&id=902878081229"
-msgstr "https://www.aliexpress.us/item/100500639"
+msgstr "https://www.aliexpress.com/item/1005008285472731.html"
 
 #: nanokvm.html:68
 msgid "指尖上的USB KVM"
 msgstr "USB KVM at your fingertip"
 
 #: nanokvm.html:76
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?ft=t&id=898108163819"
-msgstr "https://www.aliexpress.com/item/1005006022974163.html"
+msgstr "https://www.aliexpress.com/item/1005008473747668.html"
 
 #: nanokvm.html:85
 msgid "高性能创新性4K IP-KVM"
 msgstr "High-performance, innovative 4K IP-KVM"
 
 #: nanokvm.html:93
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?ft=t&id=994419942411"
-msgstr "https://www.aliexpress.us/item/100500639"
+msgstr "https://www.aliexpress.com/item/1005010048471263.html"
 
 #: nanokvm.html:102
 msgid "一根USB-C线实现4K远程控制"
@@ -606,9 +599,8 @@ msgid "/hardware/zh/tang/tang-console/mega-console.html"
 msgstr "/hardware/en/tang/tang-console/mega-console.html"
 
 #: tang.html:172
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=963677857301"
-msgstr "https://www.aliexpress.com/item/1005006022974163.html"
+msgstr "https://www.aliexpress.com/item/1005008987494656.html"
 
 #: tang.html:180
 msgid "小体积的中等量 FPGA 开发板"
@@ -699,7 +691,6 @@ msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
 msgstr "/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"
 
 #: tang.html:300
-#, fuzzy
 msgid "https://item.taobao.com/item.htm?id=661994055100"
 msgstr "https://www.aliexpress.com/item/1005003152104886.html"
 
