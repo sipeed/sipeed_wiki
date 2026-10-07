@@ -31,4 +31,4 @@ lunch
 用户名: tina
 密码: tina
 ```
-![](./assets/enviroument.png)
+![](assets/environment.png)

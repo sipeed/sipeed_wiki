@@ -36,7 +36,6 @@ docs/hardware/zh/maixface/mf_ml_module/mf0_ml_module.md	./../zh/maixface/assets/
 docs/hardware/zh/maixface/mf_ml_module/mf1_ml_module.md	./../assests/front.png
 docs/hardware/zh/maixface/mf_ml_module/mf1_ml_module.md	assests/bottom.jpg
 docs/hardware/zh/modules_spmod/spmod_template.md	../../assets/spmod/sipeed_spmod_xxx.jpg
-docs/soft/Lichee/zh/Lichee-RV/contribution/Dual_screen_display/environment.md	./assets/enviroument.png
 docs/soft/Lichee/zh/Lichee-RV/get_started/user.md	./../assets/RV/wifi-1.jpg
 docs/soft/Lichee/zh/Lichee-RV/get_started/user.md	./../assets/RV/wifi-2.jpg
 docs/soft/Lichee/zh/MaixII/V83X/contribution/v83x_sdk_compile/V83x_sdk_kernel_compile.md	./assets/11.png
@@ -52,5 +51,4 @@ docs/soft/maixpy/zh/develop_kit_board/develop_kit_board.md	../../assets/dk_board
 docs/soft/maixpy/zh/develop_kit_board/develop_kit_board.md	../../assets/dk_board/maix_cube/maixcube_2020-06-13_06-31-29.png
 docs/soft/maixpy3/zh/usage/hardware/back/PWM_1.md	./../asserts/pwm.gif
 docs/soft/maixpy3/zh/usage/hardware/back/PWM_1.md	./../asserts/pwm.jpg
-news/others/831_ssh/831_ssh.md	./assets/succeed_login.png
 pages/index/zh/threshold.html	demo_color.jpg
