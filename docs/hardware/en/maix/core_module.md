@@ -22,9 +22,9 @@ M1/M1W模块是基于嘉楠堪智科技的边缘智能计算芯片 K210 (RISC-V�
 M1/M1W Al模块系统主要由电源(3 Channel DC-DC)、Flash芯片(16M)电路、K210芯片和WiFi芯片四部分组成。K210作为核心单元，功能非常很强大，芯片内置64位双核处理器，拥有8M的片上SRAM。模块在Al机器视觉、听觉性能方便表现突出，芯片总算力可达1TOPS，芯片内置多种硬件加速单元(KPU、FPU，FFT等)，可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。M1W模块嵌入无线WiFi功能，可轻松实现联网控制。
 
 
-<p><img loading="M1/M1W" src="./assets/m1_m1w/M1_vs_M1W.png" width = 500 ></p>
+<p><img loading="M1/M1W" src="../../zh/maix/assets/m1_m1w/M1_vs_M1W.png" width = 500 ></p>
 <p><img loading="M1/M1W" src="./assets/m1_m1w/M1_pin.jpg" width = 500 ></p>
-<p><img loading="M1/M1W" src="./assets/m1_m1w/M1W_2.png" width=500 ></p>
+<p><img loading="M1/M1W" src="../../zh/maix/assets/m1_m1w/M1W_2.png" width=500 ></p>
 
 <table role="table" class="center_table">
     <thead>

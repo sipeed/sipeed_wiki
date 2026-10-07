@@ -52,15 +52,15 @@ MaixII-Dock 可以通过 OTG 接口转发到 127.0.0.1 的 22 端口，但是每
 
 与 SSH 同理。
 
-![](./asserts/mobaxterm_ftp.png)
+![](../../../../zh/maixII/M2/tools/asserts/mobaxterm_ftp.png)
 
 进入后就可以看到文件夹了。
 
-![](./asserts/mobaxterm_ftp.jpg)
+![](../../../../zh/maixII/M2/tools/asserts/mobaxterm_ftp.jpg)
 
 可以拖拽文件上传和下载。
 
-![](./asserts/mobaxterm_ftp_ud.png)
+![](../../../../zh/maixII/M2/tools/asserts/mobaxterm_ftp_ud.png)
 
 ## 如何进行编程
 

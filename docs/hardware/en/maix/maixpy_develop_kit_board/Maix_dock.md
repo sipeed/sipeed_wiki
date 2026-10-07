@@ -14,7 +14,7 @@ MAIX Dock开发板是SiPEED公司MAIX产品线的一员，基于嘉楠堪智科�
 
 ## 外观
 <img src="./../assets/dk_board/maix_dock/Maix_Dock_3.jpg" alt="11" >
-<img src="./../assets/dk_board/maix_dock/Maix_Dock_2.png" alt="11" >
+<img src="../../../zh/maix/assets/dk_board/maix_dock/Maix_Dock_2.png" alt="11" >
 
 ## 特性
 

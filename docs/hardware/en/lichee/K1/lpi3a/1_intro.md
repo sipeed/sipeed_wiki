@@ -13,19 +13,19 @@ update:
 
 LicheePi 3A is based on the [Lichee Module 3A](http://wiki.sipeed.com/hardware/zh/lichee/K1/lm3a.html)high-performance RISC-V Linux development board for the core board, with [K1](https://www.spacemit.com/key-stone-k1/) SOC（ 8xX60@1.6G ， RV64GCV， 2TOPS@int8   NPU， 20GFLOP GPU）， Onboard maximum 16GB 32-bit LPDDR4X, 128GB eMMC, supports HDMI+MIPI dual 1080P display output, supports 16MP camera access, dual gigabit Ethernet ports (one of which supports POE power supply) and 4 USB3.0 interfaces, as well as 2 PCIE Gen2x2 channels, multiple audio input and output.
 
-![lpi3a](./assets/intro/lpi3a.jpg)
-![pcie](./assets/intro/pcie.png)
+![lpi3a](../../../../zh/lichee/K1/lpi3a/assets/intro/lpi3a.jpg)
+![pcie](../../../../zh/lichee/K1/lpi3a/assets/intro/pcie.png)
 
 LicheePi 3A is currently the most cost-effective mid-range RISC-V SBC. Multi core performance comparable to the previous generation RISC-V SBC [LPi4A](http://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a.html) 80%, with a single core performance of approximately 50%
 
 ![GeekBench6]( https://browser.geekbench.com/v6/cpu/compare/6718771?baseline=5822041 )
-![benchmark](./assets/intro/benchmark.png)
-![geekbench6](./assets/intro/geekbench6.png)
+![benchmark](../../../../zh/lichee/K1/lpi3a/assets/intro/benchmark.png)
+![geekbench6](../../../../zh/lichee/K1/lpi3a/assets/intro/geekbench6.png)
  
 LicheePi 3A can be used as a typical RISC-V verification platform, and its powerful performance enables fast local compilation without the need for QEMU compilation.
 LicheePi 3A is basically compatible with LicheePi4A. If you have purchased LicheePi4A, you can only purchase LM3A to install on the LPi4A motherboard (without M.2 interface).
 
-![desktop](./assets/intro/desktop.jpg)
+![desktop](../../../../zh/lichee/K1/lpi3a/assets/intro/desktop.jpg)
 
 
 ## Basic Parameter

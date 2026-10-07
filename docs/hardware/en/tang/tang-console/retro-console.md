@@ -52,10 +52,10 @@ update:
   <br>  
 
   - **Tang Retro Console Premium** (60k version)  
-    <img src="./assert/retro-console-p_138k.jpg" width="45%">  
+    <img src="../../../zh/tang/tang-console/assert/retro-console-p_138k.jpg" width="45%">  
 
   - **Tang Retro Console** (60k version)  
-    <img src="./assert/retro-console_60k.jpg" width="45%">  
+    <img src="../../../zh/tang/tang-console/assert/retro-console_60k.jpg" width="45%">  
 </details>  
 
 ## Block Diagram  
@@ -66,11 +66,11 @@ update:
 
   Here we take 60k SOM as an example, and the same is true for 138k
   
-  <img src="./assert/tangcores.drawio.svg" width="45%">
+  <img src="../../../zh/tang/tang-console/assert/tangcores.drawio.svg" width="45%">
 
-  <img src="./assert/console_bdt.jpg" width="45%">
+  <img src="../../../zh/tang/tang-console/assert/console_bdt.jpg" width="45%">
     
-  <img src="./assert/console_bdb.jpg" width="45%">  
+  <img src="../../../zh/tang/tang-console/assert/console_bdb.jpg" width="45%">  
 
 </details>  
 
@@ -141,7 +141,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 
 1. **Early Bird Ver. Recommended Method** (All accessories for this method are included in the **Tang Console Retro Premium** package):  
 
-   <img src="./assert/retro-console_assembly-1.jpg" width="45%">  
+   <img src="../../../zh/tang/tang-console/assert/retro-console_assembly-1.jpg" width="45%">  
 
    > Left: USB-OTG card reader + USB-C power supply | Bottom: USB controller **P1** | Top: HDMI output  
 
@@ -160,7 +160,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
    <br>  
 
-   <img src="./assert/retro-console_assembly-0.jpg" width="45%">  
+   <img src="../../../zh/tang/tang-console/assert/retro-console_assembly-0.jpg" width="45%">  
 
    > Bottom Left: USB-OTG | Top Left: USB-C Power Supply | Bottom: USB Controller **P1** | Top Right: HDMI Output  
 
@@ -181,7 +181,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
    <br>  
-   <img src="./assert/retro-console_assembly-2.jpg" width="45%">  
+   <img src="../../../zh/tang/tang-console/assert/retro-console_assembly-2.jpg" width="45%">  
 
    > Left: OTG USB drive + USB-C power supply | Right: DS2 PMOD + DS2 controller | Top: HDMI output  
 
@@ -199,7 +199,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
    <br>  
-   <img src="./assert/retro-console_assembly-3.jpg" width="45%">  
+   <img src="../../../zh/tang/tang-console/assert/retro-console_assembly-3.jpg" width="45%">  
 
    > Left: USB-C OTG HUB + USB drive + USB-C power supply + USB controller **P1** | Top: HDMI output  
 
@@ -221,7 +221,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
       <br>  
-      <img src="./assert/retro-console_menu.jpg" width="45%">  
+      <img src="../../../zh/tang/tang-console/assert/retro-console_menu.jpg" width="45%">  
    </details>  
    <br>
 
@@ -235,7 +235,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
       <br>  
-      <img src="./assert/retro-console_menu1.jpg" width="45%">  
+      <img src="../../../zh/tang/tang-console/assert/retro-console_menu1.jpg" width="45%">  
    </details>  
    <br>
 
@@ -244,7 +244,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
       <br>  
-      <img src="./assert/retro-console_menu2.jpg" width="45%">  
+      <img src="../../../zh/tang/tang-console/assert/retro-console_menu2.jpg" width="45%">  
    </details>  
    <br>
 
@@ -253,7 +253,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
       <br>  
-      <img src="./assert/retro-console_menu3.jpg" width="45%">  
+      <img src="../../../zh/tang/tang-console/assert/retro-console_menu3.jpg" width="45%">  
    </details>  
    <br>
 
@@ -262,7 +262,7 @@ Place the game ROMs you wish to play into their corresponding directories.
    <details>  
    <summary><font color="#4F84FF">Click to View Details</font></summary>  
       <br>  
-      <img src="./assert/retro-console_game.jpg" width="45%">  
+      <img src="../../../zh/tang/tang-console/assert/retro-console_game.jpg" width="45%">  
    </details>  
    <br>
 
@@ -351,7 +351,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 2. Ensure the USB drive/card reader is properly connected.  
 3. Make sure the USB drive/card reader is **≤32GB** and formatted as **FAT32/exFAT**.  
 
-   <img src="./assert/retro-console_menu4.jpg" width="45%">  
+   <img src="../../../zh/tang/tang-console/assert/retro-console_menu4.jpg" width="45%">  
 
 </details>  
 
@@ -366,7 +366,7 @@ Place the game ROMs you wish to play into their corresponding directories.
 1. This indicates that the **`/GBA` directory** on the USB drive or storage card is missing the original GBA BIOS, which may cause compatibility issues with certain ROMs.  
 2. Due to copyright restrictions, we cannot provide this file. You need to obtain the `gba_bios.bin` yourself and place it in the correct location.  
 
-   <img src="./assert/retro-console_menu5.jpg" width="45%">  
+   <img src="../../../zh/tang/tang-console/assert/retro-console_menu5.jpg" width="45%">  
 
 </details>  
 

@@ -48,7 +48,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/nano1k_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/nano1k_update.jpg">
     </details>
     <br>
   
@@ -59,7 +59,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/nano4k_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/nano4k_update.jpg">
     </details>
     <br>
   
@@ -70,7 +70,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/nano9k_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/nano9k_update.jpg">
     </details>
     <br>
   
@@ -81,7 +81,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/nano20k_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/nano20k_update.jpg">
     </details>
     <br>
 
@@ -94,7 +94,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/Primer25k_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/Primer25k_update.jpg">
     </details>
     <br>
   
@@ -105,7 +105,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/Primer20k_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/Primer20k_update.jpg">
     </details>
     <br>
   
@@ -122,7 +122,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/Mega-neo_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/Mega-neo_update.jpg">
     </details>
     <br>
 
@@ -133,7 +133,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/Mega-138kpro_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/Mega-138kpro_update.jpg">
     </details>
     <br>
 
@@ -145,7 +145,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/hardware/Mega-console_update.jpg">
+    <img src="../../../zh/tang/common-doc/assets/hardware/Mega-console_update.jpg">
     </details>
     <br>
 
@@ -185,7 +185,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/mainw_bldc.jpg">
+    <img src="../../../zh/tang/common-doc/assets/mainw_bldc.jpg">
     </details>
     <br>
 
@@ -194,7 +194,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/new_com-port.jpg">
+    <img src="../../../zh/tang/common-doc/assets/new_com-port.jpg">
     </details>
     <br>
 
@@ -203,7 +203,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/set_bldc.jpg">
+    <img src="../../../zh/tang/common-doc/assets/set_bldc.jpg">
     </details>
     <br>
 
@@ -212,7 +212,7 @@ Here is a brief step-by-step guide:
     <details>
     <summary><font color="#4F84FF">Click for details</font></summary>
     <br>
-    <img src="./assets/complete_bldc.jpg">
+    <img src="../../../zh/tang/common-doc/assets/complete_bldc.jpg">
     </details>
     <br>
 
@@ -224,7 +224,7 @@ Here is a brief step-by-step guide:
 
   - In Windows, you can see two new devices in the device manager: **`USB Converter A`** and **`USB Converter B`**.
 
-    ![dual_usbconverter](./assets/ftdi_dual.jpg)
+    ![dual_usbconverter](../../../zh/tang/common-doc/assets/ftdi_dual.jpg)
 
   - To confirm the debugger firmware version, double-click any **`USB Converter`** and go to the Details tab. Then select **`Parent`** Options from the drop-down menu:
 

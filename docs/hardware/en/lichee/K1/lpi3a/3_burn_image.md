@@ -11,7 +11,7 @@ update:
 
 ## Get Images
 ### Bianbu 
-![bianbu](./assets/image/bianbu.png) 
+![bianbu](../../../../zh/lichee/K1/lpi3a/assets/image/bianbu.png) 
 LicheePi3A has been supported by the official bianbu image of Spacemit
 You can go to the official mirror site of Spacemit https://archive.spacemit.com/image/k1/version/bianbu/ ）Download, please note to download images v1.0.11 or higher
 
@@ -48,9 +48,9 @@ https://bianbu.spacemit.com/installation_and_upgrade
 ## Burn eMMC
 ### Use Titan Flasher to flash the device
 When the board detects that the BOOT key is pressed during startup, it can enter the burning mode. That is to say, first press and hold the BOOT key, then plug it in or short press the RESET key to enter the burning mode.
-![flash1](./assets/image/flash1.png) 
-![flash2](./assets/image/flash2.png) 
-![flash3](./assets/image/flash3.png) 
+![flash1](../../../../zh/lichee/K1/lpi3a/assets/image/flash1.png) 
+![flash2](../../../../zh/lichee/K1/lpi3a/assets/image/flash2.png) 
+![flash3](../../../../zh/lichee/K1/lpi3a/assets/image/flash3.png) 
 
 ### Use Fastboot to flash the device
 The zip firmware ending in. zip can be used to flash the device with fastboot after decompression.

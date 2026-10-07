@@ -5,9 +5,9 @@
 ## Overview
 Lichee RV - Nezha CM is a compute module with modular design, equipped with Allwinner D1 chip (based on T-Head XuanTie C906 core), 512MB DDR3 RAM. It can boot from TF card or SD-NAND, uses two sets of M.2 b key 67 pin connectors to route all IO, making it convenient for wide use and easy to replace.
 
-![](./../assets/RV/D1-4.jpg)
+![](../../../zh/lichee/assets/RV/D1-4.jpg)
 
-![](./../assets/RV/D1-back.jpg)
+![](../../../zh/lichee/assets/RV/D1-back.jpg)
 
 ## Specifications
 
@@ -51,11 +51,11 @@ Lichee RV - Nezha CM is a compute module with modular design, equipped with Allw
 
 ## Connect 1.14 inch screen
 
-![](./../assets/RV/D1-1.png)
+![](../../../zh/lichee/assets/RV/D1-1.png)
 
-![](./../assets/RV/D1-2.png)
+![](../../../zh/lichee/assets/RV/D1-2.png)
 
-![](./../assets/RV/D1-3.png)
+![](../../../zh/lichee/assets/RV/D1-3.png)
 
 > Up to now 1.14 inch screen is not able to display and need to wait for updating
 
@@ -81,9 +81,9 @@ If you want to use USB C to C data line, you need do two things：
 
 > ① add two 5.1K 1% 0402 Resistances at R30 and R31 ，② Remove Diode
 
-![](./../assets/RV/other.png)
+![](../../../zh/lichee/assets/RV/other.png)
 
-![](./../assets/RV/D1Core2.png)
+![](../../../zh/lichee/assets/RV/D1Core2.png)
 
 
 ## Download

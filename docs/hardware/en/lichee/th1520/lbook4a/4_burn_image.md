@@ -29,11 +29,11 @@ https://mega.nz/folder/p9BCTbLb#sWSZvLw6nrBmqujQXfvWrg
 
 2. Locate the BOOT button and the RST button.
 
-![boot_and_rst_key](./assets/burn_image/boot_and_rst_key.jpg)
+![boot_and_rst_key](../../../../zh/lichee/th1520/lbook4a/assets/burn_image/boot_and_rst_key.jpg)
 
 3. Press and hold the BOOT button, then press the power button on the keyboard to turn on the device (or press the reset button if the device is already on). Connect the Book to the PC via the Type-C port for flashing the image.
 
-![typec_connect](./assets/burn_image/typec_connect.jpg)
+![typec_connect](../../../../zh/lichee/th1520/lbook4a/assets/burn_image/typec_connect.jpg)
 
 4. Download the flashing image on the PC.
 

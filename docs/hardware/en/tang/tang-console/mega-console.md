@@ -50,9 +50,9 @@ update:
 
 ## Product Appearance
 
-<img src="./assert/console_60k.jpg" width="45%">
+<img src="../../../zh/tang/tang-console/assert/console_60k.jpg" width="45%">
 
-<img src="./assert/console_138k.jpg" width="45%">
+<img src="../../../zh/tang/tang-console/assert/console_138k.jpg" width="45%">
 
 ## Hardware Parameters
 
@@ -62,8 +62,8 @@ update:
   <summary><font color="#4F84FF">Click for details</font></summary>
   <br>
 
-  <img src="./assert/console_bdt.jpg" width="45%">
-  <img src="./assert/console_bdb.jpg" width="45%">
+  <img src="../../../zh/tang/tang-console/assert/console_bdt.jpg" width="45%">
+  <img src="../../../zh/tang/tang-console/assert/console_bdb.jpg" width="45%">
 
 </details>
 
@@ -263,7 +263,7 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 
 1. Setting the **Programmer** as shown in the figure below:
 
-  <img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
+  <img src="../../../zh/tang/assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
 
 </details>
 
@@ -277,11 +277,11 @@ Tang Console can meet different needs of customers in various scenarios. For tec
 
   - For MEGA 60K, **GW5AT-LV60PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
 
-  <img src="../tang-mega-60k/assets/partno_60K.png" alt="device_choose" width=35%>
+  <img src="../../../zh/tang/tang-mega-60k/assets/partno_60K.png" alt="device_choose" width=35%>
 
   - For MEGA 138K, **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent.
 
-  <img src="../tang-mega-138k/assets/partno_138K.png" alt="device_choose" width=35%>
+  <img src="../../../zh/tang/tang-mega-138k/assets/partno_138K.png" alt="device_choose" width=35%>
 
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).

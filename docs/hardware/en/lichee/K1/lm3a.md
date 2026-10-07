@@ -14,9 +14,9 @@ update:
 The LicheePi Module 3A is a core module that utilizes [SpaceMIT](https://spacemit.com/) [K1](https://www.spacemit.com/key-stone-k1/)  as the main controller. The main controller features an octa-core X60 CPU (RV64GCV, 256-bit Vector 1.0), offering 2 TOPS@int8 AI computing power and 1080P video processing capabilities. It supports up to 16GB of LPDDR4X memory and 128GB of eMMC storage, dual gigabit Ethernet, 1080P resolution video output, and PCIE Gen2x2. The LicheePi Module 3A is compatible with the LM4A and can be directly replaced on the baseboard.
 
 
-![top](somtop.jpg)
+![top](../../../zh/lichee/K1/somtop.jpg)
 
-![bot](sombot.jpg)
+![bot](../../../zh/lichee/K1/sombot.jpg)
 
 ## Basic Parameter
 

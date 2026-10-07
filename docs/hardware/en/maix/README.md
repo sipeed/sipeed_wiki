@@ -39,7 +39,7 @@ desc: Silicon Speed Technology's Hardware Information
     </tr>
     <tr>
       <td>Maix Cube</td>
-      <td><a href="./maixpy_develop_kit_board/maix_cube.html" target="_blank"><img src="./assets/dk_board/maix_cube/maix_cube.png" width="260"></a></td>
+      <td><a href="./maixpy_develop_kit_board/maix_cube.html" target="_blank"><img src="../../zh/maix/assets/dk_board/maix_cube/maix_cube.png" width="260"></a></td>
     </tr>
     <tr>
       <td>Maix Amigo</td>
@@ -47,7 +47,7 @@ desc: Silicon Speed Technology's Hardware Information
     </tr>
     <tr>
     <td>Maix nano</td>
-    <td><a href="./maixpy_develop_kit_board/maix_nano.html"><img src="./assets/dk_board/maix_nano/maix_nano.jpg" width="260" alt="Maxi nano"></a></td>
+    <td><a href="./maixpy_develop_kit_board/maix_nano.html"><img src="../../zh/maix/assets/dk_board/maix_nano/maix_nano.jpg" width="260" alt="Maxi nano"></a></td>
     </tr>
   </tbody>
 </table>

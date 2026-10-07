@@ -7,7 +7,7 @@ keywords: riscv, licheerv,nano
 
 The LicheeRV Nano is a mini-sized development board (measuring only 22.86*35.56mm), equipped with the SG2002 processor. It features a powerful core running at 1GHz (RISC-V/ARM options available) and a smaller core at 700MHz RISC-V, along with 256MB DDR3 memory, and an integrated 1Tops NPU. The board includes a wealth of interfaces such as MIPI-CSI, MIPI-DSI, SDIO, ETH, USB, SPI, UART, I2C, etc., allowing for the expansion of a wide variety of applications. Its through-hole/half-hole design facilitates easy mass production and soldering.
 
-![](./../assets/RV_Nano/intro/RV_Nano_1.jpg)
+![](../../../zh/lichee/assets/RV_Nano/intro/RV_Nano_1.jpg)
 
 ## Specifications
 
@@ -30,7 +30,7 @@ The LicheeRV Nano is a mini-sized development board (measuring only 22.86*35.56m
 
 ![](./../assets/RV_Nano/intro/RV_Nano_3.jpg)
 
-![](./../assets/RV_Nano/intro/RV_Nano_4.jpg)
+![](../../../zh/lichee/assets/RV_Nano/intro/RV_Nano_4.jpg)
 
 ## Version Comparison
 

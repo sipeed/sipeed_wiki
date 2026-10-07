@@ -14,17 +14,17 @@ update:
 ### Basic Suite
 
 The package you received contains the following packaging:
-![package](./assets/unbox/package_v1.jpg)
+![package](../../../../zh/lichee/K1/lpi3a/assets/unbox/package_v1.jpg)
 Opening the white cardboard box, you can see the LicheePi3A board and basic accessories (silicone grease sheet+cooling fan+USB-C cable):
-![board](./assets/unbox/package_v1board.jpg)
+![board](../../../../zh/lichee/K1/lpi3a/assets/unbox/package_v1board.jpg)
 If you find missing relevant components after opening the box, please contact customer service for consultation.
 
 
 ### Accessories
 
 LicheePi 4A also has a wide range of accessories to choose from, as shown in the following figure:
-![accessory1](./assets/unbox/acc1.jpg)
-![accessory2](./assets/unbox/acc2.jpg)
+![accessory1](../../../../zh/lichee/K1/lpi3a/assets/unbox/acc1.jpg)
+![accessory2](../../../../zh/lichee/K1/lpi3a/assets/unbox/acc2.jpg)
 
 Purchase instructions:
 
@@ -51,8 +51,8 @@ By default, LM3A SOM is already installed on the motherboard. If you need to upg
       <td colspan=2>First, use your fingers to flick the shrapnel outwards to unlock SOM, and then remove SOM</td>
     </tr>
     <tr>
-      <td><img src="./assets/unbox/unlock_som.jpg" alt="unlock_som"></td>
-      <td><img src="./assets/unbox/remove_som.jpg" alt="remove_som"></td>
+      <td><img src="../../../../zh/lichee/K1/lpi3a/assets/unbox/unlock_som.jpg" alt="unlock_som"></td>
+      <td><img src="../../../../zh/lichee/K1/lpi3a/assets/unbox/remove_som.jpg" alt="remove_som"></td>
     </tr>
    </table>
 
@@ -62,8 +62,8 @@ By default, LM3A SOM is already installed on the motherboard. If you need to upg
       <td colspan=2>First insert the SOM diagonally into the connector slot, then press the SOM, and the two side tabs will automatically lock the SOM</td>
     </tr>
     <tr>
-      <td><img src="./assets/unbox/remove_som.jpg" alt="insert_som"></td>
-      <td><img src="./assets/unbox/lock_som.jpg" alt="lock_som"></td>
+      <td><img src="../../../../zh/lichee/K1/lpi3a/assets/unbox/remove_som.jpg" alt="insert_som"></td>
+      <td><img src="../../../../zh/lichee/K1/lpi3a/assets/unbox/lock_som.jpg" alt="lock_som"></td>
     </tr>
    </table>
 
@@ -74,13 +74,13 @@ LicheePi 3A is a high-performance SBC that requires the installation of an activ
 1. Install thermal conductive silicone grease sheet
 Remove the thermal conductive silicone grease sheet, tear off both sides of the film, place the silicone grease sheet in the position shown in the figure and gently press it to fix it (the silicone grease sheet has a certain degree of viscosity to fix it), paying attention to fully covering the main chip and two memory chips
 
-![silicone_pad](./assets/unbox/silicone_pad.jpg)
+![silicone_pad](../../../../zh/lichee/K1/lpi3a/assets/unbox/silicone_pad.jpg)
 
 2. Install the cooling fan
 
 Align and install a 30mm cooling fan on the silicone grease sheet, and gently press and secure it in place.
 
-![insert_fan](./assets/unbox/insert_fan.jpg)
+![insert_fan](../../../../zh/lichee/K1/lpi3a/assets/unbox/insert_fan.jpg)
 
 3. Install the cooling fan power supply
 4. 
@@ -98,7 +98,7 @@ By default, the WIFI antenna is already installed on the motherboard. If it is r
 
 The assembled state is as follows:
 
-![assemble_ok](./assets/unbox/insert_fan.jpg)
+![assemble_ok](../../../../zh/lichee/K1/lpi3a/assets/unbox/insert_fan.jpg)
 
 
 ## Startup board
@@ -106,7 +106,7 @@ The LicheePi 3A has pre burned the basic system image upon release, allowing you
 
 Connect the monitor (self provided) to the HDMI port of the LicheePi 3A using an HDMI cable (self provided), and connect the matching USB-C cable to a USB power supply with at least 5V2A output (self provided). The LicheePi 3A will start up and the default image will boot up to the login interface of the desktop system within 30 seconds. The first login will enter the user account settings sequence.
 
-![boot_login](./assets/unbox/boot_login.jpg)
+![boot_login](../../../../zh/lichee/K1/lpi3a/assets/unbox/boot_login.jpg)
 
 The default account password configuration for the image is as follows:
 
@@ -133,7 +133,7 @@ The POE module requires manual welding and installation by the user. Please weld
 
 After completing the initial lighting of the board, you can take a moment to familiarize yourself with the hardware of LicheePi 3A, which will facilitate possible maintenance work in the future.
 
-![pi_view](./assets/unbox/pi_view.jpg) 
+![pi_view](../../../../zh/lichee/K1/lpi3a/assets/unbox/pi_view.jpg) 
 
 
 

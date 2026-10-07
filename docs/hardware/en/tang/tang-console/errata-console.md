@@ -19,7 +19,7 @@ update:
     
 1. **BOT side** The silkscreen markings on the **battery connector** are wrong. The markings **`GND`** and **`BAT`** in the figure below should be swapped (the markings on the **TOP side** are correct);
     
-    <img src="./assert/errata/errata_GBL-BAT.jpg" alt="flash_mode" width=35%>
+    <img src="../../../zh/tang/tang-console/assert/errata/errata_GBL-BAT.jpg" alt="flash_mode" width=35%>
 
 </details>
 </br>
@@ -32,7 +32,7 @@ update:
     
 1. **BOT side** The silkscreen markings on the **battery connector** are wrong. The markings **`GND`** and **`BAT`** in the figure below should be swapped (the markings on the **TOP side** are correct);
     
-    <img src="./assert/errata/errata_GBL-BAT.jpg" alt="flash_mode" width=35%>
+    <img src="../../../zh/tang/tang-console/assert/errata/errata_GBL-BAT.jpg" alt="flash_mode" width=35%>
 
 </details>
 </br>
@@ -45,7 +45,7 @@ update:
     
 1. **BOT side** The silkscreen markings on the **battery connector** are wrong. The markings **`GND`** and **`BAT`** in the figure below should be swapped (the markings on the **TOP side** are correct);
     
-    <img src="./assert/errata/errata_GBL-BAT.jpg" alt="flash_mode" width=35%>
+    <img src="../../../zh/tang/tang-console/assert/errata/errata_GBL-BAT.jpg" alt="flash_mode" width=35%>
 
 </details>
 </br>

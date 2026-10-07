@@ -8,13 +8,13 @@ The ultra-small core board size can be applied in any volume-restricted scenario
 The simple base board can connect a USB joystick, plug in a 40Pin SDRAM module, and three PMOD interfaces can connect to an HDMI display, PS2 joystick to form a typical RetroGame console configuration.
 It can also be paired with the series of PMOD modules produced by Sipeed, for use in FPGA university teaching.
 
-<div> <img src="./assets/25k_45.jpg" width=45%> <img src="./assets/25k_dock_45.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-primer-25k/assets/25k_45.jpg" width=45%> <img src="../../../zh/tang/tang-primer-25k/assets/25k_dock_45.jpg" width=45%> </div>
 
 Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html?gatewayAdapt=glo2usa4itemAdapt)
 
 ## Core Board Overview
 
-<div> <img src="./assets/25k_top.jpg" width=45%> <img src="./assets/25k_bot.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-primer-25k/assets/25k_top.jpg" width=45%> <img src="../../../zh/tang/tang-primer-25k/assets/25k_bot.jpg" width=45%> </div>
 
 ## Basic Parameters
 
@@ -100,7 +100,7 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
 
 ## Dock Base Board Product Image
 
-<div> <img src="./assets/25k_dock_top.jpg" width=45%> <img src="./assets/25k_dock_bot.jpg" width=45%> </div>
+<div> <img src="./assets/25k_dock_top.jpg" width=45%> <img src="../../../zh/tang/tang-primer-25k/assets/25k_dock_bot.jpg" width=45%> </div>
 
 ## Board Parameters
 
@@ -193,13 +193,13 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
 
 Set the following options:
 
-<img src="./assets/flash_mode.png" alt="flash_mode" width=75%>
+<img src="../../../zh/tang/tang-primer-25k/assets/flash_mode.png" alt="flash_mode" width=75%>
 
 ### No Response or Incorrect Pin Phenomenon After Burning
 
 First, make sure the correct model is selected, each parameter in the figure below is required to be consistent
 
-<img src="./assets/partno.jpg" alt="device_choose" width=75%>
+<img src="../../../zh/tang/tang-primer-25k/assets/partno.jpg" alt="device_choose" width=75%>
 
 Then check whether your code and the corresponding simulation waveform meet the requirements
 

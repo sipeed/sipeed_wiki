@@ -15,7 +15,7 @@ This section introduces the usage and operation related to **SLogic16 U3** hardw
 
 ### Accessories List
 
-![unboxing_0](./assets/DCIM/unboxing_0.png)
+![unboxing_0](../../../zh/logic_analyzer/slogic16u3/assets/DCIM/unboxing_0.png)
 
 A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories inside the package**, as shown below:
 - <!DOCTYPE html>
@@ -33,7 +33,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
     <details class="indent">
       <summary><font color="#4F84FF"><b>SLoigc16 U3 Main Unit</b> x1
   </font></summary>
-      <img src="./assets/DCIM/15k_la_photo.png">
+      <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/15k_la_photo.png">
     </details>
   </body>
   </html>
@@ -53,7 +53,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>2x6P Male-to-Female Ribbon Cable</b> x2
       </font></summary>
-          <img src="./assets/DCIM/normal_cable.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/normal_cable.jpg">
         </details>
       </body>
       </html>
@@ -72,7 +72,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>2x4P Coaxial Cable Module</b> x2
       </font></summary>
-          <img src="./assets/DCIM/coaxial_cable.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/coaxial_cable.jpg">
         </details>
       </body>
       </html>
@@ -91,7 +91,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>Logic Analyzer Test Clips</b> x16
       </font></summary>
-          <img src="./assets/DCIM/testing_hook.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/testing_hook.jpg">
         </details>
       </body>
       </html>
@@ -110,7 +110,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>0.5m A+C to C USB3 Data Cable</b> x1
       </font></summary>
-          <img src="./assets/DCIM/usb3_cable.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/usb3_cable.jpg">
         </details>
       </body>
       </html>
@@ -129,7 +129,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>Stainless Steel SIM Pin</b> x1
       </font></summary>
-          <img src="./assets/DCIM/small_pin.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/small_pin.jpg">
         </details>
       </body>
       </html>
@@ -148,7 +148,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>Instruction Card</b> x1
       </font></summary>
-          <img src="./assets/DCIM/readme_card.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/readme_card.jpg">
         </details>
       </body>
       </html>
@@ -167,7 +167,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
         <details class="indent">
           <summary><font color="#4F84FF"><b>Zipper Storage Bag</b> x1
       </font></summary>
-          <img src="./assets/DCIM/storage_bag.jpg">
+          <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/storage_bag.jpg">
         </details>
       </body>
       </html>
@@ -191,7 +191,7 @@ A complete hardware set includes the **SLoigc16 U3 main unit** and **accessories
   <details class="indent">
     <summary><font color="#4F84FF">Click here to view the hardware connection diagram of SLoigc16 U3
 </font></summary>
-    <img src="./assets/MISC/la_topview.jpg">
+    <img src="../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_topview.jpg">
   </details>
   <br>
 </body>
@@ -205,7 +205,7 @@ Each group of **Ribbon cables** has only **2** separate GNDs. When the triangle 
 
 #### Rear of Logic Analyzer
 
-![slogic16_u3_rear](./assets/MISC/la_rearview.jpg)
+![slogic16_u3_rear](../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_rearview.jpg)
 
 The rear of the logic analyzer is a **2x12P** female header with a 2.54mm pitch. The pin definition is shown above (rear view of the logic analyzer).
 
@@ -219,7 +219,7 @@ The digital numbers **0-15** are the sampling channel numbers, corresponding to 
 
 #### Front of Logic Analyzer
 
-![slogic16_u3_rear](./assets/MISC/la_frontview.jpg)
+![slogic16_u3_rear](../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_frontview.jpg)
 
 The above is the front view of the logic analyzer, from left to right:
 
@@ -250,7 +250,7 @@ First, connect **PC USB3** → **USB-A/C to USB-C** → **SLogic** → **Ribbon 
   <details class="indent">
     <summary><font color="#4F84FF">Click here to view the hardware connection of SLoigc16 U3
 </font></summary>
-    <img src="./assets/DCIM/SLogic16U3.jpg">
+    <img src="../../../zh/logic_analyzer/slogic16u3/assets/DCIM/SLogic16U3.jpg">
   </details>
   <br>
 </body>
@@ -276,7 +276,7 @@ For software installation and related operations, refer to [here](./Introduction
 
 The **ACT indicator** is located on the front of the logic analyzer, near the outer side.
 
-![slogic16_u3_rear](./assets/MISC/la_frontview_act.jpg)
+![slogic16_u3_rear](../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_frontview_act.jpg)
 
 ### Colors & Functions
 
@@ -333,7 +333,7 @@ Abnormal states:
 
 The **MODE button** is on the front of the logic analyzer, between the **USB-C connector** and **ACT indicator**. It is hidden and requires a SIM pin to press.
 
-![slogic16_u3_rear](./assets/MISC/la_frontview_mode.jpg)
+![slogic16_u3_rear](../../../zh/logic_analyzer/slogic16u3/assets/MISC/la_frontview_mode.jpg)
 
 When powered on, the default function is **Logic Analyzer**. Normally, the [ACT indicator](#ACT-Indicator) shows cyan.  
 A new **USB3** device appears: **SLogic16 U3** (logic analyzer).

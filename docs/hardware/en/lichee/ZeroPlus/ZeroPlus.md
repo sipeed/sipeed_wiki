@@ -10,7 +10,7 @@ Lichee Zero Plus是基于全志科技的S3 (ARM Cortex-A7内核)的高性能CPU�
 ## 参数
 ### 芯片
 S3芯片架构
-![](./../assets/Zero-Plus/Plus_2.png)
+![](../../../zh/lichee/assets/Zero-Plus/Plus_2.png)
 
 | 项目 | 参数 |
 | --- | --- |

@@ -8,7 +8,7 @@
 MAIX Nano开发板是SiPEED公司MAIX产品线的一员，基于嘉楠堪智科技的边缘智能计算芯片K210(RISC-V架构 64位双核)设计的一款AIOT开发板。开发板使用模块+底板方式设计，整洁小巧，板载Type-C接口和USB-UART电路，用户可以直接通过USB Type-C线连接电脑进行开发，配置128Mbit Flash、LCD、DVP、Micro SD卡等接口并把所有IO引出，方便用户扩展。
 
 ## 外观
-<img src="./../assets/dk_board/maix_nano/maix_nano.jpg" alt="Maxi nano" >
+<img src="../../../zh/maix/assets/dk_board/maix_nano/maix_nano.jpg" alt="Maxi nano" >
 
 ## 特性
 
@@ -23,7 +23,7 @@ MAIX Nano开发板以K210作为核心单元，功能非常很强大，芯片内�
 农业应用，如农业监测，病虫害监测，自动控制等
 
 ## 参数
-![maix_nano](./../assets/dk_board/maix_nano/maix_nano.png)
+![maix_nano](../../../zh/maix/assets/dk_board/maix_nano/maix_nano.png)
 <table role="table" class="center_table">
     <thead>
         <tr>

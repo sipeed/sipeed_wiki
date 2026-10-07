@@ -20,7 +20,7 @@ Thanks to the modular SOM design, Lichee Book 4A can also be upgraded to LM3A or
 > Note: High-performance RISC-V consumer electronics are still in the early stages as of 2024. Lichee Book 4A is mainly aimed at RISC-V developers with at least proficient Linux operating experience, and ordinary consumers may not be able to use it directly.
 > If you are an ordinary user without Linux experience, please do not purchase
 
-![lbook4a](assets/lbook4a/lbook.jpg)
+![lbook4a](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/lbook.jpg)
 
 
 ## Technical Specifications
@@ -101,28 +101,28 @@ Thanks to the modular SOM design, Lichee Book 4A can also be upgraded to LM3A or
 
 ### Unbox
 Upon receiving the package:
-![unbox1](./assets/lbook4a/unbox1.jpg)
+![unbox1](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox1.jpg)
 
 Open the box, and take out the two parts, the notebook on the top, and the 12V2.5A power adapter and MiniHDMI cable at the bottom.
-![unbox2](./assets/lbook4a/unbox2.jpg)
+![unbox2](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox2.jpg)
 
 
 Take out the main unit, the top view is as shown:
-![unbox3](./assets/lbook4a/unbox3.jpg)
+![unbox3](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox3.jpg)
 
 The bottom view shows an SSD cover, you can unscrew it to install an SSD; the central part is the fan intake, the unit uses a heat pipe + silent fan for cooling to ensure a cool core temperature.
-![unbox4](./assets/lbook4a/unbox4.jpg)
+![unbox4](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox4.jpg)
 
 One side view shows the interfaces from left to right: TF card, 3.5mm headphone jack, USB2.0 interface, and computer lock.
-![unbox5](./assets/lbook4a/unbox5.jpg)
+![unbox5](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox5.jpg)
 
 The other side view shows the interfaces from left to right: USB3.0 port, 12V DC port, miniHDMI port, USB-C port (for download/Host/charging).
-![unbox6](./assets/lbook4a/unbox6.jpg)
+![unbox6](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox6.jpg)
 
 
 (If you purchased a barebones package, refer to the "SOM Installation Guide" section to install the LM4A before proceeding.)
 Open the main unit, press and hold the power button on the top right for 3 seconds to turn it on (release when the screen backlight lights up or the left power indicator lights up).
-![unbox8](./assets/lbook4a/unbox8.jpg)
+![unbox8](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox8.jpg)
 
 
 If the backlight does not light up, the battery might be drained during transportation. Try plugging in the power adapter and holding the power button.
@@ -138,7 +138,7 @@ Refer to the relevant sections of the LicheePi4A documentation for general softw
 
 ### SSDUsage Guide
 The Book supports M.2 2280 SATA SSDs, which can be installed by removing the SSD cover on the back.
-![ssd1](./assets/lbook4a/ssd1.jpg)
+![ssd1](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/ssd1.jpg)
 
 如果你不计划使用SSD，可以手工关闭USB转SSD芯片来降低功耗（约0.6Watt），提升续航：
 
@@ -171,7 +171,7 @@ Then restart to turn off the SATA power.
 ### SOM Installation Guide
 If you purchased the barebones package, you need to install the SOM module.
 Prepare a Phillips screwdriver, remove the back cover (first peel off the two foot pads, each has a screw underneath), install the SOM module, apply thermal grease on the CPU/DDR, place the heatgrease, and reassemble the back cover.
-![unbox7](./assets/lbook4a/unbox7.jpg)
+![unbox7](../../../../zh/lichee/th1520/lbook4a/assets/lbook4a/unbox7.jpg)
 
 
 ## System

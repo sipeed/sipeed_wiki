@@ -86,9 +86,9 @@ Use the USB Type-C data cable to connect the **MF face recognition module** to t
 
 Open Kflash_gui, select the file to be burned, select the version (default is `automatic selection`, if the burn fails, select `MaixDuino`), select the serial port number (CH522 has two serial ports, try the other one if it fails), configure the wave Special rate (default is `150000`, if programming fails, reduce the baud rate appropriately, such as `115200`)
 
-![image-20200806103433410](../../../en/maix/assets/kflash_gui/image-20200806103433410.png)
+![image-20200806103433410](../../../zh/maix/assets/kflash_gui/image-20200806103433410.png)
 
-![image-20200806105056527](../../../en/maix/assets/kflash_gui/image-20200806105056527.png)
+![image-20200806105056527](../../../zh/maix/assets/kflash_gui/image-20200806105056527.png)
 
 ## How to get Key (Machine Code)
 
@@ -108,7 +108,7 @@ It is recommended to use [`XCOM`](tools/XCOM_V2.2.exe) to view the serial port i
 Tap `DTR` and release it to reset the module and see the startup information
 
 <center class="half">
-<img src="../../../en/maix/assets/other/how_to_get_key.png" height = 50% width = 80% />
+<img src="../../../zh/maix/assets/other/how_to_get_key.png" height = 50% width = 80% />
 </center>
 
 

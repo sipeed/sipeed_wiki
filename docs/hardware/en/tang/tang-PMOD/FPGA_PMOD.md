@@ -6,7 +6,7 @@ The TANG PMOD module is a FPGA expansion module compatible with the **Digilent P
 
 Different modules provide various expansion functions, and they can be combined freely to achieve the required functionalities.
 
-<div> <img src="./assets/PMOD-all.jpg" width=45%> <img src="./assets/25K_PMOD.jpg" width=45%> <img src="./assets/138K_PMOD.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/PMOD-all.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/25K_PMOD.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/138K_PMOD.jpg" width=45%> </div>
 
 Purchase link: [AliExpress](https://www.aliexpress.us/item/1005006265716790.html?pdp_npi)
 
@@ -19,7 +19,7 @@ Purchase link: [AliExpress](https://www.aliexpress.us/item/1005006265716790.html
 This module features 8 LEDs, each corresponding to one of the 8 IOs.
 Example: [pmod_digitalTube-2bit](https://github.com/sipeed/TangPrimer-25K-example/tree/main/pmod_digitalTube-2bit)
 
-<div> <img src="./assets/PMOD_LEDx8_top.jpg" width=45%> <img src="./assets/PMOD_LEDx8_bot.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_LEDx8_top.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_LEDx8_bot.jpg" width=45%> </div>
 
 ## PMOD_BTN4+4
 
@@ -29,8 +29,8 @@ The module includes 4 push buttons and a 4-position DIP switch.
 Example: [pmod_digitalTube-2bit](https://github.com/sipeed/TangPrimer-25K-example/tree/main/pmod_digitalTube-2bit)
 
 <div>
-<img src="./assets/PMOD_BTN4+4_top.jpg"  width=45%>
-<img src="./assets/PMOD_BTN4+4_bot.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/PMOD_BTN4+4_top.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/PMOD_BTN4+4_bot.jpg"  width=45%>
 </div>
 
 
@@ -41,7 +41,7 @@ Example: [pmod_digitalTube-2bit](https://github.com/sipeed/TangPrimer-25K-exampl
 A 2-digit 7-segment display module.
 Example: [pmod_digitalTube-2bit](https://github.com/sipeed/TangPrimer-25K-example/tree/main/pmod_digitalTube-2bit)
 
-<div> <img src="./assets/PMOD_DTx2_top.jpg" width=45%> <img src="./assets/PMOD_DTx2_bot.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_DTx2_top.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_DTx2_bot.jpg" width=45%> </div>
 
 ## PMOD_DVI
 
@@ -51,8 +51,8 @@ A module for HDMI output/input, which requires the use of LVDS differential pair
 Example: [nestang-25k](https://github.com/sipeed/TangPrimer-25K-example/tree/main/nestang-25k)
 
 <div>
-<img src="./assets/PMOD_DVI_top.jpg"  width=45%>
-<img src="./assets/PMOD_DVI_bot.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/PMOD_DVI_top.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/PMOD_DVI_bot.jpg"  width=45%>
 </div>
 
 
@@ -63,7 +63,7 @@ Example: [nestang-25k](https://github.com/sipeed/TangPrimer-25K-example/tree/mai
 An 8-bit Digital Video Port (DVP) module compatible with M12 lenses.
 Example: [Coming soon..](https://github.com/sipeed/TangPrimer-25K-example/tree/main)
 
-<div> <img src="./assets/PMOD_DVP_top.jpg" width=45%> <img src="./assets/PMOD_DVP_bot.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_DVP_top.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_DVP_bot.jpg" width=45%> </div>
 
 ## PMOD_TF-CARD
 
@@ -72,7 +72,7 @@ Example: [Coming soon..](https://github.com/sipeed/TangPrimer-25K-example/tree/m
 A module that supports standard TF cards and includes card detection functionality.
 Example: [nestang-25k](https://github.com/sipeed/TangPrimer-25K-example/tree/main/nestang-25k)
 
-<div> <img src="./assets/PMOD_TF-CARD_top.jpg" width=45%> <img src="./assets/PMOD_TF-CARD_bot.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_TF-CARD_top.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_TF-CARD_bot.jpg" width=45%> </div>
 
 ## PMOD_HUB75E
 
@@ -82,8 +82,8 @@ A module that supports the HUB75E standard for LED matrix displays.
 Example: [pmod_hub75e](https://github.com/sipeed/TangPrimer-25K-example/tree/main/pmod_hub75e)
 
 <div>
-<img src="./assets/PMOD_HUB75E_top.jpg"  width=45%>
-<img src="./assets/PMOD_HUB75E_bot.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/PMOD_HUB75E_top.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/PMOD_HUB75E_bot.jpg"  width=45%>
 <img src="./assets/PMOD_HUB75E_sample1.jpg"  width=45%>
 <img src="./assets/PMOD_HUB75E_sample2.jpg"  width=45%>
 </div>
@@ -96,7 +96,7 @@ Example: [pmod_hub75e](https://github.com/sipeed/TangPrimer-25K-example/tree/mai
 A module that supports two DS2 controllers (without vibration).
 Example: [nestang-25k](https://github.com/sipeed/TangPrimer-25K-example/tree/main/nestang-25k)
 
-<div> <img src="./assets/PMOD_DS2x2_top.jpg" width=45%> <img src="./assets/PMOD_DS2x2_bot.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_DS2x2_top.jpg" width=45%> <img src="../../../zh/tang/tang-PMOD/assets/PMOD_DS2x2_bot.jpg" width=45%> </div>
 
 # TANG 40P MODULE
 
@@ -113,14 +113,14 @@ Example: [nestang-25k](https://github.com/sipeed/TangPrimer-25K-example/tree/mai
 Schematic: [Tang_sdram_xsds_V1.1_Schematic](https://github.com/sipeed/TangPrimer-25K-example/tree/main/Tang_sdram_xsds_V1.1_Schematic)
 
 <div>
-<img src="./assets/TANG_SDRAM_top.jpg"  width=45%>
-<img src="./assets/TANG_SDRAM_bot.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/TANG_SDRAM_top.jpg"  width=45%>
+<img src="../../../zh/tang/tang-PMOD/assets/TANG_SDRAM_bot.jpg"  width=45%>
 </div>
 
 *Note: This module is not compatible with Mister SDRAM V3.0, please carefully check the corresponding schematic.
 (The difference lies in pins 29 and 30 of the 40P female connector)
 
-<div> <img src="./assets/TANG_SDRAM_diff.jpg" width=45%> </div>
+<div> <img src="../../../zh/tang/tang-PMOD/assets/TANG_SDRAM_diff.jpg" width=45%> </div>
 
 ## Hardware Information
 

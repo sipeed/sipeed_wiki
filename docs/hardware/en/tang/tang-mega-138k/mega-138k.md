@@ -46,7 +46,7 @@ update:
 
 ## Product Appearance
 
-<img src="./assets/mega_138k_top.jpg" width="45%">
+<img src="../../../zh/tang/tang-mega-138k/assets/mega_138k_top.jpg" width="45%">
 
 ## Block Diagram
 
@@ -335,7 +335,7 @@ educational version IDE ≥ 1.9.11.03.
 
 1. Setting the **Programmer** as shown in the figure below:
 
-<img src="./../assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
+<img src="../../../zh/tang/assets/flash_mode_GAO.png" alt="flash_mode" width=35%>
 
 2. Check the position of the DIP switch; the correct position is shown in the figure below:
 
@@ -345,7 +345,7 @@ educational version IDE ≥ 1.9.11.03.
 
 1. First, ensure that the IDE has selected the correct model **GW5AST-LV138PG484AC1/10**; every parameter in the figure below **MUST** be consistent (for the [Device Version](../common-doc/questions#How-to-Identify-Device-Version),please select according to the actual situation).
 
-<img src="./assets/partno_138K.png" alt="device_choose" width=35%>
+<img src="../../../zh/tang/tang-mega-138k/assets/partno_138K.png" alt="device_choose" width=35%>
 
 2. Then, check your code and the corresponding simulation waveforms to meet the requirements. The GAO tools in GOWIN IDE maybe helpful. For more information, please refer to the GOWIN document [SUG100](https://www.gowinsemi.com/upload/database_doc/1885/document/660bb2366d0b3.pdf)(require login).
 

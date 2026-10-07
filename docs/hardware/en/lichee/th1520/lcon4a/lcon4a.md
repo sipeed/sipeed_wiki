@@ -21,7 +21,7 @@ Lichee Console 4A uses a modular design. If you have purchased LicheePi4A before
 > Note: High-performance RISCV consumer electronics are still in a relatively early stage at present (2023). Lichee Console 4A is mainly for RISC-V developers to experience development and use. It requires at least skilled Linux operating experience. Ordinary consumers cannot get started directly. in use.
 > If you are an ordinary user without Linux experience, please do not buy.
 
-![lcon4a](./assets/lcon4a/lcon4a.jpg)
+![lcon4a](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/lcon4a.jpg)
 
 
 ## Technical Specifications
@@ -103,19 +103,19 @@ USB2.0 Type-A, MicroSD Slot </td>
 
 ### Unboxing
 Open the box, the upper layer is the LicheeConsole4A host
-![unbox1](./assets/lcon4a/unbox1.jpg)
+![unbox1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/unbox1.jpg)
 
 After removing the upper host, the lower layer is the 12V3A power adapter and MiniHDMI cable.
-![unbox2](./assets/lcon4a/unbox2.jpg)
+![unbox2](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/unbox2.jpg)
 
 
 Take out the host and get to know the interfaces on the side of the host:
-![unbox3](./assets/lcon4a/unbox3.png)
+![unbox3](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/unbox3.png)
 
 
 (If you purchase a barebones package, you need to check the "SOM Installation Guide" later and install LM4A before proceeding with the following operations.)
 Turn on the host, press and hold the power button in the upper right corner for 3 seconds to turn it on (release it when you see the screen backlight lights up)
-![unbox4](./assets/lcon4a/unbox4.png)
+![unbox4](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/unbox4.png)
 
 If the backlight never lights up, the battery may be exhausted during transportation. You can try plugging in the power adapter and long pressing the power button to turn it on.
 
@@ -130,7 +130,7 @@ For other general software usage, please refer to the relevant documentation cha
 
 ### SSD Installation Guide
 Console supports M.2 2242 SATA interface SSD, which can be installed after removing the SSD cover on the rear case.
-![ssd1](./assets/lcon4a/ssd1.jpg)
+![ssd1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/ssd1.jpg)
 
 ### SOM Installation Guide
 If you choose the barebone package, you need to install the SOM module.
@@ -172,15 +172,15 @@ echo xxx > brightness # xxx is brightness you want, 0~100
 ```
 
 Power consumption composition (300MHz no-load bright screen, 50% brightness)
-![heat1](./assets/lcon4a/power1.png)
+![heat1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/power1.png)
 
 
 ### Heat Dissipation
 Console uses a 3cm turbo fan + 10cm heat pipe to dissipate heat from the CPU. One end of the heat pipe is attached to the CPU, and the other end is dissipated by a turbo fan. The top surface uses thermal conductive silicone grease to contact the bottom case for heat dissipation.
-![heat1](./assets/lcon4a/heat1.jpg)
-![heat1](./assets/lcon4a/heat2.png)
+![heat1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/heat1.jpg)
+![heat1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/heat2.png)
 Under continuous high-load work (such as browser video soft decoding), the CPU temperature can eventually reach 60 to 65 degrees, and the bottom case temperature can reach a maximum of about 50 degrees.
-![heat1](./assets/lcon4a/heat3.jpg)
+![heat1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/heat3.jpg)
 
 If you have better cooling suggestions, you can send an email to support@sipeed.com
 > At present (2023.11), the browser hardware decoding has not yet been adapted, so it will occupy a lot of CPU when watching browser videos. It is expected that the browser hardware decoding function will be incorporated in December.

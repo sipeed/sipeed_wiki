@@ -2,14 +2,14 @@
 
 ## Lichee Zero 
 <div align="center">
-<a href="./Zero/Zero.html" ><img src="./assets/Zero/Zero_1.jpg" width=400></a>
+<a href="./Zero/Zero.html" ><img src="../../zh/lichee/assets/Zero/Zero_1.jpg" width=400></a>
 </div>
 
 ## Lichee Nano 
 
 <div align="center">
 
-<a href="./Nano/Nano.html" ><img src="./assets/Nano/Nano_2.png" width=400></a>
+<a href="./Nano/Nano.html" ><img src="../../zh/lichee/assets/Nano/Nano_2.png" width=400></a>
 
 </div>
 
