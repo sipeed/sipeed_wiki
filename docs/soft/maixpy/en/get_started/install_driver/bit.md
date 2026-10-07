@@ -28,10 +28,10 @@ When we get the MaixPy development board and connect it to the computer, we can 
 - Start menu (right click) -> Device Manager
 - Control Panel -> (Search) Device Manager
 
-<img src="../../../assets/get_started/win_device_1.png" height="400">
+<img src="../../../../maixpy3/zh/assets/get_started/win_device_1.png" height="400">
 
 1. When our system is a Windows 10 system, the system will automatically install the driver for us, and if it is an old version of Win7, win8, we need to install the USB driver manually:
-    ![](../../../assets/get_started/win_device_2.png)
+    ![](../../../../maixpy3/zh/assets/get_started/win_device_2.png)
 
 2. Open the link in the previous section to download the driver
     ![](../../../assets/get_started/win_device_3.png)
@@ -40,4 +40,4 @@ When we get the MaixPy development board and connect it to the computer, we can 
     ![](../../../assets/get_started/drives.webp)
 
 4. After the installation is complete, you can see in the device manager that two serial devices have been identified (only one serial port is available)
-    ![](../../../assets/get_started/win_device_4.png)
+    ![](../../../../maixpy3/zh/assets/get_started/win_device_4.png)

@@ -26,14 +26,14 @@ update:
 > 有些版本的`debian`用户的密码为`sipeed`
 **0714及以后版本的镜像，默认开启了自动登录，自动登录的用户为 `sipeed`**
 
-![usage_login_userpasserward](./assets/desktop/usage_login_userpasserward.png)
+![usage_login_userpasserward](assets/usage/usage_login_userpasserward.png)
 
 ## 打开命令行
 
 在 LicheePi 4A 的 Debian 图形化系统中，使用快捷键 `Ctrl` + `Alt` + `T` 三个组合键可以直接打开命令行终端，来快速方便地操作系统。
 **0714及以后版本的镜像，默认开启了免密码`sudo`**
 
-![usage_debian_terminal_shell_hotkey](./assets/desktop/usage_debian_terminal_shell_hotkey.png)
+![usage_debian_terminal_shell_hotkey](assets/usage/usage_debian_terminal_shell_hotkey.png)
 
 ## 连接网络
 
@@ -47,8 +47,8 @@ LicheePi 4A 由两个千兆网络接口；将已经接通网络的网线插入�
         <td>插上网线之后</td>
     </tr>
     <tr>
-        <td><img src="./assets/desktop/usage_debian_ethernet_port_disconnect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
-        <td><img src="./assets/desktop/usage_debian_ethernet_port_connect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
+        <td><img src="assets/usage/usage_debian_ethernet_port_disconnect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
+        <td><img src="assets/usage/usage_debian_ethernet_port_connect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
     </tr>
     <tr>
         <td colspan=2> 上面两张图对比可以看到：在接上网线前，系统中 <code>Ethernet Network</code> 下面显示着 <code>disconnected</code>, 接上网线后显示 <code>Wired connection </code></td>
@@ -63,11 +63,11 @@ LicheePi 4A 板载无线模组，支持蓝牙和 wifi 。
 
 <table>
     <tr>
-        <td colspan=2><img src="./assets/desktop/usage_debian_select_wireless_network.png" alt="usage_debian_select_wireless_network"></td>
+        <td colspan=2><img src="assets/usage/usage_debian_select_wireless_network.png" alt="usage_debian_select_wireless_network"></td>
     </tr>
     <tr>
-        <td><img src="./assets/desktop/usage_debian_wireless_network_password.png" alt="usage_debian_wireless_network_password"></td>
-        <td><img src="./assets/desktop/usage_debian_wireless_network_connected.png" alt="usage_debian_wireless_network_connected"></td>
+        <td><img src="assets/usage/usage_debian_wireless_network_password.png" alt="usage_debian_wireless_network_password"></td>
+        <td><img src="assets/usage/usage_debian_wireless_network_connected.png" alt="usage_debian_wireless_network_connected"></td>
     </tr>
 </table>
 
@@ -118,7 +118,7 @@ connect 目标设备的mac地址
 
 软件源默认使用 `/etc/apt/sources.list` 文件里面的内容，有额外需要的话可以自行更改。但是要注意需要使用支持 Risc-V 架构的软件源。
 
-![usage_debian_apt_change_source](./assets/desktop/usage_debian_apt_change_source.png)
+![usage_debian_apt_change_source](assets/usage/usage_debian_apt_change_source.png)
 
 ### 升级软件
 
@@ -133,7 +133,7 @@ sudo date -s "20230717 12:00:00"
 
 比如下面是使用 `sudo apt upgrade vim` 来更新 `vim` 这个软件的示例
 
-![usage_debian_apt_upgrade_vim](./assets/desktop/usage_debian_apt_upgrade_vim.png)
+![usage_debian_apt_upgrade_vim](assets/usage/usage_debian_apt_upgrade_vim.png)
 
 若使用 `sudo apt update` 命令时遇到类似下面的提示信息：  
 ```shell
@@ -168,11 +168,11 @@ sudo apt-get update --fix-missing
 
 可以借助于 apt 命令来安装软件；比如使用 `sudo apt install package_name` 命令来安装 `package_name`，下面是使用 apt 来安装 `net-tools` 的例子。
 
-![usage_debian_apt_install_nettools](./assets/desktop/usage_debian_apt_install_nettools.png)
+![usage_debian_apt_install_nettools](assets/usage/usage_debian_apt_install_nettools.png)
 
 安装 `net-tools` 后，就可以使用 `ifconfig` 命令了。
 
-![usage_debian_ifconfig_result_list](./assets/desktop/usage_debian_ifconfig_result_list.png)
+![usage_debian_ifconfig_result_list](assets/usage/usage_debian_ifconfig_result_list.png)
 
 箭头指向的地方就是常说的 IP 地址了。
 
@@ -356,13 +356,13 @@ sudo apt install build-essential
 
 如下是连接 U 盘后，使用 `dmesg` 在命令行终端看到的最新信息（截取）。
 
-![usage_debian_udisk_dmesg](./assets/desktop/usage_debian_udisk_dmesg.png)
+![usage_debian_udisk_dmesg](assets/usage/usage_debian_udisk_dmesg.png)
 
 上面的信息显示出了板卡的外设更改信息；从中可以看到有一个大容量 USB 存储设备连接到了 LicheePi 4A。
 
 使用命令 `cat /proc/partitions | grep "sd*"` 命令可以查看到 U 盘内部的分区个数
 
-![usage_debian_udisk_partition_detail](./assets/desktop/usage_debian_udisk_partition_detail.png)
+![usage_debian_udisk_partition_detail](assets/usage/usage_debian_udisk_partition_detail.png)
 
 以上面的结果为例，其中 `sda` 指代的是整个 U 盘，`sda1` 和 `sda2` 表示的是 U 盘里面的两个分区。
 
@@ -379,11 +379,11 @@ mount /dev/sda2 ~/Desktop/udisk # 挂载 U 盘的 sda2 分区到 udisk 文件夹
         <td> 运行命令后 </td>
     </tr>
     <tr>
-        <td style="white-space:nowrap"><img src="./assets/desktop/usage_debian_udisk_before_mount.png" alt="usage_debian_udisk_before_mount"></td>
-        <td style="white-space:nowrap"><img src="./assets/desktop/usage_debian_udisk_after_mount.png" alt="usage_debian_udisk_after_mount"></td>
+        <td style="white-space:nowrap"><img src="assets/usage/usage_debian_udisk_before_mount.png" alt="usage_debian_udisk_before_mount"></td>
+        <td style="white-space:nowrap"><img src="assets/usage/usage_debian_udisk_after_mount.png" alt="usage_debian_udisk_after_mount"></td>
     </tr>
     <tr>
-        <td colspan=2> 运行命令后桌面新增了一个名为 udisk 的文件夹，使用鼠标双击打开 udisk 文件夹后可以看到文件夹里面的内容与 U 盘里面的实际内容一致 <img src="./assets/desktop/usage_debian_udisk_open_folder.png" alt="usage_debian_udisk_open_folder"></td>
+        <td colspan=2> 运行命令后桌面新增了一个名为 udisk 的文件夹，使用鼠标双击打开 udisk 文件夹后可以看到文件夹里面的内容与 U 盘里面的实际内容一致 <img src="assets/usage/usage_debian_udisk_open_folder.png" alt="usage_debian_udisk_open_folder"></td>
     </tr>
 </table>
 

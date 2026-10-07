@@ -9,7 +9,7 @@ date: 2022-09-21
 
 <div id="title_card">
     <div class="card" style="background-color: #fafbfe">
-        <img src="../../assets/maix-iii-small.png" alt="AXera-Pi 模型转换和部署">
+        <img src="../../../../hardware/assets/maixIII/ax-pi/maix-iii-small.png" alt="AXera-Pi 模型转换和部署">
         <div class="card_info card_purple">
             <div class="title">Maix-III 系列之 AXera-Pi（爱芯派）</div>
             <div class="brief">

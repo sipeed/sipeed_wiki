@@ -20,9 +20,9 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 下面提供了 LCD 相关时序的截图
 
-![](./../../../assets/examples/lcd_pjt_2.png)
+![](../../../../../hardware/zh/tang/assets/examples/lcd_pjt_2.png)
 
-![](./../../../assets/examples/lcd_pjt_3.png)
+![](../../../../../hardware/zh/tang/assets/examples/lcd_pjt_3.png)
 
 上面一张图是时序中的参数表，下面的图是时序图
 
@@ -36,11 +36,11 @@ RGB LCD 显示图像的原理和 VGA 类似，都是在计算机内部以数字�
 
 这里需要使用到 `IP Core Generate` ，位置在 Tools -> IP Core Generate
 
-![](./../../../assets/examples/lcd_pjt_4.png)
+![](../../../../../hardware/zh/tang/assets/examples/lcd_pjt_4.png)
 
 双击 `PLL` ，在弹出窗口 language 选择 Verilog ，CLKIN 为 24MHz ，CLKOUT 为 200MHz，CLKOUTD 要选择 Enable，然后生成时钟为 33.33MHz，Tolerance 选择 0.2%
 
-![](./../../../assets/examples/lcd_pjt_5.png)
+![](../../../../../hardware/zh/tang/assets/examples/lcd_pjt_5.png)
 
 ## osc
 

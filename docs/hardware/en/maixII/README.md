@@ -33,7 +33,7 @@ The chip is Allwinner R329, dual-core A53@1.5GHz, on-chip 256MiB DDR3 memory, du
 
 There are many official open materials, and it is more suitable for developers with strong hands-on ability at present.
 
-![](./M2A/assets/M2A-1.webp)
+![](../../../soft/Lichee/zh/MaixSense/assets/M2A-1.webp)
 
 * Purchase link: [sipeed.aliexpress.com](https://www.aliexpress.com/item/1005003152376519.html)
 * Details: [MaixSense](./M2A/maixsense.md)

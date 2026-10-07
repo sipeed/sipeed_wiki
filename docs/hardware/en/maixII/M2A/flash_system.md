@@ -40,7 +40,7 @@ Tina os need to be compiled by yourself, visit [https://github.com/sipeed/R329-T
 
 Extract your downloaded image file to get the `.img` file, run Etcher, click `Flash from file`, choose the extracted .img file, click `Select target` and choose your sdcard, click `Flash` to burn your sdcard, wait it for finishing.
 
-![burn](./../../maixII/M2A/assets/95133.webp)
+![burn](../../../../soft/Lichee/zh/MaixSense/assets/95133.webp)
 
 If failed burning, try to format your sdcard. For Windows and macos users we suggest use [SD Card Formatter](https://www.sdcard.org/downloads/formatter/eula_windows/SDCardFormatterv5_WinEN.zip "SDCardFormatter") to format sdcard, while for linux users can try [Gparted](https://gparted.org/).
 

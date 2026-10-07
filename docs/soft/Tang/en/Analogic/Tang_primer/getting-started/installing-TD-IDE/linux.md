@@ -37,6 +37,6 @@ Run TD IDE in GUI mode
 ```
 $ td -gui
 ```
-![TD GUI Mode](./../installing-USB-Driver/linux/87078310026779781.jpg "Tang Dynasty SDK in GUI Mode.")
+![TD GUI Mode](../../../../../../../hardware/zh/tang/assets/87078310026779781.jpg "Tang Dynasty SDK in GUI Mode.")
 
 Congratulations, you have installed the TD IDE on Linux.

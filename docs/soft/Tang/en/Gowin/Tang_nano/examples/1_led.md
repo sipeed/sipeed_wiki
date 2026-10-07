@@ -39,7 +39,7 @@ The definition of the function can be done through the assign and always blocks.
 
 The onboard is a RGB(tri-color) LED, the schematic is as follows
 
-![](./../assets/examples/led_pjt_1.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_1.png)
 
 The pin distribution used by the entire program is as follows
 
@@ -93,19 +93,19 @@ In order for fpga to implement the function of the code, it is also necessary to
 
 As shown below, click process in the workspace on the left, then double-click FloorPlanner
 
-![](./../assets/examples/led_pjt_2.png)
+![](../../../../assets/examples/led_pjt_2.png)
 
 The first click in the project, you may be prompted to create a file, click OK
 
 In the pop-up window, switch to Package View, drag the port under Ports to the corresponding pin of fpga, save it, as shown below
 
-![](./../assets/examples/led_pjt_3.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_3.png)
 
 # Synthesis
 
 In the workspace on the left, right-click Synthesize or Place&Route, there will be a run option, click
 
-![](./../assets/examples/led_pjt_4.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_4.png)
 
 # Programe
 
@@ -117,11 +117,11 @@ Burning is done through the Programer
 
 Double-click on the Program Device in the left workspace to open the Programer.
 
-![](./../assets/examples/led_pjt_5.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_5.png)
 
 However, before using Programer, you need to be aware that you can use Programer after both Synthesize and Place&Route are completed, otherwise the software will report error `Bitstream file dose not exists`
 
-![](./../assets/examples/led_pjt_6.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_6.png)
 
 Linux users need to pay attention
 
@@ -131,11 +131,11 @@ Linux users need to pay attention
 
 To select the location where the firmware is programmed, you can click Edit -> Configure Device when the chip is selected.
 
-![](./../assets/examples/led_pjt_7.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_7.png)
 
 In the pop-up window, select the location you want to burn. The flash is selected here. The default burning location is sram.
 
-![](./../assets/examples/led_pjt_8.png)
+![](../../../../../../hardware/zh/tang/assets/examples/led_pjt_8.png)
 
 ## Burning
 

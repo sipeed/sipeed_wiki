@@ -55,7 +55,7 @@ root@maixsense:~# hostname -I
 
 传输文件的时候可以直接把文件拖入或者拉出下图的左红框中。
 
-![](./asserts/mobaxterm_ssh_view.jpg)
+![](../../../../../soft/maixpy3/zh/tools/assets/mobaxterm_ssh_view.jpg)
 
 ## 连接 FTP
 

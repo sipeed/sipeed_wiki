@@ -14,7 +14,7 @@ desc: maixpy  MaixCube
 
 ### 外观一览
 
-![Maix Cube](../../assets/hardware/maix_cube/maixcube_product_appearance.png)
+![Maix Cube](../../../../hardware/zh/maix/assets/dk_board/maix_cube/maixcube_product_appearance.png)
 
 ### 板载功能
 
@@ -35,7 +35,7 @@ desc: maixpy  MaixCube
 
 ### 引脚资源
 
-![Maix Cube](../../assets/hardware/maix_cube/maixcube_resources.png)
+![Maix Cube](../../../../hardware/zh/maix/assets/dk_board/maix_cube/maixcube_resources.png)
 
 ### 板载扩展接口
 
@@ -89,17 +89,17 @@ MaixCube  板载 I2C 传感器/IC
 - 开始菜单(右键) -> 设备管理器
 - 控制面板 -> (搜索)设备管理器
 
-  <img src="../../assetcs/../assets/get_started/win_device_1.png" height="400">
+  <img src="../../../maixpy3/zh/assets/get_started/win_device_1.png" height="400">
 
 1. 当我们的系统是 Win10 系统，系统则会帮我们自动安装驱动，而如果是旧版 Win7，win8 系统我们就需要自己手动安装:
-    ![](../../assetcs/../assets/get_started/win_device_2.png)
+    ![](../../../maixpy3/zh/assets/get_started/win_device_2.png)
 
 1. 打开上一节的链接下载驱动
     ![](../../assetcs/../assets/get_started/win_device_3.png)
 1. 点击安装
     ![](../../assets/get_started/drives.webp)
 1. 安装完成之后，可以在设备管理器看到已经识别到两个串口设备了
-    ![](../../assetcs/../assets/get_started/win_device_4.png)
+    ![](../../../maixpy3/zh/assets/get_started/win_device_4.png)
 
 
 ### 更新固件到最新版

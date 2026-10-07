@@ -10,7 +10,7 @@ Modules using Grove standard interfaces, Grove is a unified interface system use
 ## Grove interface
 
 The cables of the Grove interface have 4 colors, and users can quickly distinguish them according to the colors
-![](../../../assets/hardware/module_grove/grove_interface.jpg)
+![](../../../../../hardware/zh/maix/assets/interface_grove/grove_interface.jpg)
 
 | pin | color | description |
 | --- | --- | --- |

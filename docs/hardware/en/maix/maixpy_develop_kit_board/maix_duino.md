@@ -9,9 +9,9 @@
 
 ### Appearance
 
-![MaixDuino](./../assets/dk_board/maix_duino/maixduino_0.png)
-![MaixDuino](./../assets/dk_board/maix_duino/maixduino_1.png)
-![MaixDuino](./../assets/dk_board/maix_duino/maixduino_2.png)
+![MaixDuino](../../../zh/maix/assets/dk_board/maix_duino/maixduino_0.png)
+![MaixDuino](../../../zh/maix/assets/dk_board/maix_duino/maixduino_1.png)
+![MaixDuino](../../../zh/maix/assets/dk_board/maix_duino/maixduino_2.png)
 
 ### Onboard features
 
@@ -23,7 +23,7 @@
 - I2C DAC
 - PA PAM8403A
 
-![MaixDuino](./../assets/dk_board/maix_duino/maixduino_3.jpg)
+![MaixDuino](../../../zh/maix/assets/dk_board/maix_duino/maixduino_3.jpg)
 
 ## MaixDuino Description
 The Maixduino development board uses the powerful M1Al module as the core unit. The module has a built-in 64-bit dual-core processor chip and 8MB on-chip SRAM. It has outstanding performance in Al machine vision and hearing performance with a total computing power up to 1TOPS (FPU, Fast Fourier Transform Accelerator), which can easily implement machine vision/auditory algorithms for various application scenarios, and can also perform preprocessing for voice direction scanning and voice data output. In addition, the development board is also equipped with an ESP32 module (WiFi+Bluetooth integrated), which can be easily connected to the Internet with simple operations.

@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_tof/sp_tof.png" style="padding-right:100px;" align="right" width="" height="500" />
+<img src="../../../assets/spmod/spmod_tof/sp_tof.png" style="padding-right:100px;" align="right" width="" height="500" />
 
 SPMOD_TOF(TOF module) uses VL53L0X .
 
@@ -43,7 +43,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 | 8 | SCL | I  | Transmit clock signal |
 
 
-<img src="../assets/spmod/spmod_tof/back.png" height="300" />
+<img src="../../../assets/spmod/spmod_tof/back.png" height="300" />
 
 - Mode of connection:
 
@@ -58,7 +58,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 |   2.8~3.5V    |  3.3V   |
 |      GND      |   GND   |
 
-<img src="../assets/spmod/spmod_tof/connection.png" height="250">
+<img src="../../../assets/spmod/spmod_tof/connection.png" height="250">
 
 
 ## Usage
@@ -128,7 +128,7 @@ SPMOD_TOF(TOF module) uses VL53L0X .
 
 * C
 
-  <img src="../assets/spmod/spmod_tof/log_c.png" height="200" />
+  <img src="../../../assets/spmod/spmod_tof/log_c.png" height="200" />
 
 * MaixPy
 
@@ -166,7 +166,7 @@ Modify the following parameters to fit other K210 boards.
 
 - SPMOD_TOF Size drawing:
 
-<img src="../assets/spmod/spmod_tof/sipeed_spmod_tof.png" height="250" />
+<img src="../../../assets/spmod/spmod_tof/sipeed_spmod_tof.png" height="250" />
 
 -----
 

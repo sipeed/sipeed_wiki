@@ -36,11 +36,11 @@ desc: maixpy  如何使用 mobaxterm
 
 > 如果没有设置密码，root 的连接密码是 root 。输入密码的时候是看不到的，在输入结束之后，按回车即可
 
-![](./asserts/mobaxterm_ssh.jpg)
+![](../../../../../soft/maixpy3/zh/tools/assets/mobaxterm_ssh.jpg)
 
 就可以看到 Linux 的登录会话终端了。
 
-![](./asserts/mobaxterm_ssh_view.jpg)
+![](../../../../../soft/maixpy3/zh/tools/assets/mobaxterm_ssh_view.jpg)
 
 > 以下连接方式只是合适在 MaixII-Dock 上使用的，需要使用 MaixPy3 IDE 版本 0.4.2以上的版本
 

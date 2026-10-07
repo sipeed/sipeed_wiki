@@ -9,7 +9,7 @@ desc: maixpy  Maix Nano
 
 ### Appearance list
 
-![Maix Nano](../../assets/hardware/m1n/sipeed_maix_nano.png)
+![Maix Nano](../../../../hardware/zh/maix/assets/m1n/sipeed_maix_nano.png)
 
 ### Onboard functions
 

@@ -30,7 +30,7 @@ The board's onboard 24MHz crystal and USB to JTAG downloader make it easy to con
 
 ## Pinout Diagram
 
-![](./assets/tang_nano_pinout_v1.0.0_w5676_h4000_large.png)
+![](../../../../../hardware/zh/tang/common-doc/assets/tang_nano_pinout_v1.0.0_w5676_h4000_large.png)
 
 ## Resource download link
 

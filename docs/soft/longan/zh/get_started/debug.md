@@ -32,4 +32,4 @@ debug_tool = jlink
 
 切换到 VS CODE 左侧的 `DEBUG` 界面， 点击绿色箭头即可进行调试。
 
-![](../../assets/pio_debug_longan.png).
+![](../../../../hardware/zh/longan/Nano/assets/pio_debug_longan.png).

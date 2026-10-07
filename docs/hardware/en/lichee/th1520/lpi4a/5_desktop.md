@@ -22,14 +22,14 @@ At the login screen, enter the username sipeed and the password licheepi to log 
 
 **Starting from version 0714, the image enables automatic login with the user sipeed.**
 
-![usage_login_userpasserward](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_login_userpasserward.png)
+![usage_login_userpasserward](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_login_userpasserward.png)
 
 ## Open the Command Line
 
 In the Debian graphical system on LicheePi 4A, you can directly open the command line terminal using the shortcut `Ctrl` + `Alt` + `T` for quick and convenient system operations.
 **Starting from version 0714, the image enables passwordless `sudo`**
 
-![usage_debian_terminal_shell_hotkey](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_terminal_shell_hotkey.png)
+![usage_debian_terminal_shell_hotkey](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_terminal_shell_hotkey.png)
 
 ## Connect to the Network
 
@@ -43,8 +43,8 @@ LicheePi 4A has two gigabit network interfaces. To connect to a wired network, s
         <td>After connecting the cable</td>
     </tr>
     <tr>
-        <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ethernet_port_disconnect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
-        <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ethernet_port_connect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
+        <td><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_ethernet_port_disconnect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
+        <td><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_ethernet_port_connect_one.png" alt="usage_debian_ethernet_port_connect_one"></td>
     </tr>
     <tr>
         <td colspan=2> By comparing the two images above, you can see that before connecting the cable, it shows <code>Ethernet Network</code> under <code>disconnected</code>, and after connecting the cable, it shows<code>Wired connection </code></td>
@@ -59,11 +59,11 @@ From the Available networks in the status bar, select the desired wireless netwo
 
 <table>
     <tr>
-        <td colspan=2><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_select_wireless_network.png" alt="usage_debian_select_wireless_network"></td>
+        <td colspan=2><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_select_wireless_network.png" alt="usage_debian_select_wireless_network"></td>
     </tr>
     <tr>
-        <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_wireless_network_password.png" alt="usage_debian_wireless_network_password"></td>
-        <td><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_wireless_network_connected.png" alt="usage_debian_wireless_network_connected"></td>
+        <td><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_wireless_network_password.png" alt="usage_debian_wireless_network_password"></td>
+        <td><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_wireless_network_connected.png" alt="usage_debian_wireless_network_connected"></td>
     </tr>
 </table>
 
@@ -115,7 +115,7 @@ When installing software, it will search for and download the target software fr
 
 By default, the sources are listed in the `/etc/apt/sources.list` file, but you can change it if you need to. You can change this if you need to. However, please note that you need to use sources that support the Risc-V architecture.
 
-![usage_debian_apt_change_source](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_change_source.png)
+![usage_debian_apt_change_source](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_apt_change_source.png)
 
 ### Upgrading the Software
 
@@ -130,7 +130,7 @@ Then use `sudo apt upgrade package_name` to update the software with the name `p
 
 For example, the following is an example of using `sudo apt upgrade vim` to update the program `vim`.
 
-![usage_debian_apt_upgrade_vim](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_upgrade_vim.png)
+![usage_debian_apt_upgrade_vim](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_apt_upgrade_vim.png)
 
 If you use the `sudo apt update` command, you encounter a message similar to the following:  
 ```shell
@@ -165,11 +165,11 @@ sudo apt-get update --fix-missing
 
 Software can be installed with the aid of the apt command; for example, `sudo apt install package_name` is used to install `package_name`, and the following is an example of using apt to install `net-tools`.
 
-![usage_debian_apt_install_nettools](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_apt_install_nettools.png)
+![usage_debian_apt_install_nettools](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_apt_install_nettools.png)
 
 After installing `net-tools`, you can use the `ifconfig` command.
 
-![usage_debian_ifconfig_result_list](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_ifconfig_result_list.png)
+![usage_debian_ifconfig_result_list](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_ifconfig_result_list.png)
 
 The arrow points to what is often referred to as the IP address.
 
@@ -354,13 +354,13 @@ After inserting a USB flash drive into the USB port of the LicheePi 4A, you can 
 
 The following is the latest information seen in the command line terminal using `dmesg` after connecting the USB flash drive (screenshot).
 
-![usage_debian_udisk_dmesg](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_dmesg.png)
+![usage_debian_udisk_dmesg](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_udisk_dmesg.png)
 
 The message above shows the peripheral change information for the board; from this you can see that there is a mass USB storage device connected to the LicheePi 4A.
 
 Use the command `cat /proc/partitions | grep "sd*"` to see the number of partitions within the USB.
 
-![usage_debian_udisk_partition_detail](./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_partition_detail.png)
+![usage_debian_udisk_partition_detail](../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_udisk_partition_detail.png)
 
 Take the above result as an example, where `sda` refers to the whole USB flash drive, and `sda1` and `sda2` represent the two partitions inside the USB flash drive.
 
@@ -377,11 +377,11 @@ mount /dev/sda2 ~/Desktop/udisk # Mount the sda2 partition of the USB flash driv
         <td> After running the command </td>
     </tr>
     <tr>
-        <td style="white-space:nowrap"><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_before_mount.png" alt="usage_debian_udisk_before_mount"></td>
-        <td style="white-space:nowrap"><img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_after_mount.png" alt="usage_debian_udisk_after_mount"></td>
+        <td style="white-space:nowrap"><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_udisk_before_mount.png" alt="usage_debian_udisk_before_mount"></td>
+        <td style="white-space:nowrap"><img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_udisk_after_mount.png" alt="usage_debian_udisk_after_mount"></td>
     </tr>
     <tr>
-        <td colspan=2> After running the command, a new folder named udisk has been added to the desktop, double-click the mouse to open the udisk folder and you can see that the contents of the folder are the same as the actual contents of the USB flash drive. <img src="./../../../../zh/lichee/th1520/lpi4a/assets/desktop/usage_debian_udisk_open_folder.png" alt="usage_debian_udisk_open_folder"></td>
+        <td colspan=2> After running the command, a new folder named udisk has been added to the desktop, double-click the mouse to open the udisk folder and you can see that the contents of the folder are the same as the actual contents of the USB flash drive. <img src="../../../../zh/lichee/th1520/lpi4a/assets/usage/usage_debian_udisk_open_folder.png" alt="usage_debian_udisk_open_folder"></td>
     </tr>
 </table>
 

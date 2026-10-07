@@ -23,15 +23,15 @@ desc: Silicon Speed Technology's Hardware Information
     </tr>
     <tr>
       <td> Maix Go</td>
-      <td><a href="./maixpy_develop_kit_board/maix_go.html" target="_blank"><img src="./assets/dk_board/maix_go/Go.jpg" width="260"></a></td>
+      <td><a href="./maixpy_develop_kit_board/maix_go.html" target="_blank"><img src="../../zh/maix/assets/dk_board/maix_go/Go.jpg" width="260"></a></td>
     </tr>
     <tr>
       <td>Maix Dock</td>
-      <td><a href="./maixpy_develop_kit_board/Maix_dock.html" target="_blank"><img src="./assets/dk_board/maix_dock/Dan_Dock.png" width="260"></a></td>
+      <td><a href="./maixpy_develop_kit_board/Maix_dock.html" target="_blank"><img src="../../zh/maix/assets/dk_board/maix_dock/Dan_Dock.png" width="260"></a></td>
     </tr>
     <tr>
       <td>Maix Duino</td>
-      <td><a href="./maixpy_develop_kit_board/maix_duino.html" target="_blank"><img src="./assets/dk_board/maix_duino/maixduino_0.png" width="260"></a></td>
+      <td><a href="./maixpy_develop_kit_board/maix_duino.html" target="_blank"><img src="../../zh/maix/assets/dk_board/maix_duino/maixduino_0.png" width="260"></a></td>
     </tr>
     <tr>
       <td>Maix Bit</td>

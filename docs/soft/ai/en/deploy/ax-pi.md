@@ -12,7 +12,7 @@ update:
 
 <div id="title_card">
     <div class="card" style="background-color: #fafbfe">
-        <img src="../../assets/maix-iii-small.png" alt="AXera-Pi Model Conversion and Deployment">
+        <img src="../../../../hardware/assets/maixIII/ax-pi/maix-iii-small.png" alt="AXera-Pi Model Conversion and Deployment">
         <div class="card_info card_purple">
             <div class="title">Maix-III Series AXera-Pi</div>
             <div class="brief">

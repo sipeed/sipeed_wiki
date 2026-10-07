@@ -90,8 +90,8 @@ Since MaixPy has many early product lines, the specific development board and pa
     <tr>
         <td>Maix Nano</td>
         <td>
-            <img src="../../assets/hardware/m1n/sipeed_maix_m1n_400x400.jpg" height="200"></br>
-            <img src="../../assets/hardware/m1n/sipeed_maix_nano_400x400.jpg" height="200">
+            <img src="../../../../hardware/zh/maix/assets/m1n/sipeed_maix_m1n_400x400.jpg" height="200"></br>
+            <img src="../../../../hardware/zh/maix/assets/m1n/sipeed_maix_nano_400x400.jpg" height="200">
             </p><a href="https://sipeed.taobao.com/">Click to buy Maix Nano</a>
         </td>
         <td>Core development board</td>

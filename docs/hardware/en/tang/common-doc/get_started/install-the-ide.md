@@ -139,8 +139,8 @@ The Standard edition IDE requires a license, which you should apply for from the
 
 When you run GOWIN IDE, a license manager message box will appear. Once you have a license file you can click `Browse...` and select your license file, then `Check` and finally `Save`.
 
-<img src="../assets/IDE-13.png" alt="Browser lic" width=45%>
-<img src="../assets/check.png"  alt="Check lic"   width=45%>
+<img src="../../../../zh/tang/common-doc/get_started/assets/IDE-13.png" alt="Browser lic" width=45%>
+<img src="../../../../zh/tang/common-doc/get_started/assets/check.png"  alt="Check lic"   width=45%>
 
 Now you can use the GOWIN IDE.
 

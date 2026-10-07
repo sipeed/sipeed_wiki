@@ -28,10 +28,10 @@ Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/fileList/MAIX/tool
 - 开始菜单(右键) -> 设备管理器
 - 控制面板 -> (搜索)设备管理器
 
-<img src="../../../assets/get_started/win_device_1.png" height="400">
+<img src="../../../../maixpy3/zh/assets/get_started/win_device_1.png" height="400">
 
 1. 当我们的系统是 Windows 10 系统,系统则会帮我们自动安装驱动，而如果是旧版 Win7，win8 系统，我们就需要自己手动安装 USB 驱动:
-    ![](../../../assets/get_started/win_device_2.png)
+    ![](../../../../maixpy3/zh/assets/get_started/win_device_2.png)
 
 2. 打开上一节的链接下载驱动
     ![](../../../assets/get_started/win_device_3.png)
@@ -40,4 +40,4 @@ Windows 下载 [ch340 ch341 driver](https://api.dl.sipeed.com/fileList/MAIX/tool
     ![](../../../assets/get_started/drives.webp)
 
 4. 安装完成之后,可以在设备管理器看到已经识别到两个串口设备了(其中只有一个串口可用)
-    ![](../../../assets/get_started/win_device_4.png)
+    ![](../../../../maixpy3/zh/assets/get_started/win_device_4.png)

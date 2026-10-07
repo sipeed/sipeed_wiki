@@ -189,11 +189,11 @@ https://mega.nz/folder/p9BCTbLb#sWSZvLw6nrBmqujQXfvWrg
 
 
 常见应用展示：
-![sys1](./assets/lbook4a/sys1.jpg)
+![sys1](../lcon4a/assets/lcon4a/sys1.jpg)
 
 
 Book 系统架构如下，细节可参照原理图或设备树文件。
-![sys2](./assets/lbook4a/sys2.png)
+![sys2](../lcon4a/assets/lcon4a/sys2.png)
 
 
 

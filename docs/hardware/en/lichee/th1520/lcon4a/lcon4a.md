@@ -146,11 +146,11 @@ Mega cloud disk: [Click me](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_b
 
 
 Common application displays:
-![sys1](./assets/lcon4a/sys1.jpg)
+![sys1](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/sys1.jpg)
 
 
 The Console system architecture is as follows. For details, please refer to the schematic diagram or device tree file.
-![sys2](./assets/lcon4a/sys2.png)
+![sys2](../../../../zh/lichee/th1520/lcon4a/assets/lcon4a/sys2.png)
 
 
 

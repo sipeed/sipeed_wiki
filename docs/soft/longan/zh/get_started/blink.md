@@ -18,7 +18,7 @@ Blink 闪灯程序
 
 * 我们首先需要编辑工程配置文件 `platformio.ini` 根据自己的开发板型号，删掉其他开发板环境。
 
-![](./../../assets/pio_ini_cfg.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_ini_cfg.png)
 
 配置示例
 ```ini
@@ -35,7 +35,7 @@ PIO 可以在配置文件中实现设置宏定义， 控制编译流程等自定
 ## 一键编译
 
 点击左下角的 `Build` 即可构建项目
-![](../../assets/pio_complie.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_complie.png)
 
 ## 连接开发板
 ### 串口 ISP 下载
@@ -76,7 +76,7 @@ upload_protocol = dfu
 
 点击左下角的 `Upload` 即可向开发板上传程序。
 
-![](../../assets/pio_upload.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_upload.png)
 
 
 ## DFU 图形界面下载
@@ -89,7 +89,7 @@ GD32 MCU Dfu Drivers_v1.0.1.2316  和 GD32 MCU Dfu Tool_v3.8.1.5784
 
 先进入driver文件夹，安装对应的驱动文件，注意使用管理员权限运行
 
-![](../../assets/examples/how_to_install_dfu.png)
+![](../../../../hardware/zh/longan/Nano/assets/examples/how_to_install_dfu.png)
 
 运行 GD32 MCU Dfu Tool.exe
 将 Longan Nano 插到电脑，按住 Boot0 键，短按 Reset 键，再松开 Boot0 键，
@@ -99,7 +99,7 @@ GD32 MCU Dfu Drivers_v1.0.1.2316  和 GD32 MCU Dfu Tool_v3.8.1.5784
 
 烧录完成之后不会自动复位，需要自己手工按下复位按键，查看运行效果
 
-![](../../assets/examples/how_to_use_dfu.png)
+![](../../../../hardware/zh/longan/Nano/assets/examples/how_to_use_dfu.png)
 
 ## 使用Zadig安装驱动
 PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libusb 驱动。（注意： 与 GD 官方驱动不同）
@@ -109,4 +109,4 @@ PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libus
 下载成功后打开 Zadig
 
 在下拉栏中选择 GD32V， 替换驱动选择 WinUSB, 点击替换按钮，即可替换成功。
-![](../../assets/dfu_zadig.png)
+![](../../../../hardware/zh/tang/assets/dfu_zadig.png)

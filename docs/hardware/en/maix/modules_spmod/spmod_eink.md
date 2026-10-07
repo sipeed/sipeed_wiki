@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_eink/sp_eink.png" alt="XXX" style="zoom:40%;" />
+<img src="../../../assets/spmod/spmod_eink/sp_eink.png" alt="XXX" style="zoom:40%;" />
 
 SPMOD_Eink(E-paper display module) uses GDEW0154M09 E-paper display.
 
@@ -61,7 +61,7 @@ DC-DC, SRAM, LUT, VCOM, and border are supplied with each panel.
 |  2.3-3.6V   |  3.3V   |
 |   GND    |   GND   |
 
-<img src="../assets/spmod/spmod_eink/connection.png" height="250">
+<img src="../../../assets/spmod/spmod_eink/connection.png" height="250">
 
 ### AT instruction list
 
@@ -166,7 +166,7 @@ DC-DC, SRAM, LUT, VCOM, and border are supplied with each panel.
 
 * MaixPy
 
-  <img src="../assets/spmod/spmod_eink/sp_eink_py.png" height="250" />
+  <img src="../../../assets/spmod/spmod_eink/sp_eink_py.png" height="250" />
 
 ### Transplant
 
@@ -212,7 +212,7 @@ The following parameters need to be modified
 
 - SPMOD_Eink Size drawing:
 
-<img src="../assets/spmod/spmod_eink/sipeed_spmod_eink.png" height="250" />
+<img src="../../../assets/spmod/spmod_eink/sipeed_spmod_eink.png" height="250" />
 
 
 -----

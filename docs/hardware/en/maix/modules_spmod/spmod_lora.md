@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_lora/sp_lora.png" align="right" width="" height="500" />
+<img src="../../../assets/spmod/spmod_lora/sp_lora.png" align="right" width="" height="500" />
 
 SPMOD_LoRa(LoRa Module) uses M-XL8 module.
 
@@ -62,7 +62,7 @@ SPMOD_LoRa(LoRa Module) uses M-XL8 module.
 |  1.8-6.3V    |  3.3V  |
 |   GND      |  GND   |
 
-<img src="../assets/spmod/spmod_lora/connection.png" height="250">
+<img src="../../../assets/spmod/spmod_lora/connection.png" height="250">
 
 ## Usage
 
@@ -142,13 +142,13 @@ SPMOD_LoRa(LoRa Module) uses M-XL8 module.
 * C
 
   <center class="third">
-	  <img src="../assets/spmod/spmod_lora/lora_send_log_c.png" height="250"/><img src="../assets/spmod/spmod_lora/lora_recv_log_c.png" height="250"/>
+	  <img src="../../../assets/spmod/spmod_lora/lora_send_log_c.png" height="250"/><img src="../../../assets/spmod/spmod_lora/lora_recv_log_c.png" height="250"/>
   </center>
 
 * MaixPy
 
   <center class="third">
-	  <img src="../assets/spmod/spmod_lora/lora_send_log.png" height="250"/><img src="../assets/spmod/spmod_lora/lora_recv_log.png" height="250"/>
+	  <img src="../../../assets/spmod/spmod_lora/lora_send_log.png" height="250"/><img src="../../../assets/spmod/spmod_lora/lora_recv_log.png" height="250"/>
   </center>
 
 ### Transplant
@@ -193,7 +193,7 @@ The following parameters need to be modified
 
 - SPMOD_LoRa Size drawing:
 
-<img src="../assets/spmod/spmod_lora/sipeed_spmod_lora.png" height="250" />
+<img src="../../../assets/spmod/spmod_lora/sipeed_spmod_lora.png" height="250" />
 
 -----
 

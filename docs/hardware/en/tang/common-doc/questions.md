@@ -51,7 +51,7 @@ Here are some normal questions.
     <body>
       <details class="indent">
         <summary><font color="#4F84FF">Click here to view the 138K-B FPG676A device version marking</font></summary>
-        <img src="./assets/questions/138K-Pro-Ver.B.jpg">
+        <img src="../../../zh/tang/common-doc/get_started/assets/138K-Pro-Ver.B.jpg">
       </details>
     </body>
     <br>
@@ -210,7 +210,7 @@ The board using GOWIN Semiconductor Arora product family (Series of chip names b
 
 <table>
   <tr>
-    <td rowspan="2"><img src="./../../../zh/tang/tang-primer-20k/examples/assets/led_assets/flash_mode.png" alt="flash_mode"></td>
+    <td rowspan="2"><img src="../../../zh/tang/tang-primer-20k/assets/flash_mode.png" alt="flash_mode"></td>
     <td style="white-space:nowrap">Operation is<br><code>exFlash Erase,Program thru GAO-Bridge</code></td>
   </tr>
   <tr>

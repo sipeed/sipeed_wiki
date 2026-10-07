@@ -90,8 +90,8 @@ desc: maixpy  如何选购开发板
     <tr>
         <td>Maix Nano</td>
         <td>
-            <img src="../../assets/hardware/m1n/sipeed_maix_m1n_400x400.jpg" height="200"></br>
-            <img src="../../assets/hardware/m1n/sipeed_maix_nano_400x400.jpg" height="200">
+            <img src="../../../../hardware/zh/maix/assets/m1n/sipeed_maix_m1n_400x400.jpg" height="200"></br>
+            <img src="../../../../hardware/zh/maix/assets/m1n/sipeed_maix_nano_400x400.jpg" height="200">
             </p><a href="https://sipeed.taobao.com/">点击购买 Maix Nano</a>
         </td>
         <td>核心开发板</td>

@@ -5,7 +5,7 @@ desc: maixpy  K210 module core board
 ---
 
 
-![K210](./../../assets/hardware/k210/k210-front-background.jpg)
+![K210](../../../maixduino/assets/k210-front-background.jpg)
 
 Kendryte K210 is a system-on-chip (SoC) that integrates machine vision and machine hearing capabilities. It uses TSMC's ultra-low power 28-nanometer advanced manufacturing process, with dual-core 64-bit processors, and has good power consumption performance and stability And reliability. The program strives for zero-threshold development, which can be deployed in the user's products in the shortest time, giving the product artificial intelligence.
 

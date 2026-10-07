@@ -6,7 +6,7 @@ The principle of RGB LCD display image is similar to that of VGA. It is to digit
 
 The timing of VGA is introduced below.
 
-![](./../assets/examples/lcd_pjt_1.png)
+![](../../../../assets/examples/lcd_pjt_1.png)
 
 The above figure is the line synchronization and field synchronization timing of VGA in data transmission.
 
@@ -20,9 +20,9 @@ The control timing of this screen is slightly different. You can view the [Speci
 
 Screenshots of LCD related timing are provided below
 
-![](./../assets/examples/lcd_pjt_2.png)
+![](../../../../../../hardware/zh/tang/assets/examples/lcd_pjt_2.png)
 
-![](./../assets/examples/lcd_pjt_3.png)
+![](../../../../../../hardware/zh/tang/assets/examples/lcd_pjt_3.png)
 
 The above picture is the parameter table in the timing, and the following picture is the timing chart.
 
@@ -36,11 +36,11 @@ The onboard crystal clock is 24MHz, but our screen requires a 33.3MHZ clock, so 
 
 Need to use `IP Core Generate` here, located in Tools -> IP Core Generate
 
-![](./../assets/examples/lcd_pjt_4.png)
+![](../../../../../../hardware/zh/tang/assets/examples/lcd_pjt_4.png)
 
 Double-click `PLL`, select Verilog in the pop-up window language, CLKIN is 24MHz, CLKOUT is 200MHz, CLKOUTD should select Enable, then generate clock is 33.33MHz, Tolerance selects 0.2%
 
-![](./../assets/examples/lcd_pjt_5.png)
+![](../../../../../../hardware/zh/tang/assets/examples/lcd_pjt_5.png)
 
 ## 2.osc
 

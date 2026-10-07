@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_extender/sp_extender.png" align="right" width="" height="300" />
+<img src="../../../assets/spmod/spmod_extender/sp_extender.png" align="right" width="" height="300" />
 
 
 SPMOD_Extender(8PIN SP-MOD Expander)
@@ -31,7 +31,7 @@ can also be used as four independent GPIO |
 
 - SPMOD_Extender Size drawing:
 
-<img src="../assets/spmod/spmod_extender/sipeed_spmod_extender.png" height="250" />
+<img src="../../../assets/spmod/spmod_extender/sipeed_spmod_extender.png" height="250" />
 
 -----
 

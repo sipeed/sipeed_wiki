@@ -353,7 +353,7 @@ endmodule
 
 和上面下载到 SRAM 的步骤几乎类似，先点开 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 External Flash Mode 选项来设置为下载到外部 Flash ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件，通常来说下载固件生成与工程文件目录下的 impl -> pnr 目录下。最后在下面的外部 Flash 选项中选择设备为 Generic Flash 。
 
-![flash_mode](./assets/flash_mode.png)
+![flash_mode](../../../docs/hardware/zh/tang/tang-primer-20k/assets/flash_mode.png)
 
 接着来点击红框处开始进行烧录 
 

@@ -32,4 +32,4 @@ Select according to the actual debugger model. List of currently supported debug
 
 VSCode switch to the left side of the `DEBUG` screen, click the green arrow to debug.
 
-![](../../assets/pio_debug_longan.png).
+![](../../../../hardware/zh/longan/Nano/assets/pio_debug_longan.png).

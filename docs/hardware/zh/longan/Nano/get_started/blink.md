@@ -87,7 +87,7 @@ PIO 内置 dfu-util 下载工具，使用此工具需要为开发板安装 libus
 下载成功后打开 Zadig
 
 在下拉栏中选择 GD32V， 替换驱动选择 WinUSB, 点击替换按钮，即可替换成功。
-![](./../assets/dfu_zadig.png)
+![](../../../tang/assets/dfu_zadig.png)
 ### DFU 图形界面下载
 
 下载DFU工具：<https://dl.sipeed.com/shareURL/LONGAN/Nano/Tools>

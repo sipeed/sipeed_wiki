@@ -16,7 +16,7 @@ Input several images in order, output which category each image belongs to, and 
 For those who are not very interested in the detailed principles, you can simply understand:
 
 * Convolution calculation has the function of extracting features. For example, the result of an image after a convolution calculation will extract the outline of the image, such as the classic Sobel edge detection. The result after a convolution calculation:
-![](../../assets/sobel_edge2.jpg)
+![](../../../maixpy3/zh/usage/asserts/sobel_edge2.jpg)
 It can be said that through a convolution calculation, the outline of the image is extracted, which is the feature extraction function of convolution calculation.
 After multiple convolution calculations, the features of different images will be extracted. You can see this process visualized at [tensorspace.org](https://tensorspace.org/html/playground/mobilenetv1.html).
 

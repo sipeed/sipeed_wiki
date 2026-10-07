@@ -16,7 +16,7 @@ Mobilenet 网络是由 Google 针对手机和嵌入式场景提出的一种轻�
 对于不太对详细的原理感兴趣的同学，可以简单理解：
 
 * 卷积计算具有提取特征的作用，比如一幅图像经过一次卷积计算后的结果，会将图像的轮廓提取出来，比如经典的索贝尔边缘检测，比如下图右边是图像输入，左边是经过一次卷积计算后的结果：
-![](../../assets/sobel_edge2.jpg)
+![](../../../maixpy3/zh/usage/asserts/sobel_edge2.jpg)
 可以说，通过一次卷积计算，图像的轮廓就被提取出来了，这就是卷积计算的特征提取作用。
 如果经过多次卷积计算，不同图像的特征就会被提取出来。 你可以在[tensorspace.org](https://tensorspace.org/html/playground/mobilenetv1.html) 可视化地看到这个过程。
 

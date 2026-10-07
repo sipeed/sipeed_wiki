@@ -1782,11 +1782,11 @@ sudo apt install kodi
 kodi
 ```
 
-![kodi_homepage](./assets/application/kodi_homepage.png)
+![kodi_homepage](assets/desktop/kodi_homepage.png)
 
-![kodi_iconmenu](./assets/application/kodi_iconmenu.png)
+![kodi_iconmenu](assets/desktop/kodi_iconmenu.png)
 
-![kodi_settings](./assets/application/kodi_settings.png)
+![kodi_settings](assets/desktop/kodi_settings.png)
 
 ## 其它
 

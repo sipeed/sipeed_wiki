@@ -4,7 +4,7 @@
 
 `nmtui`
 
-![202108051626](./../assets/202108051626.webp)
+![202108051626](../../../../../hardware/zh/maixII/M2A/assets/202108051626.webp)
 
 
 
@@ -34,32 +34,32 @@ print(platform.uname())
 ```
 
 运行输出结果如下：
-![MaixPy3 IDE](./../assets/MaixPy3-IDE.jpg)
+![MaixPy3 IDE](../../../../../hardware/zh/maixII/M2A/assets/MaixPy3-IDE.jpg)
 
 
 ## 配置APT源
 
 打开`armbian-config`，选中Personal，选择Mirrors，找到合适的apt源，按住TAB键切换到ok，保存即可。		
 
-![202108061955](./../assets/202108061955.webp)
+![202108061955](../../../../../hardware/zh/maixII/M2A/assets/202108061955.webp)
 
 ## 设置时区
 
 打开`armbian-config`，选中Personal，选择Timezone > Asia >Shanghai设置上海时间（不用找，Debian没有北京时间），按住TAB键切换到ok，保存即可。		
 
-![202108062005](./../assets/202108062005.webp)
+![202108062005](../../../../../hardware/zh/maixII/M2A/assets/202108062005.webp)
 
 ## 设置中文显示
 
 打开`armbian-config`，选中Personal >Locales>下滑到最下面，空格选中zh.GBK和zh.UTF-8,，然后勾选zh_CN.UTF8设置为系统默认语言，按住TAB键切换到ok，保存，exit退出，下载中文字体，`apt-get install fonts-wqy-zenhei`，重启后系统环境就变成中文的了。
 
-![202108062054](./../assets/202108062054.webp)
+![202108062054](../../../../../hardware/zh/maixII/M2A/assets/202108062054.webp)
 
 ## 配置蓝牙
 
 打开`armbian-config`，选中Network，选择BTinstall安装蓝牙支持包。
 
-![202108071034](./../assets/202108071034.webp)
+![202108071034](../../../../../hardware/zh/maixII/M2A/assets/202108071034.webp)
 
 可以使用Xftp传输，安装完毕后断电重启即可。
 
@@ -97,7 +97,7 @@ connect XX:XX:XX:XX #连接设备
 
 
 
-![202108071610](./../assets/202108071610.webp)
+![202108071610](../../../../../hardware/zh/maixII/M2A/assets/202108071610.webp)
 
 ### 设置蓝牙音频输入/输出
 
@@ -131,7 +131,7 @@ maixsense:~:# pactl list short sinks
 maixsense:~:# pactl set-default-sink 2 
 ```
 
-![202108071726](./../assets/202108071726.webp)
+![202108071726](../../../../../hardware/zh/maixII/M2A/assets/202108071726.webp)
 
 然后就可以播放音频到蓝牙设备，或者通过蓝牙连接手机当作蓝牙音箱使用。
 
@@ -139,7 +139,7 @@ maixsense:~:# pactl set-default-sink 2
 
 `alsamixer`
 
-![202108071440](./../assets/202108071440.webp)
+![202108071440](../../../../../hardware/zh/maixII/M2A/assets/202108071440.webp)
 
 常用命令
 
@@ -208,7 +208,7 @@ apt下载mplayer`apt install mplayer`
 
 在后面加上`< /dev/null > /dev/null 2>1 &`以便在后台播放
 
-![202108091128](./../assets/202108091128.gif)
+![202108091128](../../../../../hardware/zh/maixII/M2A/assets/202108091128.gif)
 
 
 
@@ -229,7 +229,7 @@ gcc hello.c -o hello.o
 ./hello.o
 ```
 
-![202108091201](./../assets/202108091201.webp)
+![202108091201](../../../../../hardware/zh/maixII/M2A/assets/202108091201.webp)
 
 ## 编写python代码
 
@@ -242,7 +242,7 @@ esc
 python3 helloworld.py
 ```
 
-![202108091339](./../assets/202108091339.webp)
+![202108091339](../../../../../hardware/zh/maixII/M2A/assets/202108091339.webp)
 
 ## 运行神经网络实例
 
@@ -307,7 +307,7 @@ while led:
 
 效果如下：
 
-![202108091956](./../assets/202108091956.gif)
+![202108091956](../../../../../hardware/zh/maixII/M2A/assets/202108091956.gif)
 
 ## 设置开机启动
 

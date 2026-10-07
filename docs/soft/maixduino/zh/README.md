@@ -2,7 +2,7 @@ Maixduino 文档(此文档已不再维护)
 ======
 
 <div class="title_pic">
-    <img src="./../assets/arduino.png" height="60">  <img src="./../assets/icon_sipeed_arduino.png"  height="60">
+    <img src="../../../hardware/zh/tang/assets/arduino.png" height="60">  <img src="../../../hardware/zh/tang/assets/icon_sipeed_arduino.png"  height="60">
 </div>
 
 

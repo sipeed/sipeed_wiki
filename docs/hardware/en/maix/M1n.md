@@ -19,7 +19,7 @@ SiPEEDM1n是基于基于嘉楠堪智科技的边缘智能计算芯片K210(RISC-v
 ## M1n 参数
 M1n模块以K210作为核心单元，功能非常很强大，芯片内置64位双核处理器，拥有8M的片上SRAM，在Al机器视觉、听觉性能方便表现突出，内置多种硬件加速单元(KPU、FPU，FFT等)，总算力最高可达1TOPs ,可以方便地实现各类应用场景的机器视觉/听觉算法,也可以进行语音方向扫描和语音数据输出的前置处理工作。
 
-<p><img loading="M1/M1W" src="./assets/m1n/M1n.png" width = 500 ></p>
+<p><img loading="M1/M1W" src="../../zh/maix/assets/m1n/M1n.png" width = 500 ></p>
 
 <table role="table" class="center_table">
     <thead>

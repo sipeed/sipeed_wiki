@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_grove/sp_grove.png" align="right" width="" height="400" />
+<img src="../../../assets/spmod/spmod_grove/sp_grove.png" align="right" width="" height="400" />
 
 
 SPMOD_Grove(GROVE module)
@@ -30,7 +30,7 @@ SPMOD_Grove(GROVE module)
 
 - SPMOD_Grove Size drawing:
 
-<img src="../assets/spmod/spmod_grove/sipeed_spmod_grove.png" height="250" />
+<img src="../../../assets/spmod/spmod_grove/sipeed_spmod_grove.png" height="250" />
 
 -----
 

@@ -49,7 +49,7 @@ class: heading_no_counter
     </a>
     <a href="./ax-pi.html">
         <div class="card" style="background-color: #fafbfe">
-            <img src="../../assets/maix-iii-small.png" alt="AXera-Pi 模型转换和部署">
+            <img src="../../../../hardware/assets/maixIII/ax-pi/maix-iii-small.png" alt="AXera-Pi 模型转换和部署">
             <div class="card_info card_purple">
                 <h2>Maix-III 系列 AXera-Pi</h2>
                 <div class="brief">

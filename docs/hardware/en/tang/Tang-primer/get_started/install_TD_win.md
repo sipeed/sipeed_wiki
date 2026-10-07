@@ -23,7 +23,7 @@ Make sure USB VID:PID is 0547:1002
 
 - Windows7 without installing driver
 
-![no_driver](./../../../../zh/tang/assets/get_started/no_driver.png)
+![no_driver](../../../../zh/tang/assets/no_driver.png)
 
 - Windows10 without installing driver
 
@@ -32,15 +32,15 @@ Make sure USB VID:PID is 0547:1002
 ### Install driver on windows7
 
 Double WinUsb Device and choose 更新驱动程序(P) 
-![update_drive1](./../../../../zh/tang/assets/get_started/update_driver1.png)
-![update_drive2](./../../../../zh/tang/assets/get_started/update_driver2.png)
+![update_drive1](../../../../zh/tang/assets/update_driver1.png)
+![update_drive2](../../../../zh/tang/assets/update_driver2.png)
 
 Select the driver directory where the TD installed. Click 确定 to install the driver.
 
-![choosefolder](./../../../../zh/tang/assets/get_started/choosefolder.png)
+![choosefolder](../../../../zh/tang/assets/choosefolder.png)
 
 After succeed installing,we can see this in device manager
-![installsuccess](./../../../../zh/tang/assets/get_started/installsuccess.png)
+![installsuccess](../../../../zh/tang/assets/installsuccess.png)
 
 ### Install driver on windows10
 
@@ -57,12 +57,12 @@ Click on Have Disk..., then select the directory you selected in the last step, 
 ![install_from_disk_win10](./../../../../zh/tang/assets/get_started/install_from_disk_win10.png)
 
 The installation is successful and can be seen in the device manager.
-![installsuccess](./../../../../zh/tang/assets/get_started/installsuccess.png)
+![installsuccess](../../../../zh/tang/assets/installsuccess.png)
 
 ## Check if device detected by Tang Dynasty IDE
 
 Click on Download button as shown in following image.
-![](./../../../../zh/tang/assets/get_started/87078310026779781.jpg)
+![](../../../../zh/tang/assets/87078310026779781.jpg)
 
 Plugin Tang Primer into your computer and click Refresh button on Download Dialog box.
 ![](./../../../../zh/tang/assets/get_started/1823555291194601.jpg)

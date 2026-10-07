@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_servo/sp_servo.png" align="right" width="" height="500" />
+<img src="../../../assets/spmod/spmod_servo/sp_servo.png" align="right" width="" height="500" />
 
 SPMOD_SERVO (SERVO module).
 
@@ -27,7 +27,7 @@ SPMOD_SERVO (SERVO module).
 ###  SPMOD_SERVO pin description:
 
 
-<img src="../assets/spmod/spmod_servo/sp_servo_pin.png" width="500" />
+<img src="../../../assets/spmod/spmod_servo/sp_servo_pin.png" width="500" />
 
 
 ## Usage
@@ -38,7 +38,7 @@ SPMOD_SERVO (SERVO module).
 
 - SPMOD_SERVO Size drawing:
 
-<img src="../assets/spmod/spmod_servo/sipeed_spmod_servo.png" height="250" />
+<img src="../../../assets/spmod/spmod_servo/sipeed_spmod_servo.png" height="250" />
 
 -----
 

@@ -1763,11 +1763,11 @@ sudo apt install kodi
 kodi
 ```
 
-![kodi_homepage](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_homepage.png)
+![kodi_homepage](../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_homepage.png)
 
-![kodi_iconmenu](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_iconmenu.png)
+![kodi_iconmenu](../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_iconmenu.png)
 
-![kodi_settings](./../../../../zh/lichee/th1520/lpi4a/assets/application/kodi_settings.png)
+![kodi_settings](../../../../zh/lichee/th1520/lpi4a/assets/desktop/kodi_settings.png)
 
 
 ## Other

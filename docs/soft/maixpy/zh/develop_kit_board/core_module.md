@@ -7,8 +7,8 @@ desc: maixpy  Sipeed M1/M1W (Lichee Dan)
 
 1. M1/M1W
 
-![M1/M1W](./../../assets/hardware/m1_m1w/M1_Dan.png)
-![M1/M1W](./../../assets/hardware/m1_m1w/M1_pin.jpg)
+![M1/M1W](../../../../hardware/zh/maix/assets/m1_m1w/M1_Dan.png)
+![M1/M1W](../../../../hardware/zh/maix/assets/m1_m1w/M1_pin.jpg)
 
 M1: K210全引脚引出, 芯片内置 8M SRAM, 模块内置 16M Flash
 M1W 是带 WiFi(esp8285) 版本
@@ -21,7 +21,7 @@ M1W 是带 WiFi(esp8285) 版本
 
 1. M1n
 
-![M1n](./../../assets/hardware/m1n/M1n.png)
+![M1n](../../../../hardware/zh/maix/assets/m1n/M1n.png)
 
 M1n 核心模块采用了 M.2 的金手指接口，并板载了24Pin 的 FPC 底座, 相对于 M1/M1W 可以让用户很方便的将 K210 快速集成到自己的创意或者商业产品中.
 

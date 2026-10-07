@@ -9,7 +9,7 @@ desc: maixpy  Maix Nano
 
 ### 外观一览
 
-![Maix Nano](../../assets/hardware/m1n/sipeed_maix_nano.png)
+![Maix Nano](../../../../hardware/zh/maix/assets/m1n/sipeed_maix_nano.png)
 
 ### 板载功能
 

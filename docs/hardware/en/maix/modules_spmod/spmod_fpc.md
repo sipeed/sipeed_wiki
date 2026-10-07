@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_fpc/sp_fpc.png" align="right" width="" height="300" />
+<img src="../../../assets/spmod/spmod_fpc/sp_fpc.png" align="right" width="" height="300" />
 
 
 SPMOD_FPC( SPMOD extension module )
@@ -30,7 +30,7 @@ SPMOD_FPC( SPMOD extension module )
 
 - SPMOD_FPC Size drawing:
 
-<img src="../assets/spmod/spmod_fpc/sipeed_spmod_fpc.png" height="250" />
+<img src="../../../assets/spmod/spmod_fpc/sipeed_spmod_fpc.png" height="250" />
 
 -----
 

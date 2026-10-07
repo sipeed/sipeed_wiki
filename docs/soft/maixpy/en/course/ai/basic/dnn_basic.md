@@ -13,7 +13,7 @@ A question is usually divided into **input** and **output (result)**
 
 For example:
 A straight line in the coordinate system is as follows, the value of the above data point is known:
-![y=kx+b](../../../../assets/dnn/ykxb.jpg)
+![y=kx+b](../../../../../maixpy3/zh/usage/train_AI/dnn/ykxb.jpg)
 
 Now ask the question, if the data point law does not change, enter an x ​​coordinate of 20, what is the value of y?
 According to everyone’s knowledge, we all know that this is a one-variable linear equation (`y = kx + b` can be solved). Bring in the values ​​of two points and calculate the equation as `y = 3x + 10`, then when `x=20 The value of `, `y` is `70`, so the input is `20` and the output is `70`.
@@ -53,12 +53,12 @@ Deep neural network (DNN) is a technology in the field of machine learning (ML).
 
 I mentioned a relatively simple example. According to a straight line data to predict any point on the straight line, the structure of `y = kx + b` is artificially designed and very simple. When used for complex data, it is not found Applied, such as "Is this picture a ball or a toy"
 
-![小球](../../../../assets/dnn/ball.jpg) ![toy](../../../../assets/dnn/toy.jpg )
+![小球](../../../../../maixpy3/zh/usage/train_AI/dnn/ball.jpg) ![toy](../../../../../maixpy3/zh/usage/train_AI/dnn/toy.jpg )
 
 In order to store the information of the next straight line in the model, the structure `y = kx + b` is used, and the features of the straight line are all stored in the model.
 The features used to store a picture now, the linear structure of `y = kx + b`, and the two parameters of `k and b` obviously cannot be satisfied. A better structure needs to be designed. The network ** appeared, a kind of mesh structure, which can better remember the characteristic information of the picture, and this mesh structure is multi-layered, that is, it has depth, so it is called a deep neural network (DNN). , Deep neural network), so DNN is a network structure and a means to realize machine learning. Each layer is composed of multiple nodes, as shown in the figure below, a DNN contains **input layer**, **hidden layer**, **output layer**, where the hidden layer consists of three layers (`A[1] , A[2], A[3]`layer), but collectively referred to as hidden layers:
 
-![Deep Neural Network](../../../../assets/dnn/dnn.jpg)
+![Deep Neural Network](../../../../../maixpy3/zh/usage/train_AI/dnn/dnn.jpg)
 
 **Input layer**:
 The figure is a deep neural network structure, `x` is the input, for example, `x` here can be a picture, the input has multiple nodes, each node can be a pixel value, here the input layer draws 7 nodes, add We have a picture with a resolution of `10 x 10`, so the input layer requires a total of `100` nodes.
@@ -124,7 +124,7 @@ After so many calculations, the result finally appeared in the form of a value i
 **Activation function**:
 
 Although the above model can get results through input, it will be found that all layer calculations are linear functions, so no matter how many layers there are, the whole is actually a linear function, that is, `y0 = w1x + b1` + `y = w2y0 + b2 `==> `y = w2(w1x + b1) + b2` ==> `y = w2w1x + w2b1 + b2`, in fact it is still a linear function, then the meaning of multiple layers is gone, so we need to add in the middle Non-linear functions make the network a little more complicated, so I will do tricks on each node. Before each node outputs data, use a non-linear function to calculate it, such as `sigmod` or `relu` function. It’s actually very simple to hear the name. Looking at the picture below, in short, x and y are not linear:
-![sigmod](../../../../assets/dnn/sigmod.jpg) ![relu](../../../../assets/dnn/relu.jpg)
+![sigmod](../../../../../maixpy3/zh/usage/train_AI/dnn/sigmod.jpg) ![relu](../../../../../maixpy3/zh/usage/train_AI/dnn/relu.jpg)
 
 That is, until now, except for the input layer, the output value of all nodes needs to go through `Sigmod(∑(Wn * x + Bn))`, and output a floating point value
 **softmax**:

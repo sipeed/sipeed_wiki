@@ -6,13 +6,13 @@ This board is different from Maix-I series, it's main chip not only incorporates
 
 M2A core board use R329 as main chip, and also contains components like power management chip, fel burn key, wifi module, storage pad reserved and RMGII interface.
 
-![M2A](./../../maixII/M2A/assets/M2A.jpg)
+![M2A](../../../zh/maixII/M2A/assets/M2A.jpg)
 
 ### R329 chip
 
 R329 is a 64 bits processor designed by Allwinner containing dual Cortex-A53 inside, with 2 HIFI4 DSP used for audio pre-processing and post-processing, containing an extremely low energy consumption AIPU (Artificial intelligence processing unit) whose hash rate over 0.256 TOPS designed by ARM China, can be used to accelerate neural network, dealing with the 720P image captured by camera.
 
-![R329_function_block](./../assets/../M2A/assets/R329_1.png)
+![R329_function_block](../../../zh/maixII/M2A/assets/R329_1.png)
 
 | Item | Specs |
 | --- | --- |
@@ -49,7 +49,7 @@ MaixSense not only can run Tina os, but also can run **armbian**, which is built
 ## Maixsense appearance
 
 <div align="center">
-    <img src="./../../maixII/M2A/assets/M2A-1.webp" alt="Maixsense outlook" >
+    <img src="../../../../soft/Lichee/zh/MaixSense/assets/M2A-1.webp" alt="Maixsense outlook" >
 </div>
 
 ## MaixSense Specs

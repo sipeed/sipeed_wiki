@@ -43,4 +43,4 @@ Create password: *********
 Repeat password: *********
 ```
 
-![2021080511-46-52](./../assets/2021080511-46-52.webp)
+![2021080511-46-52](../../../../../hardware/zh/maixII/M2A/assets/2021080511-46-52.webp)

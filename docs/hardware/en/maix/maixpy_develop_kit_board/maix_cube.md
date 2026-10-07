@@ -12,7 +12,7 @@
 
 ### 外观一览
 
-![maixcube_product_appearance](./../assets/dk_board/maix_cube/maixcube_product_appearance.png)
+![maixcube_product_appearance](../../../zh/maix/assets/dk_board/maix_cube/maixcube_product_appearance.png)
 
 ### 板载功能介绍
 
@@ -47,7 +47,7 @@ SP-MOD 即为 sipeed module, simplify PMOD, super module
 
 Grove 接口的线缆有 4 种颜色, 用户可以根据颜色快速区别
 
-![grove_interface](./../assets/interface_grove/grove_interface.jpg)
+![grove_interface](../../../zh/maix/assets/interface_grove/grove_interface.jpg)
 
 | --- | 颜色 | 描述 |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ MaixCube  板载 I2C 传感器/IC
 |AXP173|0x68|0x34|
 
 ## MaixCube参数
-![maixcube_resources](./../assets/dk_board/maix_cube/maixcube_resources.png)
+![maixcube_resources](../../../zh/maix/assets/dk_board/maix_cube/maixcube_resources.png)
 <table role="table" class="center_table">
     <thead>
         <tr>

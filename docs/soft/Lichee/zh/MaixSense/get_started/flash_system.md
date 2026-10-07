@@ -44,11 +44,11 @@ Tina 系统的烧录方式和 MaixII dock通用，可参考[MaixII M2dock 烧录
 
 首先解压镜像，得到 .img 镜像文件，然后格式化 sd 卡，打开 Terminal ，输入  `sudo dd if = xxx.img of=/dev/sdx bs=1M status=progress oflag=direct`烧录。注意xxx.img为文件名，  `/dev/sdx`为sd卡实挂载位置。
 
-![2021-08-05-11-44-49](./../assets/2021-08-05-11-44-49.webp)
+![2021-08-05-11-44-49](../../../../../hardware/zh/maixII/M2A/assets/2021-08-05-11-44-49.webp)
 
 同时也可以直接使用 Disks 进行更便捷的烧录（需要Ubuntu桌面版)：
 
-![2021080511-46-53](./../assets/2021080511-46-53.webp)
+![2021080511-46-53](../../../../../hardware/zh/maixII/M2A/assets/2021080511-46-53.webp)
 
 烧录完毕后，即可放入Lichee MaixSense中运行。
 

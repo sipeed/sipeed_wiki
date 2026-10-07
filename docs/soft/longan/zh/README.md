@@ -5,7 +5,7 @@ desc: 矽速科技的硬件资料站
 ---
 
 <div class="title_pic">
-    <img src="../assets/sipeed_longan_logo.jpg" height="60">  <img src="../assets/icon_sipeed2.png"  height="60">
+    <img src="../../../hardware/zh/longan/Nano/assets/sipeed_longan_logo.jpg" height="60">  <img src="../assets/icon_sipeed2.png"  height="60">
 </div>
 
 ## 什么是 Longan
@@ -36,8 +36,8 @@ Longan Nano 开发板，双列插针版型设计，排针间距 700mil，可直�
 
 Longan Nano 支持基于 VS CODE 的 PlatformIO IDE 环境下的开发， 支持一键工程配置、编译、下载、调试。安装使用教程见：[PIO 配置](./get_started/pio.md).
 
-![pio_debug](../assets/longan_pio_debug.jpg)
+![pio_debug](../../../hardware/zh/longan/Nano/assets/longan_pio_debug.jpg)
 
 ## 引脚定义
 
-![](../assets/Longan-nano_PINOUT.svg)
+![](../../../hardware/assets/Longan/nano/Longan-nano_PINOUT.svg)

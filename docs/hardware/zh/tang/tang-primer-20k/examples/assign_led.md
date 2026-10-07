@@ -129,7 +129,7 @@ endmodule
 
 根据下面 Dock 底板原理图，决定点亮 LED4，对应在 FPGA 上的引脚为 L14。
 
-![led_port](./assets/assign_led_assets/led_port.png)
+![led_port](assets/led_assets/led_port.png)
 
 因此对于在 FloorPlanner 交互窗口下面的 IO Constranins 中将 PORT（端口）与 Location（引脚） 分别填入下面的值：
 
@@ -206,7 +206,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 和上面下载到 SRAM 的步骤几乎类似，先点开 Operation 下面的功能框来打开设备设置界面，接着在 Operation 框中选择 External Flash Mode 选项来设置为下载到外部 Flash ，最后点击下面的那三个点点框来选择我们所生成的 .fs 下载固件，通常来说下载固件生成与工程文件目录下的 impl -> pnr 目录下。最后在下面的外部 Flash 选项中选择设备为 Generic Flash 。
 
-![flash_mode](./assets/led_assets/flash_mode.png)
+![flash_mode](../assets/flash_mode.png)
 
 接着来点击红框处开始进行烧录 
 

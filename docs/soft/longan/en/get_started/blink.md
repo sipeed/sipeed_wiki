@@ -19,7 +19,7 @@ Getting to Blinky
 
 * We first need to edit the configuration file works `platformio.ini` according to their own development board model, delete the other development board environmen.
 
-![](../../assets/pio_ini_cfg.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_ini_cfg.png)
 
 Configuration example
 ```ini
@@ -36,7 +36,7 @@ PIO can implement setting macro definitions in the configuration file, control c
 ## One-click compilation
 
 Click on the lower left corner `Build` to build the project
-![](../../assets/pio_complie.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_complie.png)
 
 ## Connect to the development board
 ### Serial ISP download
@@ -77,7 +77,7 @@ After selecting the download method according to the above steps, you can use th
 
 Click on the lower left corner `Upload` to upload the program to the development board.
 
-![](../../assets/pio_upload.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_upload.png)
 
 ## Install drivers using Zadig
 PIO has a built-in dfu-util download tool. To use this tool, you need to install the libusb driver for the development board. (Note: different from GD official driver)
@@ -88,7 +88,7 @@ Open Zadig after successful download
 
 Select GD32V in the drop-down bar, replace the driver with WinUSB, click the Replace button, and the replacement will succeed.
 
-![](../../assets/dfu_zadig.png)
+![](../../../../hardware/zh/tang/assets/dfu_zadig.png)
 
 ### USB DFU download
 Download the DFU tool：http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar
@@ -99,7 +99,7 @@ GD32 MCU Dfu Drivers_v1.0.1.2316 and GD32 MCU Dfu Tool_v3.8.1.5784
 
 First enter the driver folder, install the corresponding driver file, pay attention to run with administrator privileges
 
-![](../../assets/examples/how_to_install_dfu.png)
+![](../../../../hardware/zh/longan/Nano/assets/examples/how_to_install_dfu.png)
 
 Run GD32 MCU Dfu Tool.exe Plug Longan Nano into the computer, press and hold the Boot0 key, short press the Reset key, then release the Boot0 key, you can see that the GD32VF chip is recognized in the DFU tool.
 
@@ -107,4 +107,4 @@ Select the corresponding firmware file, and check the checksum after burning. Cl
 
 After the burning is completed, it will not be reset automatically. You need to manually press the reset button to check the running effect.
 
-![](../../assets/examples/how_to_use_dfu.png)
+![](../../../../hardware/zh/longan/Nano/assets/examples/how_to_use_dfu.png)

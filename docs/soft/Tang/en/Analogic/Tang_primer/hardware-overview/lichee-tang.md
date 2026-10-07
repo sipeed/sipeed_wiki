@@ -32,7 +32,7 @@ Pinout for **New** Tang Primer Board.
 
 Pinout for **Old** Tang Primer Board.
 
-![Tang Primer at a Glance](./images/E203_pin.jpg "Tang Primer at a Glance")
+![Tang Primer at a Glance](../../../../../../hardware/zh/tang/assets/E203_pin.jpg "Tang Primer at a Glance")
 
 ## Resources
 

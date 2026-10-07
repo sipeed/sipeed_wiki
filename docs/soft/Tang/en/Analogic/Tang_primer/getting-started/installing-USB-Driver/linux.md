@@ -43,7 +43,7 @@ Go to `<TD installation directory>/bin/` and execute the following command to op
 ```
 Click on Download buttion as shown in following image.
 
-![TD GUI Mode](./linux/87078310026779781.jpg "Tang Dynasty SDK in GUI Mode.")
+![TD GUI Mode](../../../../../../../hardware/zh/tang/assets/87078310026779781.jpg "Tang Dynasty SDK in GUI Mode.")
 
 Plugin Tang Primer into your computer and hit Refresh buttion on Download Dialog box.
 

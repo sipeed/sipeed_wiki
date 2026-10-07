@@ -33,7 +33,7 @@ Lichee Nano开发板板载的F1C100s芯片功能很强大，芯片内置32MBDDR�
 | 通信接口 | SDIO，可搭配配套 SDIO WiFi+BT 模块<br>SPI x2<br>TWI x3<br>UART x3<br>OTG USB x1<br>TV out |
 | 其它接口 | PWM x2<br>LRADC x1<br>Speakerx2 + Mic x1 |
 
-![](./../assets/Nano/Nano_pin.png)
+![](../../../zh/lichee/assets/Nano/Nano_pin.png)
 
 ### 软件参数
 | 开发环境 | 参数 |

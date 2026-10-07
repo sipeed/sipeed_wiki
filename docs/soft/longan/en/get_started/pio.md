@@ -27,7 +27,7 @@ platformio platform install gd32v
 ```
 platformio platform install https://github.com/sipeed/platform-gd32v
 ```
-![](../../assets/pio_install_gd32v.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_install_gd32v.png)
 
 Note: Due to the domestic network environment, the installation process takes a long time, please be patient.
 
@@ -35,7 +35,7 @@ Note: Due to the domestic network environment, the installation process takes a 
 ### Graphical interface
 
 Open VS CODE -> click on the PIO icon on the left -> click on the Open option at the bottom left -> click on the Platforms page -> click on Advanced Installation to open the add window
-![](../../assets/pio_install_add_gd32v_step1.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_install_add_gd32v_step1.png)
 
 Enter the following URL in the window that opens
 ```
@@ -44,8 +44,8 @@ https://github.com/sipeed/platform-gd32v.git
 
 Click Install to add it.
 
-![](../../assets/pio_install_add_gd32v_step2.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_install_add_gd32v_step2.png)
 
 Wait patiently to install successfully. (The installation failure is mostly for network reasons, please try again after replacing the network environment)
 
-![](../../assets/pio_install_add_gd32v_step3.png)
+![](../../../../hardware/zh/longan/Nano/assets/pio_install_add_gd32v_step3.png)

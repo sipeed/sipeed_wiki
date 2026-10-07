@@ -21,31 +21,31 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 进入链接后选择“云源软件历史版本”，往下拉找到历史版本中最新版本进行下载，下载到本地的文件夹是一个压缩包格式的文件，进行解压后得到安装包“Gowin_V1.9.8_win.exe”，直接双击开始进行安装：
 
 <div>
-	<img src="./assets/IDE-2.png" width=45%>
-	<img src="./assets/IDE-3.png" width=45%>
+	<img src="../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-2.png" width=45%>
+	<img src="../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-3.png" width=45%>
 </div>
 
 下图的两个都需要安装上。
 
-![IDE](./assets/IDE-4.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-4.png)
 
 下图的安装路径个人按照自己需要设置
   
-![IDE](./assets/IDE-5.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-5.png)
 - 安装中...
   
-![IDE](./assets/IDE-6.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-6.png)
 - 下面这一步不要更改任何东西，按照默认的点击`Finish`就行
 
 ![IDE](./assets/IDE-7.png)
 - 上面的`Finish`后会出现下面的内容，这是安装驱动的。
 
-![IDE](./assets/IDE-8.png)
-![IDE](./assets/IDE-9.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-8.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-9.png)
 - 这里需要选择接受协议才能继续安装
   
-![IDE](./assets/IDE-10.png)
-![IDE](./assets/IDE-11.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-10.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-11.png)
 - 前面的完成后桌面上会出现下面这种图的图标
   
 ![IDE](./assets/IDE-12.png)
@@ -68,7 +68,7 @@ keywords: Sipeed, Gowin, Tang, Nano, fpga, 矽速
 - IDE 的安装路径下主要有如下几个文件夹：IDE、Programmer、uninst.exe；
 - **IDE** 文件夹：主要介绍次路径下的 **doc** 文件夹，用户在安装完之后可以在这个路径下进行对 IDE 的基本了解，主要包含文件如下图所示：
 
-![IDE](./assets/IDE-17.png)
+![IDE](../../../../../hardware/zh/tang/common-doc/get_started/assets/IDE-17.png)
 
 > “Programmer”：附带的烧录软件
 > “uninst.exe”：卸载工具

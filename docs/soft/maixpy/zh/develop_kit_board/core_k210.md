@@ -5,7 +5,7 @@ desc: maixpy  K210 模块核心板
 ---
 
 
-![K210](./../../assets/hardware/k210/k210-front-background.jpg)
+![K210](../../../maixduino/assets/k210-front-background.jpg)
 
 Kendryte K210 是集成机器视觉与机器听觉能力的系统级芯片 (SoC) .使用台积电 (TSMC) 超低功耗的 28 纳米先进制程,具有双核 64 位处理器,拥有较好的功耗性能,稳定性与可靠性. 该方案力求零门槛开发,可在最短时效部署于用户的产品中,赋予产品人工智能.
 

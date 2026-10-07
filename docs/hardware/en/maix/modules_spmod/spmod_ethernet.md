@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="../assets/spmod/spmod_ethernet/sp_ethernet.png" align="right" width="" height="500" />
+<img src="../../../assets/spmod/spmod_ethernet/sp_ethernet.png" align="right" width="" height="500" />
 
 SPMOD_Ethernet(Ethernet module) uses W5500 chip.
 
@@ -60,7 +60,7 @@ SPMOD_Ethernet(Ethernet module) uses W5500 chip.
 
 - SPMOD_Ethernet Size drawing:
 
-<img src="../assets/spmod/spmod_ethernet/sipeed_spmod_ethernet.png" height="250" />
+<img src="../../../assets/spmod/spmod_ethernet/sipeed_spmod_ethernet.png" height="250" />
 
 -----
 

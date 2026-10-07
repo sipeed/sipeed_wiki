@@ -37,7 +37,7 @@ desc: maixpy  Introduction to MaixPy-v1 documentation
         <img src="../assets/maixpy/maixpy.png" alt="maixpy ​​logo">
     </div>
     <span class="logo_sipeed">
-        <img src="../assets/sipeed/sipeed_logo_4.svg" alt="sipeed logo">
+        <img src="../../../../static/image/sipeed_logo_4.svg" alt="sipeed logo">
     </span>
     <span class="logo_mpy">
         <img src="../assets/maixpy/micropython.png" alt="micropython logo">

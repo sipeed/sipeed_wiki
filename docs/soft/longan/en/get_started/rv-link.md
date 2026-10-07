@@ -19,7 +19,7 @@ Using RV-LINK
     Extract the source code downloaded above into a separate folder and open the source folder using VSCODE
 
     As shown below:
-    ![](../../assets/pio_open_rvlink.png)
+    ![](../../../../hardware/zh/longan/Nano/assets/pio_open_rvlink.png)
 
     The firmware is usually burned using the DFU method, and the configuration file **does not need to be** modified.
 

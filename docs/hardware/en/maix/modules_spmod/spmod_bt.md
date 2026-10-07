@@ -57,7 +57,7 @@ SPMOD-BT(Bluetooth module) uses YDJ-23.
 | 1.8-3.3V | 3.3V |
 | GND | GND |
 
-<img src="../assets/spmod/spmod_bt/connection.png" height="250">
+<img src="../../../assets/spmod/spmod_bt/connection.png" height="250">
 
 ### AT instruction list:
 
@@ -147,7 +147,7 @@ SPMOD-BT(Bluetooth module) uses YDJ-23.
 
 
   <center class="third">
-      <img src="../assets/spmod/spmod_bt/res.png" height="250"/><img src="../assets/spmod/spmod_bt/res1.png" height="250"/>
+      <img src="../assets/spmod/spmod_bt/res.png" height="250"/><img src="../../../assets/spmod/spmod_bt/res1.png" height="250"/>
   </center>
 
 ### Runtime environments:
@@ -161,7 +161,7 @@ SPMOD-BT(Bluetooth module) uses YDJ-23.
 
 - SPMOD_BLE Size drawing:
 
-<img src="../assets/spmod/spmod_bt/sipeed_spmod_bt.png" height="250" />
+<img src="../../../assets/spmod/spmod_bt/sipeed_spmod_bt.png" height="250" />
 
 
 ## Resource Link

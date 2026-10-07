@@ -293,7 +293,7 @@ This steps are similar to the steps above of burning to SRAM.
 
 Click the function box below Operation to open the device configuration interface, then select the External Flash Mode in the Access Mode to burn into external Flash. Finally click the three dots below to select the.fs we generated to download the firmware. Choose the three dots box below to select our generated `.fs` bitstream file. Generally speaking, bitstream firmware file is in the impl -> pnr directory. Finally, select the Generic Flash device from the following external Flash options.
 
-![flash_mode](../../../../zh/tang/tang-primer-20k/examples/assets/led_assets/flash_mode.png)
+![flash_mode](../../../../zh/tang/tang-primer-20k/assets/flash_mode.png)
 
 Click where the red box is to burn firmware.
 

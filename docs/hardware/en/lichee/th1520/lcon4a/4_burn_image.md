@@ -3,11 +3,11 @@
 1. Remove the SSD back cover
 2. Find the BOOT button and RST button
 
-![boot_and_rst_key](burn_image/boot_and_rst_key.png)
+![boot_and_rst_key](../../../../zh/lichee/th1520/lcon4a/assets/burn_image/boot_and_rst_key.png)
 
 1. Hold down the BOOT button, then press the power button on the keyboard to start up, and then connect the typec port to another machine.
 
-![typec_connect](burn_image/typec_connect.png)
+![typec_connect](../../../../zh/lichee/th1520/lcon4a/assets/burn_image/typec_connect.png)
 
 1. Download the image for burning on another machine: [Click here to download](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html)
 2. On another machine, execute `fastboot flash ram u-boot-with-spl-console.bin`

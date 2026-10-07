@@ -2,7 +2,7 @@ Longan Documentation
 ======
 
 <div class="title_pic">
-    <img src="../assets/sipeed_longan_logo.jpg" height="60">  <img src="../assets/icon_sipeed2.png"  height="60">
+    <img src="../../../hardware/zh/longan/Nano/assets/sipeed_longan_logo.jpg" height="60">  <img src="../assets/icon_sipeed2.png"  height="60">
 </div>
 
 
@@ -35,8 +35,8 @@ Longan Nano development board is breadboard friendly. It has onboard 8M passive 
 
 Longan Nano supports development using the VS CODE-based under PlatformIO IDE environment, supporting one-click project configuration, compilation, download and debugging. See the installation and tutorial here: [PIO configuration](./get_started/pio.md).
 
-![pio_debug](../assets/longan_pio_debug.jpg)
+![pio_debug](../../../hardware/zh/longan/Nano/assets/longan_pio_debug.jpg)
 
 ## PIN Map
 
-![](../assets/Longan-nano_PINOUT.svg)
+![](../../../hardware/assets/Longan/nano/Longan-nano_PINOUT.svg)

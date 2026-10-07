@@ -23,7 +23,7 @@ Lichee Tang Nano 是基于高云半导体小蜜蜂系列 GW1N-1 FPGA 的简约�
 
 ## 引脚定义
 
-![Nano 引脚](./../../assets/tang_nano_pinout_v1.0.0_w5676_h4000_large.png)
+![Nano 引脚](../../../../hardware/zh/tang/common-doc/assets/tang_nano_pinout_v1.0.0_w5676_h4000_large.png)
 
 ## 资源下载链接
 

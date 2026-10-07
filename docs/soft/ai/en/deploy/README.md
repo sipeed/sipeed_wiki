@@ -47,7 +47,7 @@ class: heading_no_counter
     </a>
     <a href="./ax-pi.html">
         <div class="card" style="background-color: #fafbfe">
-            <img src="../../assets/maix-iii-small.png" alt="AX-Pi model convert and deployment">
+            <img src="../../../../hardware/assets/maixIII/ax-pi/maix-iii-small.png" alt="AX-Pi model convert and deployment">
             <div class="card_info card_purple">
                 <h2>Maix-III Series AX-Pi</h2>
                 <div class="brief">

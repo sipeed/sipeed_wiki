@@ -110,7 +110,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121NC1/I0](http://www.gowinsemi.com.cn/pro
 
 
 <div>
-<img src="./assets/25k_dock_top.jpg"  width=45%>
+<img src="../../../assets/Tang/primer_25k/25k_dock_top.jpg"  width=45%>
 <img src="./assets/25k_dock_bot.jpg"  width=45%>
 </div>
 

@@ -10,7 +10,7 @@ desc: maixpy  Grove
 ## Grove 接口
 
 Grove 接口的线缆有 4 种颜色，用户可以根据颜色快速区别
-![](../../../assets/hardware/module_grove/grove_interface.jpg)
+![](../../../../../hardware/zh/maix/assets/interface_grove/grove_interface.jpg)
 
 | pin   | 颜色 | 描述                                |
 | ----- | ---- | ----------------------------------- |

@@ -349,7 +349,7 @@ Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据�
   <summary><font color="#4F84FF">点开查看设置详情</font></summary>
     <table>
       <tr>
-      <td rowspan="2"><img src="./../tang-primer-20k/examples/assets/led_assets/flash_mode.png" alt="flash_mode"></td>
+      <td rowspan="2"><img src="../tang-primer-20k/assets/flash_mode.png" alt="flash_mode"></td>
       <td style="white-space:nowrap">操作（Operation）为 <br><code>exFlash Erase,Program thru GAO-Bridge</code></td>
       </tr>
     <tr>

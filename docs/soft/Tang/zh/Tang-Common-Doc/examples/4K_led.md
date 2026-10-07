@@ -103,13 +103,13 @@ endmodule
 
 LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project>Configuration>Dual-Purpose Pin,勾选 Use MODE as regular IO,如下图
 
-<img src="../../../assets/Nano-4K/4K-led-2.png" alt="image-20210810161934170" style="zoom:50%;" />
+<img src="../../../../../hardware/zh/tang/assets/Nano-4K/4K-led-2.png" alt="image-20210810161934170" style="zoom:50%;" />
 
 ## 综合
 
 在左侧的工作区中，右键 Synthesize 或 Place&Route 时，会有 run 的选项，点击即可
 
-![](./../../../assets/examples/led_pjt_4.png)
+![](../../../../../hardware/zh/tang/assets/examples/led_pjt_4.png)
 
 ## 烧录到开发板
 
@@ -121,11 +121,11 @@ LED对应的IO10默认是mode Pin，无法直接约束，需要打开Project>Con
 
 双击左侧工作区的 Program Device 就可以打开 Programer
 
-![](./../../../assets/examples/led_pjt_5.png)
+![](../../../../../hardware/zh/tang/assets/examples/led_pjt_5.png)
 
 不过在使用 Programer 前需要注意，要在 Synthesize 和 Place&Route 都完成后才能使用 Programer ，否则软件会报错 `Bitstream file dose not exists`
 
-![](./../../../assets/examples/led_pjt_6.png)
+![](../../../../../hardware/zh/tang/assets/examples/led_pjt_6.png)
 
 Linux 用户需要注意
 
@@ -135,11 +135,11 @@ Linux 用户需要注意
 
 要选择固件烧录的位置，可以在选中芯片的情况下，点击 Edit -> Configure Device
 
-![](./../../../assets/examples/led_pjt_7.png)
+![](../../../../../hardware/zh/tang/assets/examples/led_pjt_7.png)
 
 在弹出窗口中选择自己需要烧录到的位置，这里选择的是 flash ，默认烧录位置是 sram
 
-![image-20210810162149938](./../../../assets/Nano-4K/4K-led-3.png)
+![image-20210810162149938](../../../../../hardware/zh/tang/assets/Nano-4K/4K-led-3.png)
 
 ### 烧录
 

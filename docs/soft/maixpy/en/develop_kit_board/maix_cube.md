@@ -14,7 +14,7 @@ desc: maixpy  MaixCube
 
 ### Appearance list
 
-![Maix Cube](../../assets/hardware/maix_cube/maixcube_product_appearance.png)
+![Maix Cube](../../../../hardware/zh/maix/assets/dk_board/maix_cube/maixcube_product_appearance.png)
 
 ### Onboard functions
 
@@ -35,7 +35,7 @@ desc: maixpy  MaixCube
 
 ### Pin Resources
 
-![Maix Cube](../../assets/hardware/maix_cube/maixcube_resources.png)
+![Maix Cube](../../../../hardware/zh/maix/assets/dk_board/maix_cube/maixcube_resources.png)
 
 ### Onboard expansion interface
 
@@ -89,17 +89,17 @@ When we get the Maix Cube and connect to the computer, we can open the device ma
 - Start menu (right click) -> Device Manager
 - Control Panel -> (Search) Device Manager
 
-  <img src="../../assetcs/../assets/get_started/win_device_1.png" height="400">
+  <img src="../../../maixpy3/zh/assets/get_started/win_device_1.png" height="400">
 
 1. When our system is a Win10 system, the system will automatically install the driver for us, and if it is an old version of Win7, win8, we need to install it manually:
-    ![](../../assetcs/../assets/get_started/win_device_2.png)
+    ![](../../../maixpy3/zh/assets/get_started/win_device_2.png)
 
 1. Open the link in the previous section to download the driver
     ![](../../assetcs/../assets/get_started/win_device_3.png)
 1. Click Install
     ![](../../assets/get_started/drives.webp)
 1. After the installation is complete, you can see in the device manager that two serial devices have been identified
-    ![](../../assetcs/../assets/get_started/win_device_4.png)
+    ![](../../../maixpy3/zh/assets/get_started/win_device_4.png)
 
 
 ### Update the firmware to the latest version

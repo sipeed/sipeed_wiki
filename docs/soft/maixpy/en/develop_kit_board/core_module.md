@@ -7,8 +7,8 @@ desc: maixpy  Sipeed M1/M1W (Lichee Dan)
 
 1. M1/M1W
 
-![M1/M1W](./../../assets/hardware/m1_m1w/M1_Dan.png)
-![M1/M1W](./../../assets/hardware/m1_m1w/M1_pin.jpg)
+![M1/M1W](../../../../hardware/zh/maix/assets/m1_m1w/M1_Dan.png)
+![M1/M1W](../../../../hardware/zh/maix/assets/m1_m1w/M1_pin.jpg)
 
 M1: K210 all-pin leads, built-in 8M SRAM in chip, built-in 16M Flash in module
 M1W is the version with WiFi (esp8285)
@@ -21,7 +21,7 @@ M1W is the version with WiFi (esp8285)
 
 1. M1n
 
-![M1n](./../../assets/hardware/m1n/M1n.png)
+![M1n](../../../../hardware/zh/maix/assets/m1n/M1n.png)
 
 The M1n core module adopts the M.2 golden finger interface and has a 24Pin FPC base onboard. Compared with M1/M1W, users can quickly integrate K210 into their own creative or commercial products.
 

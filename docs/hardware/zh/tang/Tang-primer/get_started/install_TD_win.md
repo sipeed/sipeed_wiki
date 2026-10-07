@@ -21,7 +21,7 @@ License文件：`Anlogic_20230606.lic`
 
 - win7系统没有安装驱动时
 
-![no_driver](./../../assets/get_started/no_driver.png)
+![no_driver](../../assets/no_driver.png)
 
 - win10系统没有安装驱动时
 
@@ -30,14 +30,14 @@ License文件：`Anlogic_20230606.lic`
 ### win7安装驱动
 
 双击 WinUsb Device 选择更新驱动程序 
-![update_drive1](./../../assets/get_started/update_driver1.png)
-![update_drive2](./../../assets/get_started/update_driver2.png)
+![update_drive1](../../assets/update_driver1.png)
+![update_drive2](../../assets/update_driver2.png)
 
 浏览文件夹，选择TD安装目录下的驱动目录。 单击确定开始安装
-![choosefolder](./../../assets/get_started/choosefolder.png)
+![choosefolder](../../assets/choosefolder.png)
 
 安装成功，在设备管理器中可以看到 
-![installsuccess](./../../assets/get_started/installsuccess.png)
+![installsuccess](../../assets/installsuccess.png)
 
 ### win10安装驱动
 
@@ -54,12 +54,12 @@ License文件：`Anlogic_20230606.lic`
 ![install_from_disk_win10](./../../assets/get_started/install_from_disk_win10.png)
 
 安装成功，在设备管理器中可以看到
-![installsuccess](./../../assets/get_started/installsuccess.png)
+![installsuccess](../../assets/installsuccess.png)
 
 ## 验证安装
 
 打开TD，点击下载,如图所示
-![](./../../assets/get_started/87078310026779781.jpg)
+![](../../assets/87078310026779781.jpg)
 
 将 Tang Primer 插入您的计算机，然后点击下载对话框上的刷新按钮
 ![](./../../assets/get_started/1823555291194601.jpg)

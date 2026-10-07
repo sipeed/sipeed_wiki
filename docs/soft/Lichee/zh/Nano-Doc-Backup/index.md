@@ -31,7 +31,7 @@
 这都得益于荔枝派Nano的主芯片---全志F1C100s；Arm9架构，16KB D-Cache，32KB I-Cache，支持从SPI Flash或TF卡启动，支持USB OTG载入更新。
 荔枝派 Nano 延续了前一代的巧妙设计，2.54mm普通插针焊孔+1.27mm邮票孔贴片设计，方便您自己动手DIY的同时，也支持贴片生产，制作更为复杂的应用。
 
-![Pin Map](./static/Nano_pin.png)
+![Pin Map](../../../../hardware/zh/lichee/assets/Nano/Nano_pin.png)
 
 此外，荔枝派自从初代One以来，不断适配外设，已有TF-Wifi、RGB to VGA、40 pin RGB、 LCD、RGB to GPIO、Camera等经过广泛实践验证过的成熟模块。
 

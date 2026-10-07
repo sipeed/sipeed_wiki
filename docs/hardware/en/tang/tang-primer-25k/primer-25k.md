@@ -100,7 +100,7 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
 
 ## Dock Base Board Product Image
 
-<div> <img src="./assets/25k_dock_top.jpg" width=45%> <img src="../../../zh/tang/tang-primer-25k/assets/25k_dock_bot.jpg" width=45%> </div>
+<div> <img src="../../../assets/Tang/primer_25k/25k_dock_top.jpg" width=45%> <img src="../../../zh/tang/tang-primer-25k/assets/25k_dock_bot.jpg" width=45%> </div>
 
 ## Board Parameters
 

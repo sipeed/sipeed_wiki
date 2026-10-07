@@ -63,7 +63,7 @@ Timing Controller,
 |  2.5~4.8V   |  3.3V  |
 |  GND   |  GND   |
 
-<img src="../assets/spmod/spmod_lcd1.14/connection.png" height="250">
+<img src="../../../assets/spmod/spmod_lcd1.14/connection.png" height="250">
 
 ## Usage
 
@@ -144,11 +144,11 @@ Timing Controller,
 
 * C
 
-  <img src="../assets/spmod/spmod_lcd1.14/sp_lcd1.14_c.png" height="250" />
+  <img src="../../../assets/spmod/spmod_lcd1.14/sp_lcd1.14_c.png" height="250" />
 
 * MaixPy
 
-  <img src="../assets/spmod/spmod_lcd1.14/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" height="250" />
+  <img src="../../../assets/spmod/spmod_lcd1.14/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" height="250" />
 
 ### Transplant
 
@@ -197,7 +197,7 @@ The following parameters need to be modified.
 
 - SPMOD_LCD1.14 Size drawing:
 
-<img src="../assets/spmod/spmod_lcd1.14/sipeed_spmod_lcd1.14.png" height="250" />
+<img src="../../../assets/spmod/spmod_lcd1.14/sipeed_spmod_lcd1.14.png" height="250" />
 
 
 -----

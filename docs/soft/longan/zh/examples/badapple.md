@@ -127,7 +127,7 @@ mp4 格式的视频，单片机因为没有硬件的加速，无法胜任解码�
 
 打开后如图
 
-![](../../assets/examples/potplayer.png)
+![](../../../../hardware/zh/longan/Nano/assets/examples/potplayer.png)
 
 其中格式一定要 BMP，尺寸按照屏幕的尺寸设置，时间我这里设置的是 100ms 也就是 1s 十帧的样子，采集数量就自己计算一下视频总时间再乘每秒帧数，我这里就是 219s * 10 = 2190
 
@@ -135,7 +135,7 @@ mp4 格式的视频，单片机因为没有硬件的加速，无法胜任解码�
 
 打开 XnViewMP ，选择要转换的图片，快捷键 ctrl+U 打开批量转换，在动作中选择 24位 进行转换，如图
 
-![](../../assets/examples/XnViewMP.png)
+![](../../../../hardware/zh/longan/Nano/assets/examples/XnViewMP.png)
 
 然后就是将这些图片打包到 tf 卡，这里为了方便，修改了网上的一个开源项目 [bmp2hex](https://github.com/robertgallup/bmp2hex)，重新整理了一个工具，可以[点击下载](http://dl.sipeed.com/LONGAN/Nano/Firmware/badapple_demo_tools/tools_bmp2hex.zip)
 

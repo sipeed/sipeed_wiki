@@ -12,7 +12,7 @@ System containing MaixPy3 will not auto expand the capacity, so we need to run t
 
 Here we use `nmtui` to connect network.
 
-![](./../../zh/../maixII/M2A/assets/202108051626.webp)
+![](../../../zh/maixII/M2A/assets/202108051626.webp)
 
 <details>
 <summary><font color="#4F84FF">Click to see graphic steps</font></summary>
