@@ -82,8 +82,6 @@ docs/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.md	../../assets/mf_mod
 docs/hardware/maixface/zh/mf_ml_module/mf_update_firmwave.md	../../assets/mf_module/mf1/mf_dual_camera_2.png
 docs/hardware/zh/lichee/th1520/lbook4a/lbook4a.md	./assets/lbook/lbook.jpg
 docs/hardware/zh/logic_analyzer/slogic16u3/Software_User_Guide.md	../../../en/logic_analyzer/slogic16u3/assets/Screenshots/SLogic_Connect_1.png
-docs/hardware/zh/maixII/M2/usage.md	/news/MaixPy3/v831_usage/assest/adb.jpg
-docs/hardware/zh/maixII/M2/usage.md	/news/MaixPy3/v831_usage/assest/delete.jpg
 docs/hardware/zh/maixcam/README.md	../../assets/maixcam/maixcam.jpeg
 docs/hardware/zh/maixface/mf_ml_module/mf0_ml_module.md	../assets/mf_module/mf1_bottom_v2(nand).png
 docs/hardware/zh/maixface/mf_ml_module/mf0_ml_module.md	./../zh/maixface/assets/mf_module/mf0_mf0dock/mf0_dock_flash.png
@@ -120,6 +118,5 @@ docs/soft/maixpy3/zh/usage/hardware/back/GPIO_1.md	./../asserts/M2Dock_pin.png
 docs/soft/maixpy3/zh/usage/hardware/back/I2C_1.md	./../asserts/M2Dock_pin.png
 docs/soft/maixpy3/zh/usage/hardware/back/PWM_1.md	./../asserts/pwm.gif
 docs/soft/maixpy3/zh/usage/hardware/back/PWM_1.md	./../asserts/pwm.jpg
-news/MaixPy3/v831_usage/v831_usage.md	/news/MaixPy3/v831_usage/assest/usb.jpg
 news/others/831_ssh/831_ssh.md	./assets/succeed_login.png
 pages/index/zh/threshold.html	demo_color.jpg

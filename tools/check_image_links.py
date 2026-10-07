@@ -47,6 +47,8 @@ def load_routes():
     for url, targets in (cfg.get("translate", {}).get("docs") or {}).items():
         for t in targets:
             routes[t["url"]] = t["src"]
+    # news/ 由 blog 插件发布在 /news/ 下，site_config 的 route 里没有登记
+    routes.setdefault("/news/", "news")
     return dict(sorted(routes.items(), key=lambda kv: -len(kv[0])))
 
 
@@ -62,6 +64,16 @@ def resolve(ref, page_path, routes):
         for url, path in routes.items():
             if ref.startswith(url):
                 return os.path.normpath(os.path.join(ROOT, path, ref[len(url):]))
+        # 不匹配任何路由时，teedoc 把绝对路径按「该文档所属路由的根」解析，
+        # 而不是站点根。例如 /assets/x.jpg 出现在 docs/soft/maixpy/en/ 下的页面里，
+        # 实际指向 docs/soft/maixpy/assets/x.jpg。
+        rel_page = os.path.relpath(page_path, ROOT)
+        for _url, path in routes.items():
+            if rel_page.startswith(path + os.sep):
+                cand = os.path.normpath(
+                    os.path.join(ROOT, os.path.dirname(path), ref.lstrip("/")))
+                if os.path.exists(cand):
+                    return cand
         return os.path.normpath(os.path.join(ROOT, ref.lstrip("/")))
     return os.path.normpath(os.path.join(os.path.dirname(page_path), ref))
 
