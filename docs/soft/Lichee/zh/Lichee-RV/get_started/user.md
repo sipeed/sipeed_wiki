@@ -133,11 +133,11 @@ udhcpc -ieth0
 - **使用 debian 系统**
   点击系统菜单--Preferenes--Connman Settings，打开 Network Settings ，查看网络属性中的 Interface 是否为 wlan0。双击网络名称，并输入 WiFi 密码进行连接
 
-  ![](./../assets/RV/wifi-1.jpg)
+  ![](../../../../../hardware/zh/lichee/assets/RV/wifi-1.jpg)
 
   连接网络成功之后，通过系统系统菜单--Preferenes--Connman Settings，查看网络属性查看网络的 IP 地址
 
-  ![](./../assets/RV/wifi-2.jpg)
+  ![](../../../../../hardware/zh/lichee/assets/RV/wifi-2.jpg)
 
 
 ### 屏显触摸

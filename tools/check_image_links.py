@@ -31,6 +31,8 @@ PAGE_EXTS = {".md", ".html"}
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".ico"}
 
 FENCED = re.compile(r"```.*?```|~~~.*?~~~", re.S)
+# HTML 注释里的引用不会渲染，不算断链
+HTML_COMMENT = re.compile(r"<!--.*?-->", re.S)
 INLINE_CODE = re.compile(r"`[^`\n]*`")
 MD_IMG = re.compile(r"!\[[^\]]*\]\(\s*<?([^)\s>]+)")
 HTML_IMG = re.compile(r"<img\b[^>]*?\bsrc\s*=\s*[\"']([^\"']+)", re.I)
@@ -92,7 +94,7 @@ def scan():
                     text = open(page, encoding="utf-8").read()
                 except (OSError, UnicodeDecodeError):
                     continue
-                text = INLINE_CODE.sub(" ", FENCED.sub(" ", text))
+                text = INLINE_CODE.sub(" ", FENCED.sub(" ", HTML_COMMENT.sub(" ", text)))
                 rel_page = os.path.relpath(page, ROOT)
                 for ref in set(MD_IMG.findall(text) + HTML_IMG.findall(text)):
                     if "{{" in ref or "{%" in ref:  # jinja template expression
