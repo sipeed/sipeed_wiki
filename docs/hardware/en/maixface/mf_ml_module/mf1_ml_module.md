@@ -22,10 +22,6 @@
 
 ## **Introduction to Hardware Resources**
 
-<center class="half">
-<img src="../../assests/front.png" width = 50% /><img src="assests/bottom.jpg" width = 50% />
-</center>
-
 * CPU: **RISC-V** dual-core 64bit, built-in FPU, frequency 400Mhz-500Mhz
 * Image recognition: living body recognition
 * Dual cameras: infrared + visible light

@@ -123,4 +123,4 @@
 
 | 横板 | 竖版 |
 | --- | --- |
-| ![](../../../zh/maixface/assets/mf_module/mf1/mf_dual_camera_1.jpg) | ![](../../assets/mf_module/mf1/mf_dual_camera_2.png) |
+| ![](../../../zh/maixface/assets/mf_module/mf1/mf_dual_camera_1.jpg) |  |

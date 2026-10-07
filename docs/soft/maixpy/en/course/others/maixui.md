@@ -305,4 +305,3 @@ This document describes how to run the most basic examples. If you want to see m
 
 The current running effect of app_main.py is as follows:
 
-![](./image/app_main.gif)

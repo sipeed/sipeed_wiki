@@ -3,7 +3,6 @@
 
 ## Overview
 
-<img src="../../assets/spmod/spmod_weather/demo.gif" align="right" width="500" />
 
 SPMOD - Weather (Weather station module), Integrated Magnetic sensor (QMC7983) and Humidity sensor (BME280)
 

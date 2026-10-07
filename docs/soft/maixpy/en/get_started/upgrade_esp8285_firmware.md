@@ -139,7 +139,6 @@ Taking MaixDock as an example, you can see the schematic diagram of MaixDock as 
 
 1. Follow the configuration below to connect to MaixDock,
 
-    ![](../../assets/hardware/maix_dock/sipeed_maix_dock_m1w_2.png)
 
 2. Install esptool
 

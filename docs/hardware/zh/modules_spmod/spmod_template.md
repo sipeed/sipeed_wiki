@@ -3,7 +3,6 @@
 
 ## 概述
 
-<img src="../../assets/spmod/sipeed_spmod_xxx.jpg" alt="XXX" style="zoom:60%;" />
 
 SPMOD_XX(XX 模块)采用XXX。
 

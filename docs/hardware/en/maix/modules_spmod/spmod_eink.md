@@ -163,7 +163,6 @@ DC-DC, SRAM, LUT, VCOM, and border are supplied with each panel.
 
 * C
 
-  <img src="../../assets/spmod/spmod_eink/sp_eink_c.png" height="250" />
 
 * MaixPy
 

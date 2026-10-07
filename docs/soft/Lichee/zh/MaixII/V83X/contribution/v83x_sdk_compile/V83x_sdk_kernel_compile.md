@@ -786,7 +786,6 @@ $(eval $(call KernelPackage,vin-v4l2))
 ```
 经过这个配置以后，就会在 build 的时候将其打包到 lib/modules/4.9/ 目录下，然后在用户空间注册就行，但要记得在 menuconfig 选中这类 kmod_xxx 模块，不同于 kernel_menuconfig ，它的用途是从 kernel 中提取需要的模块（modules）。
 
-![Img](./assets/11.png)
 接下来介绍一下摄像头的基础配置结构代码参考：
 ```c
 /*

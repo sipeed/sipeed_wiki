@@ -21,10 +21,6 @@
 
 ## **硬件资源简介**
 
-<center class="half">
-<img src="./../assests/front.png" width = 50% /><img src="assests/bottom.jpg" width = 50% />
-</center>
-
 * CPU : **RISC-V** 双核 64bit、内置FPU、频率 400Mhz-500Mhz
 * 图像识别：活体识别
 * 双摄像头：红外（IR）+可见光（VIS）

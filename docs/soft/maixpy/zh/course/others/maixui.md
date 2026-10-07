@@ -306,4 +306,3 @@ if __name__ == "__main__":
 
 目前 app_main.py 运行效果如下：
 
-![](./image/app_main.gif)

@@ -1062,7 +1062,6 @@ sipeed@lpi4a:~$ curl 10.42.0.6:8080
 <body>
 
    <div class="main">
-     <img src="/images/kubernetes.png"/>
      <div class="content">
        <div id="message">
    Hello Lichee Pi 4A!

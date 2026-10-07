@@ -47,7 +47,6 @@ The LicheeRV Nano is available in four versions based on networking capabilities
   - The display features a resolution of 800*1280 and supports touch functionality. The package includes a touch adapter board and a ribbon cable for easy setup. The screen ribbon cable can be directly connected to the LicheeRV Nano 31Pin screen interface, ensuring seamless integration.
   - Raspberry Pi Camera Adapter Ribbon Cable (Coming Soon)
 
-  ![](./../assets/RV_Nano/unbox/1.jpg)
 
   ------
 

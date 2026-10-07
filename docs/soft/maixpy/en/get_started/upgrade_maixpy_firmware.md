@@ -75,7 +75,6 @@ When using, please note that the serial port cannot be occupied by other softwar
 
 ![](../../assets/kflash_gui/kflash_gui_download.png)
 
-![](../../assets/kflash_gui_screenshot_download.png)
 
 
 > For the earliest `Maix Go`, if you confirm that the options are correct and you still cannot download, you can try to turn the three-phase dial button to the `Down` position and keep downloading
