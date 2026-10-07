@@ -56,7 +56,7 @@ RGB LCD 显示协议和 VGA 类似，通信都有专用的行同步、场同步�
 
 点击ok后提示是否需要添加到当前工程，此时应当选择确定
 
-![](./../../Tang-Nano-1K/Nano_1K_examples/led/assets/add_ip_file_in_project.png)
+![](../../Tang-Nano-1K/examples/led/assets/add_ip_file_in_project.png)
 
 接着会出现一个例化的tmp文件，用来例化所设置的ip。比如下图中例子
 
