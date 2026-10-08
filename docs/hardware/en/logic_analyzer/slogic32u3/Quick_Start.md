@@ -15,7 +15,7 @@ This page takes the shortest path to your first capture. For hardware details se
 
 ---
 
-## 1. Unboxing
+## Unboxing
 
 ![What's in the box](../../../zh/logic_analyzer/slogic32u3/assets/DCIM/whats-in-the-box.jpg)
 
@@ -34,7 +34,7 @@ For optional accessories see [Hardware Guide · Accessories](./Hardware_Specific
 
 ---
 
-## 2. Install the software
+## Install the software
 
 Several host apps are available for the SLogic32U3. **Use SLogicView by default** — it is Sipeed's own, maintained GUI and the baseline for this documentation.
 
@@ -42,15 +42,15 @@ Download the package for your platform from the [GitHub Release](https://github.
 
 | Platform | File suffix | How to run |
 | - | - | - |
-| Windows 10/11 x64 | `SLogicView-SLogic-x.y.z-windows-x86_64.exe` | run the installer |
+| Windows 10/11 x64 | `SLogicView-SLogic-x.y.z-windows-x86_64.exe` | run directly |
 | Linux x86_64 | `SLogicView-SLogic-x.y.z-linux-x86_64.AppImage` | `chmod +x`, then run |
-| macOS (Apple Silicon) | `SLogicView-SLogic-x.y.z-macos-arm64.dmg` | open the dmg, drag the app into Applications |
+| macOS (Apple Silicon) | `SLogicView-SLogic-x.y.z-macos-arm64.dmg` | open the dmg to run directly, or drag the app into Applications |
 
 > **Don't want to install anything?** Just open **[slogic.sipeed.com](https://slogic.sipeed.com)** in a browser — no install, no driver, works even on an Android phone. See [Software Guide · SLogicWeb](./Software_User_Guide.md#slogicweb-web-app).
 
 ---
 
-## 3. Drivers and permissions
+## Drivers and permissions
 
 | Platform | What to do |
 | - | - |
@@ -60,7 +60,7 @@ Download the package for your platform from the [GitHub Release](https://github.
 
 ---
 
-## 4. Connect the device
+## Connect the device
 
 > [!WARNING]
 > **Use a 10 Gbps USB port.** The port spec directly determines the capture rate:
@@ -83,7 +83,7 @@ Steps:
 
 ---
 
-## 5. Wiring and grounding
+## Wiring and grounding
 
 ![In use](../../../zh/logic_analyzer/slogic32u3/assets/DCIM/SLogic32U3-with-laptop.jpg)
 
@@ -94,7 +94,7 @@ Steps:
 
 ---
 
-## 6. First capture
+## First capture
 
 Capturing one UART line, for example:
 
@@ -102,12 +102,12 @@ Capturing one UART line, for example:
 2. Set the **sample rate**: 10–100× the signal frequency is recommended. For a 115200-baud UART, 10 MHz is plenty.
 3. Set the **capture depth** (Samples): try 1 M first.
 4. Set the **voltage threshold**: for 3.3 V logic, about 1.6 V.
-5. Enable only the channels actually wired — fewer channels allow a higher sample rate.
+5. Fewer channels allow a higher sample rate, but only in fixed groups (4ch=D0–D3, 8ch=D0–D7, 16ch=D0–D15) — arbitrary channels are not supported. See the [Software Guide](./Software_User_Guide.md#sample-rate-vs-channel-count).
 6. Click **Run** to capture.
 
 ---
 
-## 7. View and decode
+## View and decode
 
 ![Protocol decoding](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pulseview-multi-decode.jpg)
 
@@ -120,7 +120,7 @@ Capturing one UART line, for example:
 
 ---
 
-## 8. Next steps
+## Next steps
 
 - Hardware interfaces, accessories, indicators, firmware update, signal integrity → [Hardware Guide](./Hardware_Specification.md)
 - Differences between host apps and the web app, triggers, decoding, command line → [Software Guide](./Software_User_Guide.md)

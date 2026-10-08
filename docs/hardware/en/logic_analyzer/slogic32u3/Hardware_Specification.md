@@ -64,7 +64,7 @@ Each Mini-HDMI (HDMI Type-C 1.4) port carries 8 data lines + GND + VCC(+5V) + CK
 
 ### How to connect
 
-1. Connect the device **directly** to a **10 Gbps USB-C port** (usually marked `SS10` or `10`) with the bundled cable. The port spec directly sets the capture rate; see [Quick Start · Connect the device](./Quick_Start.md#4-connect-the-device).
+1. Connect the device **directly** to a **10 Gbps USB-C port** (usually marked `SS10` or `10`) with the bundled cable. The port spec directly sets the capture rate; see [Quick Start · Connect the device](./Quick_Start.md#connect-the-device).
 2. A **cyan** indicator means powered and a healthy USB3 link.
 3. Plug the Mini-HDMI probe cables into the channel groups you need.
 4. Clip the test clips onto the signals and ground.

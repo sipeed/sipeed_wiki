@@ -15,7 +15,7 @@ update:
 
 ---
 
-## 1. 开箱
+## 开箱
 
 ![包装内含物](./assets/DCIM/whats-in-the-box.jpg)
 
@@ -34,7 +34,7 @@ update:
 
 ---
 
-## 2. 安装软件
+## 安装软件
 
 SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed 自研维护的图形界面，也是本文档的基准。
 
@@ -42,15 +42,15 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 | 平台 | 文件后缀 | 说明 |
 | - | - | - |
-| Windows 10/11 x64 | `SLogicView-SLogic-x.y.z-windows-x86_64.exe` | 运行安装程序 |
+| Windows 10/11 x64 | `SLogicView-SLogic-x.y.z-windows-x86_64.exe` | 直接运行 |
 | Linux x86_64 | `SLogicView-SLogic-x.y.z-linux-x86_64.AppImage` | `chmod +x` 后直接运行 |
-| macOS (Apple Silicon) | `SLogicView-SLogic-x.y.z-macos-arm64.dmg` | 打开 dmg 后把程序拖到「应用程序」 |
+| macOS (Apple Silicon) | `SLogicView-SLogic-x.y.z-macos-arm64.dmg` | 打开 dmg 后可直接运行，也可拖入「应用程序」 |
 
 > **完全不想装软件？** 直接用浏览器打开 **[slogic.sipeed.com](https://slogic.sipeed.com)**，免安装、免驱动，连安卓手机都能采集。详见[软件使用指南 · SLogicWeb 网页版](./Software_User_Guide.md#slogicweb网页版)。
 
 ---
 
-## 3. 配置驱动与权限
+## 配置驱动与权限
 
 | 平台 | 需要做什么 |
 | - | - |
@@ -60,7 +60,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ---
 
-## 4. 连接设备
+## 连接设备
 
 > [!WARNING]
 > **务必接到 10 Gbps 的 USB 口。** 接口规格直接决定采集速率：
@@ -83,7 +83,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ---
 
-## 5. 接线与接地
+## 接线与接地
 
 ![实际使用场景](./assets/DCIM/SLogic32U3-with-laptop.jpg)
 
@@ -94,7 +94,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ---
 
-## 6. 第一次采集
+## 第一次采集
 
 以抓一路 UART 为例：
 
@@ -102,12 +102,12 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 2. 设置**采样率**：建议为被测信号频率的 10~100 倍。例如 115200 波特率的 UART，选 10 MHz 足够。
 3. 设置**采样深度**（Samples）：先用 1 M 试手。
 4. 设置**电压阈值**：按被测逻辑电平，3.3 V 逻辑设约 1.6 V。
-5. 只勾选实际接线的通道，通道越少可用采样率越高。
+5. 降低通道数可提高采样率，但只能按固定分组（4ch=D0–D3、8ch=D0–D7、16ch=D0–D15），不支持自定义通道，详见[软件使用指南](./Software_User_Guide.md#采样率与通道数的关系)。
 6. 点 **Run** 开始采集。
 
 ---
 
-## 7. 查看与解码
+## 查看与解码
 
 ![协议解码](./assets/Screenshots/pulseview-multi-decode.jpg)
 
@@ -120,7 +120,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ---
 
-## 8. 下一步
+## 下一步
 
 - 硬件接口、配件、指示灯、固件更新、信号完整性 → [硬件使用指南](./Hardware_Specification.md)
 - 各上位机与网页版的区别、触发、解码、命令行 → [软件使用指南](./Software_User_Guide.md)
