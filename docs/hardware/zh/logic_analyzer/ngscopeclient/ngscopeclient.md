@@ -45,9 +45,9 @@ ngscopeclient 现为**单个可执行程序**：下载即运行，连接、采�
 
 | 平台 | 下载内容 |
 |---|---|
-| Windows x64 | `ngscopeclient-<版本>-win64.zip`（解压即运行） |
-| Linux x86_64 | `ngscopeclient-<版本>-x86_64.AppImage`（赋可执行权限即运行） |
-| macOS | ngscopeclient macOS 版（打开即运行）<!-- TODO 补 macOS 包名 --> |
+| Windows x64 | `ngscopeclient-SLogic-x.y.z-windows-x86_64.exe`（直接运行） |
+| Linux x86_64 | `ngscopeclient-SLogic-x.y.z-linux-x86_64.AppImage`（赋可执行权限即运行） |
+| macOS (Apple Silicon) | `ngscopeclient-SLogic-x.y.z-macos-arm64.dmg`（打开即运行） |
 
 > 单个绿色可执行程序，零依赖、免安装，放到任意目录皆可。
 
@@ -55,43 +55,36 @@ ngscopeclient 现为**单个可执行程序**：下载即运行，连接、采�
 
 ## 第一次跑起来
 
+插上 SLogic（Windows 免驱即插即用；Linux 需装一次 udev 规则，见下），运行 ngscopeclient，再通过菜单 **File → Add → Oscilloscope** 打开 Add Instrument，在各项下拉里选：
+
+| 字段 | 值 |
+|---|---|
+| Driver | `SLogic` |
+| Transport | `slogic` |
+| Path | `null` |
+
+点 Connect，通道面板出现对应通道数（SLogic16U3 16 路、SLogic32U3 32 路）。各平台启动与连接演示如下。
+
 ### Windows
 
-**步骤 1**：解压 `ngscopeclient-*-win64.zip` 到任意目录（保持目录结构）。
+双击 `ngscopeclient-*-windows-x86_64.exe` 直接运行。无需安装驱动（SLogic 默认即 WinUSB 设备，即插即用）；系统要求 Windows 10 1903+，**不需要** Visual C++ Redistributable。
 
-**步骤 2**：插上 SLogic 硬件——**无需安装任何驱动**。SLogic 默认就是 WinUSB 设备，Windows 即插即用。
-
-**步骤 3**：双击 `ngscopeclient.exe` 启动。
-
-<details>
-<summary>📷 Windows 使用示意图</summary>
-
-> ![Windows 启动D](../../../zh/logic_analyzer/ngscopeclient/Windows+bridge-D.png)
-> ![Windows 启动A](../../../zh/logic_analyzer/ngscopeclient/Windows+bridge-A.png)
-</details>
-
-
-> 系统要求：Windows 10 1903 或更新（自带 UCRT 运行时）。**不需要**装 Visual C++ Redistributable。
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-connect-windows.mp4" autoplay loop muted playsinline></video>
 
 ### Linux
 
-**步骤 1**：给 AppImage 加可执行权限
+给 AppImage 加可执行权限，装一次 udev 规则（否则普通用户访问不了 USB），然后运行：
 
 ```bash
-chmod +x ngscopeclient-*-x86_64.AppImage
-```
-
-**步骤 2**：装 udev 规则，让普通用户能访问 SLogic（只需做一次）
-
-```bash
+chmod +x ngscopeclient-*-linux-x86_64.AppImage
 sudo cp 60-sigrok-slogic.rules /etc/udev/rules.d/
 sudo udevadm control --reload && sudo udevadm trigger
+./ngscopeclient-*-linux-x86_64.AppImage
 ```
 
 <details>
-<summary>规则文件内容如下。</summary>
+<summary>udev 规则文件内容（装完拔插一次设备生效）</summary>
 
-> 装完之后**拔插一次** SLogic 让规则生效。
 ```
 SUBSYSTEM!="usb|usb_device", GOTO="sipeed_rules_end"
 ACTION!="add", GOTO="sipeed_rules_end"
@@ -100,48 +93,11 @@ LABEL="sipeed_rules_end"
 ```
 </details>
 
-**步骤 3**：运行
-
-```bash
-./ngscopeclient-*-x86_64.AppImage
-```
-
-<details>
-<summary>📷 Linux 使用示意图</summary>
-
-> ![Linux 启动D](../../../zh/logic_analyzer/ngscopeclient/Linux+bridge-D.png)
-> ![Linux 启动A](../../../zh/logic_analyzer/ngscopeclient/Linux+bridge-A.png)
-</details>
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-connect-linux.mp4" autoplay loop muted playsinline></video>
 
 ### macOS
 
 下载 macOS 版，打开即运行；若首次被系统阻止，在「系统设置 → 隐私与安全性」放行即可。
-
----
-
-## 在 ngscopeclient 中连接
-
-进入 ngscopeclient 主界面后，通过菜单 **File → Add → Oscilloscope** 打开 Add Instrument 对话框，在各项的下拉列表中按下表选择后点 Connect：
-
-| 字段 | 值 |
-|---|---|
-| Driver | `SLogic` |
-| Transport | `slogic` |
-| Path | `null` |
-
-连接成功后，通道面板里会出现对应数量的通道（如 SLogic16U3 16 路、SLogic32U3 32 路）。
-
-> 🚧 **TODO(配图)**：连接步骤图待更新——下方截图是旧版 `sigrok : twinlan : localhost:10101` 参数，需按新的 `SLogic : slogic : null` 重新截图（同名替换 `add-SLogic-*.png`）。
-
-<details>
-<summary>📷 连接步骤图（旧版，待更新）</summary>
-
-> ![Add-Instrument-00](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-00.png)
-> ![Add-Instrument-01](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-01.png)
-> ![Add-Instrument-02](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-02.png)
-> ![Add-Instrument-03](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-03.png)
-> ![Add-Instrument-04](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-04.png)
-</details>
 
 ---
 
@@ -162,18 +118,25 @@ LABEL="sipeed_rules_end"
    - **Single**——采一帧后停下来仔细看
    - **Force**——不等待触发的采一帧
 
-> 📷 **数字波形图**：对比[模拟波形图](#把硬件当采样示波器用（模拟模式）)
->
-> *触发于 D9 的下降沿*
-> ![Linux-D](../../../zh/logic_analyzer/ngscopeclient/ngscopeclient-Linux-D.png)
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-usage.mp4" autoplay loop muted playsinline></video>
+
+> 上方动图：从 Stream Browser 设采样率与 Channel mode（32ch@200MHz … 4ch@1400MHz），到采集 32 通道数字波形的完整流程。
+
+ngscopeclient 支持**软件触发**，无需硬件触发线即可按条件捕获：
+
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-soft-trigger.mp4" autoplay loop muted playsinline></video>
 
 **进一步：协议解码**
 
 把数字波形拖进 [Protocol Analyzer](https://www.ngscopeclient.org/protocol-analysis) 就能解 UART、I²C、SPI、CAN 等协议——这是 ngscopeclient 比传统 sigrok GUI 强的地方。
 
-> 📷 **SPI解码参考图**：数字波形和协议解码结果。
->
-> ![协议解码](../../../zh/logic_analyzer/ngscopeclient/decode-SPI.png)
+ngscopeclient 用 **Filter Graph** 把解码、数学运算、测量都表示成可连接的节点：
+
+![Filter Graph 节点](../../../zh/logic_analyzer/ngscopeclient/ngscope-filter-graph.webp)
+
+解码结果会标注在波形上：
+
+![SPI 解码结果](../../../zh/logic_analyzer/ngscopeclient/decode-SPI.png)
 
 ### 把硬件当采样示波器用（模拟模式）
 
@@ -181,11 +144,9 @@ LABEL="sipeed_rules_end"
 
 效果：原本的 D0–D7 / D8–D15 会被合并成 2 路 8-bit 模拟通道（A0、A1），如还有 D16–D23 / D24–D31 则一共合并成 4 路 8-bit 模拟通道（A0、A1、A2、A3），可以直接在 ngscopeclient 里像看模拟示波器一样看波形——量程、坐标轴、自动测量、FFT 等模拟示波器特性都自动可用。
 
-> 🚧 具体在 UI 中开启模拟模式的步骤以当前版本为准。
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-analog.mp4" autoplay loop muted playsinline></video>
 
-> 📷 **模拟波形图**：对比[数字波形图](#数字逻辑分析（默认模式）)
->
-> ![Linux-A](../../../zh/logic_analyzer/ngscopeclient/ngscopeclient-Linux-A.png)
+> 上方动图：模拟模式下对 A0 通道的采集与软件触发。
 
 <details>
 <summary>须知</summary>

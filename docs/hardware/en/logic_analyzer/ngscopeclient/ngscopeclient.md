@@ -45,9 +45,9 @@ Get the latest multi-platform host software from the **GitHub Release**; the dow
 
 | Platform | Download Items |
 |---|---|
-| Windows x64 | `ngscopeclient-<version>-win64.zip` (extract and run) |
-| Linux x86_64 | `ngscopeclient-<version>-x86_64.AppImage` (make executable and run) |
-| macOS | ngscopeclient macOS build (open and run)<!-- TODO: add macOS package name --> |
+| Windows x64 | `ngscopeclient-SLogic-x.y.z-windows-x86_64.exe` (run directly) |
+| Linux x86_64 | `ngscopeclient-SLogic-x.y.z-linux-x86_64.AppImage` (make executable and run) |
+| macOS (Apple Silicon) | `ngscopeclient-SLogic-x.y.z-macos-arm64.dmg` (open and run) |
 
 > A single portable executable — zero dependencies, no installation, drop it in any directory.
 
@@ -55,43 +55,36 @@ Get the latest multi-platform host software from the **GitHub Release**; the dow
 
 ## Getting Started
 
+Plug in SLogic (driverless plug-and-play on Windows; on Linux install the udev rule once, see below), run ngscopeclient, then open Add Instrument via **File → Add → Oscilloscope** and choose from each dropdown:
+
+| Field | Value |
+|---|---|
+| Driver | `SLogic` |
+| Transport | `slogic` |
+| Path | `null` |
+
+Click Connect; the channel panel shows the device's channels (16 for SLogic16U3, 32 for SLogic32U3). Launch-and-connect demos per platform:
+
 ### Windows
 
-**Step 1**: Extract `ngscopeclient-*-win64.zip` to any directory (keep the folder structure).
+Double-click `ngscopeclient-*-windows-x86_64.exe` to run directly. No driver needed (SLogic is a WinUSB device, plug-and-play); requires Windows 10 1903+, and you do **not** need the Visual C++ Redistributable.
 
-**Step 2**: Plug in your SLogic hardware — **no driver installation required**. SLogic is a WinUSB device by default and is plug-and-play on Windows.
-
-**Step 3**: Double-click `ngscopeclient.exe` to launch.
-
-<details>
-<summary>📷 Windows Usage Illustration</summary>
-
-> ![Windows Launch D](../../../zh/logic_analyzer/ngscopeclient/Windows+bridge-D.png)
-> ![Windows Launch A](../../../zh/logic_analyzer/ngscopeclient/Windows+bridge-A.png)
-</details>
-
-
-> System requirements: Windows 10 1903 or later (includes the built-in UCRT runtime). You do **not** need to install the Visual C++ Redistributable.
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-connect-windows.mp4" autoplay loop muted playsinline></video>
 
 ### Linux
 
-**Step 1**: Grant execute permission to the AppImage
+Make the AppImage executable, install the udev rule once (otherwise a normal user cannot access the USB device), then run:
 
 ```bash
-chmod +x ngscopeclient-*-x86_64.AppImage
-```
-
-**Step 2**: Install the udev rule so a normal user can access SLogic (only needed once)
-
-```bash
+chmod +x ngscopeclient-*-linux-x86_64.AppImage
 sudo cp 60-sigrok-slogic.rules /etc/udev/rules.d/
 sudo udevadm control --reload && sudo udevadm trigger
+./ngscopeclient-*-linux-x86_64.AppImage
 ```
 
 <details>
-<summary>Rule file contents.</summary>
+<summary>udev rule file (re-plug the device once after installing)</summary>
 
-> After installing, **re-plug** the SLogic once for the rule to take effect.
 ```
 SUBSYSTEM!="usb|usb_device", GOTO="sipeed_rules_end"
 ACTION!="add", GOTO="sipeed_rules_end"
@@ -100,48 +93,11 @@ LABEL="sipeed_rules_end"
 ```
 </details>
 
-**Step 3**: Run
-
-```bash
-./ngscopeclient-*-x86_64.AppImage
-```
-
-<details>
-<summary>📷 Linux Usage Illustration</summary>
-
-> ![Linux Launch D](../../../zh/logic_analyzer/ngscopeclient/Linux+bridge-D.png)
-> ![Linux Launch A](../../../zh/logic_analyzer/ngscopeclient/Linux+bridge-A.png)
-</details>
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-connect-linux.mp4" autoplay loop muted playsinline></video>
 
 ### macOS
 
 Download the macOS build and open it to run; if it is blocked on first launch, allow it under System Settings → Privacy & Security.
-
----
-
-## Connecting in ngscopeclient
-
-Once in the main ngscopeclient interface, open the Add Instrument dialog via the menu **File → Add → Oscilloscope**, choose the following from each dropdown, and click Connect:
-
-| Field | Value |
-|---|---|
-| Driver | `SLogic` |
-| Transport | `slogic` |
-| Path | `null` |
-
-Once connected, the corresponding number of channels appears in the channel panel (e.g., 16 channels for SLogic16U3, 32 for SLogic32U3).
-
-> 🚧 **TODO (image)**: The connection screenshots need updating — the ones below show the old `sigrok : twinlan : localhost:10101` parameters and must be re-captured with the new `SLogic : slogic : null` (replace `add-SLogic-*.png` in place).
-
-<details>
-<summary>📷 Connection Steps (old, to be updated)</summary>
-
-> ![Add-Instrument-00](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-00.png)
-> ![Add-Instrument-01](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-01.png)
-> ![Add-Instrument-02](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-02.png)
-> ![Add-Instrument-03](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-03.png)
-> ![Add-Instrument-04](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-04.png)
-</details>
 
 ---
 
@@ -162,18 +118,25 @@ Each channel is an independent digital level (High/Low). This is the most common
    - **Single** — capture one frame and stop for a closer look
    - **Force** — capture one frame without waiting for a trigger
 
-> 📷 **Digital Waveform**: compare with [Analog Waveform](#using-hardware-as-a-sampling-oscilloscope-analog-mode)
->
-> *Triggered on the falling edge of D9*
-> ![Linux-D](../../../zh/logic_analyzer/ngscopeclient/ngscopeclient-Linux-D.png)
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-usage.mp4" autoplay loop muted playsinline></video>
+
+> The clip above: from setting the sample rate and Channel mode (32ch@200MHz … 4ch@1400MHz) in the Stream Browser to capturing 32-channel digital waveforms.
+
+ngscopeclient supports a **software trigger** — capture on a condition without a hardware trigger line:
+
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-soft-trigger.mp4" autoplay loop muted playsinline></video>
 
 **Going Further: Protocol Decoding**
 
 Drag the digital waveforms into the [Protocol Analyzer](https://www.ngscopeclient.org/protocol-analysis) to decode UART, I²C, SPI, CAN and other protocols — this is where ngscopeclient outshines traditional sigrok GUIs.
 
-> 📷 **SPI Decoding Reference**: digital waveform with protocol decoding results.
->
-> ![Protocol Decoding](../../../zh/logic_analyzer/ngscopeclient/decode-SPI.png)
+ngscopeclient represents decoding, math and measurements as connectable nodes in a **Filter Graph**:
+
+![Filter Graph nodes](../../../zh/logic_analyzer/ngscopeclient/ngscope-filter-graph.webp)
+
+Decoded results are annotated on the waveform:
+
+![SPI decode result](../../../zh/logic_analyzer/ngscopeclient/decode-SPI.png)
 
 ### Using Hardware as a Sampling Oscilloscope (Analog Mode)
 
@@ -181,11 +144,9 @@ This is one of the project's unique capabilities: treating SLogic's parallel dig
 
 The result: the original D0–D7 / D8–D15 are merged into two 8-bit analog channels (A0, A1); if D16–D23 / D24–D31 are also present, they are merged into four 8-bit analog channels in total (A0, A1, A2, A3). You can then view the waveforms in ngscopeclient just like an analog oscilloscope — scale, axes, automatic measurements, FFT, and other analog-scope features are all available automatically.
 
-> 🚧 The exact steps to enable analog mode in the UI follow the current version.
+<video src="../../../zh/logic_analyzer/ngscopeclient/ngscope-analog.mp4" autoplay loop muted playsinline></video>
 
-> 📷 **Analog Waveform**: compare with [Digital Waveform](#digital-logic-analysis-default-mode)
->
-> ![Linux-A](../../../zh/logic_analyzer/ngscopeclient/ngscopeclient-Linux-A.png)
+> The clip above: capturing and software-triggering on channel A0 in analog mode.
 
 <details>
 <summary>Note</summary>
