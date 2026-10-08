@@ -47,9 +47,9 @@ All desktop apps are in the same Release; pick the file for your platform:
 
 | Platform | File suffix | How to run |
 | - | - | - |
-| Windows 10/11 x64 | `-windows-x86_64.exe` | run the installer |
+| Windows 10/11 x64 | `-windows-x86_64.exe` | run directly |
 | Linux x86_64 | `-linux-x86_64.AppImage` | `chmod +x`, then run |
-| macOS (Apple Silicon) | `-macos-arm64.dmg` | open the dmg, drag into Applications |
+| macOS (Apple Silicon) | `-macos-arm64.dmg` | open the dmg to run directly, or drag into Applications |
 
 - GitHub Release (recommended): https://github.com/sipeed/SLogic/releases/latest
 - Download site (backup mirror): https://dl.sipeed.com/shareURL/SLogic
@@ -59,7 +59,7 @@ All desktop apps are in the same Release; pick the file for your platform:
 
 ## SLogicWeb (web app)
 
-Open **[slogic.sipeed.com](https://slogic.sipeed.com)** and you are ready — the fastest way to start and the only truly install-free one.
+Open **[slogic.sipeed.com](https://slogic.sipeed.com)** and you are ready — the fastest way to start and the only truly download-free, install-free one.
 
 ![SLogicWeb UI](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicweb-ui.jpg)
 
@@ -131,13 +131,19 @@ This means no trade-off between "capture depth" and "sample rate" — you can ca
 
 8 / 16 / 32 channels all hit the 6.4 Gbps bandwidth ceiling; 4 channels are bounded by the 1400 MHz max sample clock.
 
-> **Fewer channels on, higher sample rate available.** Enabling only the channels you actually need is the most direct way to raise the rate.
+> **Fewer channels on, higher sample rate available — but only in fixed groups; you cannot pick arbitrary channels:**
+> - 4 channels → fixed **D0–D3**
+> - 8 channels → fixed **D0–D7**
+> - 16 channels → fixed **D0–D15**
+> - 32 channels → all D0–D31
+>
+> The enabled set is always the contiguous low channels starting at D0. **Arbitrary channel combinations are not supported** (e.g. you cannot capture only D5, D10, D20 at a high rate). When wiring, connect the signals you want to capture fast to contiguous channels starting at D0.
 
 For reference, the USB3.0-based DreamSourceLab DSLogic U3Pro32 in Stream mode is roughly 16ch@125MHz, 32ch@50MHz (per its public datasheet); the SLogic32U3 is 16ch@400MHz, 32ch@200MHz, about 3–4× the stream rate.
 
 ![Channel configuration](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pulseview-channels.jpg)
 
-The 32 channels can be freely enabled, recolored, resized and reordered, so related buses sit together:
+Captured channels can be recolored, resized and reordered in the view so related buses sit together (display only, does not affect capture):
 
 ![Custom channel order](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-channel-order.webp)
 

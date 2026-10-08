@@ -65,7 +65,7 @@ Yes. SLogicView, ngscopeclient and sigrok-cli all provide a macOS build. If the 
 
 ### Why can't the sample rate go higher than a certain value?
 
-The max sample rate depends on the number of channels enabled and the USB bandwidth. **Turn off unused channels** to raise the available rate.
+The max sample rate depends on the number of channels enabled and the USB bandwidth. Reducing the channel count raises the available rate, but **only in fixed groups** (4ch=D0–D3, 8ch=D0–D7, 16ch=D0–D15) — **arbitrary channels are not supported**.
 
 The mapping: 4ch@1400MHz, 8ch@800MHz, 16ch@400MHz, 32ch@200MHz. See [Software Guide · Sample rate vs channel count](./Software_User_Guide.md#sample-rate-vs-channel-count).
 

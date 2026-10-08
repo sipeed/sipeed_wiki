@@ -47,9 +47,9 @@ SLogic32U3 可以用多套上位机驱动。本页先帮你选，再分别讲各
 
 | 平台 | 文件后缀 | 运行方式 |
 | - | - | - |
-| Windows 10/11 x64 | `-windows-x86_64.exe` | 运行安装程序 |
+| Windows 10/11 x64 | `-windows-x86_64.exe` | 直接运行 |
 | Linux x86_64 | `-linux-x86_64.AppImage` | `chmod +x` 后直接运行 |
-| macOS (Apple Silicon) | `-macos-arm64.dmg` | 打开 dmg 后拖入「应用程序」 |
+| macOS (Apple Silicon) | `-macos-arm64.dmg` | 打开 dmg 后可直接运行，也可拖入「应用程序」 |
 
 - GitHub Release（推荐）：https://github.com/sipeed/SLogic/releases/latest
 - 下载站（备份镜像）：https://dl.sipeed.com/shareURL/SLogic
@@ -59,7 +59,7 @@ SLogic32U3 可以用多套上位机驱动。本页先帮你选，再分别讲各
 
 ## SLogicWeb（网页版）
 
-打开 **[slogic.sipeed.com](https://slogic.sipeed.com)** 即可使用，这是最快上手、也是唯一真正免安装的方式。
+打开 **[slogic.sipeed.com](https://slogic.sipeed.com)** 即可使用，这是最快上手、也是唯一真正免下载免安装的方式。
 
 ![SLogicWeb 网页版界面](./assets/Screenshots/slogicweb-ui.jpg)
 
@@ -131,13 +131,19 @@ SLogic32U3 采用 **Stream（流式）模式**：数据实时回传上位机，�
 
 8 / 16 / 32 通道均已跑满 6.4 Gbps 带宽上限；4 通道受最高采样时钟 1400 MHz 约束。
 
-> **使能通道越少，可用采样率越高**。只启用本次采集真正需要的通道，是提高采样率最直接的办法。
+> **使能通道越少，可用采样率越高——但只能按固定分组减少，不能任意挑选通道：**
+> - 4 通道 → 固定为 **D0–D3**
+> - 8 通道 → 固定为 **D0–D7**
+> - 16 通道 → 固定为 **D0–D15**
+> - 32 通道 → 全部 D0–D31
+>
+> 即启用的始终是从 D0 起的连续低位通道，**不支持自定义通道组合**（例如无法只采 D5、D10、D20 跑高采样率）。接线时请把要高速采集的信号接到从 D0 起的连续通道。
 
 作为参照，USB3.0 方案的 DreamSourceLab DSLogic U3Pro32 在 Stream 模式下约为 16ch@125MHz、32ch@50MHz（据其公开 Datasheet）；SLogic32U3 对应为 16ch@400MHz、32ch@200MHz，Stream 采样率约为其 3 ~ 4 倍。
 
 ![通道配置](./assets/Screenshots/pulseview-channels.jpg)
 
-32 路通道可以自由启用、改色、调整高度与排列顺序，把相关的总线放到一起看：
+采集到的通道可以在视图里改色、调整高度与排列顺序，把相关的总线放到一起看（仅影响显示，不影响采集）：
 
 ![自定义通道顺序](./assets/Screenshots/pv-channel-order.webp)
 
