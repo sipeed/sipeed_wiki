@@ -15,7 +15,7 @@ ngscopeclient is now a **single executable**: download and run, with the connect
 
 | Key Information | Description / Details |
 |---|---|
-| Supported Hardware | [**SLogic Combo 8**](https://wiki.sipeed.com/slogic_combo_8)</br>[**SLogic 16U3**](https://wiki.sipeed.com/slogic16u3) (current mainstream)</br>[*SLogic 32U3*](https://wiki.sipeed.com/slogic32u3) (coming soon; the primary focus of this project)</br>Other third-party models are not yet included in the distribution. |
+| Supported Hardware | [**SLogic Combo 8**](https://wiki.sipeed.com/slogic_combo_8)</br>[**SLogic 16U3**](https://wiki.sipeed.com/slogic16u3) (current mainstream)</br>[**SLogic 32U3**](https://wiki.sipeed.com/slogic32u3) (**crowdfunding now**; the primary focus of this project)</br>Other third-party models are not yet included in the distribution. |
 | OS Compatibility | Windows 10/11 x64, Linux x86_64, macOS — all three support download-and-run |
 | What You Need | A single portable executable — **no system-level installation, download and run** |
 | Unique Features | Beyond standard digital logic analysis, you can enable analog mode in the UI to observe the sampled pins **as 8-bit analog signals** — one SLogic serves as both an LA and a sampling oscilloscope (*requires the ADC kit*) |

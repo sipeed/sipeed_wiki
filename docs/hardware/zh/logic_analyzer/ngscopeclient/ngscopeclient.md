@@ -15,7 +15,7 @@ ngscopeclient 现为**单个可执行程序**：下载即运行，连接、采�
 
 | 你需要知道的 | 说明 |
 |---|---|
-| 支持的硬件 | [**SLogic Combo 8**](https://wiki.sipeed.com/slogic_combo_8)</br>[**SLogic 16U3**](https://wiki.sipeed.com/slogic16u3)（当前主力）</br>[*SLogic 32U3*](https://wiki.sipeed.com/slogic32u3)（即将推出，本项目的重点支持型号）</br>其它厂商型号暂未在分发版本中加入 |
+| 支持的硬件 | [**SLogic Combo 8**](https://wiki.sipeed.com/slogic_combo_8)</br>[**SLogic 16U3**](https://wiki.sipeed.com/slogic16u3)（当前主力）</br>[**SLogic 32U3**](https://wiki.sipeed.com/slogic32u3)（**正在众筹**，本项目的重点支持型号）</br>其它厂商型号暂未在分发版本中加入 |
 | 支持的系统 | Windows 10/11 x64、Linux x86_64、macOS——三大系统均支持下载即运行 |
 | 你需要装的东西 | 单个绿色可执行程序——**没有任何系统级安装，下载即运行** |
 | 独门特性 | 除了常规数字逻辑分析，还可以在 UI 中开启模拟模式，把对应硬件管脚的采样**作为 8-bit 模拟信号**观测——同一台 SLogic 既能当 LA 也能当采样示波器(*需搭配 ADC 套件*) |

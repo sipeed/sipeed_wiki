@@ -30,6 +30,8 @@ SLogic32U3 是 Sipeed SLogic 系列的旗舰逻辑分析仪，也是全球首款
 
 ![SLogic32U3 产品](./assets/DCIM/SLogic32U3-hero.jpg)
 
+> 🎉 **SLogic32U3 正在众筹！** 欢迎到 [Kickstarter](https://www.kickstarter.com/projects/zepan/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer/) 支持我们。
+
 > 第一次拿到设备，请看[快速上手](./Quick_Start.md)。
 
 ---
