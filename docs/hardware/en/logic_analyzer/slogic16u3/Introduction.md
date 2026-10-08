@@ -22,7 +22,7 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
 | Adjustable Threshold | N | Y | Y |
 | Case | Plastic | Aluminum | Aluminum |
 | Extra Feature | DAP-Link, CK-Link, 4-UART |  | Extend ADC -> Oscilloscope |
-| Size | 20x40x10mm | 40x40x10mm | 50x50x10mm |
+| Size | 20x40x10mm | 40x40x10mm | 59x51x13mm |
 | Price | $15 | $69 | $149 |
 
 ---
