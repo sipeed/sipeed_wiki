@@ -121,10 +121,20 @@ LABEL="sipeed_rules_end"
 
 ## 在 ngscopeclient 中连接
 
-进入 ngscopeclient 主界面后，通过菜单 **File → Add → Oscilloscope** 添加并选择 SLogic 设备。连接成功后，通道面板里会出现对应数量的通道（如 SLogic16U3 16 路、SLogic32U3 32 路）。
+进入 ngscopeclient 主界面后，通过菜单 **File → Add → Oscilloscope** 打开 Add Instrument 对话框，在各项的下拉列表中按下表选择后点 Connect：
+
+| 字段 | 值 |
+|---|---|
+| Driver | `SLogic` |
+| Transport | `slogic` |
+| Path | `null` |
+
+连接成功后，通道面板里会出现对应数量的通道（如 SLogic16U3 16 路、SLogic32U3 32 路）。
+
+> 🚧 **TODO(配图)**：连接步骤图待更新——下方截图是旧版 `sigrok : twinlan : localhost:10101` 参数，需按新的 `SLogic : slogic : null` 重新截图（同名替换 `add-SLogic-*.png`）。
 
 <details>
-<summary>📷 连接步骤图</summary>
+<summary>📷 连接步骤图（旧版，待更新）</summary>
 
 > ![Add-Instrument-00](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-00.png)
 > ![Add-Instrument-01](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-01.png)
@@ -132,8 +142,6 @@ LABEL="sipeed_rules_end"
 > ![Add-Instrument-03](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-03.png)
 > ![Add-Instrument-04](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-04.png)
 </details>
-
-> 🚧 具体驱动/选项以当前版本 UI 为准。
 
 ---
 

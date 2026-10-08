@@ -121,10 +121,20 @@ Download the macOS build and open it to run; if it is blocked on first launch, a
 
 ## Connecting in ngscopeclient
 
-Once in the main ngscopeclient interface, add and select your SLogic device via the menu **File → Add → Oscilloscope**. Once connected, the corresponding number of channels appears in the channel panel (e.g., 16 channels for SLogic16U3, 32 for SLogic32U3).
+Once in the main ngscopeclient interface, open the Add Instrument dialog via the menu **File → Add → Oscilloscope**, choose the following from each dropdown, and click Connect:
+
+| Field | Value |
+|---|---|
+| Driver | `SLogic` |
+| Transport | `slogic` |
+| Path | `null` |
+
+Once connected, the corresponding number of channels appears in the channel panel (e.g., 16 channels for SLogic16U3, 32 for SLogic32U3).
+
+> 🚧 **TODO (image)**: The connection screenshots need updating — the ones below show the old `sigrok : twinlan : localhost:10101` parameters and must be re-captured with the new `SLogic : slogic : null` (replace `add-SLogic-*.png` in place).
 
 <details>
-<summary>📷 Connection Steps</summary>
+<summary>📷 Connection Steps (old, to be updated)</summary>
 
 > ![Add-Instrument-00](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-00.png)
 > ![Add-Instrument-01](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-01.png)
@@ -132,8 +142,6 @@ Once in the main ngscopeclient interface, add and select your SLogic device via 
 > ![Add-Instrument-03](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-03.png)
 > ![Add-Instrument-04](../../../zh/logic_analyzer/ngscopeclient/add-SLogic-04.png)
 </details>
-
-> 🚧 The exact driver/options follow the current version's UI.
 
 ---
 
