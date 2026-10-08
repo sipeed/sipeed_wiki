@@ -243,7 +243,7 @@ The SLogic32U3 supports Easy OTA; firmware can be updated online.
 3. Run the flashing tool, pick the firmware file as prompted, and flash it.
 4. Replug the device after flashing; it returns to APP mode.
 
-> **The SLogic32U3 firmware has not been released yet**; it will be provided on the [download site](https://dl.sipeed.com/shareURL/SLogic) after release.
+> **Firmware downloads**: [SLogic32U3 firmware](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware); future updates are published here too.
 >
 > The flashing tool is shared with the SLogic16U3: [slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest).
 

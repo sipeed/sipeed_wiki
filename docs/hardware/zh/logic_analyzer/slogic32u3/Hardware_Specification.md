@@ -244,7 +244,7 @@ SLogic32U3 支持 Easy OTA，固件可在线升级。
 3. 运行固件刷写工具，按提示选择固件文件并刷入。
 4. 刷写完成后重新插拔设备，设备会回到 APP 模式。
 
-> **SLogic32U3 固件尚未发布**，正式发布后将于[下载站](https://dl.sipeed.com/shareURL/SLogic)提供。
+> **固件下载**：[SLogic32U3 固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware)，后续更新也发布在此。
 >
 > 刷写工具与 SLogic16U3 共用同一套工具链：[slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest)。
 
