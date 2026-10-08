@@ -475,6 +475,10 @@ msgstr "Depth Camera Module"
 msgid "热成像传感器模组"
 msgstr "Thermal Sensor Module"
 
+#: sipeedsense.html:77
+msgid "https://item.taobao.com/item.htm?id=1042038028765"
+msgstr "https://www.aliexpress.com/item/1005012028703380.html"
+
 #: slogic.html:4
 msgid "SLogic 逻辑分析仪系列"
 msgstr "SLogic Logic Analyzer"
