@@ -95,7 +95,7 @@ The web app talks to the device over **WebUSB**, so a **Chromium-based browser**
 ## SLogicView
 
 > [!NOTE]
-> The figures in this section use PulseView screenshots from the same code base; SLogicView works the same way. They will be updated to SLogicView screenshots in a later revision.
+> The decoder-list figures in the Protocol decoding section still use PulseView screenshots from the same code base (identical decoders and workflow); the rest are now actual SLogicView captures and screen recordings.
 
 ### Connect the device
 
@@ -103,7 +103,7 @@ Best practice: **connect the device to a USB3 port first, then launch the app** 
 
 If the app is already running, click **Connect to Device**, choose the driver, click **Scan**, then select the device found.
 
-![SLogicView main window](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pulseview-overview.jpg)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-overview.mp4" autoplay loop muted playsinline></video>
 
 The main window has a few areas:
 
@@ -141,15 +141,17 @@ This means no trade-off between "capture depth" and "sample rate" — you can ca
 
 For reference, the USB3.0-based DreamSourceLab DSLogic U3Pro32 in Stream mode is roughly 16ch@125MHz, 32ch@50MHz (per its public datasheet); the SLogic32U3 is 16ch@400MHz, 32ch@200MHz, about 3–4× the stream rate.
 
-![Channel configuration](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pulseview-channels.jpg)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-channel-samplerate.mp4" autoplay loop muted playsinline></video>
+
+> The clip above: switching the channel count (32 / 16 / 8 / 4) in the Configure panel changes the available sample rate.
 
 Captured channels can be recolored, resized and reordered in the view so related buses sit together (display only, does not affect capture):
 
-![Custom channel order](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-channel-order.webp)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-channel-order.mp4" autoplay loop muted playsinline></video>
 
 ### How to choose the sample rate
 
-![Sample settings](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-sample-settings.webp)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-sample-depth.mp4" autoplay loop muted playsinline></video>
 
 - Rule of thumb: **10–100×** the highest frequency of the signal.
 - Too low and you miss edges, distorting the waveform or failing the decode.
@@ -158,7 +160,7 @@ Captured channels can be recolored, resized and reordered in the view so related
 
 ### Voltage threshold
 
-![Adjust the threshold](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-threshold.webp)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-threshold.mp4" autoplay loop muted playsinline></video>
 
 Set the logic decision threshold in the left channel bar, 0–6 V in 0.1 V steps. Below it = 0, above it = 1. For suggested thresholds per logic level see the [Hardware Guide](./Hardware_Specification.md#threshold-voltage).
 
@@ -175,26 +177,28 @@ The SLogic32U3 supports **multi-channel, multi-edge combination triggers**. You 
 
 ### Browsing and cursor measurement
 
-![Zoom and pan](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-zoom.webp)
-
-![Waveform browsing](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pulseview-waveform.jpg)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-waveform.mp4" autoplay loop muted playsinline></video>
 
 | Action | How |
 | - | - |
-| Horizontal zoom | scroll wheel |
-| Horizontal pan | drag with left button, or Shift + wheel |
+| Pan the view | hold the left button and drag |
+| Horizontal zoom (time) | scroll wheel, or `−` / `+` |
+| Horizontal pan (time axis) | Shift + wheel, or Alt + wheel |
 | Vertical pan | Ctrl + wheel |
-| Create a measurement cursor | Shift + drag |
 
-Measure the time between two points with cursors to derive baud rate, pulse width, event interval and so on.
+Add cursors from the **Cursors** toolbar button, then measure the time between two points to derive baud rate, pulse width, event interval and so on.
 
-![Cursor measurement](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-measure.webp)
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-cursors.mp4" autoplay loop muted playsinline></video>
 
 ### Protocol decoding
 
 ![150+ protocol decoders](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pv-decoders.webp)
 
 ![Multi-protocol decoding](../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/pulseview-multi-decode.jpg)
+
+<video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-decode-pwm.mp4" autoplay loop muted playsinline></video>
+
+> SLogicView decoding a live PWM signal.
 
 The sigrok ecosystem offers 150+ protocol decoders covering I²C, SPI, UART, CAN, SDIO, 1-Wire, USB, Modbus and other common buses.
 

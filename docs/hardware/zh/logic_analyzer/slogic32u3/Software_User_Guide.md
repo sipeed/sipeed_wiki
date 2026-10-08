@@ -95,7 +95,7 @@ SLogic32U3 可以用多套上位机驱动。本页先帮你选，再分别讲各
 ## SLogicView
 
 > [!NOTE]
-> 本节配图暂用同源的 PulseView 界面截图，SLogicView 的操作逻辑与之一致。截图将在后续版本更新为 SLogicView 实机界面。
+> 协议解码一节的解码器列表截图暂用同源的 PulseView 界面（解码器与操作逻辑一致），其余已更新为 SLogicView 实机界面与录屏。
 
 ### 连接设备
 
@@ -103,7 +103,7 @@ SLogic32U3 可以用多套上位机驱动。本页先帮你选，再分别讲各
 
 若软件已在运行，点 **Connect to Device**，选择驱动后点 **Scan**，再选中扫描到的设备。
 
-![SLogicView 主界面](./assets/Screenshots/pulseview-overview.jpg)
+<video src="./assets/Screenshots/slogicview-overview.mp4" autoplay loop muted playsinline></video>
 
 主界面分为几个区域：
 
@@ -141,15 +141,17 @@ SLogic32U3 采用 **Stream（流式）模式**：数据实时回传上位机，�
 
 作为参照，USB3.0 方案的 DreamSourceLab DSLogic U3Pro32 在 Stream 模式下约为 16ch@125MHz、32ch@50MHz（据其公开 Datasheet）；SLogic32U3 对应为 16ch@400MHz、32ch@200MHz，Stream 采样率约为其 3 ~ 4 倍。
 
-![通道配置](./assets/Screenshots/pulseview-channels.jpg)
+<video src="./assets/Screenshots/slogicview-channel-samplerate.mp4" autoplay loop muted playsinline></video>
+
+> 上方动图：在 Configure 面板切换通道数（32 / 16 / 8 / 4），可用采样率随之变化。
 
 采集到的通道可以在视图里改色、调整高度与排列顺序，把相关的总线放到一起看（仅影响显示，不影响采集）：
 
-![自定义通道顺序](./assets/Screenshots/pv-channel-order.webp)
+<video src="./assets/Screenshots/slogicview-channel-order.mp4" autoplay loop muted playsinline></video>
 
 ### 采样率怎么选
 
-![采样参数设置](./assets/Screenshots/pv-sample-settings.webp)
+<video src="./assets/Screenshots/slogicview-sample-depth.mp4" autoplay loop muted playsinline></video>
 
 - 经验法则：取被测信号最高频率的 **10 ~ 100 倍**。
 - 采样率过低会错过边沿，导致波形失真甚至解码失败。
@@ -158,7 +160,7 @@ SLogic32U3 采用 **Stream（流式）模式**：数据实时回传上位机，�
 
 ### 电压阈值
 
-![调整电压阈值](./assets/Screenshots/pv-threshold.webp)
+<video src="./assets/Screenshots/slogicview-threshold.mp4" autoplay loop muted playsinline></video>
 
 在左侧通道栏设置逻辑判决阈值，范围 0 ~ 6 V，步进 0.1 V。低于阈值判为 0，高于判为 1。常见逻辑电平的建议阈值见[硬件使用指南](./Hardware_Specification.md#阈值电压)。
 
@@ -175,26 +177,28 @@ SLogic32U3 支持**多通道、多边沿组合触发**。可对多个通道分�
 
 ### 浏览与光标测量
 
-![波形缩放与拖拽](./assets/Screenshots/pv-zoom.webp)
-
-![波形浏览](./assets/Screenshots/pulseview-waveform.jpg)
+<video src="./assets/Screenshots/slogicview-waveform.mp4" autoplay loop muted playsinline></video>
 
 | 操作 | 方式 |
 | - | - |
-| 水平缩放 | 鼠标滚轮 |
-| 水平平移 | 左键拖动，或 Shift + 滚轮 |
-| 垂直平移 | Ctrl + 滚轮 |
-| 创建测量光标 | Shift + 拖动 |
+| 拖动查看视图 | 左键按住拖动 |
+| 水平缩放（时域） | 滚轮，或 `−` / `+` 键 |
+| 水平移动（横轴） | Shift + 滚轮，或 Alt + 滚轮 |
+| 垂直移动（纵轴） | Ctrl + 滚轮 |
 
-用光标测量两点时间差，可直接换算波特率、脉宽、事件间隔等参数。
+点工具栏 **Cursors** 添加测量光标，测量两点时间差即可换算波特率、脉宽、事件间隔等参数。
 
-![光标测量](./assets/Screenshots/pv-measure.webp)
+<video src="./assets/Screenshots/slogicview-cursors.mp4" autoplay loop muted playsinline></video>
 
 ### 协议解码
 
 ![150+ 协议解码](./assets/Screenshots/pv-decoders.webp)
 
 ![多协议并行解码](./assets/Screenshots/pulseview-multi-decode.jpg)
+
+<video src="./assets/Screenshots/slogicview-decode-pwm.mp4" autoplay loop muted playsinline></video>
+
+> 上方动图：SLogicView 实时解码 PWM 信号。
 
 sigrok 生态提供 150+ 协议解码器，覆盖 I²C、SPI、UART、CAN、SDIO、1-Wire、USB、Modbus 等常见总线。
 
