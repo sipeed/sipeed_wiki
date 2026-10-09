@@ -137,7 +137,7 @@ SLogic 生态目前有两种让 AI 参与调试的方式，按需选择：
 
 ### 2. 备好 sigrok-cli
 
-> 打开 SLogic Release 页面 (https://github.com/sipeed/SLogic/releases/latest) ，识别当前操作系统，下载对应的最新版 `sigrok-cli-SLogic`，保存到 `<工具目录>`。完成运行准备后，把可执行文件绝对路径写入全局配置，再运行版本检查和 `decoder-show uart`。告诉我结果，不要扫描设备或开始采集。
+> 打开 SLogic Release 页面 (https://github.com/sipeed/SLogic/releases/latest) ，识别当前操作系统，下载对应的最新版 `sigrok-cli-SLogic`，保存到 `<工具目录>`。完成运行准备后，把可执行文件绝对路径写入全局配置，再运行版本检查，并查询 UART decoder 确认解码器能加载。告诉我结果，不要扫描设备或开始采集。
 
 ### 3. 先握手，再干活
 
@@ -306,22 +306,22 @@ GBA 主时钟 16.78 MHz，默认等待态下顺序读大约每 179 ns 一次，`
 
 ## 附录 A：Plugin 的能力与边界
 
-`sigrok-cli-slogic-plugin` 是一个仅包含 Skill 的 OpenAI plugin，内置 Skill 名为 `sigrok-cli-slogic`。其能力对应包装脚本的以下操作：
+`sigrok-cli-slogic-plugin` 是一个仅包含 Skill 的 OpenAI plugin，内置 Skill 名为 `sigrok-cli-slogic`。包装脚本只做一件事：**跨平台定位并转发到用户提供的 `sigrok-cli` 二进制** —— 在 Linux/macOS/Windows 上找到可执行文件、补好动态库路径，然后把其余参数原样交给 `sigrok-cli`。它本身不内置任何选项，能力全部来自转发的原生 `sigrok-cli` 操作；完整选项以二进制自身为准，用 `-- --help`、`-- -L`、`-- --driver <驱动> --show` 查询。
 
-| 操作 | 说明 |
+| 能力 | 转发的原生 sigrok-cli 操作 |
 |---|---|
-| `scan` | 扫描设备，只列出名称包含 SLogic 或 DSLogic 的匹配项 |
-| `show` | 读取所选设备的通道和配置能力 |
-| `capture` | 按时长、样本数或帧数进行有限采集，并将波形保存为 `.sr` |
-| `decoder-show` | 查询 libsigrokdecode decoder 的必选/可选引脚、选项和解码标注（annotation） |
-| `decode` | 使用明确的 decoder 引脚映射和选项解码已有 `.sr` 文件 |
-| `decode --stack` | 在基础 decoder 上依次叠加高层 decoder，例如在 I²C 上叠加 `eeprom24xx` |
-| `capture -- ...` | 将通道、采样率、触发等额外采集参数传给 `sigrok-cli` |
-| `run --` | 将包装脚本未覆盖的操作直接传给 `sigrok-cli` |
+| 列出驱动 / 解码器 | `-- -L` |
+| 扫描设备 | `-- --driver sipeed-slogic-analyzer --scan` |
+| 查看设备能力 | `-- --driver '<扫描标识>' --show`（通道、采样率、配置项） |
+| 查询 decoder | `-- --protocol-decoders <id> --show`（必选/可选引脚、选项、annotation） |
+| 有限采集 | `-- --driver '<标识>' --samples N`（或 `--time <ms>`）`-o <文件>.sr -O srzip`；通道、采样率、阈值、触发用 `--config` / `--channels` / `--triggers` 传入 |
+| 解码已有波形 | `-- -i <文件>.sr -P <id>:pin=通道:opt=值 -A <id>` |
+| 叠加高层 decoder | `-- -i <文件>.sr -P <base>:...,<stacked>`（例如 I²C 上叠 `eeprom24xx`） |
 
 Skill 的行为约定：
 
-- 扫描不到匹配设备时停止，不进入采集；扫描到多台设备时，必须先指定其中一台；
+- 扫描不到匹配设备时停止，不进入采集；扫描到多台设备时，必须先指定其中一台（`conn`）；
+- 采集前先用 `--show` 确认设备支持的采样率和通道，不照搬其他型号；
 - 采集完成后，Agent 应返回 `.sr` 的绝对路径和实际命令；
 - 解码完成后，Agent 应报告 decoder、引脚映射、选项以及是否产生 annotation；
 - 解码已有的 `.sr` 文件无需连接逻辑分析仪；只有扫描、查询设备和采集需要访问 USB 设备。
@@ -330,13 +330,13 @@ Skill 的行为约定：
 
 ### 使用边界
 
-- `capture` 会访问 USB 设备并创建 `.sr` 文件；执行前确认设备、接线、采集上限和文件名。
-- `--time-ms`、`--samples` 和 `--frames` 只能使用一个，数值必须大于 0。
-- `--output` 只接受当前工作目录中的文件名，不接受绝对路径或子目录。
-- `decode --output` 会把 decoder 文本写入当前目录；使用前确认同名文件是否需要保留。
+- 采集会访问 USB 设备并创建 `.sr` 文件；执行前确认设备、接线、采集上限和文件名。
+- 采集必须设上限：`--samples N` 或 `--time <ms>` 必选其一，否则 `sigrok-cli` 会一直采集。
+- SLogic 采集参数走原生 `--config`：`logic_channels`（通道档位，决定最大采样率，应写在 `samplerate` 之前，并会使能 D0..D(N-1)）、`samplerate`（SI 形式如 `10m`，超过当前档位上限会被截断并告警）、`voltage_threshold`（是「低-高」电压对，单阈值写成 `1.7-1.7`，范围 0–6 V）、`pattern`；触发用 `--triggers Dn=COND`，COND 取 `0 1 r f e`。
+- 输出路径用 `sigrok-cli` 原生 `-o` / `-O`；包装脚本不限制目录，请自行确认不会覆盖重要文件。
 - 扫描不到设备时不采集；扫描到多台设备时先指定目标。
 - 缺少预期协议或必要的 decoder 引脚映射时不开始解码。
-- `run --` 会直接传递参数给 `sigrok-cli`，不检查采集上限或输出路径，只用于包装脚本尚未覆盖的高级操作。
+- 包装脚本只转发、不校验采集上限或输出路径；上限与安全由你在参数里写明。
 
 ---
 
@@ -385,7 +385,7 @@ SLogic 按平台分发对应的 `sigrok-cli`，与其他上位机一同打包在
 
 把 Release 页面交给 Agent，让它下载适合当前系统的最新版，并保存到固定的工具目录。`<工具目录>` 填写你希望长期保存该工具的位置即可：
 
-> 打开 SLogic Release 页面 (https://github.com/sipeed/SLogic/releases/latest) ，识别当前操作系统，下载对应的最新版 `sigrok-cli-SLogic`，并保存到 `<工具目录>`。不要覆盖已有版本。请完成运行该程序所需的准备工作，把可执行文件绝对路径保存到全局配置，供 `sigrok-cli-slogic` 后续直接使用，再运行版本检查和 `decoder-show uart`。告诉我配置结果，不要扫描设备或开始采集。
+> 打开 SLogic Release 页面 (https://github.com/sipeed/SLogic/releases/latest) ，识别当前操作系统，下载对应的最新版 `sigrok-cli-SLogic`，并保存到 `<工具目录>`。不要覆盖已有版本。请完成运行该程序所需的准备工作，把可执行文件绝对路径保存到全局配置，供 `sigrok-cli-slogic` 后续直接使用，再运行版本检查，并查询 UART decoder。告诉我配置结果，不要扫描设备或开始采集。
 
 Agent 验证可执行文件后，应将其路径保存到全局配置，供后续扫描、采集和解码直接使用。不同系统的分发形式由 Agent 处理，用户无需记录路径或了解发行包的内部结构。
 
@@ -459,7 +459,7 @@ Agent 应依次完成：
 
 绝大多数情况不需要你自己算这些，但当你想精确控制 Agent 的行为时，这些是它遵循的规则。
 
-每次采集都应设置明确上限，时长、样本数和帧数三选一。如果均未指定，Plugin 默认采集 1000 ms；实际使用时仍建议主动写明上限。
+每次采集都应设置明确上限：用 `--samples N`（样本数）或 `--time <ms>`（时长）指定，否则 `sigrok-cli` 会一直采集。
 
 | 信息 | 应该怎样说明 |
 |---|---|
@@ -517,7 +517,7 @@ CH341 GND -> SLogicCombo8 GND
 - 对应时长：50 ms；
 - 输出：当前工作目录中的 `capture-combo8-500k.sr`。
 
-`--output` 只接受当前目录中的文件名，不能使用绝对路径或子目录。未指定文件名时，Plugin 会生成带时间戳的 `.sr` 文件。
+输出文件用 `sigrok-cli` 原生 `-o <文件>` 指定（`-O srzip` 选择 `.sr` 格式，可用绝对路径或子目录）；包装脚本不限制目录，请自行确认不会覆盖已有文件。
 
 #### 解码 UART
 
@@ -638,11 +638,11 @@ PWM decoder 只需要一条 `data` 通道，并可按 active-high 或 active-low
 
 把下载或运行时的完整错误交给 Agent，让它检查文件是否下载完整、保存路径是否正确、当前系统能否执行，并修复全局配置。例如：
 
-> `sigrok-cli-slogic` 找不到或无法运行已经配置的 `sigrok-cli-SLogic`。请检查下载结果、保存路径、执行权限、实际可执行文件位置和全局配置；修复后运行版本检查和 `decoder-show uart`。不要扫描设备或开始采集。
+> `sigrok-cli-slogic` 找不到或无法运行已经配置的 `sigrok-cli-SLogic`。请检查下载结果、保存路径、执行权限、实际可执行文件位置和全局配置；修复后运行版本检查，并查询 UART decoder。不要扫描设备或开始采集。
 
 ### 版本命令正常，但 decoder 无法加载
 
-发行包可能缺少 libsigrokdecode、decoder 模块或相应的 Python 环境。让 Agent 执行 `decoder-show uart` 并保留完整错误，不能只根据 `--version` 判断安装是否完整。
+发行包可能缺少 libsigrokdecode、decoder 模块或相应的 Python 环境。让 Agent 查询 UART decoder（`-- --protocol-decoders uart --show`）并保留完整错误，不能只根据 `--version` 判断安装是否完整。
 
 ### 扫描不到设备
 
