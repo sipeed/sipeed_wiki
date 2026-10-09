@@ -137,7 +137,7 @@ Send the link to a Plugin/Skill-capable Agent and let it install:
 
 ### 2. Get sigrok-cli ready
 
-> Open the SLogic Release page (https://github.com/sipeed/SLogic/releases/latest), identify the current OS, download the latest `sigrok-cli-SLogic` for it, and save it to `<tools dir>`. Finish the setup needed to run it, write the executable's absolute path to the global config, then run a version check and `decoder-show uart`. Report the result; do not scan devices or start capturing.
+> Open the SLogic Release page (https://github.com/sipeed/SLogic/releases/latest), identify the current OS, download the latest `sigrok-cli-SLogic` for it, and save it to `<tools dir>`. Finish the setup needed to run it, write the executable's absolute path to the global config, then run a version check and query the UART decoder to confirm the decoder loads. Report the result; do not scan devices or start capturing.
 
 ### 3. Handshake before work
 
@@ -292,22 +292,22 @@ This is the clearest form of an instrument moving from "recording waveforms" to 
 
 ## Appendix A: Plugin Capabilities and Limits
 
-`sigrok-cli-slogic-plugin` is an OpenAI plugin that contains one Skill named `sigrok-cli-slogic`. Its capabilities correspond to these wrapper operations:
+`sigrok-cli-slogic-plugin` is an OpenAI plugin that contains one Skill named `sigrok-cli-slogic`. The wrapper does exactly one thing: **locate the user-provided `sigrok-cli` binary across platforms and forward to it** — it finds the executable on Linux/macOS/Windows, fixes its dynamic-linker path, then passes every remaining argument straight to `sigrok-cli`. It encodes no options of its own; all capabilities come from the forwarded native `sigrok-cli` operations, and the binary itself is the source of truth for options (`-- --help`, `-- -L`, `-- --driver <driver> --show`).
 
-| Operation | Description |
+| Capability | Forwarded native sigrok-cli operation |
 |---|---|
-| `scan` | Scan devices and list only matches whose names contain SLogic or DSLogic |
-| `show` | Read the selected device's channels and configuration capabilities |
-| `capture` | Perform a bounded capture by duration, sample count, or frame count and save it as `.sr` |
-| `decoder-show` | Query a libsigrokdecode decoder's required and optional pins, options, and annotations |
-| `decode` | Decode an existing `.sr` file with explicit decoder pin mappings and options |
-| `decode --stack` | Add higher-level decoders in order, such as `eeprom24xx` on top of I²C |
-| `capture -- ...` | Pass additional channel, sample-rate, trigger, and other capture arguments to `sigrok-cli` |
-| `run --` | Pass operations not covered by the wrapper directly to `sigrok-cli` |
+| List drivers / decoders | `-- -L` |
+| Scan devices | `-- --driver sipeed-slogic-analyzer --scan` |
+| Read device capabilities | `-- --driver '<scan-spec>' --show` (channels, sample rates, config keys) |
+| Query a decoder | `-- --protocol-decoders <id> --show` (required/optional pins, options, annotations) |
+| Bounded capture | `-- --driver '<spec>' --samples N` (or `--time <ms>`) `-o <file>.sr -O srzip`; channels, sample rate, threshold, and triggers go through `--config` / `--channels` / `--triggers` |
+| Decode an existing waveform | `-- -i <file>.sr -P <id>:pin=channel:opt=value -A <id>` |
+| Stack higher-level decoders | `-- -i <file>.sr -P <base>:...,<stacked>` (e.g. `eeprom24xx` on top of I²C) |
 
 The Skill follows these rules:
 
-- If no matching device is found, it stops before capture. If multiple devices are found, one must be selected first.
+- If no matching device is found, it stops before capture. If multiple devices are found, one must be selected first (`conn`).
+- Before capturing, confirm the device's supported sample rates and channels with `--show`; do not copy parameters from another model.
 - After a capture, the Agent should report the absolute `.sr` path and the actual command.
 - After decoding, the Agent should report the decoder, pin mapping, options, and whether annotations were produced.
 - Decoding an existing `.sr` file does not require a connected analyzer. Only scanning, querying a device, and capturing require USB access.
@@ -316,13 +316,13 @@ The Skill follows these rules:
 
 ### Operational limits
 
-- `capture` accesses a USB device and creates an `.sr` file. Confirm the device, wiring, capture limit, and filename before running it.
-- Use only one of `--time-ms`, `--samples`, and `--frames`; its value must be greater than 0.
-- `--output` accepts only a filename in the current working directory, not an absolute path or subdirectory.
-- `decode --output` writes decoder text to the current directory. Check whether an existing file with the same name must be preserved.
+- A capture accesses a USB device and creates an `.sr` file. Confirm the device, wiring, capture limit, and filename before running it.
+- A capture must be bounded: pass either `--samples N` or `--time <ms>`, otherwise `sigrok-cli` captures forever.
+- SLogic capture parameters go through native `--config`: `logic_channels` (channel mode; it sets the max sample rate and enables D0..D(N-1), so put it before `samplerate`), `samplerate` (SI form like `10m`; a value above the current limit is clamped with a warning), `voltage_threshold` (a `LOW-HIGH` voltage pair; a single switching point is `1.7-1.7`; range 0–6 V), and `pattern`. Triggers use `--triggers Dn=COND` with COND one of `0 1 r f e`.
+- Output paths use native `sigrok-cli` `-o` / `-O`; the wrapper does not restrict the directory, so make sure you do not overwrite an important file.
 - Do not capture if no device is found. Select a target first if multiple devices are found.
 - Do not decode until the expected protocol and required decoder pin mappings are known.
-- `run --` passes arguments directly to `sigrok-cli` without checking capture limits or output paths. Use it only for advanced operations not covered by the wrapper.
+- The wrapper only forwards; it does not validate capture limits or output paths. The limit and safety are up to the arguments you write.
 
 ---
 
@@ -366,7 +366,7 @@ SLogic will provide a platform-specific `sigrok-cli` package:
 
 Give the [SLogic download site](https://dl.sipeed.com/shareURL/SLogic) to the Agent. Ask it to download the latest build for the current system and keep it in a permanent tools directory. Replace `<tools-directory>` with any location where you want the tool to remain available:
 
-> Open the SLogic download site at https://dl.sipeed.com/shareURL/SLogic, identify the current operating system, and download the latest matching `sigrok-cli-SLogic` release to `<tools-directory>`. Do not overwrite an existing version. Complete any preparation required to run it, save the absolute executable path in the global configuration so that `sigrok-cli-slogic` can use it later, then run a version check and `decoder-show uart`. Report the configuration result. Do not scan devices or start a capture.
+> Open the SLogic download site at https://dl.sipeed.com/shareURL/SLogic, identify the current operating system, and download the latest matching `sigrok-cli-SLogic` release to `<tools-directory>`. Do not overwrite an existing version. Complete any preparation required to run it, save the absolute executable path in the global configuration so that `sigrok-cli-slogic` can use it later, then run a version check and query the UART decoder. Report the configuration result. Do not scan devices or start a capture.
 
 After verification, the Agent should retain the executable path in its global configuration. Later scans, captures, and decodes can use that configuration directly. Users do not need to remember the path or understand the package layout for each operating system.
 
@@ -429,7 +429,7 @@ Choose capture parameters from the current device's `show` output. Do not copy p
 
 In most cases you will not compute these yourself, but when you want precise control over the Agent's behaviour, these are the rules it follows.
 
-Every capture must have a finite limit. Duration, sample count, and frame count are mutually exclusive. If none is specified, the Plugin defaults to 1000 ms, but an explicit limit is still recommended.
+Every capture must have a finite limit: pass `--samples N` (sample count) or `--time <ms>` (duration), otherwise `sigrok-cli` captures forever.
 
 | Information | What to specify |
 |---|---|
@@ -487,7 +487,7 @@ The capture uses:
 - Duration: 50 ms
 - Output: `capture-combo8-500k.sr` in the current working directory
 
-`--output` accepts only a filename in the current directory, not an absolute path or subdirectory. If no filename is specified, the Plugin generates a timestamped `.sr` filename.
+Specify the output file with native `sigrok-cli` `-o <file>` (use `-O srzip` for the `.sr` format; an absolute path or subdirectory is allowed); the wrapper does not restrict the directory, so make sure you do not overwrite an existing file.
 
 #### Decode UART
 
@@ -608,11 +608,11 @@ Send the Plugin URL to the Agent again and ask for complete errors from the down
 
 Give the complete download or execution error to the Agent. Ask it to check that the file is complete, the saved location is correct, the current system can execute it, and the global configuration points to the actual executable. For example:
 
-> `sigrok-cli-slogic` cannot find or run the configured `sigrok-cli-SLogic`. Check the download, saved path, execution permissions, actual executable location, and global configuration. After fixing it, run a version check and `decoder-show uart`. Do not scan devices or start a capture.
+> `sigrok-cli-slogic` cannot find or run the configured `sigrok-cli-SLogic`. Check the download, saved path, execution permissions, actual executable location, and global configuration. After fixing it, run a version check and query the UART decoder. Do not scan devices or start a capture.
 
 ### The Version Command Works but Decoders Do Not Load
 
-The distribution may be missing libsigrokdecode, decoder modules, or their Python environment. Ask the Agent to run `decoder-show uart` and preserve the complete error. A successful `--version` command alone does not verify decoder support.
+The distribution may be missing libsigrokdecode, decoder modules, or their Python environment. Ask the Agent to query the UART decoder (`-- --protocol-decoders uart --show`) and preserve the complete error. A successful `--version` command alone does not verify decoder support.
 
 ### No Device Is Found
 
