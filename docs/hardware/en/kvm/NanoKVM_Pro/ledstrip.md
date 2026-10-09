@@ -123,4 +123,4 @@ The connection layout is as follows:
 
 ## Demonstration
 
-![ledstrip_show](../../../assets/NanoKVM/pro/ledstrip/ledstrip_show.png)
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/ledstrip/sync_led2.mp4"></video>
