@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+
+<html lang="zh"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="SLogic, LogicAnalyzer, AI Agent, sigrok-cli, Plugin, Skill, MCP, 协议逆向, SLogic32U3">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/prism.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9cb07365544a53067c56c346c838181a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119047820-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'UA-119047820-5');
+    </script>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/js/thumbs_up/style.css" type="text/css"/>
+        
+    
+    
+    <title>SLogic 接入 AI Agent：让仪器自己做分析 - Sipeed Wiki</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "NEW", "content": "<a href='https://sipeed.com/maixcam2' target='_blank'>新一代可本地运行多模态大模型的 MaixCAM2 正在预售中! YOLO 帧率可达 K230 10倍！</a>", "show_times": 2, "show_after_s": 432000, "date": "2026-03-02 19:00", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}, "teedoc-plugin-thumbs-up": {"label_up": "有帮助", "label_down": "待改进", "icon": "/static/images/thumbs_up/up.svg", "icon_clicked": "/static/images/thumbs_up/upped.svg", "url": "https://thumbs-up.sipeed.com", "show_up_count": true, "show_down_count": false, "msg_already_voted": "您已经投过票了", "msg_thanks": "感谢您的反馈", "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）", "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字", "msg_error": "请求服务器出现错误!"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2026-10-06", "update": [{"date": "2026-10-06", "version": "v0.5", "author": "Sipeed", "content": ["整页重写：以 AI 端到端电路分析为主线，底层细节下沉为附录", "新增 GBA 卡带总线逆向的 32 通道旗舰案例", "新增闭环工作流程图与多张示意图"]}, {"date": "2026-09-15", "version": "v0.3", "author": "taorye", "content": ["合并相关页面并调整标题，统一为单页"]}, {"date": "2026-08-07", "version": "v0.2", "author": "taorye", "content": ["改用 SLogic plugin，并补充安装、采集、解码和排错流程"]}, {"date": "2026-08-06", "version": "v0.1", "author": "taorye", "content": ["新增 SLogic Agent 使用教程"]}], "ts": 1791244800, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.svg" alt="sipeed wiki logo">
+                
+                
+                    <h2>wiki</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/">产品</a></li>
+<li class="sub_items "><a >开源软件</a><ul><li class=""><a  href="/maixpy/">MaixPy</a></li>
+<li class=""><a  href="/soft/maixpy/zh/index.html">MaixPy_v1</a></li>
+<li class=""><a  href="/soft/Lichee/zh/index.html">Lichee</a></li>
+<li class=""><a  href="/ai/zh/index.html">AI 指南</a></li>
+</ul>
+</li>
+<li class=""><a target="_blank" href="https://maixhub.com">MaixHub</a></li>
+<li class=""><a  href="/news/">动态</a></li>
+<li class=""><a  href="/faq.html">FAQ 汇总</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a  href="/store.html"><img src='/static/image/shop.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class=""><a target="_blank" href="https://github.com/sipeed"><img src='/static/image/github.svg' style='height: 1.5em;vertical-align: middle;'></a></li>
+<li class="sub_items "><a  ><img src='/static/image/language.svg' style='height: 1.5em;vertical-align: middle;'>&nbsp;中文</a><ul><li class=""><a  href="/hardware/en/logic_analyzer/slogic_agent/index.html">English</a></li>
+<li class="active"><a  href="/hardware/zh/logic_analyzer/slogic_agent/index.html">中文</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active no_link"><a><span class="label">Maix Zero</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M0</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/maix_zero_sense.html"><span class="label">M0sense 开发板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/sense/start.html"><span class="label">M0sense 基础使用</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M0P</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p.html"><span class="label">M0P</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0p/m0p_dock.html"><span class="label">M0P Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/./maixzero/m0s/m0s.html"><span class="label">Maix M0S</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-I</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Maix M1</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M1 模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/core_module.html"><span class="label">M1/M1w</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/M1n.html"><span class="label">M1n</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M1 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_bit.html"><span class="label">Maix Bit</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/Maix_dock.html"><span class="label">Maix Dock(M1/M1W)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_duino.html"><span class="label">Maix Duino</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_nano.html"><span class="label">Maix Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_cube.html"><span class="label">Maix Cube</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_Amigo.html"><span class="label">Maix Amigo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_hat.html"><span class="label">Maix HAT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/maixpy_develop_kit_board/maix_go.html"><span class="label">Maix Go（售罄）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix M1s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_module.html"><span class="label">M1s 模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">M1s 开发板</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/m1s_dock.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/start.html"><span class="label">上手使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maix/m1s/other/others.html"><span class="label">其他事项（摄像头和外壳）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-II</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/resources.html"><span class="label">MaixII-Dock</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/maixhub_train.html"><span class="label">训练自己的 AI 模型</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/usage.html"><span class="label">基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/other.html"><span class="label">其他事项</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/0.MaixII-Dock.html"><span class="label">使用 MaixPy3 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/opencv.html"><span class="label">使用 OpenCV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/V833.html"><span class="label">MaixII-S</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2S/reources.html"><span class="label">板级资源介绍</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/maixsense.html"><span class="label">MaixII-Sense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/flash_system.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/config_system.html"><span class="label">配置系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixII/M2A/Usages.html"><span class="label">基本使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/../../soft/maixpy3/zh/tools/maixsense.html"><span class="label">连接MaixPy3</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-III</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/axpi.html"><span class="label">Maix-III AXera-Pi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/flash_system.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/basic_usage.html"><span class="label">系统使用手册</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/python_api.html"><span class="label">试试 Python 编程</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/dev_prepare.html"><span class="label">开始 C/C++ 编程</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="/ai/zh/deploy/ax-pi.html" ><span class="label">AI 开发指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIII/ax-pi/faq_axpi.html"><span class="label">常见问题（FAQ）</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Maix-IV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">M4C SoM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/axmodel-deploy.html"><span class="label">AI 模型部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Dock Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/intro.html"><span class="label">产品介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4cdock/FAQ.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">M4 Hat Carrier Board</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/intro.html"><span class="label">产品介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4c/system-update.html"><span class="label">系统烧录指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/quick-start.html"><span class="label">产品上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixIV/m4chat/pcie-slaveboard.html"><span class="label">树莓派5 PCIe 加速指南</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/index.html"><span class="label">MaixCAM AI 系列</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MaixCAM / MaixCAM-Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam.html"><span class="label">MaixCAM 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam_pro.html"><span class="label">MaixCAM-Pro 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/cameras.html"><span class="label">摄像头介绍及拍摄效果</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/assemble.html"><span class="label">外壳使用说明</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/tof_thermal.html"><span class="label">ToF/热成像模块介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/microscope.html"><span class="label">数码显微镜套餐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixCAM2</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2.html"><span class="label">MaixCAM2 介绍和资料</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_os.html"><span class="label">系统镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_camera_lens.html"><span class="label">摄像头和镜头选择</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_xAI.html"><span class="label">使用 AI Agent 开发</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://wiki.sipeed.com/maixpy/" ><span class="label">使用 MaixPy 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcdk.html"><span class="label">使用 MaixCDK 开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_isp.html"><span class="label">摄像头 ISP 调校</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/tof_thermal.html"><span class="label">ToF/热成像模块介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/microscope.html"><span class="label">数码显微镜套餐</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixcam/maixcam2_faq.html"><span class="label">常见问题 FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePi</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LicheePI 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lm4a.html"><span class="label">Lichee Module 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lc4a/lc4a.html"><span class="label">Lichee Cluster 4A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/lcon4a.html"><span class="label">Lichee Console 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/setup_guide.html"><span class="label">组装指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/lbook4a.html"><span class="label">Lichee Book 4A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lbook4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 4A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">系统开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_revyos.html"><span class="label">revyos</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_mainline.html"><span class="label">Linux 主线</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_android.html"><span class="label">Android</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_thead.html"><span class="label">THead Yocto</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">OpenHarmony (编写中)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/7_develop_openwrt.html"><span class="label">OpenWRT</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/8_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/13_XTAI.html"><span class="label">玄铁多媒体AI平台</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/9_benchmark.html"><span class="label">CPU 跑分测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/10_test_report.html"><span class="label">硬件测试报告</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/12_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/th1520/lpi4a/11_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI 3A</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lm3a.html"><span class="label">Lichee Module 3A</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lc3a/lc3a.html"><span class="label">Lichee Cluster 3A</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Lichee PI 3A</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/3_burn_image.html"><span class="label">镜像烧录</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/4_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/5_develop.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/6_application.html"><span class="label">典型应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/7_faq.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/K1/lpi3a/8_credits.html"><span class="label">致谢</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheePI RV</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">板卡介绍</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/RV.html"><span class="label">LicheePI RV</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/86_panel.html"><span class="label">LicheePI RV 86 Panel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/Dock.html"><span class="label">LicheePI RV Dock</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/flash.html"><span class="label">烧录系统</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/user.html"><span class="label">基础上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV/ubuntu.html"><span class="label">使用 Ubuntu 镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">LicheeRV Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/2_unbox.html"><span class="label">开箱体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/5_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/6_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/7_picoclaw_board.html"><span class="label">PicoClaw 扩展板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/RV_Nano/8_mmf_development_guide.html"><span class="label">MMF开发指南</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Zero/Zero.html"><span class="label">LicheePI Zero</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/Nano/Nano.html"><span class="label">LicheePI Nano</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/lichee/ZeroPlus/ZeroPlus.html"><span class="label">LicheePI ZeroPlus</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang FPGA</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Nano</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-1K/Nano-1k.html"><span class="label">Tang Nano 1K</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"><span class="label">Tang Nano 4k</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"><span class="label">Tang Nano 9K</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Tang Nano 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/nano-20k.html"><span class="label">介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-nano-20k/example/unbox.html"><span class="label">开箱</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-Nano/Nano.html"><span class="label">Tang Nano (售罄)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/examples.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Primer 20K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/primer-20k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/start.html"><span class="label">开箱使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-20k/example.html"><span class="label">例程汇总</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 25K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-25k/primer-25k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Primer 15K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-primer-15k/primer-15k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/Tang-primer.html"><span class="label">Tang Primer (售罄)</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/index.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">安装 TD</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_TD_win.html"><span class="label">Windows安装TD</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/install_Linux.html"><span class="label">Linux安装TD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/fpga/led.html"><span class="label">使用FPGA点灯</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/E203.html"><span class="label">搭建蜂鸟开发环境</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/Tang-primer/get_started/fpga_download.html"><span class="label">FPGA码流烧录</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 138K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-138k/mega-138k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Mega 60K</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-mega-60k/mega-60k.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Tang Console</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-console/retro-console.html"><span class="label">Retro Console</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-console/mega-console.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/get_started/install-the-ide.html"><span class="label">安装 IDE</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/questions.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/common-doc/update_debugger.html"><span class="label">更新板载调试器</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/tang/tang-PMOD/FPGA_PMOD.html"><span class="label">Tang PMOD</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/index.html"><span class="label">MaixSense</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html"><span class="label">MaixSense-a010</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html"><span class="label">MaixSense-a075v</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active_parent no_link"><a><span class="label">SLogic</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">SLogic Combo 8</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/basic_operation.html"><span class="label">基础操作</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_logic_function.html"><span class="label">作为逻辑分析仪使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_cklink_function.html"><span class="label">作为CKLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_daplink_function.html"><span class="label">作为DAPLink使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/use_fouruart_function.html"><span class="label">作为串口模块使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/update_firmware.html"><span class="label">更新固件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient 上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/combo8/faq.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic16U3</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Hardware_Specification.html"><span class="label">硬件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/Software_User_Guide.html"><span class="label">软件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient 上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic16u3/FAQ.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">SLogic32U3</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic32u3/Introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic32u3/Quick_Start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic32u3/Hardware_Specification.html"><span class="label">硬件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic32u3/Software_User_Guide.html"><span class="label">软件使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/ngscopeclient/ngscopeclient.html"><span class="label">ngscopeclient 上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/logic_analyzer/slogic32u3/FAQ.html"><span class="label">常见问题(FAQ)</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active with_link"><a href="/hardware/zh/logic_analyzer/slogic_agent/index.html"><span class="label">SLogic 接入 AI Agent</span><span class="sub_indicator"></span></a><ul class="show">
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">ThermalCam</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sipeed T256s</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/Intro.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/QS.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/UG.html"><span class="label">使用指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/ThermalCam/T256s/FAQ.html"><span class="label">常见问题</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">KVM</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoKVM Cube</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/cloudflared.html"><span class="label">Cloudflare</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM Go</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/resolution.html"><span class="label">分辨率与 EDID 设置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/finger_robot.html"><span class="label">手指机器人</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/memory_weaving.html"><span class="label">记忆织网</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/updating.html"><span class="label">KVM 应用更新</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/two_factor_authentication.html"><span class="label">双重验证</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/sipeed_remote_network.html"><span class="label">Sipeed 远程网络连接</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/cloudflare_tunnel.html"><span class="label">Cloudflare Tunnel</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/introduction.html"><span class="label">系统编译</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">自定义 APP</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/custom_app.html"><span class="label">APP 安装与开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">AI 实时语音对话</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge.html"><span class="label">快速体验</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/realtime_voice_bridge_technical.html"><span class="label">二次开发</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Go/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM PCIe</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/user_guide.html"><span class="label">用户指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_PCIe/mcp.html"><span class="label">MCP 功能</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/development.html"><span class="label">二次开发</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">网络</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/tailscale.html"><span class="label">Tailscale</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/frp.html"><span class="label">frp</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/network/static_ip.html"><span class="label">静态 IP</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">系统</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/introduction.html"><span class="label">系统介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/flashing.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/updating.html"><span class="label">更新应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/system/configuration.html"><span class="label">配置文件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM USB</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/quick_start.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/deployment.html"><span class="label">本地部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_USB/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">NanoKVM Pro</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/introduction.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/atx_start.html"><span class="label">NanoKVM-ATX 上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/desk_start.html"><span class="label">NanoKVM-Desk 上手指南</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/extended.html"><span class="label">高级应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/lcd.html"><span class="label">触摸屏&旋钮</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/app_diy.html"><span class="label">DIY 应用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/ledstrip.html"><span class="label">屏幕色彩扩展灯带</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/cua.html"><span class="label">实验性AI Agent</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/kvm_admin.html"><span class="label">NanoKVM 批量管理</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">实践应用</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/macos_reinstall.html"><span class="label">重装 macOS 系统</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/kvm/NanoKVM_Pro/faq.html"><span class="label">FAQ</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Cluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">NanoCluster</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/index.html"><span class="label">简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/use.html"><span class="label">快速上手</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">应用开发</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/k3s.html"><span class="label">k3s 部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/distcc.html"><span class="label">distcc 部署</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/nanoctl.html"><span class="label">NanoCtl</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/nomad_playbook.html"><span class="label">Nomad 自动化部署</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/cluster/NanoCluster/switch.html"><span class="label">交换机管理</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Longan</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">LonganPI 3H</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/1_intro.html"><span class="label">板卡介绍</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/3_images.html"><span class="label">镜像集合</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/4_burn_image.html"><span class="label">烧录镜像</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/5_desktop.html"><span class="label">桌面系统基础使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/6_peripheral.html"><span class="label">外设使用</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/7_develop_mainline.html"><span class="label">系统开发</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/h618/lpi3h/8_test_report.html"><span class="label">板卡测试</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/Longan_nano.html"><span class="label">Longan Nano</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/pio.html"><span class="label">PIO配置</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/blink.html"><span class="label">点灯测试</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/debug.html"><span class="label">DEBUG 调试</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/sipeed-debugger.html"><span class="label">使用 Sipeed 调试器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/get_started/rv-link.html"><span class="label">使用 RV-LINK</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">示例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/printf.html"><span class="label">串口输出</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/longan/Nano/examples/badapple.html"><span class="label">播放 Badapple</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">MaixFace</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mfst40/mfst40.html"><span class="label">MF-ST40 人脸识别模块</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">MF 资料</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/maixface/mf_ml_module/mf_precautions.html"><span class="label">MF 人脸识别模块 PCB 设计注意事项</span><span class=""></span></a></li>
+<li class="not_active  with_link"><a href="https://github.com/sipeed/MF1-User-Manual" ><span class="label">点我前往 github 查看全部资料</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">SP-MOD外设模组</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">转接板类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_extender.html"><span class="label">SP-Extender</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_grove.html"><span class="label">SP-Grove</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_fpc.html"><span class="label">SP-FPC</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_micarray.html"><span class="label">SP-MicArray</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_joystick.html"><span class="label">SP-JotStick</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_servo.html"><span class="label">SP-Servo</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/.html"><span class="label">SP-TypeC</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">传感器类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_weather.html"><span class="label">SP-Weather</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_tof.html"><span class="label">SP-TOF-1P</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">通信类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_bt.html"><span class="label">SP-BT</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lora.html"><span class="label">SP-LoRa</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_psram.html"><span class="label">SP-PSRAM</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_rfid.html"><span class="label">SP-RFID</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_ethernet.html"><span class="label">SP-Ethernet</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">显示类</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_lcd1.14.html"><span class="label">SP-LCD 1.14</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules_spmod/spmod_eink.html"><span class="label">SP-Eink</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">模块</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/hardware/zh/modules/camera_summary.html"><span class="label">摄像头</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray.html"><span class="label">麦克风阵列</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/micarray_usbboard_bl616.html"><span class="label">麦克风阵列UAC驱动板 MA-USB8</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/hardware/zh/modules/Gamepad.html"><span class="label">Sipeed Gamepad</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>SLogic 接入 AI Agent：让仪器自己做分析</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2026-10-06">
+                                    2026-10-06
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/sipeed/sipeed_wiki/blob/main/docs/hardware/zh/logic_analyzer/slogic_agent/readme.md" target="_blank">
+                                    <span id='editPage'>编辑本页</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2026-10-06</td>
+                                                    <td>v0.5</td>
+                                                    <td>Sipeed</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>整页重写：以 AI 端到端电路分析为主线，底层细节下沉为附录</li>
+                                                        
+                                                            <li>新增 GBA 卡带总线逆向的 32 通道旗舰案例</li>
+                                                        
+                                                            <li>新增闭环工作流程图与多张示意图</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2026-09-15</td>
+                                                    <td>v0.3</td>
+                                                    <td>taorye</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>合并相关页面并调整标题，统一为单页</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2026-08-07</td>
+                                                    <td>v0.2</td>
+                                                    <td>taorye</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>改用 SLogic plugin，并补充安装、采集、解码和排错流程</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td>2026-08-06</td>
+                                                    <td>v0.1</td>
+                                                    <td>taorye</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>新增 SLogic Agent 使用教程</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>过去三十年，逻辑分析仪的交互范式几乎没变过：<strong>你设参数，它出波形，然后你自己看。</strong></p>
+<p>设多高的采样率、开哪几个通道、触发条件怎么配、解码器引脚怎么映射，每一步都要你先知道答案。仪器只负责忠实地把电平记下来，<strong>理解信号这件事，全部压在工程师身上</strong>。</p>
+<p>SLogic 想换一种做法。接上 AI Agent 之后，你交给仪器的不再是参数，而是<strong>目标</strong>：</p>
+<blockquote>
+<p>这块板子的 I²C 偶尔会挂死，帮我找出挂死前最后发生了什么。</p>
+</blockquote>
+<blockquote>
+<p>这是一条我没见过的总线，32 根线都在跳，分析一下它的协议结构。</p>
+</blockquote>
+<blockquote>
+<p>把这张卡带里的程序读出来，并验证读得对不对。</p>
+</blockquote>
+<p>剩下的事情由 Agent 自己完成：决定抓什么、抓多快、怎么触发，采完回看结果，发现采样率不够就调高重采，发现引脚猜错就换映射重解，直到拿出一个<strong>有证据、可复现</strong>的结论。</p>
+<p>这不是把自然语言翻译成按钮操作，而是把<strong>观察、假设、验证、收敛</strong>这一整套调试方法交给机器执行。SLogic 在其中的角色，从&quot;记录仪&quot;变成了 Agent 的<strong>感知前端</strong>。</p>
+<p><img src="./assets/gba-setup.jpg" alt="GBA 卡带总线抓取示意" /></p>
+<blockquote>
+<p>只想快速看一眼波形、连软件都不想装？直接用浏览器打开 <strong><a href="https://slogic.sipeed.com"  target="_blank">slogic.sipeed.com</a></strong>，免安装，安卓手机也能采。本页讲的是另一条路：把分析本身交出去。</p>
+</blockquote>
+<hr />
+<h2 id="%E5%AE%83%E8%83%BD%E6%9B%BF%E4%BD%A0%E5%81%9A%E4%BB%80%E4%B9%88">它能替你做什么</h2>
+<p>下面四类场景，是传统&quot;设参数看波形&quot;做起来最费时间、而 Agent 介入后收益最明显的。</p>
+<h3 id="%E6%9C%AA%E7%9F%A5%E6%80%BB%E7%BA%BF%E9%80%86%E5%90%91">未知总线逆向</h3>
+<p>手上的设备没有文档，只知道有一排信号线在动。</p>
+<p>传统做法是人工逐根量、猜周期、试解码器，反复几轮。Agent 的做法是先用多通道全量抓一段，再从<strong>电平统计</strong>入手：哪根线像时钟（周期稳定、占空比固定），哪根像片选（长期为高、偶尔拉低且包住一段活动），哪些线在片选期间同步翻转（数据总线），哪些单调递增（地址总线）。</p>
+<p>有了这组假设，它再挑合适的解码器去验证，验证不过就修正假设重来。整个过程你只需要回答它几个确认性的问题。</p>
+<h3 id="%E5%81%B6%E5%8F%91%E5%BC%82%E5%B8%B8%E5%9B%B4%E7%8C%8E">偶发异常围猎</h3>
+<p>&quot;跑几个小时才出一次&quot;的问题，最耗人。</p>
+<p>Stream 模式下 SLogic32U3 的采集时长只受硬盘限制，Agent 可以长时间挂着抓，边抓边解码，<strong>按你描述的异常特征去筛</strong>：校验错、应答丢失、帧间隔异常、某个状态机卡在中间态。抓到以后把前后文一起留下来，而不是只报一个&quot;出错了&quot;。</p>
+<h3 id="%E5%8D%8F%E8%AE%AE%E4%B8%80%E8%87%B4%E6%80%A7%E4%B8%8E%E5%9B%9E%E5%BD%92">协议一致性与回归</h3>
+<p>固件改完要确认没把时序改坏。</p>
+<p>Agent 可以按同一套参数反复采集、解码、比对，给出的是&quot;这版和上版在哪一帧开始不一样&quot;，而不是两张要你自己对的波形图。</p>
+<h3 id="%E7%A6%BB%E7%BA%BF%E6%B3%A2%E5%BD%A2%E5%A4%8D%E7%9B%98">离线波形复盘</h3>
+<p><img src="./assets/wiring-essentials.jpg" alt="分析已有波形" /></p>
+<p>现场抓到的 <code>.sr</code> 文件，事后可以直接丢给 Agent 分析，<strong>不需要连接设备</strong>。同事抓的、几个月前抓的、甚至别的型号抓的，只要是 sigrok 格式都能复盘。</p>
+<hr />
+<h2 id="%E5%AE%83%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E5%88%B0%E7%9A%84">它是怎么做到的</h2>
+<p>Agent 不是一次把参数填对，而是<strong>跑一个闭环</strong>：</p>
+
+<div class="mermaid">flowchart TD
+    G[&quot;🎯 你给出目标&lt;br/&gt;「找出 I²C 挂死前发生了什么」&quot;] --&gt; O
+    O[&quot;👁 观察&lt;br/&gt;全量抓一段 · 统计电平特征&quot;] --&gt; HY
+    HY[&quot;💡 假设&lt;br/&gt;推测协议 · 引脚角色 · 参数&quot;] --&gt; V
+    V[&quot;🔬 验证&lt;br/&gt;选解码器 · 映射引脚 · 解码&quot;] --&gt; C{&quot;证据&lt;br/&gt;足够？&quot;}
+    C -- 足够 --&gt; R[&quot;📋 结论 + 证据链&lt;br/&gt;波形文件 · 实际命令 · 解码结果&quot;]
+    C -- &quot;不够&quot; --&gt; ADJ[&quot;🔧 调整策略&lt;br/&gt;采样率低了 / 引脚猜错 / 触发没抓到&quot;]
+    ADJ --&gt; O
+
+    style G fill:#e7f5ff,stroke:#1c7ed6,stroke-width:2px
+    style O fill:#fff4e6,stroke:#f76707
+    style HY fill:#f3f0ff,stroke:#7048e8
+    style V fill:#fff0f6,stroke:#d6336c
+    style ADJ fill:#fff9db,stroke:#f08c00
+    style R fill:#ebfbee,stroke:#2f9e44,stroke-width:2px
+</div>
+<p>关键在于<strong>闭环</strong>两个字。传统流程里，&quot;采样率不够&quot;这件事要等你看完波形才发现，然后手动重来；Agent 则是解码失败后自己意识到边沿不足，提高采样率重采。这一轮一轮的收敛，正是人类工程师的工作方式。</p>
+<p>同时它必须交出<strong>证据链</strong>：用的哪台设备、什么参数、实际执行的命令、<code>.sr</code> 文件在哪。结论可以被你复现和推翻，而不是一句&quot;我觉得是 I²C&quot;。</p>
+<blockquote>
+<p>Agent 的推理能力来自大模型本身，Plugin 只负责忠实执行扫描、采集和解码。<strong>Plugin 不会替你猜协议</strong>，猜测由模型完成、由你确认、再由 Plugin 验证。</p>
+</blockquote>
+<p>想直接看它怎么用在真实电路上？跳到 <a href="#%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B"  >实战案例</a>：一个 SPI 入门，一个 32 通道逆向 GBA 卡带总线。</p>
+<hr />
+<h2 id="%E4%B8%A4%E6%9D%A1%E6%8E%A5%E5%85%A5%E8%B7%AF%E5%BE%84">两条接入路径</h2>
+<p>SLogic 生态目前有两种让 AI 参与调试的方式，按需选择：</p>
+<table>
+<thead>
+<tr>
+  <th>路径</th>
+  <th>原理</th>
+  <th>适合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>sigrok-cli Plugin</strong>（本页）</td>
+  <td>Agent 调用命令行 <code>sigrok-cli</code> 完成扫描、采集与解码</td>
+  <td>任意支持 Plugin/Skill 的 Agent；可脚本化、易复现</td>
+</tr>
+<tr>
+  <td><strong>ALL LOGIC 内置 MCP</strong></td>
+  <td>社区上位机 <a href="https://github.com/sipeed/ALL-LOGIC"  target="_blank">ALL LOGIC</a> 内置 MCP 接口，AI 客户端直接控制其采集与解码</td>
+  <td>习惯图形界面，想让 AI 在 GUI 里代操作</td>
+</tr>
+</tbody>
+</table>
+<p>两者互不冲突，可同时安装。本页只讲第一种。</p>
+<hr />
+<h2 id="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</h2>
+<p>三步，十分钟。</p>
+<h3 id="1.-%E8%A3%85-Plugin">1. 装 Plugin</h3>
+<p>把链接发给支持 Plugin 或 Skill 的 Agent，由它自己完成安装：</p>
+<blockquote>
+<p>请安装这个 SLogic plugin：<code>https://dl.sipeed.com/fileList/SLogic/sigrok-cli-slogic-plugin.zip</code>。安装完成后检查 <code>sigrok-cli-slogic</code> 是否已经加载，并告诉我是否需要重启。暂时不要访问 USB 设备或开始采集。</p>
+</blockquote>
+<h3 id="2.-%E5%A4%87%E5%A5%BD-sigrok-cli">2. 备好 sigrok-cli</h3>
+<blockquote>
+<p>打开 SLogic Release 页面 (<a href="https://github.com/sipeed/SLogic/releases/latest"  target="_blank">https://github.com/sipeed/SLogic/releases/latest</a>) ，识别当前操作系统，下载对应的最新版 <code>sigrok-cli-SLogic</code>，保存到 <code>&lt;工具目录&gt;</code>。完成运行准备后，把可执行文件绝对路径写入全局配置，再运行版本检查，并查询 UART decoder 确认解码器能加载。告诉我结果，不要扫描设备或开始采集。</p>
+</blockquote>
+<h3 id="3.-%E5%85%88%E6%8F%A1%E6%89%8B%EF%BC%8C%E5%86%8D%E5%B9%B2%E6%B4%BB">3. 先握手，再干活</h3>
+<p>第一次连设备<strong>只扫描、不采集</strong>，让 Agent 摸清这台设备的能力边界：</p>
+<blockquote>
+<p>扫描已连接的 SLogic，读取设备能力。不要采集。报告设备标识、通道、可用采样率和配置项。</p>
+</blockquote>
+<p>拿到能力清单之后，就可以开始提真正的目标了。</p>
+<blockquote>
+<p>详细的安装、权限配置与平台差异见<a href="#%E9%99%84%E5%BD%95-b%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"  >附录 B</a>。</p>
+</blockquote>
+<hr />
+<h2 id="%E6%80%8E%E6%A0%B7%E6%8F%90%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9B%AE%E6%A0%87">怎样提一个好目标</h2>
+<p>Agent 的产出质量，取决于你给的是<strong>目标</strong>还是<strong>半成品参数</strong>。</p>
+<table>
+<thead>
+<tr>
+  <th>不太好</th>
+  <th>更好</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>用 10 MHz 采 50 ms</td>
+  <td>这条 UART 大概 115200，帮我确认波特率并解出内容</td>
+</tr>
+<tr>
+  <td>把 D0 按 I²C 解码</td>
+  <td>D0/D1 是一对疑似 I²C，设备偶尔不应答，找出不应答的那几帧</td>
+</tr>
+<tr>
+  <td>抓 1 秒波形</td>
+  <td>复位之后到第一次通信之间发生了什么，重点看时序间隔</td>
+</tr>
+</tbody>
+</table>
+<p>把这些信息一并给它，可以少走很多弯路：</p>
+<ul>
+<li><strong>接线事实</strong>：哪根线接到哪个通道，这是 Agent 无法猜的</li>
+<li><strong>你已知的</strong>：电压、大致速率、协议猜测，哪怕不确定也说出来</li>
+<li><strong>你要什么</strong>：是要结论、要数据、还是要一个可复现的脚本</li>
+<li><strong>约束</strong>：能接受多长的采集时间、磁盘空间够不够</li>
+</ul>
+<p><img src="./assets/wiring-essentials.jpg" alt="接线三件事" /></p>
+<p>如果连协议都不知道，直接说不知道：</p>
+<blockquote>
+<p>D0 和 D1 的用途暂时未知。请分析波形中的电平变化、周期和通道关系，列出可能的协议及判断依据。先不要运行 decoder；请同时列出开始解码前还需确认的协议参数和引脚映射。</p>
+</blockquote>
+<hr />
+<h2 id="%E6%80%8E%E6%A0%B7%E9%AA%8C%E6%94%B6%E7%BB%93%E6%9E%9C">怎样验收结果</h2>
+<p>一次完整任务至少应包含以下结果：</p>
+<table>
+<thead>
+<tr>
+  <th>结果</th>
+  <th>验收内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>设备</td>
+  <td>完整 scan spec，避免多设备混淆</td>
+</tr>
+<tr>
+  <td>采集</td>
+  <td>通道、采样率、时长/样本数/帧数</td>
+</tr>
+<tr>
+  <td>波形</td>
+  <td><code>.sr</code> 文件绝对路径</td>
+</tr>
+<tr>
+  <td>解码</td>
+  <td>decoder、引脚映射和全部 option</td>
+</tr>
+<tr>
+  <td>内容</td>
+  <td>是否产生 annotation，以及请求的字符或数据</td>
+</tr>
+<tr>
+  <td>异常</td>
+  <td>warning、错误信息及对应样本位置</td>
+</tr>
+<tr>
+  <td>复现</td>
+  <td>采集操作的实际命令；解码使用的 decoder、引脚映射和选项</td>
+</tr>
+</tbody>
+</table>
+<p>解码输出为空，只表示当前 decoder、引脚映射和 option 没有产生 annotation，不能证明波形中没有通信。此时应依次核对原始波形是否存在边沿、通道映射、采样率和协议参数。</p>
+<p>一句话原则：<strong>结论必须可复现</strong>。拿到 <code>.sr</code> 文件和实际命令，你应该能自己跑一遍得到同样的结果。</p>
+<hr />
+<h2 id="%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B">实战案例</h2>
+<p>两个案例，从入门到旗舰。入门的 SPI 只有四根线，是协议解码的&quot;Hello World&quot;；旗舰的 GBA 复用总线要 32 通道一次全抓，是传统少通道分析仪做不了的事。</p>
+<h3 id="%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%A7%A3%E7%A0%81-TPM-%E7%9A%84-SPI-%E6%80%BB%E7%BA%BF">入门案例：解码 TPM 的 SPI 总线</h3>
+<p>TPM（可信平台模块）是主板上的安全芯片，和南桥之间大多走 <strong>SPI</strong> 总线。SPI 干净规整，只有四根线加一根地，非常适合拿来认识&quot;AI 怎么从零解一条总线&quot;。</p>
+<p><img src="./assets/tpm-spi-setup.jpg" alt="抓 TPM 的 SPI 总线" /></p>
+<blockquote>
+<p>这也是硬件安全圈的经典演示：早期不少社区作者用 SLogic16U3 之类的分析仪抓过 TPM 的 SPI 流量，用来说明<strong>未加密的 TPM 总线是一种硬件安全风险</strong>。正因如此，现在普遍推荐 TPM+PIN、总线加密等防护。本案例只演示协议解码本身，用于教学；相关安全研究见文末链接。</p>
+</blockquote>
+<h4 id="%E6%8E%A5%E7%BA%BF">接线</h4>
+<p>SPI 是四线同步总线，加一根地，五根线即可，SLogic 任意型号都够用：</p>
+
+<pre class="language-text"><code class="language-text">SCLK (时钟)  -&gt; D0
+MOSI (DI)    -&gt; D1
+MISO (DO)    -&gt; D2
+/CS  (片选)  -&gt; D3
+GND          -&gt; GND
+</code></pre>
+<h4 id="%E4%BA%A4%E7%BB%99-Agent-%E7%9A%84%E7%9B%AE%E6%A0%87">交给 Agent 的目标</h4>
+<p>注意，这里不告诉它 CPOL/CPHA、位序、片选极性，让它自己定：</p>
+<blockquote>
+<p>D0–D3 接了一条 SPI 总线，分别是 SCLK、MOSI、MISO、CS，接在一块 TPM 芯片上。请抓一段总线活动，先确认这确实是 SPI，再自动判断时钟极性、相位和位序，解出 MOSI 和 MISO 上的字节流。如果能认出 TPM 的寄存器访问结构，一并告诉我。</p>
+</blockquote>
+<h4 id="%E5%AE%83%E5%BA%94%E8%AF%A5%E8%83%BD%E5%81%9A%E5%88%B0">它应该能做到</h4>
+<ul>
+<li>从 CS 的拉低拉高框出一次次事务，从 SCLK 的规整时钟确认这是同步串行总线，从而判定是 <strong>SPI</strong>；</li>
+<li>对照 CS 期间 SCLK 的空闲电平和采样边沿，定出 <strong>CPOL / CPHA</strong>；</li>
+<li>解出 MOSI / MISO 的字节流，识别出 TPM 的 <strong>TIS 寄存器地址</strong>（比如状态寄存器、数据 FIFO 的固定地址前缀），从而把一串字节讲成&quot;这是一次对某寄存器的读/写&quot;。</li>
+</ul>
+<p>SPI 的解码器是现成的，难点不在解码而在<strong>自动定参数</strong>和<strong>把字节还原成协议语义</strong>，这正是 AI 介入的价值。</p>
+<h4 id="%E9%87%87%E6%A0%B7%E7%8E%87%E6%80%8E%E4%B9%88%E5%AE%9A">采样率怎么定</h4>
+<p>TPM 的 SPI 时钟通常 10~66 MHz。按至少 4 倍、建议 10 倍的经验，想干净抓到 33 MHz 的总线，采样率应取 200 MS/s 以上。SLogic32U3 在 8 通道下可达 800 MS/s，余量充足。Agent 会先读设备能力再定这个值。</p>
+<blockquote>
+<p>延伸阅读（第三方安全研究，仅供了解原理）：<a href="https://pulsesecurity.co.nz/articles/TPM-sniffing"  target="_blank">Pulse Security: Extracting BitLocker keys from a TPM</a>、<a href="https://github.com/WithSecureLabs/bitlocker-spi-toolkit"  target="_blank">WithSecure Labs: bitlocker-spi-toolkit</a>。请仅在你<strong>有权测试的设备</strong>上做此类研究。</p>
+</blockquote>
+<h3 id="%E6%97%97%E8%88%B0%E6%A1%88%E4%BE%8B%EF%BC%9A32-%E9%80%9A%E9%81%93%E9%80%86%E5%90%91-GBA-%E5%8D%A1%E5%B8%A6%E6%80%BB%E7%BA%BF">旗舰案例：32 通道逆向 GBA 卡带总线</h3>
+<p>这是最能体现 32 通道价值的例子：<strong>一条 16 位地址/数据复用总线，加上完整的控制信号，一次全抓</strong>。</p>
+<p><img src="./assets/gba-setup.jpg" alt="GBA 卡带总线 32 通道抓取" /></p>
+<h4 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%83%E9%9A%BE">为什么它难</h4>
+<p>Game Boy Advance 的卡带口把地址和数据<strong>复用在同一组线</strong>上：<code>/CS</code> 下降沿时，AD0–AD15 上是地址的低 16 位；之后每个 <code>/RD</code> 脉冲，同一组线上变成读回的 16 位数据，并且地址自动递增。</p>
+<p>通道少的分析仪只能分几次抓、再人工拼时序。32 通道可以把整条总线连同控制线一次拿全，时序关系天然对齐。</p>
+<h4 id="%E9%80%9A%E9%81%93%E6%80%8E%E4%B9%88%E5%88%86">通道怎么分</h4>
+<p><img src="./assets/gba-channel-map.jpg" alt="GBA 卡带总线的 32 通道分配" /></p>
+<p>正好 4 组 Mini-HDMI，每组 8 通道，一一对应。</p>
+<h4 id="%E4%BA%A4%E7%BB%99-Agent-%E7%9A%84%E7%9B%AE%E6%A0%87">交给 Agent 的目标</h4>
+<p>注意这里给的是<strong>目标和已知条件</strong>，不是采集参数：</p>
+<blockquote>
+<p>SLogic32U3 的 32 个通道已经并接到 GBA 卡带金手指上，分组是：CH0–7 接 AD0–7，CH8–15 接 AD8–15，CH16–23 接 A16–23，CH24–31 依次是 /CS、/RD、/WR、/CS2、/REQ、PHI。</p>
+<p>主机已开机运行游戏。请抓一段总线活动，分析这条总线的读时序：地址在什么时刻有效、数据在什么时刻有效、地址是怎么递增的。给出你的判断依据。</p>
+</blockquote>
+<p>Agent 会先扫描设备确认能力，再选一个足以分辨 <code>/RD</code> 脉冲的采样率采集，然后从波形里找规律。</p>
+<h4 id="%E5%AE%83%E5%BA%94%E8%AF%A5%E8%83%BD%E7%9C%8B%E5%87%BA%E4%BB%80%E4%B9%88">它应该能看出什么</h4>
+<p>GBA 主时钟 16.78 MHz，默认等待态下顺序读大约每 179 ns 一次，<code>/RD</code> 低电平约占一半。<strong>200 MS/s 下每个读周期有 35 个采样点</strong>，边沿关系非常清楚。Agent 应当能观察到：</p>
+<ul>
+<li><code>/CS</code> 下降沿处 AD 线上出现一组值，之后保持；</li>
+<li>每个 <code>/RD</code> 低脉冲期间 AD 线上出现另一组值，且<strong>一次 <code>/CS</code> 内连续多个 <code>/RD</code></strong>；</li>
+<li>每个 <code>/RD</code> 上升沿之后，若把 AD 当地址看则<strong>单调加一</strong>。</li>
+</ul>
+<p>据此推出&quot;地址锁存 + 顺序读 + 自动递增&quot;的复用总线结构。</p>
+<h4 id="%E5%86%8D%E5%BE%80%E4%B8%8B%E8%B5%B0">再往下走</h4>
+<p>确认时序之后，可以继续提目标：</p>
+<blockquote>
+<p>按你刚才总结的时序，把这段波形里所有的读事务还原成「地址 → 数据」列表，并按地址排序导出 CSV。</p>
+</blockquote>
+<blockquote>
+<p>ROM 头部 0x04 开始有一段固定的任天堂 logo 位图，0xA0 开始是游戏标题。请在还原出的数据里找找看，验证我们的解码是不是对的。</p>
+</blockquote>
+<p><strong>这一步是关键</strong>：用数据本身的已知结构来自证解码正确。任天堂 logo 的 156 字节是固定的，对上了就说明地址和数据的对应关系没错。这比&quot;看起来像那么回事&quot;强得多。</p>
+<h4 id="%E5%86%8D%E5%BE%80%E4%B8%8A%E8%B5%B0%EF%BC%9A%E4%BB%8E%E6%80%BB%E7%BA%BF%E5%88%B0%E6%B8%B8%E6%88%8F">再往上走：从总线到游戏</h4>
+<p>把时序读通、数据还原之后，这条总线能挖的东西远不止 dump 一份 ROM。因为<strong>卡带总线上流过的，正是 CPU 每一拍从卡带取的指令和数据</strong>，顺着它往上解，可以做到：</p>
+<ul>
+<li><strong>实时还原游戏画面</strong>。跟踪 CPU 对图块（tile）、调色板、OAM 的读取与 DMA 搬运，就能在电脑上<strong>同步重建出 GBA 屏幕上正在显示的画面</strong>——不接显示排线，只靠卡带总线。</li>
+<li><strong>实时监控游戏变量</strong>。锁定某个内存地址（比如血量、金币、关卡计数器），盯着总线上对它的读写，就能在游戏运行时<strong>实时读出这些关键数值</strong>，甚至画成曲线。</li>
+<li><strong>辅助游戏与调试</strong>。有了实时的画面和变量，就能做自动化测试、外部辅助、speedrun 计时、金手指研究等等——而这一切都是<strong>被动旁路监听，不改动主机和卡带一个字节</strong>。</li>
+</ul>
+<p>这正是&quot;仪器从记录波形，升级到理解系统&quot;最直观的体现：你要的不再是&quot;第 1792 个样本处 /RD 下降沿&quot;，而是&quot;现在血量还剩多少、画面在显示哪一关&quot;。</p>
+<blockquote>
+<p>本案例描述的是方法与可达到的目标，不是实测报告。画面还原与变量监控需要 Agent 对 GBA 内存布局有足够的先验或推理，实际效果取决于卡带、接线质量与模型能力。</p>
+</blockquote>
+<hr />
+<hr />
+<h2 id="%E9%99%84%E5%BD%95-A%EF%BC%9APlugin-%E7%9A%84%E8%83%BD%E5%8A%9B%E4%B8%8E%E8%BE%B9%E7%95%8C">附录 A：Plugin 的能力与边界</h2>
+<p><code>sigrok-cli-slogic-plugin</code> 是一个仅包含 Skill 的 OpenAI plugin，内置 Skill 名为 <code>sigrok-cli-slogic</code>。包装脚本只做一件事：<strong>跨平台定位并转发到用户提供的 <code>sigrok-cli</code> 二进制</strong> —— 在 Linux/macOS/Windows 上找到可执行文件、补好动态库路径，然后把其余参数原样交给 <code>sigrok-cli</code>。它本身不内置任何选项，能力全部来自转发的原生 <code>sigrok-cli</code> 操作；完整选项以二进制自身为准，用 <code>-- --help</code>、<code>-- -L</code>、<code>-- --driver &lt;驱动&gt; --show</code> 查询。</p>
+<table>
+<thead>
+<tr>
+  <th>能力</th>
+  <th>转发的原生 sigrok-cli 操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>列出驱动 / 解码器</td>
+  <td><code>-- -L</code></td>
+</tr>
+<tr>
+  <td>扫描设备</td>
+  <td><code>-- --driver sipeed-slogic-analyzer --scan</code></td>
+</tr>
+<tr>
+  <td>查看设备能力</td>
+  <td><code>-- --driver '&lt;扫描标识&gt;' --show</code>（通道、采样率、配置项）</td>
+</tr>
+<tr>
+  <td>查询 decoder</td>
+  <td><code>-- --protocol-decoders &lt;id&gt; --show</code>（必选/可选引脚、选项、annotation）</td>
+</tr>
+<tr>
+  <td>有限采集</td>
+  <td><code>-- --driver '&lt;标识&gt;' --samples N</code>（或 <code>--time &lt;ms&gt;</code>）<code>-o &lt;文件&gt;.sr -O srzip</code>；通道、采样率、阈值、触发用 <code>--config</code> / <code>--channels</code> / <code>--triggers</code> 传入</td>
+</tr>
+<tr>
+  <td>解码已有波形</td>
+  <td><code>-- -i &lt;文件&gt;.sr -P &lt;id&gt;:pin=通道:opt=值 -A &lt;id&gt;</code></td>
+</tr>
+<tr>
+  <td>叠加高层 decoder</td>
+  <td><code>-- -i &lt;文件&gt;.sr -P &lt;base&gt;:...,&lt;stacked&gt;</code>（例如 I²C 上叠 <code>eeprom24xx</code>）</td>
+</tr>
+</tbody>
+</table>
+<p>Skill 的行为约定：</p>
+<ul>
+<li>扫描不到匹配设备时停止，不进入采集；扫描到多台设备时，必须先指定其中一台（<code>conn</code>）；</li>
+<li>采集前先用 <code>--show</code> 确认设备支持的采样率和通道，不照搬其他型号；</li>
+<li>采集完成后，Agent 应返回 <code>.sr</code> 的绝对路径和实际命令；</li>
+<li>解码完成后，Agent 应报告 decoder、引脚映射、选项以及是否产生 annotation；</li>
+<li>解码已有的 <code>.sr</code> 文件无需连接逻辑分析仪；只有扫描、查询设备和采集需要访问 USB 设备。</li>
+</ul>
+<p><strong>本 Plugin</strong> 不附带 MCP server、网络服务、<code>sigrok-cli</code>、USB 驱动或 GTKWave（SLogic 生态里的 MCP 接入由 ALL LOGIC 提供，见上文「两条 AI 接入路径」）。Plugin 也不能预测协议：协议或接线未知时，由大模型结合波形特征和电路信息推测候选协议，经用户确认后，Skill 再按指定的 decoder 和引脚映射执行解码，见下文「不知道协议或接线」。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E8%BE%B9%E7%95%8C">使用边界</h3>
+<ul>
+<li>采集会访问 USB 设备并创建 <code>.sr</code> 文件；执行前确认设备、接线、采集上限和文件名。</li>
+<li>采集必须设上限：<code>--samples N</code> 或 <code>--time &lt;ms&gt;</code> 必选其一，否则 <code>sigrok-cli</code> 会一直采集。</li>
+<li>SLogic 采集参数走原生 <code>--config</code>：<code>logic_channels</code>（通道档位，决定最大采样率，应写在 <code>samplerate</code> 之前，并会使能 D0..D(N-1)）、<code>samplerate</code>（SI 形式如 <code>10m</code>，超过当前档位上限会被截断并告警）、<code>voltage_threshold</code>（是「低-高」电压对，单阈值写成 <code>1.7-1.7</code>，范围 0–6 V）、<code>pattern</code>；触发用 <code>--triggers Dn=COND</code>，COND 取 <code>0 1 r f e</code>。</li>
+<li>输出路径用 <code>sigrok-cli</code> 原生 <code>-o</code> / <code>-O</code>；包装脚本不限制目录，请自行确认不会覆盖重要文件。</li>
+<li>扫描不到设备时不采集；扫描到多台设备时先指定目标。</li>
+<li>缺少预期协议或必要的 decoder 引脚映射时不开始解码。</li>
+<li>包装脚本只转发、不校验采集上限或输出路径；上限与安全由你在参数里写明。</li>
+</ul>
+<hr />
+<h2 id="%E9%99%84%E5%BD%95-B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">附录 B：环境准备</h2>
+<p>Sipeed 当前的 SLogic 系列包括：</p>
+<table>
+<thead>
+<tr>
+  <th>产品</th>
+  <th>通道数</th>
+  <th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SLogic Combo 8</td>
+  <td>8</td>
+  <td><a href="../combo8/index.html"  >产品介绍</a></td>
+</tr>
+<tr>
+  <td>SLogic16U3</td>
+  <td>16</td>
+  <td><a href="../slogic16u3/Introduction.html"  >产品介绍</a></td>
+</tr>
+<tr>
+  <td>SLogic32U3</td>
+  <td>32</td>
+  <td><a href="../slogic32u3/Introduction.html"  >产品介绍</a></td>
+</tr>
+</tbody>
+</table>
+<p>不同型号的通道数量、采样率、输入范围和配置项有所不同。使用本教程时，应先让 Agent 扫描设备并读取当前型号的能力，再设置采集参数。</p>
+<p>本文已在 Linux x86_64 上使用 SLogic Combo 8、SLogic16U3 和 SLogic32U3 完成采集验证；Windows 和 macOS 的发布版二进制、USB 驱动和硬件采集尚未验证。</p>
+<h3 id="%E5%AE%89%E8%A3%85-Plugin">安装 Plugin</h3>
+<p>Plugin 需要 Python 3.10 或更高版本，并要求 Agent 能运行本地命令、读写工作目录和访问 USB 设备。</p>
+<p>无需手动下载、解压或复制目录。复制 sigrok-cli-slogic-plugin 的链接地址，直接发给支持 Plugin 的 Agent：</p>
+<blockquote>
+<p>请安装这个 SLogic plugin：<code>https://dl.sipeed.com/fileList/SLogic/sigrok-cli-slogic-plugin.zip</code>。安装完成后检查 <code>sigrok-cli-slogic</code> 是否已经加载，并告诉我是否需要重启。暂时不要访问 USB 设备或开始采集。</p>
+</blockquote>
+<p>按 Agent 的提示重启后，再说：</p>
+<blockquote>
+<p>检查 <code>sigrok-cli-slogic</code> 是否已经加载。说明它能执行哪些操作，暂时不要访问 USB 设备或开始采集。</p>
+</blockquote>
+<p>Agent 能识别 <code>$sigrok-cli-slogic</code>，并说明 scan、show、capture 和 decode 的用途，即表示 Skill 已加载。</p>
+<h3 id="%E5%87%86%E5%A4%87-SLogic-%E7%89%88-sigrok-cli">准备 SLogic 版 sigrok-cli</h3>
+<p>SLogic 按平台分发对应的 <code>sigrok-cli</code>，与其他上位机一同打包在同一个 Release 中：</p>
+<table>
+<thead>
+<tr>
+  <th>系统</th>
+  <th>分发文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Linux x86_64</td>
+  <td><code>sigrok-cli-SLogic-x.y.z-linux-x86_64.AppImage</code></td>
+</tr>
+<tr>
+  <td>Windows x64</td>
+  <td><code>sigrok-cli-SLogic-x.y.z-windows-x86_64.exe</code></td>
+</tr>
+<tr>
+  <td>macOS (Apple Silicon)</td>
+  <td><code>sigrok-cli-SLogic-x.y.z-macos-arm64.zip</code></td>
+</tr>
+</tbody>
+</table>
+<p>下载渠道：</p>
+<ul>
+<li><strong>GitHub Release（推荐，最新）</strong>：<a href="https://github.com/sipeed/SLogic/releases/latest"  target="_blank">https://github.com/sipeed/SLogic/releases/latest</a></li>
+<li>下载站（备份镜像）：<a href="https://dl.sipeed.com/shareURL/SLogic"  target="_blank">https://dl.sipeed.com/shareURL/SLogic</a></li>
+</ul>
+<p>把 Release 页面交给 Agent，让它下载适合当前系统的最新版，并保存到固定的工具目录。<code>&lt;工具目录&gt;</code> 填写你希望长期保存该工具的位置即可：</p>
+<blockquote>
+<p>打开 SLogic Release 页面 (<a href="https://github.com/sipeed/SLogic/releases/latest"  target="_blank">https://github.com/sipeed/SLogic/releases/latest</a>) ，识别当前操作系统，下载对应的最新版 <code>sigrok-cli-SLogic</code>，并保存到 <code>&lt;工具目录&gt;</code>。不要覆盖已有版本。请完成运行该程序所需的准备工作，把可执行文件绝对路径保存到全局配置，供 <code>sigrok-cli-slogic</code> 后续直接使用，再运行版本检查，并查询 UART decoder。告诉我配置结果，不要扫描设备或开始采集。</p>
+</blockquote>
+<p>Agent 验证可执行文件后，应将其路径保存到全局配置，供后续扫描、采集和解码直接使用。不同系统的分发形式由 Agent 处理，用户无需记录路径或了解发行包的内部结构。</p>
+<h3 id="%E7%A1%AE%E8%AE%A4%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%8E%A5%E7%BA%BF%E5%AE%89%E5%85%A8">确认硬件模式和接线安全</h3>
+<ul>
+<li>SLogicCombo8 支持多种工作模式。用作逻辑分析仪时，先按键切换至蓝色指示灯；Linux 下可用 <code>lsusb</code> 检查是否出现 <code>USB TO LA</code>。</li>
+<li>逻辑分析仪 GND 必须与被测设备 GND 可靠连接。地线应尽量短，并靠近待测信号点。</li>
+<li>连接前须确认被测信号电压处于对应 SLogic 型号的输入范围内。电压未知时，先用万用表或示波器测量。</li>
+<li>SLogic16U3 的 VCC 是 3.3 V 电源输出，不是信号输入。</li>
+<li>逻辑分析仪通过 USB 与电脑共地。测量强电系统或不能与电脑共地的设备时，应使用合适的 USB 隔离器。无法确认安全条件时，请勿连接。</li>
+</ul>
+<p>不同型号的输入范围、阈值和引脚定义不完全相同，连接前请查阅对应产品页。本教程的 UART 示例只使用 D0 和 GND。</p>
+<h3 id="SLogic32U3-%E7%9A%84%E9%A2%9D%E5%A4%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">SLogic32U3 的额外注意事项</h3>
+<p>使用 SLogic32U3 时，请把下面几条一并告诉 Agent，否则很容易出现「能连上但速率不达预期」且难以排查的情况：</p>
+<ul>
+<li><strong>必须接 10 Gbps 的 USB 口</strong>（通常标 <code>SS10</code> 或 <code>10</code>）。只看蓝色不可靠，很多蓝色口只有 5 Gbps。</li>
+<li><strong>不支持 USB2.0 采集</strong>，接到 USB2.0 口无法正常工作。</li>
+<li><strong>优先 USB-C 直连</strong>。随附线材虽配了 C 转 A 转接头，但转接头有插损，低性能电脑上可能导致速率跑不满。</li>
+<li><strong>使能通道越少，可用采样率越高</strong>：1400M@4CH、800M@8CH、400M@16CH、200M@32CH。让 Agent 只启用本次真正需要的通道。</li>
+</ul>
+<p>详见 <a href="../slogic32u3/Quick_Start.md#%E8%BF%9E%E6%8E%A5%E8%AE%BE%E5%A4%87"  >SLogic32U3 快速上手</a>。</p>
+<h3 id="%E9%85%8D%E7%BD%AE-Linux-USB-%E6%9D%83%E9%99%90">配置 Linux USB 权限</h3>
+<p>普通用户无法扫描设备时，可安装以下 udev 规则：</p>
+
+<pre class="language-bash"><code class="language-bash">sudo tee /etc/udev/rules.d/60-sipeed.rules &lt;&lt;'EOF'
+SUBSYSTEM!=&quot;usb|usb_device&quot;, GOTO=&quot;sipeed_rules_end&quot;
+ACTION!=&quot;add&quot;, GOTO=&quot;sipeed_rules_end&quot;
+ATTRS{idVendor}==&quot;359f&quot;, MODE=&quot;0666&quot;, GROUP=&quot;plugdev&quot;, TAG+=&quot;uaccess&quot;
+ENV{ID_MM_DEVICE_IGNORE}=&quot;1&quot;
+LABEL=&quot;sipeed_rules_end&quot;
+EOF
+
+sudo udevadm control --reload
+sudo udevadm trigger
+</code></pre>
+<p>Arch Linux 可将 <code>GROUP=&quot;plugdev&quot;</code> 改为 <code>GROUP=&quot;uucp&quot;</code>。规则生效后，重新插拔 SLogic，再让 Agent 扫描。使用 <code>sudo</code> 运行程序只适合快速判断权限问题，不建议作为日常方案。</p>
+<p>连接 SLogic 后，先扫描并读取设备能力，不要直接采集：</p>
+<blockquote>
+<p>使用 <code>$sigrok-cli-slogic</code> 和已经配置好的 SLogic 版 <code>sigrok-cli</code>。扫描已连接的 SLogic，再读取所选设备的能力。不要采集。报告设备标识、通道、可用采样率和配置项。</p>
+</blockquote>
+<p>Agent 应依次完成：</p>
+<ol>
+<li>确认全局配置中的 <code>sigrok-cli</code> 路径存在且可执行；</li>
+<li>扫描 SLogic/DSLogic；</li>
+<li>只有一台设备时读取该设备能力；</li>
+<li>有多台设备时列出完整设备标识（scan spec），等待用户选择；</li>
+<li>没有设备时停止，不进入采集。</li>
+</ol>
+<p>扫描完成后，至少核对以下内容：</p>
+<table>
+<thead>
+<tr>
+  <th>项目</th>
+  <th>为什么需要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>完整设备标识</td>
+  <td>多台设备时用于选定目标</td>
+</tr>
+<tr>
+  <td>通道名称</td>
+  <td>decoder 引脚必须映射到实际通道</td>
+</tr>
+<tr>
+  <td>可用采样率</td>
+  <td>采集值必须是设备支持的配置</td>
+</tr>
+<tr>
+  <td>通道和带宽限制</td>
+  <td>启用通道越多，可用最高采样率通常越低</td>
+</tr>
+<tr>
+  <td>配置项</td>
+  <td>电压阈值、触发等能力取决于具体型号</td>
+</tr>
+</tbody>
+</table>
+<p>采集参数应以当前设备的 <code>show</code> 输出为准，不能直接套用其他 SLogic 型号的参数。</p>
+<hr />
+<h2 id="%E9%99%84%E5%BD%95-C%EF%BC%9A%E6%89%8B%E5%B7%A5%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0">附录 C：手工控制参数</h2>
+<p>绝大多数情况不需要你自己算这些，但当你想精确控制 Agent 的行为时，这些是它遵循的规则。</p>
+<p>每次采集都应设置明确上限：用 <code>--samples N</code>（样本数）或 <code>--time &lt;ms&gt;</code>（时长）指定，否则 <code>sigrok-cli</code> 会一直采集。</p>
+<table>
+<thead>
+<tr>
+  <th>信息</th>
+  <th>应该怎样说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>目标设备</td>
+  <td>指定型号或扫描结果中的完整标识</td>
+</tr>
+<tr>
+  <td>接线</td>
+  <td>说明每根协议线连接到哪个 D 通道</td>
+</tr>
+<tr>
+  <td>预期协议</td>
+  <td>UART、I²C、SPI 或其他 decoder ID</td>
+</tr>
+<tr>
+  <td>协议参数</td>
+  <td>波特率、SPI mode、位序、CS 极性等</td>
+</tr>
+<tr>
+  <td>采样范围</td>
+  <td>时长、样本数或帧数三选一</td>
+</tr>
+<tr>
+  <td>采样率</td>
+  <td>使用设备支持的值；不知道时先让 Agent 建议</td>
+</tr>
+<tr>
+  <td>输出文件</td>
+  <td>使用文件名，例如 <code>uart-test.sr</code></td>
+</tr>
+<tr>
+  <td>结果目标</td>
+  <td>字符、地址、数据、warning、样本位置或波形图</td>
+</tr>
+</tbody>
+</table>
+<p>采样时间、样本数和采样率的关系是：</p>
+
+<pre class="language-text"><code class="language-text">采样时间（秒） = 样本数 ÷ 采样率（Hz）
+</code></pre>
+<p>例如，以 10 MHz 采集 500000 个样本，对应 50 ms。SLogic 产品文档建议采样率高于被测信号频率约 10 倍；实际选择还要考虑信号质量、协议 decoder 和设备带宽。无关通道会占用 USB 带宽，因此只应启用本次采集所需的通道。</p>
+<p>如果不知道采样率，可以说：</p>
+<blockquote>
+<p>D0 上预计是 115200 baud UART，但我不知道该选哪个采样率。请先读取设备支持的采样率，给出选择依据，等我确认后再采集。</p>
+</blockquote>
+<p>如果协议参数也不确定，请分别列出已知项和未知项。Agent 应先补齐必要信息，不应遍历尝试所有协议和参数。</p>
+<h3 id="%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B%EF%BC%9A%E9%87%87%E9%9B%86%E5%B9%B6%E8%A7%A3%E7%A0%81-UART">完整示例：采集并解码 UART</h3>
+<p>下面以 SLogicCombo8 采集 CH341 TX 为例。UART 参数为 115200 8N1、LSB first，信号接入 D0。</p>
+<h4 id="%E6%8E%A5%E7%BA%BF">接线</h4>
+
+<pre class="language-text"><code class="language-text">CH341 TX  -&gt; SLogicCombo8 D0
+CH341 GND -&gt; SLogicCombo8 GND
+</code></pre>
+<p>这里采集的是 CH341 发出的 TX 信号。对于 UART decoder，这一路是逻辑分析仪接收到的数据，因此映射为 <code>rx=D0</code>。</p>
+<h4 id="%E5%85%88%E7%A1%AE%E8%AE%A4%E8%AE%BE%E5%A4%87%E5%92%8C%E5%8F%82%E6%95%B0">先确认设备和参数</h4>
+<blockquote>
+<p>使用 <code>$sigrok-cli-slogic</code>。SLogicCombo8 已切换到蓝灯逻辑分析仪模式，D0 接 CH341 TX，双方 GND 已连接。请扫描设备，确认 D0 和 10 MHz 采样率可用；只检查，不采集。</p>
+</blockquote>
+<p>核对 scan 和 show 的结果后，再开始采集。</p>
+<h4 id="%E9%87%87%E9%9B%86%E5%8E%9F%E5%A7%8B%E6%B3%A2%E5%BD%A2">采集原始波形</h4>
+<blockquote>
+<p>使用刚才确认的 SLogicCombo8，只启用 D0，以 10 MHz 采集 500000 个样本，保存为 <code>capture-combo8-500k.sr</code>。不要覆盖已有文件；如果同名文件存在，先停止并告诉我。完成后报告绝对路径和实际命令。</p>
+</blockquote>
+<p>本次采集参数如下：</p>
+<ul>
+<li>通道：D0；</li>
+<li>采样率：10 MHz；</li>
+<li>样本数：500000；</li>
+<li>对应时长：50 ms；</li>
+<li>输出：当前工作目录中的 <code>capture-combo8-500k.sr</code>。</li>
+</ul>
+<p>输出文件用 <code>sigrok-cli</code> 原生 <code>-o &lt;文件&gt;</code> 指定（<code>-O srzip</code> 选择 <code>.sr</code> 格式，可用绝对路径或子目录）；包装脚本不限制目录，请自行确认不会覆盖已有文件。</p>
+<h4 id="%E8%A7%A3%E7%A0%81-UART">解码 UART</h4>
+<blockquote>
+<p>解码 <code>capture-combo8-500k.sr</code>。先查询 UART decoder 支持的 pin、option 和 annotation，然后将 <code>rx</code> 映射为 D0，使用 115200 baud、8 data bits、no parity、1 stop bit、LSB first。输出 RX 字符、warning 和样本位置，并将文本保存为 <code>decoded-uart.txt</code>。</p>
+</blockquote>
+<p>Agent 应返回：</p>
+<ul>
+<li>decoder：UART；</li>
+<li>decoder 引脚映射：<code>rx=D0</code>；</li>
+<li>波特率、数据位、校验、停止位和位序；</li>
+<li>是否产生解码标注；</li>
+<li>解码文本和警告（warning）；</li>
+<li>输入、输出文件的绝对路径；</li>
+<li>实际执行的命令。</li>
+</ul>
+<p>实测数据每 10 ms 发送一次 <code>Hello, SLogic x AI</code>。50 ms 波形中完整解码出 5 次消息、90 个字符，warning 为 0。</p>
+<h4 id="%E9%9C%80%E8%A6%81%E6%97%B6%E5%86%8D%E7%94%9F%E6%88%90%E6%B3%A2%E5%BD%A2%E5%9B%BE">需要时再生成波形图</h4>
+<p>协议内容以 decoder 文本为准，通常无需生成图片。GTKWave 是可选配套工具，不是 Plugin 的运行依赖。系统已安装 GTKWave 时，可以继续说：</p>
+<blockquote>
+<p>将 <code>capture-combo8-500k.sr</code> 的 D0 转换为 VCD，用 GTKWave 截取第一组完整 UART 消息并保存为 PNG。不要修改原始 <code>.sr</code>。</p>
+</blockquote>
+<p><code>sigrok-cli</code> 负责将 <code>.sr</code> 导出为 VCD，GTKWave 只显示数字电平。VCD 不包含 libsigrokdecode 生成的 UART 字符标注，字符内容仍以 <code>decoded-uart.txt</code> 为准。</p>
+<p><img src="./assets/uart-115200-gtkwave.png" alt="GTKWave 显示 sigrok-cli 导出的 UART VCD 波形" /></p>
+<h3 id="%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B%EF%BC%88%E8%A7%A6%E5%8F%91%EF%BC%89%EF%BC%9A%E9%87%87%E9%9B%86%E5%B9%B6%E8%A7%A3%E7%A0%81-SPI">完整示例（触发）：采集并解码 SPI</h3>
+<p>解码 SPI 需要明确时钟、数据线、模式和位序。是否映射 CS，取决于采集时是否接入了有效的 CS 信号。</p>
+<p>下面的实例使用 CH341 发送 SPI 数据，并由 SLogic16U3 采集：</p>
+
+<pre class="language-text"><code class="language-text">CH341 CLK  -&gt; SLogic16U3 D0
+CH341 MOSI -&gt; SLogic16U3 D1
+CH341 CS   -&gt; SLogic16U3 D3
+CH341 GND  -&gt; SLogic16U3 GND
+</code></pre>
+<p>发送端通过 <code>/dev/spidev1.0</code>，以 SPI mode 0、500 kHz、8 bit 运行发送脚本（本例为 <code>spi_test.py</code>），发送 24 字节：</p>
+
+<pre class="language-text"><code class="language-text">hello, SLogic from SPI.\n
+</code></pre>
+<p>采集和发送需要并行执行：Agent 应先启动采集并等待 D3 触发，再运行发送脚本。先对 Agent 说明采集参数：</p>
+<blockquote>
+<p>使用 <code>$sigrok-cli-slogic</code> 操作已连接的 SLogic16U3。D0 接 CLK，D1 接 MOSI，D3 接 CS，双方 GND 已连接。请只启用 D0、D1 和 D3，以 10 MHz 采集 1000 ms，并设置 D3 上升沿触发和等待触发，保存为 <code>slogic16u3-spi-500k.sr</code>。开始等待触发后，运行 <code>spi_test.py</code>，通过 <code>/dev/spidev1.0</code> 发送一次数据。完成后报告波形路径、实际样本数和实际命令。</p>
+</blockquote>
+<p>采集完成后，再要求 Agent 解码：</p>
+<blockquote>
+<p>解码 <code>slogic16u3-spi-500k.sr</code>。将 <code>clk</code> 映射到 D0、<code>mosi</code> 映射到 D1、<code>cs</code> 映射到 D3。使用 active-high CS、SPI mode 0、LSB first、8 bit，输出 MOSI data、warning 和样本位置。</p>
+</blockquote>
+<p>本次实测中，D3 上升后出现 SPI 时钟，传输结束时回到低电平，因此按 active-high CS 解码。decoder 输出 24 字节，与发送脚本的 UTF-8 字节完全一致，warning 为 0：</p>
+
+<pre class="language-text"><code class="language-text">68 65 6C 6C 6F 2C 20 53 4C 6F 67 69
+63 20 66 72 6F 6D 20 53 50 49 2E 0A
+</code></pre>
+<p>两点注意：</p>
+<ul>
+<li>触发沿和 CS 极性必须以实际波形为准。本例对 D3 使用上升沿触发，并将 decoder 的 <code>cs_polarity</code> 设为 <code>active-high</code>；如果照搬常见的低电平有效配置，decoder 不会输出数据。</li>
+<li>本例需要 <code>LSB first</code> 才能还原发送字节。如果 CPOL、CPHA、位序或 CS 极性未知，应先查阅芯片手册、电路图或固件配置。一次解码无输出，不能据此认定没有 SPI 通信。</li>
+</ul>
+<p>下图由 <code>.sr</code> 采集文件导出为 VCD 后，通过 GTKWave 展示 500 kHz CLK（D0）和 MOSI（D1）的局部波形：</p>
+<p><img src="./assets/spi-500k-gtkwave.png" alt="SLogic16U3 采集的 500 kHz SPI 波形" /></p>
+<h3 id="%E5%88%86%E6%9E%90%E5%B7%B2%E6%9C%89%E6%B3%A2%E5%BD%A2">分析已有波形</h3>
+<p>已有 <code>.sr</code> 文件时，无需连接 SLogic，也无需重新采集。例如：</p>
+<blockquote>
+<p>使用 <code>$sigrok-cli-slogic</code> 分析当前目录的 <code>capture.sr</code>，不要访问 USB 设备。D0 是 UART RX，按 115200 8N1 解码。先查询 UART decoder，再报告引脚映射、option、字符、warning 和样本位置。</p>
+</blockquote>
+<p>同一个 <code>.sr</code> 文件可以使用不同 decoder 参数反复分析。采集完成后应保留原始文件；调整波特率或引脚映射时，无需重新采集。</p>
+<h3 id="%E6%A8%A1%E4%BB%BF%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%8F%8F%E8%BF%B0%E5%85%B6%E4%BB%96%E5%8D%8F%E8%AE%AE">模仿示例：描述其他协议</h3>
+<p>下面的提示词用于说明描述思路。通道、采样率、时长和协议参数应按实际设备与被测信号修改。</p>
+<h4 id="UART">UART</h4>
+<p>UART 需要说明数据方向、通道、波特率、数据位、校验位、停止位和位序。只采集单向信号时，将该通道映射到 <code>rx</code> 或 <code>tx</code>：</p>
+<blockquote>
+<p>D0 接目标设备 TX，双方 GND 已连接。请先确认设备能力，再以 10 MHz 采集 100 ms。查询 UART decoder 后，将 <code>rx</code> 映射到 D0，按 115200 8N1、LSB first 解码字符、warning 和样本位置。</p>
+</blockquote>
+<h4 id="I%C2%B2C">I²C</h4>
+<p>解码 I²C 至少需要明确 SCL 和 SDA 对应的通道：</p>
+<blockquote>
+<p>D0 接 SCL，D1 接 SDA。请先确认设备支持这两个通道，然后用 10 MHz 采集 100 ms，保存为 <code>i2c-test.sr</code>。将 <code>scl</code> 映射到 D0、<code>sda</code> 映射到 D1，解码地址、读写方向、ACK/NACK 和数据，并报告 warning。</p>
+</blockquote>
+<p>需要继续分析 EEPROM 等上层协议时，可以在 I²C decoder 上叠加对应的 stacked decoder。叠加前应先确认基础 I²C 解码正确。</p>
+<h4 id="SPI">SPI</h4>
+<p>SPI 需要说明 CLK、MOSI/MISO、可选的 CS、SPI mode、位序、字长和 CS 极性。已知有效 CS 时，可以用其边沿触发：</p>
+<blockquote>
+<p>D0 接 CLK，D1 接 MOSI，D3 接 CS。请先根据空闲电平和传输期间的电平确认 CS 极性，再以 10 MHz 采集 1000 ms，并在 CS 进入有效状态的边沿等待触发。将 <code>clk</code>、<code>mosi</code> 和 <code>cs</code> 映射到对应通道，按 SPI mode 0、LSB first、8 bit 解码 MOSI data、warning 和样本位置。</p>
+</blockquote>
+<h4 id="PWM">PWM</h4>
+<p>PWM decoder 只需要一条 <code>data</code> 通道，并可按 active-high 或 active-low 极性输出占空比、周期和频率。采集范围应覆盖多个完整周期：</p>
+<blockquote>
+<p>D0 接 PWM 信号，双方 GND 已连接，信号高电平有效。请先读取设备支持的采样率，选择能覆盖至少 20 个完整周期的有限采集参数。采集后查询 PWM decoder，将 <code>data</code> 映射到 D0、<code>polarity</code> 设为 <code>active-high</code>，输出占空比、周期、频率和对应样本位置。</p>
+</blockquote>
+<hr />
+<h2 id="%E9%99%84%E5%BD%95-D%EF%BC%9A%E6%8E%92%E9%9A%9C">附录 D：排障</h2>
+<h3 id="Agent-%E6%B2%A1%E6%9C%89%E8%AF%86%E5%88%AB-Plugin">Agent 没有识别 Plugin</h3>
+<p>把 plugin 链接重新发给 Agent，并要求它返回下载、安装和加载阶段的完整错误。安装包根目录必须包含 <code>.codex-plugin/plugin.json</code>，不能只安装其中的单个文件。安装后按提示重启 Agent，再检查 <code>$sigrok-cli-slogic</code>。</p>
+<h3 id="%E6%89%BE%E4%B8%8D%E5%88%B0-sigrok-cli">找不到 sigrok-cli</h3>
+<p>把下载或运行时的完整错误交给 Agent，让它检查文件是否下载完整、保存路径是否正确、当前系统能否执行，并修复全局配置。例如：</p>
+<blockquote>
+<p><code>sigrok-cli-slogic</code> 找不到或无法运行已经配置的 <code>sigrok-cli-SLogic</code>。请检查下载结果、保存路径、执行权限、实际可执行文件位置和全局配置；修复后运行版本检查，并查询 UART decoder。不要扫描设备或开始采集。</p>
+</blockquote>
+<h3 id="%E7%89%88%E6%9C%AC%E5%91%BD%E4%BB%A4%E6%AD%A3%E5%B8%B8%EF%BC%8C%E4%BD%86-decoder-%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD">版本命令正常，但 decoder 无法加载</h3>
+<p>发行包可能缺少 libsigrokdecode、decoder 模块或相应的 Python 环境。让 Agent 查询 UART decoder（<code>-- --protocol-decoders uart --show</code>）并保留完整错误，不能只根据 <code>--version</code> 判断安装是否完整。</p>
+<h3 id="%E6%89%AB%E6%8F%8F%E4%B8%8D%E5%88%B0%E8%AE%BE%E5%A4%87">扫描不到设备</h3>
+<p>依次检查：</p>
+<ul>
+<li>SLogicCombo8 是否为蓝灯逻辑分析仪模式；</li>
+<li>USB 线、端口和供电是否正常；</li>
+<li>系统能否看到 USB 设备；</li>
+<li><code>sigrok-cli</code> 是否包含 SLogic 驱动；</li>
+<li>Linux udev 或 Windows USB 驱动是否正确。</li>
+</ul>
+<p>可以对 Agent 说：</p>
+<blockquote>
+<p>保留完整扫描输出和错误。检查是找不到可执行文件、缺少 SLogic 驱动、USB 权限不足，还是没有发现设备；不要开始采集。</p>
+</blockquote>
+<h3 id="%E9%87%87%E6%A0%B7%E7%8E%87%E8%A2%AB%E6%8B%92%E7%BB%9D">采样率被拒绝</h3>
+<p>让 Agent 重新执行 <code>show</code>，确认启用通道数和可用采样率。关闭未使用的通道，再选择设备支持的采样率；不要套用其他型号的参数。</p>
+<h3 id="%E8%A7%A3%E7%A0%81%E4%B8%BA%E7%A9%BA%E6%88%96%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81">解码为空或出现乱码</h3>
+<p>按以下顺序排查：</p>
+<ol>
+<li>原始波形中是否存在边沿；</li>
+<li>decoder 引脚是否映射到正确通道；</li>
+<li>采样率是否足够；</li>
+<li>UART 波特率、数据位、校验、停止位和位序；</li>
+<li>SPI CPOL、CPHA、位序和 CS 极性；</li>
+<li>接地、输入阈值和信号完整性。</li>
+</ol>
+<p>保留原始 <code>.sr</code> 文件，再修改 decoder 参数重新解码，避免覆盖唯一的采集结果。</p>
+<h3 id="%E9%87%87%E9%9B%86%E5%AE%8C%E6%88%90%E5%90%8E%E8%BF%9B%E7%A8%8B%E6%B2%A1%E6%9C%89%E9%80%80%E5%87%BA">采集完成后进程没有退出</h3>
+<p>SLogicCombo8 可能在端点清理时偶发不退出。先确认 <code>.sr</code> 已完整写入，再终止进程并重新插拔设备。文件写入完成前不要断开设备。</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/hardware/zh/logic_analyzer/slogic32u3/FAQ.html">
+                            <span class="icon"></span>
+                            <span class="label">常见问题(FAQ)</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/hardware/zh/ThermalCam/T256s/Intro.html">
+                            <span class="label">简介</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>相关链接</a><ul><li><a target="_blank" href="https://www.sipeed.com">Sipeed 官网</a></li>
+<li><a target="_blank" href="https://maixhub.com/">MaixHub</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">Sipeed 淘宝</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc">网站使用 teedoc 生成</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/sipeed/sipeed_wiki">Wiki 源码</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">开源项目</a></li>
+</ul>
+</li>
+<li><a>关注我们</a><ul><li><a target="_blank" href="https://twitter.com/SipeedIO">twitter</a></li>
+<li><a target="_blank" href="https://sipeed.taobao.com/">淘宝</a></li>
+<li><a target="_blank" href="https://github.com/sipeed">github</a></li>
+<li><a><a>微信公众号</a><img src='/static/image/wechat.png'></a>
+</li>
+</ul>
+</li>
+<li><a>联系我们</a><ul><li><a>电话: +86 0755-27808509</a>
+</li>
+<li><a>商业支持: support@sipeed.com</a>
+</li>
+<li><a>地址: 深圳市宝安区新湖路4008号蘅芳科技办公大厦A座-2101D</a>
+</li>
+<li><a  href="/join_us.html">加入我们</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://www.sipeed.com">©2018-2023 深圳矽速科技有限公司</a></li>
+<li><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备19015433号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/js/prism.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+        <script src="/static/js/thumbs_up/main.js"></script>
+    
+</body>
+
+</html>
