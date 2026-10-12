@@ -64,7 +64,7 @@ Deployment guide: [here](../m4c/axmodel-deploy.html#部署大语言、多模态�
 
 Demo video:
 
-<video controls autoplay src="../../../zh/maixIV/assets/m4chat/m4chat-run-llm-internVL-2025-07-07.mp4" type="video/mp4"> Your browser does not support video playback. </video>
+<video controls autoplay src="../../../zh/maixIV/assets/m4chat/m4nhat-run-llm-internVL-2025-07-07.mp4" type="video/mp4"> Your browser does not support video playback. </video>
 
 ## DepthAnything v2
 

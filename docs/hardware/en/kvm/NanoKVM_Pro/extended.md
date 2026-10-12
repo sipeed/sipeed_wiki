@@ -178,8 +178,8 @@ When used as a desktop accessory, this feature can serve as a:
 and more.
 
 ![](../../../assets/NanoKVM/pro/lcd/hdmi.jpg)
- <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/cat.mp4"></video>
- <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/extended/video.mp4"></video>
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/lcd/cat.mp4"></video>
+ <video playsinline controls muted preload src="../../../assets/NanoKVM/pro/lcd/video.mp4"></video>
 
 ## USB Expansion Features
 
