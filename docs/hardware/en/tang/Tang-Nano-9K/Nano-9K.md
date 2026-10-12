@@ -64,7 +64,7 @@ Indepth specifications of the tang nano 9k.
 
 1. **[Download User Guide](https://dl.sipeed.com/shareURL/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide)**: Access all necessary PDF documents by downloading our comprehensive user guide package.
 
-2. **[Install IDE & License Configuration](./../common-doc/install-the-ide.md)**: Set up your Integrated Development Environment (IDE) and configure your license by following this guide.
+2. **[Install IDE & License Configuration](./../common-doc/get_started/install-the-ide.md)**: Set up your Integrated Development Environment (IDE) and configure your license by following this guide.
 
 3. **[Software User Guide](https://dl.sipeed.com/fileList/TANG/Nano%209K/6_Chip_Manual/EN/General%20Guide/SUG100-2.6E_Gowin%20Software%20User%20Guide.pdf)**: Refer to the "SUG100-2.6E_Gowin Software User Guide.pdf" in the downloaded package for detailed software instructions.
 

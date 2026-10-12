@@ -51,7 +51,7 @@ update:
 
 > [MaixHub](https://maixhub.com/model/zoo) model zoo has models that can run directly on AXera-Pi. You can download and use them, and also share your models~
 
-[Click to view Maix-III(M3) series AXera-Pi development board details and basic usage documentation](/hardware/en/maixIII/index.html)
+[Click to view Maix-III(M3) series AXera-Pi development board details and basic usage documentation](/hardware/en/maixIII/ax-pi/axpi.html)
 
 To deploy models to `AXera-Pi`, you need to quantize the model to INT8 to reduce model size and improve runtime speed. Generally, `PTQ` (Post-Training Quantization) is used. Steps:
 **1.** Prepare the floating-point model.
@@ -312,7 +312,7 @@ If your model isn't a simple classification model, you may need to add post-proc
 ## Using Cameras and Screens
 
 At this point, the model runs independently. To build an application, since it’s `Linux`, many general development methods and libraries are available. If you wish to use cameras and screens together, you can use [libmaix](https://github.com/sipeed/libmaix) or develop directly using [axpi_bsp_sdk](https://github.com/sipeed/axpi_bsp_sdk) (which is somewhat more challenging).
-* Refer to the [SDK Development Instructions](/hardware/en/maixIII/ax-pi/sdk.html) to compile and execute the [camera screen display routine](https://github.com/sipeed/libmaix/tree/release/examples/axpi). Since the repositories are on `github`, having a good proxy server is recommended.
+* Refer to the [SDK Development Instructions](/hardware/zh/maixIII/ax-pi/sdk_usage.html) to compile and execute the [camera screen display routine](https://github.com/sipeed/libmaix/tree/release/examples/axpi). Since the repositories are on `github`, having a good proxy server is recommended.
 * When merging the model execution code into the routine, one important issue to note: if you plan to use the camera, the default `AI-ISP` will be activated (no way to turn it off for now, TODO for future updates). **Therefore, when converting the model, specify it to run on the virtual NPU by setting `ax620_virtual_npu: AX620_VIRTUAL_NPU_MODE_111` in the configuration file, otherwise initialization will fail**.
 > You can directly use the [1000-classification routine](https://github.com/sipeed/libmaix/tree/release/examples/axpi_classification_cam).
 > After compilation on the board, execute `./dist/axpi_classification_cam -m mobilenetv2.joint` to start recognition. Models can also be downloaded from the [MaixHub Model Zoo](https://maixhub.com/model/zoo/89).

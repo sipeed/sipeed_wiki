@@ -25,7 +25,7 @@ Because of the DDR test function, Core Board will be very hot. you can erase the
 
 ## Install IDE
 
-Visit [Install IDE](./../../../common-doc/install-the-ide.md) to prepare the environment for this FPGA.
+Visit [Install IDE](./../../../common-doc/get_started/install-the-ide.md) to prepare the environment for this FPGA.
 
 For Linux users, if it's difficult to run Programmer application to burn firmware into fpga, please visit [OpenFpgaloader](https://wiki.sipeed.com/hardware/en/tang/common-doc/flash-in-linux.html) to see how to use it.
 

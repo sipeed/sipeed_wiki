@@ -23,7 +23,7 @@ class: faq
 | MaixPy3 | [MaixPy3](/maixpy3) | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
 | Maix-III AXeraPi (AX620A) | [M3-AXeraPi](/m3axpi) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
 | MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ 汇总](/ai/zh/maixhub/faq.html) |
-| Tang FPGA | [Tang](/tang)  | [Tang FAQ 汇总](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
+| Tang FPGA | [Tang](/tang)  | [Tang FAQ 汇总](/hardware/zh/tang/common-doc/questions.html) |
 | NanoKVM | [NanoKVM](/nanokvm) | [NanoKVM FAQ 汇总](/hardware/zh/kvm/NanoKVM/faq.html) | 
 | NanoKVM-Go | [NanoKVM-Go](/nanokvmgo) | [NanoKVM Go FAQ 汇总](/hardware/zh/kvm/NanoKVM_Go/faq.html) |
 | NanoKVM-PCIe | [NanoKVM-PCIe](/nanokvmpcie) | [NanoKVM PCIe FAQ 汇总](/hardware/zh/kvm/NanoKVM/faq.html) | 
