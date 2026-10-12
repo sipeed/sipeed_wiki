@@ -187,7 +187,7 @@ Specifications, schematics, dimension drawings, etc. can be found here: [Click h
 
 ### How to update the firmware for the onboard debugger
 
-- See [Update the debugger](./../common/update_debugger.md) for details.
+- See [Update the debugger](./../common-doc/update_debugger.md) for details.
 
 ### How to Download to External FLASH {#burn_flash}
 

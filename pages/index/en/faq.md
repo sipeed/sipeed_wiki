@@ -22,7 +22,7 @@ The sharing location is the FAQ page of the corresponding product in the table b
 | MaixPy3 | [MaixPy3](/maixpy3) | [MaixPy3 FAQ](/soft/maixpy3/zh/question/maixpy3_faq.html) |
 | Maix-III AXeraPi (AX620A) | [M3-AXeraPi](/m3axpi) | [AXeraPi FAQ](/hardware/zh/maixIII/ax-pi/faq_axpi.html) |
 | MaixHub | [maixhub.com](https://maixhub.com) | [MaixHub FAQ](/ai/zh/maixhub/faq.html) |
-| Tang FPGA | [Tang](/tang)  | [Tang FAQ](/hardware/zh/tang/Tang-Nano-Doc/questions.html) |
+| Tang FPGA | [Tang](/tang)  | [Tang FAQ](/hardware/en/tang/common-doc/questions.html) |
 | NanoKVM | [NanoKVM](/nanokvm) | [NanoKVM FAQ](/hardware/en/kvm/NanoKVM/faq.html) | 
 | NanoKVM-Go | [NanoKVM-Go](/nanokvmgo) | [NanoKVM Go FAQ](/hardware/en/kvm/NanoKVM_Go/faq.html) |
 | NanoKVM-PCIe | [NanoKVM-PCIe](/nanokvmpcie) | [NanoKVM PCIe FAQ](/hardware/en/kvm/NanoKVM/faq.html) | 

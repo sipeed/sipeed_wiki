@@ -10,7 +10,7 @@ There is an example neorv32 project using the built in 72kb of user flash as ins
 
 ## Environment
 
-- [Gowin IDE](./../../common-doc/install-the-ide.md)
+- [Gowin IDE](./../../common-doc/get_started/install-the-ide.md)
 - [GCC Toolchain](https://stnolting.github.io/neorv32/ug/#_software_toolchain_setup)
 
 ## Steps
