@@ -46,7 +46,7 @@ Download the package for your platform from the [GitHub Release](https://github.
 | Linux x86_64 | `SLogicView-SLogic-x.y.z-linux-x86_64.AppImage` | `chmod +x`, then run |
 | macOS (Apple Silicon) | `SLogicView-SLogic-x.y.z-macos-arm64.dmg` | open the dmg to run directly, or drag the app into Applications |
 
-> **Don't want to install anything?** Just open **[slogic.sipeed.com](https://slogic.sipeed.com)** in a browser — no install, no driver, works even on an Android phone. See [Software Guide · SLogicWeb](./Software_User_Guide.md#slogicweb-web-app).
+> **Don't want to install anything?** Just open **[slogic.sipeed.com](https://slogic.sipeed.com)** in a browser — no install, no driver, works even on an Android phone. See [Software Guide · SLogicWeb](./Software_User_Guide.html#SLogicWeb-%28web-app%29).
 
 ---
 

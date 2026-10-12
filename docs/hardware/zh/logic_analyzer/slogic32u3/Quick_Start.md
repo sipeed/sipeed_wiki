@@ -46,7 +46,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 | Linux x86_64 | `SLogicView-SLogic-x.y.z-linux-x86_64.AppImage` | `chmod +x` 后直接运行 |
 | macOS (Apple Silicon) | `SLogicView-SLogic-x.y.z-macos-arm64.dmg` | 打开 dmg 后可直接运行，也可拖入「应用程序」 |
 
-> **完全不想装软件？** 直接用浏览器打开 **[slogic.sipeed.com](https://slogic.sipeed.com)**，免安装、免驱动，连安卓手机都能采集。详见[软件使用指南 · SLogicWeb 网页版](./Software_User_Guide.md#slogicweb网页版)。
+> **完全不想装软件？** 直接用浏览器打开 **[slogic.sipeed.com](https://slogic.sipeed.com)**，免安装、免驱动，连安卓手机都能采集。详见[软件使用指南 · SLogicWeb 网页版](./Software_User_Guide.html#SLogicWeb（网页版）)。
 
 ---
 
