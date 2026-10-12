@@ -32,7 +32,7 @@ Linux 上普通用户默认无权限访问 USB 设备，还需要配置 udev 规
 - **只亮蓝灯**：USB 没有按 USB3 连接。可能是线材不支持 USB3、接了机箱前面板或不兼容的 HUB、供电不足，或线缆过长。
 - **只亮红灯**：Flash 加载异常。多为线材质量差导致压降过大，或主机 USB 口故障，也可能是硬件损坏。
 
-正常工作时指示灯应为**青色**（蓝+绿）。完整灯语见[硬件使用指南](./Hardware_Specification.md#act-指示灯)。
+正常工作时指示灯应为**青色**（蓝+绿）。完整灯语见[硬件使用指南](./Hardware_Specification.html#ACT-指示灯)。
 
 ## 驱动与权限
 
@@ -67,13 +67,13 @@ sudo udevadm trigger
 
 最大采样率取决于使能的通道数与 USB 带宽。减少通道数即可提高可用采样率，但**只能按固定分组**（4ch=D0–D3、8ch=D0–D7、16ch=D0–D15），**不支持自定义通道**。
 
-对应关系：4ch@1400MHz、8ch@800MHz、16ch@400MHz、32ch@200MHz。详见[软件使用指南 · 采样率与通道数的关系](./Software_User_Guide.md#采样率与通道数的关系)。
+对应关系：4ch@1400MHz、8ch@800MHz、16ch@400MHz、32ch@200MHz。详见[软件使用指南 · 采样率与通道数的关系](./Software_User_Guide.html#采样率与通道数的关系)。
 
 ### SLogic32U3 用哪种采集模式？
 
 **Stream（流式）模式**：数据实时回传上位机，采集时长理论不限，仅受磁盘容量限制。板载 2 Gbit DDR3 作弹性缓存平滑 USB 传输，实际可持续回传 800 MB/s（6.4 Gbps）。
 
-详见[软件使用指南 · Stream 采集](./Software_User_Guide.md#stream-采集)。
+详见[软件使用指南 · Stream 采集](./Software_User_Guide.html#Stream-采集)。
 
 ### 出现丢样（dropped samples）怎么办？
 

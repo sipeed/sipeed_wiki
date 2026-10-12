@@ -32,7 +32,7 @@ On Linux a normal user has no USB access by default and also needs a udev rule, 
 - **Blue only**: USB is not connected as USB3. The cable may not support USB3, a front-panel or incompatible hub is in the way, power is insufficient, or the cable is too long.
 - **Red only**: a Flash load error. Usually a poor cable causing excessive voltage drop, a faulty host USB port, or hardware damage.
 
-In normal operation the indicator should be **cyan** (blue+green). For the full indicator guide see the [Hardware Guide](./Hardware_Specification.md#act-indicator).
+In normal operation the indicator should be **cyan** (blue+green). For the full indicator guide see the [Hardware Guide](./Hardware_Specification.html#ACT-Indicator).
 
 ## Drivers and Permissions
 
@@ -67,13 +67,13 @@ Yes. SLogicView, ngscopeclient and sigrok-cli all provide a macOS build. If the 
 
 The max sample rate depends on the number of channels enabled and the USB bandwidth. Reducing the channel count raises the available rate, but **only in fixed groups** (4ch=D0–D3, 8ch=D0–D7, 16ch=D0–D15) — **arbitrary channels are not supported**.
 
-The mapping: 4ch@1400MHz, 8ch@800MHz, 16ch@400MHz, 32ch@200MHz. See [Software Guide · Sample rate vs channel count](./Software_User_Guide.md#sample-rate-vs-channel-count).
+The mapping: 4ch@1400MHz, 8ch@800MHz, 16ch@400MHz, 32ch@200MHz. See [Software Guide · Sample rate vs channel count](./Software_User_Guide.html#Sample-rate-vs-channel-count).
 
 ### Which capture mode does the SLogic32U3 use?
 
 **Stream mode**: data streams back to the host in real time, with capture length unlimited in theory, bounded only by disk. The onboard 2 Gbit DDR3 acts as an elastic buffer to smooth USB transfer, sustaining 800 MB/s (6.4 Gbps) in practice.
 
-See [Software Guide · Stream capture](./Software_User_Guide.md#stream-capture).
+See [Software Guide · Stream capture](./Software_User_Guide.html#Stream-capture).
 
 ### What if I get dropped samples?
 
