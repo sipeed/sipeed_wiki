@@ -162,7 +162,7 @@ Captured channels can be recolored, resized and reordered in the view so related
 
 <video src="../../../zh/logic_analyzer/slogic32u3/assets/Screenshots/slogicview-threshold.mp4" autoplay loop muted playsinline></video>
 
-Set the logic decision threshold in the left channel bar, 0–6 V in 0.1 V steps. Below it = 0, above it = 1. For suggested thresholds per logic level see the [Hardware Guide](./Hardware_Specification.md#threshold-voltage).
+Set the logic decision threshold in the left channel bar, 0–6 V in 0.1 V steps. Below it = 0, above it = 1. For suggested thresholds per logic level see the [Hardware Guide](./Hardware_Specification.html#Threshold-voltage).
 
 ### Triggers
 
@@ -253,7 +253,7 @@ For scenarios needing GPU-accelerated rendering, Filter Graph analysis and mixed
 - **Single binary, all-UI config**: just run it; connection, capture mode and parameters are all set in the UI.
 - **Connect the device**: add and select the SLogic device in the UI; once connected, the channel panel shows 32 channels.
 - **Filter Graph**: unifies protocol decode, math and measurement as Filter nodes you can chain.
-- **ADC analog mode**: once enabled in the UI, it merges digital pins into 4 analog channels A0–A3 (8-bit) for scope-style observation. Requires the [optional ADC module](./Hardware_Specification.md#optional-adc-oscilloscope-module).
+- **ADC analog mode**: once enabled in the UI, it merges digital pins into 4 analog channels A0–A3 (8-bit) for scope-style observation. Requires the [optional ADC module](./Hardware_Specification.html#optional-adc-oscilloscope-module).
 
 ---
 

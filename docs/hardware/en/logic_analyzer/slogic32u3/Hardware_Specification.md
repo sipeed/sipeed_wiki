@@ -58,13 +58,13 @@ Each Mini-HDMI (HDMI Type-C 1.4) port carries 8 data lines + GND + VCC(+5V) + CK
 ![Rear ports](../../../zh/logic_analyzer/slogic32u3/assets/MISC/view-rear-usb-c.jpg)
 
 - **USB-C**: USB3.2 Gen2. A 10 Gbps USB3 port is required for the rated rate, and **USB2.0 capture is not supported**. Prefer a direct USB-C connection; the bundled C-to-A adapter adds insertion loss.
-- **ACT indicator**: see [ACT Indicator](#act-indicator) below.
-- **MODE button**: a recessed pinhole button, see [MODE Button](#mode-button) below.
+- **ACT indicator**: see [ACT Indicator](#ACT-Indicator) below.
+- **MODE button**: a recessed pinhole button, see [MODE Button](#MODE-Button) below.
 - **CK**: a 100 MHz LVCMOS33 **fixed clock output**, not adjustable, output only.
 
 ### How to connect
 
-1. Connect the device **directly** to a **10 Gbps USB-C port** (usually marked `SS10` or `10`) with the bundled cable. The port spec directly sets the capture rate; see [Quick Start · Connect the device](./Quick_Start.md#connect-the-device).
+1. Connect the device **directly** to a **10 Gbps USB-C port** (usually marked `SS10` or `10`) with the bundled cable. The port spec directly sets the capture rate; see [Quick Start · Connect the device](./Quick_Start.html#Connect-the-device).
 2. A **cyan** indicator means powered and a healthy USB3 link.
 3. Plug the Mini-HDMI probe cables into the channel groups you need.
 4. Clip the test clips onto the signals and ground.
@@ -73,7 +73,7 @@ Each Mini-HDMI (HDMI Type-C 1.4) port carries 8 data lines + GND + VCC(+5V) + CK
 
 ### Getting started
 
-Once connected, launch any of SLogicView / ngscopeclient / sigrok-cli to capture. On first use, complete the [driver and permission setup](#drivers-and-permissions) first.
+Once connected, launch any of SLogicView / ngscopeclient / sigrok-cli to capture. On first use, complete the [driver and permission setup](#Drivers-and-Permissions) first.
 
 ---
 
@@ -182,7 +182,7 @@ The included clips suit standard headers and larger leads. For fine-pitch packag
 
 ---
 
-### Optional: ADC oscilloscope module
+### Optional: ADC oscilloscope module {#optional-adc-oscilloscope-module}
 
 The SLogic32U3 can take an optional 4-channel ADC module that uploads the sampled pins **as 8-bit analog signals**, turning the same device into a sampling oscilloscope.
 
@@ -299,7 +299,7 @@ The SLogic32U3 is a WinUSB device by default; Windows 10/11 is plug and play, **
 
 > The native Windows host apps have **no software-side bandwidth or sample-rate cap**; the achievable rate depends only on the physical machine. Unlike the SLogic16U3's early native Windows exe with its rate limit, the 32U3 does not need a Linux VM on Windows to reach full bandwidth.
 
-### Linux: udev rules
+### Linux: udev rules {#linux-udev-rules}
 
 A normal user has no USB access by default; install the udev rule once (device VID is `359f`):
 

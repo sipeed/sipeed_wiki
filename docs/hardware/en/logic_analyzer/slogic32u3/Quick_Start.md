@@ -30,7 +30,7 @@ The box contains:
 | Carry case | × 1 | for transport and organizing accessories |
 | Labeled heat-shrink tubes | × 32 | numbered, slip them onto the cables yourself to mark channels |
 
-For optional accessories see [Hardware Guide · Accessories](./Hardware_Specification.md#accessories).
+For optional accessories see [Hardware Guide · Accessories](./Hardware_Specification.html#Accessories).
 
 ---
 
@@ -55,7 +55,7 @@ Download the package for your platform from the [GitHub Release](https://github.
 | Platform | What to do |
 | - | - |
 | Windows | **Nothing.** The device is a WinUSB device, plug and play, no Zadig |
-| Linux | **Required** once: install the udev rule, or a normal user cannot see the device. See the [Hardware Guide](./Hardware_Specification.md#linux-udev-rules) |
+| Linux | **Required** once: install the udev rule, or a normal user cannot see the device. See the [Hardware Guide](./Hardware_Specification.html#linux-udev-rules) |
 | macOS | Usually nothing; if first launch is blocked, allow it under System Settings → Privacy & Security |
 
 ---
@@ -87,10 +87,10 @@ Steps:
 
 ![In use](../../../zh/logic_analyzer/slogic32u3/assets/DCIM/SLogic32U3-with-laptop.jpg)
 
-- Each group of 8 probe leads is color-coded in channel order; just count from the first lead. See [Channel colors](./Hardware_Specification.md#channel-colors).
+- Each group of 8 probe leads is color-coded in channel order; just count from the first lead. See [Channel colors](./Hardware_Specification.html#Channel-colors).
 - Clip the test clips onto the signals, and **run one ground per signal, close by**.
 - **Never tie a ground lead to a signal line** — it may damage the device.
-- The higher the frequency and the more channels, the more grounding matters. See [Probing and signal integrity](./Hardware_Specification.md#probing-and-signal-integrity).
+- The higher the frequency and the more channels, the more grounding matters. See [Probing and signal integrity](./Hardware_Specification.html#Probing-and-Signal-Integrity).
 
 ---
 
@@ -102,7 +102,7 @@ Capturing one UART line, for example:
 2. Set the **sample rate**: 10–100× the signal frequency is recommended. For a 115200-baud UART, 10 MHz is plenty.
 3. Set the **capture depth** (Samples): try 1 M first.
 4. Set the **voltage threshold**: for 3.3 V logic, about 1.6 V.
-5. Fewer channels allow a higher sample rate, but only in fixed groups (4ch=D0–D3, 8ch=D0–D7, 16ch=D0–D15) — arbitrary channels are not supported. See the [Software Guide](./Software_User_Guide.md#sample-rate-vs-channel-count).
+5. Fewer channels allow a higher sample rate, but only in fixed groups (4ch=D0–D3, 8ch=D0–D7, 16ch=D0–D15) — arbitrary channels are not supported. See the [Software Guide](./Software_User_Guide.html#Sample-rate-vs-channel-count).
 6. Click **Run** to capture.
 
 ---

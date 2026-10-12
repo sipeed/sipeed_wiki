@@ -162,7 +162,7 @@ SLogic32U3 采用 **Stream（流式）模式**：数据实时回传上位机，�
 
 <video src="./assets/Screenshots/slogicview-threshold.mp4" autoplay loop muted playsinline></video>
 
-在左侧通道栏设置逻辑判决阈值，范围 0 ~ 6 V，步进 0.1 V。低于阈值判为 0，高于判为 1。常见逻辑电平的建议阈值见[硬件使用指南](./Hardware_Specification.md#阈值电压)。
+在左侧通道栏设置逻辑判决阈值，范围 0 ~ 6 V，步进 0.1 V。低于阈值判为 0，高于判为 1。常见逻辑电平的建议阈值见[硬件使用指南](./Hardware_Specification.html#阈值电压)。
 
 ### 触发
 
@@ -253,7 +253,7 @@ sigrok 生态提供 150+ 协议解码器，覆盖 I²C、SPI、UART、CAN、SDIO
 - **单二进制、全 UI 配置**：直接运行即可，连接、采集模式与参数都在 UI 中设置。
 - **连接设备**：在界面中添加并选择 SLogic 设备，连上后通道面板会出现 32 路通道。
 - **Filter Graph**：把协议解码、数学运算与测量统一为 Filter 节点，可串成处理链。
-- **ADC 模拟模式**：在 UI 中启用后，把数字管脚合并为 4 路 8-bit 模拟通道 A0–A3，像采样示波器一样观测。需配合[可选 ADC 模组](./Hardware_Specification.md#选配adc-示波器模组)。
+- **ADC 模拟模式**：在 UI 中启用后，把数字管脚合并为 4 路 8-bit 模拟通道 A0–A3，像采样示波器一样观测。需配合[可选 ADC 模组](./Hardware_Specification.html#选配：ADC-示波器模组)。
 
 ---
 

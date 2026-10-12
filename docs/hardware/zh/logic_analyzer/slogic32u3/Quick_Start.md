@@ -30,7 +30,7 @@ update:
 | 收纳包 | × 1 | 便于携带与归置配件 |
 | 标号热缩管 | × 32 | 带通道编号，由用户自行套到对应线上标识通道 |
 
-选配件见[硬件使用指南 · 配件](./Hardware_Specification.md#配件)。
+选配件见[硬件使用指南 · 配件](./Hardware_Specification.html#配件)。
 
 ---
 
@@ -55,7 +55,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 | 平台 | 需要做什么 |
 | - | - |
 | Windows | **不需要**。设备即为 WinUSB 设备，即插即用，无需 Zadig |
-| Linux | **必须**配置一次 udev 规则，否则普通用户看不到设备，见[硬件使用指南](./Hardware_Specification.md#linuxudev-规则) |
+| Linux | **必须**配置一次 udev 规则，否则普通用户看不到设备，见[硬件使用指南](./Hardware_Specification.html#Linux：udev-规则) |
 | macOS | 一般无需配置；若首次运行被阻止，在「系统设置 → 隐私与安全性」中放行 |
 
 ---
@@ -87,10 +87,10 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ![实际使用场景](./assets/DCIM/SLogic32U3-with-laptop.jpg)
 
-- 探头远端每组 8 路用 8 种颜色区分，排列顺序与通道顺序一致，从第一根依次数过去即可。详见[通道配色](./Hardware_Specification.md#通道配色)。
+- 探头远端每组 8 路用 8 种颜色区分，排列顺序与通道顺序一致，从第一根依次数过去即可。详见[通道配色](./Hardware_Specification.html#通道配色)。
 - 把测试夹夹到待测信号上，**每根信号线就近配一根地线**。
 - **地线绝不可接到信号线上**，可能损坏设备。
-- 频率越高、通道越多，接地越关键。详见[探测与信号完整性](./Hardware_Specification.md#探测与信号完整性)。
+- 频率越高、通道越多，接地越关键。详见[探测与信号完整性](./Hardware_Specification.html#探测与信号完整性)。
 
 ---
 
@@ -102,7 +102,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 2. 设置**采样率**：建议为被测信号频率的 10~100 倍。例如 115200 波特率的 UART，选 10 MHz 足够。
 3. 设置**采样深度**（Samples）：先用 1 M 试手。
 4. 设置**电压阈值**：按被测逻辑电平，3.3 V 逻辑设约 1.6 V。
-5. 降低通道数可提高采样率，但只能按固定分组（4ch=D0–D3、8ch=D0–D7、16ch=D0–D15），不支持自定义通道，详见[软件使用指南](./Software_User_Guide.md#采样率与通道数的关系)。
+5. 降低通道数可提高采样率，但只能按固定分组（4ch=D0–D3、8ch=D0–D7、16ch=D0–D15），不支持自定义通道，详见[软件使用指南](./Software_User_Guide.html#采样率与通道数的关系)。
 6. 点 **Run** 开始采集。
 
 ---
