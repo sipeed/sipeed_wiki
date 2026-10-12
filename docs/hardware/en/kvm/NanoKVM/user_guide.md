@@ -195,7 +195,7 @@ To ensure compatibility with both hardware versions, the software has been desig
 
 ATX Wiring:
 
-![](./../../../assets/NanoKVM/guide/atx_2024.png)
+![](./../../../assets/NanoKVM/unbox/new-ATX-B.jpg)
 
 NanoKVM Full version comes with an integrated ATX control board. Beta users can add the ATX extension board to the Lite version.
 
