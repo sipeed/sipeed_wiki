@@ -66,8 +66,13 @@ When a host has multiple displays, one of them is the **primary display**. If th
 1. In the host's display settings, set **NanoKVM Go as the primary display (Primary)**, or set the two displays to **mirror (Mirror)**.
 2. After that, the picture produced by clicking programs etc. will appear on the display captured by NanoKVM.
 
-> Windows: `Settings` → `System` → `Display` → select the display → check "Make this my main display".
-> macOS: `System Settings` → `Displays` → set the primary display in the display arrangement, or use "Mirror Displays".
+> Windows: `Settings` → `System` → `Display` → select the display → under "Multiple displays" choose "Duplicate these displays".
+
+![Windows Display settings, "Duplicate these displays" option](./../../../assets/NanoKVM/go/faq/nanokvm-go-windows-duplicate-displays-en.webp)
+
+> macOS: `System Settings` → `Displays` → under "Use as" choose the mirror option for the other display (for example "Mirror for E2219HN"), or set the primary display in the display arrangement.
+
+![macOS Displays settings, "Mirror for E2219HN" option](./../../../assets/NanoKVM/go/faq/nanokvm-go-macos-mirror-display-en.webp)
 
 ### iOS device shows no local video frames when playing streaming video in a video app
 

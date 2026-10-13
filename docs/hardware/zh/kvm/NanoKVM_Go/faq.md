@@ -64,8 +64,13 @@ ssh root@<NanoKVM Go 的局域网 IP>
 1. 在被控设备的系统显示设置中，把 **NanoKVM Go 设为主屏幕（Primary）**，或把两台屏幕设置为**镜像显示（Mirror）**。
 2. 设置完成后，点击程序等操作产生的画面就会显示在 NanoKVM 采集的画面上。
 
-> Windows：`设置` → `系统` → `屏幕` → 选择显示器 → 勾选"设为主显示器"。
-> macOS：`系统设置` → `显示器` → 在显示器排列中设置主显示器，或使用"镜像显示器"。
+> Windows：`设置` → `系统` → `屏幕` → 选择显示器 → 在“多显示器”中选择“复制这些显示器”。
+
+![Windows“屏幕”设置中的“复制这些显示器”选项](./../../../assets/NanoKVM/go/faq/nanokvm-go-windows-duplicate-displays-zh.webp)
+
+> macOS：`系统设置` → `显示器` → 在“用途”中选择另一台显示器的镜像（如“E2219HN的镜像”），或在显示器排列中设置主显示器。
+
+![macOS“显示器”设置中的“E2219HN的镜像”选项](./../../../assets/NanoKVM/go/faq/nanokvm-go-macos-mirror-display-zh.webp)
 
 ### iOS 设备在视频应用播放流媒体时看不到本地视频画面
 
