@@ -173,9 +173,9 @@
             "config": {
                 "type": "hint",
                 "label": "NEW",
-                "content": "<a href='https://sipeed.com/maixcam2' target='_blank'>新一代可本地运行多模态大模型的 MaixCAM2 正在预售中! YOLO 帧率可达 K230 10倍！</a>",
+                "content": "<a href='https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc' target='_blank'>全球首款 10Gbps USB3.2 逻辑分析仪 SLogic32U3 正在 Kickstarter 众筹中！</a>",
                 "show_after_s": 432000,
-                "date": "2026-03-02 19:00"
+                "date": "2026-10-12 12:00"
             }
         },
         "teedoc-plugin-assets": {

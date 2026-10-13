@@ -184,9 +184,9 @@
             "config": {
                 "type": "hint",
                 "label": "NEW",
-                "content": "<a href='https://www.kickstarter.com/projects/zepan/maixcam2-build-your-next-gen-4k-ai-camera' target='_blank'>Next-Gen 4K AI Camera MaixCAM2 is now crowdfunding! 10X faster than K230 in yolo task! </a>",
+                "content": "<a href='https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc' target='_blank'>SLogic32U3, the world's first 10Gbps USB3.2 logic analyzer, is now live on Kickstarter!</a>",
                 "show_after_s": 432000,
-                "date": "2026-03-02 19:00"
+                "date": "2026-10-12 12:00"
             }
         }
     },
