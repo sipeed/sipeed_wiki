@@ -30,7 +30,7 @@ On the host side, Sipeed officially provides SLogicView, ngscopeclient and sigro
 
 ![SLogic32U3 product](../../../zh/logic_analyzer/slogic32u3/assets/DCIM/SLogic32U3-hero.jpg)
 
-> 🎉 **The SLogic32U3 is crowdfunding now!** Back us on [Kickstarter](https://www.kickstarter.com/projects/zepan/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer/).
+> 🎉 **The SLogic32U3 is crowdfunding now!** Back us on [Kickstarter](https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc).
 
 > New to the device? Start with the [Quick Start](./Quick_Start.md).
 
@@ -148,7 +148,7 @@ See the [Software Guide](./Software_User_Guide.md) for detailed usage and how to
 
 ## Links
 
-- Buy (crowdfunding): https://www.kickstarter.com/projects/zepan/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer/
+- Buy (crowdfunding): https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc
 - Web app: https://slogic.sipeed.com
 - Support email: support@sipeed.com
 - QQ group: **932085922**
