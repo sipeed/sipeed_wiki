@@ -2,8 +2,6 @@
 # CI fails on anything NOT listed here, so this file may shrink
 # but must never grow. Regenerate with:
 #     python3 tools/check_image_links.py --update-baseline
-docs/hardware/en/kvm/NanoKVM/user_guide.md	./../../../assets/NanoKVM/guide/atx_2024.png
-docs/hardware/en/kvm/NanoKVM_Pro/ledstrip.md	../../../assets/NanoKVM/pro/ledstrip/ledstrip_show.png
 docs/hardware/en/logic_analyzer/slogic16u3/Software_User_Guide.md	./assets/Screenshots/SLogic_Connect_1.png
 docs/hardware/zh/logic_analyzer/slogic16u3/Software_User_Guide.md	../../../en/logic_analyzer/slogic16u3/assets/Screenshots/SLogic_Connect_1.png
 pages/index/zh/threshold.html	demo_color.jpg

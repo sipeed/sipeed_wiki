@@ -6,8 +6,10 @@ file without touching the pages that use it) and hard to notice, because the
 published site keeps serving stale copies that were uploaded by earlier builds.
 This script catches them at CI time instead.
 
-Only real image references are checked: markdown ``![alt](path)`` and HTML
-``<img src=...>``. Fenced and inline code is stripped first, so example commands
+Only real media references are checked: markdown ``![alt](path)``, HTML
+``<img src=...>``, and ``<video>``/``<source>``/``<audio>`` ``src``/``poster``.
+Markdown cells of Jupyter notebooks (``.ipynb``, used by the MaixPy3 docs) are
+checked too. Fenced and inline code is stripped first, so example commands
 like ``convert in.jpg out.jpg`` are not mistaken for links.
 
 Usage:
@@ -27,8 +29,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASELINE = os.path.join(ROOT, "tools", "known_broken_images.txt")
 SCAN_DIRS = ["docs", "news", "pages", "layout"]
 SKIP_DIRS = {".git", "out", ".venv", "node_modules", "__pycache__"}
-PAGE_EXTS = {".md", ".html"}
-IMG_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".ico"}
+PAGE_EXTS = {".md", ".html", ".ipynb"}
+IMG_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".ico",
+            ".mp4", ".webm", ".mov", ".mp3", ".ogg", ".wav"}
 
 FENCED = re.compile(r"```.*?```|~~~.*?~~~", re.S)
 # HTML 注释里的引用不会渲染，不算断链
@@ -36,6 +39,20 @@ HTML_COMMENT = re.compile(r"<!--.*?-->", re.S)
 INLINE_CODE = re.compile(r"`[^`\n]*`")
 MD_IMG = re.compile(r"!\[[^\]]*\]\(\s*<?([^)\s>]+)")
 HTML_IMG = re.compile(r"<img\b[^>]*?\bsrc\s*=\s*[\"']([^\"']+)", re.I)
+MEDIA_TAG = re.compile(r"<(?:video|source|audio)\b[^>]*>", re.I)
+MEDIA_ATTR = re.compile(r"(?<![\w-])(?:src|poster)\s*=\s*[\"']([^\"']+)", re.I)
+
+
+def read_page(path):
+    """Return the text of a page; for notebooks, only the markdown cells."""
+    with open(path, encoding="utf-8") as f:
+        if not path.endswith(".ipynb"):
+            return f.read()
+        nb = json.load(f)
+    cells = [c for c in nb.get("cells", []) if c.get("cell_type") == "markdown"]
+    return "\n\n".join(
+        "".join(c["source"]) if isinstance(c.get("source"), list) else c.get("source", "")
+        for c in cells)
 
 
 def load_routes():
@@ -91,13 +108,19 @@ def scan():
                     continue
                 page = os.path.join(dirpath, name)
                 try:
-                    text = open(page, encoding="utf-8").read()
+                    text = read_page(page)
+                except ValueError as e:  # malformed notebook JSON
+                    print(f"warning: cannot parse {os.path.relpath(page, ROOT)}: {e}",
+                          file=sys.stderr)
+                    continue
                 except (OSError, UnicodeDecodeError):
                     continue
                 text = INLINE_CODE.sub(" ", FENCED.sub(" ", HTML_COMMENT.sub(" ", text)))
                 rel_page = os.path.relpath(page, ROOT)
-                for ref in set(MD_IMG.findall(text) + HTML_IMG.findall(text)):
-                    if "{{" in ref or "{%" in ref:  # jinja template expression
+                refs = MD_IMG.findall(text) + HTML_IMG.findall(text)
+                refs += [r for tag in MEDIA_TAG.findall(text) for r in MEDIA_ATTR.findall(tag)]
+                for ref in set(refs):
+                    if "{{" in ref or "{%" in ref or ref.startswith("attachment:"):
                         continue
                     target = resolve(ref, page, routes)
                     if target and not os.path.exists(target):
