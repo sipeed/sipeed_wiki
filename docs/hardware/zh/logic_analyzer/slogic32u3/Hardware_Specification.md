@@ -235,18 +235,28 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 ## 更新固件
 
-SLogic32U3 支持 Easy OTA，固件可在线升级。
+SLogic32U3 的固件通过网页工具在线升级：**[SLogic 固件升级](https://slogic.sipeed.com/ota/)**（https://slogic.sipeed.com/ota/），无需下载或安装任何程序。
+
+- **浏览器**：电脑上的 Chrome、Edge 等 Chromium 内核浏览器（升级基于 WebUSB，Firefox / Safari 不支持）。
+- **驱动**：Windows 无需安装驱动；Linux 需先执行一次以下命令授予当前用户访问权限，然后重新插拔设备（网页上也会给出）：
+  ```bash
+  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
+  END
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  ```
+- **USB 线**：使用支持数据传输的 USB 线直接连接电脑，不要用仅充电线或无供电的集线器。
+- **固件下载**：[SLogic32U3 固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware)（`app.bin`），后续更新也发布在此。
 
 ### 更新步骤
 
-1. 按 MODE 键进入 DFU 模式，等待指示灯慢闪。
-2. 确认电脑上出现 "SLogic DFU" 设备。
-3. 运行固件刷写工具，按提示选择固件文件并刷入。
-4. 刷写完成后重新插拔设备，设备会回到 APP 模式。
+1. 下载最新固件文件。
+2. 用 Chrome / Edge 打开 [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/)，用 USB 线连接 SLogic32U3，点击 **选择设备**。
+3. 页面会自动把 SLogic32U3 重启到升级模式（指示灯青色常亮 + 红色慢闪），按提示在浏览器弹窗中选择升级模式设备（通常显示为 "SLogic DFU"）。也可先用卡针按背面的 MODE 小孔按键手动进入升级模式。
+4. 选择下载的固件文件，点击 **开始升级**。升级完成前保持设备连接，不要关闭页面。
+5. 升级完成后设备自动以新固件重启（指示灯青色常亮），回到 APP 模式。
 
-> **固件下载**：[SLogic32U3 固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware)，后续更新也发布在此。
->
-> 刷写工具与 SLogic16U3 共用同一套工具链：[slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest)。
+> 理论上，升级只会更新 SLogic 固件，不会影响 **DFU**（升级模式）功能。因此即使升级失败也不要紧：设备会停留在升级模式，保持连接后重新升级即可。
 
 ---
 

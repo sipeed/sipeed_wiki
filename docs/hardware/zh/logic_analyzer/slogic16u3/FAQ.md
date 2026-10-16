@@ -62,7 +62,7 @@ SLogic16U3 的 USB 3.0 提供大约 ~400MB/s 的带宽。
 ## 装置锁定在DFU模式，无法切换至SLogic模式
 这通常意味着SLogic固件损坏，可能是由于OTA失败导致。
   
-  解决方法：重新OTA正确的固件。
+  解决方法：用 [网页升级工具](https://slogic.sipeed.com/ota/) 重新刷入正确的固件。
 
 ## 无法切换至DFU模式，提示"unknown usb device"
 这意味着USB枚举失败，可能是由于USB线缆过长/质量不好导致。

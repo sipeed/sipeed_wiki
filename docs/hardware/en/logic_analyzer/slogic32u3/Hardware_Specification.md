@@ -234,18 +234,28 @@ The indicator is a 3-color RGB: **blue = power, green = USB LINK, red = run stat
 
 ## Firmware Update
 
-The SLogic32U3 supports Easy OTA; firmware can be updated online.
+SLogic32U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** (https://slogic.sipeed.com/ota/) — nothing to download or install.
+
+- **Browser**: Chrome, Edge or another Chromium-based browser on a computer (updates use WebUSB, which Firefox and Safari do not support).
+- **Driver**: no driver is needed on Windows. On Linux, run the following once to allow your user to access the analyzer, then re-plug it (the page shows it too):
+  ```bash
+  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
+  END
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  ```
+- **USB cable**: use a USB data cable plugged directly into the computer, not a charging-only cable or an unpowered hub.
+- **Firmware downloads**: [SLogic32U3 firmware](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware) (`app.bin`); future updates are published here too.
 
 ### Update steps
 
-1. Press MODE to enter DFU mode and wait for the slow blink.
-2. Confirm an "SLogic DFU" device appears on the PC.
-3. Run the flashing tool, pick the firmware file as prompted, and flash it.
-4. Replug the device after flashing; it returns to APP mode.
+1. Download the latest firmware file.
+2. Open [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/) in Chrome / Edge, connect the SLogic32U3 with a USB cable and click **Select device**.
+3. The page restarts the SLogic32U3 in update mode automatically (LED cyan with a slow red blink); select the update-mode device (usually shown as "SLogic DFU") in the browser dialog. You can also enter update mode by pressing the recessed MODE button with a pin.
+4. Choose the downloaded firmware file and click **Update firmware**. Keep the device connected and the page open until the update finishes.
+5. When the update finishes the device restarts with the new firmware (LED steady cyan) and returns to APP mode.
 
-> **Firmware downloads**: [SLogic32U3 firmware](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware); future updates are published here too.
->
-> The flashing tool is shared with the SLogic16U3: [slogic16u3-tools](https://github.com/sipeed/slogic16u3-tools/releases/latest).
+> In principle the update only replaces the SLogic firmware and never touches the **DFU** (update-mode) function. Even if an update fails, the device stays in update mode — keep it connected and run the update again.
 
 ---
 

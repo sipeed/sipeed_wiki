@@ -211,35 +211,30 @@ chmod +x Pulseview.appimage
 
 ## 固件更新
 
-固件更新通过 Python / PyQt GUI 工具提供。
+SLogic16U3 的固件通过网页工具在线升级：**[SLogic 固件升级](https://slogic.sipeed.com/ota/)**（https://slogic.sipeed.com/ota/），无需下载或安装任何程序。
 
-- [固件更新工具仓库](https://github.com/sipeed/slogic16u3-tools)
+- **浏览器**：电脑上的 Chrome、Edge 等 Chromium 内核浏览器（升级基于 WebUSB，Firefox / Safari 不支持）。
+- **驱动**：Windows 无需安装驱动；Linux 需先执行一次以下命令授予当前用户访问权限，然后重新插拔设备（网页上也会给出）：
+  ```bash
+  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
+  END
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  ```
+- **USB 线**：使用支持数据传输的 USB 线直接连接电脑，不要用仅充电线或无供电的集线器。
+- **固件下载**：[SLogic16U3 固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic16U3/4_Firmware)（`app.bin`），后续更新也发布在此。
 
 **更新步骤：**
-1. 克隆或下载仓库：
-    ```bash
-    git clone https://github.com/sipeed/slogic16u3-tools.git
-    ```
-2. 安装依赖并设置环境：
-    ```bash
-    source .venv/bin/activate
-    ```
-3. 进入 `pt` 目录：
-    ```bash
-    cd pt
-    ```
-4. 运行 GUI 工具：
-    ```bash
-    python src/gui.py
-    ```
-5. 按下设备上的 **mode** 按钮。GUI 应显示 "SLogic16U3 OTA"。
-6. 在 GUI 中选择固件文件。
-7. 点击 **OTA** 开始更新。
-8. 等待完成并按界面指引操作。
 
-> **注意：** 将很快发布该更新工具的二进制版本。
+1. 下载最新固件文件。
+2. 用 Chrome / Edge 打开 [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/)，用 USB 线连接 SLogic16U3，点击 **选择设备**。
+3. 按页面提示进入升级模式：按下设备上的 **MODE** 按键（见 [硬件说明 · MODE按键](./Hardware_Specification.md#MODE按键)），指示灯变为<span style="color:cyan">青色</span>常亮 + <span style="color:red">红色慢闪</span>，然后在浏览器弹窗中选择 "*SLogic DFU*"。
+4. 选择下载的固件文件，点击 **开始升级**。升级完成前保持设备连接，不要关闭页面。
+5. 升级完成后，按页面提示拔下设备再重新插入，即运行新固件。
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
+> 理论上，升级只会更新 SLogic 固件，不会影响 **DFU**（升级模式）功能。因此即使升级失败也不要紧：设备会停留在升级模式，保持连接后重新升级即可。
+
+浏览器、驱动与固件下载的详细说明见 [硬件说明 · 更新固件](./Hardware_Specification.md#更新固件)。
 
 ---
 

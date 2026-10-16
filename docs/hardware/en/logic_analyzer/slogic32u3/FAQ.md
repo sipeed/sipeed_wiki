@@ -97,7 +97,7 @@ Empty output only means the current config produced no annotations, not that the
 
 ### The device is stuck in DFU mode and won't return to SLogic mode?
 
-Usually the SLogic firmware is corrupted, often from an interrupted OTA. Re-flash the correct firmware by OTA to recover.
+Usually the SLogic firmware is corrupted, often from an interrupted OTA. Re-flash the correct firmware with the [web update tool](https://slogic.sipeed.com/ota/) to recover.
 
 ### Can't enter DFU mode, it says "unknown usb device"?
 

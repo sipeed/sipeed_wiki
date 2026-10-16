@@ -60,7 +60,7 @@ To use higher rates (400M/800M), disable unused channels.
 
 ## The device is locked in DFU mode and cannot switch back to SLogic mode.  
 This usually means the SLogic firmware is corrupted, often due to a failed OTA update.  
-**Solution:** Re-flash the correct firmware via OTA.
+**Solution:** Re-flash the correct firmware with the [web update tool](https://slogic.sipeed.com/ota/).
 
 
 ## Cannot switch to DFU mode, error shows "unknown USB device".  

@@ -202,35 +202,30 @@ For advanced/manual builds, refer to upstream sigrok and PulseView documentation
 
 ## Firmware Update
 
-Firmware updates are provided via a Python/PyQt GUI tool.
+SLogic16U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** (https://slogic.sipeed.com/ota/) — nothing to download or install.
 
-- [Firmware update tool repository](https://github.com/sipeed/slogic16u3-tools)
+- **Browser**: Chrome, Edge or another Chromium-based browser on a computer (updates use WebUSB, which Firefox and Safari do not support).
+- **Driver**: no driver is needed on Windows. On Linux, run the following once to allow your user to access the analyzer, then re-plug it (the page shows it too):
+  ```bash
+  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
+  END
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  ```
+- **USB cable**: use a USB data cable plugged directly into the computer, not a charging-only cable or an unpowered hub.
+- **Firmware downloads**: [SLogic16U3 firmware](https://dl.sipeed.com/shareURL/SLogic/SLogic16U3/4_Firmware) (`app.bin`); future updates are published here too.
 
 **Update steps:**
-1. Clone/download the repository:
-    ```bash
-    git clone https://github.com/sipeed/slogic16u3-tools.git
-    ```
-2. Install dependencies and set up the environment:
-    ```bash
-    source .venv/bin/activate
-    ```
-3. Navigate to the `pt` directory:
-    ```bash
-    cd pt
-    ```
-4. Run the GUI tool:
-    ```bash
-    python src/gui.py
-    ```
-5. Press the **mode** button on the device. The GUI should display "SLogic16U3 OTA".
-6. Select the firmware file in the GUI.
-7. Click **OTA** to start the update.
-8. Wait for completion and follow on-screen instructions.
 
-> **Note:** A binary version of the update tool will be released soon.
+1. Download the latest firmware file.
+2. Open [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/) in Chrome / Edge, connect the SLogic16U3 with a USB cable and click **Select device**.
+3. Follow the page to enter update mode: press the **MODE** button on the device (see [Hardware Guide · MODE Button](./Hardware_Specification.md#MODE-Button)); the LED shows <span style="color:cyan">cyan</span> with a <span style="color:red">slow red blink</span>. Then select "*SLogic DFU*" in the browser dialog.
+4. Choose the downloaded firmware file and click **Update firmware**. Keep the device connected and the page open until the update finishes.
+5. When the update finishes, unplug the device and plug it back in to start the new firmware.
 
-![](../../../en/logic_analyzer/slogic16u3/assets/Screenshots/Screenshot_2025-09-25_15-34-06.png)
+> In principle the update only replaces the SLogic firmware and never touches the **DFU** (update-mode) function. Even if an update fails, the device stays in update mode — keep it connected and run the update again.
+
+See [Hardware Guide · Firmware Update](./Hardware_Specification.md#Firmware-Update) for more on browsers, drivers and firmware downloads.
 
 ---
 

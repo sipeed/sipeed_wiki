@@ -97,7 +97,7 @@ sudo udevadm trigger
 
 ### 设备锁定在 DFU 模式，无法切回 SLogic 模式？
 
-通常是 SLogic 固件损坏，多见于 OTA 中断。重新 OTA 刷入正确固件即可恢复。
+通常是 SLogic 固件损坏，多见于 OTA 中断。用 [网页升级工具](https://slogic.sipeed.com/ota/) 重新刷入正确固件即可恢复。
 
 ### 无法进入 DFU 模式，提示 "unknown usb device"？
 

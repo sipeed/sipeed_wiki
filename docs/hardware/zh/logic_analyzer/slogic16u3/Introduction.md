@@ -99,5 +99,5 @@ chmod +x Pulseview.appimage
 - 支持邮箱：support@sipeed.com
 - GitHub（libsigrok slogic-dev）：https://github.com/sipeed/libsigrok/tree/slogic-dev
 - Sipeed GitHub: https://github.com/sipeed
-- GitHub（SLogic16U3 Tools）：https://github.com/sipeed/slogic16u3-tools
+- 固件在线升级：https://slogic.sipeed.com/ota/
 - 社区（Discord）：[discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
