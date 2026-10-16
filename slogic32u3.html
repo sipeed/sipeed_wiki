@@ -1,0 +1,10 @@
+<!-- 短链 /slogic32u3 → 按浏览器语言跳转到 SLogic32U3 简介页 -->
+<script>
+    var url_language = "zh"
+
+    if (navigator.language.indexOf("zh") == -1) {
+        url_language = "en"
+    }
+
+    location.href = window.location.origin + "/hardware/" + url_language + "/logic_analyzer/slogic32u3/Introduction.html"
+</script>
