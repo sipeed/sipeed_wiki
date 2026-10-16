@@ -25,6 +25,8 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 镜像下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
+> NanoKVM Go 和 NanoKVM Go+ 使用同一个烧录镜像，Go+ 没有单独的镜像，两款设备下载同一个文件即可。
+
 ## 下载烧录工具
 
 balenaEtcher 支持 Windows、macOS 和 Linux，推荐优先使用；ImageUSB 仅支持 Windows，作为 Windows 上的备选。
