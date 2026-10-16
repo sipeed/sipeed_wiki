@@ -22,6 +22,8 @@ Download the latest NanoKVM Go image from GitHub.
 
 Image download link: [NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
+> NanoKVM Go and NanoKVM Go+ use the same image. There is no separate image for Go+, so download the same file for either model.
+
 ## Download the Flashing Tool
 
 Download and install [balenaEtcher](https://etcher.balena.io/#download-etcher).
