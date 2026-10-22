@@ -353,7 +353,7 @@ Pressing **MODE** again switches back to **SLogic16 U3**. Repeatedly pressing **
 
 ## Firmware Update
 
-SLogic16U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** (https://slogic.sipeed.com/ota/) — nothing to download or install.
+SLogic16U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** — nothing to download or install.
 
 - **Browser**: Chrome, Edge or another Chromium-based browser on a computer (updates use WebUSB, which Firefox and Safari do not support).
 - **Driver**: no driver is needed on Windows. On Linux, run the following once to allow your user to access the analyzer, then re-plug it (the page shows it too):

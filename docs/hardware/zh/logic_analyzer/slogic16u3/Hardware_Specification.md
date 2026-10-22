@@ -350,7 +350,7 @@ update:
 
 ## 更新固件
 
-SLogic16U3 的固件通过网页工具在线升级：**[SLogic 固件升级](https://slogic.sipeed.com/ota/)**（https://slogic.sipeed.com/ota/），无需下载或安装任何程序。
+SLogic16U3 的固件通过网页工具在线升级：**[SLogic 固件升级](https://slogic.sipeed.com/ota/)**，无需下载或安装任何程序。
 
 - **浏览器**：电脑上的 Chrome、Edge 等 Chromium 内核浏览器（升级基于 WebUSB，Firefox / Safari 不支持）。
 - **驱动**：Windows 无需安装驱动；Linux 需先执行一次以下命令授予当前用户访问权限，然后重新插拔设备（网页上也会给出）：
