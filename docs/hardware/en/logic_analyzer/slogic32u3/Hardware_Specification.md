@@ -2,6 +2,12 @@
 title: SLogic32U3 Hardware Guide
 keywords: SLogic32U3, hardware, Mini-HDMI, probe, ACT indicator, MODE, DFU, firmware, signal integrity, udev
 update:
+  - date: 2026-10-22
+    version: v0.4
+    author: Sipeed
+    content:
+      - Moved the firmware update instructions to the Software Guide; only a pointer stays here
+      - Converted callouts to blockquotes that teedoc can parse
   - date: 2026-10-06
     version: v0.3
     author: Sipeed
@@ -23,7 +29,7 @@ update:
 
 # Hardware Guide
 
-This page covers the SLogic32U3 hardware interfaces, accessories, indicators, firmware update and probing essentials. For software use see the [Software Guide](./Software_User_Guide.md); to get started see the [Quick Start](./Quick_Start.md).
+This page covers the SLogic32U3 hardware interfaces, accessories, indicators and probing essentials. Firmware updates, host apps and other software topics are in the [Software Guide](./Software_User_Guide.md); for first use see the [Quick Start](./Quick_Start.md).
 
 ---
 
@@ -142,8 +148,7 @@ The front-end network per signal on the daughter board: the coaxial core goes th
 
 ### Putting a Mini-HDMI on your own board?
 
-> [!WARNING]
-> **Be sure to include the AFE circuit.**
+> ⚠️ **Be sure to include the AFE circuit.**
 >
 > The Mini-HDMI connector is just a connector; the SLogic32U3 input characteristics (100 kΩ input impedance, bandwidth, overshoot suppression) come from the AFE network on the probe daughter board. If your board solders signals straight to the Mini-HDMI pins and omits the AFE, you get:
 >
@@ -234,28 +239,9 @@ The indicator is a 3-color RGB: **blue = power, green = USB LINK, red = run stat
 
 ## Firmware Update
 
-SLogic32U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** (https://slogic.sipeed.com/ota/) — nothing to download or install.
+Firmware is updated online with a web tool. The **full procedure, browser and driver requirements, and firmware download links** are in [Software Guide · Firmware Update](./Software_User_Guide.html#Firmware-Update).
 
-- **Browser**: Chrome, Edge or another Chromium-based browser on a computer (updates use WebUSB, which Firefox and Safari do not support).
-- **Driver**: no driver is needed on Windows. On Linux, run the following once to allow your user to access the analyzer, then re-plug it (the page shows it too):
-  ```bash
-  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
-  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
-  END
-  sudo udevadm control --reload-rules && sudo udevadm trigger
-  ```
-- **USB cable**: use a USB data cable plugged directly into the computer, not a charging-only cable or an unpowered hub.
-- **Firmware downloads**: [SLogic32U3 firmware](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware) (`app.bin`); future updates are published here too.
-
-### Update steps
-
-1. Download the latest firmware file.
-2. Open [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/) in Chrome / Edge, connect the SLogic32U3 with a USB cable and click **Select device**.
-3. The page restarts the SLogic32U3 in update mode automatically (LED cyan with a slow red blink); select the update-mode device (usually shown as "SLogic DFU") in the browser dialog. You can also enter update mode by pressing the recessed MODE button with a pin.
-4. Choose the downloaded firmware file and click **Update firmware**. Keep the device connected and the page open until the update finishes.
-5. When the update finishes the device restarts with the new firmware (LED steady cyan) and returns to APP mode.
-
-> In principle the update only replaces the SLogic firmware and never touches the **DFU** (update-mode) function. Even if an update fails, the device stays in update mode — keep it connected and run the update again.
+During an update the device enters DFU mode (LED steady cyan with a slow red blink). You can also enter it by pressing the recessed MODE button on the rear with a pin; see [MODE Button](#MODE-Button) above for the button and mode details.
 
 ---
 

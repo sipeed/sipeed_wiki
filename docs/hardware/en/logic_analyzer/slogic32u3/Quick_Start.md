@@ -2,6 +2,12 @@
 title: SLogic32U3 Quick Start
 keywords: SLogic32U3, Quick Start, unboxing, install, SLogicView, SLogicWeb, udev
 update:
+  - date: 2026-10-22
+    version: v0.2
+    author: Sipeed
+    content:
+      - Converted callouts to blockquotes that teedoc can parse
+      - Firmware update now lives in the Software Guide
   - date: 2026-10-06
     version: v0.1
     author: Sipeed
@@ -62,8 +68,7 @@ Download the package for your platform from the [GitHub Release](https://github.
 
 ## Connect the device
 
-> [!WARNING]
-> **Use a 10 Gbps USB port.** The port spec directly determines the capture rate:
+> ⚠️ **Use a 10 Gbps USB port.** The port spec directly determines the capture rate:
 >
 > - Only a **USB3.2 Gen2 (10 Gbps)** port can sustain 800 MB/s and reach the rated rate combinations.
 > - A USB3.0 / 3.1 Gen1 (5 Gbps) port will be clearly below expectation.
@@ -71,8 +76,7 @@ Download the package for your platform from the [GitHub Release](https://github.
 >
 > A 10 Gbps port is usually marked `SS10` or `10`. Blue alone is not reliable — many blue ports are only 5 Gbps. Check your motherboard or laptop spec.
 
-> [!TIP]
-> **Prefer a direct USB-C connection.** The bundled cable includes a C-to-A adapter for A ports, but the adapter adds insertion loss and lowers signal quality. On a weaker PC this can keep the rate from reaching full speed. Use the USB-C port directly when you can.
+> 💡 **Prefer a direct USB-C connection.** The bundled cable includes a C-to-A adapter for A ports, but the adapter adds insertion loss and lowers signal quality. On a weaker PC this can keep the rate from reaching full speed. Use the USB-C port directly when you can.
 
 Steps:
 
@@ -122,8 +126,8 @@ Capturing one UART line, for example:
 
 ## Next steps
 
-- Hardware interfaces, accessories, indicators, firmware update, signal integrity → [Hardware Guide](./Hardware_Specification.md)
-- Differences between host apps and the web app, triggers, decoding, command line → [Software Guide](./Software_User_Guide.md)
+- Hardware interfaces, accessories, indicators, signal integrity → [Hardware Guide](./Hardware_Specification.md)
+- Differences between host apps and the web app, triggers, decoding, command line, firmware update → [Software Guide](./Software_User_Guide.md)
 - GPU acceleration and mixed-signal analysis → [ngscopeclient](../ngscopeclient/ngscopeclient.md)
 - Let AI run capture and decoding for you → [SLogic with an AI Agent](../slogic_agent/readme.md)
 - Troubleshooting → [FAQ](./FAQ.md)

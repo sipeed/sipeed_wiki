@@ -1,7 +1,13 @@
 ---
 title: SLogic32U3 软件使用指南
-keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, 协议解码
+keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, 协议解码, 固件升级, OTA
 update:
+  - date: 2026-10-22
+    version: v0.4
+    author: Sipeed
+    content:
+      - 新增更新固件章节，接收从硬件使用指南迁移来的升级说明
+      - 提示块改为 teedoc 可解析的引用块格式
   - date: 2026-10-06
     version: v0.3
     author: Sipeed
@@ -94,8 +100,7 @@ SLogic32U3 可以用多套上位机驱动。本页先帮你选，再分别讲各
 
 ## SLogicView
 
-> [!NOTE]
-> 协议解码一节的解码器列表截图暂用同源的 PulseView 界面（解码器与操作逻辑一致），其余已更新为 SLogicView 实机界面与录屏。
+> 💡 协议解码一节的解码器列表截图暂用同源的 PulseView 界面（解码器与操作逻辑一致），其余已更新为 SLogicView 实机界面与录屏。
 
 ### 连接设备
 
@@ -293,6 +298,33 @@ sigrok-cli -i capture.sr -O vcd > capture.vcd
 | `-o` / `-i` | 输出 / 输入波形文件 |
 
 > 采样时间（秒）= 样本数 ÷ 采样率。例如 10 MHz 采 500k 样本即 50 ms。
+
+---
+
+## 更新固件
+
+SLogic32U3 的固件通过网页工具在线升级：**[SLogic 固件升级](https://slogic.sipeed.com/ota/)**，无需下载或安装任何程序。
+
+- **浏览器**：电脑上的 Chrome、Edge 等 Chromium 内核浏览器（升级基于 WebUSB，Firefox / Safari 不支持）。
+- **驱动**：Windows 无需安装驱动；Linux 需先执行一次以下命令授予当前用户访问权限，然后重新插拔设备（网页上也会给出）：
+  ```bash
+  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
+  END
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  ```
+- **USB 线**：使用支持数据传输的 USB 线直接连接电脑，不要用仅充电线或无供电的集线器。建议接 10 Gbps 口，理由见[快速上手 · 连接设备](./Quick_Start.html#连接设备)。
+- **固件下载**：[SLogic32U3 固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware)（`app.bin`），后续更新也发布在此。
+
+### 更新步骤
+
+1. 下载最新固件文件。
+2. 用 Chrome / Edge 打开 [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/)，用 USB 线连接 SLogic32U3，点击 **选择设备**。
+3. 页面会自动把 SLogic32U3 重启到升级模式（指示灯青色常亮 + 红色慢闪），按提示在浏览器弹窗中选择升级模式设备（通常显示为 "SLogic DFU"）。也可先用卡针按背面的 MODE 小孔按键手动进入升级模式，按键说明见[硬件使用指南 · MODE 按键](./Hardware_Specification.html#MODE-按键)。
+4. 选择下载的固件文件，点击 **开始升级**。升级完成前保持设备连接，不要关闭页面。
+5. 升级完成后设备自动以新固件重启（指示灯青色常亮），回到 APP 模式。
+
+> 理论上，升级只会更新 SLogic 固件，不会影响 **DFU**（升级模式）功能。因此即使升级失败也不要紧：设备会停留在升级模式，保持连接后重新升级即可。
 
 ---
 

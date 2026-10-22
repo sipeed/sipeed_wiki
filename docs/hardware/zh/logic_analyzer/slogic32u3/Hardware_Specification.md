@@ -2,6 +2,12 @@
 title: SLogic32U3 硬件使用指南
 keywords: SLogic32U3, 硬件, Mini-HDMI, 探头, ACT 指示灯, MODE, DFU, 固件更新, 信号完整性, udev
 update:
+  - date: 2026-10-22
+    version: v0.4
+    author: Sipeed
+    content:
+      - 更新固件说明迁移到软件使用指南，本页只保留入口
+      - 提示块改为 teedoc 可解析的引用块格式
   - date: 2026-10-06
     version: v0.3
     author: Sipeed
@@ -24,7 +30,7 @@ update:
 
 # 硬件使用指南
 
-本页介绍 SLogic32U3 的硬件接口、配件、指示灯、固件更新与探测要点。软件操作见[软件使用指南](./Software_User_Guide.md)，快速上手见[快速上手](./Quick_Start.md)。
+本页介绍 SLogic32U3 的硬件接口、配件、指示灯与探测要点。固件升级、上位机用法等软件相关内容见[软件使用指南](./Software_User_Guide.md)，第一次使用见[快速上手](./Quick_Start.md)。
 
 ---
 
@@ -143,8 +149,7 @@ SLogic32U3 为 CNC 铝合金一体外壳，尺寸 59 × 51 × 13 mm，表面散�
 
 ### 想在自己板上放 Mini-HDMI 对插？
 
-> [!WARNING]
-> **务必补上 AFE 部分电路。**
+> ⚠️ **务必补上 AFE 部分电路。**
 >
 > Mini-HDMI 接口本身只是连接器，SLogic32U3 的输入特性（100 kΩ 输入阻抗、带宽与过冲抑制）由探头子板上的 AFE 网络决定。如果你的板子只把信号直接焊到 Mini-HDMI 引脚上、省掉 AFE，会出现：
 >
@@ -235,28 +240,9 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 ## 更新固件
 
-SLogic32U3 的固件通过网页工具在线升级：**[SLogic 固件升级](https://slogic.sipeed.com/ota/)**（`https://slogic.sipeed.com/ota/`），无需下载或安装任何程序。
+固件通过网页工具在线升级，**完整的操作步骤、浏览器与驱动要求、固件下载地址**都见[软件使用指南 · 更新固件](./Software_User_Guide.html#更新固件)。
 
-- **浏览器**：电脑上的 Chrome、Edge 等 Chromium 内核浏览器（升级基于 WebUSB，Firefox / Safari 不支持）。
-- **驱动**：Windows 无需安装驱动；Linux 需先执行一次以下命令授予当前用户访问权限，然后重新插拔设备（网页上也会给出）：
-  ```bash
-  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
-  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
-  END
-  sudo udevadm control --reload-rules && sudo udevadm trigger
-  ```
-- **USB 线**：使用支持数据传输的 USB 线直接连接电脑，不要用仅充电线或无供电的集线器。
-- **固件下载**：[SLogic32U3 固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware)（`app.bin`），后续更新也发布在此。
-
-### 更新步骤
-
-1. 下载最新固件文件。
-2. 用 Chrome / Edge 打开 [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/)，用 USB 线连接 SLogic32U3，点击 **选择设备**。
-3. 页面会自动把 SLogic32U3 重启到升级模式（指示灯青色常亮 + 红色慢闪），按提示在浏览器弹窗中选择升级模式设备（通常显示为 "SLogic DFU"）。也可先用卡针按背面的 MODE 小孔按键手动进入升级模式。
-4. 选择下载的固件文件，点击 **开始升级**。升级完成前保持设备连接，不要关闭页面。
-5. 升级完成后设备自动以新固件重启（指示灯青色常亮），回到 APP 模式。
-
-> 理论上，升级只会更新 SLogic 固件，不会影响 **DFU**（升级模式）功能。因此即使升级失败也不要紧：设备会停留在升级模式，保持连接后重新升级即可。
+升级时设备会进入 DFU 模式（指示灯青色常亮 + 红色慢闪），也可以先用卡针按背面的 MODE 小孔按键手动进入，按键位置与模式说明见上文 [MODE 按键](#MODE-按键)。
 
 ---
 

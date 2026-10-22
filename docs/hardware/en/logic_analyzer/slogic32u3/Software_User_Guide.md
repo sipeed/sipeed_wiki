@@ -1,7 +1,13 @@
 ---
 title: SLogic32U3 Software Guide
-keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, protocol decoding
+keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, protocol decoding, firmware update, OTA
 update:
+  - date: 2026-10-22
+    version: v0.4
+    author: Sipeed
+    content:
+      - Added a firmware update section, taking over the instructions migrated from the Hardware Guide
+      - Converted callouts to blockquotes that teedoc can parse
   - date: 2026-10-06
     version: v0.3
     author: Sipeed
@@ -94,8 +100,7 @@ The web app talks to the device over **WebUSB**, so a **Chromium-based browser**
 
 ## SLogicView
 
-> [!NOTE]
-> The decoder-list figures in the Protocol decoding section still use PulseView screenshots from the same code base (identical decoders and workflow); the rest are now actual SLogicView captures and screen recordings.
+> 💡 The decoder-list figures in the Protocol decoding section still use PulseView screenshots from the same code base (identical decoders and workflow); the rest are now actual SLogicView captures and screen recordings.
 
 ### Connect the device
 
@@ -293,6 +298,33 @@ Common options:
 | `-o` / `-i` | output / input waveform file |
 
 > Capture time (s) = samples ÷ sample rate. For example, 500k samples at 10 MHz is 50 ms.
+
+---
+
+## Firmware Update
+
+SLogic32U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** — nothing to download or install.
+
+- **Browser**: Chrome, Edge or another Chromium-based browser on a computer (updates use WebUSB, which Firefox and Safari do not support).
+- **Driver**: no driver is needed on Windows. On Linux, run the following once to allow your user to access the analyzer, then re-plug it (the page shows it too):
+  ```bash
+  sudo tee /etc/udev/rules.d/60-slogic.rules >/dev/null <<'END'
+  SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", ATTRS{idProduct}=="0300|3031|3032|30f1|30f2", MODE="0666", TAG+="uaccess"
+  END
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  ```
+- **USB cable**: use a USB data cable plugged directly into the computer, not a charging-only cable or an unpowered hub. A 10 Gbps port is recommended; see [Quick Start · Connect the device](./Quick_Start.html#Connect-the-device).
+- **Firmware downloads**: [SLogic32U3 firmware](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware) (`app.bin`); future updates are published here too.
+
+### Update steps
+
+1. Download the latest firmware file.
+2. Open [https://slogic.sipeed.com/ota/](https://slogic.sipeed.com/ota/) in Chrome / Edge, connect the SLogic32U3 with a USB cable and click **Select device**.
+3. The page restarts the SLogic32U3 in update mode automatically (LED cyan with a slow red blink); select the update-mode device (usually shown as "SLogic DFU") in the browser dialog. You can also enter update mode by pressing the recessed MODE button with a pin; see [Hardware Guide · MODE Button](./Hardware_Specification.html#MODE-Button).
+4. Choose the downloaded firmware file and click **Update firmware**. Keep the device connected and the page open until the update finishes.
+5. When the update finishes the device restarts with the new firmware (LED steady cyan) and returns to APP mode.
+
+> In principle the update only replaces the SLogic firmware and never touches the **DFU** (update-mode) function. Even if an update fails, the device stays in update mode — keep it connected and run the update again.
 
 ---
 

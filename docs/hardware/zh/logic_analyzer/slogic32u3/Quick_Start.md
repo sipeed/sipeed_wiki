@@ -2,6 +2,12 @@
 title: SLogic32U3 快速上手
 keywords: SLogic32U3, 快速上手, 开箱, 安装, SLogicView, SLogicWeb, udev
 update:
+  - date: 2026-10-22
+    version: v0.2
+    author: Sipeed
+    content:
+      - 提示块改为 teedoc 可解析的引用块格式
+      - 固件升级指引改由软件使用指南承载
   - date: 2026-10-06
     version: v0.1
     author: Sipeed
@@ -62,8 +68,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ## 连接设备
 
-> [!WARNING]
-> **务必接到 10 Gbps 的 USB 口。** 接口规格直接决定采集速率：
+> ⚠️ **务必接到 10 Gbps 的 USB 口。** 接口规格直接决定采集速率：
 >
 > - 接 **USB3.2 Gen2（10 Gbps）** 口才能跑满 800 MB/s，达到标称的采样率组合。
 > - 接 USB3.0 / 3.1 Gen1（5 Gbps）口，速率会明显低于预期。
@@ -71,8 +76,7 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 >
 > 电脑上的 10 Gbps 口通常标有 `SS10` 或 `10` 字样。只看蓝色并不可靠，蓝色口很多只是 5 Gbps。请查阅主板或笔记本的接口规格确认。
 
-> [!TIP]
-> **优先使用 USB-C 口直连。** 随附线材虽然配了 C 转 A 转接头以兼容 A 口，但转接头本身会带来额外插损，降低信号质量。在性能较弱的电脑上，这可能导致速率跑不满。条件允许时请直接插 USB-C 口。
+> 💡 **优先使用 USB-C 口直连。** 随附线材虽然配了 C 转 A 转接头以兼容 A 口，但转接头本身会带来额外插损，降低信号质量。在性能较弱的电脑上，这可能导致速率跑不满。条件允许时请直接插 USB-C 口。
 
 连接步骤：
 
@@ -122,8 +126,8 @@ SLogic32U3 有多套上位机可选。**默认用 SLogicView**，它是 Sipeed �
 
 ## 下一步
 
-- 硬件接口、配件、指示灯、固件更新、信号完整性 → [硬件使用指南](./Hardware_Specification.md)
-- 各上位机与网页版的区别、触发、解码、命令行 → [软件使用指南](./Software_User_Guide.md)
+- 硬件接口、配件、指示灯、信号完整性 → [硬件使用指南](./Hardware_Specification.md)
+- 各上位机与网页版的区别、触发、解码、命令行、固件升级 → [软件使用指南](./Software_User_Guide.md)
 - GPU 加速与混合信号分析 → [ngscopeclient](../ngscopeclient/ngscopeclient.md)
 - 让 AI 代跑采集与解码 → [SLogic 接入 AI Agent](../slogic_agent/readme.md)
 - 排障 → [常见问题](./FAQ.md)
