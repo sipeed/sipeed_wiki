@@ -463,6 +463,19 @@ items:
         file: maixsense/maixsense-a075v/maixsense-a075v.md
     -   label: MaixSense-D640
         file: maixsense/maixsense-d640/maixsense-d640.md
+        items:
+        -   label: Quick Start
+            file: maixsense/maixsense-d640/quick-start.md
+        -   label: GUI Guide
+            file: maixsense/maixsense-d640/gui.md
+        -   label: SDK Guide
+            file: maixsense/maixsense-d640/sdk.md
+        -   label: Firmware
+            file: maixsense/maixsense-d640/firmware.md
+        -   label: Accuracy
+            file: maixsense/maixsense-d640/accuracy.md
+        -   label: FAQ
+            file: maixsense/maixsense-d640/faq.md
 -   label: SLogic
     items:
     -   label: SLogic with an AI Agent

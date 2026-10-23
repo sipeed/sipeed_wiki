@@ -461,6 +461,19 @@ items:
         file: maixsense/maixsense-a075v/maixsense-a075v.md
     -   label: MaixSense-D640
         file: maixsense/maixsense-d640/maixsense-d640.md
+        items:
+        -   label: 快速上手
+            file: maixsense/maixsense-d640/quick-start.md
+        -   label: GUI 使用指南
+            file: maixsense/maixsense-d640/gui.md
+        -   label: SDK 开发指南
+            file: maixsense/maixsense-d640/sdk.md
+        -   label: 固件与标定
+            file: maixsense/maixsense-d640/firmware.md
+        -   label: 测量精度
+            file: maixsense/maixsense-d640/accuracy.md
+        -   label: 常见问题
+            file: maixsense/maixsense-d640/faq.md
 -   label: SLogic
     items:
     -   label: SLogic Combo 8
