@@ -4,9 +4,10 @@ title: MaixSense 系列
 
 ## MaixSense 是什么?
 
-MaixSense 系列产品搭载 TOF 深度摄像头，目前有 MaixSense-A010 和 MaixSense-A075V 两款产品。
-- MS-A010 是一款由 BL702 + 炬佑 100x100 TOF 模组所组成的极致性价比的 TOF 3D 传感器模组，最大支持 100x100 的分辨率和 8 位精度，并且带有 240×135 的 LCD 显示屏可实时预览 color map 后的深度图。
-- 而 MS-A075V 是一款具有 RGB 功能的 3D TOF 摄像机模组，该模组可以实现 Linux 免驱的即插即用，实现实时彩色 3D 显示。
+MaixSense 系列是 Sipeed 推出的 3D 深度感知产品线，包含 TOF 和双目立体视觉方案：
+- **MS-A010**：BL702 + 炬佑 100×100 TOF 模组，极致性价比，自带 LCD 屏实时预览。
+- **MS-A075V**：RGB + TOF 3D 摄像机模组，Linux 免驱即插即用。
+- **MS-D640（新）**：AX620Q 双目立体深度相机，640×384 密集深度图 @12fps，NPU 实时推理，UVC 即插即用。
 
 <img src="./assets/meta.jpg" alt="summary" width=100%>
 
@@ -84,5 +85,6 @@ MS-A010 拥有强大的兼容性，基于串口协议的数据传输。
 
 ## 更多
 
-关于 MS-010 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html)
-关于 MS-075 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html)
+关于 MS-A010 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a010/maixsense-a010.html)
+关于 MS-A075V 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-a075v/maixsense-a075v.html)
+关于 MS-D640 更详细的资料获取：[点击跳转](https://wiki.sipeed.com/hardware/zh/maixsense/maixsense-d640/maixsense-d640.html)
