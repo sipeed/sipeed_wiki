@@ -461,6 +461,8 @@ items:
         file: maixsense/maixsense-a010/maixsense-a010.md
     -   label: MaixSense-a075v
         file: maixsense/maixsense-a075v/maixsense-a075v.md
+    -   label: MaixSense-D640
+        file: maixsense/maixsense-d640/maixsense-d640.md
 -   label: SLogic
     items:
     -   label: SLogic with an AI Agent
