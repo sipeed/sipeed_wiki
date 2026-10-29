@@ -14,20 +14,7 @@ NanoKVM Go ── ZeroTier 虚拟网络 ── 外网电脑或手机
 
 > NanoKVM Go 的 ZeroTier 集成不会自动把设备所在局域网共享给其他成员；能否访问局域网中的其他设备，取决于 ZeroTier 网络是否配置了对应的 Managed Route。
 
-## 与其他远程网络方式的区别
-
-ZeroTier 和 [Tailscale](tailscale.html)、[NetBird](netbird.html)、[Sipeed 远程网络](sipeed_remote_network.html) 一样，属于虚拟组网方案，不需要公网服务器。区别主要在网络的加入和授权方式：
-
-| 方式 | 网络标识 | 设备授权 | 访问端客户端 |
-| --- | --- | --- | --- |
-| ZeroTier | 16 位十六进制 Network ID | 在 ZeroTier Central 授权 Node ID | ZeroTier |
-| NetBird | NetBird 账号 | 登录同一账号 | NetBird |
-| Tailscale | Tailscale 账号 / Tailnet | 登录同一账号 | Tailscale |
-| Sipeed 远程网络 | Sipeed 配对码 | 6 位认领码 + 3 位核对 | Tailscale |
-
-ZeroTier 不需要在 NanoKVM Go 上登录账号，但需要先在 ZeroTier Central 创建网络，并在 Central 中授权 NanoKVM Go 的 Node ID。
-
-[frp](frp.html) 和 [Cloudflare Tunnel](cloudflare_tunnel.html) 属于内网穿透，需要公网服务器或域名；[静态 IP](static_ip.html) 只固定局域网地址，不能从外网访问。
+> ZeroTier 不需要在 NanoKVM Go 上登录账号，但需要先在 ZeroTier Central 创建网络，并在 Central 中授权 NanoKVM Go 的 Node ID。
 
 > 页面不提供自建 ZeroTier 控制器或自定义 Planet 的配置入口，请使用 ZeroTier Central 上的网络。
 

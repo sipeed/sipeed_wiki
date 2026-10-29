@@ -14,18 +14,6 @@ NanoKVM Go -- NetBird virtual network -- remote computer or phone
 
 > The NetBird integration adds only NanoKVM Go itself to the virtual network. It does not bring other devices or subnets from the local network into the virtual network.
 
-## Compared with other remote network options
-
-NetBird belongs to the same category as [Tailscale](tailscale.html) and [Sipeed Remote Network](sipeed_remote_network.html): both ends are connected through a virtual network, with no public server required. The differences are the control server and the account system:
-
-| Option | Control server | Account required | Client on the access device |
-| --- | --- | --- | --- |
-| NetBird | NetBird Cloud | NetBird account | NetBird |
-| Tailscale | Tailscale | Tailscale account | Tailscale |
-| Sipeed Remote Network | Sipeed | No | Tailscale |
-
-[frp](frp.html) and [Cloudflare Tunnel](cloudflare_tunnel.html) are tunneling solutions that require a public server or a domain. [Static IP](static_ip.html) only fixes the LAN address and cannot provide external access. If you do not have a public server, start with a mesh option such as NetBird.
-
 > The built-in NetBird integration currently connects to NetBird Cloud only (management server `api.netbird.io`). A self-hosted NetBird management server cannot be configured.
 
 ## Prerequisites
