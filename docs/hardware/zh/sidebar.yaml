@@ -627,6 +627,8 @@ items:
                     file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
         -   label: FAQ
             file: kvm/NanoKVM_Go/faq.md
+        -   label: 文档更新日志
+            file: kvm/NanoKVM_Go/changelog.md
     -   label: NanoKVM PCIe
         items:
         -   label: 简介
