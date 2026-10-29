@@ -602,6 +602,8 @@ items:
                 file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
             -   label: NetBird
                 file: kvm/NanoKVM_Go/network/netbird.md
+            -   label: ZeroTier
+                file: kvm/NanoKVM_Go/network/zerotier.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: Cloudflare Tunnel
