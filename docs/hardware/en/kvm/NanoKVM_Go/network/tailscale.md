@@ -26,13 +26,11 @@ Before starting, make sure that:
 
 > If the Tailscale option is not available on the settings page, check for and install the latest NanoKVM Go system and application updates.
 
-## Differences from the Sipeed Remote Network
-
-NanoKVM Go supports two connection methods. `Sipeed Remote Network` uses a control server provided by Sipeed and does not require a Tailscale account; see [Sipeed Remote Network](sipeed_remote_network.html) for setup. Tailscale, the method described in this guide, uses a control server provided by Tailscale and requires you to register and sign in. Either way, the Tailscale client must be installed on the computer or phone used for remote access.
+## Switching connection methods
 
 ![Choose a connection network on NanoKVM Go](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_network_select_en.webp)
 
-To switch from the method you are using to the other one, click `Exit` on the NanoKVM Go page and confirm. The device leaves its current network and returns to the `Choose a connection network` page, where you can select the other method.
+To switch between Sipeed Remote Network and Tailscale, click `Exit` on the NanoKVM Go page and confirm. The device leaves its current network and returns to the `Choose a connection network` page, where you can select the other method.
 
 ![Exit the current network and return to the network selection page](../../../../assets/NanoKVM/go/network/nanokvm_go_sipeed_remote_network_exit_en.webp)
 

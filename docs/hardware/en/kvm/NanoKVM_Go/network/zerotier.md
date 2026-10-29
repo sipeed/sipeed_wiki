@@ -14,20 +14,7 @@ NanoKVM Go -- ZeroTier virtual network -- remote computer or phone
 
 > The ZeroTier integration does not automatically share NanoKVM Go's local network with other members. Access to other devices on that LAN depends on the Managed Routes configured in the ZeroTier network.
 
-## Compared with other remote network options
-
-ZeroTier belongs to the same category as [Tailscale](tailscale.html), [NetBird](netbird.html), and [Sipeed Remote Network](sipeed_remote_network.html): a virtual network that does not require a public server. The main differences are how a device joins the network and how it is authorized:
-
-| Option | Network identifier | Device authorization | Client on the access device |
-| --- | --- | --- | --- |
-| ZeroTier | 16-digit hexadecimal Network ID | Authorize the Node ID in ZeroTier Central | ZeroTier |
-| NetBird | NetBird account | Sign in to the same account | NetBird |
-| Tailscale | Tailscale account / Tailnet | Sign in to the same account | Tailscale |
-| Sipeed Remote Network | Sipeed pairing code | 6-digit claim code + 3-digit verification | Tailscale |
-
 ZeroTier does not require signing in to an account on NanoKVM Go, but you must create a network in ZeroTier Central and authorize the NanoKVM Go Node ID there.
-
-[frp](frp.html) and [Cloudflare Tunnel](cloudflare_tunnel.html) are tunneling solutions that require a public server or a domain. [Static IP](static_ip.html) only fixes the LAN address and cannot provide external access.
 
 > The page does not provide a configuration entry for a self-hosted ZeroTier controller or a custom Planet. Use a network hosted on ZeroTier Central.
 

@@ -26,13 +26,11 @@ NanoKVM Go ── Tailscale 虚拟网络 ── 外网电脑或手机
 
 > 如果设置页面中没有 Tailscale 选项，请先检查并更新 NanoKVM Go 的系统和应用版本。
 
-## 与 Sipeed 远程网络的区别
-
-NanoKVM Go 支持两种连接方式：`Sipeed 远程网络` 由 Sipeed 提供控制服务器，不需要注册 Tailscale 账号，配置方法见 [Sipeed 远程网络连接](sipeed_remote_network.html)；另一种是 Tailscale，由 Tailscale 提供控制服务器，需要注册并登录 Tailscale 账号，也就是本文介绍的这种方式。两种方式的访问端（电脑或手机）都需要安装 Tailscale 客户端。
+## 切换连接方式
 
 ![在 NanoKVM Go 中选择连接网络的方式](../../../../assets/NanoKVM/go/network/nanokvm_go_tailscale_network_select.webp)
 
-已经启用过其中一种方式、想改用另一种时，在 NanoKVM Go 页面点击 `退出` 并确认，设备会移出当前网络并返回 `选择连接网络` 页面，重新选择即可。
+已经启用过 Sipeed 远程网络或 Tailscale，想切换时，在 NanoKVM Go 页面点击 `退出` 并确认，设备会移出当前网络并返回 `选择连接网络` 页面，重新选择即可。
 
 ![退出当前网络并返回网络选择页面](../../../../assets/NanoKVM/go/network/nanokvm_go_sipeed_remote_network_exit.webp)
 

@@ -12,18 +12,6 @@ NanoKVM Go ── NetBird 虚拟网络 ── 外网电脑或手机
 
 > NanoKVM Go 的 NetBird 集成只把 NanoKVM Go 自己加入虚拟网络，不会把设备所在局域网的其他设备或网段带进来。
 
-## 与其他远程网络方式的区别
-
-NetBird 和 [Tailscale](tailscale.html)、[Sipeed 远程网络](sipeed_remote_network.html) 属于同一类方案：靠虚拟组网打通两端，不需要公网服务器。区别在控制服务器和账号体系：
-
-| 方式 | 控制服务器 | 需要账号 | 访问端客户端 |
-| --- | --- | --- | --- |
-| NetBird | NetBird Cloud | NetBird 账号 | NetBird |
-| Tailscale | Tailscale | Tailscale 账号 | Tailscale |
-| Sipeed 远程网络 | Sipeed | 不需要 | Tailscale |
-
-[frp](frp.html) 和 [Cloudflare Tunnel](cloudflare_tunnel.html) 属于内网穿透，需要公网服务器或域名；[静态 IP](static_ip.html) 只固定局域网地址，不能从外网访问。没有公网服务器时，优先考虑 NetBird 这类组网方案。
-
 > 目前 NanoKVM Go 内置的 NetBird 固定连接 NetBird Cloud（管理服务器 `api.netbird.io`），暂不支持填写自建的 NetBird 管理服务器地址。
 
 ## 使用前准备
