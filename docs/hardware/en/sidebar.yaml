@@ -600,6 +600,8 @@ items:
                 file: kvm/NanoKVM_Go/network/tailscale.md
             -   label: Sipeed Remote Network
                 file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
+            -   label: NetBird
+                file: kvm/NanoKVM_Go/network/netbird.md
             -   label: frp
                 file: kvm/NanoKVM_Go/network/frp.md
             -   label: Cloudflare Tunnel
