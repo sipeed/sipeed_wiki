@@ -2,6 +2,11 @@
 title: Tang Mega 138K Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
+  - date: 2026-10-30
+    version: v0.5
+    author: Ziue
+    content:
+      - Mark SSRAM as disabled on Device Version B; the SSRAM capacity is only available on Device Version C
   - date: 2024-06-26
     version: v0.1
     author: Serika
@@ -81,7 +86,7 @@ TBD
 					</tr>
 					<tr>
 						<td>Distributed SRAM<br>(S-SRAM) (Kbits)</td>
-						<td>1080</td>
+						<td><s>1080</s><sup>[1]</sup></td>
 					</tr>
 					<tr>
 						<td>Block SRAM (B-SRAM) (Kbits)</td>
@@ -163,6 +168,8 @@ TBD
 		</tr>
 	</tbody>
 </table>
+
+<p style="font-size:0.875em;opacity:0.75;">[1] Device Version C only. Due to a silicon defect in Device Version B, GOWIN has disabled the SSRAM on B-version 138K devices; this issue is fixed in the C version (officially disabled since IDE 1.9.10.x).</p>
 
 > *Note: 128Mbits Flash version available with the Anniversary Update (Oct. 2025) and for all later releases.*
 

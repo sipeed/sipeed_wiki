@@ -2,6 +2,11 @@
 title: Tang Mega 138K Pro Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
+  - date: 2026-10-30
+    version: v0.92
+    author: Ziue
+    content:
+      - 标注 Device Version B 的 138K 已禁用 SSRAM，SSRAM 容量仅 Device Version C 可用
   - date: 2023-08-29
     version: v0.9
     author: wonder
@@ -61,7 +66,7 @@ update:
 					</tr>
 					<tr>
 						<td>分布式静态随机存储器S-SRAM(Kbits)</td>
-						<td>1080</td>
+						<td><s>1080</s><sup>[1]</sup></td>
 					</tr>
 					<tr>
 						<td>块状静态随机存储器B-SRAM(Kbits)</td>
@@ -148,6 +153,8 @@ update:
 		</tr>
 	</tbody>
 </table>
+
+<p style="font-size:0.875em;opacity:0.75;">[1] 仅 Device Version C 可用。由于 Device Version B 的 Silicon 缺陷，GOWIN 已禁用 B 版本 138K 的 SSRAM，该问题在 C 版本中修复（GOWIN 自 IDE 1.9.10.x 起正式禁用）。</p>
 
 ### 底板参数
 
