@@ -13,9 +13,9 @@ msgstr "/static/home/banner_nanokvm_go_en.jpg"
 #: maix.html:358 nanokvm.html:37 nanokvm.html:54 nanokvm.html:71
 #: nanokvm.html:88 nanokvm.html:105 others.html:38 sipeedsense.html:40
 #: sipeedsense.html:56 sipeedsense.html:72 slogic.html:37 slogic.html:54
-#: slogic.html:71 tang.html:167 tang.html:183 tang.html:199 tang.html:215
-#: tang.html:231 tang.html:247 tang.html:263 tang.html:279 tang.html:295
-#: tang.html:311
+#: slogic.html:71 tang.html:170 tang.html:186 tang.html:202 tang.html:218
+#: tang.html:234 tang.html:250 tang.html:266 tang.html:282 tang.html:298
+#: tang.html:314
 msgid "文档"
 msgstr "Docs"
 
@@ -41,8 +41,8 @@ msgstr "/static/home/banner_t256s_en.jpg"
 #: maix.html:345 maix.html:362 nanokvm.html:41 nanokvm.html:58 nanokvm.html:75
 #: nanokvm.html:92 nanokvm.html:109 others.html:42 sipeedsense.html:44
 #: sipeedsense.html:60 sipeedsense.html:76 slogic.html:41 slogic.html:58
-#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
-#: tang.html:251 tang.html:267 tang.html:283 tang.html:299 tang.html:315
+#: tang.html:174 tang.html:190 tang.html:206 tang.html:222 tang.html:238
+#: tang.html:254 tang.html:270 tang.html:286 tang.html:302 tang.html:318
 msgid "购买"
 msgstr "Buy"
 
@@ -590,119 +590,128 @@ msgstr ""
 msgid "GOAI~"
 msgstr ""
 
-#: tang.html:164
+#: tang.html:156
+msgid ""
+"[1] 仅 Device Version C 可用。由于 Device Version B 的 Silicon 缺陷，GOWIN 已禁用 B 版本"
+" 138K 的 SSRAM，该问题在 C 版本中修复（GOWIN 自 IDE 1.9.10.x 起正式禁用）。"
+msgstr ""
+"[1] Device Version C only. Due to a silicon defect in Device Version B, "
+"GOWIN has disabled the SSRAM on B-version 138K devices; this issue is "
+"fixed in the C version (officially disabled since IDE 1.9.10.x)."
+
+#: tang.html:167
 msgid "热卖中，点击查看详情"
 msgstr "Hot sale, click to see details"
 
-#: tang.html:168
+#: tang.html:171
 msgid "/hardware/zh/tang/tang-console/mega-console.html"
 msgstr "/hardware/en/tang/tang-console/mega-console.html"
 
-#: tang.html:172
+#: tang.html:175
 msgid "https://item.taobao.com/item.htm?id=963677857301"
 msgstr "https://www.aliexpress.com/item/1005008987494656.html"
 
-#: tang.html:180
+#: tang.html:183
 msgid "小体积的中等量 FPGA 开发板"
 msgstr "Campact Medium-capacity FPGA Board"
 
-#: tang.html:184
+#: tang.html:187
 msgid "/hardware/zh/tang/tang-mega-60k/mega-60k.html"
 msgstr "/hardware/en/tang/tang-mega-60k/mega-60k.html"
 
-#: tang.html:188 tang.html:204
+#: tang.html:191 tang.html:207
 msgid "https://item.taobao.com/item.htm?id=808924746746"
 msgstr "https://www.aliexpress.com/item/3256807078990410.html"
 
-#: tang.html:196
+#: tang.html:199
 msgid "小体积的大容量 FPGA 开发板"
 msgstr "Campact High-capacity FPGA Board"
 
-#: tang.html:200
+#: tang.html:203
 msgid "/hardware/zh/tang/tang-mega-138k/mega-138k.html"
 msgstr "/hardware/en/tang/tang-mega-138k/mega-138k.html"
 
-#: tang.html:212
+#: tang.html:215
 msgid "可以高速通信的大容量 FPGA 开发板"
 msgstr "High Speed Interface FPGA Board"
 
-#: tang.html:216
+#: tang.html:219
 msgid "/hardware/zh/tang/tang-mega-138k/mega-138k-pro.html"
 msgstr "/hardware/en/tang/tang-mega-138k/mega-138k-pro.html"
 
-#: tang.html:220
+#: tang.html:223
 msgid "https://item.taobao.com/item.htm?id=740536508140"
 msgstr "https://www.aliexpress.com/item/1005006080116482.html"
 
-#: tang.html:228
+#: tang.html:231
 msgid "自由拓展的 FPGA 开发板"
 msgstr "Free Expansion FPGA board"
 
-#: tang.html:232
+#: tang.html:235
 msgid "/hardware/zh/tang/tang-primer-25k/primer-25k.html"
 msgstr "/hardware/en/tang/tang-primer-25k/primer-25k.html"
 
-#: tang.html:236
+#: tang.html:239
 msgid "https://item.taobao.com/item.htm?id=746293292946"
 msgstr "https://www.aliexpress.com/item/1005006224593018.html"
 
-#: tang.html:244
+#: tang.html:247
 msgid "自带多种外设接口的 FPGA 开发板"
 msgstr "Mutiple Interfaces FPGA Board"
 
-#: tang.html:248
+#: tang.html:251
 msgid "/hardware/zh/tang/tang-primer-20k/primer-20k.html"
 msgstr "/hardware/en/tang/tang-primer-20k/primer-20k.html"
 
-#: tang.html:252
+#: tang.html:255
 msgid "https://item.taobao.com/item.htm?id=680099020807"
 msgstr "https://www.aliexpress.com/item/1005004653308809.html"
 
-#: tang.html:260
+#: tang.html:263
 msgid "适用于模拟复古游戏机的 FPGA 开发板"
 msgstr "Retro Games Friendly FPGA Board"
 
-#: tang.html:264
+#: tang.html:267
 msgid "/hardware/zh/tang/tang-nano-20k/nano-20k.html"
 msgstr "/hardware/en/tang/tang-nano-20k/nano-20k.html"
 
-#: tang.html:268
+#: tang.html:271
 msgid "https://item.taobao.com/item.htm?id=717932028073"
 msgstr "https://www.aliexpress.com/item/1005005581148230.html"
 
-#: tang.html:276
+#: tang.html:279
 msgid "适合 RiscV 软核验证的 FPGA 开发板"
 msgstr "RiscV Softcore FPGA Board"
 
-#: tang.html:280
+#: tang.html:283
 msgid "/hardware/zh/tang/Tang-Nano-9K/Nano-9K.html"
 msgstr "/hardware/en/tang/Tang-Nano-9K/Nano-9K.html"
 
-#: tang.html:284
+#: tang.html:287
 msgid "https://item.taobao.com/item.htm?id=666055424174"
 msgstr " https://www.aliexpress.com/item/1005003803994525.html"
 
-#: tang.html:292
+#: tang.html:295
 msgid "芯片内部含有 MCU 的 FPGA 开发板"
 msgstr "Hardcore Inside FPGA Board"
 
-#: tang.html:296
+#: tang.html:299
 msgid "/hardware/zh/tang/Tang-Nano-4K/Nano-4K.html"
 msgstr "/hardware/en/tang/Tang-Nano-4K/Nano-4K.html"
 
-#: tang.html:300
+#: tang.html:303
 msgid "https://item.taobao.com/item.htm?id=661994055100"
 msgstr "https://www.aliexpress.com/item/1005003152104886.html"
 
-#: tang.html:308
+#: tang.html:311
 msgid "开发中，敬请期待。。。"
 msgstr "Pre-saling..."
 
-#: tang.html:312
+#: tang.html:315
 msgid "/hardware/zh/tang/tang-primer-15k/primer-15k.html"
 msgstr "/hardware/en/tang/tang-primer-15k/primer-15k.html"
 
-#: tang.html:316
+#: tang.html:319
 msgid "https://sipeed.taobao.com"
 msgstr "https://www.aliexpress.com/store/911876460"
 
