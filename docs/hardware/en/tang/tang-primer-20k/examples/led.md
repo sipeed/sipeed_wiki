@@ -252,7 +252,7 @@ There is onboard programmer for downloading bitstream, and drivers have been ins
 
 ### Scan device
 
-Make sure you have enabled the core board first, put the 1 switch on the dip switch down.
+Make sure you have enabled the core board first, put the 1 switch on the DIP switch down. Dock V3714 and later do not need DIP1 switched down.
 
 ![Enable_core_board](./../../../../../hardware/zh/tang/tang-primer-20k/assets/start/switch_1_on.png)
 

@@ -307,6 +307,8 @@ And the corresponding golden finger on core board are as following:
 
 For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, just put the 1 switch on the dip switch down, otherwise LED0 and LED1 are on and core board dose not work.
 
+> **Note**: This applies only to Dock boards earlier than V3714. Dock V3714 and later do not need DIP1 switched down; reconfigure is triggered by the S4 button.
+
 | Enable Core Board | Disable state | Additional comments |
 | --- | --- | --- |
 |<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
@@ -336,6 +338,8 @@ In this case, the default reason is that the wrong Dual-Purpose pin is enabled a
 Besides, if you have dock ext-board, this can be solved by the enable pin of dip switch. Here art the steps
 
 Firstlt, enable the core board, put the 1 switch on the dip switch down, then do something (like burning fpga or erasing FPGA) in Programmer application, when the progress bar shows, switch the 1 switch on the dip switch up and down, after which you will find the progress bar works and finish your operations on fpga.
+
+> **Note**: This method relies on the DIP1 enable function and applies only to Dock boards earlier than V3714.
 
 <table>
 	<tr>

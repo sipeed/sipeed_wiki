@@ -2,6 +2,11 @@
 title: Tang Primer 20K 开箱指南
 keywords: FPGA, Primer, Tang, 20K
 update:
+  - date: 2026-10-30
+    version: v0.2
+    author: Ziue
+    content:
+      - 补充 Dock V3714 的 DIP1 / S4 改动说明
   - date: 2022-09-16
     version: v0.1
     author: wonder
@@ -23,9 +28,11 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 
 #### 使能核心板
 
-对于 Dock 板，使用的时候需要注意将拨码开关 1 号位开启，以此来使能核心板。
+对于 **V3714 之前**的 Dock 板，使用的时候需要将拨码开关 1 号位开启，以此来使能核心板。
 
-| 使能核心板 | 未使能状态 | 补充说明 |
+> **V3714 及以后版本**：DIP1 不再用于 reconfigure，不需要拨下 DIP1；reconfigure 与 S4 对调，改由 **S4** 按键触发。
+
+| 使能核心板（V3714 之前） | 未使能状态 | 补充说明 |
 | --- | --- | --- |
 |<img src="./assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | 未使能核心板的话板子上的 0、1 号 LED 会一直亮着，且核心板不会正常启动。|
 
@@ -56,6 +63,10 @@ Primer 20K 底板有 Lite 和 Dock 两款，这里分开说明一下
 比如上面这张图的板子的版本号为 V3708
 
 下面是有问题的版本修正：
+
+##### V3714
+
+DIP1 与 S4 的功能对调：DIP1 不再用于 reconfigure，reconfigure 改由 S4 按键触发。因此 V3714 及以后版本的 Dock 不需要拨下 DIP1。
 
 ##### V3708
 

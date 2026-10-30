@@ -326,6 +326,8 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 
 拨下 1 号拨码开关以使能核心板，不然底板会不工作且 LED0 和 LED1 常亮。
 
+> **注意**：本节仅适用于 V3714 之前的 Dock 板。V3714 及以后版本不需要拨下 DIP1，reconfigure 改由 S4 按键触发。
+
 | 使能核心板 | 未使能核心板 |
 | --- | --- |
 | ![switch_1_on](./assets/start/switch_1_on.png) | ![reset_led_on](./assets/start/reset_led_on.png)  |
@@ -357,6 +359,8 @@ github 链接： https://github.com/sipeed/TangPrimer-20K-example
 如果有 dock 底板的话，可以直接操作一号拨码开关重新救活核心板，具体操作如下：
 
 首先正常使能核心板，将拨码开关一号位拨下。然后在 Programmer 软件中，选择一个操作（烧写、擦除都可以），当 Programmer 软件中进度条出现的时候，快速将一号拨码开关拉高，然后再拉低重新使能核心板，这样就会发现 Programmer 可以正常烧录 FPGA 板卡了。
+
+> **注意**：该方法依赖 DIP1 的使能功能，仅适用于 V3714 之前的 Dock 板。
 
 <table>
 	<tr>
