@@ -1,0 +1,17 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language.indexOf("zh") == -1 )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#c8" : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/logic_analyzer/combo8/index.html"
+            break;
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/logic_analyzer/combo8/index.html"
+    }
+</script>

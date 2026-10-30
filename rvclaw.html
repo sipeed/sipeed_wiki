@@ -1,0 +1,16 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "zh"
+
+    if( navigator.language.indexOf("zh") == -1 )
+    {
+        url_language = "en"
+    }
+
+    switch (window.location.hash) {
+        case "#c8" : 
+            break;
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/RV_Nano/7_picoclaw_board.html"
+    }
+</script>

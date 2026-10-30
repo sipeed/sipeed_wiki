@@ -1,0 +1,147 @@
+{
+    "items": [
+        {
+            "label":"MaixDuino(此文档已不再维护)",
+            "items":[
+            {
+                "label": "MaixDuino简介",
+                "file": "README.md"
+            },
+            {
+                "label": "准备",
+                "items":[
+                {
+                    "label":"获得开发板",
+                    "file":"get_started/get_hardware.md"
+                },
+                {
+                    "label":"安装开发环境",
+                    "file":"get_started/install.md",
+                    "items":[
+                        {
+                            "label":"Arduino IDE",
+                            "file":"get_started/arduinoide.md"
+                        },
+                        {
+                            "label":"Platform IO",
+                            "file":"get_started/platformio.md"
+                        }
+                    ]
+                }
+                ]
+            },
+            {
+                "label": "基础功能",
+                "items": [
+                    {
+                        "label":"数字 I/O",
+                        "file":"cores/digital.md"
+                    },
+                    {
+                        "label":"模拟 I/O",
+                        "file":"cores/analog.md"
+                    },
+                    {
+                        "label":"高级 I/O",
+                        "file":"cores/advanced.md"
+                    },
+                    {
+                        "label":"时间",
+                        "file":"cores/time.md"
+                    },
+                    {
+                        "label":"中断",
+                        "file":"cores/interrupts.md"
+                    },
+                    {
+                        "label":"串口",
+                        "file":"cores/serial.md"
+                    },
+                    {
+                        "label":"常量",
+                        "file":"cores/constants.md"
+                    }
+                ]
+            },
+            {
+                "label":"库",
+                "items":[
+                    {
+                        "label":"Camera",
+                        "file":"libs/camera.md"
+                    },
+                    {
+                        "label":"LittlevGL",
+                        "file":"libs/littlevgl.md"
+                    },
+                    {
+                        "label":"Maix_KPU",
+                        "file":"libs/maix_kpu.md"
+                    },
+                    {
+                        "label":"Maix_Speech_Recognition",
+                        "file":"libs/speechrecg.md"
+                    },
+                    {
+                        "label":"MSA300 Accelerometer",
+                        "file":"libs/msa300.md"
+                    },
+                    {
+                        "label":"NS2009 Touchscreen",
+                        "file":"libs/ns2009.md"
+                    },
+                    {
+                        "label":"SD",
+                        "file":"libs/sd.md"
+                    },
+                    {
+                        "label":"Sipeed_OV2640 Camera",
+                        "file":"libs/sipeed_ov2640.md"
+                    },
+                    {
+                        "label":"Sipeed_ST7789 Display",
+                        "file":"libs/sipeed_st7789.md"
+                    },
+                    {
+                        "label":"SPI",
+                        "file":"libs/spi.md"
+                    },
+                    {
+                        "label":"Ticker",
+                        "file":"libs/ticker.md"
+                    },
+                    {
+                        "label":"WiFiEsp",
+                        "file":"libs/wifiesp.md"
+                    },
+                    {
+                        "label":"Wire",
+                        "file":"libs/wire.md"
+                    }         
+                ]
+            },
+            {
+                "label":"其他",
+                "items":[
+                    {
+                        "label":"贡献",
+                        "file":"contribute/README.md"
+                    },
+                    {
+                        "label":"文档风格",
+                        "file":"contribute/doc_convention.md"
+                    },
+                    {
+                        "label":"代码风格",
+                        "file":"contribute/code_convention.md"
+                    }
+                ]
+            }
+            ]
+        }
+        
+        
+        
+        
+    ]
+}
