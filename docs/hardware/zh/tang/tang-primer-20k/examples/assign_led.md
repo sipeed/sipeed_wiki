@@ -163,7 +163,7 @@ Dock 板载了下载器，在 [安装IDE](https://wiki.sipeed.com/hardware/zh/ta
 
 ### 扫描设备
 
-在使用 Dock 底板的时候不要忘记使能核心板，按下 1 号拨码开关即可。
+在使用 Dock 底板的时候不要忘记使能核心板，按下 1 号拨码开关即可；V3714 及以后版本不需要拨下 DIP1。
 
 ![Enable_core_board](./../assets/start/switch_1_on.png)
 

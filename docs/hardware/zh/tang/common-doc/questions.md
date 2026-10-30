@@ -242,6 +242,8 @@ Nano 9K 在设计的时候将 JTAG_SEL 引脚连接到了 S2 按键上，根据�
 
 20K Dock 套件要注意拨动拨码开关使能核心板后，下载软件才可以通过底板识别到底板所插入的核心板。
 
+> **注意**：V3714 及以后版本的 Dock 不需要拨下 DIP1，reconfigure 改由 S4 按键触发。
+
 <details>
   <summary><font color="#4F84FF">点开查看图片详情</font></summary>
     <table>

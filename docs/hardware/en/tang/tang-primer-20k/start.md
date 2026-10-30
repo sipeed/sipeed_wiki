@@ -2,6 +2,11 @@
 title: Tang Primer 20K
 keywords: FPGA, Primer, Tang, 20K
 update:
+  - date: 2026-10-30
+    version: v0.2
+    author: Ziue
+    content:
+      - Document the DIP1 / S4 change on Dock V3714
   - date: 2022-11-08
     version: v0.1
     author: wonder
@@ -23,9 +28,11 @@ Here are matters need attention, to avoid spending much time dealing with troubl
 
 #### Enable Core Board
 
-For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, just put the 1 switch on the dip switch down, otherwise LED0 and LED1 are on and core board dose not work.
+For Dock boards **earlier than V3714**, it's necessary to enable the core board before using the debugger, just put the 1 switch on the DIP switch down; otherwise LED0 and LED1 stay on and the core board does not work.
 
-| Enable Core Board | Disable state | Additional comments |
+> **Dock V3714 and later**: DIP1 is no longer used for reconfigure and does not need to be switched down. Reconfigure and S4 have swapped roles, so reconfigure is now triggered by the **S4** button.
+
+| Enable Core Board (before V3714) | Disable state | Additional comments |
 | --- | --- | --- |
 |<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
 
@@ -55,6 +62,10 @@ For Dock ext-board, we can know the version of our board from the mark in the fo
 From the figure we can know the version of this board is V3708.
 
 Here are their errors.
+
+##### V3714
+
+DIP1 and S4 have swapped roles: DIP1 is no longer used for reconfigure, and reconfigure is triggered by the S4 button. As a result, Dock V3714 and later do not need DIP1 switched down.
 
 ##### V3708
 

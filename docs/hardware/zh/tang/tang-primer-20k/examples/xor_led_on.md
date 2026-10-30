@@ -87,6 +87,8 @@ $$E = A\oplus B\oplus C\oplus D = A\wedge B \wedge C\wedge D= (((A\wedge B )\wed
 
 Tang Primer 20K DOCK 底板配备有一个 5P 的拨码开关。其中一号拨码开关被设计成核心板卡使能位；剩下四个拨码开关用于用户自定义编程功能。
 
+> **注意**：V3714 及以后版本的 Dock，DIP1 不再用于 reconfigure，不需要拨下 DIP1；reconfigure 改由 S4 按键触发。下文关于 1 号拨码开关的说明仅适用于 V3714 之前的 Dock。
+
 | 拨码开关原理图 | 拨码开关与 FPGA 连接引脚图 |
 |---|---|
 | ![dip_switch](./assets/xor_led_on/dip_switch.png) | ![dip_switch_pin](./assets/xor_led_on/dip_switch_pin.png) |

@@ -143,6 +143,8 @@ For Nano 9K, hold S2 key to solve the trouble caused by JTAGSEL_N and JTAG pins 
 
 For 20K Dock kits, it's necessary to enable the core board before using debugger debug the chip, just put the 1 switch on the dip switch down, otherwise this error occurs.
 
+> **Note**: Dock V3714 and later do not need DIP1 switched down; reconfigure is triggered by the S4 button.
+
 | Enable Core Board | Disable state | Additional comments |
 | --- | --- | --- |
 |<img src="./../../../zh/tang/tang-primer-20k/assets/start/switch_1_on.png" alt="switch_1_on" width=100%>|<img src="./../../../zh/tang/tang-primer-20k/assets/start/reset_led_on.png" alt="reset_led_on" width=100%> | When disabled, the LDE0 and LED1 is on, and core board doesn't work.|
