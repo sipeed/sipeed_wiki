@@ -21,11 +21,14 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 ## 下载镜像
 
-前往 GitHub 下载最新版 NanoKVM Go 镜像。
+前往 GitHub Releases 页面下载镜像。普通镜像和恢复镜像都在同一个页面，且都不分型号，NanoKVM Go 和 NanoKVM Go+ 下载同一个文件即可：
+
+- 普通镜像：文件名不带 `Recovery`，烧录后设备正常启动系统，用于安装或重装系统；
+- 恢复镜像：文件名带 `Recovery`，烧录后设备进入恢复流程，用于系统损坏、无法启动时修复。
 
 镜像下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
-> NanoKVM Go 和 NanoKVM Go+ 使用同一个烧录镜像，Go+ 没有单独的镜像，两款设备下载同一个文件即可。
+> 两个镜像烧录后都会清除设备上的数据，烧录前请先备份重要数据。恢复镜像在恢复过程中务必不要断电，否则可能导致设备无法开机。
 
 ## 下载烧录工具
 
@@ -131,29 +134,19 @@ ImageUSB 仅支持 Windows。前往官网下载压缩包，解压后直接运行
 
 > 烧录过程中不要断开 USB 连接，也不要关闭烧录工具，否则可能导致镜像写入失败。
 
-## 烧录恢复镜像
+## 使用恢复镜像
 
-### 下载恢复镜像
-
-恢复镜像发布在 GitHub Releases 页面，和普通镜像在同一个仓库：
-
-下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
-
-下载 `NanoKVM-Go_GoPlus_Recovery_20261029.img.xz`即可。
-
-> 恢复镜像不分型号，NanoKVM Go 和 NanoKVM Go+ 使用同一份镜像，下载同一个文件即可。
+恢复镜像的下载方式见上文「下载镜像」。
 
 ### 烧录方法
 
 烧录方法与普通镜像相同，按上文「使用 balenaEtcher 烧录镜像」或「使用 ImageUSB 烧录镜像」操作即可。
 
-> 恢复镜像会覆盖系统分区和设置，烧录前请先备份重要数据。
-
 ### 在设备上完成恢复
 
 烧录完成后，不要按住烧录模式按键，断开设备供电再重新上电。设备会自动进入恢复流程，屏幕上依次出现以下界面：
 
-> 整个恢复过程需数分钟，请保持供电，不要断电，也不要拔出 USB 数据线。
+> 整个恢复过程需数分钟，请保持供电，不要断电，也不要拔出 USB 数据线，否则可能导致设备无法开机。
 
 1. 屏幕显示 `WARNING`，提示系统和设置将被覆盖。确认电源已连接后，点击 `START REPAIR` 开始恢复。
 
