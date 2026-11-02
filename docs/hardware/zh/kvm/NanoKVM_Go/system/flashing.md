@@ -21,11 +21,14 @@ keywords: NanoKVM Go, Remote desktop, KVM, flashing
 
 ## 下载镜像
 
-前往 GitHub 下载最新版 NanoKVM Go 镜像。
+前往 GitHub Releases 页面下载镜像。普通镜像和恢复镜像都在同一个页面，且都不分型号，NanoKVM Go 和 NanoKVM Go+ 下载同一个文件即可：
+
+- 普通镜像：文件名不带 `Recovery`，烧录后设备正常启动系统，用于安装或重装系统；
+- 恢复镜像：文件名带 `Recovery`，烧录后设备进入恢复流程，用于系统损坏、无法启动时修复。
 
 镜像下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
-> NanoKVM Go 和 NanoKVM Go+ 使用同一个烧录镜像，Go+ 没有单独的镜像，两款设备下载同一个文件即可。
+> 两个镜像烧录后都会清除设备上的数据，烧录前请先备份重要数据。恢复镜像在恢复过程中务必不要断电，否则可能导致设备无法开机。
 
 ## 下载烧录工具
 
@@ -130,3 +133,46 @@ ImageUSB 仅支持 Windows。前往官网下载压缩包，解压后直接运行
 烧录完成后，安全弹出 USB 设备，断开 USB 数据线，然后重新连接 NanoKVM Go，等待系统启动。
 
 > 烧录过程中不要断开 USB 连接，也不要关闭烧录工具，否则可能导致镜像写入失败。
+
+## 使用恢复镜像
+
+恢复镜像的下载方式见上文「下载镜像」。
+
+### 烧录方法
+
+烧录方法与普通镜像相同，按上文「使用 balenaEtcher 烧录镜像」或「使用 ImageUSB 烧录镜像」操作即可。
+
+### 在设备上完成恢复
+
+烧录完成后，不要按住烧录模式按键，断开设备供电再重新上电。设备会自动进入恢复流程，屏幕上依次出现以下界面：
+
+> 整个恢复过程需数分钟，请保持供电，不要断电，也不要拔出 USB 数据线，否则可能导致设备无法开机。
+
+1. 屏幕显示 `WARNING`，提示系统和设置将被覆盖。确认电源已连接后，点击 `START REPAIR` 开始恢复。
+
+![恢复镜像写入前的警告界面](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_confirm.webp)
+
+2. 屏幕显示 `Writing recovery`，正在写入 recovery 分区，约 10 秒。
+
+![写入 recovery 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_writing_recovery.webp)
+
+3. 屏幕显示 `Verifying recovery`，正在校验 recovery 分区，约 10 秒。
+
+![校验 recovery 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_verifying_recovery.webp)
+
+4. 屏幕显示 `Writing system`，正在写入 system 分区，约 100 秒。
+
+![写入 system 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_writing_system.webp)
+
+5. 屏幕显示 `Verifying system`，正在校验 system 分区，约 110 秒。
+
+![校验 system 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_verifying_system.webp)
+
+6. 屏幕显示 `REPAIR COMPLETE` 和 `100%`，并在 5 秒后自动重启，重启后恢复流程结束。
+
+![恢复完成](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_complete.webp)
+
+如果恢复过程中断电或写入失败，屏幕会显示 `REPAIR STOPPED`，提示重新进入 USB 烧录模式并再次烧录镜像，按上面的步骤重新烧录即可。
+
+![恢复中断](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_stopped.webp)
+
