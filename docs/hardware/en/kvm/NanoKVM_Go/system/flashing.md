@@ -130,3 +130,64 @@ Download link: [ImageUSB](https://www.osforensics.com/tools/write-usb-images.htm
 After flashing is complete, safely eject the USB device, disconnect the USB cable, reconnect NanoKVM Go, and wait for the system to boot.
 
 > Do not disconnect USB or close the flashing tool during flashing. Otherwise, the image may fail to write correctly.
+
+## Flash the Recovery Image
+
+### Download the Recovery Image
+
+Download the recovery image from MEGA:
+
+- [MEGA](https://mega.nz/folder/N5ZTGaAB#vWbMjiaVzgcOP8d0QP8pUg)
+
+Open the MEGA link and go into the `NanoKVM-Go` folder:
+
+![NanoKVM-Go folder in the MEGA share](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_folder.webp)
+
+That folder holds the recovery images along with a readme:
+
+![Recovery images and readme inside the NanoKVM-Go folder](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_files.webp)
+
+Pick the image that matches your device:
+
+- NanoKVM Go: `NanoKVM-Go_Recovery_*.img.xz`
+- NanoKVM Go+: `NanoKVM-Go_GoPlus_Recovery_*.img`
+
+### Flash Method
+
+Flash it exactly as you would a normal image, following **Flash the Image with balenaEtcher** or **Flash the Image with ImageUSB** above.
+
+> The recovery image overwrites the system partitions and settings. Back up important data before you start.
+
+### Complete the Recovery on the Device
+
+When flashing is done, release the flashing-mode button instead of holding it, cut power to the device, then power it back on. NanoKVM Go boots straight into the recovery flow and shows the following screens in order:
+
+> Recovery takes a few minutes. Keep the device powered the whole time: do not cut power and do not unplug the USB cable.
+
+1. `WARNING` appears, noting that the system and settings will be overwritten. With power connected, tap `START REPAIR` to begin.
+
+![Warning screen shown before the recovery image is written](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_confirm.webp)
+
+2. `Writing recovery` appears while the recovery partition is written, taking about 10 seconds.
+
+![Writing the recovery partition](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_writing_recovery.webp)
+
+3. `Verifying recovery` appears while the recovery partition is verified, taking about 10 seconds.
+
+![Verifying the recovery partition](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_verifying_recovery.webp)
+
+4. `Writing system` appears while the system partition is written, taking about 100 seconds.
+
+![Writing the system partition](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_writing_system.webp)
+
+5. `Verifying system` appears while the system partition is verified, taking about 110 seconds.
+
+![Verifying the system partition](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_verifying_system.webp)
+
+6. `REPAIR COMPLETE` and `100%` appear, and the device restarts on its own after 5 seconds. That ends the recovery flow.
+
+![Recovery complete at 100 percent](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_complete.webp)
+
+If power is lost or the write fails partway through, the screen shows `REPAIR STOPPED` and asks you to re-enter USB flashing mode and flash the image again. Repeat the flashing steps above.
+
+![REPAIR STOPPED shown after an interrupted recovery](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_stopped.webp)

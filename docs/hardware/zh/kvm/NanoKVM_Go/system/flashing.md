@@ -130,3 +130,66 @@ ImageUSB 仅支持 Windows。前往官网下载压缩包，解压后直接运行
 烧录完成后，安全弹出 USB 设备，断开 USB 数据线，然后重新连接 NanoKVM Go，等待系统启动。
 
 > 烧录过程中不要断开 USB 连接，也不要关闭烧录工具，否则可能导致镜像写入失败。
+
+## 烧录恢复镜像
+
+### 下载恢复镜像
+
+恢复镜像提供 MEGA 与百度网盘两个下载位置：
+
+- [MEGA](https://mega.nz/folder/N5ZTGaAB#vWbMjiaVzgcOP8d0QP8pUg)
+- [百度网盘](https://pan.baidu.com/e/verify?surl=pzOKFyb-xR2IckgExNdXvQ)，提取码 `w2hu`
+
+打开 MEGA 链接后，先进入 `NanoKVM-Go` 文件夹：
+
+![MEGA 分享页中的 NanoKVM-Go 文件夹](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_folder.webp)
+
+`NanoKVM-Go` 文件夹内有恢复镜像文件和一份说明文档：
+
+![NanoKVM-Go 文件夹中的恢复镜像和说明文档](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_files.webp)
+
+按设备型号选择对应的镜像文件：
+
+- NanoKVM Go：选择 `NanoKVM-Go_Recovery_*.img.xz`
+- NanoKVM Go+：选择 `NanoKVM-Go_GoPlus_Recovery_*.img`
+
+### 烧录方法
+
+烧录方法与普通镜像相同，按上文「使用 balenaEtcher 烧录镜像」或「使用 ImageUSB 烧录镜像」操作即可。
+
+> 恢复镜像会覆盖系统分区和设置，烧录前请先备份重要数据。
+
+### 在设备上完成恢复
+
+烧录完成后，不要按住烧录模式按键，断开设备供电再重新上电。设备会自动进入恢复流程，屏幕上依次出现以下界面：
+
+> 整个恢复过程需数分钟，请保持供电，不要断电，也不要拔出 USB 数据线。
+
+1. 屏幕显示 `WARNING`，提示系统和设置将被覆盖。确认电源已连接后，点击 `START REPAIR` 开始恢复。
+
+![恢复镜像写入前的警告界面](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_confirm.webp)
+
+2. 屏幕显示 `Writing recovery`，正在写入 recovery 分区，约 10 秒。
+
+![写入 recovery 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_writing_recovery.webp)
+
+3. 屏幕显示 `Verifying recovery`，正在校验 recovery 分区，约 10 秒。
+
+![校验 recovery 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_verifying_recovery.webp)
+
+4. 屏幕显示 `Writing system`，正在写入 system 分区，约 100 秒。
+
+![写入 system 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_writing_system.webp)
+
+5. 屏幕显示 `Verifying system`，正在校验 system 分区，约 110 秒。
+
+![校验 system 分区](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_verifying_system.webp)
+
+6. 屏幕显示 `REPAIR COMPLETE` 和 `100%`，并在 5 秒后自动重启，重启后恢复流程结束。
+
+![恢复完成](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_complete.webp)
+
+如果恢复过程中断电或写入失败，屏幕会显示 `REPAIR STOPPED`，提示重新进入 USB 烧录模式并再次烧录镜像，按上面的步骤重新烧录即可。
+
+![恢复中断](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_repair_stopped.webp)
+
