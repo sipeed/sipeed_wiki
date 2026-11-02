@@ -135,22 +135,13 @@ After flashing is complete, safely eject the USB device, disconnect the USB cabl
 
 ### Download the Recovery Image
 
-Download the recovery image from MEGA:
+The recovery image is published on the GitHub Releases page, in the same repository as the regular image:
 
-- [MEGA](https://mega.nz/folder/N5ZTGaAB#vWbMjiaVzgcOP8d0QP8pUg)
+Download link: [NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
-Open the MEGA link and go into the `NanoKVM-Go` folder:
+On the page for the release you need, download `NanoKVM-Go_GoPlus_Recovery_20261029.img.xz` from `Assets`.
 
-![NanoKVM-Go folder in the MEGA share](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_folder.webp)
-
-That folder holds the recovery images along with a readme:
-
-![Recovery images and readme inside the NanoKVM-Go folder](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_files.webp)
-
-Pick the image that matches your device:
-
-- NanoKVM Go: `NanoKVM-Go_Recovery_*.img.xz`
-- NanoKVM Go+: `NanoKVM-Go_GoPlus_Recovery_*.img`
+> One image covers both models: NanoKVM Go and NanoKVM Go+ use the same recovery image, so download the same file.
 
 ### Flash Method
 

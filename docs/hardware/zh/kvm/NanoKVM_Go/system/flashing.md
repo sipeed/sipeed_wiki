@@ -135,23 +135,13 @@ ImageUSB 仅支持 Windows。前往官网下载压缩包，解压后直接运行
 
 ### 下载恢复镜像
 
-恢复镜像提供 MEGA 与百度网盘两个下载位置：
+恢复镜像发布在 GitHub Releases 页面，和普通镜像在同一个仓库：
 
-- [MEGA](https://mega.nz/folder/N5ZTGaAB#vWbMjiaVzgcOP8d0QP8pUg)
-- [百度网盘](https://pan.baidu.com/e/verify?surl=pzOKFyb-xR2IckgExNdXvQ)，提取码 `w2hu`
+下载链接：[NanoKVM-Go Releases](https://github.com/sipeed/NanoKVM-Go/releases)
 
-打开 MEGA 链接后，先进入 `NanoKVM-Go` 文件夹：
+下载 `NanoKVM-Go_GoPlus_Recovery_20261029.img.xz`即可。
 
-![MEGA 分享页中的 NanoKVM-Go 文件夹](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_folder.webp)
-
-`NanoKVM-Go` 文件夹内有恢复镜像文件和一份说明文档：
-
-![NanoKVM-Go 文件夹中的恢复镜像和说明文档](../../../../assets/NanoKVM/go/system/nanokvm_go_flashing_recovery_mega_files.webp)
-
-按设备型号选择对应的镜像文件：
-
-- NanoKVM Go：选择 `NanoKVM-Go_Recovery_*.img.xz`
-- NanoKVM Go+：选择 `NanoKVM-Go_GoPlus_Recovery_*.img`
+> 恢复镜像不分型号，NanoKVM Go 和 NanoKVM Go+ 使用同一份镜像，下载同一个文件即可。
 
 ### 烧录方法
 
