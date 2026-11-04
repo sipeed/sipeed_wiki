@@ -1,48 +1,51 @@
 ---
 title: frp
-keywords: NanoKVM Go, frp, 远程访问, 内网穿透
+keywords: NanoKVM Go, frp, 内网穿透, 远程访问, frpc, frps
 ---
 
-frp 是一款内网穿透工具，可以将局域网内的 NanoKVM Go 服务转发到具有公网 IP 的服务器。配置完成后，即使 NanoKVM Go 所在网络没有公网 IP，也可以通过公网服务器远程访问它。
+## frp 简介
+
+frp 是一款内网穿透工具，可以把没有公网 IP 的 NanoKVM Go 转发到一台有公网 IP 的服务器上。配置完成后，你在外网打开服务器地址，就能像在局域网里一样访问 NanoKVM Go。
 
 frp 由两个组件组成：
 
-- `frps`：服务端，运行在具有公网 IP 的服务器上；
+- `frps`：服务端，运行在你自己的公网服务器上；
 - `frpc`：客户端，运行在 NanoKVM Go 上。
 
 ```text
 远程电脑或手机
        |
-       | 访问 https://公网 IP:8080
+       | 访问 https://frp.example.com:8443
        v
 公网服务器（frps） <----- frpc 主动连接 ----- NanoKVM Go
 ```
 
-> NanoKVM Go 网页端目前没有 FRP 配置入口，需要先在网页端开启 SSH，再通过 SSH 手动安装和配置 `frpc`。
+NanoKVM Go 已经集成 FRP 客户端，安装、填写服务器信息、启用和停用都可以在网页控制端完成，不需要开启 SSH，也不需要手动下载程序。**只有公网服务器上的 `frps` 需要你自己安装**，步骤见下文。
 
-> 将 NanoKVM Go 暴露到公网会增加被扫描、撞库和攻击的风险。请先为 NanoKVM Go 设置强密码。本文的基础 TCP 示例会转发 NanoKVM Go 本机的 HTTPS 服务，但设备证书通常是自签名证书，浏览器可能提示证书不受信任。有域名时可以配置可信域名证书；如果不希望暴露公网端口，也可以改用 Tailscale 等虚拟组网方案。
+> 公网服务器是需要你自己准备的一台 Linux 云服务器。NanoKVM Go 只负责运行客户端并主动连接它，设备所在的局域网不需要做端口映射。
 
-## 准备工作
+> 将 NanoKVM Go 暴露到公网会增加被扫描、撞库和攻击的风险。请先为 NanoKVM Go 设置强密码，并为 frps 配置一个随机 Token。本文的基础示例转发的是 NanoKVM Go 自带的 HTTPS 服务，但设备证书通常是自签名证书，浏览器可能提示证书不受信任；有域名时可以配置可信证书，见下文「配置域名和 HTTPS（可选）」一节。如果不希望暴露公网端口，也可以改用 [Tailscale](tailscale.html)、[ZeroTier](zerotier.html)、[NetBird](netbird.html) 这类虚拟组网方案。
+
+## 使用前准备
 
 开始配置前，请准备：
 
 - 一台具有公网 IPv4 地址的 Linux 服务器；
-- 已连接互联网的 NanoKVM Go；
-- NanoKVM Go 和公网服务器的管理员权限；
+- 已连接互联网的 NanoKVM Go，且应用为最新版本（在 `设置` > `远程网络` 中能看到 `FRP` 卡片）；
+- NanoKVM Go 可以访问 GitHub，安装客户端时需要从 GitHub 下载安装包；
 - 公网服务器云安全组和系统防火墙的修改权限；
 - 一个不容易被猜到的 frp 身份验证 Token。
 
 本文使用以下示例参数：
 
-| 项目 | 示例值 | 用途 |
+| 项目 | 示例值 | 说明 |
 | --- | --- | --- |
-| 公网服务器 IP | `203.0.113.10` | 运行 `frps` |
-| frps 通信端口 | `7000` | `frpc` 连接 `frps` |
-| NanoKVM Go 公网访问端口 | `8080` | 浏览器访问 NanoKVM Go |
-| NanoKVM Go Web 地址 | `127.0.0.1:443` | `frpc` 转发的本地 HTTPS 服务 |
-| Token | `replace_with_a_strong_token` | 验证 `frpc` 身份 |
+| 公网服务器地址 | `frp.example.com`（示例 IP：`203.0.113.10`） | 在 NanoKVM Go 中填写 |
+| frps 通信端口 | `7000` | 客户端连接服务端使用 |
+| 公网映射端口 | `8443` | 浏览器访问 NanoKVM Go 使用 |
+| Token | `replace_with_a_strong_token` | 服务端与客户端必须完全一致 |
 
-`203.0.113.10` 是文档示例地址，不能直接使用。请将本文中的公网 IP、端口和 Token 替换为自己的实际参数。
+`203.0.113.10` 和 `frp.example.com` 都是文档示例，不能直接使用。没有域名时，在 NanoKVM Go 中直接填写公网服务器的 IP 即可。请将本文中的地址、端口和 Token 替换成你自己的实际参数。
 
 ## 在公网服务器上安装 frps
 
@@ -54,7 +57,9 @@ frp 由两个组件组成：
 uname -m
 ```
 
-打开 [frp Releases](https://github.com/fatedier/frp/releases)，选择与服务器架构匹配的 Linux 安装包。常见架构对应关系如下：
+打开 [frp Releases](https://github.com/fatedier/frp/releases)，选择与服务器架构匹配的 Linux 安装包。NanoKVM Go 内置的客户端是 frp `0.71.0`，**公网服务器请安装同一版本**；版本不一致时可能无法建立连接。
+
+常见架构对应关系如下：
 
 | `uname -m` 输出 | frp 安装包架构 |
 | --- | --- |
@@ -64,34 +69,32 @@ uname -m
 | ARMv5 等较旧 ARM 设备 | `linux_arm` |
 | `riscv64` | `linux_riscv64` |
 
-本文以 frp `0.70.0` 为例，可以在发布页面中直接下载：
+可以在发布页面中直接下载 0.71.0：
 
-- [frp 0.70.0 发布页面](https://github.com/fatedier/frp/releases/tag/v0.70.0)
-- [Linux AMD64 安装包](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_amd64.tar.gz)
-- [Linux ARM64 安装包](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm64.tar.gz)
-- [Linux ARMv7 硬浮点安装包](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm_hf.tar.gz)
-- [Linux RISC-V 64 安装包](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_riscv64.tar.gz)
+- [frp 0.71.0 发布页面](https://github.com/fatedier/frp/releases/tag/v0.71.0)
+- [Linux AMD64 安装包](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_amd64.tar.gz)
+- [Linux ARM64 安装包](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_arm64.tar.gz)
+- [Linux ARMv7 硬浮点安装包](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_arm_hf.tar.gz)
+- [Linux RISC-V 64 安装包](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_riscv64.tar.gz)
 
 大多数云服务器的架构为 `x86_64`。如果 `uname -m` 输出为 `x86_64`，执行以下命令下载并安装：
 
 ```bash
-wget https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_amd64.tar.gz
-tar -xzf frp_0.70.0_linux_amd64.tar.gz
-cd frp_0.70.0_linux_amd64
+wget https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_amd64.tar.gz
+tar -xzf frp_0.71.0_linux_amd64.tar.gz
+cd frp_0.71.0_linux_amd64
 sudo install -m 755 frps /usr/local/bin/frps
 ```
 
 `sudo install -m 755 frps /usr/local/bin/frps` 的作用是将当前目录下的 `frps` 程序复制到 `/usr/local/bin/frps`，并把权限设置为 `755`，也就是所有用户都可以执行，只有文件所有者可以修改。
 
-如果服务器是其他架构，请下载表格中对应的安装包，并将命令中的压缩包名称和解压目录替换为实际名称。公网服务器与 NanoKVM Go 应使用同一个 frp 版本。
+如果服务器是其他架构，请下载表格中对应的安装包，并将命令中的压缩包名称和解压目录替换为实际名称。
 
 确认 `frps` 可以运行：
 
 ```bash
 /usr/local/bin/frps --version
 ```
-
-> 建议在公网服务器和 NanoKVM Go 上安装同一版本的 frp，避免因版本差异造成配置不兼容。
 
 ### 创建 frps 配置
 
@@ -110,13 +113,20 @@ auth.method = "token"
 auth.token = "replace_with_a_strong_token"
 ```
 
+这里只需要两项配置：
+
+- `bindPort`：`frps` 监听端口，客户端会连接这个端口；
+- `auth.token`：客户端身份验证 Token，必须与 NanoKVM Go 里填写的完全一致。
+
+> NanoKVM Go 的客户端固定使用 TCP 转发，把设备本机的 HTTPS 服务映射到公网端口，因此服务端**不需要**配置 `vhostHTTPPort` 或 `vhostHTTPSPort`。
+
 请将 `auth.token` 替换为随机生成的强 Token。可以在公网服务器上使用以下命令生成：
 
 ```bash
 openssl rand -hex 32
 ```
 
-frps 和 frpc 配置中的 Token 必须完全一致。Token 只用于验证 frpc，不能代替 NanoKVM Go 自身的登录密码，也不能代替浏览器访问时使用的 HTTPS 证书。
+Token 只用于验证客户端，不能代替 NanoKVM Go 自身的登录密码，也不能代替浏览器访问时使用的 HTTPS 证书。
 
 ### 启动 frps
 
@@ -141,8 +151,7 @@ ps -p 1 -o comm=
 | 输出示例 | 启动方式 |
 | --- | --- |
 | `systemd` | 使用 systemd |
-| `init`、`sysvinit`，并且存在 `/etc/init.d/` | 使用 SysV init |
-| `openrc-init` | 使用 OpenRC |
+| 其他输出（如 `init`） | 使用当前发行版自带的 init 系统，参考下方 SysV init 一节 |
 
 > 是否可以使用 systemd，应以 PID 1 是否为 `systemd` 为准。系统中存在 `systemctl` 命令，并不表示当前系统已经通过 systemd 启动。
 
@@ -265,7 +274,7 @@ sudo /usr/local/bin/frps -c /etc/frp/frps.toml
 在云服务器安全组和系统防火墙中放行：
 
 - `7000/tcp`：NanoKVM Go 上的 frpc 连接 frps；
-- `8080/tcp`：远程浏览器访问 NanoKVM Go。
+- `8443/tcp`：远程浏览器访问 NanoKVM Go（本文示例的公网映射端口，可自行更换）。
 
 不同 Linux 发行版使用的防火墙工具可能不同。先执行：
 
@@ -282,7 +291,7 @@ command -v firewall-cmd
 
 ```bash
 sudo ufw allow 7000/tcp
-sudo ufw allow 8080/tcp
+sudo ufw allow 8443/tcp
 sudo ufw status
 ```
 
@@ -294,7 +303,7 @@ sudo ufw status
 
 ```bash
 sudo firewall-cmd --permanent --add-port=7000/tcp
-sudo firewall-cmd --permanent --add-port=8080/tcp
+sudo firewall-cmd --permanent --add-port=8443/tcp
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 ```
@@ -306,7 +315,7 @@ sudo firewall-cmd --list-ports
 | 协议 | 端口 | 来源 |
 | --- | --- | --- |
 | TCP | `7000` | NanoKVM Go 所在网络的公网 IP；无法固定时可临时使用任意来源进行测试 |
-| TCP | `8080` | 需要访问 NanoKVM Go 的公网 IP；无法固定时可临时使用任意来源进行测试 |
+| TCP | `8443` | 需要访问 NanoKVM Go 的公网 IP；无法固定时可临时使用任意来源进行测试 |
 
 测试完成后，建议将来源范围缩小到实际需要的 IP，不要长期允许所有公网地址访问。
 
@@ -316,215 +325,103 @@ sudo firewall-cmd --list-ports
 sudo ss -lntp | grep ':7000'
 ```
 
-还可以确认远程访问端口是否已由 frps 监听：
+> `8443` 端口需要在 NanoKVM Go 上的客户端成功连接并注册转发规则后才会出现，此时执行 `sudo ss -lntp | grep ':8443'` 可以看到 frps 已在监听。
 
-```bash
-sudo ss -lntp | grep ':8080'
-```
+## 在 NanoKVM Go 网页端配置 FRP
 
-> `8080` 端口需要在 NanoKVM Go 上的 frpc 成功连接并注册代理后才会出现。
+接下来的步骤都在浏览器中完成，不需要登录 SSH。登录 NanoKVM Go 网页控制端后，打开 `设置` > `远程网络`。
 
-## 在 NanoKVM Go 网页端开启 SSH
+### 打开 FRP 设置
 
-NanoKVM Go 网页端没有 FRP 入口，因此需要先开启 SSH，再通过命令行安装 frpc。
+1. 登录 NanoKVM Go 网页控制端，点击顶部工具栏中的设置图标；
+2. 在设置页面左侧选择 `远程网络`；
+3. 点击 `FRP` 卡片。
 
-### 登录 NanoKVM Go
+![在 NanoKVM Go 的远程网络页面选择 FRP](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_entry.webp)
 
-1. 在浏览器中打开 NanoKVM Go 的局域网地址；
-2. 输入账号和密码，登录网页控制端；
-3. 确认 NanoKVM Go 当前的局域网 IP 地址。
+### 安装 FRP 客户端
 
-### 打开 SSH 设置
+第一次进入时，页面提示 `未检测到 FRP，请先安装`。
 
-1. 打开 NanoKVM Go 的设置页面；
+1. 点击 `安装`；
+2. 等待安装完成。安装包从 GitHub 下载，耗时取决于设备的网络情况。
 
-![NanoKVM Go 设置页面入口](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.webp)
+![FRP 页面上的安装按钮](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_install.webp)
 
-2. 进入包含 SSH 开关的设置项；开启 SSH 服务；
+安装完成后，页面出现服务器信息表单，状态显示 `未配置`。如果提示安装失败，先确认设备可以正常访问 GitHub、剩余存储空间充足，再重试。
 
-![NanoKVM Go SSH 开关页面](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.webp)
+### 填写服务器信息
 
-### 通过 SSH 登录
+按下表填写，全部填完后点击 `保存并应用`：
 
-在与 NanoKVM Go 位于同一局域网的电脑上打开终端，通过 SSH 登录：
+| 页面项 | 填写内容 | 说明 |
+| --- | --- | --- |
+| 服务器地址 | `frp.example.com` 或公网 IP | 只填域名或 IP，**不要带 `https://`，也不要带端口** |
+| 服务器端口 | `7000` | 与 `frps.toml` 中的 `bindPort` 一致 |
+| 公网映射端口 | `8443` | 外网访问时使用的端口，不能与服务器端口相同 |
+| Token | `replace_with_a_strong_token` | 与 `frps.toml` 中的 `auth.token` 完全一致 |
 
-```bash
-ssh <SSH用户名>@<NanoKVM-Go局域网IP>
+![填写服务器地址、端口和 Token 后保存并应用](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_configure.webp)
 
-例如: ssh root@192.168.0.225
-```
+几个容易填错的地方：
 
-> 首次连接时，终端会询问是否信任设备指纹。确认 IP 地址无误后输入 `yes`，再输入 SSH 密码。用户名是 `root`，密码是 `sipeed`
+- 服务器地址填的是**公网服务器**的地址，不是 NanoKVM Go 自己的地址；
+- 公网映射端口是你希望在外网使用的端口，需要在公网服务器上放行，并且不能被其他程序占用；
+- 如果 `frps.toml` 里配置了 `auth.token`（推荐），Token 必须填写完全相同的值。
 
-## 在 NanoKVM Go 上安装 frpc
+如果开启了双重验证，并且把 FRP 纳入保护范围，安装、保存和启停时需要再输入一次验证码。
 
-后续命令均在 NanoKVM Go 的 SSH 终端中执行。
+### 启用转发
 
-### 确认系统架构
+保存后状态变为 `已停用`，点击 `启用` 开始连接：
 
-执行：
+1. 点击 `启用`；
+2. 状态短暂显示 `正在连接`；
+3. 连接成功后状态变为 `转发正常`。
 
-```bash
-uname -m
-```
+启用后客户端会以系统服务方式运行，并在 NanoKVM Go 重启后自动启动。需要断开时点击 `停用`，需要重连时点击状态右侧的重启按钮。
 
-NanoKVM Go 实机执行 `uname -m` 的输出为：
+### 查看访问地址
 
-```text
-armv7l
-```
-
-因此应使用 frp 的 `linux_arm_hf` 安装包。该安装包针对 ARMv7 硬浮点环境构建，不要下载 `linux_arm64`。
-
-### 下载并安装 frpc
-
-NanoKVM Go 的 `/tmp` 通常挂载在内存中的 tmpfs 上，空间较小。建议将安装包下载到根分区中的 `/root` 目录。
-
-执行以下命令下载并安装 frpc：
-
-```bash
-cd /root
-wget https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm_hf.tar.gz
-tar -xzf frp_0.70.0_linux_arm_hf.tar.gz
-cd frp_0.70.0_linux_arm_hf
-mkdir -p /usr/local/bin
-cp frpc /usr/local/bin/frpc
-chmod +x /usr/local/bin/frpc
-```
-
-下载或解压失败时，请先确认 NanoKVM Go 可以访问 GitHub，并检查命令中的版本号和文件名是否与 Releases 页面一致。
-
-确认安装结果：
-
-```bash
-/usr/local/bin/frpc --version
-```
-
-如果 NanoKVM Go 无法直接访问 GitHub，也可以先在电脑上下载安装包，再使用 `scp` 上传到设备的 `/root` 目录：
-
-```bash
-scp frp_0.70.0_linux_arm_hf.tar.gz <SSH用户名>@<NanoKVM-Go局域网IP>:/root/
-```
-
-### 创建 frpc 配置
-
-创建配置目录：
-
-```bash
-mkdir -p /etc/frp
-```
-
-创建 `/etc/frp/frpc.toml`：
-
-```toml
-serverAddr = "203.0.113.10"
-serverPort = 7000
-
-auth.method = "token"
-auth.token = "replace_with_a_strong_token"
-
-[[proxies]]
-name = "nanokvm-go-web"
-type = "tcp"
-localIP = "127.0.0.1"
-localPort = 443
-remotePort = 8080
-```
-
-需要修改的参数如下：
-
-| 参数 | 修改内容 |
-| --- | --- |
-| `serverAddr` | 公网服务器的实际 IP 或域名 |
-| `serverPort` | frps 的 `bindPort`，本文为 `7000` |
-| `auth.token` | 与 `frps.toml` 完全相同的 Token |
-| `localPort` | NanoKVM Go Web 服务的实际监听端口，本文使用 HTTPS 端口 `443` |
-| `remotePort` | 公网访问端口，本文为 `8080` |
-
-先检查本地 Web 服务是否可以访问：
-
-```bash
-wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
-```
-
-NanoKVM Go 的 HTTP 端口可能会重定向到 HTTPS。若直接访问 `http://127.0.0.1:80` 后看到 `307 Temporary Redirect`，并跳转到 `https://127.0.0.1/`，属于正常现象。由于设备使用的证书通常不是公网可信证书，使用 `wget` 测试时需要加上 `--no-check-certificate`。
-
-如果连接被拒绝，请先确认 NanoKVM Go Web 服务的实际端口，再修改 `localPort`。
-
-### 测试 frpc 连接
-
-在前台启动 frpc：
-
-```bash
-/usr/local/bin/frpc -c /etc/frp/frpc.toml
-```
-
-日志中出现 `login to server success` 和 `start proxy success` 等成功信息时，表示 frpc 已连接到 frps，并已注册代理。
-
-保持该终端运行，在外部网络的浏览器中访问：
+启用成功后，页面底部会显示 `访问地址`，例如：
 
 ```text
-https://203.0.113.10:8080
+https://frp.example.com:8443
 ```
 
-将示例 IP 替换为公网服务器的实际 IP。首次访问时，浏览器可能提示证书不受信任；确认访问的是自己的服务器后，可以继续访问测试。如果可以打开 NanoKVM Go 登录页面，说明 TCP 转发配置正确。完成测试后，返回 SSH 终端并按 `Ctrl+C` 停止 frpc。
+点击地址右侧的复制按钮即可复制。这个地址就是外网访问 NanoKVM Go 的入口。
 
-![frpc 成功连接 frps](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.webp)
+![转发正常后的访问地址](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_connected.webp)
 
+状态含义：
 
-### 设置 frpc 开机自启
-
-NanoKVM Go 使用 systemd 管理系统服务。创建 `/etc/systemd/system/frpc.service`：
-
-```ini
-[Unit]
-Description=frp client for NanoKVM Go
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/frpc -c /etc/frp/frpc.toml
-Restart=always
-RestartSec=5s
-
-[Install]
-WantedBy=multi-user.target
-```
-
-加载服务并设置开机自启：
-
-```bash
-systemctl daemon-reload
-systemctl enable --now frpc
-systemctl status frpc
-```
-
-查看实时日志：
-
-```bash
-journalctl -u frpc -f
-```
-
-重启 NanoKVM Go 后，再次执行 `systemctl status frpc`，确认服务可以自动启动并重新连接 frps。
-
+| 状态 | 含义 | 需要做什么 |
+| --- | --- | --- |
+| `未安装` | 还没有安装客户端 | 点击 `安装` |
+| `未配置` | 已安装，但没有保存服务器信息 | 填写并保存表单 |
+| `已停用` | 配置已保存，客户端未运行 | 点击 `启用` |
+| `正在连接` | 已启动，正在与 frps 建立连接 | 等待，通常几秒内完成 |
+| `转发正常` | 已连接，转发规则已生效 | 可以从外网访问 |
+| `连接异常` | 连接失败或转发规则启动失败 | 见[常见问题](#常见问题) |
 
 ## 从外网访问 NanoKVM Go
 
 为了确认访问流量确实经过公网，请将电脑或手机切换到其他网络，例如手机热点或移动数据网络，然后：
 
-1. 在浏览器中访问 `https://<公网服务器IP>:8080`；
+1. 在浏览器中打开 `https://frp.example.com:8443`，即页面上的访问地址；
 2. 使用 NanoKVM Go 的账号和密码登录；
 3. 测试远程画面、键盘、鼠标和电源控制；
 4. 刷新页面，确认视频和控制功能仍能正常工作。
 
-TCP 代理会原样转发 HTTPS 和 WebSocket 连接，通常不需要单独配置 WebSocket。如果页面能打开但画面或控制功能异常，请查看浏览器开发者工具、frpc 日志和 frps 日志。
+TCP 转发会原样传递 HTTPS 和 WebSocket 连接，通常不需要额外配置 WebSocket。首次访问时，浏览器可能提示证书不受信任，因为设备使用的是自签名证书，确认访问的是自己的设备后可以继续。
+
+如果页面能打开，但画面一直连不上，在 `设置` > `屏幕` > `视频模式` 中把视频模式改为 `H.264 Direct` 或 `H.265 Direct` 后再试。
 
 ## 配置域名和 HTTPS（可选）
 
-基础示例中的 `https://<公网IP>:8080` 使用的是 NanoKVM Go 自身证书，浏览器可能提示证书不受信任。如果有可用域名，可以将域名解析到 frps 服务器，并使用 Nginx 或 Caddy 提供可信 HTTPS 反向代理。
+访问地址直接使用公网服务器的 IP 和端口时，浏览器会提示证书不受信任。如果有可用域名，可以将域名解析到 frps 服务器，并使用 Nginx 或 Caddy 提供可信 HTTPS 反向代理，这样就不用带端口访问了。
 
-以 Nginx 为例，可以让 Nginx 监听 `443`，再将请求转发到 frp 暴露在服务器本机的 `8080` 端口：
+以 Nginx 为例，让 Nginx 监听 `443`，再把请求转发到 frp 暴露在服务器本机的 `8443` 端口：
 
 ```nginx
 server {
@@ -535,7 +432,7 @@ server {
     ssl_certificate_key /path/to/privkey.pem;
 
     location / {
-        proxy_pass https://127.0.0.1:8080;
+        proxy_pass https://127.0.0.1:8443;
         proxy_http_version 1.1;
         proxy_ssl_verify off;
         proxy_set_header Host $host;
@@ -554,182 +451,43 @@ server {
 1. 将域名的 A 记录指向 frps 服务器公网 IP；
 2. 在服务器上安装 Nginx 或 Caddy；
 3. 为域名申请 TLS 证书；
-4. 将 HTTPS 请求反向代理到 `https://127.0.0.1:8080`；
+4. 将 HTTPS 请求反向代理到 `https://127.0.0.1:8443`（与页面上填写的公网映射端口一致）；
 5. 在安全组和防火墙中放行 `443/tcp`；
-6. 确认 `https://kvm.example.com` 可以访问后，关闭公网入站的 `8080/tcp`。
+6. 确认 `https://kvm.example.com` 可以访问后，关闭公网入站的 `8443/tcp`。
 
-配置 HTTPS 后，应通过云安全组和服务器防火墙拒绝 `8080/tcp` 的公网入站流量，仅允许服务器本机的 Nginx 访问该端口。不要在 HTTPS 配置完成后继续将 HTTP 端口公开在互联网中。
+> `proxy_pass` 使用 `https://`，是因为 NanoKVM Go 自身提供的是 HTTPS 服务；`proxy_ssl_verify off` 用于忽略设备自签名证书的校验。
 
+## 修改配置、停用和卸载
 
-## 常见问题
+### 修改服务器信息
 
-### frpc 无法连接 frps
+在 FRP 页面直接修改 `服务器地址`、`服务器端口`、`公网映射端口`，然后点击 `保存并应用`。如果当前处于启用状态，客户端会自动重启并使用新配置；如果新配置连不上，页面会提示错误，并尽量恢复到修改前的配置。
 
-依次检查：
+Token 保存后不会回显。需要更换时，直接在 Token 输入框中输入新值再保存；点击 `清除` 会停用服务并删除已保存的 Token（其他配置保留）。
 
-- `serverAddr` 和 `serverPort` 是否正确；
-- frps 是否为 `active (running)`；
-- `7000/tcp` 是否已在云安全组和系统防火墙中放行；
-- frps 和 frpc 的 Token 是否完全一致；
-- 公网服务器和 NanoKVM Go 的 frp 版本是否兼容；
-- NanoKVM Go 是否可以访问互联网和公网服务器。
+### 停用
 
-可以在 NanoKVM Go 上测试端口连通性：
+点击状态行右侧的 `停用`，客户端会停止运行并取消开机自启，配置仍然保留。需要恢复时重新点击 `启用`。
 
-```bash
-nc -vz <公网服务器IP> 7000
-```
+> 停用会立即中断正在通过 FRP 连接的会话。
 
-如果系统没有 `nc`，也可以直接观察 frpc 的连接日志。
+### 卸载
 
-### frpc 已连接，但公网端口无法访问
+点击 FRP 页面右上角的 `⋯`（更多）按钮，选择 `卸载 FRP`，确认后客户端程序和开机自启服务会被移除。
 
-检查：
+卸载**不会**删除已保存的配置，重新安装后可以继续使用原有设置。如果需要连配置一起清除，请联系售后处理。
 
-- `remotePort` 是否被其他程序或其他 frp 代理占用；
-- `8080/tcp` 是否已在云安全组和系统防火墙中放行；
-- frpc 日志中是否显示代理启动成功；
-- frps 日志中是否出现 `nanokvm-go-web`；
-- 浏览器使用的是 `https://`，而不是 `http://`。
-
-在公网服务器上确认端口是否正在监听：
-
-```bash
-sudo ss -lntp | grep ':8080'
-```
-
-### 页面无法打开或返回连接拒绝
-
-在 NanoKVM Go 上执行：
-
-```bash
-wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
-```
-
-如果本地访问也失败，说明 `localIP` 或 `localPort` 不正确，或者 NanoKVM Go Web 服务没有运行。
-
-### 本地测试提示证书不受信任
-
-如果执行 `wget -S -O /dev/null http://127.0.0.1:80` 后看到 `307 Temporary Redirect`，并跳转到 `https://127.0.0.1/`，说明 NanoKVM Go 会自动使用 HTTPS。随后出现以下证书错误通常是正常的：
-
-```text
-ERROR: The certificate of '127.0.0.1' is not trusted.
-ERROR: The certificate's owner does not match hostname '127.0.0.1'
-```
-
-这是因为 NanoKVM Go 使用的证书不是为 `127.0.0.1` 签发的公网可信证书。测试本机 HTTPS 服务时，使用：
-
-```bash
-wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
-```
-
-frpc 配置中也应转发 `localPort = 443`。
-
-### 页面能打开，但视频或控制功能异常
-
-检查：
-
-- 浏览器开发者工具中是否存在 WebSocket 连接错误；
-- frpc 和 frps 是否频繁断线或重连；
-- Nginx/Caddy 是否正确转发 WebSocket Upgrade 请求；
-- HTTPS 页面是否加载了 HTTP 资源；
-- 公网服务器带宽和 NanoKVM Go 所在网络的上行带宽是否足够。
-
-### 重启后 frpc 没有自动运行
-
-在 NanoKVM Go 上执行：
-
-```bash
-systemctl status frpc
-journalctl -u frpc -b
-```
-
-检查服务是否已启用、配置文件路径是否正确，以及网络就绪后 frpc 能否连接 frps。
-
-## 停用 frp
-
-### 临时停用
-
-如果只是暂时不使用 frp，并希望以后继续使用，可以停止服务并取消开机自启，同时保留程序和配置文件。
-
-在 NanoKVM Go 上停止并禁用 frpc：
-
-```bash
-systemctl disable --now frpc
-```
-
-如果公网服务器使用 systemd，停止并禁用 frps：
-
-```bash
-sudo systemctl disable --now frps
-```
-
-如果公网服务器使用 SysV init，停止 frps 并取消开机自启：
-
-```bash
-sudo service frps stop
-sudo update-rc.d -f frps remove
-```
-
-需要恢复 NanoKVM Go 上的 systemd 服务时，执行：
-
-```bash
-systemctl enable --now frpc
-```
-
-需要恢复公网服务器上的 systemd 服务时，执行：
-
-```bash
-sudo systemctl enable --now frps
-```
-
-需要恢复公网服务器上的 SysV init 服务时，执行：
-
-```bash
-sudo update-rc.d frps defaults
-sudo service frps start
-```
-
-> 只执行与当前 init 系统对应的命令。如果公网服务器使用其他服务管理器，请使用对应的停止和禁用命令。
-
-### 彻底卸载
-
-frp 是通过手动复制二进制文件安装的，不受 `apt`、`dnf` 等软件包管理器管理。彻底卸载时，需要手动删除服务、程序和配置文件。
-
-在 NanoKVM Go 上先停止 frpc，并删除 systemd 服务文件：
-
-```bash
-systemctl disable --now frpc
-rm -f /etc/systemd/system/frpc.service
-systemctl daemon-reload
-```
-
-然后在 NanoKVM Go 上删除 frpc 程序和配置：
-
-```bash
-rm -f /usr/local/bin/frpc
-rm -f /etc/frp/frpc.toml
-rmdir /etc/frp 2>/dev/null || true
-```
-
-删除 NanoKVM Go 中下载和解压产生的临时文件：
-
-```bash
-rm -f /root/frp_0.70.0_linux_arm_hf.tar.gz
-rm -rf /root/frp_0.70.0_linux_arm_hf
-```
-
-如果实际下载的是其他版本或架构，请将文件名替换为实际名称。
-
-如果公网服务器使用 systemd，先删除 frps 服务：
+公网服务器上的 `frps` 需要手动卸载：先停止并删除服务，再删除程序和配置。
 
 ```bash
 sudo systemctl disable --now frps
 sudo rm -f /etc/systemd/system/frps.service
 sudo systemctl daemon-reload
+sudo rm -f /usr/local/bin/frps
+sudo rm -f /etc/frp/frps.toml
 ```
 
-如果公网服务器使用 SysV init，先删除 frps 服务：
+如果公网服务器使用 SysV init，改用：
 
 ```bash
 sudo service frps stop
@@ -737,52 +495,75 @@ sudo update-rc.d -f frps remove
 sudo rm -f /etc/init.d/frps
 ```
 
-完成对应的服务清理后，删除 frps 程序和配置：
+最后在安全组和防火墙中删除 `7000/tcp`、`8443/tcp` 的放行规则。
 
-```bash
-sudo rm -f /usr/local/bin/frps
-sudo rm -f /etc/frp/frps.toml
-sudo rmdir /etc/frp 2>/dev/null || true
-```
+## 常见问题
 
-公网服务器上的 frp 压缩包和解压目录位于此前执行下载命令的目录中。确认目录和文件名无误后，可以将其删除。
+### `设置` > `远程网络` 里没有 FRP 卡片
 
-### 清理防火墙和其他配置
+先确认 NanoKVM Go 的应用版本是否为最新版本，更新后重新打开 `设置` > `远程网络`。
 
-如果安装并使用了 UFW，删除本文添加的放行规则：
+### 点击安装后提示安装失败
 
-```bash
-sudo ufw delete allow 7000/tcp
-sudo ufw delete allow 8080/tcp
-```
+安装包从 GitHub 下载。确认设备可以访问 GitHub、剩余存储空间充足，然后重试。
 
-如果安装并使用了 firewalld，执行：
+### 状态一直是 `正在连接` 或 `连接异常`
 
-```bash
-sudo firewall-cmd --permanent --remove-port=7000/tcp
-sudo firewall-cmd --permanent --remove-port=8080/tcp
-sudo firewall-cmd --reload
-```
+依次检查：
 
-最后还需要检查并清理：
+- `服务器地址` 是否只填了域名或 IP，没有带 `https://` 和端口；
+- `服务器端口` 是否与 `frps.toml` 中的 `bindPort` 一致；
+- frps 是否正在运行，`7000/tcp` 是否已在云安全组和系统防火墙中放行；
+- 两边的 Token 是否完全一致；
+- 公网服务器和 NanoKVM Go 是否能正常访问互联网。
 
-- 云服务器安全组中的 `7000/tcp`、`8080/tcp` 等 frp 端口；
-- 专门为 NanoKVM Go 创建的 Nginx 或 Caddy 配置；
-- 不再使用的 TLS 证书；
-- 不再使用的域名 DNS 记录。
+连接失败时客户端会自动重试，修改配置并重新保存通常就能恢复。也可以在公网服务器上查看 frps 日志：使用 systemd 时执行 `sudo journalctl -u frps -n 50`；其他 init 系统可以让 frps 在前台运行，直接查看输出。
 
-> 如果相应防火墙命令不存在，可以跳过该组命令。如果端口、反向代理或证书还被其他服务使用，请不要直接删除对应配置。
+### 状态是 `转发正常`，但外网打不开页面
+
+检查：
+
+- `公网映射端口` 是否已在云安全组和系统防火墙中放行；
+- 该端口是否已被其他程序占用。公网服务器上可以执行 `sudo ss -lntp | grep ':8443'` 确认；
+- 浏览器使用的是 `https://`，而不是 `http://`；
+- 访问的是公网服务器的地址，不是局域网地址。
+
+### 页面能打开，但画面一直连不上
+
+在 `设置` > `屏幕` > `视频模式` 中改为 `H.264 Direct` 或 `H.265 Direct` 后再试。WebRTC 视频需要单独建立点对点连接，经过端口转发时通常无法建立。
+
+### 重启 NanoKVM Go 后 FRP 没有自动恢复
+
+FRP 只有在 `启用` 状态下才会开机自启。打开 `设置` > `远程网络` > `FRP`，确认状态不是 `已停用`；如果是，点击 `启用` 即可。
+
+### 忘记 Token 了怎么办
+
+Token 保存后不会显示，页面上只显示 `已保存`。在公网服务器上查看 `frps.toml` 中的 `auth.token`，重新填入 NanoKVM Go 保存即可；也可以两边同时换成一个新的随机 Token。
+
+### 公网映射端口为什么不能和服务器端口相同
+
+公网映射端口是 frps 在公网服务器上额外监听的端口，和 frps 自己的监听端口冲突时会启动失败，因此页面不允许两者相同。例如服务器端口是 `7000`，公网映射端口请使用 `8443` 等其他端口。
+
+### 会不会影响局域网访问
+
+不会。FRP 只影响外网访问，局域网内仍然可以直接用设备原来的地址访问。
 
 ## 安全建议
 
-- 为 NanoKVM Go 设置独立的强密码；
+- 为 NanoKVM Go 设置独立的强密码，并开启双重验证；
 - 使用随机生成的强 Token，不要使用本文示例值；
-- 不要对公网开放 frps Dashboard；
+- 不要对公网开放 frps Dashboard（本文配置未开启）；
 - 仅开放实际需要的端口，并尽可能通过防火墙限制来源 IP；
-- 有域名时，可以配置可信 HTTPS 反向代理；
-- 定期更新 NanoKVM Go、frp 和公网服务器系统；
-- 定期检查 frpc、frps 和反向代理日志；
-- 不再使用时立即停止服务并关闭公网端口。
+- 有域名时，配置可信 HTTPS 反向代理，并在配置完成后关闭公网映射端口的直接访问；
+- 定期更新 NanoKVM Go 应用、frp 和公网服务器系统；
+- 不再使用时，请在页面中停用或卸载 FRP，并关闭公网端口。
+
+## 下一步
+
+- 不想自建服务器，可以参考 [Tailscale](tailscale.html)、[ZeroTier](zerotier.html)、[NetBird](netbird.html) 或 [Sipeed 远程网络](sipeed_remote_network.html)；
+- 有 Cloudflare 账号和域名时，可以改用 [Cloudflare Tunnel](cloudflare_tunnel.html)；
+- 只想让局域网地址固定下来，参考 [静态 IP](static_ip.html)；
+- 遇到其他问题，查看 [NanoKVM Go 常见问题](../faq.html)。
 
 ## 参考资料
 

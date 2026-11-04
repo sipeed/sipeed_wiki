@@ -1,50 +1,53 @@
 ---
 title: frp
-keywords: NanoKVM Go, frp, remote access, intranet penetration
+keywords: NanoKVM Go, frp, remote access, intranet penetration, frpc, frps
 ---
 
-frp is an intranet penetration tool. It can forward the NanoKVM Go service in a local network to a server with a public IP address. After configuration, you can remotely access NanoKVM Go through the public server even if the network where NanoKVM Go is located does not have a public IP address.
+## What frp does
 
-frp consists of two components:
+frp is an intranet penetration tool. It forwards a NanoKVM Go without a public IP address to a server that has one. Once configured, you open the server address from anywhere and control NanoKVM Go just as you would on the local network.
 
-- `frps`: the server, running on a server with a public IP address;
+frp has two parts:
+
+- `frps`: the server, running on your own public server;
 - `frpc`: the client, running on NanoKVM Go.
 
 ```text
 Remote PC or phone
        |
-       | Access https://public IP:8080
+       | Open https://frp.example.com:8443
        v
-Public server (frps) <----- frpc active connection ----- NanoKVM Go
+Public server (frps) <----- frpc connects out ----- NanoKVM Go
 ```
 
-> The NanoKVM Go web interface currently does not provide an FRP entry. You need to enable SSH in the web interface first, then install and configure `frpc` manually through SSH.
+NanoKVM Go ships with the FRP client built in. Installing it, entering the server details, and enabling or disabling the tunnel all happen in the web interface. You do not need SSH access, and you do not download anything by hand. **Only `frps` on the public server has to be installed manually**, as described below.
 
-> Exposing NanoKVM Go to the public Internet increases the risk of scanning, password guessing, and attacks. Set a strong password for NanoKVM Go first. The basic TCP example in this document forwards NanoKVM Go's local HTTPS service, but the device certificate is usually self-signed, so the browser may report that the certificate is not trusted. If you have a domain name, you can configure a trusted certificate for it. If you do not want to expose public ports, you can use a virtual networking solution such as Tailscale instead.
+> The public server is a Linux cloud server that you provide. NanoKVM Go only runs the client and connects out to it, so the local network needs no port forwarding.
 
-## Preparation
+> Exposing NanoKVM Go to the Internet increases the risk of scanning, password guessing, and attacks. Set a strong password for NanoKVM Go first, and give frps a random token. The basic example forwards the HTTPS service built into NanoKVM Go, but the device certificate is normally self-signed, so browsers may warn that it is not trusted. With a domain you can serve a trusted certificate, as described in "Serve a domain with HTTPS (optional)" below. If you would rather not expose public ports, use a virtual network instead: [Tailscale](tailscale.html), [ZeroTier](zerotier.html), or [NetBird](netbird.html).
 
-Before you start, prepare:
+## Before you start
+
+Prepare the following:
 
 - a Linux server with a public IPv4 address;
-- a NanoKVM Go connected to the Internet;
-- administrator privileges on both NanoKVM Go and the public server;
+- a NanoKVM Go with Internet access and the latest application version (`FRP` appears in `Settings` > `Remote Network` on current builds);
+- GitHub access from NanoKVM Go, because the client installer downloads its package from GitHub;
 - permission to modify the cloud security group and the server firewall;
-- an frp authentication token that is hard to guess.
+- an frp token that is hard to guess.
 
 This document uses the following example values:
 
-| Item | Example | Usage |
+| Item | Example | Notes |
 | --- | --- | --- |
-| Public server IP | `203.0.113.10` | Runs `frps` |
-| frps communication port | `7000` | Used by `frpc` to connect to `frps` |
-| NanoKVM Go public access port | `8080` | Used by the browser to access NanoKVM Go |
-| NanoKVM Go web address | `127.0.0.1:443` | Local HTTPS service forwarded by `frpc` |
-| Token | `replace_with_a_strong_token` | Authenticates `frpc` |
+| Public server address | `frp.example.com` (example IP: `203.0.113.10`) | Entered in NanoKVM Go |
+| frps port | `7000` | Used by the client to reach the server |
+| Public port | `8443` | Used by the browser to reach NanoKVM Go |
+| Token | `replace_with_a_strong_token` | Must match on both sides |
 
-`203.0.113.10` is an example address and cannot be used directly. Replace the public IP address, ports, and token in this document with your actual values.
+`203.0.113.10` and `frp.example.com` are documentation examples and cannot be used as-is. If you have no domain, enter your server's public IP in NanoKVM Go instead. Replace every address, port, and token in this document with your own values.
 
-## Install frps on the Public Server
+## Install frps on the public server
 
 ### Download frp
 
@@ -54,7 +57,9 @@ Check the CPU architecture of the server:
 uname -m
 ```
 
-Open [frp Releases](https://github.com/fatedier/frp/releases), and select the Linux package that matches your server architecture. Common architecture mappings are:
+Open [frp Releases](https://github.com/fatedier/frp/releases) and pick the Linux package that matches the server. The client inside NanoKVM Go is frp `0.71.0`, so **install the same version on the public server**; mismatched versions may fail to connect.
+
+Common architecture mappings:
 
 | `uname -m` output | frp package architecture |
 | --- | --- |
@@ -64,34 +69,32 @@ Open [frp Releases](https://github.com/fatedier/frp/releases), and select the Li
 | Older ARM devices such as ARMv5 | `linux_arm` |
 | `riscv64` | `linux_riscv64` |
 
-This document uses frp `0.70.0` as an example. You can download it from the release page:
+You can download 0.71.0 directly from the release page:
 
-- [frp 0.70.0 release page](https://github.com/fatedier/frp/releases/tag/v0.70.0)
-- [Linux AMD64 package](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_amd64.tar.gz)
-- [Linux ARM64 package](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm64.tar.gz)
-- [Linux ARMv7 hard-float package](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm_hf.tar.gz)
-- [Linux RISC-V 64 package](https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_riscv64.tar.gz)
+- [frp 0.71.0 release](https://github.com/fatedier/frp/releases/tag/v0.71.0)
+- [Linux AMD64 package](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_amd64.tar.gz)
+- [Linux ARM64 package](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_arm64.tar.gz)
+- [Linux ARMv7 hard-float package](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_arm_hf.tar.gz)
+- [Linux RISC-V 64 package](https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_riscv64.tar.gz)
 
-Most cloud servers use the `x86_64` architecture. If `uname -m` outputs `x86_64`, run the following commands to download and install `frps`:
+Most cloud servers are `x86_64`. If `uname -m` prints `x86_64`, download and install with:
 
 ```bash
-wget https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_amd64.tar.gz
-tar -xzf frp_0.70.0_linux_amd64.tar.gz
-cd frp_0.70.0_linux_amd64
+wget https://github.com/fatedier/frp/releases/download/v0.71.0/frp_0.71.0_linux_amd64.tar.gz
+tar -xzf frp_0.71.0_linux_amd64.tar.gz
+cd frp_0.71.0_linux_amd64
 sudo install -m 755 frps /usr/local/bin/frps
 ```
 
-`sudo install -m 755 frps /usr/local/bin/frps` copies the `frps` program from the current directory to `/usr/local/bin/frps`, and sets its permission to `755`. This means all users can execute it, while only the file owner can modify it.
+`sudo install -m 755 frps /usr/local/bin/frps` copies `frps` to `/usr/local/bin/frps` with mode `755`: everyone can execute it, and only the owner can modify it.
 
-If your server uses another architecture, download the matching package from the table above, and replace the package name and extracted directory in the commands with the actual names. The public server and NanoKVM Go should use the same frp version.
+For other architectures, download the matching package from the table and replace the archive name and extraction directory in the commands above.
 
-Verify that `frps` can run:
+Confirm that `frps` runs:
 
 ```bash
 /usr/local/bin/frps --version
 ```
-
-> It is recommended to install the same frp version on the public server and NanoKVM Go to avoid configuration incompatibilities caused by version differences.
 
 ### Create the frps configuration
 
@@ -110,45 +113,51 @@ auth.method = "token"
 auth.token = "replace_with_a_strong_token"
 ```
 
-Replace `auth.token` with a randomly generated strong token. You can generate one on the public server with:
+Only two settings are involved:
+
+- `bindPort`: the port `frps` listens on, which the client connects to;
+- `auth.token`: the token used to authenticate clients. It must match what you enter in NanoKVM Go.
+
+> The NanoKVM Go client always uses a TCP proxy that maps the device's local HTTPS service to a public port, so the server does **not** need `vhostHTTPPort` or `vhostHTTPSPort`.
+
+Replace `auth.token` with a strong random value. Generate one on the public server:
 
 ```bash
 openssl rand -hex 32
 ```
 
-The token in the `frps` and `frpc` configurations must be exactly the same. The token only authenticates `frpc`. It does not replace the NanoKVM Go login password, and it does not replace the HTTPS certificate used by the browser.
+The token only authenticates the client. It is not the NanoKVM Go login password, and it is not the HTTPS certificate used by the browser.
 
 ### Start frps
 
-Start it in the foreground first, so you can see the logs directly:
+Start it in the foreground first so you can read the logs:
 
 ```bash
 sudo /usr/local/bin/frps -c /etc/frp/frps.toml
 ```
 
-If there is no error, press `Ctrl+C` to stop the test. Foreground mode works on all Linux systems, but `frps` stops when the terminal is closed. For long-term use, register it as a system service.
+If nothing is reported, press `Ctrl+C` to stop the test. Running in the foreground works on every Linux distribution, but frps stops when the terminal closes, so long-term use needs a service.
 
 #### Check the init system
 
-Run the following command to check the process used by PID 1:
+Print the program that PID 1 refers to:
 
 ```bash
 ps -p 1 -o comm=
 ```
 
-Choose the startup method according to the output:
+Choose the startup method from the output:
 
-| Example output | Startup method |
+| Output example | Startup method |
 | --- | --- |
-| `systemd` | Use systemd |
-| `init`, `sysvinit`, and `/etc/init.d/` exists | Use SysV init |
-| `openrc-init` | Use OpenRC |
+| `systemd` | systemd |
+| Anything else, such as `init` | The distribution's own init system; see the SysV init section below |
 
-> Whether systemd can be used depends on whether PID 1 is `systemd`. Having the `systemctl` command installed does not mean the current system was booted with systemd.
+> Whether systemd is available depends on PID 1 being `systemd`. The presence of the `systemctl` command does not mean the system booted with systemd.
 
-#### Start with systemd
+#### With systemd
 
-Use this section only when `ps -p 1 -o comm=` outputs `systemd`.
+Use these commands only when `ps -p 1 -o comm=` prints `systemd`.
 
 Create `/etc/systemd/system/frps.service`:
 
@@ -168,7 +177,7 @@ RestartSec=5s
 WantedBy=multi-user.target
 ```
 
-Load the service and enable it on boot:
+Reload, enable, and start the service:
 
 ```bash
 sudo systemctl daemon-reload
@@ -176,15 +185,15 @@ sudo systemctl enable --now frps
 sudo systemctl status frps
 ```
 
-If the status is `active (running)`, `frps` has started. View live logs with:
+`active (running)` means frps is up. Follow the logs with:
 
 ```bash
 sudo journalctl -u frps -f
 ```
 
-#### Start with SysV init
+#### With SysV init
 
-If the system uses SysV init and the `start-stop-daemon` command exists, create `/etc/init.d/frps`:
+If the system uses SysV init and `start-stop-daemon` is available, create `/etc/init.d/frps`:
 
 ```sh
 #!/bin/sh
@@ -227,13 +236,13 @@ case "$1" in
 esac
 ```
 
-Make the script executable:
+Make it executable:
 
 ```bash
 sudo chmod +x /etc/init.d/frps
 ```
 
-On Debian, Ubuntu, and other SysV init systems that use `update-rc.d`, enable the service on boot and start it:
+On Debian, Ubuntu, and other SysV init systems that use `update-rc.d`, enable and start the service:
 
 ```bash
 sudo update-rc.d frps defaults
@@ -241,288 +250,178 @@ sudo service frps start
 sudo service frps status
 ```
 
-If the system does not have `update-rc.d`, use the SysV init service management command provided by your distribution.
+If `update-rc.d` is not available, use the SysV init commands provided by your distribution.
 
-#### Systems without systemd
+#### When systemd is unavailable
 
-If you see the following error:
+If you see:
 
 ```text
 System has not been booted with systemd as init system (PID 1). Can't operate.
 Failed to connect to bus: Host is down
 ```
 
-The current environment was not booted with systemd, so do not continue using `systemctl`. You can test `frps` in the foreground first:
+the system did not boot with systemd, and `systemctl` cannot be used. Test frps in the foreground first:
 
 ```bash
 sudo /usr/local/bin/frps -c /etc/frp/frps.toml
 ```
 
-For long-term use, add a service configuration according to the init system actually used by the distribution.
+For long-term use, add a service configuration for the init system the distribution actually uses.
 
-### Open public server ports
+### Open ports on the public server
 
-Allow the following ports in the cloud security group and the server firewall:
+Open these ports in the cloud security group and the system firewall:
 
-- `7000/tcp`: used by `frpc` on NanoKVM Go to connect to `frps`;
-- `8080/tcp`: used by remote browsers to access NanoKVM Go.
+- `7000/tcp`: the frpc on NanoKVM Go connects to frps;
+- `8443/tcp`: remote browsers reach NanoKVM Go (the example public port; you can choose another one).
 
-Different Linux distributions may use different firewall tools. Check first:
+Firewall tooling differs between distributions. Check what is installed first:
 
 ```bash
 command -v ufw
 command -v firewall-cmd
 ```
 
-Choose the corresponding section according to the command output. Do not run commands for a firewall tool that is not installed.
+Pick the matching section below. Do not run commands for a tool that is not installed.
 
-#### Use UFW
+#### UFW
 
-If `command -v ufw` outputs the UFW path, run:
+If `command -v ufw` prints a path, run:
 
 ```bash
 sudo ufw allow 7000/tcp
-sudo ufw allow 8080/tcp
+sudo ufw allow 8443/tcp
 sudo ufw status
 ```
 
-If the terminal reports `ufw: command not found`, UFW is not installed on the current system. UFW is not required for running `frps`. Continue checking whether the system uses firewalld, another firewall, or only the cloud security group.
+If the shell reports `ufw: command not found`, UFW is not installed. UFW is not required to run frps; check for firewalld, another firewall, or the cloud security group instead.
 
-#### Use firewalld
+#### firewalld
 
-If `command -v firewall-cmd` outputs the firewalld command path, run:
+If `command -v firewall-cmd` prints a path, run:
 
 ```bash
 sudo firewall-cmd --permanent --add-port=7000/tcp
-sudo firewall-cmd --permanent --add-port=8080/tcp
+sudo firewall-cmd --permanent --add-port=8443/tcp
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 ```
 
-#### Use a cloud security group
+#### Cloud security group
 
-Alibaba Cloud, Huawei Cloud, Tencent Cloud, AWS, and other cloud providers usually provide a security group that is independent of the Linux system. Even if UFW or firewalld is not installed inside the server, you must add inbound rules in the cloud server console:
+Alibaba Cloud, Huawei Cloud, Tencent Cloud, AWS, and similar providers keep a security group that is separate from the Linux firewall. Even when no UFW or firewalld is installed, add inbound rules in the cloud console:
 
 | Protocol | Port | Source |
 | --- | --- | --- |
-| TCP | `7000` | Public IP of the network where NanoKVM Go is located. If it cannot be fixed, you can temporarily allow any source for testing. |
-| TCP | `8080` | Public IP that needs to access NanoKVM Go. If it cannot be fixed, you can temporarily allow any source for testing. |
+| TCP | `7000` | The public IP of the network NanoKVM Go is on; use any source temporarily when it changes |
+| TCP | `8443` | The public IPs that need access to NanoKVM Go; use any source temporarily when they change |
 
-After testing, restrict the source range to the actual IPs you need. Do not keep these ports open to the entire Internet for a long time.
+After testing, narrow the sources to the addresses you actually use instead of leaving them open to the Internet.
 
-Confirm that `frps` is listening on port `7000`:
+Confirm that frps is listening on `7000`:
 
 ```bash
 sudo ss -lntp | grep ':7000'
 ```
 
-You can also confirm whether the remote access port is already listening:
+> `8443` only appears after the client on NanoKVM Go connects and registers its forwarding rule. Once it has, `sudo ss -lntp | grep ':8443'` shows frps listening on that port.
 
-```bash
-sudo ss -lntp | grep ':8080'
-```
+## Configure FRP in the NanoKVM Go web interface
 
-> Port `8080` appears only after `frpc` on NanoKVM Go connects successfully and registers the proxy.
+Everything below happens in the browser, with no SSH session. Log in to the NanoKVM Go web interface and open `Settings` > `Remote Network`.
 
-## Enable SSH in the NanoKVM Go Web Interface
+### Open the FRP settings
 
-The NanoKVM Go web interface does not provide an FRP entry, so you need to enable SSH first, then install `frpc` from the command line.
+1. Log in to the NanoKVM Go web interface and click the settings icon in the top toolbar;
+2. Select `Remote Network` in the left panel;
+3. Click the `FRP` card.
 
-### Log in to NanoKVM Go
+![Select FRP on the Remote Network page](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_entry_en.webp)
 
-1. Open the local network address of NanoKVM Go in a browser;
-2. Enter the username and password to log in to the web console;
-3. Confirm the current local network IP address of NanoKVM Go.
+### Install the FRP client
 
-### Open SSH settings
+On first use the page reports `FRP not found! Please install.`
 
-1. Open the NanoKVM Go settings page;
+1. Click `Install`;
+2. Wait for the installation to finish. The package comes from GitHub, so the time depends on the device's network.
 
-![NanoKVM Go settings entry](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_settings_entry.webp)
+![Install button on the FRP page](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_install_en.webp)
 
-2. Go to the settings item that contains the SSH switch, and enable SSH;
+When it completes, the server form appears and the status reads `Not configured`. If installation fails, confirm that the device can reach GitHub and has enough free storage, then retry.
 
-![NanoKVM Go SSH switch](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_ssh_switch.webp)
+### Fill in the server details
 
-### Log in through SSH
+Fill the form as follows, then click `Save and apply`:
 
-Open a terminal on a computer in the same local network as NanoKVM Go, and log in through SSH:
+| Field | Value | Notes |
+| --- | --- | --- |
+| Server address | `frp.example.com` or the public IP | Domain or IP only: no `https://` and no port |
+| Server port | `7000` | Must equal `bindPort` in `frps.toml` |
+| Public port | `8443` | Port used from the Internet; must differ from the server port |
+| Token | `replace_with_a_strong_token` | Must equal `auth.token` in `frps.toml` |
 
-```bash
-ssh <SSH username>@<NanoKVM-Go local IP>
+![Save and apply after entering the server address, ports, and token](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_configure_en.webp)
 
-Example: ssh root@192.168.0.225
-```
+Common mistakes:
 
-> On the first connection, the terminal asks whether to trust the device fingerprint. After confirming that the IP address is correct, enter `yes`, then enter the SSH password. The username is `root`, and the password is `sipeed`.
+- the server address is the **public server**, not NanoKVM Go itself;
+- the public port is what you open from the Internet, so allow it on the public server and keep it free of other services;
+- if `frps.toml` sets `auth.token` (recommended), the token must match exactly.
 
-## Install frpc on NanoKVM Go
+If two-factor authentication is enabled and FRP is included in its protection scope, installing, saving, and starting or stopping all ask for a verification code.
 
-Run the following commands in the NanoKVM Go SSH terminal.
+### Enable forwarding
 
-### Confirm the system architecture
+After saving, the status changes to `Disabled`. Click `Enable` to connect:
 
-Run:
+1. Click `Enable`;
+2. The status briefly shows `Connecting`;
+3. On success it changes to `Forwarding active`.
 
-```bash
-uname -m
-```
+Once enabled, the client runs as a system service and starts automatically when NanoKVM Go reboots. Click `Disable` to disconnect, or the restart button next to the status to reconnect.
 
-The output of `uname -m` on a real NanoKVM Go device is:
+### Copy the access address
 
-```text
-armv7l
-```
-
-Therefore, use the `linux_arm_hf` package of frp. This package is built for ARMv7 hard-float environments. Do not download `linux_arm64`.
-
-### Download and install frpc
-
-The `/tmp` directory on NanoKVM Go is usually mounted as an in-memory tmpfs and has limited space. Download the package to `/root` on the root filesystem instead.
-
-Run the following commands to download and install `frpc`:
-
-```bash
-cd /root
-wget https://github.com/fatedier/frp/releases/download/v0.70.0/frp_0.70.0_linux_arm_hf.tar.gz
-tar -xzf frp_0.70.0_linux_arm_hf.tar.gz
-cd frp_0.70.0_linux_arm_hf
-mkdir -p /usr/local/bin
-cp frpc /usr/local/bin/frpc
-chmod +x /usr/local/bin/frpc
-```
-
-If the download or extraction fails, confirm that NanoKVM Go can access GitHub, and check whether the version number and file name match the Releases page.
-
-Verify the installation:
-
-```bash
-/usr/local/bin/frpc --version
-```
-
-If NanoKVM Go cannot access GitHub directly, download the package on your computer first, then upload it to `/root` on the device with `scp`:
-
-```bash
-scp frp_0.70.0_linux_arm_hf.tar.gz <SSH username>@<NanoKVM-Go local IP>:/root/
-```
-
-### Create the frpc configuration
-
-Create the configuration directory:
-
-```bash
-mkdir -p /etc/frp
-```
-
-Create `/etc/frp/frpc.toml`:
-
-```toml
-serverAddr = "203.0.113.10"
-serverPort = 7000
-
-auth.method = "token"
-auth.token = "replace_with_a_strong_token"
-
-[[proxies]]
-name = "nanokvm-go-web"
-type = "tcp"
-localIP = "127.0.0.1"
-localPort = 443
-remotePort = 8080
-```
-
-Modify the following parameters:
-
-| Parameter | What to change |
-| --- | --- |
-| `serverAddr` | Actual IP address or domain name of the public server |
-| `serverPort` | `bindPort` of `frps`, `7000` in this document |
-| `auth.token` | The same token as in `frps.toml` |
-| `localPort` | Actual NanoKVM Go web service port. This document uses HTTPS port `443` |
-| `remotePort` | Public access port, `8080` in this document |
-
-Check whether the local web service is accessible:
-
-```bash
-wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
-```
-
-The HTTP port of NanoKVM Go may redirect to HTTPS. If directly accessing `http://127.0.0.1:80` returns `307 Temporary Redirect` and redirects to `https://127.0.0.1/`, this is normal. Because the device certificate is usually not a publicly trusted certificate, add `--no-check-certificate` when testing with `wget`.
-
-If the connection is refused, confirm the actual NanoKVM Go web service port, then modify `localPort`.
-
-### Test the frpc connection
-
-Start `frpc` in the foreground:
-
-```bash
-/usr/local/bin/frpc -c /etc/frp/frpc.toml
-```
-
-If the logs show `login to server success` and `start proxy success`, `frpc` has connected to `frps` and registered the proxy.
-
-Keep this terminal running, and open the following address in a browser from an external network:
+When the tunnel is up, the page shows an `Access address`, for example:
 
 ```text
-https://203.0.113.10:8080
+https://frp.example.com:8443
 ```
 
-Replace the example IP address with the actual IP address of your public server. On first access, the browser may report that the certificate is not trusted. After confirming that you are accessing your own server, continue for testing. If the NanoKVM Go login page opens, the TCP forwarding configuration is correct. After testing, return to the SSH terminal and press `Ctrl+C` to stop `frpc`.
+Use the copy button next to it. This is the address you open from the Internet.
 
-![frpc connects to frps successfully](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_frpc_success_log.webp)
+![Access address after forwarding is active](../../../../assets/NanoKVM/go/network/nanokvm_go_frp_connected_en.webp)
 
-### Enable frpc on boot
+Status meanings:
 
-NanoKVM Go uses systemd to manage system services. Create `/etc/systemd/system/frpc.service`:
+| Status | Meaning | What to do |
+| --- | --- | --- |
+| `Not installed` | The client is missing | Click `Install` |
+| `Not configured` | Installed, but no server details saved | Fill in and save the form |
+| `Disabled` | Configuration saved, client not running | Click `Enable` |
+| `Connecting` | Started, connecting to frps | Wait; this normally takes seconds |
+| `Forwarding active` | Connected and the proxy is running | Access it from the Internet |
+| `Connection error` | Connection or proxy startup failed | See [FAQ](#FAQ) |
 
-```ini
-[Unit]
-Description=frp client for NanoKVM Go
-After=network-online.target
-Wants=network-online.target
+## Reach NanoKVM Go from the Internet
 
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/frpc -c /etc/frp/frpc.toml
-Restart=always
-RestartSec=5s
+To confirm the traffic really goes through the public server, switch your computer or phone to another network, such as a mobile hotspot, then:
 
-[Install]
-WantedBy=multi-user.target
-```
+1. Open `https://frp.example.com:8443`, the access address shown on the page;
+2. Log in with the NanoKVM Go account and password;
+3. Test video, keyboard, mouse, and power control;
+4. Refresh the page and confirm that video and control still work.
 
-Load the service and enable it on boot:
+TCP forwarding passes HTTPS and WebSocket traffic through unchanged, so no extra WebSocket configuration is needed. On the first visit the browser may warn about the certificate, because the device uses a self-signed one; continue once you have confirmed it is your own device.
 
-```bash
-systemctl daemon-reload
-systemctl enable --now frpc
-systemctl status frpc
-```
+If the page loads but video never connects, open `Settings` > `Screen` > `Video mode` and switch to `H.264 Direct` or `H.265 Direct`.
 
-View live logs:
+## Serve a domain with HTTPS (optional)
 
-```bash
-journalctl -u frpc -f
-```
+When the access address uses the server IP and port directly, browsers warn about the certificate. With a domain, point it at the frps server and put Nginx or Caddy in front to serve a trusted HTTPS certificate, so the port is no longer needed in the URL.
 
-After rebooting NanoKVM Go, run `systemctl status frpc` again to confirm that the service starts automatically and reconnects to `frps`.
-
-## Access NanoKVM Go from an External Network
-
-To confirm that the traffic really goes through the public server, switch your computer or phone to another network, such as a mobile hotspot or mobile data network, then:
-
-1. Open `https://<public server IP>:8080` in a browser;
-2. Log in with the NanoKVM Go username and password;
-3. Test the remote display, keyboard, mouse, and power control;
-4. Refresh the page, and confirm that video and control features still work.
-
-The TCP proxy forwards HTTPS and WebSocket connections as-is, so WebSocket usually does not require extra configuration. If the page opens but video or control functions are abnormal, check the browser developer tools, `frpc` logs, and `frps` logs.
-
-## Configure a Domain Name and HTTPS (Optional)
-
-The basic example `https://<public IP>:8080` uses the certificate provided by NanoKVM Go itself, so the browser may report that the certificate is not trusted. If you have an available domain name, you can point it to the `frps` server and use Nginx or Caddy to provide a trusted HTTPS reverse proxy.
-
-For example, with Nginx, let Nginx listen on `443`, then forward requests to port `8080` exposed by frp on the server itself:
+With Nginx listening on `443`, forward requests to the `8443` port that frp exposes on the server:
 
 ```nginx
 server {
@@ -533,7 +432,7 @@ server {
     ssl_certificate_key /path/to/privkey.pem;
 
     location / {
-        proxy_pass https://127.0.0.1:8080;
+        proxy_pass https://127.0.0.1:8443;
         proxy_http_version 1.1;
         proxy_ssl_verify off;
         proxy_set_header Host $host;
@@ -547,186 +446,48 @@ server {
 }
 ```
 
-The overall steps are:
+In short:
 
-1. Point the domain A record to the public IP address of the `frps` server;
+1. Point the domain's A record at the frps server's public IP;
 2. Install Nginx or Caddy on the server;
-3. Issue a TLS certificate for the domain;
-4. Reverse proxy HTTPS requests to `https://127.0.0.1:8080`;
+3. Obtain a TLS certificate for the domain;
+4. Reverse proxy HTTPS to `https://127.0.0.1:8443` (the public port configured in the page);
 5. Allow `443/tcp` in the security group and firewall;
-6. After confirming that `https://kvm.example.com` works, close public inbound access to `8080/tcp`.
+6. Once `https://kvm.example.com` works, close public inbound traffic to `8443/tcp`.
 
-After configuring HTTPS, use the cloud security group and server firewall to deny public inbound traffic to `8080/tcp`, and allow only the local Nginx process on the server to access that port. Do not keep the HTTP test port publicly exposed after HTTPS is configured.
+> `proxy_pass` uses `https://` because NanoKVM Go serves HTTPS itself, and `proxy_ssl_verify off` skips verification of the device's self-signed certificate.
 
-## FAQ
+## Change settings, disable, and uninstall
 
-### frpc cannot connect to frps
+### Change the server details
 
-Check the following:
+Edit `Server address`, `Server port`, or `Public port` in the FRP page, then click `Save and apply`. If the tunnel is enabled, the client restarts with the new configuration. When the new values do not work, the page reports the error and tries to restore the previous configuration.
 
-- whether `serverAddr` and `serverPort` are correct;
-- whether `frps` is `active (running)`;
-- whether `7000/tcp` is allowed in the cloud security group and server firewall;
-- whether the tokens in `frps` and `frpc` are exactly the same;
-- whether the frp versions on the public server and NanoKVM Go are compatible;
-- whether NanoKVM Go can access the Internet and the public server.
+Tokens are never shown after saving. Enter a new one in the Token field and save to replace it. `Clear` stops the service and deletes the saved token while keeping the other settings.
 
-You can test port connectivity on NanoKVM Go:
+### Disable
 
-```bash
-nc -vz <public server IP> 7000
-```
+Click `Disable` at the top right of the FRP page. The client stops and no longer starts on boot, and the configuration is kept. Click `Enable` to bring it back.
 
-If `nc` is not available, observe the `frpc` connection logs directly.
+> Disabling immediately drops any session that is connected over FRP.
 
-### frpc is connected, but the public port cannot be accessed
+### Uninstall
 
-Check:
+Open the `⋯` (More) menu at the top right of the FRP page and choose `Uninstall FRP`. The client program and its boot service are removed.
 
-- whether `remotePort` is occupied by another program or another frp proxy;
-- whether `8080/tcp` is allowed in the cloud security group and server firewall;
-- whether the `frpc` log shows that the proxy started successfully;
-- whether the `frps` log contains `nanokvm-go-web`;
-- whether the browser is using `https://`, not `http://`.
+Uninstalling does **not** delete the saved configuration; reinstalling restores the previous settings. To clear the configuration as well, contact support.
 
-Confirm on the public server whether the port is listening:
-
-```bash
-sudo ss -lntp | grep ':8080'
-```
-
-### The page cannot be opened or returns connection refused
-
-Run the following command on NanoKVM Go:
-
-```bash
-wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
-```
-
-If local access also fails, `localIP` or `localPort` is incorrect, or the NanoKVM Go web service is not running.
-
-### Local test reports that the certificate is not trusted
-
-If running `wget -S -O /dev/null http://127.0.0.1:80` returns `307 Temporary Redirect` and redirects to `https://127.0.0.1/`, NanoKVM Go is automatically using HTTPS. The following certificate errors are usually normal:
-
-```text
-ERROR: The certificate of '127.0.0.1' is not trusted.
-ERROR: The certificate's owner does not match hostname '127.0.0.1'
-```
-
-This happens because the NanoKVM Go certificate is not a publicly trusted certificate issued for `127.0.0.1`. To test the local HTTPS service, use:
-
-```bash
-wget --no-check-certificate -S -O /dev/null https://127.0.0.1:443
-```
-
-The `frpc` configuration should also forward `localPort = 443`.
-
-### The page opens, but video or control features are abnormal
-
-Check:
-
-- whether the browser developer tools show WebSocket connection errors;
-- whether `frpc` and `frps` disconnect or reconnect frequently;
-- whether Nginx or Caddy forwards WebSocket Upgrade requests correctly;
-- whether an HTTPS page loads HTTP resources;
-- whether the public server bandwidth and the uplink bandwidth of the NanoKVM Go network are sufficient.
-
-### frpc does not start automatically after reboot
-
-Run the following commands on NanoKVM Go:
-
-```bash
-systemctl status frpc
-journalctl -u frpc -b
-```
-
-Check whether the service is enabled, whether the configuration file path is correct, and whether `frpc` can connect to `frps` after the network is ready.
-
-## Disable frp
-
-### Temporarily disable
-
-If you only want to stop using frp temporarily and may use it again later, stop the service and disable auto-start while keeping the program and configuration files.
-
-Stop and disable `frpc` on NanoKVM Go:
-
-```bash
-systemctl disable --now frpc
-```
-
-If the public server uses systemd, stop and disable `frps`:
-
-```bash
-sudo systemctl disable --now frps
-```
-
-If the public server uses SysV init, stop `frps` and remove it from auto-start:
-
-```bash
-sudo service frps stop
-sudo update-rc.d -f frps remove
-```
-
-To restore the systemd service on NanoKVM Go, run:
-
-```bash
-systemctl enable --now frpc
-```
-
-To restore the systemd service on the public server, run:
-
-```bash
-sudo systemctl enable --now frps
-```
-
-To restore the SysV init service on the public server, run:
-
-```bash
-sudo update-rc.d frps defaults
-sudo service frps start
-```
-
-> Only run the commands that match the current init system. If the public server uses another service manager, use the corresponding stop and disable commands.
-
-### Completely uninstall
-
-frp was installed by manually copying binaries, so it is not managed by package managers such as `apt` or `dnf`. To completely uninstall it, manually delete the service, program, and configuration files.
-
-On NanoKVM Go, stop `frpc` and remove the systemd service file:
-
-```bash
-systemctl disable --now frpc
-rm -f /etc/systemd/system/frpc.service
-systemctl daemon-reload
-```
-
-Then delete the `frpc` program and configuration on NanoKVM Go:
-
-```bash
-rm -f /usr/local/bin/frpc
-rm -f /etc/frp/frpc.toml
-rmdir /etc/frp 2>/dev/null || true
-```
-
-Delete the package and extracted directory created during installation on NanoKVM Go:
-
-```bash
-rm -f /root/frp_0.70.0_linux_arm_hf.tar.gz
-rm -rf /root/frp_0.70.0_linux_arm_hf
-```
-
-If you downloaded another version or architecture, replace the file names with the actual names.
-
-If the public server uses systemd, remove the `frps` service first:
+`frps` on the public server is removed by hand. Stop and delete the service, then delete the program and configuration:
 
 ```bash
 sudo systemctl disable --now frps
 sudo rm -f /etc/systemd/system/frps.service
 sudo systemctl daemon-reload
+sudo rm -f /usr/local/bin/frps
+sudo rm -f /etc/frp/frps.toml
 ```
 
-If the public server uses SysV init, remove the `frps` service first:
+With SysV init, use:
 
 ```bash
 sudo service frps stop
@@ -734,55 +495,78 @@ sudo update-rc.d -f frps remove
 sudo rm -f /etc/init.d/frps
 ```
 
-After cleaning up the corresponding service, delete the `frps` program and configuration:
+Finally remove the `7000/tcp` and `8443/tcp` rules from the security group and firewall.
 
-```bash
-sudo rm -f /usr/local/bin/frps
-sudo rm -f /etc/frp/frps.toml
-sudo rmdir /etc/frp 2>/dev/null || true
-```
+## FAQ
 
-The frp package and extracted directory on the public server are located in the directory where you ran the download commands. After confirming the directory and file names, you can delete them.
+### There is no FRP card under `Settings` > `Remote Network`
 
-### Clean up firewall and other configuration
+Make sure the NanoKVM Go application is up to date, then reopen `Settings` > `Remote Network`.
 
-If UFW was installed and used, delete the allow rules added in this document:
+### Installation fails
 
-```bash
-sudo ufw delete allow 7000/tcp
-sudo ufw delete allow 8080/tcp
-```
+The package comes from GitHub. Confirm that the device can reach GitHub and has enough free storage, then retry.
 
-If firewalld was installed and used, run:
+### The status stays on `Connecting` or shows `Connection error`
 
-```bash
-sudo firewall-cmd --permanent --remove-port=7000/tcp
-sudo firewall-cmd --permanent --remove-port=8080/tcp
-sudo firewall-cmd --reload
-```
+Check, in order:
 
-Finally, check and clean up:
+- `Server address` holds only a domain or IP, with no `https://` and no port;
+- `Server port` matches `bindPort` in `frps.toml`;
+- frps is running and `7000/tcp` is open in the cloud security group and the system firewall;
+- the tokens on both sides are identical;
+- both the public server and NanoKVM Go can reach the Internet.
 
-- `7000/tcp`, `8080/tcp`, and other frp ports in the cloud security group;
-- Nginx or Caddy configuration created specifically for NanoKVM Go;
-- TLS certificates that are no longer used;
-- DNS records that are no longer used.
+The client retries automatically, so saving the corrected configuration usually restores the tunnel. You can also read the frps log on the public server: run `sudo journalctl -u frps -n 50` with systemd, or run frps in the foreground on other init systems to watch its output.
 
-> If the corresponding firewall command does not exist, skip that group of commands. If a port, reverse proxy, or certificate is still used by another service, do not delete the corresponding configuration directly.
+### The status says `Forwarding active`, but the page does not load
 
-## Security Recommendations
+Check:
 
-- Set a separate strong password for NanoKVM Go;
-- Use a randomly generated strong token, and do not use the example value in this document;
-- Do not expose the frps Dashboard to the public Internet;
-- Open only the ports that are actually needed, and restrict source IPs through the firewall whenever possible;
-- If you have a domain name, you can configure a trusted HTTPS reverse proxy;
-- Regularly update NanoKVM Go, frp, and the public server system;
-- Regularly check `frpc`, `frps`, and reverse proxy logs;
-- Stop the service and close public ports immediately when you no longer use it.
+- the public port is open in the cloud security group and the system firewall;
+- nothing else uses that port (`sudo ss -lntp | grep ':8443'` on the public server);
+- the browser uses `https://`, not `http://`;
+- you opened the public server address, not a local one.
+
+### The page loads but video never connects
+
+Switch to `H.264 Direct` or `H.265 Direct` under `Settings` > `Screen` > `Video mode` and retry. WebRTC video needs its own peer-to-peer connection, which usually cannot be established through port forwarding.
+
+### FRP does not come back after rebooting NanoKVM Go
+
+FRP only starts on boot while it is enabled. Open `Settings` > `Remote Network` > `FRP` and check that the status is not `Disabled`; if it is, click `Enable`.
+
+### I forgot the token
+
+Saved tokens are never displayed; the page only shows `Saved`. Read `auth.token` from `frps.toml` on the public server and enter it again, or replace the token on both sides with a new random value.
+
+### Why must the public port differ from the server port
+
+The public port is an extra port that frps listens on. It conflicts with the frps port itself, so the page rejects equal values. For example, with server port `7000`, use `8443` or another free port as the public port.
+
+### Does FRP affect local access
+
+No. FRP only adds a path in from the Internet; the device keeps its original address on the local network.
+
+## Security recommendations
+
+- Set a strong, unique password for NanoKVM Go and enable two-factor authentication;
+- use a random token, never the example value in this document;
+- do not expose the frps dashboard publicly (the configuration above does not enable it);
+- open only the ports you need and restrict sources with the firewall where possible;
+- with a domain, serve a trusted HTTPS reverse proxy and then close direct access to the public port;
+- keep NanoKVM Go, frp, and the public server updated;
+- when you no longer need the tunnel, disable or uninstall FRP in the page and close the public ports.
+
+## Next steps
+
+- To skip running your own server, see [Tailscale](tailscale.html), [ZeroTier](zerotier.html), [NetBird](netbird.html), or [Sipeed Remote Network](sipeed_remote_network.html);
+- With a Cloudflare account and a domain, consider [Cloudflare Tunnel](cloudflare_tunnel.html);
+- To keep the local address fixed, see [Static IP](static_ip.html);
+- For anything else, see the [NanoKVM Go FAQ](../faq.html).
 
 ## References
 
-- [frp official documentation](https://gofrp.org/)
+- [frp documentation](https://gofrp.org/)
 - [frp GitHub repository](https://github.com/fatedier/frp)
 - [frp Releases](https://github.com/fatedier/frp/releases)
