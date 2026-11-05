@@ -2,6 +2,11 @@
 title: Tang Mega 138K Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
+  - date: 2026-11-05
+    version: v0.4
+    author: Ziue
+    content:
+      - 补充 Device Version B 使用 SSRAM 需将核心电压提升到 1.0V 的说明
   - date: 2026-10-30
     version: v0.3
     author: Ziue
@@ -72,7 +77,7 @@ update:
 					</tr>
 					<tr>
 						<td>分布式静态随机存储器S-SRAM(Kbits)</td>
-						<td><s>1080</s><sup>[1]</sup></td>
+						<td><s>1080</s><sup>[1][2]</sup></td>
 					</tr>
 					<tr>
 						<td>块状静态随机存储器B-SRAM(Kbits)</td>
@@ -155,7 +160,7 @@ update:
 	</tbody>
 </table>
 
-<p style="font-size:0.875em;opacity:0.75;">[1] 仅 Device Version C 可用。由于 Device Version B 的 Silicon 缺陷，GOWIN 已禁用 B 版本 138K 的 SSRAM，该问题在 C 版本中修复（GOWIN 自 IDE 1.9.10.x 起正式禁用）。</p>
+<p style="font-size:0.875em;opacity:0.75;">[1] 默认仅 Device Version C 可用。由于 Device Version B 的 Silicon 缺陷，GOWIN 已禁用 B 版本 138K 的 SSRAM，该问题在 C 版本中修复（GOWIN 自 IDE 1.9.10.x 起正式禁用）。<br>[2] 若使用 Device Version B 的 138K FPGA 器件，必须选择 VCC = 1.0 V，并将核心电压从 0.9 V 实际提升到 1.0 V，才能使用 SSRAM。</p>
 
 > *注意：**128Mbits** Flash 版本将于周年更新（2025 年 10 月）及所有后续版本中提供。*
 

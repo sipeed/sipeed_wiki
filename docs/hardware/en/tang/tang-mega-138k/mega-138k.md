@@ -2,6 +2,11 @@
 title: Tang Mega 138K Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
+  - date: 2026-11-05
+    version: v0.6
+    author: Ziue
+    content:
+      - Add a note that B-version 138K needs VCC = 1.0 V and a 0.9 V to 1.0 V core voltage change to use SSRAM
   - date: 2026-10-30
     version: v0.5
     author: Ziue
@@ -86,7 +91,7 @@ TBD
 					</tr>
 					<tr>
 						<td>Distributed SRAM<br>(S-SRAM) (Kbits)</td>
-						<td><s>1080</s><sup>[1]</sup></td>
+						<td><s>1080</s><sup>[1][2]</sup></td>
 					</tr>
 					<tr>
 						<td>Block SRAM (B-SRAM) (Kbits)</td>
@@ -169,7 +174,7 @@ TBD
 	</tbody>
 </table>
 
-<p style="font-size:0.875em;opacity:0.75;">[1] Device Version C only. Due to a silicon defect in Device Version B, GOWIN has disabled the SSRAM on B-version 138K devices; this issue is fixed in the C version (officially disabled since IDE 1.9.10.x).</p>
+<p style="font-size:0.875em;opacity:0.75;">[1] By default, only Device Version C supports SSRAM. Due to a silicon defect in Device Version B, GOWIN has disabled the SSRAM on B-version 138K devices; this issue is fixed in the C version (officially disabled since IDE 1.9.10.x).<br>[2] For B-version 138K FPGAs, you must select VCC = 1.0 V and raise the core voltage from 0.9 V to 1.0 V in hardware before the SSRAM can be used.</p>
 
 > *Note: 128Mbits Flash version available with the Anniversary Update (Oct. 2025) and for all later releases.*
 
