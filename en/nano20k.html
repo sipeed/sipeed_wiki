@@ -1,0 +1,19 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "en"
+
+    if( navigator.language.indexOf("zh") == -1 )
+    {
+        url_language = "zh"
+    }
+
+
+    if (hash.indexOf("start")!= -1)
+    {
+        location.href = window.location.origin + "/hardware/" + url_language + "/tang/tang-nano-20k/example/unbox.html"
+    }
+    else
+    {
+        location.href = window.location.origin + "/hardware/" + url_language + "/tang/tang-nano-20k/nano-20k.html"
+    }
+</script>
