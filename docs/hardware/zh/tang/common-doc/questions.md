@@ -4,6 +4,11 @@ tags: Tang
 keywords: Programmer
 desc: 
 update:
+  - date: 2026-11-05
+    version: v0.7
+    author: Ziue
+    content:
+      - 器件版本印记示例图换成 138K-C 的 138K Pro 实拍图
   - date: 2022-06-29
     version: v0.1
     author: wonder
@@ -66,8 +71,8 @@ Version: B** ，如果是字母 **C** 就是**Device Version: C**，以此类推
     </head>
     <body>
       <details class="indent">
-        <summary><font color="#4F84FF">点击此处查看138K-B FPG676A器件版本印记</font></summary>
-        <img src="./get_started/assets/138K-Pro-Ver.B.jpg">
+        <summary><font color="#4F84FF">点击此处查看138K-C FPG676A器件版本印记</font></summary>
+        <img src="./get_started/assets/138K-Pro-Ver.C.jpg" alt="138K-C FPG676A 器件版本印记，红框标出第三行第五位的字母 C">
       </details>
     </body>
     <br>

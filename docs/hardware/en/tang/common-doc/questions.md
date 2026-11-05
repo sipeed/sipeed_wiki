@@ -4,6 +4,11 @@ tags: Tang
 keywords: Programmer
 desc: 
 update:
+  - date: 2026-11-05
+    version: v0.4
+    author: Ziue
+    content:
+      - Replace the device version marking photo with a 138K-C 138K Pro board shot
   - date: 2023-05-18
     version: v0.3
     author: wonder
@@ -50,8 +55,8 @@ Here are some normal questions.
     </head>
     <body>
       <details class="indent">
-        <summary><font color="#4F84FF">Click here to view the 138K-B FPG676A device version marking</font></summary>
-        <img src="../../../zh/tang/common-doc/get_started/assets/138K-Pro-Ver.B.jpg">
+        <summary><font color="#4F84FF">Click here to view the 138K-C FPG676A device version marking</font></summary>
+        <img src="../../../zh/tang/common-doc/get_started/assets/138K-Pro-Ver.C.jpg" alt="138K-C FPG676A device marking, with the fifth character C on the third line boxed in red">
       </details>
     </body>
     <br>
