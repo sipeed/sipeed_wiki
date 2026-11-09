@@ -1,7 +1,12 @@
 ---
 title: SLogic32U3 Quick Start
-keywords: SLogic32U3, Quick Start, unboxing, install, SLogicView, SLogicWeb, udev
+keywords: SLogic32U3, Quick Start, unboxing, install, SLogicView, SLogicWeb, udev, firmware update, OTA
 update:
+  - date: 2026-11-09
+    version: v0.3
+    author: Sipeed
+    content:
+      - Added a firmware-update tip to Unboxing, with the firmware download and online update links
   - date: 2026-10-22
     version: v0.2
     author: Sipeed
@@ -37,6 +42,8 @@ The box contains:
 | Labeled heat-shrink tubes | × 32 | numbered, slip them onto the cables yourself to mark channels |
 
 For optional accessories see [Hardware Guide · Accessories](./Hardware_Specification.html#Accessories).
+
+> 💡 **Update to the latest firmware before first use.** Firmware may have been updated since your unit left the factory. Download the latest `app.bin` from the [firmware downloads](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware), then open **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** in Chrome or Edge to flash it online — nothing to install. Full steps: [Software Guide · Firmware Update](./Software_User_Guide.html#Firmware-Update).
 
 ---
 

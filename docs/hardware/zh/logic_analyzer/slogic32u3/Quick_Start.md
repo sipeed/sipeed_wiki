@@ -1,7 +1,12 @@
 ---
 title: SLogic32U3 快速上手
-keywords: SLogic32U3, 快速上手, 开箱, 安装, SLogicView, SLogicWeb, udev
+keywords: SLogic32U3, 快速上手, 开箱, 安装, SLogicView, SLogicWeb, udev, 固件升级, OTA
 update:
+  - date: 2026-11-09
+    version: v0.3
+    author: Sipeed
+    content:
+      - 开箱一节新增固件升级提示，附固件下载与在线升级链接
   - date: 2026-10-22
     version: v0.2
     author: Sipeed
@@ -37,6 +42,8 @@ update:
 | 标号热缩管 | × 32 | 带通道编号，由用户自行套到对应线上标识通道 |
 
 选配件见[硬件使用指南 · 配件](./Hardware_Specification.html#配件)。
+
+> 💡 **开始使用前，建议先升级到最新固件。** 设备出厂后，固件仍可能有更新。先从[固件下载站](https://dl.sipeed.com/shareURL/SLogic/SLogic32U3/4_Firmware)下载最新的 `app.bin`，再用 Chrome / Edge 打开 **[SLogic 固件升级](https://slogic.sipeed.com/ota/)** 在线升级，无需安装任何程序。完整步骤见[软件使用指南 · 更新固件](./Software_User_Guide.html#更新固件)。
 
 ---
 

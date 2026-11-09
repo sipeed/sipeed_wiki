@@ -2,6 +2,11 @@
 title: SLogic32U3 简介
 keywords: LogicAnalyzer, SLogic, SLogic32U3, USB3.2, 10Gbps, sigrok, SLogicView, SLogicWeb, ngscopeclient, 逻辑分析仪
 update:
+  - date: 2026-11-09
+    version: v0.4
+    author: Sipeed
+    content:
+      - 相关链接新增固件在线升级工具
   - date: 2026-10-06
     version: v0.3
     author: Sipeed
@@ -150,6 +155,7 @@ SLogic32U3 的上位机随 [SLogic 发布包](https://github.com/sipeed/SLogic/r
 
 - 购买（众筹）：https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc
 - 网页版上位机：https://slogic.sipeed.com
+- 固件在线升级：https://slogic.sipeed.com/ota/
 - 支持邮箱：support@sipeed.com
 - QQ 群：**932085922**
 - 社区（Discord）：[discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)

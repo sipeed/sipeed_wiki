@@ -2,6 +2,11 @@
 title: SLogic32U3 Introduction
 keywords: LogicAnalyzer, SLogic, SLogic32U3, USB3.2, 10Gbps, sigrok, SLogicView, SLogicWeb, ngscopeclient
 update:
+  - date: 2026-11-09
+    version: v0.4
+    author: Sipeed
+    content:
+      - Added the online firmware update tool to Links
   - date: 2026-10-06
     version: v0.3
     author: Sipeed
@@ -150,6 +155,7 @@ See the [Software Guide](./Software_User_Guide.md) for detailed usage and how to
 
 - Buy (crowdfunding): https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc
 - Web app: https://slogic.sipeed.com
+- Firmware update (online): https://slogic.sipeed.com/ota/
 - Support email: support@sipeed.com
 - QQ group: **932085922**
 - Community (Discord): [discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
