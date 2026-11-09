@@ -2,6 +2,11 @@
 title: Tang Mega 138K Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
+  - date: 2026-11-09
+    version: v0.5
+    author: misdake
+    content:
+      - 补充 B-SRAM 数目受 Convert SDP32/36 to SDP16/18 转换影响的说明
   - date: 2026-11-05
     version: v0.4
     author: Ziue
@@ -85,7 +90,7 @@ update:
 					</tr>
 					<tr>
 						<td>块状静态随机存储器数目B-SRAM(个)</td>
-						<td>340</td>
+						<td>340<sup>[3]</sup></td>
 					</tr>
 					<tr>
 						<td>乘法器(18x18 Multiplier)</td>
@@ -160,7 +165,7 @@ update:
 	</tbody>
 </table>
 
-<p style="font-size:0.875em;opacity:0.75;">[1] 默认仅 Device Version C 可用。由于 Device Version B 的 Silicon 缺陷，GOWIN 已禁用 B 版本 138K 的 SSRAM，该问题在 C 版本中修复（GOWIN 自 IDE 1.9.10.x 起正式禁用）。<br>[2] 若使用 Device Version B 的 138K FPGA 器件，必须选择 VCC = 1.0 V，并将核心电压从 0.9 V 实际提升到 1.0 V，才能使用 SSRAM。</p>
+<p style="font-size:0.875em;opacity:0.75;">[1] 默认仅 Device Version C 可用。由于 Device Version B 的 Silicon 缺陷，GOWIN 已禁用 B 版本 138K 的 SSRAM，该问题在 C 版本中修复（GOWIN 自 IDE 1.9.10.x 起正式禁用）。<br>[2] 若使用 Device Version B 的 138K FPGA 器件，必须选择 VCC = 1.0 V，并将核心电压从 0.9 V 实际提升到 1.0 V，才能使用 SSRAM。<br>[3] GOWIN 自 IDE 1.9.10 起默认将每个 SDP32/36 转换为 2 个 SDP16/18。如需关闭，可在 Configuration -> Place & Route -> General 中将 Convert SDP32/36 to SDP16/18 设为 False，须确保 VCC 不低于 0.9 V。</p>
 
 > *注意：**128Mbits** Flash 版本将于周年更新（2025 年 10 月）及所有后续版本中提供。*
 
