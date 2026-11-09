@@ -2,6 +2,11 @@
 title: Tang Primer 15K Dock
 keywords: FPGA, Tang, Primer, 15K
 update:
+  - date: 2026-11-09
+    version: v0.2
+    author: misdake
+    content:
+      - 补充 B-SRAM 数目受 Convert SDP32/36 to SDP16/18 转换影响的说明
   - date: 2024-06-25
     version: v0.1
     author: Serika
@@ -57,7 +62,7 @@ TBD
 					</tr>
 					<tr>
 						<td>块状静态随机存储器数目B-SRAM(个)</td>
-						<td>35</td>
+						<td>35<sup>[1]</sup></td>
 					</tr>
 					<tr>
 						<td>乘法器(18x18 Multiplier)</td>
@@ -133,6 +138,8 @@ TBD
 		</tr>
 	</tbody>
 </table>
+
+<p style="font-size:0.875em;opacity:0.75;">[1] GOWIN 自 IDE 1.9.10 起默认将每个 SDP32/36 转换为 2 个 SDP16/18。如需关闭，可在 Configuration -> Place & Route -> General 中将 Convert SDP32/36 to SDP16/18 设为 False，须确保 VCC 不低于 0.9 V。</p>
 
 ## Dock 底板产品图
 

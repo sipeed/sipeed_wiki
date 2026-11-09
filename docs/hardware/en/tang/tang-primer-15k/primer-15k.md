@@ -2,7 +2,12 @@
 title: Tang Primer 15K Dock
 keywords: FPGA, Tang, Primer, 15K
 update:
-  - date: 06-26-2024
+  - date: 2026-11-09
+    version: v0.2
+    author: misdake
+    content:
+      - Add a note that Convert SDP32/36 to SDP16/18 doubles the B-SRAM count
+  - date: 2024-06-26
     version: v0.1
     author: Serika
     content:
@@ -65,7 +70,7 @@ TBD
 					</tr>
 					<tr>
 						<td>Number of Block SRAMs (B-SRAM) (pcs)</td>
-						<td>35</td>
+						<td>35<sup>[1]</sup></td>
 					</tr>
 					<tr>
 						<td>Multiplier (18x18 Multiplier)</td>
@@ -146,6 +151,8 @@ TBD
 		</tr>
 	</tbody>
 </table>
+
+<p style="font-size:0.875em;opacity:0.75;">[1] Since IDE 1.9.10, GOWIN converts each SDP32/36 into two SDP16/18 by default. To turn it off, set Convert SDP32/36 to SDP16/18 to False under Configuration -> Place & Route -> General, and make sure VCC is at least 0.9 V.</p>
 
 ## Dock board Parameters
 

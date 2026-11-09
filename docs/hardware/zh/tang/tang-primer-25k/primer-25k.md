@@ -62,7 +62,7 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121NC1/I0](http://www.gowinsemi.com.cn/pro
 					</tr>
 					<tr>
 						<td>块状静态随机存储器数目B-SRAM(个)</td>
-						<td>56</td>
+						<td>56<sup>[1]</sup></td>
 					</tr>
 					<tr>
 						<td>乘法器(18x18 Multiplier)</td>
@@ -105,6 +105,8 @@ Tang Primer 25K 是基于 [GW5A-LV25MG121NC1/I0](http://www.gowinsemi.com.cn/pro
 		</tr>
 	</tbody>
 </table>
+
+<p style="font-size:0.875em;opacity:0.75;">[1] GOWIN 自 IDE 1.9.10 起默认将每个 SDP32/36 转换为 2 个 SDP16/18。如需关闭，可在 Configuration -> Place & Route -> General 中将 Convert SDP32/36 to SDP16/18 设为 False，须确保 VCC 不低于 0.9 V。</p>
 
 ## Dock 底板产品图
 

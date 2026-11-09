@@ -52,7 +52,7 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
           </tr>
           <tr>
             <td>Number of Block Static Random Access Memory B-SRAM</td>
-            <td>56</td>
+            <td>56<sup>[1]</sup></td>
           </tr>
           <tr>
             <td>Multiplier (18x18 Multiplier)</td>
@@ -97,6 +97,8 @@ Purchase link: [ALIEXPRESS](https://www.aliexpress.us/item/3256806038278266.html
     </tr>
   </tbody>
 </table>
+
+<p style="font-size:0.875em;opacity:0.75;">[1] Since IDE 1.9.10, GOWIN converts each SDP32/36 into two SDP16/18 by default. To turn it off, set Convert SDP32/36 to SDP16/18 to False under Configuration -> Place & Route -> General, and make sure VCC is at least 0.9 V.</p>
 
 ## Dock Base Board Product Image
 

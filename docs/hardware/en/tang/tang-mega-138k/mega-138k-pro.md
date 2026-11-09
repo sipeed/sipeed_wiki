@@ -2,6 +2,11 @@
 title: Tang Mega 138K Pro Dock
 keywords: FPGA, Tang, Mega, 138K
 update:
+  - date: 2026-11-09
+    version: v0.6
+    author: misdake
+    content:
+      - Add a note that Convert SDP32/36 to SDP16/18 doubles the B-SRAM count
   - date: 2026-11-05
     version: v0.5
     author: Ziue
@@ -84,7 +89,7 @@ update:
 					</tr>
 					<tr>
 						<td>Number of Block SRAMs (B-SRAM) (pcs)</td>
-						<td>340</td>
+						<td>340<sup>[3]</sup></td>
 					</tr>
 					<tr>
 						<td>Multiplier (18x18 Multiplier)</td>
@@ -164,7 +169,7 @@ update:
 	</tbody>
 </table>
 
-<p style="font-size:0.875em;opacity:0.75;">[1] By default, only Device Version C supports SSRAM. Due to a silicon defect in Device Version B, GOWIN has disabled the SSRAM on B-version 138K devices; this issue is fixed in the C version (officially disabled since IDE 1.9.10.x).<br>[2] For B-version 138K FPGAs, you must select VCC = 1.0 V and raise the core voltage from 0.9 V to 1.0 V in hardware before the SSRAM can be used.</p>
+<p style="font-size:0.875em;opacity:0.75;">[1] By default, only Device Version C supports SSRAM. Due to a silicon defect in Device Version B, GOWIN has disabled the SSRAM on B-version 138K devices; this issue is fixed in the C version (officially disabled since IDE 1.9.10.x).<br>[2] For B-version 138K FPGAs, you must select VCC = 1.0 V and raise the core voltage from 0.9 V to 1.0 V in hardware before the SSRAM can be used.<br>[3] Since IDE 1.9.10, GOWIN converts each SDP32/36 into two SDP16/18 by default. To turn it off, set Convert SDP32/36 to SDP16/18 to False under Configuration -> Place & Route -> General, and make sure VCC is at least 0.9 V.</p>
 
 ### Dock board Parameters
 
