@@ -62,7 +62,7 @@ Tang Nano 9K 是 Sipeed 所推出的第五款 FPGA 开发板，与在售前代�
 
 ## 上手指引
 
-1. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/common-doc/get_started/install-the-ide.html)
+1. 安装IDE和填写正确的License：[点击这里](https://wiki.sipeed.com/soft/Tang/zh/Tang-Common-Doc/get_started/install-the-ide.html)
 
 2. 阅读：[SUG100-2.6_Gowin云源软件用户指南.pdf](http://cdn.gowinsemi.com.cn/SUG100-2.5_Gowin%E4%BA%91%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97.pdf)
 
