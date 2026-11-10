@@ -3,6 +3,11 @@ title: SLogic32U3 简介
 keywords: LogicAnalyzer, SLogic, SLogic32U3, USB3.2, 10Gbps, sigrok, SLogicView, SLogicWeb, ngscopeclient, 逻辑分析仪
 update:
   - date: 2026-11-10
+    version: v0.7
+    author: Sipeed
+    content:
+      - 校正系列对比表中 16U3 的实际数据流速为 3.2 Gbps（400 MB/s）
+  - date: 2026-11-10
     version: v0.6
     author: Sipeed
     content:
@@ -106,7 +111,7 @@ SLogic32U3 的上位机随 [SLogic 发布包](https://github.com/sipeed/SLogic/r
 | 数字采样通道 | 8 | 16 | 32 |
 | 最大采样率 | 80M | 800M | 1400M |
 | 典型组合（stream） | 80M@4CH, 40M@8CH | 800M@4CH, 400M@8CH, 200M@16CH | 1400M@4CH, 800M@8CH, 400M@16CH, 200M@32CH |
-| 实际数据流速 | 320 Mbps | 4 Gbps | 6.4 Gbps（800 MB/s） |
+| 实际数据流速 | 320 Mbps | 3.2 Gbps（400 MB/s） | 6.4 Gbps（800 MB/s） |
 | 数据流 FIFO 缓存 | 48 Kibit SRAM | 128 Kibit BSRAM | 2 Gbit DDR3 |
 | 数字信号带宽 | 40 MHz | 200 MHz | 350 MHz |
 | Probe Cable | 杜邦线 | 同轴线 + 杜邦线 | 15 cm 同轴线 + 特氟龙杜邦线 |

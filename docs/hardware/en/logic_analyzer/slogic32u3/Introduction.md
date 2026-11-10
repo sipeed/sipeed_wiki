@@ -3,6 +3,11 @@ title: SLogic32U3 Introduction
 keywords: LogicAnalyzer, SLogic, SLogic32U3, USB3.2, 10Gbps, sigrok, SLogicView, SLogicWeb, ngscopeclient
 update:
   - date: 2026-11-10
+    version: v0.7
+    author: Sipeed
+    content:
+      - Corrected the SLogic16U3 stream rate in the series table to 3.2 Gbps (400 MB/s)
+  - date: 2026-11-10
     version: v0.6
     author: Sipeed
     content:
@@ -106,7 +111,7 @@ See the [Software Guide](./Software_User_Guide.md) for detailed usage and how to
 | Digital channels | 8 | 16 | 32 |
 | Max sample rate | 80M | 800M | 1400M |
 | Typical (stream) | 80M@4CH, 40M@8CH | 800M@4CH, 400M@8CH, 200M@16CH | 1400M@4CH, 800M@8CH, 400M@16CH, 200M@32CH |
-| Actual stream rate | 320 Mbps | 4 Gbps | 6.4 Gbps (800 MB/s) |
+| Actual stream rate | 320 Mbps | 3.2 Gbps (400 MB/s) | 6.4 Gbps (800 MB/s) |
 | Stream FIFO buffer | 48 Kibit SRAM | 128 Kibit BSRAM | 2 Gbit DDR3 |
 | Digital bandwidth | 40 MHz | 200 MHz | 350 MHz |
 | Probe cable | Jumper wire | Coaxial + jumper | 15 cm coaxial + PTFE jumper |
