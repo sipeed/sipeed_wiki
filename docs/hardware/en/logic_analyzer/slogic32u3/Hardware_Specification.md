@@ -2,6 +2,11 @@
 title: SLogic32U3 Hardware Guide
 keywords: SLogic32U3, hardware, Mini-HDMI, probe, ACT indicator, MODE, DFU, firmware, signal integrity, udev
 update:
+  - date: 2026-11-10
+    version: v0.5
+    author: Sipeed
+    content:
+      - Added the carry case to the included-items table
   - date: 2026-10-22
     version: v0.4
     author: Sipeed
@@ -169,6 +174,7 @@ The front-end network per signal on the daughter board: the coaxial core goes th
 | Mini-HDMI coaxial probe cable | × 4 | 15 cm coaxial shielded + PTFE jumper, 8 channels each |
 | Logic analyzer test clips | × 32 | general clips for standard headers and component leads |
 | USB-C data cable | × 1 | with a C-to-A adapter |
+| Carry case | × 1 | for transport and organizing accessories |
 | Labeled heat-shrink tubes | × 32 | numbered, slip them onto the cables yourself |
 
 ![Coaxial shielded probe cable](../../../zh/logic_analyzer/slogic32u3/assets/DCIM/accessory-coax-probe-cable.jpg)

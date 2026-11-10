@@ -2,6 +2,11 @@
 title: SLogic32U3 软件使用指南
 keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, 协议解码, 固件升级, OTA
 update:
+  - date: 2026-11-10
+    version: v0.6
+    author: Sipeed
+    content:
+      - 修正英文版固件章节「无需下载」与下载步骤的表述冲突
   - date: 2026-10-22
     version: v0.4
     author: Sipeed

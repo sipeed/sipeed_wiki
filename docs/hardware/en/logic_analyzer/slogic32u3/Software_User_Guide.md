@@ -2,6 +2,11 @@
 title: SLogic32U3 Software Guide
 keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, protocol decoding, firmware update, OTA
 update:
+  - date: 2026-11-10
+    version: v0.6
+    author: Sipeed
+    content:
+      - Fixed the firmware intro claiming nothing to download while step 1 downloads firmware
   - date: 2026-10-22
     version: v0.4
     author: Sipeed
@@ -303,7 +308,7 @@ Common options:
 
 ## Firmware Update
 
-SLogic32U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** — nothing to download or install.
+SLogic32U3 firmware is updated online with the web tool **[SLogic Firmware Update](https://slogic.sipeed.com/ota/)** — no host software to download or install; download the firmware file below.
 
 - **Browser**: Chrome, Edge or another Chromium-based browser on a computer (updates use WebUSB, which Firefox and Safari do not support).
 - **Driver**: no driver is needed on Windows. On Linux, run the following once to allow your user to access the analyzer, then re-plug it (the page shows it too):

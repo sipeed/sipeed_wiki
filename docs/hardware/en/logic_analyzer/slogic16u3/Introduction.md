@@ -25,7 +25,7 @@ The SLogic16U3 is a next‑generation USB3 logic analyzer. In a compact 40×40×
 | Size | 20x40x10mm | 40x40x10mm | 59x51x13mm |
 | Price | $15 | $69 | $149 |
 
-> USB2.0 applies to the SLogic Combo8 only; the SLogic16U3 and SLogic32U3 are USB3-only.
+> USB2.0 capture applies to the SLogic Combo8 only.
 
 ---
 

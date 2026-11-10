@@ -3,6 +3,13 @@ title: SLogic32U3 简介
 keywords: LogicAnalyzer, SLogic, SLogic32U3, USB3.2, 10Gbps, sigrok, SLogicView, SLogicWeb, ngscopeclient, 逻辑分析仪
 update:
   - date: 2026-11-10
+    version: v0.8
+    author: Sipeed
+    content:
+      - 系列对比表 16U3 的 Easy OTA 改为 Y
+      - USB 接口行分别标注 Gen2 10 Gbps 与 Gen1 5 Gbps
+      - USB2.0 说明限定为采集
+  - date: 2026-11-10
     version: v0.7
     author: Sipeed
     content:
@@ -72,7 +79,7 @@ SLogic32U3 是 Sipeed SLogic 系列的旗舰逻辑分析仪，也是全球首款
 | 最大采样率 | 1400 MSa/s（4CH） |
 | 采样率–通道梯度 | 1400M@4CH · 800M@8CH · 400M@16CH · 200M@32CH |
 | 数字信号带宽 | 350 MHz |
-| USB 接口 | USB3.2 Gen2 x1 / Gen1 x1（接口规范速度 10 Gbps） |
+| USB 接口 | USB3.2 Gen2（10 Gbps）/ Gen1（5 Gbps） |
 | 实际数据流速 | 800 MB/s（6.4 Gbps） |
 | 数据流 FIFO 缓存 | 2 Gbit DDR3 |
 | 采集模式 | Stream（流式实时回传），采样深度受电脑内存/硬盘限制 |
@@ -117,12 +124,12 @@ SLogic32U3 的上位机随 [SLogic 发布包](https://github.com/sipeed/SLogic/r
 | Probe Cable | 杜邦线 | 同轴线 + 杜邦线 | 15 cm 同轴线 + 特氟龙杜邦线 |
 | 兼容 Sigrok | Y | Y | Y |
 | 可调阈值 | N | Y | Y |
-| Easy OTA | N | N | Y |
+| Easy OTA | N | Y | Y |
 | 外壳材质 | 塑料 | 铝合金 | 铝合金 |
 | 额外特性 | DAP-Link, CK-Link, 4 路 UART | — | 可扩展 ADC → 示波器 |
 | 尺寸 | 20x40x10mm | 40x40x10mm | 59x51x13mm |
 
-> 表中 USB2.0 HS 仅适用于 SLogic Combo8；SLogic16U3 与 SLogic32U3 仅支持 USB3 及以上。
+> USB2.0 采集仅适用于 SLogic Combo8。
 
 ---
 

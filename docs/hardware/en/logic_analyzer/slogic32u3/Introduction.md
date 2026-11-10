@@ -3,6 +3,13 @@ title: SLogic32U3 Introduction
 keywords: LogicAnalyzer, SLogic, SLogic32U3, USB3.2, 10Gbps, sigrok, SLogicView, SLogicWeb, ngscopeclient
 update:
   - date: 2026-11-10
+    version: v0.8
+    author: Sipeed
+    content:
+      - Marked the SLogic16U3 as Easy OTA in the series table
+      - Split the USB row into Gen2 10 Gbps and Gen1 5 Gbps
+      - Scoped the USB2.0 note to capture
+  - date: 2026-11-10
     version: v0.7
     author: Sipeed
     content:
@@ -72,7 +79,7 @@ On the host side, Sipeed officially provides SLogicView, ngscopeclient and sigro
 | Max sample rate | 1400 MSa/s (4CH) |
 | Rate–channel tiers | 1400M@4CH · 800M@8CH · 400M@16CH · 200M@32CH |
 | Digital signal bandwidth | 350 MHz |
-| USB interface | USB3.2 Gen2 x1 / Gen1 x1 (10 Gbps line rate) |
+| USB interface | USB3.2 Gen2 (10 Gbps) / Gen1 (5 Gbps) |
 | Actual stream rate | 800 MB/s (6.4 Gbps) |
 | Stream FIFO buffer | 2 Gbit DDR3 |
 | Capture mode | Stream (real-time readback); depth limited by PC memory/disk |
@@ -117,12 +124,12 @@ See the [Software Guide](./Software_User_Guide.md) for detailed usage and how to
 | Probe cable | Jumper wire | Coaxial + jumper | 15 cm coaxial + PTFE jumper |
 | sigrok compatible | Y | Y | Y |
 | Adjustable threshold | N | Y | Y |
-| Easy OTA | N | N | Y |
+| Easy OTA | N | Y | Y |
 | Enclosure | Plastic | Aluminum | Aluminum |
 | Extras | DAP-Link, CK-Link, 4× UART | — | Expandable ADC → oscilloscope |
 | Size | 20x40x10mm | 40x40x10mm | 59x51x13mm |
 
-> USB2.0 HS applies to the SLogic Combo8 only; the SLogic16U3 and SLogic32U3 are USB3-only.
+> USB2.0 capture applies to the SLogic Combo8 only.
 
 ---
 

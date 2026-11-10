@@ -2,6 +2,11 @@
 title: SLogic32U3 硬件使用指南
 keywords: SLogic32U3, 硬件, Mini-HDMI, 探头, ACT 指示灯, MODE, DFU, 固件更新, 信号完整性, udev
 update:
+  - date: 2026-11-10
+    version: v0.5
+    author: Sipeed
+    content:
+      - 标配表补充收纳包
   - date: 2026-10-22
     version: v0.4
     author: Sipeed
@@ -170,6 +175,7 @@ SLogic32U3 为 CNC 铝合金一体外壳，尺寸 59 × 51 × 13 mm，表面散�
 | Mini-HDMI 同轴探头线 | × 4 | 15 cm 同轴屏蔽线 + 特氟龙杜邦线，每条 8 通道 |
 | 逻辑分析仪测试夹 | × 32 | 通用测试夹，适配常规排针与元件引脚 |
 | USB-C 数据线 | × 1 | 含 C 转 A 转接头 |
+| 收纳包 | × 1 | 便于携带与归置配件 |
 | 标号热缩管 | × 32 | 带通道编号，由用户自行套到对应线上 |
 
 ![同轴屏蔽探头线](./assets/DCIM/accessory-coax-probe-cable.jpg)
