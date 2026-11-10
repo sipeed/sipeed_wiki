@@ -3,6 +3,11 @@ title: SLogic32U3 Hardware Guide
 keywords: SLogic32U3, hardware, Mini-HDMI, probe, ACT indicator, MODE, DFU, firmware, signal integrity, udev
 update:
   - date: 2026-11-10
+    version: v0.6
+    author: Sipeed
+    content:
+      - Clarified that ADC and digital capture can run together
+  - date: 2026-11-10
     version: v0.5
     author: Sipeed
     content:
@@ -208,7 +213,7 @@ The SLogic32U3 can take an optional 4-channel ADC module that uploads the sample
 
 ![Optional ADC oscilloscope module](../../../zh/logic_analyzer/slogic32u3/assets/DCIM/adc-module-photo.jpg)
 
-To enable it: configure in the ngscopeclient UI. Once on, the 32U3 merges D0–7 / D8–15 / D16–23 / D24–31 into 4 analog channels A0–A3 (8-bit). See [ngscopeclient](../ngscopeclient/ngscopeclient.md).
+To enable it: configure in the ngscopeclient UI. Each analog channel occupies the corresponding 8 digital inputs (D0–7 → A0, D8–15 → A1, D16–23 → A2, D24–31 → A3); groups left unused can still capture digitally at the same time. See [ngscopeclient](../ngscopeclient/ngscopeclient.md).
 
 ---
 

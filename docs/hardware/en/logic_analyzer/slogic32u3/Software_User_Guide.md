@@ -3,6 +3,11 @@ title: SLogic32U3 Software Guide
 keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, protocol decoding, firmware update, OTA
 update:
   - date: 2026-11-10
+    version: v0.7
+    author: Sipeed
+    content:
+      - Clarified that ADC and digital capture run together
+  - date: 2026-11-10
     version: v0.6
     author: Sipeed
     content:
@@ -341,7 +346,7 @@ SLogic32U3 firmware is updated online with the web tool **[SLogic Firmware Updat
 | Rate drops with channel count | 8 / 16 / 32 channels already hit the 6.4 Gbps ceiling and cannot go higher; trade channels for a higher rate |
 | Long capture bounded by disk | Stream mode is unlimited in theory, but rate × depth directly sets disk usage |
 | Web app browser requirement | SLogicWeb relies on WebUSB; Firefox and Safari do not work |
-| ADC with digital capture | the optional ADC module takes the corresponding digital pins; whether both run together depends on channel allocation, go by the actual unit |
+| ADC with digital capture | both can run together: the ADC module takes the corresponding 8 digital inputs, and unused groups remain available for digital capture |
 
 ---
 

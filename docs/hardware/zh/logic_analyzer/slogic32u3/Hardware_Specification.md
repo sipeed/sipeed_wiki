@@ -3,6 +3,11 @@ title: SLogic32U3 硬件使用指南
 keywords: SLogic32U3, 硬件, Mini-HDMI, 探头, ACT 指示灯, MODE, DFU, 固件更新, 信号完整性, udev
 update:
   - date: 2026-11-10
+    version: v0.6
+    author: Sipeed
+    content:
+      - 明确 ADC 模组与数字通道可同时采集
+  - date: 2026-11-10
     version: v0.5
     author: Sipeed
     content:
@@ -209,7 +214,7 @@ SLogic32U3 可选配 4 通道 ADC 模组，把对应管脚采样**作为 8-bit �
 
 ![可选 ADC 示波器模组](./assets/DCIM/adc-module-photo.jpg)
 
-启用方式：在 ngscopeclient 的 UI 中配置。启用后 32U3 会把 D0–7 / D8–15 / D16–23 / D24–31 合并为 4 路 8-bit 模拟通道 A0–A3。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。
+启用方式：在 ngscopeclient 的 UI 中配置。每启用 1 路模拟通道，会占用对应的 8 个数字输入（D0–7 → A0、D8–15 → A1、D16–23 → A2、D24–31 → A3）；未占用的通道组仍可同时进行数字采集。详见 [ngscopeclient](../ngscopeclient/ngscopeclient.md)。
 
 ---
 

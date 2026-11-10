@@ -3,6 +3,11 @@ title: SLogic32U3 软件使用指南
 keywords: SLogic32U3, SLogicView, SLogicWeb, ALL LOGIC, DSView, ngscopeclient, sigrok-cli, WebUSB, 协议解码, 固件升级, OTA
 update:
   - date: 2026-11-10
+    version: v0.7
+    author: Sipeed
+    content:
+      - 明确 ADC 与数字采集可同时进行
+  - date: 2026-11-10
     version: v0.6
     author: Sipeed
     content:
@@ -341,7 +346,7 @@ SLogic32U3 的固件通过网页工具在线升级：**[SLogic 固件升级](htt
 | 采样率随通道数下降 | 8 / 16 / 32 通道已跑满 6.4 Gbps 带宽上限，无法再提高；只能通过减少使能通道换取更高采样率 |
 | 长时间采集受磁盘约束 | Stream 模式采集时长理论不限，但采样率 × 深度直接决定磁盘占用 |
 | 网页版浏览器要求 | SLogicWeb 依赖 WebUSB，Firefox 与 Safari 不可用 |
-| ADC 与数字采集并用 | 可选 ADC 模组会占用对应的数字管脚，两者能否同时使用取决于通道分配，具体以实机为准 |
+| ADC 与数字采集并用 | 可以同时采集：ADC 模组占用对应的 8 个数字输入，未占用的通道组仍可作为数字通道使用 |
 
 ---
 
