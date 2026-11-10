@@ -26,6 +26,8 @@ SLogic16U3 是新一代 USB3 逻辑分析仪。它在紧凑的 40×40×10 mm 超
 | 尺寸 | 20x40x10mm | 40x40x10mm | 59x51x13mm |
 | 价格 | ￥69 | ￥369 | ~￥999 |
 
+> 表中 USB2.0 仅适用于 SLogic Combo8；SLogic16U3 与 SLogic32U3 仅支持 USB3 及以上。
+
 ---
 
 ## 产品图
