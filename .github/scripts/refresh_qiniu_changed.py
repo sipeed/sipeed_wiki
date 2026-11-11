@@ -36,7 +36,9 @@ API = "https://fusion.qiniuapi.com/v2/tune/refresh"
 MAX_URLS = 100  # one API call; keep most of the daily quota for other sites
 
 # Suffixes Qiniu caches for 1 day or longer on wiki.sipeed.com. Keep in sync
-# with the domain's cache rules; anything else expires within 10 minutes.
+# with the domain's cache rules (Qiniu console > CDN > wiki.sipeed.com > cache
+# settings, or GET https://api.qiniu.com/domain/wiki.sipeed.com -> cache);
+# anything else expires within 10 minutes.
 LONG_CACHED = {
     ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".webp", ".ico",
     ".js", ".css", ".txt", ".shtml", ".csv", ".bat",
@@ -59,11 +61,16 @@ def overwritten_files(old_dir, new_dir):
             new_path = os.path.join(root, name)
             rel = os.path.relpath(new_path, new_dir)
             old_path = os.path.join(old_dir, rel)
-            if not os.path.isfile(old_path):
+            if not os.path.isfile(new_path) or not os.path.isfile(old_path):
                 continue
-            if not filecmp.cmp(old_path, new_path, shallow=False):
-                changed.append(rel.replace(os.sep, "/"))
-    return sorted(changed)
+            try:
+                if not filecmp.cmp(old_path, new_path, shallow=False):
+                    changed.append(rel.replace(os.sep, "/"))
+            except OSError as e:
+                print("WARN: cannot compare %s: %s" % (rel, e))
+    # Main-site files first: MaixPy/MaixCDK sub-sites are rebuilt by their own
+    # repos and must not crowd main-site files out of the per-run cap.
+    return sorted(changed, key=lambda p: (p.startswith(("maixpy/", "maixcdk/")), p))
 
 
 def refresh(urls, ak, sk):
@@ -100,7 +107,8 @@ def main():
     print("%d long-cached file(s) overwritten by this publish." % len(changed))
     if not changed:
         return
-    urls = [SITE + urllib.parse.quote(p, safe="/") for p in changed]
+    # Leave sub-delims raw like browsers do, so the URL matches the cache key.
+    urls = [SITE + urllib.parse.quote(p, safe="/!$&'()*+,;=:@") for p in changed]
     if len(urls) > MAX_URLS:
         print("WARN: %d URLs exceed the per-run cap of %d; refreshing the first %d."
               " Refresh the rest by hand (e.g. a directory refresh) if needed."

@@ -102,9 +102,12 @@ jobs:
         run: |
           # The build step checked out gh-pages, which has no .github/, so read
           # the script from the triggering commit instead of the working tree.
-          git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/refresh_qiniu_changed.py" \
-            | python3 - "$WIKI_OLD_DIR" "$WIKI_NEW_DIR" \
-            || echo "WARN: CDN refresh step failed to run (continuing)."
+          script="$RUNNER_TEMP/refresh_qiniu_changed.py"
+          if git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/refresh_qiniu_changed.py" > "$script"; then
+            python3 "$script" "$WIKI_OLD_DIR" "$WIKI_NEW_DIR" || echo "WARN: CDN refresh script failed (continuing)."
+          else
+            echo "WARN: cannot read refresh script from $GITHUB_SHA (continuing)."
+          fi
 
 
 #           SSHPATH="$HOME/.ssh"
