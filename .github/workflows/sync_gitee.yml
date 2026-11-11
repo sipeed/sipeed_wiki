@@ -31,13 +31,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout code from github
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       # Runs a set of commands using the runners shell
       - name: sync shell cmd
         run: |
           GITEE_GIT_ADDR="git@gitee.com:Sipeed/sipeed_wiki.git"
-          git fetch --unshallow
           SSHPATH="$HOME/.ssh"
           rm -rf "$SSHPATH"
           mkdir -p "$SSHPATH"
@@ -45,4 +46,8 @@ jobs:
           chmod 600 "$SSHPATH/id_rsa"
           sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
           git remote add upstream $GITEE_GIT_ADDR
+          # Fetch gitee's current main first so push can negotiate a common base.
+          # If main was force-pushed on GitHub, gitee's tip is not in our clone and
+          # push would otherwise upload the whole repo (~1 GB) and time out.
+          git fetch upstream main || true
           git push upstream main:main --force
