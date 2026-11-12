@@ -59,31 +59,11 @@ The floating toolbar from left to right includes: image settings, on-screen keyb
 + Some BIOS require the mouse to operate in relative movement mode. Please modify this in the web interface under "Mouse Mode."
 + Some BIOS require the keyboard and mouse to operate in a mode with the BIOS mark. Please execute `/touch /boot/BIOS && reboot` in the web terminal.
 
-### ISO Image Mounting and Remote Installation
+### Image Mounting and File Sharing
 
-+ The USB-C port of Nano KVM not only simulates keyboard and mouse devices but also simulates a USB drive, mounting a portion of the TF card's storage space for installation purposes. This USB drive is formatted as exFAT by default, and the Full version of NanoKVM has a built-in TF card with a simulated USB drive size of approximately 21GB.
+NanoKVM PCIe runs the same firmware and web interface as NanoKVM Cube, so storage operations are identical: `Disk mount` presents an ISO or IMG file to the target machine, and `File sharing` presents the data partition as a removable disk.
 
-+ Unlike a regular USB drive, the virtual USB drive of NanoKVM can store multiple images simultaneously. Before booting, you can select the system image to mount via the web page options.
-
-Users need to download the desired installation image (usually ending with .iso) in advance, insert the NanoKVM USB-C into the computer, and copy the downloaded image directly to the USB drive (multiple systems can be copied). You can then safely remove it.
-
-Follow the steps above to connect the remote host with Nano KVM. After logging into the system via the browser, click the disk icon and select the system to be installed to achieve ISO mounting.
-
-![](./../../../assets/NanoKVM/guide/imgsl.png)
-
-Next, start the installation process by clicking Power On, then quickly press the F11 key on the keyboard (the key may vary depending on the host, please refer to the host's documentation). Select the corresponding image to boot and complete the installation process.
-
-![](./../../../assets/NanoKVM/guide/install.png)
-
-Note:
-
-+ The virtual USB drive function is enabled by default. If not needed, it can be disabled by clicking `Settings` -> `Virtual USB Drive`.
-+ Please safely eject the existing 21GB virtual USB drive on the host before mounting the image to avoid data loss.
-+ The virtual USB drive can also be used as a regular USB drive. When no image is selected on the web interface, the entire 21GB virtual USB drive is mounted by default.
-+ Users can also use the conventional method to burn the image onto a card, but this is not recommended.
-+ The speed of copying images into NanoKVM is limited by the USB 2.0 transfer speed and SG2002 card writing speed, which may be relatively slow. Users can remove the TF card, insert it into a computer, and [unhide](https://jingyan.baidu.com/article/e4511cf34faece2b845eaf34.html) the third partition of the TF card to directly copy the image into it.
-+ The virtual USB drive is also mounted to the NanoKVM’s `/data` directory, allowing users to read and write directly to that partition within the NanoKVM terminal.
-+ Canceling the virtual USB drive operation in the settings will forcibly eject the USB drive. Please safely eject the USB drive first before making changes to avoid data loss.
+For the steps (mount mode, adding images, ejecting), see [Image Mounting and File Sharing (NanoKVM)](../NanoKVM/storage.html). Connect HDMI and USB-HID as described in the [Quick Start](./quick_start.html).
 
 ### Web Terminal
 
