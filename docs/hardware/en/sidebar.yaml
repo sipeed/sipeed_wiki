@@ -582,6 +582,8 @@ items:
             file: kvm/NanoKVM_Go/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM_Go/user_guide.md
+        -   label: Image Mounting and File Sharing
+            file: kvm/NanoKVM_Go/storage.md
         -   label: Resolution and EDID Settings
             file: kvm/NanoKVM_Go/resolution.md
         -   label: Finger Robot
