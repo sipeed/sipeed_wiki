@@ -576,64 +576,6 @@ items:
             file: kvm/NanoKVM/faq.md
         -   label: Development
             file: kvm/NanoKVM/development.md
-    -   label: NanoKVM Go
-        items:
-        -   label: Introduction
-            file: kvm/NanoKVM_Go/introduction.md
-        -   label: Quick Start
-            file: kvm/NanoKVM_Go/quick_start.md
-        -   label: User Guide
-            file: kvm/NanoKVM_Go/user_guide.md
-        -   label: Image Mounting and File Sharing
-            file: kvm/NanoKVM_Go/storage.md
-        -   label: Resolution and EDID Settings
-            file: kvm/NanoKVM_Go/resolution.md
-        -   label: Finger Robot
-            file: kvm/NanoKVM_Go/finger_robot.md
-        -   label: MCP
-            file: kvm/NanoKVM_Go/mcp.md
-        -   label: Memory Fabric
-            file: kvm/NanoKVM_Go/memory_weaving.md
-        -   label: KVM App Update
-            file: kvm/NanoKVM_Go/system/updating.md
-        -   label: Two-Factor Authentication
-            file: kvm/NanoKVM_Go/two_factor_authentication.md
-        -   label: Network
-            items:
-            -   label: Tailscale
-                file: kvm/NanoKVM_Go/network/tailscale.md
-            -   label: Sipeed Remote Network
-                file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
-            -   label: NetBird
-                file: kvm/NanoKVM_Go/network/netbird.md
-            -   label: ZeroTier
-                file: kvm/NanoKVM_Go/network/zerotier.md
-            -   label: frp
-                file: kvm/NanoKVM_Go/network/frp.md
-            -   label: Cloudflare Tunnel
-                file: kvm/NanoKVM_Go/network/cloudflare_tunnel.md
-            -   label: Static IP
-                file: kvm/NanoKVM_Go/network/static_ip.md
-        -   label: System
-            items:
-            -   label: System Build
-                file: kvm/NanoKVM_Go/system/introduction.md
-            -   label: Flash Image
-                file: kvm/NanoKVM_Go/system/flashing.md
-        -   label: Custom Apps
-            items:
-            -   label: App Installation and Development
-                file: kvm/NanoKVM_Go/custom_app.md
-            -   label: AI Realtime Voice Chat
-                items:
-                -   label: Quick Start
-                    file: kvm/NanoKVM_Go/realtime_voice_bridge.md
-                -   label: Technical Guide
-                    file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
-        -   label: FAQ
-            file: kvm/NanoKVM_Go/faq.md
-        -   label: Documentation Changelog
-            file: kvm/NanoKVM_Go/changelog.md
     -   label: NanoKVM PCIe
         items:
         -   label: Introduction
@@ -642,6 +584,8 @@ items:
             file: kvm/NanoKVM_PCIe/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM_PCIe/user_guide.md
+        -   label: Image Mounting and File Sharing
+            file: kvm/NanoKVM/storage.md
         -   label: MCP
             file: kvm/NanoKVM_PCIe/mcp.md
         -   label: Network
@@ -704,6 +648,64 @@ items:
                 file: kvm/NanoKVM_Pro/macos_reinstall.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
+    -   label: NanoKVM Go
+        items:
+        -   label: Introduction
+            file: kvm/NanoKVM_Go/introduction.md
+        -   label: Quick Start
+            file: kvm/NanoKVM_Go/quick_start.md
+        -   label: User Guide
+            file: kvm/NanoKVM_Go/user_guide.md
+        -   label: Image Mounting and File Sharing
+            file: kvm/NanoKVM_Go/storage.md
+        -   label: Resolution and EDID Settings
+            file: kvm/NanoKVM_Go/resolution.md
+        -   label: Finger Robot
+            file: kvm/NanoKVM_Go/finger_robot.md
+        -   label: MCP
+            file: kvm/NanoKVM_Go/mcp.md
+        -   label: Memory Fabric
+            file: kvm/NanoKVM_Go/memory_weaving.md
+        -   label: KVM App Update
+            file: kvm/NanoKVM_Go/system/updating.md
+        -   label: Two-Factor Authentication
+            file: kvm/NanoKVM_Go/two_factor_authentication.md
+        -   label: Network
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM_Go/network/tailscale.md
+            -   label: Sipeed Remote Network
+                file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
+            -   label: NetBird
+                file: kvm/NanoKVM_Go/network/netbird.md
+            -   label: ZeroTier
+                file: kvm/NanoKVM_Go/network/zerotier.md
+            -   label: frp
+                file: kvm/NanoKVM_Go/network/frp.md
+            -   label: Cloudflare Tunnel
+                file: kvm/NanoKVM_Go/network/cloudflare_tunnel.md
+            -   label: Static IP
+                file: kvm/NanoKVM_Go/network/static_ip.md
+        -   label: System
+            items:
+            -   label: System Build
+                file: kvm/NanoKVM_Go/system/introduction.md
+            -   label: Flash Image
+                file: kvm/NanoKVM_Go/system/flashing.md
+        -   label: Custom Apps
+            items:
+            -   label: App Installation and Development
+                file: kvm/NanoKVM_Go/custom_app.md
+            -   label: AI Realtime Voice Chat
+                items:
+                -   label: Quick Start
+                    file: kvm/NanoKVM_Go/realtime_voice_bridge.md
+                -   label: Technical Guide
+                    file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Go/faq.md
+        -   label: Documentation Changelog
+            file: kvm/NanoKVM_Go/changelog.md
 -   label: Cluster
     items:
     -   label: NanoCluster

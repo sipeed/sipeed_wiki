@@ -564,64 +564,6 @@ items:
                 file: kvm/NanoKVM/system/configuration.md
         -   label: FAQ
             file: kvm/NanoKVM/faq.md
-    -   label: NanoKVM Go
-        items:
-        -   label: 简介
-            file: kvm/NanoKVM_Go/introduction.md
-        -   label: 快速上手
-            file: kvm/NanoKVM_Go/quick_start.md
-        -   label: 用户指南
-            file: kvm/NanoKVM_Go/user_guide.md
-        -   label: 镜像挂载与文件共享
-            file: kvm/NanoKVM_Go/storage.md
-        -   label: 分辨率与 EDID 设置
-            file: kvm/NanoKVM_Go/resolution.md
-        -   label: 手指机器人
-            file: kvm/NanoKVM_Go/finger_robot.md
-        -   label: MCP 功能
-            file: kvm/NanoKVM_Go/mcp.md
-        -   label: 记忆织网
-            file: kvm/NanoKVM_Go/memory_weaving.md
-        -   label: KVM 应用更新
-            file: kvm/NanoKVM_Go/system/updating.md
-        -   label: 双重验证
-            file: kvm/NanoKVM_Go/two_factor_authentication.md
-        -   label: 网络
-            items:
-            -   label: Tailscale
-                file: kvm/NanoKVM_Go/network/tailscale.md
-            -   label: Sipeed 远程网络连接
-                file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
-            -   label: NetBird
-                file: kvm/NanoKVM_Go/network/netbird.md
-            -   label: ZeroTier
-                file: kvm/NanoKVM_Go/network/zerotier.md
-            -   label: frp
-                file: kvm/NanoKVM_Go/network/frp.md
-            -   label: Cloudflare Tunnel
-                file: kvm/NanoKVM_Go/network/cloudflare_tunnel.md
-            -   label: 静态 IP
-                file: kvm/NanoKVM_Go/network/static_ip.md
-        -   label: 系统
-            items:
-            -   label: 系统编译
-                file: kvm/NanoKVM_Go/system/introduction.md
-            -   label: 烧录镜像
-                file: kvm/NanoKVM_Go/system/flashing.md
-        -   label: 自定义 APP
-            items:
-            -   label: APP 安装与开发
-                file: kvm/NanoKVM_Go/custom_app.md
-            -   label: AI 实时语音对话
-                items:
-                -   label: 快速体验
-                    file: kvm/NanoKVM_Go/realtime_voice_bridge.md
-                -   label: 二次开发
-                    file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
-        -   label: FAQ
-            file: kvm/NanoKVM_Go/faq.md
-        -   label: 文档更新日志
-            file: kvm/NanoKVM_Go/changelog.md
     -   label: NanoKVM PCIe
         items:
         -   label: 简介
@@ -630,6 +572,8 @@ items:
             file: kvm/NanoKVM_PCIe/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM_PCIe/user_guide.md
+        -   label: 镜像挂载与文件共享
+            file: kvm/NanoKVM/storage.md
         -   label: MCP 功能
             file: kvm/NanoKVM_PCIe/mcp.md
         -   label: 二次开发
@@ -690,6 +634,64 @@ items:
                 file: kvm/NanoKVM_Pro/macos_reinstall.md
         -   label: FAQ
             file: kvm/NanoKVM_Pro/faq.md
+    -   label: NanoKVM Go
+        items:
+        -   label: 简介
+            file: kvm/NanoKVM_Go/introduction.md
+        -   label: 快速上手
+            file: kvm/NanoKVM_Go/quick_start.md
+        -   label: 用户指南
+            file: kvm/NanoKVM_Go/user_guide.md
+        -   label: 镜像挂载与文件共享
+            file: kvm/NanoKVM_Go/storage.md
+        -   label: 分辨率与 EDID 设置
+            file: kvm/NanoKVM_Go/resolution.md
+        -   label: 手指机器人
+            file: kvm/NanoKVM_Go/finger_robot.md
+        -   label: MCP 功能
+            file: kvm/NanoKVM_Go/mcp.md
+        -   label: 记忆织网
+            file: kvm/NanoKVM_Go/memory_weaving.md
+        -   label: KVM 应用更新
+            file: kvm/NanoKVM_Go/system/updating.md
+        -   label: 双重验证
+            file: kvm/NanoKVM_Go/two_factor_authentication.md
+        -   label: 网络
+            items:
+            -   label: Tailscale
+                file: kvm/NanoKVM_Go/network/tailscale.md
+            -   label: Sipeed 远程网络连接
+                file: kvm/NanoKVM_Go/network/sipeed_remote_network.md
+            -   label: NetBird
+                file: kvm/NanoKVM_Go/network/netbird.md
+            -   label: ZeroTier
+                file: kvm/NanoKVM_Go/network/zerotier.md
+            -   label: frp
+                file: kvm/NanoKVM_Go/network/frp.md
+            -   label: Cloudflare Tunnel
+                file: kvm/NanoKVM_Go/network/cloudflare_tunnel.md
+            -   label: 静态 IP
+                file: kvm/NanoKVM_Go/network/static_ip.md
+        -   label: 系统
+            items:
+            -   label: 系统编译
+                file: kvm/NanoKVM_Go/system/introduction.md
+            -   label: 烧录镜像
+                file: kvm/NanoKVM_Go/system/flashing.md
+        -   label: 自定义 APP
+            items:
+            -   label: APP 安装与开发
+                file: kvm/NanoKVM_Go/custom_app.md
+            -   label: AI 实时语音对话
+                items:
+                -   label: 快速体验
+                    file: kvm/NanoKVM_Go/realtime_voice_bridge.md
+                -   label: 二次开发
+                    file: kvm/NanoKVM_Go/realtime_voice_bridge_technical.md
+        -   label: FAQ
+            file: kvm/NanoKVM_Go/faq.md
+        -   label: 文档更新日志
+            file: kvm/NanoKVM_Go/changelog.md
 -   label: Cluster
     items:
     -   label: NanoCluster
