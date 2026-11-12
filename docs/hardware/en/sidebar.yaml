@@ -550,6 +550,8 @@ items:
             file: kvm/NanoKVM/quick_start.md
         -   label: User Guide
             file: kvm/NanoKVM/user_guide.md
+        -   label: Image Mounting and File Sharing
+            file: kvm/NanoKVM/storage.md
         -   label: MCP
             file: kvm/NanoKVM/mcp.md
         -   label: Network
