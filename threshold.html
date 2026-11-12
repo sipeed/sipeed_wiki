@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>thresholding-filter-browser-html</title>
+  <script type="text/javascript">
+    var DISABLE_EXCEPTION_CATCHING = 2;
+  </script>
+  <script src="https://docs.opencv.org/3.4.0/opencv.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <style>
+    .input_underline {
+      border-bottom: 1px solid #dbdbdb;
+      border-top:0px;
+      border-left:0px;
+      border-right:0px;
+      width:200px;
+
+      color:#f6931f;
+      font-weight:bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="padding:5% 25% 5% 10%;">
+    <p>
+    <h2>thresholding-filter-browser-html</h2>
+    <div class="caption">
+      <button id="set_default_url">默认图片</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="fileInput">上传图片：</label>
+      <input type="file" id="fileInput" name="file" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="mjpg_url">图传地址(<a href="https://wiki.sipeed.com/soft/maixpy3/zh/usage/net.html#MJPG-%E5%9B%BE%E4%BC%A0-%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F" target="_blank">&quest;</a>)：</label>
+      <input type="text" id="mjpg_url" class="input_underline" value="http://127.0.0.1:18811">
+      <button id="set_mjpg_url">设置</button>
+    </div>
+    <!-- <canvas id="imageCanvas" width="320" width="240"></canvas> -->
+    <img id="imageSrc" alt="No Image need to selected jpg or png image" default-src="demo_color.jpg" src="demo_color.jpg"/>
+    <canvas id="imageDest">
+      <button onclick="callRender();">adaptiveThreshold</button>
+      <script type="text/javascript">
+        window._work_mode = 0;
+        let imgSrcType = 0;
+        let imgElement = document.getElementById("imageSrc");
+
+        imgElement.src = "data:image/jpeg;base64,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";
+
+        imgElement.crossOrigin = '';
+        // let imageCanvas = document.getElementById("imageCanvas");
+        let inputElement = document.getElementById("fileInput");
+        let outputElement = document.getElementById("imageDest");
+        inputElement.addEventListener("change", (e) => {
+          imgElement.src = URL.createObjectURL(e.target.files[0]);
+          imgElement.crossOrigin = '';
+        }, false);
+        // imgElement.onload = function () {
+        //   var ctx = imageCanvas.getContext("2d");
+        //   ctx.drawImage(imgElement, 0, 0, 224, 224);
+        // };
+        function callRender() {
+          if(imgSrcType==0) {
+            return;
+          }
+          // console.log(cv)
+          let src = cv.imread(imgElement);
+          cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+          let marker = new cv.Mat(224, 224, cv.CV_8UC1);
+          try {
+            cv.adaptiveThreshold(src, marker, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2);
+          } catch (e) {
+            throw e;
+          }
+          cv.imshow('imageDest', marker);
+          marker.delete();
+        }
+        var int=self.setInterval("update_color()", 50);
+        function update_color()
+        {
+          if(imgSrcType==0) {
+            return;
+          }
+          try {
+            if (window._work_mode == 0) {
+              update_color_rgb();
+            } else if (window._work_mode == 1) {
+              update_color_lab();
+            }
+          } catch (e) {
+            throw e;
+          }
+        }
+        $('#set_mjpg_url').click(function(){
+          let mjpeg_url = $('#mjpg_url').val();
+          imgElement.src = mjpeg_url;
+          imgSrcType = 2;
+        });
+        $('#set_default_url').click(function(){
+          $('#imageSrc').attr('src', $('#imageSrc').attr('default-src'));
+        });
+      </script>
+    </canvas>
+    </p>
+
+    <p>
+      <label for="amount">二值化（threshold）阈值范围</label>
+      <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+      <div id="slider_range"></div>
+      <script>
+        function update_color_rgb() {
+          window._work_mode = 0;
+          // console.log(cv)
+          let src = cv.imread(imgElement);
+          cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+          let marker = new cv.Mat(224, 224, cv.CV_8UC1);
+          try {
+            min = $("#slider_range").slider("values", 0);
+            max = $("#slider_range").slider("values", 1);
+            cv.threshold(src, marker, min, max, cv.THRESH_BINARY);
+          } catch (e) {
+            throw e;
+          }
+          cv.imshow('imageDest', marker);
+          marker.delete();
+          src.delete();
+          $("#amount").val("阈值 " + max + " - 最大值" + max);
+        }
+        $(function () {
+          $("#slider_range").slider({
+            range: true,
+            min: 0,
+            max: 255,
+            values: [0, 255],
+            slide: function (event, ui) {
+              update_color_rgb();
+            }
+          });
+          $("#amount").val("阈值 " + $("#slider_range").slider("values", 0) +
+            " - 最大值 " + $("#slider_range").slider("values", 1));
+
+        $('#set_amount_lab_button').click(function(){
+          let set_val = $('#set_amount_lab').val();
+          let get_vals = set_val.match(/(\-?[0-9]+)/g);
+          if(get_vals && get_vals.length==6) {
+            $('#amount_lab').val(
+              '[('+get_vals.join(', ')+')]'
+            );
+
+            $("#slider_l_min").slider("option", "value", get_vals[0]);
+            $("#slider_l_max").slider("option", "value", get_vals[1]);
+            $("#slider_a_min").slider("option", "value", get_vals[2]);
+            $("#slider_a_max").slider("option", "value", get_vals[3]);
+            $("#slider_b_min").slider("option", "value", get_vals[4]);
+            $("#slider_b_max").slider("option", "value", get_vals[5]);
+
+            update_color_lab();
+          }
+        });
+        });
+      </script>
+    </p>
+
+    <p>
+      <div>
+        <label for="amount">LAB（threshold）阈值范围</label>
+        <input type="text" id="amount_lab" class="input_underline">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="amount">设置阈值范围</label>
+        <input type="text" id="set_amount_lab" class="input_underline">
+        <button id="set_amount_lab_button">设置</button>
+      </div>
+      <p>
+        <label for="amount">L min - max</label>
+        <input type="text" id="amount_l" style="border:0; color:#f6931f; font-weight:bold;">
+        <div id="slider_l_min"></div>
+        <div id="slider_l_max"></div>
+      </p>
+      <p>
+        <label for="amount">A min - max</label>
+        <input type="text" id="amount_a" style="border:0; color:#f6931f; font-weight:bold;">
+        <div id="slider_a_min"></div>
+        <div id="slider_a_max"></div>
+      </p>
+      <p>
+        <label for="amount">B min - max</label>
+        <input type="text" id="amount_b" style="border:0; color:#f6931f; font-weight:bold;">
+        <div id="slider_b_min"></div>
+        <div id="slider_b_max"></div>
+      </p>
+      <script>
+        function update_color_lab() {
+          try {
+            window._work_mode = 1;
+            let src = cv.imread(imgElement);
+            let marker = new cv.Mat(src.cols, src.rows, cv.CV_8UC3);
+            let result = new cv.Mat(src.rows, src.cols, cv.CV_8UC1);
+            cv.cvtColor(src, marker, cv.COLOR_RGBA2RGB);
+            cv.cvtColor(marker, marker, cv.COLOR_RGB2Lab);
+
+            l_min = $("#slider_l_min").slider("values", 0);
+            l_max = $("#slider_l_max").slider("values", 0);
+            a_min = $("#slider_a_min").slider("values", 0);
+            a_max = $("#slider_a_max").slider("values", 0);
+            b_min = $("#slider_b_min").slider("values", 0);
+            b_max = $("#slider_b_max").slider("values", 0);
+
+            l_min = l_min * 255 / 100
+            l_max = l_max * 255 / 100,
+            a_min = a_min + 128
+            a_max = a_max + 128
+            b_min = b_min + 128
+            b_max = b_max + 128
+
+            // console.log(l_min, l_max, a_min, a_max, b_min, b_max)
+
+            min = new cv.Mat(3, 1, cv.CV_8UC3, new cv.Scalar(l_min, a_min, b_min));
+
+            max = new cv.Mat(3, 1, cv.CV_8UC3, new cv.Scalar(l_max, a_max, b_max));
+
+            // console.log(min, max, marker)
+
+            cv.inRange(marker, min, max, result);
+
+            cv.imshow('imageDest', result);
+            marker.delete();
+            result.delete();
+            src.delete();
+            // max.delete();
+          } catch (e) {
+            throw e;
+          }
+
+          $("#amount_l").val("最小值 " + $("#slider_l_min").slider("values", 0) + " - 最大值 " + $("#slider_l_max").slider("values", 0));
+          $("#amount_a").val("最小值 " + $("#slider_a_min").slider("values", 0) + " - 最大值 " + $("#slider_a_max").slider("values", 0));
+          $("#amount_b").val("最小值 " + $("#slider_b_min").slider("values", 0) + " - 最大值 " + $("#slider_b_max").slider("values", 0));
+
+          $("#amount_lab").val(
+            "[(" + $("#slider_l_min").slider("values", 0) +
+            ", " + $("#slider_l_max").slider("values", 0) +
+            ", " + $("#slider_a_min").slider("values", 0) +
+            ", " + $("#slider_a_max").slider("values", 0) +
+            ", " + $("#slider_b_min").slider("values", 0) +
+            ", " + $("#slider_b_max").slider("values", 0) + ")]"
+          );
+        }
+
+        $(function () {
+          $("#slider_l_min").slider({
+            range: "min",
+            min: 0,
+            max: 100,
+            value: 0,
+            slide: function (event, ui) {
+              update_color_lab();
+            }
+          });
+
+          $("#slider_l_max").slider({
+            range: "min",
+            min: 0,
+            max: 100,
+            value: 100,
+            slide: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_a_min").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: -128,
+            slide: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_a_max").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: 127,
+            slide: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_b_min").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: -128,
+            slide: function (event, ui) {
+              update_color_lab();
+            }
+          });
+          $("#slider_b_max").slider({
+            range: "min",
+            min: -128,
+            max: 127,
+            value: 127,
+            slide: function (event, ui) {
+              update_color_lab();
+            }
+          });
+        });
+      </script>
+    </p>
+
+  </div>
+</body>
+
+</html>

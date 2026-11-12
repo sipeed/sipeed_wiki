@@ -1,0 +1,14 @@
+<script>
+    var hash = window.location.hash
+    var url_language = "en"
+
+    if( navigator.language.indexOf("en") == -1 )
+    {
+        url_language = "zh"
+    }
+
+    switch (window.location.hash) {
+        default : 
+            location.href = window.location.origin + "/hardware/" + url_language + "/lichee/K1/lpi3a/1_intro.html"
+    }
+</script>

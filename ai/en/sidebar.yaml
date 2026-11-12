@@ -1,0 +1,43 @@
+items:
+- label: Doc brief
+  file: README.md
+
+- label: AI basic
+- label: What is AI ?
+  file: basic/what_is_ai.md
+- label: Simple Understanding DNN
+  file: basic/dnn_basic.md
+- label: Code Frameworks and Tools
+  file: basic/code_frameworks.md
+- label: Tutorial summary
+  file: basic/courses.md
+- label: Common NN Models
+  collapsed: false
+  items:
+  - label: Mobilenet Classification
+    file: nn_models/mobilenet.md
+  - label: YOLO v2 Detection
+    file: nn_models/yolov2.md
+  - label: FOMO Lightweight Detection
+    file: nn_models/fomo.md
+
+
+- label: Deploy to edge devices
+- label: Deployment methods
+  file: deploy/README.md
+- label: Deploy to Maix-I K210
+  file: deploy/k210.md
+- label: Deploy to Maix-II V831
+  file: deploy/v831.md
+- label: TinyMaix deployment
+  file: deploy/tinymaix.md
+- label: AX-Pi deployment
+  file: deploy/ax-pi.md
+
+- label: MaixHub
+- label: MaixHub brief
+  file: maixhub/README.md
+- label: MaixHub online train optimization
+  file: maixhub/train_best.md
+- label: MaixHub FAQ
+  file: maixhub/faq.md
