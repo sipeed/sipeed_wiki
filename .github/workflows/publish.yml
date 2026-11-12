@@ -36,6 +36,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: build doc and push to github pages
+        id: build
         run: |
           git fetch --unshallow # fetch all history
           pip3 install setuptools
@@ -91,11 +92,29 @@ jobs:
           teedoc-upload --progress raw --cloud tencent --region ${{ secrets.TENCENT_REGION }} --bucket ${{ secrets.TENCENT_BUCKET }} --secret_id ${{ secrets.TENCENT_SECRET_ID }} --secret_key ${{ secrets.TENCENT_SECRET_KEY }} --old $old_out_dir ./
           echo "== upload to gh-pages for pages service =="
 
+      # Same build also goes to the Qiniu bucket (migrating the CDN origin off
+      # COS). Runs before the CDN refresh so refreshed URLs fetch new content.
+      - name: upload to Qiniu bucket
+        env:
+          QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
+          QINIU_SECRET_KEY: ${{ secrets.QINIU_SECRET_KEY }}
+          QINIU_WIKI_BUCKET: wiki-sipeed-com-site
+        run: |
+          set -euo pipefail
+          pip3 install qiniu==7.18.0
+          # working tree is gh-pages now; read the script from the triggering commit
+          script="$RUNNER_TEMP/upload_qiniu.py"
+          git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/upload_qiniu.py" > "$script"
+          # syncs against the bucket itself (self-healing), plus dir.html stubs and errno-404
+          python3 "$script" --bucket "$QINIU_WIKI_BUCKET" "$WIKI_NEW_DIR"
+
       # wiki.sipeed.com is served by Qiniu CDN in front of COS. HTML/JSON/XML
       # expire within 10 minutes on their own; long-cached files (images, JS,
       # CSS, media) overwritten under the same name are refreshed here.
       # Best-effort: never fails the deploy.
       - name: refresh Qiniu CDN cache for overwritten files
+        # still runs if the Qiniu bucket upload failed: COS is live until the switch
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         env:
           QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
           QINIU_SECRET_KEY: ${{ secrets.QINIU_SECRET_KEY }}
