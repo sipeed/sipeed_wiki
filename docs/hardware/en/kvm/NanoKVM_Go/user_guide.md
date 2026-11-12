@@ -106,7 +106,7 @@ After the control device and NanoKVM Go are connected to the same network, enter
 
 After logging in to the NanoKVM Go web control page, you can view the controlled device screen in the browser and access common management functions from the top floating toolbar.
 
-The floating toolbar entries from left to right are: Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Image Mounting, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and Hide Floating Toolbar.
+The floating toolbar entries from left to right are: Image Settings, Portrait Mode, Volume Settings, Microphone, On-Screen Keyboard, Mouse Style, Interface Preview, Images & File sharing, Custom Scripts, KVM Web Terminal, Settings, Full Screen, and Hide Floating Toolbar.
 
 ### Image Settings
 
@@ -189,7 +189,9 @@ Interface Preview is used to quickly check the current remote image status. Use 
 
 ### Image Mounting
 
-Image Mounting is used to mount image files to the controlled device. It is commonly used for system installation, system maintenance, or boot media testing. Before use, make sure the image file comes from a trusted source and select the corresponding boot option according to the controlled device's boot order. For detailed usage, refer to the [Image Mounting section in the NanoKVM Cube User Guide](../NanoKVM/user_guide.html#ISO-Image-Mounting-and-Remote-Installation).
+This entry offers two ways to hand storage to the target machine. Disk mount presents an ISO or IMG file as an optical drive or hard disk, which suits OS installation, system maintenance, and boot media testing. File sharing presents the device shared volume as a removable disk for moving files in either direction.
+
+For mount modes, upload methods, and ejecting, see [Image Mounting and File Sharing](./storage.html).
 
 ### Custom Scripts
 
