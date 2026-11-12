@@ -73,6 +73,8 @@ def mime_of(key):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bucket", required=True)
+    ap.add_argument("--overwritten-list", default="",
+                    help="write keys whose content this run replaced (for CDN refresh)")
     ap.add_argument("build_dir")
     args = ap.parse_args()
 
@@ -144,23 +146,30 @@ def main():
                 err = str(e)
             if attempt + 1 < RETRIES:
                 time.sleep(2 * (attempt + 1))
-        return "%s: %s" % (key, err)
+        return (key, err)
 
     start = time.time()
     is_page = lambda k: k.endswith((".html", ".htm")) or k == "errno-404"
-    failures, attempted = [], 0
+    failures, tried = [], []
     with ThreadPoolExecutor(WORKERS) as ex:
         for name, batch in (("assets", [k for k in todo if not is_page(k)]),
                             ("pages", [k for k in todo if is_page(k)])):
-            attempted += len(batch)
+            tried += batch
             failures += [r for r in ex.map(upload, batch) if r]
             if failures:
                 if name == "assets":
                     print("asset upload failed, pages not uploaded")
                 break
-    print("uploaded %d/%d in %.0fs" % (attempted - len(failures), len(todo), time.time() - start))
-    for f in failures[:50]:
-        print("FAILED", f)
+    print("uploaded %d/%d in %.0fs" % (len(tried) - len(failures), len(todo), time.time() - start))
+    for key, err in failures[:50]:
+        print("FAILED %s: %s" % (key, err))
+    if args.overwritten_list:
+        failed = {key for key, _ in failures}
+        # content replaced (not just a mime repair): cached copies on the CDN are stale
+        over = sorted(k for k in tried if k not in failed and k in have and have[k][0] != hashes[k])
+        with open(args.overwritten_list, "w", encoding="utf-8") as f:
+            f.write("".join(k + "\n" for k in over))
+        print("%d existing object(s) got new content -> %s" % (len(over), args.overwritten_list))
     sys.exit(1 if failures else 0)
 
 
