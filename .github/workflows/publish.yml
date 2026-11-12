@@ -106,14 +106,14 @@ jobs:
           script="$RUNNER_TEMP/upload_qiniu.py"
           git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/upload_qiniu.py" > "$script"
           # syncs against the bucket itself (self-healing), plus dir.html stubs and errno-404
-          python3 "$script" --bucket "$QINIU_WIKI_BUCKET" "$WIKI_NEW_DIR"
+          python3 "$script" --bucket "$QINIU_WIKI_BUCKET" --overwritten-list "$RUNNER_TEMP/qiniu_overwritten.txt" "$WIKI_NEW_DIR"
 
       # wiki.sipeed.com is served by Qiniu CDN in front of COS. HTML/JSON/XML
       # expire within 10 minutes on their own; long-cached files (images, JS,
       # CSS, media) overwritten under the same name are refreshed here.
       # Best-effort: never fails the deploy.
       - name: refresh Qiniu CDN cache for overwritten files
-        # still runs if the Qiniu bucket upload failed: COS is live until the switch
+        # also runs if the Qiniu bucket upload failed (refreshes what did change)
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         env:
           QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
@@ -123,7 +123,7 @@ jobs:
           # the script from the triggering commit instead of the working tree.
           script="$RUNNER_TEMP/refresh_qiniu_changed.py"
           if git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/refresh_qiniu_changed.py" > "$script"; then
-            python3 "$script" "$WIKI_OLD_DIR" "$WIKI_NEW_DIR" || echo "WARN: CDN refresh script failed (continuing)."
+            python3 "$script" "$WIKI_OLD_DIR" "$WIKI_NEW_DIR" "$RUNNER_TEMP/qiniu_overwritten.txt" || echo "WARN: CDN refresh script failed (continuing)."
           else
             echo "WARN: cannot read refresh script from $GITHUB_SHA (continuing)."
           fi
