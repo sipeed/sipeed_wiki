@@ -536,6 +536,8 @@ items:
             file: kvm/NanoKVM/quick_start.md
         -   label: 用户指南
             file: kvm/NanoKVM/user_guide.md
+        -   label: 镜像挂载与文件共享
+            file: kvm/NanoKVM/storage.md
         -   label: MCP 功能
             file: kvm/NanoKVM/mcp.md
         -   label: 二次开发
