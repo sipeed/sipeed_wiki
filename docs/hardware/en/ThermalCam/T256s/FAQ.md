@@ -70,26 +70,19 @@ A: Infrared temperature accuracy is subject to interference from several physica
 4. **Environmental Reflection:** If high-temperature objects (e.g., sunlight, soldering irons) are nearby, their radiation may reflect off the target surface into the sensor, causing inflated temperature readings.
 5. **Atmospheric Compensation:** For long-distance measurements, water vapor and $CO_2$ in the air absorb infrared energy. While the T256s is primarily designed for near-field analysis (where atmospheric impact is minimal), compensation settings in professional software may be required for specialized use.
 
+## Software and Firmware Update
+
 ### Q: The software recognizes the device, but the video stream won't open.
 
 A: 1. Ensure no other programs are occupying the UVC camera; 2. Try manually switching the resolution to 640x480; 3. Check if the system driver identifies it as "T256s" or "USB Camera."
 
-### Q: How do I update the firmware for better AI capabilities?
+### Q: How do I update the firmware?
 
-A: The T256s supports OTA updates. Please download the latest firmware package from the Sipeed download site. Do not power off the device during the update. If the update fails due to a power cut and the device cannot boot (black screen), please contact official support for return/exchange.
+A: Systems before 26.17.1 run the upgrade script, which migrates the device and updates it to the current release; 26.17.1 and later update on the device web page. See [System Update](System_Update.md) for steps.
 
-First, [obtain the firmware package](https://dl.sipeed.com/shareURL/ThermalCam/T256s/firmware). Filename format: sipeed-thermal-camera-vXXXXX.OTA.
+### Q: How do I check the current version number?
 
-Update steps:
-
-1. Connect the device to a PC via USB; the device will appear as a removable disk (USB drive).
-2. Open that drive, move the firmware package to the root directory of the USB drive, then perform “Safely Remove / Eject / Unmount” on the PC to unmount the drive (do not unplug).
-3. At this point the device will continue to operate normally while the update runs in the background. It is expected to automatically reboot after about 20–25 seconds. During reboot there will be a black screen for approximately 15 seconds while the update finalizes; afterward the normal boot screen will appear and the device will start up.
-**Warning: Keep the device powered until it boots normally; do not cut power. If the device becomes bricked as a result, contact official support for return/exchange.**
-
-Q: How do I check the current version number?
-
-A: Press and hold the capture button to view the current firmware version.
+A: Before 26.17.1, hold the capture button to display the version. On 26.17.1 and later, swipe down from the top edge of the screen to open the status panel, which shows `FW` and the version; you can also expand "Device settings & firmware" at the bottom of the web page and read the "Firmware" entry.
 
 ## Miscellaneous
 

@@ -524,6 +524,8 @@ items:
             file: ThermalCam/T256s/QS.md
         -   label: 使用指南
             file: ThermalCam/T256s/UG.md
+        -   label: 系统更新
+            file: ThermalCam/T256s/System_Update.md
         -   label: 常见问题
             file: ThermalCam/T256s/FAQ.md
 -   label: KVM
