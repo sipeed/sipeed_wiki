@@ -57,7 +57,7 @@ Systems on 26.17.1 or earlier need the upgrade script first. The script checks t
 Web update needs a system after 26.17.1. Viewing the live image or calling the HTTP API from the web page needs 26.40.0 or later; see [Quick Start](QS.html).
 
 1. Connect the camera with a USB cable and open `http://192.168.17.1` in a browser.
-2. Open the system update entry on the device web page. On 26.40.0 it is under "Device settings & firmware > Safe system update" at the bottom of the page; the name can differ slightly on other versions.
+2. Open the system update entry on the device web page. The entry is in "Device settings & firmware" at the bottom of the page; on 26.40.0 the section is called "Safe system update", and the name can differ slightly on other versions.
 
 ![Device settings panel with the safe system update section at the bottom](../../../zh/ThermalCam/T256s/assets/Screenshots/system-update-panel_en.png)
 
@@ -122,5 +122,5 @@ No. Systems on 26.17.1 or earlier need the upgrade script to reach 26.47.0 first
 
 ## Next Steps
 
-+ After updating to 26.40.0, you can view the picture and temperatures in a browser; see [Quick Start](QS.html);
++ After updating to 26.47.0, you can view the picture and temperatures in a browser; see [Quick Start](QS.html);
 + To read temperatures from a program, see [HTTP API](API.html).

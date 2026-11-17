@@ -106,15 +106,15 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 
 
 ### iPad Usage
-* **Compatibility:** Please note that **iOS is not supported** (iPhone). This device is compatible only with iPadOS.
+* **Compatibility:** iPhone does not support UVC preview; UVC works on iPadOS.
 * **Connection:** Plug the device directly into the iPad's data port (USB-C).
-* **Software:** We recommend using apps that support the UVC protocol, such as "**USB Camera**." Since the thermal imager's Type-C connector is designed for a downward orientation, you will need to **rotate the image twice** (270°) in the app settings to align the display with your operating direction.
+* **Software:** Use an app that supports the UVC protocol, for example [CamX - USB Camera](https://apps.apple.com/cn/app/camx-usb-camera/id6453639083). Since the thermal imager's Type-C connector is designed for a downward orientation, you will need to **rotate the image twice** (270°) in the app settings to align the display with your operating direction.
 * **Operation:** Once the device is plugged in, the iPad will typically prompt for permission. Tap "**OK**" to start the thermal imaging preview.
 
 
 ## Web Access
 
-> Web access requires firmware 26.40.0 or later. See [System Update](System_Update.md) for checking the version and upgrading.
+> Viewing the live image in the browser requires firmware 26.40.0 or later; see [System Update](System_Update.md) for the web update requirements.
 
 T256s also provides a USB network adapter. Without installing any software, you can view the thermal image and temperatures in a browser.
 

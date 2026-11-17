@@ -21,9 +21,9 @@ This document summarizes common issues and troubleshooting methods encountered d
 3. **UVC Support:** Ensure your phone runs Android 9.0 or higher and use UVC-compatible software (such as the official Sipeed app).
 4. **Cross-Verification:** Test the device on a PC or another smartphone to rule out compatibility issues specific to a single mobile terminal.
 
-### Q: The device does not respond at all after connecting to a iOS?
+### Q: The device does not respond after connecting to an iPhone?
 
-**A:** iOS is not supported at the moment. Please use an iPad or an Android device.
+**A:** iPhone does not support UVC preview. Use an iPad or an Android device.
 
 
 ## Display & Imaging
@@ -102,7 +102,7 @@ A: Yes. Besides the UVC camera, the T256s also enumerates a USB network adapter.
 
 ### Q: What firmware version do web access and the HTTP API require?
 
-A: Firmware 26.40.0 or later. See [System Update](System_Update.md) for checking the version and upgrading. Keep the camera powered during the upgrade and do not unplug it.
+A: The live web image and the HTTP API need firmware 26.40.0 or later; web update is supported after 26.17.1. See [System Update](System_Update.md) for checking the version and upgrading. Keep the camera powered during the upgrade and do not unplug it.
 
 ### Q: The built-in web page shows temperatures, but my recording has no temperature data. Why?
 
