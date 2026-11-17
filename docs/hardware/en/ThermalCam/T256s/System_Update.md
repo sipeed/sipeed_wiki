@@ -7,20 +7,20 @@ keywords: T256s, ThermalCam, firmware update, system update, OTA, migration, ver
 
 T256s offers two update methods. Pick one based on the current version:
 
-+ Upgrade script: for systems before 26.17.1. It installs the 26.17.1 baseline, migrates the device to the new dual-slot layout and updates it to the current release;
-+ Web update: for 26.17.1 and later; upload the firmware on the device web page.
++ Upgrade script: for systems on 26.17.1 or earlier. It migrates the device to the new dual-slot layout and updates it to 26.47.0;
++ Web update: for systems after 26.17.1; upload the firmware on the device web page.
 
 ## Check the Current Version
 
 How you check the version depends on the system version.
 
-### Before 26.17.1
+### 26.17.1 or Earlier
 
 Hold the capture button; the screen shows the current version information, and the `version=` line is the firmware version:
 
 ![Demo: hold the capture button to open the version information](../../../zh/ThermalCam/T256s/assets/Screenshots/version-old-longpress.webp)
 
-### 26.17.1 and later
+### After 26.17.1
 
 Swipe down from the top edge of the screen to open the status panel, which shows a line starting with `FW`, for example `FW 26.47.0   192.168.17.1`. You can also expand "Device settings & firmware" at the bottom of the device web page and read the "Firmware" entry.
 
@@ -30,12 +30,12 @@ Use this table to pick the method:
 
 | Current version | What to do |
 | --- | --- |
-| Below 26.17.1 | Run the upgrade script; it migrates and updates to the current release |
-| 26.17.1 and later | Update on the web page |
+| 26.17.1 or earlier | Run the upgrade script; it updates the device to 26.47.0 |
+| After 26.17.1 | Update on the web page |
 
-## Method 1: Run the Upgrade Script (Before 26.17.1)
+## Method 1: Run the Upgrade Script (26.17.1 or Earlier)
 
-Systems before 26.17.1 need the upgrade script first. The script checks the device state, installs the 26.17.1 baseline, migrates the device to the new dual-slot layout and updates it to the current release.
+Systems on 26.17.1 or earlier need the upgrade script first. The script checks the device state, migrates the device to the new dual-slot layout and updates it to 26.47.0.
 
 1. Open the [Sipeed download site](https://dl.sipeed.com/shareURL/ThermalCam/T256s/firmware) and download `T256S-v26470-stock-migration.zip`.
 2. Extract the package.
@@ -52,9 +52,9 @@ Systems before 26.17.1 need the upgrade script first. The script checks the devi
 
 > If the script fails, run it again as prompted. If it reports that the device may already be converting, do not reboot; wait a few minutes and check again.
 
-## Method 2: Web Update (26.17.1 and Later)
+## Method 2: Web Update (After 26.17.1)
 
-Web update only needs 26.17.1 or later. Viewing the live image or calling the HTTP API from the web page needs 26.40.0 or later; see [Quick Start](QS.html).
+Web update needs a system after 26.17.1. Viewing the live image or calling the HTTP API from the web page needs 26.40.0 or later; see [Quick Start](QS.html).
 
 1. Connect the camera with a USB cable and open `http://192.168.17.1` in a browser.
 2. Open the system update entry on the device web page. On 26.40.0 it is under "Device settings & firmware > Safe system update" at the bottom of the page; the name can differ slightly on other versions.
@@ -73,7 +73,7 @@ Web update only needs 26.17.1 or later. Viewing the live image or calling the HT
 
 ### The version is not shown
 
-Before 26.17.1, hold the capture button. On 26.17.1 and later, swipe down from the top edge of the screen to open the status panel. If the screen is dark, check that the device is powered on; if nothing happens, try another cable or charger to rule out a power problem.
+On 26.17.1 or earlier, hold the capture button. After 26.17.1, swipe down from the top edge of the screen to open the status panel. If the screen is dark, check that the device is powered on; if nothing happens, try another cable or charger to rule out a power problem.
 
 ### There is no update entry on the web page
 
@@ -81,7 +81,7 @@ Check the following:
 
 + The device web page is reachable and displays correctly;
 + The settings area at the bottom of the page is expanded;
-+ The current version supports web update. Systems before 26.17.1 need the upgrade script first.
++ The current version supports web update. Systems on 26.17.1 or earlier need the upgrade script first.
 
 ### The web page rejects the firmware
 
@@ -108,9 +108,9 @@ The device reboots during the update, and a black screen for a while is normal. 
 
 Restore power immediately and wait for the device to recover. Web updates have a rollback path; the script-based upgrade is not power-fail safe, and losing power can leave the device unable to boot. If that happens, contact support instead of opening the device.
 
-### Can I update on the web page below 26.17.1
+### Can I update on the web page on 26.17.1 or earlier
 
-No. Systems before 26.17.1 need the upgrade script to reach 26.17.1 first, and only then can they update on the web page.
+No. Systems on 26.17.1 or earlier need the upgrade script to reach 26.47.0 first, and only then can they update on the web page.
 
 ## Notes
 
