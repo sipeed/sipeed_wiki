@@ -91,3 +91,10 @@ Note: Methods for capturing the Y16 stream depend on your platform (e.g., OpenCV
 - **Emissivity:** When measuring low-emissivity objects (like shiny metals), apply electrical tape or matte black paint to the surface. This increases the infrared radiation received by the detector, ensuring accurate data.
 - **Resource Conflict:** UVC devices generally do not support multiple simultaneous connections. Ensure only one application is accessing the camera at a time.
 - **iOS Support**: Currently **unavailable** due to Apple's UVC device whitelisting mechanism.
+
+## Next steps
+
+UVC is only one way into this camera. If you need **real temperature values**, scripted inspection, or an AI agent that reads temperatures and draws conclusions:
+
+- [HTTP API Reference](API.md): an HTTP API on the camera's USB network adapter — `curl` gets you center/hottest/coldest and per-pixel temperatures
+- [Controlling the Camera with AI](AI_Control.md): direct HTTP and MCP, with runnable scripts
