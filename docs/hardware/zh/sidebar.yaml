@@ -532,6 +532,10 @@ items:
             file: ThermalCam/T256s/AI_Control.md
         -   label: 常见问题
             file: ThermalCam/T256s/FAQ.md
+    -   label: Sipeed T160
+        items:
+        -   label: 简介
+            file: ThermalCam/T160/Introduction.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
