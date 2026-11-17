@@ -78,11 +78,11 @@ A: 1. Ensure no other programs are occupying the UVC camera; 2. Try manually swi
 
 ### Q: How do I update the firmware?
 
-A: Systems before 26.17.1 run the upgrade script, which migrates the device and updates it to the current release; 26.17.1 and later update on the device web page. See [System Update](System_Update.md) for steps.
+A: Systems on 26.17.1 or earlier run the upgrade script, which updates the device to 26.47.0; systems after 26.17.1 update on the device web page. See [System Update](System_Update.md) for steps.
 
 ### Q: How do I check the current version number?
 
-A: Before 26.17.1, hold the capture button to display the version. On 26.17.1 and later, swipe down from the top edge of the screen to open the status panel, which shows `FW` and the version; you can also expand "Device settings & firmware" at the bottom of the web page and read the "Firmware" entry.
+A: On 26.17.1 or earlier, hold the capture button to display the version. After 26.17.1, swipe down from the top edge of the screen to open the status panel, which shows `FW` and the version; you can also expand "Device settings & firmware" at the bottom of the web page and read the "Firmware" entry.
 
 ## Miscellaneous
 
