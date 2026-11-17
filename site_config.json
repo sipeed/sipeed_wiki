@@ -138,6 +138,10 @@
                 }
             }
         },
+        "teedoc-plugin-search-lazy-load": {
+            "from": "plugins/teedoc-plugin-search-lazy-load",
+            "config": {}
+        },
         "teedoc-plugin-baidu-tongji": {
             "from": "pypi",
             "config": {
