@@ -112,6 +112,24 @@ In a Linux environment, the T256s is typically mapped to a `/dev/videoX` device.
 * **Operation:** Once the device is plugged in, the iPad will typically prompt for permission. Tap "**OK**" to start the thermal imaging preview.
 
 
+## Web Access
+
+> Web access requires firmware 26.40.0 or later. See [System Update](System_Update.md) for checking the version and upgrading.
+
+T256s also provides a USB network adapter. Without installing any software, you can view the thermal image and temperatures in a browser.
+
+1. Connect T256s to the computer with a Type-C cable.
+2. Wait for a USB network adapter to appear and obtain an address in `192.168.17.x`. On Windows, check Network Connections; on Linux, run `ip addr`.
+3. Open `http://192.168.17.1` in a browser.
+
+The page shows the live thermal image and lets you switch palettes and read the center, maximum and minimum temperatures.
+
+![The device web page in a browser, with the live image, temperature markers and palette strip](./../../../zh/ThermalCam/T256s/assets/Screenshots/web-access-browser.png)
+
+- **If the page does not open:** check the adapter address first. An address in `169.254.x.x` means DHCP failed; set a static address such as `192.168.17.100` with mask `255.255.255.0`.
+- **On a phone:** open the address manually after plugging in.
+- **Reading data:** to read temperatures from a program, see [HTTP API](API.md); to let an AI read temperatures and summarize, see [Controlling with AI](AI_Control.md).
+
 ## Macro Lens Installation
 
 To observe PCB components, gently attach the included macro lens to the front of the thermal imaging module.
