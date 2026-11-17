@@ -542,6 +542,8 @@ items:
             file: ThermalCam/T256s/System_Update.md
         -   label: HTTP API
             file: ThermalCam/T256s/API.md
+        -   label: AI Control
+            file: ThermalCam/T256s/AI_Control.md
         -   label: FAQ
             file: ThermalCam/T256s/FAQ.md
 -   label: KVM
