@@ -93,3 +93,17 @@ A: Yes. The T256s integrates a high-performance AI processing chip which generat
 ### Q: Can I use it with Linux or Raspberry Pi?
 
 A: Yes. T256s follows the standard UVC protocol and supports Linux (V4L2). On Ubuntu or Raspberry Pi, it can be accessed directly using `cheese`, `guvcview`, or OpenCV. Please run this as the root user. The VID/PID is typically `359f:4201`.
+
+## Development and API
+
+### Q: Can I read temperatures from a program instead of watching the video?
+
+A: Yes. Besides the UVC camera, the T256s also enumerates a USB network adapter. The camera serves an HTTP API at `http://192.168.17.1`: `/api/v1/thermal` returns center, maximum and minimum temperatures, `/frame.temp16` returns per-pixel raw temperatures, and `/frame.jpg` returns a colorized frame. Python, Go, Node and shell all work, and it is a good fit for AI agents. See the [HTTP API Reference](API.md), and [Controlling the Camera with AI](AI_Control.md) for the AI side.
+
+### Q: What firmware version do web access and the HTTP API require?
+
+A: Firmware 26.40.0 or later. See [System Update](System_Update.md) for checking the version and upgrading. Keep the camera powered during the upgrade and do not unplug it.
+
+### Q: The built-in web page shows temperatures, but my recording has no temperature data. Why?
+
+A: UVC video and the HTTP API are separate channels. The UVC MJPEG stream is already colorized, so pixel colors no longer map to temperatures; only the Y16 stream carries raw values. For accurate temperatures use HTTP TEMP16 or `/api/v1/thermal` instead of inferring them from the colored picture.
