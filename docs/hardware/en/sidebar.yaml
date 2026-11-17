@@ -540,6 +540,8 @@ items:
             file: ThermalCam/T256s/UG.md
         -   label: System Update
             file: ThermalCam/T256s/System_Update.md
+        -   label: HTTP API
+            file: ThermalCam/T256s/API.md
         -   label: FAQ
             file: ThermalCam/T256s/FAQ.md
 -   label: KVM

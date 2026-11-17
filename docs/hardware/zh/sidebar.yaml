@@ -526,6 +526,8 @@ items:
             file: ThermalCam/T256s/UG.md
         -   label: 系统更新
             file: ThermalCam/T256s/System_Update.md
+        -   label: HTTP API
+            file: ThermalCam/T256s/API.md
         -   label: 常见问题
             file: ThermalCam/T256s/FAQ.md
 -   label: KVM
