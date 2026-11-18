@@ -184,9 +184,9 @@
             "config": {
                 "type": "hint",
                 "label": "NEW",
-                "content": "<a href='https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc' target='_blank'>SLogic32U3, the world's first 10Gbps USB3.2 logic analyzer, is now live on Kickstarter!</a>",
+                "content": "<a href='https://shop.sipeed.com/store/SLogic32U3' target='_blank'>The world's first 10Gbps USB 3.2 logic analyzer SLogic32U3 is now available for pre-order on the official website!</a>",
                 "show_after_s": 432000,
-                "date": "2026-10-12 12:00"
+                "date": "2026-11-18 12:00"
             }
         }
     },

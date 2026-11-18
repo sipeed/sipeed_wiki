@@ -177,9 +177,9 @@
             "config": {
                 "type": "hint",
                 "label": "NEW",
-                "content": "<a href='https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc' target='_blank'>全球首款 10Gbps USB3.2 逻辑分析仪 SLogic32U3 正在 Kickstarter 众筹中！</a>",
+                "content": "<a href='https://shop.sipeed.com/store/SLogic32U3' target='_blank'>全球首款 10Gbps USB3.2 逻辑分析仪 SLogic32U3 正在官网预售中！</a>",
                 "show_after_s": 432000,
-                "date": "2026-10-12 12:00"
+                "date": "2026-11-18 12:00"
             }
         },
         "teedoc-plugin-assets": {
