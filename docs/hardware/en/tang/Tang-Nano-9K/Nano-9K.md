@@ -103,7 +103,7 @@ You can access several example projects on our [Examples Page](./../common-doc/e
 
 ## Attention and Best Practices
 
-1. **Support and Community**: For assistance, join our Telegram group (t.me/sipeed) or contact us on Twitter ([@SipeedIO](https://twitter.com/SipeedIO)). You can also leave a message below.
+1. **Support and Community**: For assistance, join our Telegram group (t.me/sipeed) or contact us on X ([@SipeedLab](https://x.com/SipeedLab)). You can also leave a message below.
 
 2. **Troubleshooting**: If you encounter any issues, consult our [Tang Questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) page first.
 

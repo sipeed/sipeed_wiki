@@ -122,8 +122,8 @@
                 "label": "关注我们",
                 "items": [
                     {
-                        "label": "twitter",
-                        "url": "https://twitter.com/SipeedIO",
+                        "label": "X",
+                        "url": "https://x.com/SipeedLab",
                         "target": "_blank"
                     },
                     {

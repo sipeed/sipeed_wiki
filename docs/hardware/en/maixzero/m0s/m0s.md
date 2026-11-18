@@ -197,7 +197,7 @@ Buy one: [Aliexpress](https://www.aliexpress.com/item/1005005142466936.html)
 ---
 
 - [Telegram](https://t.me/sipeed)
-- [Twitter](https://twitter.com/SipeedIO)
+- [X](https://x.com/SipeedLab)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
 

@@ -178,7 +178,7 @@ SLogic32U3 的上位机随 [SLogic 发布包](https://github.com/sipeed/SLogic/r
 - 支持邮箱：support@sipeed.com
 - QQ 群：**932085922**
 - 社区（Discord）：[discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
-- X / Twitter：[@SipeedLab](https://x.com/SipeedLab)
+- X：[@SipeedLab](https://x.com/SipeedLab)
 - GitHub（SLogic 上位机）：https://github.com/sipeed/SLogic
 - GitHub（网页版 SLogicWeb）：https://github.com/sipeed/SLogicWeb
 - GitHub（libsigrok slogic-dev 分支）：https://github.com/sipeed/libsigrok/tree/slogic-dev

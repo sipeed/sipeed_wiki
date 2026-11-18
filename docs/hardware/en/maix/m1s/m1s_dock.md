@@ -304,7 +304,7 @@ Three cores in chip: M0，D0，LP。
 - [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk)（Github）
 - [Linux SDK](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - [Telegram](https://t.me/sipeed)
-- [Twitter](https://twitter.com/SipeedIO)
+- [X](https://x.com/SipeedLab)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
 

@@ -178,7 +178,7 @@ See the [Software Guide](./Software_User_Guide.md) for detailed usage and how to
 - Support email: support@sipeed.com
 - QQ group: **932085922**
 - Community (Discord): [discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
-- X / Twitter: [@SipeedLab](https://x.com/SipeedLab)
+- X: [@SipeedLab](https://x.com/SipeedLab)
 - GitHub (SLogic host apps): https://github.com/sipeed/SLogic
 - GitHub (web app SLogicWeb): https://github.com/sipeed/SLogicWeb
 - GitHub (libsigrok slogic-dev branch): https://github.com/sipeed/libsigrok/tree/slogic-dev

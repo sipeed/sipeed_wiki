@@ -38,5 +38,5 @@ The sharing location is the FAQ page of the corresponding product in the table b
 | Sipeed Community (recommended) <br> Will be migrated to MaixHub in July <br> Currently only recommended to ask questions | [bbs.sipeed.com](https://bbs.sipeed.com) |
 | Telegram | [t.me/sipeed](https://t.me/sipeed) |
 | Telegram MaixPy | [t.me/maixpy](https://t.me/maixpy) |
-| Twitter  | [twitter.com/SipeedIO](https://twitter.com/SipeedIO) |
+| X  | [x.com/SipeedLab](https://x.com/SipeedLab) |
 | FPGA Reddit | [GowinFPGA](https://www.reddit.com/r/GowinFPGA/) |

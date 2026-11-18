@@ -40,7 +40,7 @@ The Tang Nano 1K development board is equipped with the GW1NZ-LV1QN48C6/I5 FPGA 
 
 ## Addition
 
-1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO).
+1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on X (https://x.com/SipeedLab).
 
 2. For Fpga burning we require using [this](https://dl.sipeed.com/shareURL/TANG/programmer) Programmer application. Because other version Programmer application may fail burning this board.
 

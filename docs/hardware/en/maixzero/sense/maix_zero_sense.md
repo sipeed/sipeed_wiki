@@ -265,7 +265,7 @@ Introduction video for [M1s Dock](https://wiki.sipeed.com/en/m1s#dock) and M0Sen
 ---
 
 - [Telegram](https://t.me/sipeed)
-- [Twitter](https://twitter.com/SipeedIO)
+- [X](https://x.com/SipeedLab)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
 

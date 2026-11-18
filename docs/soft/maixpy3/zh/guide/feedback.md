@@ -15,7 +15,7 @@ desc: maixpy  如何反馈问题
   - [telgram-sipeed](https://t.me/sipeed)
 - 开源社区\论坛\官博等
   - [bbs.sipeed.com](https://bbs.sipeed.com)
-  - [twitter-sipeedio](https://twitter.com/sipeedio)
+  - [x-sipeedlab](https://x.com/SipeedLab)
 - MaixPy3 开源项目的 issue 区
   - [github.com/sipeed/MaixPy3/issues](https://github.com/sipeed/MaixPy3/issues)
 - 商业支持邮件
