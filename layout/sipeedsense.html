@@ -1,7 +1,7 @@
 <!-- 修改后保存一下 include 这个文件的 html 模板（比如home.html）就会渲染 -->
 
 <div class="w-full flex flex-col justify-center items-center">
-  <h2 class="text-2xl font-bold my-8 block_simple">{{_('Sipeed 传感器系列')}}</h2>
+  <h2 class="text-2xl font-bold my-8 block_simple">MaixSense</h2>
   <div class="w-full flex flex-col justify-center">
     <div class="cards">
       <!-- cards -->
@@ -33,7 +33,7 @@
     cards: [
       {
         img: "/hardware/zh/maixsense/assets/me_small.jpg",
-        title: "MaixSense A010",
+        title: "MS-A010",
         brief: "100x100 3D TOF {{_('深度传感器模组')}}",
         btns: [
           {
@@ -49,7 +49,7 @@
       },
       {
         img: "/hardware/zh/maixsense/assets/me_big.jpg",
-        title: "MaixSense A075v",
+        title: "MS-A075V",
         brief: "RGB 3D TOF {{_('深度摄像头模组')}}",
         btns: [
           {
@@ -65,8 +65,8 @@
       },
       {
         img: "/hardware/zh/ThermalCam/T256s/assets/t256s.jpg",
-        title: "Sipeed T256s",
-        brief: "Thermal Camera {{_('热成像传感器模组')}}",
+        title: "MS-T256S",
+        brief: "{{_('多用途机内超分热成像')}}",
         btns: [
           {
             label: "{{_('文档')}}",
@@ -76,6 +76,17 @@
             label: "{{_('购买')}}",
             link: "{{_('https://item.taobao.com/item.htm?id=1042038028765')}}",
             new_tab: true,
+          },
+        ],
+      },
+      {
+        img: "/hardware/zh/ThermalCam/T160/assets/DCIM/t160-card.jpg",
+        title: "MS-T160",
+        brief: "{{_('普惠型热成像插件')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/t160",
           },
         ],
       },

@@ -455,10 +455,53 @@ items:
 -   label: MaixSense
     file: maixsense/readme.md
     items:
-    -   label: MaixSense-a010
+    -   label: ToF MS-A010
         file: maixsense/maixsense-a010/maixsense-a010.md
-    -   label: MaixSense-a075v
+    -   label: ToF MS-A075V
         file: maixsense/maixsense-a075v/maixsense-a075v.md
+    -   label: StereoCam MS-D640
+        file: maixsense/maixsense-d640/maixsense-d640.md
+        items:
+        -   label: 快速上手
+            file: maixsense/maixsense-d640/quick-start.md
+        -   label: GUI 使用指南
+            file: maixsense/maixsense-d640/gui.md
+        -   label: SDK 开发指南
+            file: maixsense/maixsense-d640/sdk.md
+        -   label: 固件与标定
+            file: maixsense/maixsense-d640/firmware.md
+        -   label: 测量精度
+            file: maixsense/maixsense-d640/accuracy.md
+        -   label: 常见问题
+            file: maixsense/maixsense-d640/faq.md
+    -   label: Thermal MS-T256S
+        items:
+        -   label: 简介
+            file: ThermalCam/T256s/Intro.md
+        -   label: 快速开始
+            file: ThermalCam/T256s/QS.md
+        -   label: 使用指南
+            file: ThermalCam/T256s/UG.md
+        -   label: 系统更新
+            file: ThermalCam/T256s/System_Update.md
+        -   label: HTTP API
+            file: ThermalCam/T256s/API.md
+        -   label: AI 控制
+            file: ThermalCam/T256s/AI_Control.md
+        -   label: 常见问题
+            file: ThermalCam/T256s/FAQ.md
+    -   label: Thermal MS-T160
+        items:
+        -   label: 简介
+            file: ThermalCam/T160/Introduction.md
+        -   label: 快速上手
+            file: ThermalCam/T160/Quick_Start.md
+        -   label: 进阶使用与开发
+            file: ThermalCam/T160/Advanced.md
+        -   label: AI 接入
+            file: ThermalCam/T160/AI_Control.md
+        -   label: 常见问题
+            file: ThermalCam/T160/FAQ.md
 -   label: SLogic
     items:
     -   label: SLogic Combo 8
@@ -514,28 +557,6 @@ items:
         file: logic_analyzer/slogic_agent/readme.md
         items: []
 
--   label: ThermalCam
-    items:
-    -   label: Sipeed T256s
-        items:
-        -   label: 简介
-            file: ThermalCam/T256s/Intro.md
-        -   label: 快速开始
-            file: ThermalCam/T256s/QS.md
-        -   label: 使用指南
-            file: ThermalCam/T256s/UG.md
-        -   label: 系统更新
-            file: ThermalCam/T256s/System_Update.md
-        -   label: HTTP API
-            file: ThermalCam/T256s/API.md
-        -   label: AI 控制
-            file: ThermalCam/T256s/AI_Control.md
-        -   label: 常见问题
-            file: ThermalCam/T256s/FAQ.md
-    -   label: Sipeed T160
-        items:
-        -   label: 简介
-            file: ThermalCam/T160/Introduction.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube

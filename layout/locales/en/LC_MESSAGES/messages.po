@@ -12,10 +12,10 @@ msgstr "/static/home/banner_nanokvm_go_en.jpg"
 #: maix.html:245 maix.html:262 maix.html:303 maix.html:320 maix.html:341
 #: maix.html:358 nanokvm.html:37 nanokvm.html:54 nanokvm.html:71
 #: nanokvm.html:88 nanokvm.html:105 others.html:38 sipeedsense.html:40
-#: sipeedsense.html:56 sipeedsense.html:72 slogic.html:37 slogic.html:54
-#: slogic.html:71 tang.html:171 tang.html:187 tang.html:203 tang.html:219
-#: tang.html:235 tang.html:251 tang.html:267 tang.html:283 tang.html:299
-#: tang.html:315
+#: sipeedsense.html:56 sipeedsense.html:72 sipeedsense.html:88 slogic.html:37
+#: slogic.html:54 slogic.html:71 tang.html:171 tang.html:187 tang.html:203
+#: tang.html:219 tang.html:235 tang.html:251 tang.html:267 tang.html:283
+#: tang.html:299 tang.html:315
 msgid "文档"
 msgstr "Docs"
 
@@ -93,10 +93,6 @@ msgstr "Product News"
 #: home.html:167
 msgid "Maix AI 视觉"
 msgstr "Maix Vision Series"
-
-#: home.html:179
-msgid "Sipeed 传感器"
-msgstr "Sipeed Sensor Module"
 
 #: home.html:183 nanokvm.html:4
 msgid "NanoKVM"
@@ -459,10 +455,6 @@ msgstr ""
 msgid "https://item.taobao.com/item.htm?id=737788586308"
 msgstr "https://www.aliexpress.com/item/1005006022974163.html"
 
-#: sipeedsense.html:4
-msgid "Sipeed 传感器系列"
-msgstr "Sipeed Sensor Module"
-
 #: sipeedsense.html:37
 msgid "深度传感器模组"
 msgstr "Depth Sensor Module"
@@ -472,12 +464,16 @@ msgid "深度摄像头模组"
 msgstr "Depth Camera Module"
 
 #: sipeedsense.html:69
-msgid "热成像传感器模组"
-msgstr "Thermal Sensor Module"
+msgid "多用途机内超分热成像"
+msgstr "Versatile Thermal Camera with On-device Super Resolution"
 
 #: sipeedsense.html:77
 msgid "https://item.taobao.com/item.htm?id=1042038028765"
 msgstr "https://www.aliexpress.com/item/1005012028703380.html"
+
+#: sipeedsense.html:85
+msgid "普惠型热成像插件"
+msgstr "Affordable Plug-in Thermal Camera"
 
 #: slogic.html:4
 msgid "SLogic 逻辑分析仪系列"
@@ -1065,4 +1061,10 @@ msgstr "https://www.aliexpress.com/store/911876460"
 
 #~ msgid "/nanokvm"
 #~ msgstr ""
+
+#~ msgid "Sipeed 传感器系列"
+#~ msgstr "Sipeed Sensor Module"
+
+#~ msgid "热成像传感器模组"
+#~ msgstr "Thermal Sensor Module"
 

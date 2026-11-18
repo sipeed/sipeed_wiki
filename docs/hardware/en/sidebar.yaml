@@ -457,11 +457,11 @@ items:
 -   label: MaixSense
     file: maixsense/readme.md
     items:
-    -   label: MaixSense-a010
+    -   label: ToF MS-A010
         file: maixsense/maixsense-a010/maixsense-a010.md
-    -   label: MaixSense-a075v
+    -   label: ToF MS-A075V
         file: maixsense/maixsense-a075v/maixsense-a075v.md
-    -   label: MaixSense-D640
+    -   label: StereoCam MS-D640
         file: maixsense/maixsense-d640/maixsense-d640.md
         items:
         -   label: Quick Start
@@ -476,6 +476,34 @@ items:
             file: maixsense/maixsense-d640/accuracy.md
         -   label: FAQ
             file: maixsense/maixsense-d640/faq.md
+    -   label: Thermal MS-T256S
+        items:
+        -   label: Introduction
+            file: ThermalCam/T256s/Intro.md
+        -   label: Quick Start
+            file: ThermalCam/T256s/QS.md
+        -   label: User Guide
+            file: ThermalCam/T256s/UG.md
+        -   label: System Update
+            file: ThermalCam/T256s/System_Update.md
+        -   label: HTTP API
+            file: ThermalCam/T256s/API.md
+        -   label: AI Control
+            file: ThermalCam/T256s/AI_Control.md
+        -   label: FAQ
+            file: ThermalCam/T256s/FAQ.md
+    -   label: Thermal MS-T160
+        items:
+        -   label: Introduction
+            file: ThermalCam/T160/Introduction.md
+        -   label: Quick Start
+            file: ThermalCam/T160/Quick_Start.md
+        -   label: Advanced Use & Development
+            file: ThermalCam/T160/Advanced.md
+        -   label: AI Integration
+            file: ThermalCam/T160/AI_Control.md
+        -   label: FAQ
+            file: ThermalCam/T160/FAQ.md
 -   label: SLogic
     items:
     -   label: SLogic with an AI Agent
@@ -528,28 +556,6 @@ items:
             file: logic_analyzer/ngscopeclient/ngscopeclient.md
         -   label: FAQ
             file: logic_analyzer/slogic32u3/FAQ.md
--   label: ThermalCam
-    items:
-    -   label: Sipeed T256s
-        items:
-        -   label: Introduction
-            file: ThermalCam/T256s/Intro.md
-        -   label: Quick Start
-            file: ThermalCam/T256s/QS.md
-        -   label: User Guide
-            file: ThermalCam/T256s/UG.md
-        -   label: System Update
-            file: ThermalCam/T256s/System_Update.md
-        -   label: HTTP API
-            file: ThermalCam/T256s/API.md
-        -   label: AI Control
-            file: ThermalCam/T256s/AI_Control.md
-        -   label: FAQ
-            file: ThermalCam/T256s/FAQ.md
-    -   label: Sipeed T160
-        items:
-        -   label: Introduction
-            file: ThermalCam/T160/Introduction.md
 -   label: KVM
     items:
     -   label: NanoKVM Cube
