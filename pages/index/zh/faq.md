@@ -58,7 +58,7 @@ class: faq
 | -------- | ---- |
 | Telegram | [t.me/sipeed](https://t.me/sipeed) |
 | Telegram MaixPy | [t.me/maixpy](https://t.me/maixpy) |
-| Twitter  | [twitter.com/SipeedIO](https://twitter.com/SipeedIO) |
+| X  | [x.com/SipeedLab](https://x.com/SipeedLab) |
 | MaixHub  | [maixhub.com/share](https://maixhub.com/share) |
 
 | 其它社区 | 地址 |

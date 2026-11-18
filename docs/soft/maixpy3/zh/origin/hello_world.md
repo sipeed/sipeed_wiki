@@ -24,7 +24,7 @@ desc: maixpy  Hello World
 - 找到它的开源项目（如：[github.com/sipeed](https://github.com/sipeed)），获取它所提供的一系列源码。
 - 找到它提供的用户手册、应用案例、数据手册等等一系列开发所需要的文档。
 - 找到它的开发、编译、烧录、量产等一系列配套工具链，为后续软件开发活动中做准备。
-- 找到它的公开交流的环境，如 bbs、github、twitter、facebook、qq、wechat 等社交平台。
+- 找到它的公开交流的环境，如 bbs、github、X、facebook、qq、wechat 等社交平台。
 
 现在你可以放心的编程了，但你还需要遵守一些在开源软件上的规则，认知到开源协议的存在，不要随意地做出侵犯他人软件的行为，哪怕没有法律责任的问题。
 

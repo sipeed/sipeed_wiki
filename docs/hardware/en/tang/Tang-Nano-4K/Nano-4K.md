@@ -56,7 +56,7 @@ Run the Programmer in Gowin IDE to download firmware into FPGA.
 
 ## Addition
 
-1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on twitter (https://twitter.com/SipeedIO). Leaving message below is also OK.
+1. If you have trouble with this board, you can join our telegram (t.me/sipeed) or contact us on X (https://x.com/SipeedLab). Leaving message below is also OK.
 2. Visit [Tang questions](https://wiki.sipeed.com/hardware/en/tang/common-doc/questions.html) first if you have any trouble.
 3. Debugging Cortex-M3, we suggest to use serial-port debug way. If you are excellent enough you can try other ways to debug it.
 4. THe HDMI ports are multiplexed as IO and routed to the pin headers. The actual results of the IO which are multiplexed with HDMI pins on the pin headers may not be consistent with what you want because of the external pull up.

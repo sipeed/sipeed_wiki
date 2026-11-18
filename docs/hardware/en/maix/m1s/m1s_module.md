@@ -373,7 +373,7 @@ Visit Schematic for details：[Click me](https://dl.sipeed.com/shareURL/MAIX/M1s
 - [Bouffalolab SDK](https://github.com/bouffalolab/bouffalo_sdk)（Github）
 - [Linux SDK](https://github.com/sipeed/M1s_BL808_Linux_SDK)（Github）
 - [Telegram](https://t.me/sipeed)
-- [Twitter](https://twitter.com/SipeedIO)
+- [X](https://x.com/SipeedLab)
 - [Reddit](https://www.reddit.com/r/Sipeed/)
 - [Online model platform](https://maixhub.com/)
 
