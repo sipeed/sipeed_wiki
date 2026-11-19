@@ -422,5 +422,5 @@ grep -o '[一-龥]\{2,\}' out/en/index.html | sort -u | head
 ## 12. 参考
 
 - 本地预览：http://127.0.0.1:2333
-- CI：`.github/workflows/publish.yml`，push 到 main 后构建 → 推 gh-pages → 上传对象存储
+- CI：`.github/workflows/publish.yml`，PR 只跑构建校验；push 到 main 后先构建一次，再把同一份产物并行推到 gh-pages、腾讯 COS、七牛桶并刷新 CDN
 - 构建工具文档：[teedoc](https://github.com/teedoc/teedoc)

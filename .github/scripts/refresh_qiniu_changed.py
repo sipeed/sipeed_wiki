@@ -13,7 +13,9 @@ by itself: teedoc rewrites hundreds of unchanged pages per build, which would
 exhaust the account-wide quota (500 URLs/day, shared with other Sipeed sites).
 
 Usage: refresh_qiniu_changed.py <old_dir> <new_dir> [overwritten_list]
-  old_dir           previous site (the gh-pages checkout)
+  old_dir           previous site (the gh-pages checkout), or "-" when the
+                    caller does not have it (the CI deploy jobs run before the
+                    gh-pages push, so only the bucket upload list is available)
   new_dir           freshly built site
   overwritten_list  optional file, one key per line, of objects whose content
                     the Qiniu bucket upload replaced (upload_qiniu.py
@@ -103,12 +105,18 @@ def main():
               " skipping CDN refresh.")
         return
     old_dir, new_dir = sys.argv[1], sys.argv[2]
-    for d in (old_dir, new_dir):
-        if not os.path.isdir(d):
-            print("WARN: directory not found: %s; skipping CDN refresh." % d)
-            return
-
-    changed = overwritten_files(old_dir, new_dir)
+    if not os.path.isdir(new_dir):
+        print("WARN: directory not found: %s; skipping CDN refresh." % new_dir)
+        return
+    if old_dir == "-" or not os.path.isdir(old_dir):
+        # The caller has no previous tree (in CI the gh-pages push happens after
+        # the upload jobs). The keys the bucket upload replaced still identify
+        # the files whose cached copies are stale.
+        if old_dir != "-":
+            print("WARN: previous site not found: %s; using the bucket upload list only." % old_dir)
+        changed = []
+    else:
+        changed = overwritten_files(old_dir, new_dir)
     if len(sys.argv) == 4:
         try:
             with open(sys.argv[3], encoding="utf-8") as f:
@@ -118,7 +126,7 @@ def main():
             extra = []
         extra = [p for p in extra if os.path.splitext(p)[1].lower() in LONG_CACHED]
         merged = set(changed) | set(extra)
-        print("%d long-cached file(s) from the bucket upload, %d not in the gh-pages diff."
+        print("%d long-cached file(s) from the bucket upload, %d not in the previous site diff."
               % (len(extra), len(merged) - len(changed)))
         changed = sorted(merged, key=lambda p: (p.startswith(("maixpy/", "maixcdk/")), p))
     print("%d long-cached file(s) overwritten by this publish." % len(changed))
