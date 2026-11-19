@@ -18,7 +18,7 @@ When not connected to a host computer, the T256s functions as a standalone therm
 
 - **Image Zoom:** Tap the center of the screen to toggle quickly between **1x and 2x zoom**.
 - **Temperature Annotation:** The system automatically tracks and displays values for the **center point, maximum temperature (Hot Spot), and minimum temperature (Cold Spot)**. The interface defaults to Celsius (°C). A 2-minute warm-up is recommended for optimal accuracy.
-- **Pseudo-color (Palette) Switching:** Tap the color block icon in the upper-right corner to cycle through **6 built-in palettes** (e.g., White Hot, Ironbow, Rainbow, etc.). Different palettes suit different scenarios; for instance, "White Hot" is often better for identifying subtle temperature gradients.
+- **Pseudo-color (Palette) Switching:** Tap the color block icon in the upper-right corner to cycle through **20 built-in palettes** (e.g., White Hot, Ironbow, Rainbow, etc.). Different palettes suit different scenarios; for instance, "White Hot" is often better for identifying subtle temperature gradients.
 - **Quick Capture:** Tap the camera icon on the right-middle of the screen. The current frame will be saved to internal storage. A confirmation prompt will appear upon a successful save.
 - **Gallery Preview:** Tap the gallery icon in the lower-right corner. Swipe left or right to browse photos, or use the delete button to manage storage space.
 
