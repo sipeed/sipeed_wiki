@@ -1,14 +1,28 @@
-# This is a basic workflow to help you get started with Actions
+# Build the site once, then publish it to every target in its own job.
+#
+# The build and the three deploy steps used to share one job, so publishing was
+# strictly serial: build, then push gh-pages, then COS, then the Qiniu bucket
+# and the CDN refresh. The three deploys do not depend on each other, so they
+# now run in parallel and a slow (or failing) target no longer holds up the
+# others. The built tree is handed over as the `site` artifact.
+#
+# Pull requests only run the build: a PR has to prove the site still builds, but
+# nothing is published before the change lands on main. The deploy jobs check the
+# event name, and the artifact is not uploaded for PRs at all.
+#
+# Ordering note: push-gh-pages runs *after* upload-cos. upload-cos needs the
+# previous site from the gh-pages branch for teedoc-upload's `--old` incremental
+# upload; if the push went first, teedoc-upload would compare the new tree with
+# itself, upload nothing, and leave the COS origin stale.
 
 name: build_doc_upload
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Only main is published; a pull request builds the site and stops there.
   push:
     branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
+  pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,123 +31,240 @@ on:
 
 permissions: write-all
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# One publish at a time: two runs would force-push gh-pages on top of each other
+# and diff the object storage against a previous site that is already gone, and
+# the older pending run is dropped so only the newest tree goes out. A pull
+# request gets its own group (its ref is refs/pull/<n>/merge) and cancels its
+# superseded runs, so it can never delay or cancel a publish.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
-  # This workflow contains a single job called "build"
+  # Build the whole site (teedoc output + the two sub-site repos) and hand it to
+  # the deploy jobs. This is the only job that needs the wiki repo's history.
   build:
+    name: build site
     # Only run job for specific repository
     if: github.repository == 'sipeed/sipeed_wiki'
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        with:
+          # teedoc dates every page with `git log -1 --date=iso8601 -- <file>`;
+          # the full history is what makes those dates per page instead of
+          # "everything changed in this one commit".
+          fetch-depth: 0
 
-      # Runs a set of commands using the runners shell
-      - name: build doc and push to github pages
-        id: build
+      - name: build doc
         run: |
-          git fetch --unshallow # fetch all history
+          set -euo pipefail
           pip3 install setuptools
           pip3 install teedoc
-          ls -al ~/.local/bin/
           export PATH=~/.local/bin/:$PATH
           echo "== install plugins =="
           teedoc install
           echo "== start build =="
           teedoc build
           echo "== build complete =="
-          out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
-          echo "== clone MaixPy gh-pages =="
-          git clone https://github.com/sipeed/MaixPy --depth=1 --branch=gh-pages
-          echo "== copy MaixPy dir to out_dir =="
-          mv MaixPy/maixpy $out_dir
-          rm -rf MaixPy
-          echo "== clone MaixCDK gh-pages =="
-          git clone https://github.com/sipeed/MaixCDK --depth=1 --branch=gh-pages
-          echo "== copy MaixCDK dir to out_dir =="
-          mv MaixCDK/maixcdk $out_dir
-          rm -rf MaixCDK
-          mv $out_dir ../
-          remote_addr=`git remote get-url --push origin`
-          remote_addr=`echo $remote_addr|  awk -F'://' '{print $2}'`
-          user_name=`git log -1 --pretty=format:'%an'`
-          user_email=`git log -1 --pretty=format:'%ae'`
-          echo "== checkout gh-pages branch =="
-          git fetch origin gh-pages
-          git status
-          git checkout .
-          git checkout gh-pages
-          git pull origin gh-pages
-          old_out_dir=`pwd`
-          cd ../$out_dir
-          # for the Qiniu refresh step below
-          echo "WIKI_OLD_DIR=$old_out_dir" >> "$GITHUB_ENV"
-          echo "WIKI_NEW_DIR=`pwd`" >> "$GITHUB_ENV"
-          git init
-          git config user.name ${user_name}
-          git config user.email ${user_email}
-          remote_addr="https://Neutree:${{ secrets.GITHUB_TOKEN }}@${remote_addr}"
-          echo "-- user ${user_name}"
-          echo "-- remote addr: ${remote_addr}"
-          git remote add origin "${remote_addr}"
-          git add -A
-          git commit -m "rebuild website ad $GITHUB_REF"
-          echo "== push to gh-pages branch now"
-          git push origin HEAD:gh-pages --force
-          echo "== push complete =="
-          echo "== upload to cloud server =="
-          pip3 install cos-python-sdk-v5
-          teedoc-upload --progress raw --cloud tencent --region ${{ secrets.TENCENT_REGION }} --bucket ${{ secrets.TENCENT_BUCKET }} --secret_id ${{ secrets.TENCENT_SECRET_ID }} --secret_key ${{ secrets.TENCENT_SECRET_KEY }} --old $old_out_dir ./
-          echo "== upload to gh-pages for pages service =="
 
-      # Same build also goes to the Qiniu bucket (migrating the CDN origin off
-      # COS). Runs before the CDN refresh so refreshed URLs fetch new content.
-      - name: upload to Qiniu bucket
+      - name: merge the MaixPy and MaixCDK sub-sites
+        run: |
+          set -euo pipefail
+          out_dir="out$(python3 -c 'import json; print(json.load(open("site_config.json"))["site_root_url"])')"
+          # The two clones are independent of each other, so fetch them at the
+          # same time instead of one after the other.
+          git clone --depth=1 --branch gh-pages https://github.com/sipeed/MaixPy MaixPy &
+          maixpy_pid=$!
+          git clone --depth=1 --branch gh-pages https://github.com/sipeed/MaixCDK MaixCDK &
+          maixcdk_pid=$!
+          status=0
+          wait "$maixpy_pid" || status=1
+          wait "$maixcdk_pid" || status=1
+          if [ "$status" -ne 0 ]; then
+            echo "== cannot fetch the MaixPy/MaixCDK gh-pages branches =="
+            exit 1
+          fi
+          mv MaixPy/maixpy "$out_dir"
+          mv MaixCDK/maixcdk "$out_dir"
+          rm -rf MaixPy MaixCDK
+          echo "== sub-sites merged into $out_dir =="
+
+      # Only the deploy jobs read this artifact (~1 GB, downloaded three times);
+      # a pull request build stops at "the site still builds".
+      - if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: out/
+          if-no-files-found: error
+          # out/.nojekyll is generated by teedoc and must reach gh-pages, or
+          # GitHub Pages runs Jekyll over the site. Artifacts drop hidden files
+          # unless asked; the old job got them for free via `git add -A`.
+          include-hidden-files: true
+          # Images and archives are already compressed (~3/4 of the tree), so a
+          # high level would only burn runner CPU; pages and scripts still
+          # shrink well, and the artifact is downloaded three times.
+          compression-level: 1
+          retention-days: 3
+
+  # Same tree, incremental upload to the Tencent COS origin. Needs the previous
+  # publish for `--old`, which is why push-gh-pages waits for this job.
+  upload-cos:
+    name: upload to Tencent COS
+    needs: build
+    if: ${{ github.event_name != 'pull_request' && !cancelled() && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+
+      - name: locate the built site
+        run: |
+          set -euo pipefail
+          site_dir=site
+          if [ ! -f "$site_dir/index.html" ] && [ -f "$site_dir/out/index.html" ]; then
+            site_dir=site/out
+          fi
+          if [ ! -f "$site_dir/index.html" ]; then
+            echo "== no index.html in the downloaded artifact =="
+            exit 1
+          fi
+          echo "SITE_DIR=$site_dir" >> "$GITHUB_ENV"
+
+      - name: fetch the previous site
+        run: |
+          set -euo pipefail
+          # The previous publish is the gh-pages branch. push-gh-pages runs
+          # after this job, so it still holds the old tree while we compare.
+          if git clone --depth=1 --single-branch --branch gh-pages \
+               "https://github.com/${{ github.repository }}.git" previous; then
+            echo "PREVIOUS_DIR=previous" >> "$GITHUB_ENV"
+          else
+            echo "== no gh-pages branch yet: uploading the whole site =="
+          fi
+
+      - name: upload to cloud server
+        run: |
+          set -euo pipefail
+          pip3 install setuptools
+          pip3 install cos-python-sdk-v5 teedoc
+          export PATH=~/.local/bin/:$PATH
+          old=()
+          if [ -n "${PREVIOUS_DIR:-}" ]; then
+            old=(--old "$PREVIOUS_DIR")
+          fi
+          teedoc-upload --progress raw --cloud tencent \
+            --region ${{ secrets.TENCENT_REGION }} \
+            --bucket ${{ secrets.TENCENT_BUCKET }} \
+            --secret_id ${{ secrets.TENCENT_SECRET_ID }} \
+            --secret_key ${{ secrets.TENCENT_SECRET_KEY }} \
+            ${old[@]+"${old[@]}"} "$SITE_DIR"
+
+  # Same tree, synced into the Qiniu bucket that the CDN origin is migrating
+  # to, followed by the CDN refresh for the files whose content changed.
+  upload-qiniu:
+    name: upload to Qiniu bucket and refresh CDN
+    needs: build
+    if: ${{ github.event_name != 'pull_request' && !cancelled() && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
+      QINIU_SECRET_KEY: ${{ secrets.QINIU_SECRET_KEY }}
+      QINIU_WIKI_BUCKET: wiki-sipeed-com-site
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+
+      - name: locate the built site
+        run: |
+          set -euo pipefail
+          site_dir=site
+          if [ ! -f "$site_dir/index.html" ] && [ -f "$site_dir/out/index.html" ]; then
+            site_dir=site/out
+          fi
+          if [ ! -f "$site_dir/index.html" ]; then
+            echo "== no index.html in the downloaded artifact =="
+            exit 1
+          fi
+          echo "SITE_DIR=$site_dir" >> "$GITHUB_ENV"
+
+      # No repo checkout here (the wiki repo is ~1 GB with history); the two
+      # helpers are read from the commit that triggered this run.
+      - name: fetch the upload scripts
         env:
-          QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
-          QINIU_SECRET_KEY: ${{ secrets.QINIU_SECRET_KEY }}
-          QINIU_WIKI_BUCKET: wiki-sipeed-com-site
+          SCRIPTS_URL: https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/.github/scripts
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 2 \
+            "$SCRIPTS_URL/upload_qiniu.py" -o "$RUNNER_TEMP/upload_qiniu.py"
+          curl -fsSL --retry 3 --retry-delay 2 \
+            "$SCRIPTS_URL/refresh_qiniu_changed.py" -o "$RUNNER_TEMP/refresh_qiniu_changed.py"
+
+      # syncs against the bucket itself (self-healing), plus dir.html stubs and
+      # errno-404; non-HTML first so pages never go live before their assets
+      - name: upload to Qiniu bucket
         run: |
           set -euo pipefail
           pip3 install qiniu==7.18.0
-          # working tree is gh-pages now; read the script from the triggering commit
-          script="$RUNNER_TEMP/upload_qiniu.py"
-          git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/upload_qiniu.py" > "$script"
-          # syncs against the bucket itself (self-healing), plus dir.html stubs and errno-404
-          python3 "$script" --bucket "$QINIU_WIKI_BUCKET" --overwritten-list "$RUNNER_TEMP/qiniu_overwritten.txt" "$WIKI_NEW_DIR"
+          python3 "$RUNNER_TEMP/upload_qiniu.py" --bucket "$QINIU_WIKI_BUCKET" \
+            --overwritten-list "$RUNNER_TEMP/qiniu_overwritten.txt" "$SITE_DIR"
 
-      # wiki.sipeed.com is served by Qiniu CDN in front of COS. HTML/JSON/XML
-      # expire within 10 minutes on their own; long-cached files (images, JS,
+      # wiki.sipeed.com is served by Qiniu CDN in front of the origin. HTML/JSON/
+      # XML expire within 10 minutes on their own; long-cached files (images, JS,
       # CSS, media) overwritten under the same name are refreshed here.
-      # Best-effort: never fails the deploy.
+      # Best-effort: never fails the deploy, and also runs if the bucket upload
+      # failed (refreshes whatever did change).
       - name: refresh Qiniu CDN cache for overwritten files
-        # also runs if the Qiniu bucket upload failed (refreshes what did change)
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        env:
-          QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}
-          QINIU_SECRET_KEY: ${{ secrets.QINIU_SECRET_KEY }}
+        if: ${{ !cancelled() }}
         run: |
-          # The build step checked out gh-pages, which has no .github/, so read
-          # the script from the triggering commit instead of the working tree.
-          script="$RUNNER_TEMP/refresh_qiniu_changed.py"
-          if git -C "$GITHUB_WORKSPACE" show "$GITHUB_SHA:.github/scripts/refresh_qiniu_changed.py" > "$script"; then
-            python3 "$script" "$WIKI_OLD_DIR" "$WIKI_NEW_DIR" "$RUNNER_TEMP/qiniu_overwritten.txt" || echo "WARN: CDN refresh script failed (continuing)."
-          else
-            echo "WARN: cannot read refresh script from $GITHUB_SHA (continuing)."
+          # Without the gh-pages checkout this job has no previous site tree, so
+          # the list the bucket upload wrote is what decides what to refresh.
+          python3 "$RUNNER_TEMP/refresh_qiniu_changed.py" - "${SITE_DIR:-site}" \
+            "$RUNNER_TEMP/qiniu_overwritten.txt" || echo "WARN: CDN refresh script failed (continuing)."
+
+  # Publishes the same tree to the gh-pages branch that GitHub Pages serves.
+  push-gh-pages:
+    name: push gh-pages
+    needs: [build, upload-cos]
+    # Also runs when upload-cos failed: the Pages site should still get the new
+    # tree, and rerunning only the failed job finishes the publish.
+    if: ${{ github.event_name != 'pull_request' && !cancelled() && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+
+      - name: commit and push to gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          site_dir=site
+          if [ ! -f "$site_dir/index.html" ] && [ -f "$site_dir/out/index.html" ]; then
+            site_dir=site/out
           fi
-
-
-#           SSHPATH="$HOME/.ssh"
-#           rm -rf "$SSHPATH"
-#           mkdir -p "$SSHPATH"
-#           echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
-#           chmod 600 "$SSHPATH/id_rsa"
-#           sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
-#           git push origin HEAD:gh-pages --force
-
+          if [ ! -f "$site_dir/index.html" ]; then
+            echo "== no index.html in the downloaded artifact =="
+            exit 1
+          fi
+          # A fresh single-commit history each publish, like before: the branch
+          # only ever needs to hold the current tree.
+          cd "$site_dir"
+          git init -q
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add -A
+          git commit -q -m "rebuild website at $GITHUB_REF"
+          echo "== push to gh-pages branch now"
+          git push --force \
+            "https://Neutree:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" \
+            HEAD:gh-pages
+          echo "== push complete =="
