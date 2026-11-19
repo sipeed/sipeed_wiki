@@ -29,6 +29,23 @@ ssh root@<NanoKVM Go LAN IP>
 
 > On the first connection, the terminal asks whether to trust the device fingerprint. After confirming that the IP address is correct, enter `yes`, then enter the password `sipeed`. The terminal does not display characters while you type the password; this is normal. For security, do not expose a device with SSH enabled directly to the public internet.
 
+## Network Issues
+
+### The target machine cannot access the internet after NanoKVM Go is connected
+
+If the target machine's **previously working network stops working** after NanoKVM Go is connected (web pages will not load and it cannot go online), and it recovers once NanoKVM Go is unplugged, the NanoKVM Go **virtual network adapter** is usually enabled.
+
+When the virtual network adapter is on, NanoKVM Go presents a USB network adapter to the target machine, so the target gains an extra network interface. The system may prefer this adapter as its default network route, while NanoKVM Go does not forward the target's internet traffic. As a result, the target's original Wi-Fi or wired network appears unavailable.
+
+**Solution:**
+
+1. On the control device, open the NanoKVM Go web console.
+2. Go to `Settings` > `Device`.
+3. Find the `Virtual Network` switch. If it is on, turn it off.
+4. Check the target machine's network again. If it still does not work, disable the newly added USB network adapter in the target's network settings, or unplug and replug the NanoKVM Go USB-C cable so the adapter re-enumerates.
+
+> The virtual network adapter is used to reach NanoKVM Go over a direct USB connection (USB NCM). If you access NanoKVM Go over Wi-Fi, you can leave it off to avoid affecting the target machine's existing network.
+
 ## Video Issues
 
 ### "No video signal" when connected to the host device
