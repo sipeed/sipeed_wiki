@@ -12,10 +12,10 @@ msgstr "/static/home/banner_nanokvm_go_en.jpg"
 #: maix.html:245 maix.html:262 maix.html:303 maix.html:320 maix.html:341
 #: maix.html:358 nanokvm.html:37 nanokvm.html:54 nanokvm.html:71
 #: nanokvm.html:88 nanokvm.html:105 others.html:38 sipeedsense.html:40
-#: sipeedsense.html:56 sipeedsense.html:72 sipeedsense.html:88 slogic.html:37
-#: slogic.html:54 slogic.html:71 tang.html:171 tang.html:187 tang.html:203
-#: tang.html:219 tang.html:235 tang.html:251 tang.html:267 tang.html:283
-#: tang.html:299 tang.html:315
+#: sipeedsense.html:56 sipeedsense.html:72 sipeedsense.html:88
+#: sipeedsense.html:99 slogic.html:37 slogic.html:54 slogic.html:71
+#: tang.html:171 tang.html:187 tang.html:203 tang.html:219 tang.html:235
+#: tang.html:251 tang.html:267 tang.html:283 tang.html:299 tang.html:315
 msgid "文档"
 msgstr "Docs"
 
@@ -459,7 +459,7 @@ msgstr "https://www.aliexpress.com/item/1005006022974163.html"
 msgid "深度传感器模组"
 msgstr "Depth Sensor Module"
 
-#: sipeedsense.html:53
+#: sipeedsense.html:53 sipeedsense.html:96
 msgid "深度摄像头模组"
 msgstr "Depth Camera Module"
 

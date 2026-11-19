@@ -1,220 +1,101 @@
-# SDK 开发指南
+---
+title: SDK 开发指南
+keywords: MaixSense, D640, SDK, 深度相机
+update_open: false
+update:
+  - date: 2026-10-27
+    version: v0.1
+    author: lxowalle
+    content: 初版
+---
 
-MaixSense-D640 SDK 提供 C/C++ API，用于将深度数据集成到你的应用中。
+MaixSense D640 SDK 提供 C/C++ 封装的用于编程连接相机的开发工具包，用于读取深度与左右红外图、获取同步帧组、处理点云和控制设备。
 
-## 安装
+下面以 Linux 的 USB 采集为例，完成从构建到保存第一组数据的过程。
 
-### 依赖
+同步帧组指同一次采集对应的深度/伪彩图与左右红外图，相同帧组 ID 用于确认三张图的对应关系。
 
-| 平台 | 依赖 |
+## SDK 能做什么
+
+| 功能 | 用途 |
 | :--- | :--- |
-| Linux (Ubuntu/Debian) | `sudo apt install libusb-1.0-0-dev libuvc-dev cmake build-essential` |
-| Windows | CMake + Visual Studio，WinUSB 自动安装 |
-| macOS | `brew install libusb cmake` |
+| 设备发现与热插拔监听 | 按稳定序列号区分设备，查询可用图像配置 |
+| 原始深度与左右红外采集 | 保存毫米深度和原始图像，供算法处理 |
+| 深度处理与点云 | 伪彩、空间/时间滤波、空洞处理及 XYZ 点云生成 |
+| 设备控制 | 在支持的平台和固件上读取内参、调整曝光与设备滤波、传输固件和标定文件 |
+| 桌面及机器人集成 | 可选 OpenCV、Open3D、PCL 示例，以及 [ROS 2 主机驱动](./ros2.md) |
 
-### 编译
+各平台支持范围以 SDK 发行说明为准。以下命令和同步采集说明只针对 Linux 系统。
 
-```bash
-git clone https://github.com/sipeed/MaixSense-D640-SDK.git
-cd MaixSense-D640-SDK
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j$(nproc)
-```
+下载并解压[最新 SDK 源码包](https://cdn.sipeed.com/maixsense/d640/latest/maixsense_d640_sdk_source.tar.gz)，再执行下面的安装和构建步骤。
 
-编译产物：
-- `libmaix_stereo_depth.so` — 动态库
-- `msd-latency` — 延迟测量工具
-- `msd-upload` — 固件/标定上传工具
+## 准备环境
 
-## API 概览
-
-所有公开函数使用 `msd_` 前缀，头文件位于 `include/maix_stereo_depth/sdk.h`。
-
-### 设备发现与打开
-
-```c
-#include <maix_stereo_depth/sdk.h>
-
-// 创建上下文
-msd_context *ctx = NULL;
-msd_context_create(&ctx);
-
-// 打开设备（NULL = 自动查找第一个）
-msd_device *device = NULL;
-msd_status status = msd_device_open(ctx, NULL, &device);
-if (status != MSD_STATUS_OK) {
-    printf("error: %s\n", msd_status_string(status));
-    return -1;
-}
-
-// 获取固件信息
-msd_firmware_info info;
-msd_device_get_firmware_info(device, &info);
-printf("firmware: %s\n", info.version);
-```
-
-### 获取深度帧
-
-```c
-msd_stream *stream = NULL;
-msd_stream_config config = {
-    .type = MSD_STREAM_DEPTH,
-    .format = MSD_PIXEL_FORMAT_Z16,   // 16bit 毫米深度
-};
-msd_stream_open(device, &config, &stream);
-msd_stream_start(stream);
-
-while (running) {
-    msd_frame frame;
-    status = msd_stream_read(stream, &frame, 1000);  // 1000ms 超时
-    if (status == MSD_STATUS_OK) {
-        uint16_t *depth = (uint16_t *)frame.data;
-        // depth[y * 640 + x] = 距离(mm)，0 表示无效
-        printf("center depth: %u mm\n", depth[192 * 640 + 320]);
-        msd_frame_release(&frame);
-    }
-}
-
-msd_stream_stop(stream);
-msd_stream_close(stream);
-```
-
-### 获取 IR 灰度帧
-
-```c
-msd_stream_config ir_config = {
-    .type = MSD_STREAM_LEFT_IR,       // 或 MSD_STREAM_RIGHT_IR
-    .format = MSD_PIXEL_FORMAT_MJPEG,
-};
-msd_stream *ir = NULL;
-msd_stream_open(device, &ir_config, &ir);
-msd_stream_start(ir);
-
-msd_frame frame;
-if (msd_stream_read(ir, &frame, 1000) == MSD_STATUS_OK) {
-    // frame.data = JPEG 数据, frame.size = 字节数
-    save_jpeg("ir_left.jpg", frame.data, frame.size);
-    msd_frame_release(&frame);
-}
-```
-
-### 深度滤波配置
-
-```c
-msd_depth_filter_config filter = {
-    .confidence_threshold = 0.5f,    // 置信度阈值 [0,1]
-    .min_depth_mm = 300.0f,          // 最小深度 300mm
-    .max_depth_mm = 2000.0f,         // 最大深度 2000mm
-    .spatial_filter_delta_q4 = 0,    // 空间滤波（0=关闭）
-};
-msd_device_set_depth_filters(device, &filter);
-```
-
-### 曝光控制
-
-```c
-// 读取当前曝光
-msd_exposure_state exposure;
-msd_device_read_exposure(device, &exposure);
-printf("shutter: %u us, gain: %.2fx\n", exposure.shutter_us, exposure.analog_gain);
-
-// 设为手动曝光
-msd_exposure_config manual = {
-    .mode = MSD_EXPOSURE_MANUAL,
-    .shutter_us = 5000,
-    .analog_gain = 1.0f,
-};
-msd_device_apply_exposure(device, &manual);
-
-// 恢复自动曝光
-msd_exposure_config auto_exp = { .mode = MSD_EXPOSURE_AUTO };
-msd_device_apply_exposure(device, &auto_exp);
-```
-
-### 设备时钟（延迟测量）
-
-```c
-msd_device_clock clock;
-msd_device_get_clock(device, &clock);
-// clock.device_pts_us — 设备 AX PTS 时钟（微秒）
-// clock.device_monotonic_us — 设备 CLOCK_MONOTONIC（微秒）
-// clock.host_before_ns / host_after_ns — 主机请求前后时间戳
-// 用于对齐帧 PTS 和主机时钟，计算端到端延迟
-```
-
-### 固件/标定上传
-
-```c
-// 上传固件
-msd_device_upload_file(device, MSD_UPLOAD_FIRMWARE_PACKAGE,
-                       "maixsense_d640-v1.0.tar.gz", 0, NULL, NULL);
-
-// 上传标定
-msd_device_upload_file(device, MSD_UPLOAD_CALIBRATION_PACKAGE,
-                       "calibration.tar.gz", 0, NULL, NULL);
-
-// 下载标定
-msd_device_download_file(device, MSD_DOWNLOAD_CALIBRATION,
-                         "current_calib.tar.gz", NULL, NULL);
-```
-
-### 清理
-
-```c
-msd_device_close(device);
-msd_context_destroy(ctx);
-```
-
-## 命令行工具
-
-### msd-latency
-
-测量帧延迟：
+Debian / Ubuntu 可安装：
 
 ```bash
-# 测深度流延迟（采集 10 秒）
-./msd-latency depth 10
-
-# 测 IR 延迟
-./msd-latency left 10
-
-# 逐帧详情
-./msd-latency depth 10 --per-frame
+sudo apt update
+sudo apt install build-essential cmake ninja-build
 ```
 
-输出示例：
-```
-device    min    98  avg   126  p95   148  max   222 ms
-transfer  min    22  avg    27  p95    33  max    35 ms
-total     min   123  avg   153  p95   176  max   255 ms
-```
+## 构建核心 SDK
 
-### msd-upload
-
-固件和标定文件管理：
+在 SDK 根目录执行：
 
 ```bash
-# 上传固件
-./msd-upload firmware maixsense_d640-v1.0.tar.gz --restart
-
-# 上传标定
-./msd-upload calibration calib.tar.gz --restart
-
-# 下载当前标定
-./msd-upload fetch-calibration output.tar.gz
+cmake --preset core
+cmake --build --preset core
 ```
 
-## 延迟指标
+构建成功后，`build/core` 中应出现 `msd-enumerate` 和 `msd-capture`。需要桌面算法或点云查看器时，再按 SDK 包中的 README 安装可选依赖并使用相应配置。
 
-| 指标 | 深度流 | IR 流 |
-| :--- | :--- | :--- |
-| 设备侧延迟 | 126ms avg, 98ms min | 40ms avg |
-| USB 传输 | 27ms avg | 11ms avg |
-| 端到端 | 153ms avg | 50ms avg |
+## 检查设备
 
-## 注意事项
+1. 按[快速上手](./quick-start.md)配置 Linux 权限并连接相机。
+2. 关闭上位机、浏览器和其他采集程序。
+3. 枚举设备，确认输出包含相机序列号和可用图像配置：
 
-- 同一设备同时只能有一个进程打开（UVC 设备独占）
-- 深度帧率由 NPU 决定（~12fps），无法通过 SDK 调整
-- macOS 上厂商控制（滤波/曝光/时钟）走 NCM 网络通道，需要 USB 网络连接可用
+```bash
+./build/core/msd-enumerate
+```
+
+`msd-enumerate` 即使扫描到零台设备也可能正常退出，因此需要检查输出中的设备数量。示例默认使用首台设备，多设备程序应按序列号选择。
+
+## 采集并保存同步图像
+
+```bash
+./build/core/msd-capture --mode depth --frames 10 --output ./demo-depth
+```
+
+程序等待 **10 个完整同步帧组，只将最后一组写入输出目录**，不会保存连续 10 组图片。在新的输出目录中，应得到三个非空文件，文件名中的帧组 ID 相同。下面的 `<frame_set_id>` 会替换成实际编号：
+
+```text
+demo-depth/
+├── depth_<frame_set_id>.pgm
+├── left_ir_<frame_set_id>.jpg
+└── right_ir_<frame_set_id>.jpg
+```
+
+两张 JPEG 可直接查看。PGM 是 16 位深度图，像素值单位为毫米。PGM 文件按规范使用大端序，SDK 原始 Depth16 数据为小端序，自己解析时需要区分。保存的 PGM 中无效深度为 0。
+
+设备端伪彩采集示例：
+
+```bash
+./build/core/msd-capture --mode pseudo --frames 10 --output ./demo-pseudo
+```
+
+此时第一份文件变为 `pseudo_<frame_set_id>.jpg`，不包含原始毫米深度。两种模式均同时采集左右红外。缺少完整同步组时示例会报错，不会用不匹配的图像凑齐三路。
+
+常见退出码：`0` 表示成功，`1` 表示采集、同步或文件写入失败，`2` 表示参数错误或未找到兼容设备。超时时先检查权限、固件与 SDK 是否配套，以及其他程序是否占用设备。
+
+## 在自己的程序中使用
+
+从 SDK 包内 `examples/capture.cpp` 开始，结合公开头文件 `include/maixsense_d640/sdk.h` 使用。需要对应同次采集的深度与双目图时，使用完整帧组接口 `msd_pipeline_wait_for_frame_set()`。不要用电脑收到图像的先后顺序或时间戳自行猜配。
+
+点云由 SDK 在主机端根据深度图和对应内参生成。可选的 OpenCV 查看器、Open3D/PCL 点云工具和 ROS 2 驱动，分别参见包内 `examples/README.zh-CN.md` 与 `ros2/README.zh-CN.md`。可选依赖缺失时，部分示例不会构建。
+
+## 下一步
+
+- 无需编程即可测距、抓图和录制：[上位机软件指南](./gui.md)
+- 了解深度数据的测量条件：[测量精度](./accuracy.md)
+- 连接和同步异常：[常见问题](./faq.md)

@@ -3,7 +3,7 @@
 <div class="w-full flex flex-col justify-center items-center">
   <h2 class="text-2xl font-bold my-8 block_simple">MaixSense</h2>
   <div class="w-full flex flex-col justify-center">
-    <div class="cards">
+    <div class="cards maixsense-cards">
       <!-- cards -->
       <div class="card" v-for="item in data_sipeedsense.cards">
         <div class="img_wrapper">
@@ -87,6 +87,17 @@
           {
             label: "{{_('文档')}}",
             link: "/t160",
+          },
+        ],
+      },
+      {
+        img: "/hardware/assets/maixsense/maixsense-d640/navigation.jpg",
+        title: "MS-D640",
+        brief: "{{_('深度摄像头模组')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/hardware/zh/maixsense/maixsense-d640/maixsense-d640.html",
           },
         ],
       },

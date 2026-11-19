@@ -462,17 +462,20 @@ items:
     -   label: ToF MS-A075V
         file: maixsense/maixsense-a075v/maixsense-a075v.md
     -   label: StereoCam MS-D640
-        file: maixsense/maixsense-d640/maixsense-d640.md
         items:
+        -   label: Introduction
+            file: maixsense/maixsense-d640/maixsense-d640.md
         -   label: Quick Start
             file: maixsense/maixsense-d640/quick-start.md
-        -   label: GUI Guide
+        -   label: Desktop App Guide
             file: maixsense/maixsense-d640/gui.md
         -   label: SDK Guide
             file: maixsense/maixsense-d640/sdk.md
-        -   label: Firmware
-            file: maixsense/maixsense-d640/firmware.md
-        -   label: Accuracy
+        -   label: ROS2 Guide
+            file: maixsense/maixsense-d640/ros2.md
+        -   label: Agent Guide
+            file: maixsense/maixsense-d640/ai_agent.md
+        -   label: Measurement Accuracy
             file: maixsense/maixsense-d640/accuracy.md
         -   label: FAQ
             file: maixsense/maixsense-d640/faq.md

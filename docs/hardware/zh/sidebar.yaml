@@ -460,16 +460,19 @@ items:
     -   label: ToF MS-A075V
         file: maixsense/maixsense-a075v/maixsense-a075v.md
     -   label: StereoCam MS-D640
-        file: maixsense/maixsense-d640/maixsense-d640.md
         items:
+        -   label: 简介
+            file: maixsense/maixsense-d640/maixsense-d640.md
         -   label: 快速上手
             file: maixsense/maixsense-d640/quick-start.md
-        -   label: GUI 使用指南
+        -   label: 上位机软件指南
             file: maixsense/maixsense-d640/gui.md
         -   label: SDK 开发指南
             file: maixsense/maixsense-d640/sdk.md
-        -   label: 固件与标定
-            file: maixsense/maixsense-d640/firmware.md
+        -   label: ROS2 使用指南
+            file: maixsense/maixsense-d640/ros2.md
+        -   label: Agent 使用指南
+            file: maixsense/maixsense-d640/ai_agent.md
         -   label: 测量精度
             file: maixsense/maixsense-d640/accuracy.md
         -   label: 常见问题

@@ -1,77 +1,106 @@
-# MaixSense-D640
+---
+title: 简介
+keywords: MaixSense, D640, 深度相机, 双目立体, MaixSense Tool, SDK, 固件
+update_open: false
+update:
+  - date: 2026-10-27
+    version: v0.1
+    author: lxowalle
+    content: 初版
+---
 
-|    时间    | 负责人 |    更新内容    |
-| :--------: | :----: | :------------: |
-| 2026.10.23 |        | 初次编写文档   |
+**MaixSense D640** 是 Sipeed 推出的双目立体深度相机模组，采用双目全局快门成像，在相机内部实时计算并通过 UVC 输出深度图与双目图像。适用于需要空间感知、桌面测距和机器人视觉等场景。
+<p align="center">
+<img src="../../../assets/maixsense/maixsense-d640/preview.jpg"  width="60%">
+</p>
 
-## 产品概述
 
-**MaixSense-D640** 是 Sipeed 推出的双目立体深度相机模组，基于爱芯元智 AX620Q 视觉 SoC，搭载两颗思特威 SC035HGS 全局快门传感器，通过 NPU 实时推理输出 640×384 密集深度图。USB 即插即用，标准 UVC 协议，无需安装驱动。
+## 产品特点
 
-### 产品亮点
+- **内置深度计算**：相机实时计算深度，通过 UVC 提供深度图和双目图像，电脑端可直接采集。
+- **两种基线可选**：按工作距离选择短基线（50 mm）或长基线（100 mm）。
+- **全局快门双目**：左右灰度图与深度组成同步帧组，方便采集和离线算法分析。
+- **快捷预览与三维点云**：支持浏览器快速预览深度图与红外画面，桌面软件支持像素测距、点云预览与三维点云文件（PLY）导出。
+- **数据采集工具齐全**：支持同步抓图、深度数据录制与回放（MCAP），提供 C/C++ SDK 和 ROS 2 主机驱动，方便双目应用开发与机器人系统集成。
 
-- **即插即用**：标准 UVC 协议，Windows/Linux/macOS 免驱
-- **实时深度**：640×384 @12fps 密集深度图，NPU 硬件加速
-- **四路并发输出**：Raw 深度 + 伪彩深度 + 左右 IR 灰度
-- **毫米级精度**：有效范围内误差 ≤3%
-- **开放 SDK**：C/C++ API，支持二次开发
+## 硬件选型
 
-## 硬件版本
+MaixSense D640 提供 50 mm 和 100 mm 两种基线版本，可按目标距离选择：
 
-MaixSense-D640 提供两种基线版本，适用于不同场景：
+<img src="../../../assets/maixsense/maixsense-d640/short_long_baseline_front_back.png" alt="短基线与长基线版本正反面" width="100%">
 
-| | 短基线版 (~50mm) | 长基线版 (~100mm) |
+| 硬件 | 有效测量范围 | 应用场景 |
 | :--- | :--- | :--- |
-| 有效测量范围 | 0.3m ~ 2.0m | 0.5m ~ 3.0m |
-| 最佳应用 | 近距离精密测量、桌面级 | 中远距离、机器人导航 |
-| 平均误差 | ~1.0% | ~1.1% |
+| 短基线版（50 mm） | 0.25～2.0 m | 机器人腕部安装，近距离感知、桌面测距 |
+| 长基线版（100 mm） | 0.5～4.0 m | 机器人头部安装，扫地机、除草机或服务机器人中远距离感知 |
 
-> 两个版本使用相同的固件和 SDK，仅标定数据不同。
+应用场景：
 
-## 技术规格
+<table width="100%">
+  <tr>
+    <td width="25%"><img src="../../../assets/maixsense/maixsense-d640/case_dexterous_hand.jpeg" alt="灵巧手应用场景" width="100%"></td>
+    <td width="25%"><img src="../../../assets/maixsense/maixsense-d640/case_food_delivery_robot.jpeg" alt="酒店送餐机器人应用场景" width="100%"></td>
+    <td width="25%"><img src="../../../assets/maixsense/maixsense-d640/case_robot.jpeg" alt="机器人应用场景" width="100%"></td>
+    <td width="25%"><img src="../../../assets/maixsense/maixsense-d640/case_sweeping_robot.jpeg" alt="扫地机器人应用场景" width="100%"></td>
+  </tr>
+</table>
+
+## 参数规格
 
 | 参数 | 规格 |
 | :--- | :--- |
-| SoC | 爱芯元智 AX620Q (2× Cortex-A7 + 3.2 TOPS NPU) |
-| 传感器 | 2× 思特威 SC035HGS (全局快门, 640×480, 850nm IR 优化) |
-| 深度分辨率 | 640×384 |
-| 深度帧率 | 12fps (NPU bound) |
-| IR 帧率 | 30fps (MJPEG) |
-| 测量范围 | 0.3m~2.0m (短基线) / 0.5m~3.0m (长基线) |
-| 测量精度 | 有效范围内 ≤3%，典型 ~1% |
-| 接口 | USB 2.0 Type-C (UVC + NCM) |
-| 供电 | USB 5V |
-| 视场角 | ~70°(H) × 50°(V) |
-| 工作温度 | 0°C ~ 50°C |
+| 主控芯片 | 双核处理器，集成 NPU，算力 2.4 TOPS |
+| 图像传感器 | 双目全局快门图像传感器，单目分辨率 640 × 480 像素 |
+| 光学滤光 | 650 nm / 850 nm 双波段带通滤光片 |
+| 深度图分辨率 | 640 × 384 像素 |
+| 深度图帧率 | 12 fps |
+| 红外图像帧率 | 30 fps |
+| 基线 | 短基线：50 mm，长基线：100 mm |
+| 测量范围 | 短基线：0.25～2.0 m，长基线：0.5～4.0 m |
+| 视场角（FOV） | 水平 57° × 垂直 43°，对角 70° |
+| 数据接口 | USB 2.0，Type-C 连接器 |
+| 供电规格 | 5 V DC，供电电流 ≥ 0.5 A |
+| 尺寸 | 短基线：65 × 22 × 16.04 mm<br>长基线：112 × 22 × 16.04 mm |
+| 重量 | 短基线：35 g<br>长基线：60 g |
 
-## UVC 输出流
 
-设备连接后会出现 4 个 UVC 视频设备：
+**短基线**：
 
-| 设备 | 流 | 格式 | 分辨率 | 帧率 | 说明 |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| video0 | Raw Depth | Z16/D16/Y16 | 640×384 | 12fps | 16bit 毫米深度值 |
-| video1 | 伪彩深度 | MJPEG | 640×384 | 12fps | 彩色可视化 |
-| video2 | 左 IR | MJPEG | 640×480 | 30fps | 左目灰度图 |
-| video3 | 右 IR | MJPEG | 640×480 | 30fps | 右目灰度图 |
+<img src="../../../assets/maixsense/maixsense-d640/short_baseline_dimension.jpg" alt="短基线版尺寸图" width="50%">
 
-> **关于 IR 格式**：IR 流目前仅支持 MJPEG。Raw YUV (NV12) 在 USB 2.0 带宽下不可行——单目 640×480@30fps 的 NV12 需要 110Mbps，双目加深度将超出 USB 2.0 HS 的 280Mbps 可用带宽。
+**长基线**：
 
-### 平台兼容性
+<img src="../../../assets/maixsense/maixsense-d640/long_baseline_dimension.jpg" alt="长基线版尺寸图" width="75%">
 
-| 平台 | UVC 预览 | SDK 完整功能 | GUI | 说明 |
-| :--- | :---: | :---: | :---: | :--- |
-| Windows 10/11 | ✅ | ✅ | ✅ | 免驱即插即用 |
-| Linux | ✅ | ✅ | ✅ | 免驱 |
-| macOS | ✅ | ✅ (NCM) | ✅ | UVC 可预览；SDK 厂商控制走 NCM 网络通道 |
+## 软件功能与入口
 
-> macOS 的 UVC 可直接查看 IR 和伪彩流。深度滤波配置、曝光控制等厂商扩展功能通过 NCM 网络连接实现，SDK 会自动选择。
+首次使用请先按[快速上手](./quick-start.md)连接设备，再用上位机（MaixSense Tool）查看画面、测距或录制深度数据。也可以打开[D640 在线预览](https://maixsense.sipeed.com/d640)在浏览器中查看单路视频。需要编程集成时使用 SDK。
 
-## 更多文档
+| 软件 | 主要功能与入口 |
+| :--- | :--- |
+| 在线预览 | 单路伪彩或红外视频预览与录制，使用方法见 [快速上手](./quick-start.html#打开在线预览) |
+| 上位机 | 支持 Windows / Linux / macOS 等平台，用于测距、点云、同步抓图、深度数据录制（MCAP）及设备更新，使用方法见 [上位机软件指南](./gui.md) |
+| SDK | C/C++ 采集、帧组同步、滤波与点云，见 [SDK 开发指南](./sdk.md) |
+| ROS2 | 查看图像和点云、保存与录制机器人传感器数据，见 [ROS2 使用指南](./ros2.md) |
+| Agent | 通过对话采集图像、保存文件并检查结果，见 [Agent 使用指南](./ai_agent.md) |
 
-- [快速上手](./quick-start.md) — 开箱连接和预览
-- [GUI 使用指南](./gui.md) — 桌面应用操作说明
-- [SDK 开发指南](./sdk.md) — C/C++ API 接口和示例代码
-- [固件与标定管理](./firmware.md) — 固件更新、标定上传/下载
-- [测量精度](./accuracy.md) — 实测精度数据和误差曲线
-- [常见问题](./faq.md) — 故障排查
+![MaixSense Tool 主界面](../../../assets/maixsense/maixsense-d640/maix_sense_tool_main.jpg)
+
+
+
+## 输出图像与用途
+
+相机可输出原始深度、伪彩预览和左右红外图像。需要测距或生成点云时选择原始深度；只看远近关系时，可选择设备生成的伪彩预览。
+
+| 图像类型 | 数据格式 | 分辨率 | 帧率 | 用途 |
+| :--- | :--- | :--- | :--- | :--- |
+| 原始深度图 | Z16/Y16 | 640×384 | <span style="white-space: nowrap">12 fps</span> | 像素值为毫米距离，用于测距和生成点云 <br> <img src="../../../assets/maixsense/maixsense-d640/web_raw_depth.jpg" alt="原始深度图示例" width="50%"> <br> 像素值单位为 mm，直接按灰度显示时整体偏暗属于正常现象。 |
+| 伪彩预览图 | MJPEG | 640×384 | <span style="white-space: nowrap">12 fps</span> | 用颜色表示远近，仅供预览，不用于测距 <br> <img src="../../../assets/maixsense/maixsense-d640/web_depth.jpg" alt="伪彩预览图示例" width="50%"> |
+| 左红外图 | MJPEG | 640×480 | <span style="white-space: nowrap">30 fps</span> | 左相机的灰度画面 <br> <img src="../../../assets/maixsense/maixsense-d640/web_left.jpg" alt="左红外图示例" width="50%"> |
+| 右红外图 | MJPEG | 640×480 | <span style="white-space: nowrap">30 fps</span> | 右相机的灰度画面 <br> <img src="../../../assets/maixsense/maixsense-d640/web_right.jpg" alt="右红外图示例" width="50%"> |
+
+原始深度图与设备生成的伪彩预览图不能同时启用。上位机和 ROS2 可根据原始深度在电脑端生成伪彩显示，不受这项设备流限制。
+
+## 下一步
+
+第一次使用请从 [快速上手](./quick-start.md) 开始，开发集成请阅读 [SDK](./sdk.md)。
