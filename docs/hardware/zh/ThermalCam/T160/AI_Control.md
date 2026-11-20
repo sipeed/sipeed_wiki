@@ -181,10 +181,10 @@ curl http://192.168.17.1/builtin -o t160.html
 ```text
 附件 t160.html 是 Sipeed MS-T160 热成像仪的内置网页。设备通过 USB 网卡提供 HTTP 服务，地址是 http://192.168.17.1，网页上传后由设备直接提供。
 请在这个文件的基础上修改，并遵守以下规则：
-1. 结果仍然是一个完整的 HTML 文件，UTF-8 编码，总大小不超过 126976 字节（124 KiB）。原文件约 84 KB，新增内容尽量精简。
+1. 结果仍然是一个完整的 HTML 文件，UTF-8 编码，总大小不超过 126976 字节（124 KiB）。原文件约 98 KB，只剩约 28 KB 余量，新增内容尽量精简。
 2. 不要引用任何外网资源，包括 CDN 脚本、在线字体和外链图片，使用时手机或电脑可能没有网络。图标用内联 SVG，图片用 data URI。
 3. 接口一律用相对路径（例如 /frame.temp8），不要写死 192.168.17.1，这样设备改过网段后也能用。
-4. 除非我明确要求，不要改动这些部分：读取 /frame.temp8 和 /stream.temp8 的代码、120 字节元数据的解析和温度换算、超分（/assets/sr-fast.wasm、/assets/sr-fast-simd.wasm、/assets/sr-fast.bin）、画面旋转，以及 <canvas id="view"> 和 #overlay。
+4. 除非我明确要求，不要改动这些部分：读取 /frame.temp8 和 /stream.temp8 的代码、120 字节元数据的解析和温度换算、超分（createGpuSr 函数里的 WebGL 代码，以及 /assets/sr-fast.wasm、/assets/sr-fast-simd.wasm、/assets/sr-fast.bin）、画面旋转，以及 <canvas id="view"> 和 #overlay。
 5. 保留"设备设置与固件更新"面板，尤其是"恢复内置网页"和固件更新功能。
 6. 写操作（上传网页、更新固件、修改网段）必须带请求头 X-Sipeed-Request: 1。
 7. 改完后列出改动点和文件大小。上传到设备之前先问我。

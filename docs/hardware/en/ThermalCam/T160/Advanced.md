@@ -63,7 +63,7 @@ Keep these points in mind:
 
 - The built-in page is a single HTML file with no build step. Download its source with `curl http://192.168.17.1/builtin -o t160.html`, or open `/builtin` in a browser and view the page source, then edit the style, layout and text.
 - Keep the image elements `<canvas id="view">` and `#overlay`, plus the code that reads `/frame.temp8` or `/stream.temp8`. Super resolution keeps using the built-in `/assets/sr-fast.wasm`, `/assets/sr-fast-simd.wasm` and `/assets/sr-fast.bin`.
-- Embed every resource: inline SVG for icons and data URIs for images, with no CDN scripts, web fonts or remote images. An Android phone in airplane mode has no internet, so external resources would not load. A single file can be up to 124 KiB; the built-in page is about 84 KB.
+- Embed every resource: inline SVG for icons and data URIs for images, with no CDN scripts, web fonts or remote images. An Android phone in airplane mode has no internet, so external resources would not load. A single file can be up to 124 KiB; the built-in page is about 98 KB.
 - A custom page stays through restarts and firmware updates. If it misbehaves after an update, redo your changes on the new built-in page.
 - If the custom page breaks, open `http://192.168.17.1/builtin`; the built-in page always works there. Tap **Restore built-in page** in the panel to delete the custom page.
 

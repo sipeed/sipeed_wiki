@@ -179,10 +179,10 @@ Send this to the AI as rules it must follow:
 ```text
 The attached t160.html is the built-in web page of a Sipeed MS-T160 thermal camera. The device serves HTTP over a USB network adapter at http://192.168.17.1, and serves this page itself once uploaded.
 Edit this file and follow these rules:
-1. The result must still be one complete HTML file, UTF-8, no larger than 126976 bytes (124 KiB). The original is about 84 KB, so keep additions lean.
+1. The result must still be one complete HTML file, UTF-8, no larger than 126976 bytes (124 KiB). The original is about 98 KB, which leaves about 28 KB, so keep additions lean.
 2. Do not load anything from the internet: no CDN scripts, web fonts or remote images. The phone or computer may be offline. Use inline SVG for icons and data URIs for images.
 3. Use relative paths for every API call (for example /frame.temp8), never a hard-coded 192.168.17.1, so the page keeps working after a subnet change.
-4. Unless I ask, do not change: the code that reads /frame.temp8 and /stream.temp8, the 120-byte metadata parsing and temperature conversion, super resolution (/assets/sr-fast.wasm, /assets/sr-fast-simd.wasm, /assets/sr-fast.bin), image rotation, or <canvas id="view"> and #overlay.
+4. Unless I ask, do not change: the code that reads /frame.temp8 and /stream.temp8, the 120-byte metadata parsing and temperature conversion, super resolution (the WebGL code in createGpuSr, plus /assets/sr-fast.wasm, /assets/sr-fast-simd.wasm, /assets/sr-fast.bin), image rotation, or <canvas id="view"> and #overlay.
 5. Keep the Device settings & firmware panel, especially Restore built-in page and the firmware update.
 6. Every write (page upload, firmware update, subnet change) must send the header X-Sipeed-Request: 1.
 7. When done, list the changes and the file size. Ask me before uploading anything to the device.
