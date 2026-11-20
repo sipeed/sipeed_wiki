@@ -484,14 +484,12 @@ items:
         -   label: Introduction
             file: ThermalCam/T256s/Intro.md
         -   label: Quick Start
-            file: ThermalCam/T256s/QS.md
-        -   label: User Guide
-            file: ThermalCam/T256s/UG.md
-        -   label: System Update
-            file: ThermalCam/T256s/System_Update.md
+            file: ThermalCam/T256s/Quick_Start.md
+        -   label: Advanced Use & Development
+            file: ThermalCam/T256s/Advanced.md
         -   label: HTTP API
             file: ThermalCam/T256s/API.md
-        -   label: AI Control
+        -   label: AI Integration
             file: ThermalCam/T256s/AI_Control.md
         -   label: FAQ
             file: ThermalCam/T256s/FAQ.md

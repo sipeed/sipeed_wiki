@@ -1,11 +1,25 @@
 ---
-title: Controlling with AI
-keywords: T256s, ThermalCam, thermal camera, AI, HTTP, MCP, LLM, inspection, temperature
+title: MS-T256S AI Integration
+keywords: MS-T256S, T256S, ThermalCam, thermal camera, AI, HTTP, MCP, LLM, inspection, temperature
+update:
+  - date: 2026-11-19
+    version: v1.1
+    author: Sipeed
+    content:
+      - Add a page title and spell the model name T256S
+      - Point links to the new Quick Start, Advanced and HTTP API pages
+  - date: 2026-11-17
+    version: v1.0
+    author: Sipeed
+    content:
+      - Initial version with direct HTTP calls, MCP through OpenCode, and an FAQ
 ---
+
+# AI Integration
 
 ## Introduction
 
-The T256s has no language model inside. It exposes temperatures, images and raw data over HTTP on its USB network adapter, so any AI tool that can send an HTTP request can read that data and draw conclusions.
+The T256S has no language model inside. It exposes temperatures, images and raw data over HTTP on its USB network adapter, so any AI tool that can send an HTTP request can read that data and draw conclusions.
 
 No extra server and no SDK are needed. There are two ways to connect:
 
@@ -17,10 +31,10 @@ Both paths read exactly the same data from the same HTTP API. The MCP server is 
 ## How It Works
 
 ```text
-Option 1: AI tool --HTTP--> T256s  http://192.168.17.1
+Option 1: AI tool --HTTP--> T256S  http://192.168.17.1
 
 Option 2: AI tool --MCP--> t256s_mcp_server.py
-                --HTTP--> T256s  http://192.168.17.1
+                --HTTP--> T256S  http://192.168.17.1
 ```
 
 In both cases:
@@ -37,7 +51,7 @@ Before you start, check the following:
 + Option 1: the AI tool can run local commands, for example Claude Code, OpenCode or Cursor;
 + Option 2: Python 3.8 or later is installed, `t256s_mcp_server.py` has been downloaded, and the AI tool supports MCP (OpenCode, for example).
 
-> You can check the firmware version on the device status panel or the device web page; see [System Update](System_Update.html).
+> You can check the firmware version on the device status panel or the device web page; see [Check the Firmware Version](./Advanced.html#Check-the-Firmware-Version).
 
 ## Option 1: Call the HTTP API Directly (Recommended)
 
@@ -56,7 +70,7 @@ Once it returns temperature JSON, the AI can use the camera.
 State the rules at the start of the conversation; it is far more reliable than repeating them every turn:
 
 ```text
-You are connected to a Sipeed T256s thermal camera
+You are connected to a Sipeed T256S thermal camera
 at http://192.168.17.1.
 
 Data rules:
@@ -75,22 +89,22 @@ After that, just ask questions and the AI runs `curl` itself.
 ### Examples
 
 ```text
-Use T256s to read the current maximum temperature
+Use T256S to read the current maximum temperature
 and tell me where it is in the frame.
 ```
 
 ```text
-Use T256s to watch for 10 seconds and tell me
+Use T256S to watch for 10 seconds and tell me
 whether the temperature is rising or stable.
 ```
 
 ```text
-Use T256s to capture a frame, save it, and explain
+Use T256S to capture a frame, save it, and explain
 which area is hottest using the temperatures.
 ```
 
 ```text
-Use T256s to read the temperature every 5 seconds
+Use T256S to read the temperature every 5 seconds
 for one minute and warn me if it goes above 60 °C.
 ```
 
@@ -159,7 +173,7 @@ After restarting, the tool list should show the four tools provided by `t256s`:
 Try a simple request first:
 
 ```text
-Use T256s to read the current temperature and tell me
+Use T256S to read the current temperature and tell me
 the maximum and where it is.
 ```
 
@@ -220,7 +234,7 @@ When calling HTTP directly, use the new `192.168.<segment>.1` address in the con
 
 ### Can the AI change the palette or subnet
 
-No. The current API has no palette control, and changing the subnet is a write operation that the AI rules should forbid; do it manually when needed (see [HTTP API](API.html)).
+No. The current API has no palette control, and changing the subnet is a write operation that the AI rules should forbid; do it manually when needed (see [HTTP API](./API.html#Changing-the-Subnet)).
 
 ### API temperatures differ from the camera screen
 
@@ -243,5 +257,6 @@ Confirm that the AI used values from `/api/v1/thermal` or TEMP16, not a descript
 
 ## Next Steps
 
-+ For endpoint fields, data formats and error codes, see [HTTP API](API.html);
-+ To view the picture over UVC first, see the [User Guide](UG.html).
++ For endpoint fields, data formats and error codes, see [HTTP API](./API.md);
++ To see the picture on the screen, in the browser or as a UVC camera first, see [Quick Start](./Quick_Start.md);
++ For other problems, see the [FAQ](./FAQ.md).

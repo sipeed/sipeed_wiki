@@ -1,11 +1,25 @@
 ---
-title: HTTP API
-keywords: T256s, ThermalCam, thermal camera, HTTP API, temperature, TEMP16, curl
+title: MS-T256S HTTP API
+keywords: MS-T256S, T256S, ThermalCam, thermal camera, HTTP API, temperature, TEMP16, curl
+update:
+  - date: 2026-11-19
+    version: v1.1
+    author: Sipeed
+    content:
+      - Add a page title and spell the model name T256S
+      - Point links to the new Quick Start and Advanced pages; correct the USB drive size to about 36 MB
+  - date: 2026-11-17
+    version: v1.0
+    author: Sipeed
+    content:
+      - Initial version with endpoints, temperatures and images, the TEMP16 layout, streams, subnet changes and errors
 ---
+
+# HTTP API
 
 ## Introduction
 
-When a T256s is connected to a computer over USB, it works as a UVC camera and also provides a USB network adapter. The camera runs an HTTP service on that adapter, so you can read device information, current temperatures, colorized images and per-pixel raw temperatures.
+When a T256S is connected to a computer over USB, it works as a UVC camera and also provides a USB network adapter. The camera runs an HTTP service on that adapter, so you can read device information, current temperatures, colorized images and per-pixel raw temperatures.
 
 ```text
 http://192.168.17.1
@@ -13,25 +27,25 @@ http://192.168.17.1
 
 Open this address in a browser and you get the camera's built-in web page. Use `curl` or any language that can send HTTP requests and you get the data.
 
-> The HTTP API requires firmware 26.40.0 or later. See [System Update](System_Update.html) for checking the version.
+> The HTTP API requires firmware 26.40.0 or later. See [Check the Firmware Version](./Advanced.html#Check-the-Firmware-Version).
 
 The HTTP API and UVC are separate channels:
 
-+ UVC outputs video. MJPEG frames are already colorized, so the colors no longer represent temperature; Y16 carries raw values but needs a driver on the host;
++ UVC outputs video. MJPEG frames are already colorized, so the colors no longer represent temperature; Y16 carries raw values but needs your own code to read;
 + The HTTP API returns JSON temperatures, JPEG frames and TEMP16 raw temperatures directly, with no driver involved.
 
 The HTTP API is the easier choice when you need accurate temperature values, batch collection, or a connection to scripts and AI tools.
 
 ## How It Works
 
-After the camera is connected, it provides a UVC camera, a USB network adapter and a removable disk of about 32 MB. The HTTP service runs on the network adapter, and the host can reach it once it has an address:
+After the camera is connected, it provides a UVC camera, a USB network adapter and a removable disk of about 36 MB. The HTTP service runs on the network adapter, and the host can reach it once it has an address:
 
 ```text
 Your program (curl / Python / AI tool)
         |
         | HTTP
         v
-T256s  http://192.168.17.1
+T256S  http://192.168.17.1
         |
         +-- /api/v1/thermal    center, maximum, minimum
         +-- /frame.jpg         colorized frame
@@ -415,5 +429,6 @@ The camera now lives at `192.168.<segment>.1` and the host has to obtain a new a
 
 ## Next Steps
 
-+ To let an AI read temperatures, capture frames and draw conclusions, see [Controlling the Camera with AI](AI_Control.html);
-+ To learn about the two UVC output formats first, see the [User Guide](UG.html).
++ To let an AI read temperatures, capture frames and draw conclusions, see [AI Integration](./AI_Control.md);
++ To learn about the UVC output formats, see [UVC Output Formats](./Advanced.html#UVC-Output-Formats);
++ For other problems, see the [FAQ](./FAQ.md).

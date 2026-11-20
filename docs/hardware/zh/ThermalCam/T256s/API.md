@@ -1,11 +1,25 @@
 ---
-title: HTTP API
-keywords: T256s, ThermalCam, 热成像, HTTP API, 温度, TEMP16, curl, 二次开发
+title: MS-T256S HTTP 接口
+keywords: MS-T256S, T256S, ThermalCam, 热成像, HTTP API, 温度, TEMP16, curl, 二次开发
+update:
+  - date: 2026-11-19
+    version: v1.1
+    author: Sipeed
+    content:
+      - 加上页面标题，型号统一写作 T256S
+      - 链接改到新的快速上手和进阶使用页面，U 盘容量更正为约 36 MB
+  - date: 2026-11-17
+    version: v1.0
+    author: Sipeed
+    content:
+      - 初始化文档：接口一览、读取温度与画面、TEMP16 格式、连续读取、修改网段与错误返回
 ---
+
+# HTTP 接口
 
 ## 简介
 
-T256s 用 USB 连接电脑时，除了作为 UVC 摄像头工作，还会向电脑提供一块 USB 网卡。设备在这块网卡上运行 HTTP 服务，可以读取设备信息、当前温度、伪彩画面和每个像素的原始温度。
+T256S 用 USB 连接电脑时，除了作为 UVC 摄像头工作，还会向电脑提供一块 USB 网卡。设备在这块网卡上运行 HTTP 服务，可以读取设备信息、当前温度、伪彩画面和每个像素的原始温度。
 
 ```text
 http://192.168.17.1
@@ -13,25 +27,25 @@ http://192.168.17.1
 
 浏览器打开这个地址，看到的是设备自带的网页；用 `curl` 或任意能发 HTTP 请求的语言访问同一批接口，拿到的是数据。
 
-> HTTP API 需要固件 26.40.0 或更高版本。查看当前版本的方法见[系统更新](System_Update.html)。
+> HTTP API 需要固件 26.40.0 或更高版本。查看当前版本的方法见[查看固件版本](./Advanced.html#查看固件版本)。
 
 HTTP 接口和 UVC 是两条独立的通道：
 
-+ UVC 输出视频画面。MJPEG 画面已经上色，颜色不再对应温度；Y16 是原始数据，使用时需要自己接驱动；
++ UVC 输出视频画面。MJPEG 画面已经上色，颜色不再对应温度；Y16 是原始数据，需要自己写程序读取；
 + HTTP 接口直接返回 JSON 温度、JPEG 画面和 TEMP16 原始温度，不需要驱动。
 
 需要精确温度数值、批量采集，或者接入脚本和 AI 工具时，用 HTTP 接口更方便。
 
 ## 工作原理
 
-相机连接电脑后，会同时提供 UVC 摄像头、USB 网卡和一块约 32 MB 的可移动磁盘。HTTP 服务运行在网卡上，电脑拿到地址后即可访问：
+相机连接电脑后，会同时提供 UVC 摄像头、USB 网卡和一块约 36 MB 的可移动磁盘。HTTP 服务运行在网卡上，电脑拿到地址后即可访问：
 
 ```text
 你的程序（curl / Python / AI 工具）
         |
         | HTTP
         v
-T256s  http://192.168.17.1
+T256S  http://192.168.17.1
         |
         +-- /api/v1/thermal    当前中心、最高、最低温度
         +-- /frame.jpg         伪彩画面
@@ -415,5 +429,6 @@ UVC 的 MJPEG 画面已经上色，颜色不代表温度。需要温度时，用
 
 ## 下一步
 
-+ 想让 AI 读取温度、抓图并给出结论，见[用 AI 控制](AI_Control.html)；
-+ 想先了解 UVC 的两种输出格式，见[使用指南](UG.html)。
++ 想让 AI 读取温度、抓图并给出结论，见 [AI 接入](./AI_Control.md)；
++ 想了解 UVC 的几种输出格式，见 [UVC 输出格式](./Advanced.html#UVC-输出格式)；
++ 遇到其他问题，见[常见问题](./FAQ.md)。

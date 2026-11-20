@@ -481,15 +481,13 @@ items:
         items:
         -   label: 简介
             file: ThermalCam/T256s/Intro.md
-        -   label: 快速开始
-            file: ThermalCam/T256s/QS.md
-        -   label: 使用指南
-            file: ThermalCam/T256s/UG.md
-        -   label: 系统更新
-            file: ThermalCam/T256s/System_Update.md
-        -   label: HTTP API
+        -   label: 快速上手
+            file: ThermalCam/T256s/Quick_Start.md
+        -   label: 进阶使用与开发
+            file: ThermalCam/T256s/Advanced.md
+        -   label: HTTP 接口
             file: ThermalCam/T256s/API.md
-        -   label: AI 控制
+        -   label: AI 接入
             file: ThermalCam/T256s/AI_Control.md
         -   label: 常见问题
             file: ThermalCam/T256s/FAQ.md
