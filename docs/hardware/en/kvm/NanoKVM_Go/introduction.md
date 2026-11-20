@@ -39,7 +39,7 @@ NanoKVM Go does not depend on the target operating system or its network service
 
 If the target is completely unresponsive, add the Finger Robot to press its physical power button remotely. See the [Finger Robot guide](./finger_robot.html) for wiring and operation.
 
-<video src="./../../../assets/NanoKVM/go/introduction/nanokvm-go-finger-robot.mp4" aria-label="Press a device power button remotely with NanoKVM Go and the Finger Robot" style="width:100%; max-width:800px; display:block; margin:0 auto;" playsinline controls autoplay loop muted preload="metadata"></video>
+<video src="./../../../assets/NanoKVM/go/introduction/nanokvm-go-finger-robot-rescue.mp4" aria-label="Press the target device's power button remotely with the Finger Robot, after which the device restarts" style="width:100%; max-width:800px; display:block; margin:0 auto;" playsinline controls autoplay loop muted preload="metadata"></video>
 
 ### Connect Real Devices to AI Agents
 
