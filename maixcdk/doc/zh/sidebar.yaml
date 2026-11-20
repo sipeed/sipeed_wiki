@@ -1,0 +1,35 @@
+items:
+  - label: 快速开始
+    file: README.md
+  - label: FAQ 常见问题
+    file: faq.md
+  - label: 规范
+    collapsed: false
+    items:
+      - label: 编码规范
+        file: convention/README.md
+      - label: 添加新 API
+        file: convention/add_api.md
+      - label: APP 框架
+        file: convention/app.md
+      - label: I18N(国际化/多语言)
+        file: convention/i18n.md
+      - label: Maix 通信协议
+        file: convention/protocol.md
+      - label: NN AI 模型
+        file: convention/nn.md
+      - label: 内存泄漏检测
+        file: convention/memcheck.md
+  - label: Docker 环境
+    file: dev/docker/README.md
+  - label: 更多文档
+    file: more.md
+  - label: 应用笔记
+    collapsed: false
+    items:
+      - label: 关于本笔记
+        file: application/README.md
+      - label: YOLO11 开发笔记
+        file: application/ai/yolo11.md
+      - label: LVGL
+        file: application/ui/lvgl.md
