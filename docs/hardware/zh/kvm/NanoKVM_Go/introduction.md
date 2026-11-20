@@ -39,7 +39,7 @@ NanoKVM Go 的控制不依赖被控设备中的操作系统或网络服务。当
 
 如果设备完全卡死，还可以连接手指机器人，从远端物理按下电源键。具体接线与操作请参考[手指机器人指南](./finger_robot.html)。
 
-<video src="./../../../assets/NanoKVM/go/introduction/nanokvm-go-finger-robot.mp4" aria-label="通过 NanoKVM Go 和手指机器人远程按下设备电源键" style="width:100%; max-width:800px; display:block; margin:0 auto;" playsinline controls autoplay loop muted preload="metadata"></video>
+<video src="./../../../assets/NanoKVM/go/introduction/nanokvm-go-finger-robot-rescue.mp4" aria-label="通过手指机器人远程按下被控设备的电源键，设备随后重新启动" style="width:100%; max-width:800px; display:block; margin:0 auto;" playsinline controls autoplay loop muted preload="metadata"></video>
 
 ### 将真实设备接入 AI Agent
 
