@@ -172,7 +172,7 @@ SLogic32U3 的上位机随 [SLogic 发布包](https://github.com/sipeed/SLogic/r
 
 ## 相关链接
 
-- 购买（众筹）：https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc
+- 购买（独立站）：https://shop.sipeed.com/store/SLogic32U3
 - 网页版上位机：https://slogic.sipeed.com
 - 固件在线升级：https://slogic.sipeed.com/ota/
 - 支持邮箱：support@sipeed.com
