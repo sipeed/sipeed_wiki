@@ -172,7 +172,7 @@ See the [Software Guide](./Software_User_Guide.md) for detailed usage and how to
 
 ## Links
 
-- Buy (crowdfunding): https://www.kickstarter.com/projects/sipeed/slogic32u3-the-worlds-first-10gbps-usb32-logic-analyzer?ref=e0astc
+- Buy (Official Shop): https://shop.sipeed.com/store/SLogic32U3
 - Web app: https://slogic.sipeed.com
 - Firmware update (online): https://slogic.sipeed.com/ota/
 - Support email: support@sipeed.com
