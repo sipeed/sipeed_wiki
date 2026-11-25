@@ -28,7 +28,6 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 ![](./../../../assets/NanoKVM/unbox/PCIe-Interface2.jpg)
 
-
 ## 供电
 
 + NanoKVM-PCIe 有多种供电选择: USB HID直接供电, USB PWR IN辅助供电, PCIe 插槽取电, PoE 供电(选配) 请任选一种即可, 同时存在多路供电不会干扰 NanoKVM-PCIe 的运行,请至少使用一路供电
@@ -39,35 +38,41 @@ NanoKVM-PCIe 包装内包含主机, 半高 PCIe 挡板, 两条 USBA-C线缆, 一
 
 ## 安装
 
-1. NanoKVM-PCIe 在接线上与 Cube 类似, 请在主机关机且断电的情况下安装 NanoKVM-PCIe, 测试功能全部正常后再装入机箱
+安装前先给被控主机关机断电、把输出设成 1920×1080，NanoKVM-PCIe 的 HDMI 输入最高只支持 1080P@60，主机输出 2K/4K 时网页里很可能一直黑屏。
 
 > ❗请确保装入PCIe卡槽后 NanoKVM-PCIe 的按键可以正常按下并抬起，否则可能导致NanoKVM无法启动或功能异常
 
-2. 使用一条 USB C to A 数据线连接远程主机和 NanoKVM 的 USB-HID 接口（位于 HDMI 接口下方）
+### 接线
 
-也可以参照下图方式, 直接连接机箱内部的九针USB2.0
+![NanoKVM-PCIe 挡板上的四个接线口：USB-HID、HDMI、网口、PWR-IN](./../../../assets/NanoKVM/unbox/PCIe-bracket-ports.webp)
 
-![](./../../../assets/NanoKVM/unbox/PCIe-USB.jpg)
+1. 用附赠的 USB C to A 数据线，把挡板上丝印 `USB-HID` 的 Type-C 接到远程主机的 USB-A 口。
 
-连接时务必参照上方示意图和下面的 NanoKVM-PCIe 内部接口示意图, 上电前请反复检查, 接错可能会有烧坏 NanoKVM 的风险！部分批次的连接线上的 “HDD LED” 丝印有误，请按照实际情况调整。
+2. 使用附赠的 HDMI 线缆，把挡板上的 HDMI 口接到主机的 HDMI 输出口。
 
-![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+3. 使用网线把挡板上的网口连接到路由器/交换机；如果您购买的是 Wifi 版本，也可以参照下文 WiFi 配网流程进行网络配置。
 
-3. 使用附赠的 HDMI 线缆连接远程主机和 NanoKVM 的 HDMI 接口
+4. 要给 NanoKVM-PCIe 单独供电时，用 5V 电源接挡板上丝印 `PWR-IN` 的 Type-C。
 
-4. 使用网线连接 路由器/交换机 与 NanoKVM, 如果您在24/12/07后下单的 WiFi 版 NanoKVM-PCIe, 此步骤可以省略, 参照WiFi配网环节使用 WiFi 连入.
+> 注：部分批次 `USB-HID` 与 `PWR-IN` 左右互换，以挡板丝印为准。
 
-5. ATX电源控制: 主机电源远程控制的原理是模拟开关按下操作,并读取LED状态同步到网页, 为此, 需要将主板上原本连接机箱开机按键的9针接口断开,接入 NanoKVM-PCIe 对应接口, 同时为了机箱按钮仍可操控电源, 需要将机箱上的电源排线也连接到 NanoKCM-PCIe上
+5. 接 ATX 电源控制（需要远程开关机才接）
 
-![](./../../../assets/NanoKVM/unbox/PCIE-ATX.jpg)
+主机电源远程控制就是"接管"机箱电源键：模拟按下开关，并把读到的 LED 状态同步到网页。
 
-接线时,请务必参照上方示意图和 NanoKVM-PCIe 内部接口示意图
+**主板侧**：把主板上原本接机箱开机键的 9 针排线拔下来，用送的排线插到 NanoKVM-PCIe 上右边红框的位置，9 针里有一针是缺的，对着缺口插。
 
-![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+**机箱侧**：把机箱开机键引出的线插到左边红框的位置。`POWER SW`、`RESET SW` 不分正反；`POWER LED±`、`HDD LED±` 分正反。
 
-注：NanoKVM-PCIe 不会监控HDD状态
+![NanoKVM-PCIe 九针接口：左边接机箱、右边接主板](./../../../assets/NanoKVM/unbox/PCIe-atx-left-right.webp)
 
-注：早期部分用户购买的NanoKVM-PCIe配套全高PCIe挡板在安装上可能存在过长的问题，请使用较长螺丝固定（注意不要太用力）或购买`外径7mm、内径4.2mm、高度3mm`规格的垫圈。若安装仍然存在困难，请联系淘宝/速卖通客服，或者support@sipeed.com邮箱获取支持
+只接主板侧也能远程开关机，只是机箱上的电源键会失效。
+
+注：
++ 上图左侧空着的地方是为了演示才拔掉排线的，正常使用不需要拔——这部分排线出厂时已经接好；
++ NanoKVM-PCIe 不会监控 HDD 状态。
+
+早期部分用户购买的NanoKVM-PCIe配套全高PCIe挡板在安装上可能存在过长的问题，请使用较长螺丝固定（注意不要太用力）或购买`外径7mm、内径4.2mm、高度3mm`规格的垫圈。若安装仍然存在困难，请联系淘宝/速卖通客服，或者support@sipeed.com邮箱获取支持
 
 ## WiFi 配网
 
