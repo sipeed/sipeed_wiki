@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: MS-D640 Introduction
 keywords: MaixSense, D640, depth camera, stereo vision, MaixSense Tool, SDK
 update_open: false
 update:
@@ -60,7 +60,7 @@ Example applications:
 | Field of view | 57° horizontal × 43° vertical, 70° diagonal |
 | Data interface | USB 2.0, USB Type-C connector |
 | Power | 5 V DC, supply capable of at least 0.5 A |
-| Dimensions | Short: 65 × 22 × 16.04 mm<br>Long: 112 × 22 × 16.04 mm |
+| Dimensions | Short: 64 x 21.48 x 15.03 mm<br>Long: 111.5 x 21.48 x 15.03 mm |
 | Weight | Short: 35 g<br>Long: 60 g |
 
 **Short baseline:**

@@ -1,5 +1,5 @@
 ---
-title: 简介
+title: MS-D640 简介
 keywords: MaixSense, D640, 深度相机, 双目立体, MaixSense Tool, SDK, 固件
 update_open: false
 update:
@@ -60,7 +60,7 @@ MaixSense D640 提供 50 mm 和 100 mm 两种基线版本，可按目标距离�
 | 视场角（FOV） | 水平 57° × 垂直 43°，对角 70° |
 | 数据接口 | USB 2.0，Type-C 连接器 |
 | 供电规格 | 5 V DC，供电电流 ≥ 0.5 A |
-| 尺寸 | 短基线：65 × 22 × 16.04 mm<br>长基线：112 × 22 × 16.04 mm |
+| 尺寸 | 短基线：64 x 21.48 x 15.03 mm<br>长基线：111.5 x 21.48 x 15.03 mm |
 | 重量 | 短基线：35 g<br>长基线：60 g |
 
 
