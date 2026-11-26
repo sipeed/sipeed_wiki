@@ -3,6 +3,10 @@ title: ROS2 使用指南
 keywords: MaixSense, D640, ROS 2, 深度相机, 机器人
 update_open: false
 update:
+  - date: 2026-11-26
+    version: v0.2
+    author: Sipeed
+    content: 添加 ROS 2 发行版选择和 Ubuntu 24.04 Jazzy 配置流程
   - date: 2026-11-04
     version: v0.1
     author: lxowalle
@@ -22,18 +26,20 @@ ROS2 是用于构建机器人应用程序的工具包，可以把相机、机器
 
 ## 准备环境
 
-本页在连接设备的 Ubuntu 22.04 电脑上操作，使用 ROS2 Humble。其他系统版本请参考对应的 ROS 官方安装说明。
+### 确认 ROS2 发行版本
 
-本节完成 ROS2、编译工具和 SDK 依赖的安装。已安装 Humble 的用户可跳过软件源配置，但仍需安装下方列出的依赖软件。
-
-### 确认系统版本
+运行以下命令确认系统为 Ubuntu，通过 `VERSION_ID` 查看系统版本，例如 `22.04`。
 
 ```bash
 cat /etc/os-release
-dpkg --print-architecture
 ```
 
-确认系统为 Ubuntu，`VERSION_ID` 为 `22.04`。处理器架构应为 `amd64` 或 `arm64`。ROS 2 Humble 的官方 Ubuntu 安装包对应这一系统版本。
+找到系统对应的 ROS2      发行版本
+
+| Ubuntu | ROS 2 发行版 | 官方安装说明 |
+| --- | --- | --- |
+| 22.04 (Jammy) | Humble | [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) |
+| 24.04 (Noble) | Jazzy | [Jazzy](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html) |
 
 ### 检查 UTF-8 环境
 
@@ -55,7 +61,7 @@ locale
 
 ### 添加 ROS2 官方软件源
 
-软件源用于让 Ubuntu 的 apt 找到 ROS 安装包。下面安装 ROS 官方提供的软件源配置包，包含相应软件源和签名配置：
+如果还未配置 ROS 2 官方软件源，先启用 Ubuntu 的 Universe 仓库：
 
 ```bash
 sudo apt update
@@ -63,28 +69,54 @@ sudo apt install software-properties-common curl python3
 sudo add-apt-repository universe
 ```
 
-配置官方软件源：
+安装 ROS2 官方软件源配置包。下载失败时请先检查网络，再重新执行。
 
-```bash
-# 查询官方软件源配置包的最新版本
-D640_ROS_APT_VERSION="$(curl -fsSL https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])')"
-# 下载适合 Ubuntu 22.04 的软件源配置包
-curl -fL --retry 3 -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${D640_ROS_APT_VERSION}/ros2-apt-source_${D640_ROS_APT_VERSION}.jammy_all.deb"
-# 安装软件源配置包
-sudo dpkg -i /tmp/ros2-apt-source.deb
-```
+<style>
+.ros-tabs { display: flex; flex-wrap: wrap; margin: 1em 0; }
+.ros-tabs > input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.ros-tabs > label { padding: .55em 1.3em; cursor: pointer; border-bottom: 2px solid transparent; }
+.ros-tabs > input:checked + label { color: #d33; border-bottom-color: currentColor; font-weight: bold; }
+.ros-tabs > input:focus-visible + label { outline: 2px solid currentColor; outline-offset: -2px; }
+.ros-tabs > .ros-tab-panel { display: none; width: 100%; min-width: 0; }
+.ros-tabs > .ros-tab-panel pre { margin-top: 0; }
+.ros-tabs > input.ros-tab-first:checked ~ .ros-panel-first,
+.ros-tabs > input.ros-tab-second:checked ~ .ros-panel-second { display: block; }
+</style>
 
-如果下载失败，先解决网络问题，不要继续安装空文件。软件源步骤以 [ROS 官方 Humble 安装说明](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)为准。
+<div class="ros-tabs" role="group" aria-label="按 Ubuntu 版本选择 ROS 2 发行版">
+<input class="ros-tab-first" type="radio" name="ros-repo" id="ros-repo-first" checked><label for="ros-repo-first">Humble</label>
+<input class="ros-tab-second" type="radio" name="ros-repo" id="ros-repo-second"><label for="ros-repo-second">Jazzy</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash"># 查询 ROS 官方软件源配置包的最新版本
+ROS_APT_SOURCE_VERSION=&quot;$(curl -fsSL https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | python3 -c &#x27;import json, sys; print(json.load(sys.stdin)[&quot;tag_name&quot;])&#x27;)&quot; &amp;&amp;
+  curl -fL --retry 3 -o /tmp/ros2-apt-source.deb \
+    &quot;https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.jammy_all.deb&quot; &amp;&amp;
+  sudo dpkg -i /tmp/ros2-apt-source.deb</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-bash"># 查询 ROS 官方软件源配置包的最新版本
+ROS_APT_SOURCE_VERSION=&quot;$(curl -fsSL https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | python3 -c &#x27;import json, sys; print(json.load(sys.stdin)[&quot;tag_name&quot;])&#x27;)&quot; &amp;&amp;
+  curl -fL --retry 3 -o /tmp/ros2-apt-source.deb \
+    &quot;https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.noble_all.deb&quot; &amp;&amp;
+  sudo dpkg -i /tmp/ros2-apt-source.deb</code></pre></div>
+</div>
 
 ### 安装 ROS2 和依赖软件
 
-在准备阶段一次装好 ROS2、图形查看器、编译和图像处理所需的软件：
+刷新软件包列表，然后安装对应发行版的 ROS 2 Desktop（含 RViz）：
 
 ```bash
-# 刷新软件包列表
 sudo apt update
-# 安装 ROS2、图形查看器，以及 SDK 编译和运行依赖
-sudo apt install ros-humble-desktop ros-dev-tools \
+```
+
+<div class="ros-tabs" role="group" aria-label="按 Ubuntu 版本选择 ROS 2 发行版">
+<input class="ros-tab-first" type="radio" name="ros-install" id="ros-install-first" checked><label for="ros-install-first">Humble</label>
+<input class="ros-tab-second" type="radio" name="ros-install" id="ros-install-second"><label for="ros-install-second">Jazzy</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash">sudo apt install ros-humble-desktop</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-bash">sudo apt install ros-jazzy-desktop</code></pre></div>
+</div>
+
+安装 SDK 构建和运行依赖。这些命令适用于两个发行版：
+
+```bash
+sudo apt install ros-dev-tools \
   build-essential cmake ninja-build pkg-config \
   libopencv-dev zlib1g-dev python3-colcon-common-extensions \
   python3-catkin-pkg python3-yaml python3-rosdep
@@ -98,31 +130,25 @@ sudo apt install ros-humble-desktop ros-dev-tools \
 ps -p $$ -o comm=
 ```
 
-按输出点击 Bash 或 Zsh 标签，执行对应的命令：
+按输出选择 Bash 或 Zsh 标签，只执行当前 Ubuntu 版本对应的那一行：
 
-<style>
-.ros-shell-tabs { display: flex; flex-wrap: wrap; margin: 1em 0; }
-.ros-shell-tabs > input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.ros-shell-tabs > label { padding: .55em 1.3em; cursor: pointer; border-bottom: 2px solid transparent; }
-.ros-shell-tabs > input:checked + label { color: #d33; border-bottom-color: currentColor; font-weight: bold; }
-.ros-shell-tabs > input:focus-visible + label { outline: 2px solid currentColor; outline-offset: -2px; }
-.ros-shell-tabs > .ros-shell-panel { display: none; width: 100%; min-width: 0; }
-.ros-shell-tabs > .ros-shell-panel pre { margin-top: 0; }
-.ros-shell-tabs > input.ros-shell-bash:checked ~ .ros-panel-bash,
-.ros-shell-tabs > input.ros-shell-zsh:checked ~ .ros-panel-zsh { display: block; }
-</style>
-
-<div class="ros-shell-tabs" role="group" aria-label="选择当前终端的 Shell">
-<input class="ros-shell-bash" type="radio" name="ros-base-shell" id="ros-base-shell-bash" checked><label for="ros-base-shell-bash">Bash</label>
-<input class="ros-shell-zsh" type="radio" name="ros-base-shell" id="ros-base-shell-zsh"><label for="ros-base-shell-zsh">Zsh</label>
-<div class="ros-shell-panel ros-panel-bash"><pre><code class="language-bash">source /opt/ros/humble/setup.bash</code></pre></div>
-<div class="ros-shell-panel ros-panel-zsh"><pre><code class="language-zsh">source /opt/ros/humble/setup.zsh</code></pre></div>
+<div class="ros-tabs" role="group" aria-label="选择当前终端的 Shell">
+<input class="ros-tab-first" type="radio" name="ros-base-shell" id="ros-base-shell-bash" checked><label for="ros-base-shell-bash">Bash</label>
+<input class="ros-tab-second" type="radio" name="ros-base-shell" id="ros-base-shell-zsh"><label for="ros-base-shell-zsh">Zsh</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash"># Ubuntu 22.04 执行这一行
+source /opt/ros/humble/setup.bash
+# Ubuntu 24.04 执行这一行
+source /opt/ros/jazzy/setup.bash</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-zsh"># Ubuntu 22.04 执行这一行
+source /opt/ros/humble/setup.zsh
+# Ubuntu 24.04 执行这一行
+source /opt/ros/jazzy/setup.zsh</code></pre></div>
 </div>
 
 加载后检查：
 
 ```bash
-# 确认 ROS2 版本，预期输出 humble
+# 确认 ROS2 版本，Ubuntu 22.04 应输出 humble，Ubuntu 24.04 应输出 jazzy
 echo "$ROS_DISTRO"
 # 查看命令帮助，确认 ros2 可以使用
 ros2 --help
@@ -137,13 +163,16 @@ ros2 --help
 ```bash
 # 进入 SDK 根目录
 cd maixsense_d640_sdk
+./scripts/setup-ros2.sh --help
 # 首次使用时初始化，已初始化可跳过
 sudo rosdep init
 # 更新依赖索引
 rosdep update
 # 根据 SDK 清单安装 ROS 依赖
-rosdep install --from-paths ros2 --ignore-src -r -y --rosdistro humble
+rosdep install --from-paths ros2 --ignore-src -r -y --rosdistro "$ROS_DISTRO"
 ```
+
+使用 Jazzy 或其他发行版时，请确认脚本帮助中包含 `--rosdistro`。如果帮助中没有该选项，请获取包含发行版选择功能的新版 SDK。
 
 依赖安装完成后，继续连接设备。后面的构建、查看和录制步骤不需要重复安装这些软件。
 
@@ -158,21 +187,28 @@ rosdep install --from-paths ros2 --ignore-src -r -y --rosdistro humble
 环境准备完成后，在 SDK 根目录执行：
 
 ```bash
-# 编译并安装设备工具，默认安装到 ~/.local/maixsense-d640-ros2
 ./scripts/setup-ros2.sh
 ```
 
-只在首次安装或更新源码后执行，日常使用无需重新构建。
+脚本会编译并安装 D640 SDK 和 ROS 2 驱动。已加载 ROS 2 环境时沿用当前发行版，否则按 Ubuntu 版本选择（22.04 → Humble，24.04 → Jazzy）。要指定其他已安装的发行版，请在新终端加上 `--rosdistro <发行版>`。
+
+默认安装到 `~/.local/maixsense-d640-ros2/<发行版>/`，例如 `humble/` 或 `jazzy/`。可用 `--prefix` 自定义安装目录。首次安装、更新源码或切换发行版时构建一次，日常使用只需加载对应的环境文件。
 
 ### 加载 ROS2 环境到终端
 
-每个新终端都需要加载一次环境。按当前 Shell 点击 Bash 或 Zsh 标签，执行对应命令：
+在每个新终端中，选择 Bash 或 Zsh，只执行所用发行版对应的一行。使用较早的 SDK 或自定义安装目录时，以构建完成后打印的路径为准。
 
-<div class="ros-shell-tabs" role="group" aria-label="选择当前终端的 Shell">
-<input class="ros-shell-bash" type="radio" name="ros-device-shell" id="ros-device-shell-bash" checked><label for="ros-device-shell-bash">Bash</label>
-<input class="ros-shell-zsh" type="radio" name="ros-device-shell" id="ros-device-shell-zsh"><label for="ros-device-shell-zsh">Zsh</label>
-<div class="ros-shell-panel ros-panel-bash"><pre><code class="language-bash">source &quot;$HOME/.local/maixsense-d640-ros2/env.bash&quot;</code></pre></div>
-<div class="ros-shell-panel ros-panel-zsh"><pre><code class="language-zsh">source &quot;$HOME/.local/maixsense-d640-ros2/env.zsh&quot;</code></pre></div>
+<div class="ros-tabs" role="group" aria-label="选择当前终端的 Shell">
+<input class="ros-tab-first" type="radio" name="ros-device-shell" id="ros-device-shell-bash" checked><label for="ros-device-shell-bash">Bash</label>
+<input class="ros-tab-second" type="radio" name="ros-device-shell" id="ros-device-shell-zsh"><label for="ros-device-shell-zsh">Zsh</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash"># Humble
+source &quot;$HOME/.local/maixsense-d640-ros2/humble/env.bash&quot;
+# Jazzy
+source &quot;$HOME/.local/maixsense-d640-ros2/jazzy/env.bash&quot;</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-zsh"># Humble
+source &quot;$HOME/.local/maixsense-d640-ros2/humble/env.zsh&quot;
+# Jazzy
+source &quot;$HOME/.local/maixsense-d640-ros2/jazzy/env.zsh&quot;</code></pre></div>
 </div>
 
 把对应的 source 命令加入 `~/.bashrc`（Bash）或 `~/.zshrc`（Zsh），此后新终端就会自动加载MaixSense D640的ROS2环境。

@@ -3,6 +3,10 @@ title: ROS2 Guide
 keywords: MaixSense, D640, ROS2, depth camera, robotics
 update_open: false
 update:
+  - date: 2026-11-26
+    version: v0.2
+    author: Sipeed
+    content: Document distribution selection and Ubuntu 24.04 Jazzy setup
   - date: 2026-11-04
     version: v0.1
     author: lxowalle
@@ -18,22 +22,24 @@ ROS2 connects sensors, robot bases, arms, and algorithms. Common uses include:
 
 This page covers connecting the camera, viewing images and point clouds, saving data, and recording. Navigation, mapping, and arm applications require their own robot software configuration.
 
-For first use, complete environment setup, camera connection, and the first-use steps in order. Afterward, daily use only requires loading the environment and starting the viewer.
+For first use, [prepare the environment](#Prepare-the-environment), [connect the camera](#Connect-the-camera), and follow the [first-use steps](#First-use). Afterward, daily use only requires loading the environment and starting the viewer.
 
 ## Prepare the environment
 
-Run these steps on the Ubuntu 22.04 computer connected to the camera, using ROS2 Humble. For other operating systems, follow the corresponding official ROS instructions.
+### Choose a ROS 2 distribution
 
-This installs ROS2, build tools, and SDK dependencies. If Humble is already installed, skip repository setup but still install the listed dependencies.
-
-### Check the system version
+Run the following command and check `VERSION_ID` for your Ubuntu version, such as `22.04`.
 
 ```bash
 cat /etc/os-release
-dpkg --print-architecture
 ```
 
-Confirm Ubuntu with `VERSION_ID="22.04"` and architecture `amd64` or `arm64`. These are the Ubuntu package targets used here.
+Choose the ROS 2 distribution for your Ubuntu version.
+
+| Ubuntu | ROS 2 distribution | Official installation guide |
+| --- | --- | --- |
+| 22.04 (Jammy) | Humble | [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) |
+| 24.04 (Noble) | Jazzy | [Jazzy](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html) |
 
 ### Check UTF-8 support
 
@@ -41,7 +47,7 @@ Confirm Ubuntu with `VERSION_ID="22.04"` and architecture `amd64` or `arm64`. Th
 locale
 ```
 
-A UTF-8 locale is sufficient, including non-English locales. Only configure one if UTF-8 is missing:
+Any UTF-8 locale works, including `zh_CN.UTF-8`. If your system has no UTF-8 locale, run the following commands and check the locale again.
 
 ```bash
 sudo apt update
@@ -55,7 +61,7 @@ locale
 
 ### Add the official ROS2 repository
 
-The repository lets Ubuntu's package manager find ROS packages. Install the prerequisites:
+If the official ROS 2 repository is missing, first enable Ubuntu’s Universe repository.
 
 ```bash
 sudo apt update
@@ -63,26 +69,54 @@ sudo apt install software-properties-common curl python3
 sudo add-apt-repository universe
 ```
 
-Then install the official repository configuration package:
+Select your distribution and run the commands to install the official ROS 2 repository configuration package. If the download fails, check your connection and retry.
 
-```bash
-# Find the latest official repository configuration release
-D640_ROS_APT_VERSION="$(curl -fsSL https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])')"
-# Download the package for Ubuntu 22.04
-curl -fL --retry 3 -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${D640_ROS_APT_VERSION}/ros2-apt-source_${D640_ROS_APT_VERSION}.jammy_all.deb"
-# Install the repository configuration
-sudo dpkg -i /tmp/ros2-apt-source.deb
-```
+<style>
+.ros-tabs { display: flex; flex-wrap: wrap; margin: 1em 0; }
+.ros-tabs > input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.ros-tabs > label { padding: .55em 1.3em; cursor: pointer; border-bottom: 2px solid transparent; }
+.ros-tabs > input:checked + label { color: #d33; border-bottom-color: currentColor; font-weight: bold; }
+.ros-tabs > input:focus-visible + label { outline: 2px solid currentColor; outline-offset: -2px; }
+.ros-tabs > .ros-tab-panel { display: none; width: 100%; min-width: 0; }
+.ros-tabs > .ros-tab-panel pre { margin-top: 0; }
+.ros-tabs > input.ros-tab-first:checked ~ .ros-panel-first,
+.ros-tabs > input.ros-tab-second:checked ~ .ros-panel-second { display: block; }
+</style>
 
-If downloading fails, resolve it before continuing. Follow the [official Humble installation guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) if repository instructions change.
+<div class="ros-tabs" role="group" aria-label="Choose the ROS 2 distribution for your Ubuntu version">
+<input class="ros-tab-first" type="radio" name="ros-repo" id="ros-repo-first" checked><label for="ros-repo-first">Humble</label>
+<input class="ros-tab-second" type="radio" name="ros-repo" id="ros-repo-second"><label for="ros-repo-second">Jazzy</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash"># Find the latest release of the official ROS 2 repository configuration package
+ROS_APT_SOURCE_VERSION=&quot;$(curl -fsSL https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | python3 -c &#x27;import json, sys; print(json.load(sys.stdin)[&quot;tag_name&quot;])&#x27;)&quot; &amp;&amp;
+  curl -fL --retry 3 -o /tmp/ros2-apt-source.deb \
+    &quot;https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.jammy_all.deb&quot; &amp;&amp;
+  sudo dpkg -i /tmp/ros2-apt-source.deb</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-bash"># Find the latest release of the official ROS 2 repository configuration package
+ROS_APT_SOURCE_VERSION=&quot;$(curl -fsSL https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | python3 -c &#x27;import json, sys; print(json.load(sys.stdin)[&quot;tag_name&quot;])&#x27;)&quot; &amp;&amp;
+  curl -fL --retry 3 -o /tmp/ros2-apt-source.deb \
+    &quot;https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.noble_all.deb&quot; &amp;&amp;
+  sudo dpkg -i /tmp/ros2-apt-source.deb</code></pre></div>
+</div>
 
 ### Install ROS2 and dependencies
 
+Refresh the package lists, then install ROS 2 Desktop for your distribution. Desktop includes RViz.
+
 ```bash
-# Refresh package lists
 sudo apt update
-# Install ROS2, RViz, and SDK build/runtime dependencies
-sudo apt install ros-humble-desktop ros-dev-tools \
+```
+
+<div class="ros-tabs" role="group" aria-label="Choose the ROS 2 distribution for your Ubuntu version">
+<input class="ros-tab-first" type="radio" name="ros-install" id="ros-install-first" checked><label for="ros-install-first">Humble</label>
+<input class="ros-tab-second" type="radio" name="ros-install" id="ros-install-second"><label for="ros-install-second">Jazzy</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash">sudo apt install ros-humble-desktop</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-bash">sudo apt install ros-jazzy-desktop</code></pre></div>
+</div>
+
+Install the SDK build and runtime dependencies. Both distributions use the same packages.
+
+```bash
+sudo apt install ros-dev-tools \
   build-essential cmake ninja-build pkg-config \
   libopencv-dev zlib1g-dev python3-colcon-common-extensions \
   python3-catkin-pkg python3-yaml python3-rosdep
@@ -90,88 +124,94 @@ sudo apt install ros-humble-desktop ros-dev-tools \
 
 ### Load and check ROS2
 
-Check the current shell:
+Check which shell your terminal is running.
 
 ```bash
 ps -p $$ -o comm=
 ```
 
-Select Bash or Zsh to match the result, then run the command:
+Select Bash or Zsh to match the output, then run only the line for your Ubuntu version.
 
-<style>
-.ros-shell-tabs { display: flex; flex-wrap: wrap; margin: 1em 0; }
-.ros-shell-tabs > input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.ros-shell-tabs > label { padding: .55em 1.3em; cursor: pointer; border-bottom: 2px solid transparent; }
-.ros-shell-tabs > input:checked + label { color: #d33; border-bottom-color: currentColor; font-weight: bold; }
-.ros-shell-tabs > input:focus-visible + label { outline: 2px solid currentColor; outline-offset: -2px; }
-.ros-shell-tabs > .ros-shell-panel { display: none; width: 100%; min-width: 0; }
-.ros-shell-tabs > .ros-shell-panel pre { margin-top: 0; }
-.ros-shell-tabs > input.ros-shell-bash:checked ~ .ros-panel-bash,
-.ros-shell-tabs > input.ros-shell-zsh:checked ~ .ros-panel-zsh { display: block; }
-</style>
-
-<div class="ros-shell-tabs" role="group" aria-label="Choose the current terminal shell">
-<input class="ros-shell-bash" type="radio" name="ros-base-shell" id="ros-base-shell-bash" checked><label for="ros-base-shell-bash">Bash</label>
-<input class="ros-shell-zsh" type="radio" name="ros-base-shell" id="ros-base-shell-zsh"><label for="ros-base-shell-zsh">Zsh</label>
-<div class="ros-shell-panel ros-panel-bash"><pre><code class="language-bash">source /opt/ros/humble/setup.bash</code></pre></div>
-<div class="ros-shell-panel ros-panel-zsh"><pre><code class="language-zsh">source /opt/ros/humble/setup.zsh</code></pre></div>
+<div class="ros-tabs" role="group" aria-label="Choose the current terminal shell">
+<input class="ros-tab-first" type="radio" name="ros-base-shell" id="ros-base-shell-bash" checked><label for="ros-base-shell-bash">Bash</label>
+<input class="ros-tab-second" type="radio" name="ros-base-shell" id="ros-base-shell-zsh"><label for="ros-base-shell-zsh">Zsh</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash"># Ubuntu 22.04
+source /opt/ros/humble/setup.bash
+# Ubuntu 24.04
+source /opt/ros/jazzy/setup.bash</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-zsh"># Ubuntu 22.04
+source /opt/ros/humble/setup.zsh
+# Ubuntu 24.04
+source /opt/ros/jazzy/setup.zsh</code></pre></div>
 </div>
 
+Verify the environment after loading it.
+
 ```bash
-# Expect humble
+# Expect humble on Ubuntu 22.04 or jazzy on Ubuntu 24.04
 echo "$ROS_DISTRO"
-# Confirm that the ROS2 command is available
+# Check that ros2 is available
 ros2 --help
 ```
 
-If `ros2` is not found, check for an error from the selected source command. Load the environment again in every new terminal, or set up automatic loading later.
+If `ros2` is unavailable, check the output of the `source` command for errors. Load the environment in each new terminal or configure your shell to load it automatically as shown below.
 
 ### Obtain the SDK and install its ROS dependencies
 
-Download and extract the [latest SDK source package](https://cdn.sipeed.com/maixsense/d640/latest/maixsense_d640_sdk_source.tar.gz). Confirm that it contains `scripts/setup-ros2.sh` and the `ros2` folder. Then run the commands below from the SDK source directory.
+Download and extract the [latest SDK source package](https://cdn.sipeed.com/maixsense/d640/latest/maixsense_d640_sdk_source.tar.gz). Check for `scripts/setup-ros2.sh` and the `ros2` directory, then run the following commands.
 
 ```bash
-# Enter the SDK root; adjust this path to your extracted folder
+# Enter the SDK root; adjust the path to match the extracted directory
 cd maixsense_d640_sdk
-# Initialize once; skip if rosdep is already initialized
+./scripts/setup-ros2.sh --help
+# Initialize rosdep once
 sudo rosdep init
-# Update dependency information
+# Update the dependency index
 rosdep update
-# Install dependencies declared by the SDK's ROS package
-rosdep install --from-paths ros2 --ignore-src -r -y --rosdistro humble
+# Install the ROS dependencies declared by the SDK
+rosdep install --from-paths ros2 --ignore-src -r -y --rosdistro "$ROS_DISTRO"
 ```
 
-After this setup, viewing and recording do not require reinstalling dependencies.
+For Jazzy or another distribution, check that the script’s help lists `--rosdistro`. If the option is missing, get a newer SDK that supports distribution selection.
+
+Once the dependencies are installed, connect the camera. The same dependencies cover building, viewing, and recording.
 
 ## Connect the camera
 
-Connect it over USB. On Linux, configure [access permissions](./quick-start.html#linux-access).
+Connect the camera over USB. On Linux, configure [access permissions](./quick-start.html#Linux-access-permissions).
 
 ## First use
 
 ### Build the camera tools
 
-From the SDK root:
+After preparing the environment, run the following command from the SDK root.
 
 ```bash
-# Build and install to ~/.local/maixsense-d640-ros2 by default
 ./scripts/setup-ros2.sh
 ```
 
-Build only on first installation or after updating the source, not each time you use the camera.
+The script builds and installs the D640 SDK and ROS 2 driver. It uses the active ROS 2 distribution or selects one for your Ubuntu version (Humble for 22.04 and Jazzy for 24.04). To select another installed distribution, add `--rosdistro <distribution>` in a clean terminal.
+
+The default installation directory is `~/.local/maixsense-d640-ros2/<distribution>/`, for example `humble/` or `jazzy/`. Use `--prefix` to set a custom directory. Build on first installation, after updating the source, or when switching distributions. For daily use, load the corresponding environment file.
 
 ### Load the camera environment
 
-Run the matching command in each new terminal:
+In each new terminal, select Bash or Zsh and run only the line for your distribution. With an older SDK or a custom directory, use the path printed after the build.
 
-<div class="ros-shell-tabs" role="group" aria-label="Choose the current terminal shell">
-<input class="ros-shell-bash" type="radio" name="ros-device-shell" id="ros-device-shell-bash" checked><label for="ros-device-shell-bash">Bash</label>
-<input class="ros-shell-zsh" type="radio" name="ros-device-shell" id="ros-device-shell-zsh"><label for="ros-device-shell-zsh">Zsh</label>
-<div class="ros-shell-panel ros-panel-bash"><pre><code class="language-bash">source &quot;$HOME/.local/maixsense-d640-ros2/env.bash&quot;</code></pre></div>
-<div class="ros-shell-panel ros-panel-zsh"><pre><code class="language-zsh">source &quot;$HOME/.local/maixsense-d640-ros2/env.zsh&quot;</code></pre></div>
+<div class="ros-tabs" role="group" aria-label="Choose the current terminal shell">
+<input class="ros-tab-first" type="radio" name="ros-device-shell" id="ros-device-shell-bash" checked><label for="ros-device-shell-bash">Bash</label>
+<input class="ros-tab-second" type="radio" name="ros-device-shell" id="ros-device-shell-zsh"><label for="ros-device-shell-zsh">Zsh</label>
+<div class="ros-tab-panel ros-panel-first"><pre><code class="language-bash"># Humble
+source &quot;$HOME/.local/maixsense-d640-ros2/humble/env.bash&quot;
+# Jazzy
+source &quot;$HOME/.local/maixsense-d640-ros2/jazzy/env.bash&quot;</code></pre></div>
+<div class="ros-tab-panel ros-panel-second"><pre><code class="language-zsh"># Humble
+source &quot;$HOME/.local/maixsense-d640-ros2/humble/env.zsh&quot;
+# Jazzy
+source &quot;$HOME/.local/maixsense-d640-ros2/jazzy/env.zsh&quot;</code></pre></div>
 </div>
 
-Optionally add the command once to `~/.bashrc` for Bash or `~/.zshrc` for Zsh to load it automatically in new terminals.
+To load the D640 environment automatically in new terminals, add the matching `source` command to `~/.bashrc` for Bash or `~/.zshrc` for Zsh.
 
 ### Check readiness
 
@@ -182,14 +222,14 @@ ros2 run maixsense_d640_driver maixsense_d640 doctor
 
 ### View images and point clouds
 
-On a computer with a graphical desktop:
+On an Ubuntu computer with a graphical desktop, run the following command.
 
 ```bash
 # Start capture and a configured RViz viewer
 ros2 run maixsense_d640_driver maixsense_d640 view
 ```
 
-The first start may take some time. Wait for `ready` and confirm that images and the cloud keep updating. If it stays at `waiting for camera`, check USB and [Linux access](./quick-start.html#linux-access).
+The first start may take some time. Wait for `ready` and confirm that images and the cloud keep updating. If it stays at `waiting for camera`, check USB and [Linux access](./quick-start.html#Linux-access-permissions).
 
 ![Depth and point cloud in RViz](../../../assets/maixsense/maixsense-d640/maix_sense_point_cloud.jpg)
 
@@ -251,13 +291,11 @@ ros2 run maixsense_d640_driver maixsense_d640 view --serial YOUR_SERIAL
 
 ### Check running status
 
-Keep capture running and use another terminal with the environment loaded:
+Keep capture running. In another terminal with the environment loaded, use the command below to check the connection status and serial number. Confirm that the serial number matches your camera. Check the image feed to verify that frames are arriving.
 
 ```bash
 ros2 run maixsense_d640_driver maixsense_d640 status
 ```
-
-Check connection status and serial to identify the camera. A listed topic does not by itself prove that frames are arriving.
 
 ### Save images and point clouds
 
