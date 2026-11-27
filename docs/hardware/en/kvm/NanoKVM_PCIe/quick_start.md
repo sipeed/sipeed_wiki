@@ -37,33 +37,38 @@ Note: The USB-PWR-IN CC interface of the NanoKVM-PCIe has a 5.1K pull-down resis
 
 ## Assembly
 
-1. The wiring for NanoKVM-PCIe is similar to that of the Cube. Please install the NanoKVM-PCIe while the main unit is powered off and disconnected from power. Only after testing all functions as normal should you install it into the case.
+Power off the host and unplug its power cable, then set the host output to 1920×1080. The HDMI input of NanoKVM-PCIe supports up to 1080P@60 only, so a 2K/4K output will most likely leave the web page black.
 
-> ❗ Please ensure that the buttons of NanoKVM-PCIe can be pressed and released normally after installation into the PCIe slot; otherwise, it may prevent the NanoKVM from starting up or cause functional abnormalities.
+> ❗ After inserting the card into the PCIe slot, press the button on the bracket: it must press down and spring back normally, otherwise the NanoKVM may fail to start or behave abnormally.
 
-2. Use a USB C to A data cable to connect the remote host to the USB-HID interface of the NanoKVM (located below the HDMI interface)
+### Wiring
 
-You can also connect directly to the nine-pin USB 2.0 inside the case, as shown in the diagram below.
+![The four connector ports on the NanoKVM-PCIe bracket: USB-HID, HDMI, Ethernet, PWR-IN](./../../../assets/NanoKVM/unbox/PCIe-bracket-ports_en.webp)
 
-![](./../../../assets/NanoKVM/unbox/PCIe-USB.jpg)
+1. Use the included USB C to A data cable to connect the Type-C marked `USB-HID` on the bracket to a USB-A port on the host.
 
-When connecting, be sure to refer to the diagram above and the internal interface diagram of the NanoKVM-PCIe below. Please check repeatedly before powering on; incorrect connections may risk damaging the NanoKVM! The silkscreen for "HDD LED" on the connection lines of some batches is incorrect. Please adjust according to the actual situation.
+2. Use the included HDMI cable to connect the HDMI port on the bracket to the HDMI output of the host.
 
-![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+3. Use an Ethernet cable to connect the Ethernet port on the bracket to the router/switch. If you have the WiFi version, you can skip this step and configure the network as described in WiFi Configuration below.
 
-3. Use the included HDMI cable to connect the remote host to the HDMI interface of the NanoKVM.
+4. To power the NanoKVM-PCIe separately, connect a 5V supply to the Type-C marked `PWR-IN` on the bracket; skip this step if powering from the PCIe slot or the host USB port is enough.
 
-4. Use an Ethernet cable to connect the router/switch to the NanoKVM. If you ordered the WiFi version of NanoKVM-PCIe after 24/12/07, this step can be skipped. Refer to the WiFi configuration section for connecting via WiFi.
+> Note: On some batches `USB-HID` and `PWR-IN` are swapped left to right; go by the labels printed on the bracket.
 
-5. ATX Power Control: The principle of remote control of the main power supply is to simulate the action of pressing the power button and read the LED status to synchronize with the webpage. For this, you need to disconnect the nine-pin connector on the motherboard that was originally connected to the case power button and connect it to the corresponding interface on the NanoKVM-PCIe. Additionally, to allow the case button to still control the power, you need to connect the power wiring from the case to the NanoKVM-PCIe. 
+5. ATX power control (only needed if you want remote power on/off)
 
-![](./../../../assets/NanoKVM/unbox/PCIE-ATX.jpg)
+Remote power control works by emulating the case power button: it shorts the switch and reads the LED state, then shows it on the web page.
 
-When wiring, please be sure to refer to the diagram above and the internal interface diagram of the NanoKVM-PCIe.
++ **Mainboard side (right box)**: unplug the 9-pin cable that connects the case power button to the motherboard, and use the included cable to plug it into the position in the right red box on the NanoKVM-PCIe. One pin of the 9-pin header is missing, so align the key; if it will not go in, it is reversed — do not force it.
++ **Chassis side (left box)**: plug the cables that come from the case power button into the left-hand connector (red box), so the case power button keeps working. `POWER SW` and `RESET SW` have no polarity; `POWER LED±` and `HDD LED±` do, so match + to + and − to −. Reversed LEDs simply do not light and will not cause damage.
 
-![](./../../../assets/NanoKVM/unbox/PCIe-Pin.jpg)
+![NanoKVM-PCIe 9-pin headers: chassis on the left, mainboard on the right](./../../../assets/NanoKVM/unbox/PCIe-atx-left-right_en.webp)
 
-Note: NanoKVM-PCIe does not monitor HDD status.
+Connecting only the mainboard side still allows remote power on/off; only the case power button stops working.
+
+Notes:
++ The left connector is shown empty only for demonstration; these harnesses ship pre-connected and do not need to be unplugged;
++ NanoKVM-PCIe does not monitor HDD status.
 
 Note: Some early users of the NanoKVM-PCIe with a full-height PCIe bracket may encounter issues related to the installation being too long. Please use longer screws to secure it (be careful not to overtighten) or purchase washers with specifications of outer diameter 7mm, inner diameter 4.2mm, height 3mm. If you still encounter difficulties with the installation, please contact Taobao/AliExpress customer service or email support@sipeed.com for support.
 
