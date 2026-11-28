@@ -786,17 +786,15 @@ items:
                 file: longan/Nano/examples/printf.md
             -   label: 播放 Badapple
                 file: longan/Nano/examples/badapple.md
--   label: MaixFace
-    items:
-    -   label: MF-ST40 人脸识别模块
-        file: maixface/mfst40/mfst40.md
-    -   label: MF 资料
-        items:
-        -   label: MF 人脸识别模块 PCB 设计注意事项
-            file: maixface/mf_ml_module/mf_precautions.md
-        -   label: 点我前往 github 查看全部资料
-            url: https://github.com/sipeed/MF1-User-Manual
 -   label: 外设模组
+    items:
+    -   label: 麦克风阵列
+        file: modules/micarray.md
+    -   label: 麦克风阵列UAC驱动板 MA-USB8
+        file: modules/micarray_usbboard_bl616.md
+    -   label: SPI2HDMI
+        file: modules/spi2hdmi/spi2hdmi.md
+-   label: 归档
     items:
     -   label: SP-MOD外设模组
         items:
@@ -844,13 +842,15 @@ items:
                 file: modules_spmod/spmod_lcd1.14.md
             -   label: SP-Eink
                 file: modules_spmod/spmod_eink.md
-    -   label: 模块
+    -   label: Sipeed Gamepad
+        file: modules/Gamepad.md
+    -   label: MaixFace
         items:
-        -   label: 摄像头
-            file: modules/camera_summary.md
-        -   label: 麦克风阵列
-            file: modules/micarray.md
-        -   label: 麦克风阵列UAC驱动板 MA-USB8
-            file: modules/micarray_usbboard_bl616.md
-        -   label: Sipeed Gamepad
-            file: modules/Gamepad.md
+        -   label: MF-ST40 人脸识别模块
+            file: maixface/mfst40/mfst40.md
+        -   label: MF 资料
+            items:
+            -   label: MF 人脸识别模块 PCB 设计注意事项
+                file: maixface/mf_ml_module/mf_precautions.md
+            -   label: 点我前往 github 查看全部资料
+                url: https://github.com/sipeed/MF1-User-Manual

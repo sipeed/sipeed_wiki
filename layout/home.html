@@ -50,6 +50,9 @@
       </div> 
       <div id="page_slogic" class="hidden h-full w-full">
         {% include "slogic.html" %}   
+      </div>
+      <div id="page_modules" class="hidden h-full w-full">
+        {% include "modules.html" %}
       </div>     
 
       <div id="page_news" class="hidden h-full w-full"> 
@@ -187,6 +190,10 @@
         label: "{{_('SLogic')}}",
         content: "slogic", 
       },
+      {
+        label: "{{_('模块')}}",
+        content: "modules", // modules.html
+      },
     ],
   };
 
@@ -235,6 +242,7 @@
         data_sipeedsense: data_sipeedsense, 
         data_nanokvm: data_nanokvm, 
         data_slogic: data_slogic,
+        data_modules: data_modules,
       };
     },
     mounted() {

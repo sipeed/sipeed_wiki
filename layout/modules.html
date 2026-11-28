@@ -1,0 +1,68 @@
+<!-- 修改后保存一下 include 这个文件的 html 模板就会渲染 -->
+
+<div class="w-full h-full flex flex-col justify-center items-center">
+  <h2 class="text-2xl font-bold my-8 block_simple">{{_('功能模块')}}</h2>
+  <div class="w-full flex flex-col justify-center">
+    <div class="cards">
+      <!-- cards -->
+      <div class="card" v-for="item in data_modules.cards">
+        <img class="card_img" :src="item.img" />
+        <h3 class="card_title" class="text-lg">{[item.title]}</h3>
+        <div class="card_brief">{[item.brief]}</div>
+        <div class="card_btns">
+          <a
+            v-for="btn in item.btns"
+            :href="btn.disabled ? null : btn.link"
+            :target="btn.new_tab ? '_blank' : '_self'"
+            :class="btn.disabled ? 'btn_disabled' : ''"
+            :aria-disabled="btn.disabled ? 'true' : null"
+            >{[btn.label]}</a
+          >
+        </div>
+      </div>
+      <!-- cards end -->
+    </div>
+  </div>
+
+</div>
+
+<script lang="ts">
+  const data_modules = {
+    cards: [
+      {
+        img: "/static/home/spi2hdmi.jpg",
+        title: "SPI2HDMI",
+        brief:
+          "{{_('让单片机像驱动 SPI 屏一样驱动 HDMI 显示')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/spi2hdmi",
+          },
+          {
+            // 购买链接确定前置灰；有链接后填 link 并删掉 disabled（见仓库根目录 TODO.md）
+            label: "{{_('购买')}}",
+            disabled: true,
+          },
+        ],
+      },
+      {
+        img: "/static/home/ma_usb8.jpg",
+        title: "MA-USB8",
+        brief:
+          "{{_('麦克风阵列 USB 驱动板，免驱声卡 + 声源定位')}}",
+        btns: [
+          {
+            label: "{{_('文档')}}",
+            link: "/mausb8",
+          },
+          {
+            label: "{{_('购买')}}",
+            link: "{{_('https://item.taobao.com/item.htm?id=591820993474')}}",
+            new_tab: true,
+          },
+        ],
+      },
+    ],
+  };
+</script>

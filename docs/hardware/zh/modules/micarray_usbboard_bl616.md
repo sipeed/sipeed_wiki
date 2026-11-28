@@ -4,6 +4,10 @@
 
 ![](../../assets/modules/micarray_usbboard_bl616/product-front.png)
 
+> 购买链接：
+> - [淘宝](https://item.taobao.com/item.htm?id=591820993474)
+> - [AliExpress](https://www.aliexpress.com/item/1005010179788985.html)
+
 MA-USB8 是一块为麦克风阵列提供 USB 音频与串口数据接口的驱动板，可通过 UAC2.0 传输 8 通道采集音频和 2 通道播放音频，并通过 CDC ACM 或物理 UART 输出声源定位热力图。标准板使用直径 80 mm 的六麦阵列（D80）固件。
 
 - UAC2.0（USB Audio Class）：8 通道，PCM S16_LE，48 kHz

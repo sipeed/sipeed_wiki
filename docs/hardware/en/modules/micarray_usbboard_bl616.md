@@ -4,6 +4,10 @@
 
 ![](../../assets/modules/micarray_usbboard_bl616/product-front.png)
 
+> Where to buy:
+> - [AliExpress](https://www.aliexpress.com/item/1005010179788985.html)
+> - [Taobao](https://item.taobao.com/item.htm?id=591820993474)
+
 MA-USB8 is a USB audio + serial interface drive board designed for MicArray microphone modules. It forwards the array’s audio (via UAC2.0, 8 channels) and sends soundfield hotmap frames (via CDC ACM or UART) to a host PC or MCU. Common use cases include voice capture, noise suppression, beamforming, and soundfield visualization.
 
 - UAC2.0 (USB Audio Class): 8 channels, PCM S16_LE, 48 kHz

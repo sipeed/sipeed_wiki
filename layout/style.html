@@ -308,6 +308,16 @@
     color: #162127;
     box-shadow: 0 0 2em rgba(255, 255, 255, 0.5);
   }
+  /* 尚无链接的按钮（如待上架产品的“购买”）：置灰且不可点 */
+  #page_content .card_btns > a.btn_disabled,
+  #page_content .card_btns > a.btn_disabled:hover {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: transparent;
+    color: #b0bec5;
+    box-shadow: none;
+  }
   @media screen and (max-width: 1920px) {
     #content {
       width: 75%

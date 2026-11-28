@@ -771,19 +771,15 @@ items:
             file: longan/Nano/pio.md
         -   label: Blink test
             file: longan/Nano/blink.md
--   label: MaixFace
-    items:
-    -   label: MF0&&MF0 Dock
-        file: maixface/mf_ml_module/mf0_ml_module.md
-    -   label: MF1 && MF2
-        file: maixface/mf_ml_module/mf1_ml_module.md
-    -   label: MF4 && MF5
-        file: maixface/mf_ml_module/mf5_product.md
-    -   label: Maixface PCB Design
-        file: maixface/mf_ml_module/mf_precautions.md
-    -   label: Maixface Update firmware
-        file: maixface/mf_ml_module/mf_update_firmwave.md
 -   label: Peripheral modules
+    items:
+    -   label: Mic array
+        file: modules/micarray.md
+    -   label: MicArray UAC Drive Board (MA-USB8)
+        file: modules/micarray_usbboard_bl616.md
+    -   label: SPI2HDMI
+        file: modules/spi2hdmi/spi2hdmi.md
+-   label: Archive
     items:
     -   label: SP-MOD Peripheral modules
         items:
@@ -827,19 +823,17 @@ items:
                 file: modules_spmod/spmod_lcd1.14.md
             -   label: SP-Eink
                 file: modules_spmod/spmod_eink.md
-    -   label: Module
+    -   label: Sipeed Gamepad
+        file: modules/Gamepad.md
+    -   label: MaixFace
         items:
-        -   label: camera
-            items:
-            -   label: GC0328
-            -   label: Dual cam module(GC0328)
-            -   label: OV7740
-            -   label: OV2640
-            -   label: OV2640-M12
-            -   label: Dual cam module(OV2640)
-        -   label: Mic array
-            file: modules/micarray.md
-        -   label: MicArray UAC Drive Board (MA-USB8)
-            file: modules/micarray_usbboard_bl616.md
-        -   label: Sipeed Gamepad
-            file: modules/Gamepad.md
+        -   label: MF0&&MF0 Dock
+            file: maixface/mf_ml_module/mf0_ml_module.md
+        -   label: MF1 && MF2
+            file: maixface/mf_ml_module/mf1_ml_module.md
+        -   label: MF4 && MF5
+            file: maixface/mf_ml_module/mf5_product.md
+        -   label: Maixface PCB Design
+            file: maixface/mf_ml_module/mf_precautions.md
+        -   label: Maixface Update firmware
+            file: maixface/mf_ml_module/mf_update_firmwave.md
