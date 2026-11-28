@@ -1,0 +1,529 @@
+{
+    "items": [
+        {
+            "label": "Linux 简介",
+            "file": "linux/start/introduction.md",
+            "items":[
+                {
+                    "label":"bootloader(施工中)"
+                },
+                {
+                    "label":"Kernel(施工中)"
+                },
+                {
+                    "label":"rootfs(施工中)"
+                },
+                {
+                    "label":"application(施工中)"
+                }
+            ]
+        },
+        {
+            "label": "LicheePI Zero",
+            "file": "Zero-Doc/Start/board_intro.md",
+            "items": [
+                {
+                    "label": "初来乍到",
+                    "items": [
+                        {
+                            "label": "荔枝派与创作者的自我介绍",
+                            "file": "Zero-Doc/Start/intro_cn.md"
+                        },
+                        {
+                            "label": "Linux使用小贴士",
+                            "file": "Zero-Doc/Start/tips.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "上手使用",
+                    "items": [
+                        {
+                            "label": "Zero系统烧录",
+                            "items": [
+                                {
+                                    "label": "Windows下镜像烧录",
+                                    "file": "Zero-Doc/System_Development/download_onekey.md"
+                                },
+                                {
+                                    "label": "Linux下镜像烧录",
+                                    "file": "Zero-Doc/System_Development/download_dd.md"
+                                },
+                                {
+                                    "label": "SPI Flash系统烧录",
+                                    "file": "Zero-Doc/System_Development/download_SPI.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Docker环境简明教程",
+                            "file": "Zero-Doc/Start/docker_index.md",
+                            "items": [
+                                {
+                                    "label": "Docker开发环境",
+                                    "file": "Zero-Doc/Start/docker_env.md"
+                                },
+                                {
+                                    "label": "Docker命令速查",
+                                    "file": "Zero-Doc/Start/docker_command.md"
+                                },
+                                {
+                                    "label": "基础ubuntu系统配置",
+                                    "file": "Zero-Doc/Start/docker_ubuntu.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "系统开发",
+                    "items": [
+                        {
+                            "label": "Zero的开发环境分类",
+                            "file": "Zero-Doc/System_Development/type.md"
+                        },
+                        {
+                            "label": "主线Uboot",
+                            "items": [
+                                {
+                                    "label": "Uboot 编译",
+                                    "file": "Zero-Doc/System_Development/uboot_build.md"
+                                },
+                                {
+                                    "label": "Uboot 配置",
+                                    "file": "Zero-Doc/System_Development/uboot_conf.md"
+                                },
+                                {
+                                    "label": "开机logo替换",
+                                    "file": "Zero-Doc/System_Development/uboot_logo.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "主线Kernel",
+                            "items": [
+                                {
+                                    "label": "主线Kernel基础编译",
+                                    "file": "Zero-Doc/System_Development/kernel_build.md"
+                                },
+                                {
+                                    "label": "内核printk等级设置",
+                                    "file": "Zero-Doc/System_Development/kernel_printk.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "BSP内核编译",
+                            "items": [
+                                {
+                                    "label": "BSP源码下载与编译",
+                                    "file": "Zero-Doc/System_Development/bsp_build.md"
+                                },
+                                {
+                                    "label": " BSP内核构建走读",
+                                    "file": "Zero-Doc/System_Development/bsp_review.md"
+                                },
+                                {
+                                    "label": "BSP内核的摄像头使用",
+                                    "file": "Zero-Doc/System_Development/bsp_cam.md"
+                                },
+                                {
+                                    "label": "bsp内核中的保留内存",
+                                    "file": "Zero-Doc/System_Development/bsp_mem.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "根文件系统编译",
+                            "items": [
+                                {
+                                    "label": "buildroot根文件系统",
+                                    "file": "Zero-Doc/System_Development/buildroot.md"
+                                },
+                                {
+                                    "label": "emdebian根文件系统",
+                                    "file": "Zero-Doc/System_Development/emdebian.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "SPI系统介绍",
+                            "items": [
+                                {
+                                    "label": "SPI-Flash系统编译",
+                                    "file": "Zero-Doc/System_Development/SPI_flash_build.md"
+                                },
+                                {
+                                    "label": "sunxi-fel增加对16M以上Flash的支持",
+                                    "file": "Zero-Doc/System_Development/SPI_falsh_doc1.md"
+                                },
+                                {
+                                    "label": "overlayfs的使用",
+                                    "file": "Zero-Doc/System_Development/SPI_falsh_doc2.md"
+                                },
+                                {
+                                    "label": "jffs2文件系统挂载不上的常见原因",
+                                    "file": "Zero-Doc/System_Development/SPI_falsh_doc3.md"
+                                },
+                                {
+                                    "label": "JFFS2文件系统简介",
+                                    "file": "Zero-Doc/System_Development/SPI_falsh_doc4.md"
+                                },
+                                {
+                                    "label": "uboot 对SPI flash 的识别",
+                                    "file": "Zero-Doc/System_Development/SPI_falsh_doc5.md"
+                                },
+                                {
+                                    "label": "关于系统reboot",
+                                    "file": "Zero-Doc/System_Development/SPI_falsh_doc6.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Zero Imager",
+                            "file": "Zero-Doc/System_Development/Imager.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "驱动开发",
+                    "items": [
+                        {
+                            "label": "设备树简介",
+                            "file": "Zero-Doc/Drive/Device_Tree_Intro.md"
+                        },
+                        {
+                            "label": "外设适配",
+                            "items": [
+                                {
+                                    "label": "GPIO操作",
+                                    "items": [
+                                        {
+                                            "label": "文件IO方式操作",
+                                            "file": "Zero-Doc/Drive/GPIO_file.md"
+                                        },
+                                        {
+                                            "label": "C语言方式(mmap)",
+                                            "file": "Zero-Doc/Drive/GPIO_mmap.md"
+                                        },
+                                        {
+                                            "label": "C语言方式(libgpiod)",
+                                            "file": "Zero-Doc/Drive/GPIO_libgpiod.md"
+                                        },
+                                        {
+                                            "label": "Python 操作GPIO",
+                                            "file": "Zero-Doc/Drive/GPIO_py.md"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "uboot下gpio操作",
+                                    "file": "Zero-Doc/Drive/uboot_GPIO.md"
+                                },
+                                {
+                                    "label": " UART操作",
+                                    "file": "Zero-Doc/Drive/UART.md"
+                                },
+                                {
+                                    "label": "I2C操作",
+                                    "file": "Zero-Doc/Drive/I2C.md"
+                                },
+                                {
+                                    "label": "PWM输出",
+                                    "file": "Zero-Doc/Drive/PWM.md"
+                                },
+                                {
+                                    "label": "CODEC的使用",
+                                    "file": "Zero-Doc/Drive/CODEC.md"
+                                },
+                                {
+                                    "label": "以太网使用指南",
+                                    "file": "Zero-Doc/Drive/Ethernet.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "设备驱动",
+                            "items": [
+                                {
+                                    "label": "GPU/DRM驱动",
+                                    "file": "Zero-Doc/Drive/GPUandDRM.md"
+                                },
+                                {
+                                    "label": "atmel触摸屏驱动分析",
+                                    "file": "Zero-Doc/Drive/atmel_touch.md"
+                                },
+                                {
+                                    "label": "atmel触摸屏中断改轮询",
+                                    "file": "Zero-Doc/Drive/atmel_inter.md"
+                                },
+                                {
+                                    "label": "看门狗的使用",
+                                    "file": "Zero-Doc/Drive/watchdog.md"
+                                },
+                                {
+                                    "label": "点屏之RGB屏",
+                                    "file": "Zero-Doc/Drive/RGB_LCD.md"
+                                },
+                                {
+                                    "label": "点屏之SPI屏",
+                                    "file": "Zero-Doc/Drive/SPI_LCD.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "应用开发",
+                    "items": [
+                        {
+                            "label": "开机自启动",
+                            "file": "Zero-Doc/application/autorun.md"
+                        },
+                        {
+                            "label": "Segment Fault调试",
+                            "file": "Zero-Doc/application/debug.md"
+                        },
+                        {
+                            "label": "Zero通过otg与PC共享网络",
+                            "file": "Zero-Doc/application/otg2PC.md"
+                        },
+                        {
+                            "label": "USB摄像头使用",
+                            "file": "Zero-Doc/application/USB_cam.md"
+                        },
+                        {
+                            "label": "基于QT的GUI开发",
+                            "items": [
+                                {
+                                    "label": "移植tslib",
+                                    "file": "Zero-Doc/application/QT_doc1.md"
+                                },
+                                {
+                                    "label": "移植QT5.9.1",
+                                    "file": "Zero-Doc/application/QT_doc2.md"
+                                },
+                                {
+                                    "label": "移植QT4.8.7",
+                                    "file": "Zero-Doc/application/QT_doc3.md"
+                                },
+                                {
+                                    "label": "QtCreator使用",
+                                    "file": "Zero-Doc/application/QT_doc4.md"
+                                },
+                                {
+                                    "label": "Qt5.x移植到Qt4.8",
+                                    "file": "Zero-Doc/application/QT_doc5.md"
+                                },
+                                {
+                                    "label": "Qt字体相关",
+                                    "file": "Zero-Doc/application/QT_doc6.md"
+                                },
+                                {
+                                    "label": "Qt移植总结",
+                                    "file": "Zero-Doc/application/QT_doc7.md"
+                                },
+                                {
+                                    "label": "Qt裁剪",
+                                    "file": "Zero-Doc/application/QT_doc8.md"
+                                },
+                                {
+                                    "label": "Qt去除鼠标指针显示",
+                                    "file": "Zero-Doc/application/QT_doc9.md"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "贡献投稿",
+                    "items": [
+                        {
+                            "label": "投稿文章精选",
+                            "items": [
+                                {
+                                    "label": "荔枝派zero开箱指南",
+                                    "file": "Zero-Doc/Contribution/article_1.md"
+                                },
+                                {
+                                    "label": "Zero i2c oled使用指南",
+                                    "file": "Zero-Doc/Contribution/article_2.md"
+                                },
+                                {
+                                    "label": "Lichee Pi zero SPI LCD使用指南",
+                                    "file": "Zero-Doc/Contribution/article_3.md"
+                                },
+                                {
+                                    "label": "Zero u-boot编译和使用指南",
+                                    "file": "Zero-Doc/Contribution/article_4.md"
+                                },
+                                {
+                                    "label": "TF WiFi使用方法",
+                                    "file": "Zero-Doc/Contribution/article_5.md"
+                                },
+                                {
+                                    "label": "Licheepi Zero Ethernet适配指南",
+                                    "file": "Zero-Doc/Contribution/article_6.md"
+                                },
+                                {
+                                    "label": "Qt5 移植到 licheepi zero",
+                                    "file": "Zero-Doc/Contribution/article_7.md"
+                                },
+                                {
+                                    "label": "Zero Spi Nor Flash启动系统制作指南",
+                                    "file": "Zero-Doc/Contribution/article_8.md"
+                                },
+                                {
+                                    "label": "lichee 编译踩坑记录(ilichee ZERO)",
+                                    "file": "Zero-Doc/Contribution/article_10.md"
+                                },
+                                {
+                                    "label": "TF WIFI 小白编",
+                                    "file": "Zero-Doc/Contribution/article_12.md"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "LicheePI Nano",
+            "file": "Nano-Doc-Backup/index.md",
+            "items": [
+                {
+                    "label": "上手体验",
+                    "items": [
+                        {
+                            "label": "初见",
+                            "file": "Nano-Doc-Backup/get_started/first_eye.md"
+                        },
+                        {
+                            "label": "前言",
+                            "file": "Nano-Doc-Backup/get_started/first_eat.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "系统适配篇",
+                    "items": [
+                        {
+                            "label": "总述",
+                            "file": "Nano-Doc-Backup/build_sys/build_index.md"
+                        },
+                        {
+                            "label": "镜像包一键烧录",
+                            "file": "Nano-Doc-Backup/build_sys/onekey.md"
+                        },
+                        {
+                            "label": "docker快速搭建环境",
+                            "file": "Nano-Doc-Backup/build_sys/docker.md"
+                        },
+                        {
+                            "label": "uboot传递参数",
+                            "file": "Nano-Doc-Backup/build_sys/bootargs.md"
+                        },
+                        {
+                            "label": "主线linux编译",
+                            "file": "Nano-Doc-Backup/build_sys/kernel.md"
+                        },
+                        {
+                            "label": "设备树添加节点",
+                            "file": "Nano-Doc-Backup/build_sys/devicetree.md"
+                        },
+                        {
+                            "label": "根文件系统编译",
+                            "file": "Nano-Doc-Backup/build_sys/rootfs.md"
+                        },
+                        {
+                            "label": "SPI-Flash系统编译",
+                            "file": "Nano-Doc-Backup/build_sys/build_flash_copy.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "驱动开发",
+                    "items": [
+                        {
+                            "label": "电容触摸屏适配",
+                            "file": "Nano-Doc-Backup/driver/touchscreen.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "从挖坑到填坑",
+                    "items": [
+                        {
+                            "label": "开箱介绍",
+                            "file": "Nano-Doc-Backup/step_by_step/one_openbox.md"
+                        },
+                        {
+                            "label": "编译使用sunxi-tools",
+                            "file": "Nano-Doc-Backup/step_by_step/two_sunxi-tools.md"
+                        },
+                        {
+                            "label": "编译测试uboot",
+                            "file": "Nano-Doc-Backup/step_by_step/three_uboot.md"
+                        },
+                        {
+                            "label": "编译测试linux",
+                            "file": "Nano-Doc-Backup/step_by_step/four_linux.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "应用开发",
+                    "items": [
+                        {
+                            "label": "littlevGL的使用",
+                            "file": "Nano-Doc-Backup/application/littlevgl.md"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "MaixSense",
+            "items": [
+                {
+                    "label": "R329主线armbian内核 系统 驱动开发方法",
+                    "file": "MaixSense/contribution/Build_R329.md"
+                },
+                {
+                    "label": "Tina R329 swupdate OTA 步骤 ",
+                    "file": "MaixSense/contribution/Tina_R329_swupdate_OTA.md"
+                },
+                {
+                    "label": "Maix-Speech 的相关使用",
+                    "file": "MaixSense/application/Speech_usage_zh.md"
+                }
+            ]
+        },
+        {
+            "label": "Lichee RV",
+            "items": [
+                {
+                    "label": "使用Buildroot",
+                    "file": "Lichee-RV/build_sys/Buildroot.md"
+                },
+                {
+                    "label": "86 Panel RGB 与 SPI 双屏显示",
+                    "file": "Lichee-RV/contribution/Dual_screen_display/Dual_screen_display.md"
+                },
+                {
+                    "label": "D1上Kubernetes相关软件编译",
+                    "file": "Lichee-RV/contribution/D1_Kubernetes.md"
+                }
+            ]
+        },
+        {
+            "label": "V83x",
+            "items": [
+                {
+                    "label": "V83X sdk开发方法",
+                    "file": "MaixII/V83X/contribution/v83x_sdk_compile/V83x_sdk_kernel_compile.md"
+                }
+            ]
+        }
+    ]
+}

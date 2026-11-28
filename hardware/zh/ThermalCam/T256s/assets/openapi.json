@@ -1,0 +1,891 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sipeed T256S Thermal Camera HTTP API",
+    "version": "1.0.0",
+    "summary": "Read-mostly HTTP API served over the camera's USB NCM network interface.",
+    "description": "T256S exposes a small HTTP API on its USB network interface (default http://192.168.17.1). Use GET /api/v1/device first and follow the URLs it returns: capabilities and paths may change between firmware releases. All read endpoints are CORS-open and cache-disabled. Write endpoints (network reconfiguration) additionally require the `X-Sipeed-Request: 1` header, the correct Content-Type, and, when an Origin header is present, the device's own origin. Temperatures are Celsius. TEMP16 records are 98304 bytes of little-endian uint16 pixels (256x192, stride 512) followed by a 120-byte sipeed-thermal-meta-v1 structure; convert with `celsius = raw * temperature_scale + temperature_offset`.",
+    "license": {
+      "name": "Proprietary"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://192.168.17.1",
+      "description": "Default address after the host receives a DHCP lease from the camera (192.168.17.2-192.168.17.20)."
+    }
+  ],
+  "tags": [
+    {
+      "name": "discovery",
+      "description": "Capability discovery and device identity"
+    },
+    {
+      "name": "measurement",
+      "description": "Temperature summaries and measurement settings"
+    },
+    {
+      "name": "frames",
+      "description": "Single-frame image and thermal data"
+    },
+    {
+      "name": "streams",
+      "description": "Continuous multipart and record streams (max 4 concurrent clients)"
+    },
+    {
+      "name": "network",
+      "description": "Read or change the camera's private subnet"
+    }
+  ],
+  "paths": {
+    "/api/v1/device": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "operationId": "getDevice",
+        "summary": "Get device capabilities",
+        "description": "Entry point for every client. Do not hard-code frame or stream URLs: take them from `formats[].frame` / `formats[].stream`.",
+        "responses": {
+          "200": {
+            "description": "Capability document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceInfo"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/v1/network": {
+      "get": {
+        "tags": [
+          "network"
+        ],
+        "operationId": "getNetwork",
+        "summary": "Read the network configuration",
+        "responses": {
+          "200": {
+            "description": "Current subnet and DHCP pool",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkConfig"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "network"
+        ],
+        "operationId": "updateNetwork",
+        "summary": "Change the camera's private subnet",
+        "description": "The camera moves to 192.168.<segment>.1 and keeps serving DHCP. The host adapter re-leases within 30 seconds; the response is 202 and the network service restarts asynchronously. Requires `X-Sipeed-Request: 1`. Sending a foreign Origin header results in 403.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/SipeedRequestGuard"
+          },
+          {
+            "$ref": "#/components/parameters/JsonContentType"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "segment"
+                ],
+                "properties": {
+                  "segment": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 254,
+                    "examples": [
+                      17
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted; the camera is switching to the new subnet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accepted": {
+                      "type": "boolean"
+                    },
+                    "new_ip": {
+                      "type": "string"
+                    },
+                    "new_url": {
+                      "type": "string"
+                    },
+                    "restarting": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/Error"
+          },
+          "403": {
+            "$ref": "#/components/responses/Error"
+          },
+          "415": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/v1/thermal": {
+      "get": {
+        "tags": [
+          "measurement"
+        ],
+        "operationId": "getThermalSummary",
+        "summary": "Get the current center/minimum/maximum temperature",
+        "description": "Cheapest way to read temperatures: no image decoding needed. Coordinates are in the 256x192 native landscape frame.",
+        "responses": {
+          "200": {
+            "description": "Temperature summary of the latest frame",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThermalSummary"
+                }
+              }
+            }
+          },
+          "503": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/v1/measurement": {
+      "get": {
+        "tags": [
+          "measurement"
+        ],
+        "operationId": "getMeasurementSettings",
+        "summary": "Get the measurement model assumptions",
+        "description": "Read-only in firmware 26.40.0: the emissivity, distance and reflected-temperature defaults cannot be changed over HTTP.",
+        "responses": {
+          "200": {
+            "description": "Measurement defaults and accepted ranges",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementInfo"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/frame.temp16": {
+      "get": {
+        "tags": [
+          "frames"
+        ],
+        "operationId": "getTemp16Frame",
+        "summary": "Get one raw-temperature frame",
+        "description": "One 98424-byte record: 98304 bytes of little-endian uint16 pixels (256x192, stride 512) followed by 120 bytes of sipeed-thermal-meta-v1 metadata. JSON clients should prefer /api/v1/thermal.",
+        "responses": {
+          "200": {
+            "description": "One TEMP16 record",
+            "headers": {
+              "X-Sipeed-Protocol": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "1.0"
+              },
+              "X-Sipeed-Format": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "temp16"
+              },
+              "X-Sipeed-Width": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Sipeed-Height": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Sipeed-Stride-Bytes": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Sipeed-Payload-Bytes": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Sipeed-Meta-Bytes": {
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "X-Sipeed-Record-Bytes": {
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/vnd.sipeed.thermal-frame": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "503": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "frames"
+        ],
+        "operationId": "headTemp16Frame",
+        "summary": "Probe the TEMP16 record headers without the body",
+        "responses": {
+          "200": {
+            "description": "Same headers as GET, empty body"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/stream.temp16": {
+      "get": {
+        "tags": [
+          "streams"
+        ],
+        "operationId": "streamTemp16",
+        "summary": "Stream raw-temperature records",
+        "description": "Back-to-back 98424-byte records with no delimiter. Split on fixed length; never parse TCP chunks directly. Counts against the 4-client stream limit.",
+        "responses": {
+          "200": {
+            "description": "Endless TEMP16 record stream",
+            "content": {
+              "application/vnd.sipeed.thermal-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/frame.jpg": {
+      "get": {
+        "tags": [
+          "frames"
+        ],
+        "operationId": "getJpegFrame",
+        "summary": "Get one palette-colored JPEG frame",
+        "description": "Device-side palette is already applied: pixel colors carry no temperature. The same 120-byte metadata is base64-encoded in the X-Sipeed-Meta header.",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": true,
+            "description": "sr = 480x640 AI super-resolution, native = 192x256",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "sr",
+                "native"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "JPEG frame",
+            "headers": {
+              "X-Sipeed-Meta": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Base64-encoded 120-byte sipeed-thermal-meta-v1 metadata"
+              },
+              "X-Sipeed-JPEG-Quality": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "95"
+              }
+            },
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/Error"
+          },
+          "503": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      },
+      "head": {
+        "tags": [
+          "frames"
+        ],
+        "operationId": "headJpegFrame",
+        "summary": "Probe a JPEG frame's headers",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "sr",
+                "native"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Same headers as GET, empty body"
+          },
+          "404": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/stream.jpg": {
+      "get": {
+        "tags": [
+          "streams"
+        ],
+        "operationId": "streamJpeg",
+        "summary": "Stream palette-colored JPEG frames",
+        "description": "multipart/x-mixed-replace with boundary `sipeedframe`. Each part carries X-Sipeed-Meta and X-Sipeed-JPEG-Quality. Counts against the 4-client stream limit.",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "sr",
+                "native"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Multipart JPEG stream",
+            "content": {
+              "multipart/x-mixed-replace": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "SipeedRequestGuard": {
+        "name": "X-Sipeed-Request",
+        "in": "header",
+        "required": true,
+        "description": "Anti-CSRF guard required by every write endpoint.",
+        "schema": {
+          "type": "string",
+          "const": "1"
+        }
+      },
+      "JsonContentType": {
+        "name": "Content-Type",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "const": "application/json"
+        }
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Structured error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "ok",
+          "error"
+        ],
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": false
+          },
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "examples": [
+                  "not_found",
+                  "format_not_supported",
+                  "stream_limit_reached",
+                  "frame_not_ready",
+                  "missing_request_guard",
+                  "invalid_segment",
+                  "origin_rejected",
+                  "unsupported_content_type"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "DeviceInfo": {
+        "type": "object",
+        "properties": {
+          "api": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "examples": [
+                  "sipeed-thermal-http"
+                ]
+              },
+              "major": {
+                "type": "integer",
+                "examples": [
+                  1
+                ]
+              },
+              "minor": {
+                "type": "integer",
+                "examples": [
+                  0
+                ]
+              }
+            }
+          },
+          "device": {
+            "type": "object",
+            "properties": {
+              "model": {
+                "type": "string",
+                "examples": [
+                  "T256S"
+                ]
+              },
+              "serial": {
+                "type": "string"
+              },
+              "hardware": {
+                "type": "string",
+                "examples": [
+                  "1.0"
+                ]
+              },
+              "firmware": {
+                "type": "string",
+                "examples": [
+                  "26.40.0"
+                ]
+              }
+            }
+          },
+          "sensor": {
+            "type": "object",
+            "properties": {
+              "native_width": {
+                "type": "integer",
+                "examples": [
+                  256
+                ]
+              },
+              "native_height": {
+                "type": "integer",
+                "examples": [
+                  192
+                ]
+              },
+              "recommended_rotation": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3,
+                "description": "Quarter turns to apply to the native landscape frame before display"
+              }
+            }
+          },
+          "network": {
+            "type": "object",
+            "properties": {
+              "segment": {
+                "type": "integer"
+              },
+              "device_ip": {
+                "type": "string"
+              },
+              "configurable": {
+                "type": "boolean"
+              },
+              "config_url": {
+                "type": "string"
+              }
+            }
+          },
+          "streaming": {
+            "type": "object",
+            "properties": {
+              "max_stream_clients": {
+                "type": "integer",
+                "examples": [
+                  4
+                ]
+              },
+              "simultaneous_formats": {
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              }
+            }
+          },
+          "measurement": {
+            "type": "object",
+            "properties": {
+              "supported": {
+                "type": "boolean"
+              },
+              "center_roi": {
+                "type": "object",
+                "properties": {
+                  "width": {
+                    "type": "integer"
+                  },
+                  "height": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "palette": {
+            "type": "object",
+            "properties": {
+              "processing": {
+                "type": "string",
+                "examples": [
+                  "device"
+                ]
+              },
+              "api": {
+                "type": "string",
+                "description": "Legacy palette endpoint, not part of the v1 contract"
+              },
+              "count": {
+                "type": "integer",
+                "examples": [
+                  20
+                ]
+              }
+            }
+          },
+          "super_resolution": {
+            "type": "object",
+            "properties": {
+              "device": {
+                "type": "boolean"
+              },
+              "client_recommended": {
+                "type": "boolean"
+              },
+              "client_max_native_width": {
+                "type": "integer"
+              },
+              "client_max_native_height": {
+                "type": "integer"
+              }
+            }
+          },
+          "formats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "enum": [
+                    "temp16",
+                    "jpg"
+                  ]
+                },
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "device_sr",
+                    "device_native"
+                  ]
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "stride_bytes": {
+                  "type": "integer",
+                  "description": "temp16 only"
+                },
+                "bits_per_pixel": {
+                  "type": "integer",
+                  "description": "temp16 only"
+                },
+                "source_width": {
+                  "type": "integer",
+                  "description": "jpg only"
+                },
+                "source_height": {
+                  "type": "integer",
+                  "description": "jpg only"
+                },
+                "temperature_encoding": {
+                  "type": "string",
+                  "enum": [
+                    "linear",
+                    "none"
+                  ]
+                },
+                "colorization": {
+                  "type": "string",
+                  "description": "jpg only: device_palette"
+                },
+                "metadata": {
+                  "type": "string",
+                  "examples": [
+                    "sipeed-thermal-meta-v1",
+                    "sipeed-thermal-meta-v1-base64"
+                  ]
+                },
+                "frame": {
+                  "type": "string"
+                },
+                "stream": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NetworkConfig": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "examples": [
+              "fixed_private_subnet"
+            ]
+          },
+          "segment": {
+            "type": "integer"
+          },
+          "device_ip": {
+            "type": "string"
+          },
+          "prefix_length": {
+            "type": "integer"
+          },
+          "dhcp_first": {
+            "type": "string"
+          },
+          "dhcp_last": {
+            "type": "string"
+          },
+          "default_segment": {
+            "type": "integer",
+            "examples": [
+              17
+            ]
+          }
+        }
+      },
+      "ThermalSummary": {
+        "type": "object",
+        "properties": {
+          "frame_number": {
+            "type": "integer"
+          },
+          "timestamp_ms": {
+            "type": "integer",
+            "description": "Milliseconds since the camera booted"
+          },
+          "valid": {
+            "type": "boolean"
+          },
+          "center": {
+            "$ref": "#/components/schemas/TemperaturePoint"
+          },
+          "minimum": {
+            "$ref": "#/components/schemas/TemperaturePoint"
+          },
+          "maximum": {
+            "$ref": "#/components/schemas/TemperaturePoint"
+          },
+          "measurement_config_id": {
+            "type": "integer"
+          }
+        }
+      },
+      "TemperaturePoint": {
+        "type": "object",
+        "properties": {
+          "celsius": {
+            "type": "number"
+          },
+          "x": {
+            "type": "integer",
+            "description": "0-255 in the native landscape frame"
+          },
+          "y": {
+            "type": "integer",
+            "description": "0-191 in the native landscape frame"
+          }
+        }
+      },
+      "MeasurementInfo": {
+        "type": "object",
+        "properties": {
+          "processing": {
+            "type": "string",
+            "examples": [
+              "device"
+            ]
+          },
+          "revision": {
+            "type": "integer"
+          },
+          "defaults": {
+            "type": "object",
+            "properties": {
+              "emissivity": {
+                "type": "number"
+              },
+              "distance_m": {
+                "type": "number"
+              },
+              "reflected_temperature_c": {
+                "type": "number"
+              }
+            }
+          },
+          "limits": {
+            "type": "object",
+            "properties": {
+              "emissivity": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "distance_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "reflected_temperature_c": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
